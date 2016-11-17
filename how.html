@@ -1,0 +1,95 @@
+<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>How | Ben Grandy</title>
+
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
+
+	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" href="IMG/favicon.png">
+
+</head>
+<body>
+
+	<nav class="navbar">
+  		<div class="container nav-wrapper">
+  		<img class="logo" src="IMG/ben-grandy-sig.png">
+		<ul>
+			<li><a href="index.html">What</a></li><li><a href="why.html">Why</a></li><li><a id="active" href="how.html">How</a></li><li><a href="when-where.html">When</a></li><li><a href="who.html">Who</a></li>
+		</ul>
+		</div>
+	<hr>
+	</nav>
+	<section>
+		<div class="container copy">
+		<div class="typing-wrap">
+			<h1>I am <span id="typed"></span></h1>
+			<div id="typing">
+				<p>a <strong>UX/UI Designer</strong>.</p><p>a <strong>Graphic Designer</strong>.</p><p>a <strong>User Researcher</strong>.</p><p>a <strong>Front-end Web Developer</strong>.</p><p>a <strong>Product Designer</strong>.</p><p>a <strong>Photographer</strong>.</p><p>a <strong>Designer</strong> of many things. </p>
+			</div>
+		</div>
+		<p><strong>User Experience (UX) Design</strong>: Competitive Analysis, User Research, Personas, Information Architecture, Interaction Design, User Flows, User Journeys, Site Maps, System Maps, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.), Wireframes, Hi-fi Mock-ups, Prototyping, Usability Testing</p>
+
+		<p><strong>Visual Design</strong>: Style Guides, Mobile App &amp; Web Design, Branding, Logos, &amp; Identity, Messaging &amp; Copy, Look &amp; Feel, Layout, Iconography &amp; UI, Typography, Photography &amp; Video</p>
+
+		<p><strong>Web Development</strong>: Front-end Web Development, Responsive Web Design, HTML5, CSS3, Javascript, Git</p>
+
+		<p><strong>Product Design</strong>: SketchUp, AutoCADD, Autodesk Inventor, Woodworking/Fab, Lasercutting, Signage &amp; Schwag</p>
+
+		<h2>Tools</h2>
+		<p>Pen &amp; Paper, Whiteboards, Sticky Notes, Photoshop, Illustrator, Sketch, Omnigraffle, InVision, Keynote, Sublime Text, Git, CNC Mill</p>
+
+		<h2>Methodologies</h2>
+		<img class="six-col float-right" src="IMG/circular-process9.png">
+		<p>Agile &amp; Lean UX, Human-Centered Design, Design Thinking, Collaborative/ Participatory Design, Lateral Thinking, Rapid Iteration &amp; Prototyping, Constant Feedback &amp; Usability Testing</p>
+		<h2>Process</h2>
+		<p>The first stage of a project is exploration. First we ask, "What are we trying to solve?" and "Is this the best method to solve this problem?" After we're certain that there is a real need, we explore through collaborative and participatory design several approaches to the problem. We also ask "Who else has solved this problem?" and "How successful have their approaches been?" In the ideation stage we go wide, coming up with sometimes asburb 'Outside the box' sorts of ideas. After ideating, we prune down and latch on several core approaches and then test them and get user feedback to work out usability issues. At this stage it's also useful to test your solution in context and against a whole range of potential users to ensure that your solution makes sense to a wide audience. The more you research your users and the better you understand a day in their shoes, the more empathetic you'll be to their lives and more fully understand their needs. From here, we can start engineering and building out the app, continuing to incorporate regular feedback as updates are released.</p>
+
+		<h2 class="clear">Education</h2>
+		<p><strong>General Assembly</strong>: UX Design Immersive 2015-2016</p>
+
+		<p><strong>Online Courses</strong>: Frontend Web Development, Programming 2013-2014</p>
+
+		<p><strong>Techshop</strong>: Metal &amp; Wood Fabrication 2013</p>
+
+		<p><strong>UC Davis</strong>: Landscape Architecture &amp; Electrical Engineering 2007-2010</p>
+		</div>
+	</section>
+	<hr>
+	<footer>
+	<div class="container">
+		<img class="contact" src="IMG/chat-icon.png">
+		<div class="contact-description">
+			<h2><strong>Let's Collaborate</strong></h2>
+			<h4>I take ideas from <strong>conception to completion.</strong></h4><h4 class="grey"><a href="mailto:bpgrandy@gmail.com">bpgrandy@gmail.com</a></h4>
+		</div>
+	</div>
+		<!-- Creative Commons License-->
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img hidden alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a><br/>
+		<p hidden>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+	</footer>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="JS/typed.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$("#typed").typed({
+			stringsElement: $('#typing'),
+			contentType: 'html',
+			// lower is faster
+			typeSpeed: 0,
+			startDelay: 1000,
+			// backspacing speed
+			backSpeed: 0,
+			// time before backspacing
+			backDelay: 1300,
+		});
+	});
+</script>
+<script src="JS/logo.js"></script> 
+</html>
