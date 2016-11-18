@@ -12,6 +12,29 @@
 	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	<style type="text/css">
+			@media all {
+
+				/* override default feather style... */
+				.fixwidth {
+					background: rgba(256,256,256, 0.8);
+				}
+				.fixwidth .featherlight-content {
+					width: 800px;
+					padding: 25px;
+					color: #fff;
+					background: #000;
+				}
+				.fixwidth p {
+					color: #fff;
+				}
+				.fixwidth .featherlight-close {
+					color: #fff;
+					background: #333;
+				}
+
+			}
+		</style>
 
 </head>
 <body>
@@ -29,6 +52,7 @@
 	<section class="grey-bg">
 		<div class="container">
 			<div class="projects-row">
+			<a data-featherlight="#construction" data-featherlight-variant="fixwidth" id="construction2"></a>
 			<h3 class="grey project-category fade-in one">User Experience Design</h3>
 				<a href="" class="project fade-in one">
 		            <img class="project-thumb" src="IMG/refer-me-comp.jpg">
@@ -278,6 +302,12 @@
 			</div>
 		</div>
 	</section>
+
+	<div class="lightbox" id="construction">
+			<h2>This site is under construction</h2>
+			<img class="welder" src="IMG/welder.png"><p>Please excuse the dead links, empty content, etc. This site is currently being built.</p><br><p>Feel free to still have a look around!
+			</p>
+		</div>
 	<a href="#top"><img id="backToTop" src="IMG/top3.png"></a>
 	<hr>
 	<footer>
@@ -297,6 +327,15 @@
 
 <!--Lightbox script-->
 <script src="JS/featherlight.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Under construction pop-up-->
+
+<script>
+
+$(document).ready(function () {
+
+    $('#construction2').trigger('click');
+});</script>
 
 <!-- This is for mouseover expand on projects-->
 <script>
