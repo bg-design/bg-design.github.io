@@ -18,11 +18,16 @@ $(document).on({
          $('.navbar li').css("opacity", "1");
          $('.logo').css("transform", "rotateX(180deg)");
          $('.logo').css("opacity", "0");
+         $('.hamburger-wrapper').css("transform", "scale(0,0)");
+         $('.hamburger-wrapper').css("opacity", "0");
 
    },
    mouseleave: function(event) {
    	   $('.logo').css("transform", "rotateX(0deg)");
        $('.navbar li').css("opacity", "0");
        $('.logo').css("opacity", "1");
+       $('.hamburger-wrapper').css("transform", "scale(1,1)");
+       $('.hamburger-wrapper').css("opacity", "1");
+
    }
 }, '.nav-wrapper')
