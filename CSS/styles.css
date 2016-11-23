@@ -435,6 +435,23 @@ footer {
 	padding-left:25px;
 }
 
+/* WHY section */
+
+.books {
+height:50px;
+display: block;
+margin:0 auto;
+position: relative;
+transition: all .4s ease-in-out;
+transform: translateX(-80px);
+}
+.books:hover{
+	transform: scale(1.2, 1.2);
+	margin-bottom: 5px;
+	margin-top: 5px;
+	transition:all .4s ease-in-out;
+}
+
 /* HOW section */
 .tools {
 width: 100%;
