@@ -52,9 +52,9 @@ section {
 }
 /*Navigation*/
 
-button.hamburger {
+.hamburger {
 	position: absolute;
-	top: 10px;
+	top: 12px;
 	left: 10%;
 	float: left;
 	background: none;
@@ -62,7 +62,7 @@ button.hamburger {
 }
 
 .ham-menu {
-	width: 20px;
+	width: 25px;
 	-webkit-transition:all 1s;
     -moz-transition:all 1s;
     transition:all 1s
@@ -154,6 +154,80 @@ nav li {
 	font-weight:400;
 }
 
+button {
+	padding: 20px;
+	margin:10px;
+	font: 12pt 'Lato', sans-serif;
+	background: none;
+	border: 1px black solid;
+	-webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    transition:all .5s
+}
+
+button:hover {
+/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+*/	color: white;
+	border:1px white solid;
+/*	box-shadow: 0px 15px 5px rgb(200, 200, 200);
+*/	
+-webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    transition:all .5s
+}
+
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+
+  
+/*	background: rgb(120, 21, 255);
+*/  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.flip {
+transform: scale(-1,1);
+-webkit-transform: scale(-1,1);
+-moz-transform: scale(-1,1);
+-ms-transform: scale(-1,1);
+-o-transform: scale(-1,1);
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 h1{
 	font-family: 'Lato', sans-serif;
 	font-size: 50px;
@@ -239,6 +313,9 @@ a:hover {
 .float-right {
 	float: right;
 }
+.float-left {
+	float: left;
+}
 /*WHAT section */
 
 #construction {
@@ -264,13 +341,10 @@ a:hover {
 	transition: .5s;
 }
 
-.copy {
 	margin: 20px auto;
-	width: 800px;
 	margin-top: 53px;
 }
 
-.copy2 {
 	width: 800px;
 }
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
