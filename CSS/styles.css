@@ -285,7 +285,7 @@ cite {
 	width: 130px;
 	padding:15px;
 }
-.copy p
+.first-copy p
 {
 	font-family: 'Lato', sans-serif;
 	font-size: 18px;
@@ -341,10 +341,14 @@ a:hover {
 	transition: .5s;
 }
 
+.first-copy {
 	margin: 20px auto;
 	margin-top: 53px;
+	width: 800px;
 }
 
+.width-800 {
+	margin: 0 auto;
 	width: 800px;
 }
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
