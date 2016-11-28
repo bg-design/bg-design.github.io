@@ -724,7 +724,8 @@ padding: 30px 0;
     padding: 15px;
   }
   .books {
-height:30px;
+	height: 25px;
+    left: 40px;
 }
 
 /*@media (max-width: 1199px) {
