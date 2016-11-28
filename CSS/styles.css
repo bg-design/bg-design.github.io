@@ -53,12 +53,15 @@ section {
 /*Navigation*/
 
 .hamburger {
-	position: absolute;
-	top: 12px;
-	left: 10%;
+	position: relative;
+	top: 3px;
 	float: left;
+	left:60px;
 	background: none;
-	border:none;
+/*	border: 1px solid black;
+*/	padding: 10px 7px 7px 7px;
+	border-radius: 5px;
+	margin-bottom: 6px;
 }
 
 .ham-menu {
@@ -113,7 +116,7 @@ section {
 
 .nav-wrapper {
 	display: table;
-	width: 100%;
+	width: 980px;
 	margin: 0 auto;
 	height:50px
 }
@@ -275,13 +278,13 @@ button:hover {
 	box-shadow: 0px 15px 5px rgb(200, 200, 200);
 	}
 .who-button:before {
-	background: linear-gradient(to right, rgb(244, 171, 72) 37.39%, rgb(120, 21, 255));
+	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
 }
 .what-button:before {
-	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
 }
 .how-button:before {
-	background: linear-gradient(to right, rgb(244, 219, 41) 37.39%, rgb(255, 11, 8));
+	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 }
 .when-button:before {
 	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
@@ -378,8 +381,11 @@ a:hover {
 	text-align: center;
 }
 .six-col {width: 49%;}
+.ten-pad {margin-top:10px;}
+.twenty-pad {margin-top:20px;}
 .thirty-pad {margin-top: 30px;}
-.ten-pad {margin:10px 0;}
+.fifty-pad {margin-top: 50px;}
+
 .float-right {
 	float: right;
 }
@@ -606,6 +612,7 @@ footer {
 	background-color: white;
 	width:600px;
 	margin:0 auto;
+	margin-bottom: 50px;
 }
 
 .contact {
@@ -616,6 +623,7 @@ footer {
 .contact-description {
 	float:left;
 	padding-left:25px;
+	margin-bottom: 15px;
 }
 
 /* WHY section */
@@ -702,6 +710,11 @@ padding: 30px 0;
   .first-copy {
 	width: 850px;
 }
+	.navbar li {
+   	display:inline;}
+	.logo, .ham-menu {
+		display:none;
+	}
 }
 
 @media screen  and (max-width: 979px) /* Tablet */ {
