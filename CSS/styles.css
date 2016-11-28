@@ -719,6 +719,9 @@ padding: 30px 0;
   section {
     padding: 15px;
   }
+  .books {
+height:40px;
+}
 
 /*@media (max-width: 1199px) {
 	.project-thumb {
