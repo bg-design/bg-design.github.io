@@ -414,7 +414,7 @@ a:hover {
 .first-copy {
 /*	margin: 20px auto;
 	margin-top: 53px;*/
-	padding: 30px;
+	padding: 30px 30px 0 30px;
 /*	width: 800px;*/
 }
 
@@ -716,7 +716,10 @@ padding: 30px 0;
 	.books {
 	height: 30px;
     left: 35px;
-
+}
+	footer {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 500px) /* Mobile */ {
