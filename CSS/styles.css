@@ -342,8 +342,9 @@ a:hover {
 }
 
 .first-copy {
-	margin: 20px auto;
-	margin-top: 53px;
+/*	margin: 20px auto;
+	margin-top: 53px;*/
+	padding-top: 53px;
 	width: 800px;
 }
 
