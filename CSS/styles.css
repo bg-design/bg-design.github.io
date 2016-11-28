@@ -622,6 +622,24 @@ padding: 30px 0;
         }
 
 /* MEDIA QUERIES */
+
+@media screen and (min-width: 980px) /* Desktop */ {
+  section {
+  	padding: 0;
+  }
+}
+
+@media screen  and (max-width: 979px) /* Tablet */ {
+  section {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) /* Mobile */ {
+  section {
+    padding: 15px;
+  }
+
 /*@media (max-width: 1199px) {
 	.project-thumb {
 		height: 220px;
