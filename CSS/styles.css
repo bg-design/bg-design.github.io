@@ -637,7 +637,11 @@ padding: 30px 0;
   section {
     padding: 15px;
   }
-
+   .navbar li {
+   	display:inline;}
+	.logo, .ham-menu {
+		display:none;
+	}
 }
 
 @media screen and (max-width: 500px) /* Mobile */ {
