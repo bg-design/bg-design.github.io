@@ -621,6 +621,7 @@ footer {
 /* WHY section */
 
 .why {
+	margin-top:15px;
 	padding: 15px 0;
 }
 .books {
