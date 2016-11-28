@@ -714,8 +714,8 @@ padding: 30px 0;
 		display:none;
 	}
 	.books {
-	height:35px;
-	}
+	height: 30px;
+    left: 35px;
 
 }
 
