@@ -713,6 +713,9 @@ padding: 30px 0;
 	.logo, .ham-menu {
 		display:none;
 	}
+	.books {
+height:45px;
+}
 }
 
 @media screen and (max-width: 500px) /* Mobile */ {
