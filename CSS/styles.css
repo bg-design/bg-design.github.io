@@ -64,6 +64,10 @@ table {
 	font-size:20pt;
 	line-height: 1.3em;
 }
+#splash-nav-wrapper {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.66);
+}
 #splash-nav {
 	font-size:12pt;
 }
@@ -220,7 +224,6 @@ button:hover {
 	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 	color: white;
 	border:1px white solid;
-	box-shadow: 0px 15px 5px rgb(200, 200, 200);
 	-webkit-transition:all .5s;
     -moz-transition:all .5s;
     transition:all .5s;
@@ -236,22 +239,29 @@ button:hover {
 }
 .project-button:hover {
 	transform: translateY(-10px);
+	box-shadow: 0px 10px 5px rgb(200, 200, 200);
 }
 
-.who-button:before {
+.project-button:active {
+	position: relative;
+	transform: translateY(10px);
+	box-shadow: 0px 0px 0px rgb(200, 200, 200);
+	}
+
+.who-button:before,.who-button:hover {
 	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
 }
-.what-button:before {
+.what-button:before,.what-button:hover {
 	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
 }
-.how-button:before {
+.how-button:before,.how-button:hover {
 	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 }
-.when-button:before {
-	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+.when-button:before,.when-button:hover {
+	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
 }
-.why-button:before {
-	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+.why-button:before,.why-button:hover {
+	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 }
 
 /* Sweep To Right */
@@ -300,9 +310,9 @@ button:hover {
 
 .hvr-sweep-to-right:active {
 	position: relative;
-	transform: translateY(10px);
-	box-shadow: 0px 0px 0px rgb(200, 200, 200);
-	}
+	transform: translateX(30px);
+/*	box-shadow: 0px 15px 5px rgb(200, 200, 200);
+*/	}
 
 /* Sweep To Left */
 .hvr-sweep-to-left {
@@ -349,9 +359,9 @@ button:hover {
 
 .hvr-sweep-to-left:active {
 	position: relative;
-	transform: translateY(10px);
-	box-shadow: 0px 15px 5px rgb(200, 200, 200);
-	}
+	transform: translateX(-30px);
+/*	box-shadow: 0px 15px 5px rgb(200, 200, 200);
+*/	}
 
 .flip {
 transform: scale(-1,1);
@@ -487,19 +497,24 @@ a:hover {
 	height: 100%;
 }
 .bottom-nav {
-	background: rgba(255, 255, 255, 0.66);
+/*	background: rgba(0, 0, 0, 0.03);*/
 	width: 100%;
-	position: absolute;
 	bottom: 0px;
 	right:0px;
 	display: flex;
 	justify-content: space-between;
 }
 .bottom-nav button {
-	background: rgba(162, 162, 162, 0.38);
-	border-radius: 5px;
+/*	background: rgba(162, 162, 162, 0.38);*/
+/*	border-radius: 5px;*/
 	border: 1px rgba(0, 0, 0, 0.22) solid;
 }
+
+#what-nav {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.66);
+}
+
 .loading-bg {
 	z-index: 10;
 	position: fixed;
@@ -521,8 +536,9 @@ a:hover {
 	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
 }
 #why-loading {
-	background: linear-gradient(rgb(244, 234, 30) 12.61%, rgb(31, 255, 193) 87.39%);
+	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 }
+
 .loading-wrapper {
 	position: fixed;
 	top:50%;
