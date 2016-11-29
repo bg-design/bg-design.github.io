@@ -192,25 +192,49 @@ nav li {
 }
 
 button {
-	padding: 20px;
-	margin:10px;
+	padding: 18px;
+	margin: 10px;
 	font: 12pt 'Lato', sans-serif;
 	background: none;
-	border: 1px black solid;
-	-webkit-transition:all .5s;
-    -moz-transition:all .5s;
-    transition:all .5s
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+	border: 1px rgba(0, 0, 0, 0.7) solid;
+
 }
 
 button:hover {
-/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-*/	color: white;
+	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	color: white;
 	border:1px white solid;
-/*	box-shadow: 0px 15px 5px rgb(200, 200, 200);
-*/	
--webkit-transition:all .5s;
+	box-shadow: 0px 15px 5px rgb(200, 200, 200);
+	-webkit-transition:all .5s;
     -moz-transition:all .5s;
-    transition:all .5s
+    transition:all .5s;
+    
+}
+
+.what-bg {
+	background-color: rgba(50, 120, 245, 0.15 );
+}
+.project-button:hover {
+	transform: translateY(-10px);
+}
+
+.who-button:before {
+	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+}
+.what-button:before {
+	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+}
+.how-button:before {
+	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
+}
+.when-button:before {
+	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+}
+.why-button:before {
+	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 }
 
 /* Sweep To Right */
@@ -260,7 +284,7 @@ button:hover {
 .hvr-sweep-to-right:active {
 	position: relative;
 	transform: translateY(10px);
-	box-shadow: 0px 15px 5px rgb(200, 200, 200);
+	box-shadow: 0px 0px 0px rgb(200, 200, 200);
 	}
 
 /* Sweep To Left */
@@ -311,21 +335,7 @@ button:hover {
 	transform: translateY(10px);
 	box-shadow: 0px 15px 5px rgb(200, 200, 200);
 	}
-.who-button:before {
-	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-}
-.what-button:before {
-	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-}
-.how-button:before {
-	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-}
-.when-button:before {
-	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-}
-.why-button:before {
-	background: linear-gradient(90deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-}
+
 .flip {
 transform: scale(-1,1);
 -webkit-transform: scale(-1,1);
@@ -439,22 +449,22 @@ a:hover {
 	background: rgba(255, 255, 255, 0.81);
 }
 #safe-harbor {
-	transform: translate(200px, 00px)
+	transform: translate(0px, -200px)
 }
 #refer-me {
-	transform: translate(200px, 0px)
+	transform: translate(0px, -200px)
 }
 #shyft {
-	transform: translate(-50px, 250px)
+	transform: translate(0px, 200px)
 }
 #life-alert {
-	transform: translate(-200px, 250px)
+	transform: translate(0px, -200px)
 }
 #gumball {
-	transform: translate(-50px, 250px)
+	transform: translate(0px, 250px)
 }
 #archive {
-	transform: translate(0px, 400px)
+	transform: translate(0px, 200px)
 }
 .filler {
 	height: 100%;
@@ -467,6 +477,11 @@ a:hover {
 	right:0px;
 	display: flex;
 	justify-content: space-between;
+}
+.bottom-nav button {
+	background: rgba(162, 162, 162, 0.38);
+	border-radius: 5px;
+	border: 1px rgba(0, 0, 0, 0.22) solid;
 }
 .loading-bg {
 	z-index: 10;
