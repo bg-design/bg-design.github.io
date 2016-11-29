@@ -40,6 +40,32 @@ table {
 
 /*CUSTOM STYLES*/
 
+/*Splash*/
+
+#splash {
+	position: absolute;
+	width: 500px;
+	padding: 45px;
+	top: 25%;
+	background: rgba(35, 35, 35, 0.57);
+	border-radius: 20px;
+	margin: 0 55px;
+}
+
+#splash p {
+	font-family: 'Lora';
+	color: white;
+	font-size:14pt;
+	line-height: 1.3em;
+}
+#splash h3 {
+	font-family: 'Lora';
+	color: white;
+	font-size:20pt;
+	line-height: 1.3em;
+}
+
+
 section {
 	display: inline-block;
 	padding: 0;
@@ -108,20 +134,25 @@ section {
 .navbar {
 	position: fixed;
 	width: 100%;
-	height: 53px;
+	height: 54px;
 	z-index: 5;
 	background-color: rgba(255, 255, 255, .85);
 
 }
 
 .nav-wrapper {
-	display: table;
+/*	display: table;
 	width: 980px;
 	margin: 0 auto;
-	height:50px
+	height:50px;
+	margin-bottom: -1px;*/
 }
-.tweak {
-	height: 10000px;
+.nav-menu {
+	max-width: 965px;
+	margin: 0 auto;
+	padding-right: 35px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .navbar li {
@@ -434,14 +465,24 @@ a:hover {
 	position: absolute;
 	bottom: 0px;
 	right:0px;
+	display: flex;
+	justify-content: space-between;
 }
 .loading-bg {
 	z-index: 10;
-	background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	transition: 1s;
+}
+#what-loading {
+	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+}
+#who-loading {
+	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+}
+#how-loading {
+	background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
 }
 .loading-wrapper {
 	position: fixed;
@@ -564,36 +605,36 @@ a:hover {
 }
 
 .fade-in.one {
-  -webkit-animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 1.6s;
+  -moz-animation-delay: 1.6s;
+  animation-delay: 1.6s;
 }
 
 .fade-in.two {
-  -webkit-animation-delay: 0.7s;
-  -moz-animation-delay:0.7s;
-  animation-delay: 0.7s;
+  -webkit-animation-delay: 1.9s;
+  -moz-animation-delay:1.9s;
+  animation-delay: 1.9s;
 }
 
 .fade-in.three {
-  -webkit-animation-delay: 1.1;
-  -moz-animation-delay: 1.1s;
-  animation-delay: 1.1s;
+  -webkit-animation-delay: 2.2;
+  -moz-animation-delay: 2.2s;
+  animation-delay: 2.2s;
 }
 .fade-in.four {
-  -webkit-animation-delay: 1.4s;
-  -moz-animation-delay: 1.4s;
-  animation-delay: 1.4s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
 }
 .fade-in.five {
-  -webkit-animation-delay: 1.7s;
-  -moz-animation-delay: 1.7s;
-  animation-delay: 1.7s;
+  -webkit-animation-delay: 2.8s;
+  -moz-animation-delay: 2.8s;
+  animation-delay: 2.8s;
 }
 .fade-in.six {
-  -webkit-animation-delay: 2.0s;
-  -moz-animation-delay: 2.0s;
-  animation-delay: 2.0s;
+  -webkit-animation-delay: 3.1s;
+  -moz-animation-delay: 3.1s;
+  animation-delay: 3.1s;
 }
 
 .project {
