@@ -408,16 +408,16 @@ a:hover {
 	background: rgba(255, 255, 255, 0.81);
 }
 #safe-harbor {
-	transform: translate(300px, 50px)
+	transform: translate(200px, 00px)
 }
 #refer-me {
-	transform: translate(290px, 250px)
+	transform: translate(200px, 0px)
 }
 #shyft {
 	transform: translate(-50px, 250px)
 }
 #life-alert {
-	transform: translate(-300px, 250px)
+	transform: translate(-200px, 250px)
 }
 #gumball {
 	transform: translate(-50px, 250px)

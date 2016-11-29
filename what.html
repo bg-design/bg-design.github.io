@@ -20,13 +20,9 @@
 		text-align:center;
 	}
 
-
 	/* Backgrounds will cover all the section
 	* --------------------------------------- */
-	.section{
-		background-size: cover;
-	}
-	.slide{
+	.section, .slide{
 		background-size: cover;
 	}
 		/* Defining each section background and styles
@@ -63,12 +59,12 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['firstPage', 'secondPage', '3rdPage'],
+				anchors: ['SafeHarbor', 'ReferMe', 'Shyft','LifeAlert','GumballToys','Archive'],
 				sectionsColor: [],
 				navigation: true,
-				navigationPosition: 'right',
+				navigationPosition: 'left',
 				navigationTooltips: ['Safe Harbor', 'Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys', 'Archive'],
-				responsiveWidth: 900,
+				responsiveWidth: 0,
 				afterResponsive: function(isResponsive){
 					
 				}
