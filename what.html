@@ -6,363 +6,160 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=0.7, user-scalable=no">
 	<title>What | Ben Grandy</title>
-     <link type="text/css" rel="stylesheet" href="CSS/featherlight.min.css" />
+     <link rel="stylesheet" type="text/css" href="CSS/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
 
 	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
-	<style type="text/css">
-			@media all {
+	<style>
 
-				/* override default feather style... */
-				.fixwidth {
-					background: rgba(256,256,256, 0.8);
-				}
-				.fixwidth .featherlight-content {
-					width: 800px;
-					padding: 25px;
-					color: #fff;
-					background: #000;
-				}
-				.fixwidth p {
-					color: #fff;
-				}
-				.fixwidth .featherlight-close {
-					color: #fff;
-					background: #333;
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	.section{
+		background-size: cover;
+	}
+	.slide{
+		background-size: cover;
+	}
+		/* Defining each section background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(IMG/safe-harbor-mock.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section1{
+		background-image: url(IMG/refer-me-mock2.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section2{
+		background-image: url(IMG/shyft-mock2.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section3{
+		background-image: url(IMG/life-alert-mock2.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section4{
+		background-image: url(IMG/gumball-mock.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section5{
+		background-image: url(IMG/archive-mock.jpg);
+		padding: 0% 0 0 0;
+	}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="JS/jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['firstPage', 'secondPage', '3rdPage'],
+				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+				navigation: true,
+				navigationPosition: 'right',
+				navigationTooltips: ['Safe Harbor', 'Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys', 'Archive'],
+				responsiveWidth: 900,
+				afterResponsive: function(isResponsive){
+					
 				}
 
-			}
-		</style>
+			});
+		});
+	</script>
 
 </head>
 <body>
-	<div hidden class="lightbox" id="construction">
-			<h2>This site is under construction</h2>
-			<img class="welder" src="IMG/welder.png"><p>Please excuse the dead links, empty content, etc. This site is currently being built.</p><br><p>Feel free to still have a look around!
-			</p>
+	<div class="loading-bg">
+		<div class="loading-wrapper">
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+		</div>
 	</div>
 	<nav class="navbar">
-  		<div class="container nav-wrapper">
+  		<div class="tweak nav-wrapper">
   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
 			<img class="logo" src="IMG/ben-grandy-sig.png">
 			<ul>
-				<li><a href="index.html">Who</a></li><li><a id="active" href="what.html">What</a></li><li><a href="how.html">How</a></li><li><a href="when-where.html">When</a></li><li><a href="why.html">Why</a></li>
+				<li><a href="index.html" class="fade-in four">Who</a></li><li><a href="what.html" id="active" class="fade-in three">What</a></li><li><a href="how.html" class="fade-in four">How</a></li><li><a href="when-where.html" class="fade-in five">When</a></li><li><a href="why.html" class="fade-in six">Why</a></li>
 			</ul>
 		</div>
 		<hr>
 	</nav>
-	<hr>
-	<section class="grey-bg">
-		<div class="container">
-			<div class="projects-row">
-			<a data-featherlight="#construction" data-featherlight-variant="fixwidth" id="construction2"></a>
-			<h3 class="grey project-category fade-in one">User Experience Design</h3>
-				<a href="" class="project fade-in one">
-		            <img class="project-thumb" src="IMG/refer-me-comp.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Refer Me</h4>
-			            <h5 class="project-date">April 2016</h5>
-			            <p>Refer Me is a platform that facilitates referrals by connecting current employees to job seekers. I did the design, worked with two developers and two product managers. <br>
-						<br>
-						<div class="skills">Skills: User Research, Market Validation, Competitive Analysis, User Flows, UX/UI, Visual Design, Clickable Prototypes, Usability Testing</div><br></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in two">
-		            <img class="project-thumb" src="IMG/sf-voice-thumb.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">SF Voice</h4>
-			            <h5 class="project-date">March 2016</h5>
-			            <p>In this one day hackathon, I worked with two other designers, and two other developers to create SF Voice. It's Reddit meets Tindr for political activism &amp; engagement.<br>
-						<br>
-						<div class="skills">Skills: Rapid prototyping, System Design, Visual Design, Mobile &amp; Web UI/UX</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in three">
-		            <img class="project-thumb" src="IMG/shyft-logo-thumb.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Shyft Event Planning</h4>
-			            <h5 class="project-date">February 2016</h5>
-			            <p>Collaborated with another UX designer to create a platform to connect brand ambassadors to temp agencies looking to hire.<br>
-						<br>
-						<div class="skills">Skills: Market Validation, Competitive Analysis, User Flows, UX/UI, Visual Design, Wireframes</div></p>
-					</div>
-				</a>
-			</div>
-			<div class="projects-row">
-				<a href="" class="project fade-in four">
-		            <img class="project-thumb" src="IMG/life-alert-Mockup.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Life Alert</h4>
-			            <h5 class="project-date">January 2016</h5>
-			            <p>At General Assembly, two colleagues and I redesigned Life Alert. This included mobile apps, their marketing website, &amp; holistic system design.<br>
-						<br>
-						<div class="skills">Skills: User Research, Competitive &amp; Comparitave Analysis, Empathy Mapping, Journey Mapping, Web &amp; Mobile UI/UX, Hardware Design, Visual Design, Clickable Prototypes </div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in five">
-		            <img class="project-thumb" src="IMG/gumball-bg-thumb.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Gumball Toys</h4>
-			            <h5 class="project-date">December 2015</h5>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/health-journal-thumb.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Health Journal</h4>
-			            <h5 class="project-date">November 2015</h5>
-			            <p>Created a lightweight mobile app to quickly and easily log food, weight, and activity to track calories and lose weight.<br>
-						<br>
-						<div class="skills">Skills: User-center Design, Competitive Analysis, Comparitative Analysis, Sketching/Ideation, Rapid Iteration/Prototyping, Visual Design</div></p>
-					</div>
-				</a>
-			<h3 class="grey project-category fade-in one">Web Development</h3>
-			</div>
-			<div class="projects-row">
-				<a href="http://boomboomwomb.com" target="_new" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/bbw-favicon2.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Boom Boom Womb</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="http://webstir.org" target="_new" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/noah_webstir.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Webstir.org</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<img class="project-thumb this-website fade-in six" src="IMG/this-website4.png">
-				
-			</div>
-			<div class="projects-row">
-			<h3 class="grey project-category fade-in one">Rethinking Transportation</h3>
-  				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/dmv-road.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Rethinking the DMV</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-  				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/dash-ccs.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">City CarShare</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/onward-pump.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Hydraulic eBike Pump</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-			</div>
-			<div class="projects-row">
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/2012_picycle_red.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">PiCycle</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>				
- 				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/lda-sections2.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Landscape Architecture</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-			</div>
-			<div class="projects-row">
-			<h3 class="grey project-category fade-in one">Branding &amp; Marks</h3>
-			<a href="IMG/Luman Logo2-01.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/Luman Logo2-thumb.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">The Good Craft</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-  				<a href="IMG/good-craft2b.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/good-craft2b.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">The Good Craft</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-  				<a href="IMG/hey-photo.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/hey-photo.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">Hey Photo</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-				
-			</div>
-			<div class="projects-row">
-				<a href="IMG/transition.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/transition.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">Transition Couseling</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-  				<a href="IMG/ccs-logo2.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/ccs-logo2.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">City CarShare</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-				<a href="IMG/onward.png" class="project fade-in six marks" data-featherlight="image">
-		            <img class="project-thumb" src="IMG/onward.png">
-<!-- 		            <div class="fade-in-fast project-description">
-			            <h4 class="">Onward Electric Cycles</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div> -->
-				</a>
-			</div>
-			<div class="projects-row">
-			<h3 class="grey project-category fade-in one">Photography &amp; Video</h3>
-  				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/searanch.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">West Coast</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/better-together.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Better Together</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/praise2.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">PEV Promos</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				</div>
-				<div class="projects-row">
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/ray.jpg">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">Staff Headshots</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-				<a href="" class="project fade-in six">
-		            <img class="project-thumb" src="IMG/picycle-videos.png">
-		            <div class="fade-in-fast project-description">
-			            <h4 class="">PiCycle Promos</h4>
-			            <p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.<br>
-						<br>
-						<div class="skills">Skills: Competitive Analysis, Design Patterns, Information Architecture/Card Sorting, Usability Testing, User Flows, Branding &amp; Identity, User Journeys, System Map, Clickable Prototype</div></p>
-					</div>
-				</a>
-			</div>
+	<div id="fullpage">
+	<div class="section fp-auto-height-responsive" id="section0">
+		<div class="what-box" id="safe-harbor">
+			<h1>Safe Harbor</h1>
+			<br>
+			<p>Won a hackathon at the Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Project</button>
 		</div>
-	</section>
-	<hr>
-	<div class="width-800">
-		<section>
+	</div>
+	<div class="section" id="section1">
+	    <div class="what-box" id="refer-me">
+			<h1>Refer Me</h1>
+			<br>
+			<p>As part of General Assembly Labs worked with product managers and developers to design Refer Me- a platform that connects job seekers to those willing to refer.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Project</button>
+		</div>
+
+	</div>
+	<div class="section" id="section2">
+		<div class="what-box" id="shyft">
+			<h1>Shyft Event Planning</h1>
+			<br>
+			<p>Shyft is a platform that connects brand ambassadors to agencies looking to hire. It simplifies the complex logistics of hiring &amp; scheduling shifts.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Project</button>
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<div class="what-box" id="life-alert">
+			<h1>Life Alert</h1>
+			<br>
+			<p>At General Assembly, two colleagues and I redesigned Life Alert. This included mobile apps, their marketing website, &amp; holistic system &amp; hardware design.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Project</button>
+		</div>
+	</div>
+	<div class="section" id="section4">
+		<div class="what-box" id="gumball">
+			<h1>Gumball Toys</h1>
+			<br>
+			<p>Branded &amp; prototyped a website for a student project to bring a 30 year old toy store into the modern age.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Project</button>
+		</div>
+	</div>
+	<div class="section" id="section5">
+		<div class="what-box" id="archive">
+			<h1>Archive</h1>
+			<br>
+			<p>Look at all my other work- web development, graphic design, fabrication, and art.</p>
+			<br>
+			<button class="hvr-sweep-to-right who-button center" onClick="parent.location='index.html'">View Archive</button>
+		</div>
+		<div class="filler"></div>
+		<div class="bottom-nav">
 			<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='index.html'"><div class="flip float-left">➟</div>&nbsp;Who am I?</button>
 			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
-		</section>
-	</div>
-	<a href="#top"><img id="backToTop" src="IMG/top3.png"></a>
-	<hr>
-	<footer>
-	<div class="container">
-		<a href="mailto:bpgrandy@gmail.com"><img class="contact" src="IMG/chat-icon.png"></a>
-		<div class="contact-description">
-			<h2><strong><a href="mailto:bpgrandy@gmail.com">Let's Collaborate</a></strong></h2>
-			<h4>I take ideas from <a href="mailto:bpgrandy@gmail.com"><strong>conception to completion.</strong></h4><h4 class="grey">bpgrandy@gmail.com</a></h4>
 		</div>
+		<hr>
 	</div>
-		<!-- Creative Commons License-->
-		<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img hidden alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a><br/>
-		<p hidden>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
-	</footer>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<!--Lightbox script-->
-<script src="JS/featherlight.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Under construction pop-up-->
-
-<script>
-
-$(document).ready(function () {
-
-    $('#construction2').trigger('click');
-});</script>
-
-<!-- This is for mouseover expand on projects-->
-<script>
-
-$(document).on({
-   mouseenter: function(event) {
-   	   // $('.projects-row').css("width", "100%");
-      timer = setTimeout(function() {
-         $(event.currentTarget).find('.project-description').css("display", "inline");
-         $(event.currentTarget).find('.project-thumb').css("border-radius", "0px 0 0 0px");
-      }, 300);
-   },
-   mouseleave: function(event) {
-   		clearTimeout(timer);
-       $('.project-description').css("display", "none");
-       $('.project-thumb').css("border-radius", "0px");
-       // $('.projects-row').css("width", "900px");
-   }
-}, '.project')
-</script>
-
+</div>
+	
 <!--This makes the logo disappear on nav hover-->
 <script src="JS/logo.js"></script>
 

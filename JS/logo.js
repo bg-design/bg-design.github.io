@@ -56,3 +56,14 @@ function showNav() {
   },1000);
 
 }
+
+// Disable loading screen when ready
+$(document).ready( function () {
+  setTimeout(function() {
+    $('.loading-bg').css("opacity", "0");
+        setTimeout(function() {
+        $('.loading-bg').css("display", "none");
+      },1000);
+  },1000);
+  
+    })
