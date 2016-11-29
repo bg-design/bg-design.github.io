@@ -63,7 +63,7 @@ $(document).ready( function () {
     $('.loading-bg').css("opacity", "0");
         setTimeout(function() {
         $('.loading-bg').css("display", "none");
-      },1000);
-  },1000);
+      },1500);
+  },1500);
   
     })

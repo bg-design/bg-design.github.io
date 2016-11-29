@@ -32,7 +32,7 @@
 		/* Defining each section background and styles
 	* --------------------------------------- */
 	#section0{
-		background-image: url(IMG/safe-harbor-mock.jpg);
+		background-image: url(IMG/safe-harbor-mock2.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section1{
@@ -64,7 +64,7 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				anchors: ['firstPage', 'secondPage', '3rdPage'],
-				sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+				sectionsColor: [],
 				navigation: true,
 				navigationPosition: 'right',
 				navigationTooltips: ['Safe Harbor', 'Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys', 'Archive'],
@@ -79,13 +79,13 @@
 
 </head>
 <body>
-<!-- 	<div class="loading-bg">
+	<div class="loading-bg">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
 			<div class="loading-dot"></div>
 			<div class="loading-dot"></div>
 		</div>
-	</div> -->
+	</div>
 	<nav class="navbar">
   		<div class="tweak nav-wrapper">
   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
@@ -97,7 +97,7 @@
 		<hr>
 	</nav>
 	<div id="fullpage">
-	<div class="section fp-auto-height-responsive" id="section0">
+	<div class="section" id="section0">
 		<div class="what-box" id="safe-harbor">
 			<h1>Safe Harbor</h1>
 			<br>
