@@ -481,24 +481,24 @@ a:hover {
 #construction {
 }
 .what-box {
-	width: 450px;
+	max-width: 450px;
 	padding: 20px 30px;
 	margin: 0 auto;
 	background: rgba(255, 255, 255, 0.81);
 }
-#safe-harbor {
+.safe-harbor {
 	transform: translate(0px, -200px)
 }
-#refer-me {
+.refer-me {
 	transform: translate(0px, -200px)
 }
-#shyft {
+.shyft {
 	transform: translate(0px, 200px)
 }
-#life-alert {
+.life-alert {
 	transform: translate(0px, -200px)
 }
-#gumball {
+.gumball {
 	transform: translate(0px, 250px)
 }
 #archive {
@@ -523,7 +523,7 @@ a:hover {
 
 #what-nav {
 	position: absolute;
-	background: rgba(255, 255, 255, 0.66);
+	background: rgba(255, 255, 255, 0.9);
 }
 
 .loading-bg {
@@ -914,7 +914,8 @@ padding: 30px 0;
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 980px) /* Desktop */ {
+@media only screen
+and (min-width: 1025px) /* Desktop */ {
 
   .first-copy {
 	width: 850px;
@@ -926,12 +927,21 @@ padding: 30px 0;
 	}
 }
 
-@media screen  and (max-width: 979px) /* Tablet */ {
+@media only screen 
+and (min-device-width : 737px) 
+and (max-device-width : 1024px)  /* Tablet */ {
   section {
     padding: 15px;
   }
+     .navbar {
+  	height: 63px;
+  	}
    .navbar li {
-   	display:inline;}
+   	display:inline;
+   }
+   .navbar li a {
+   	font-size: 32px;
+   }
 	.logo, .ham-menu {
 		display:none;
 	}
@@ -950,9 +960,26 @@ padding: 30px 0;
 		padding:20px;
 		top:0%;
 	}
+	.project-button {
+		font: 18px 'Lato', sans-serif;
+	}
+	p {
+		font-size: 20px;
+    	line-height: 1.3em;
+	}
 }
 
-@media screen and (max-width: 500px) /* Mobile */ {
+@media only screen
+and (max-width: 736px) /* Mobile */ {
+  	.navbar li {
+   	display:inline;}
+
+	.logo, .ham-menu {
+		display:none;
+	}
+	 .navbar {
+  	height: 60px;
+  	}
   section {
     padding: 15px;
   }
@@ -960,6 +987,9 @@ padding: 30px 0;
 	height: 25px;
     left: 40px;
 	}
+	.navbar li a {
+   	font-size: 28px;
+   }
 
   #splash p {
   	font-size: 12pt;
@@ -967,6 +997,19 @@ padding: 30px 0;
 #splash-nav {
     font-size: 14pt;
     padding: 10px;
+	}
+	.project-button {
+		font: 18px 'Lato', sans-serif;
+	}
+	.what-box {
+		transform: initial;
+	}
+	p {
+		font-size: 18px;
+    	line-height: 1.3em;
+	}
+	.bottom-nav button {
+		font: 16pt 'Lato', sans-serif;
 	}
 }
 
