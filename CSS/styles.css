@@ -416,23 +416,25 @@ h5 {
 }
 p
 {
-	font-family: 'Lato', sans-serif;
-	font-size: 16px;
-	line-height: 1em;
+	font-family: 'Lora', serif;
+	font-size: 16pt;
+    line-height: 1.6em;
 	color: black;
 	letter-spacing: .5px;
 
 }
 
 blockquote {
-	font-family: 'Lato', sans-serif;
-	font-size: 18px;
+	font-family: 'Lora', serif;
+    padding: 16px;
+    font-size: 14pt;
 	line-height: 1.5;
 	font-style: italic;
 	font-weight: 400;
 }
 cite {
 	float:right;
+	padding: 15px 0;
 }
 
 .headshot {
@@ -442,13 +444,13 @@ cite {
 }
 .first-copy p
 {
-	font-family: 'Lato', sans-serif;
-	font-size: 18px;
-	line-height: 1.3em;
-	color: black;
-	letter-spacing: .5px;
-	margin-bottom: 20px;
-	font-weight: 300;
+	font-family: 'Lora', serif;
+    font-size: 14pt;
+    line-height: 2em;
+    color: black;
+    letter-spacing: .5px;
+/*	margin-bottom: 20px;
+	font-weight: 300;*/
 }
 a {
 	color: black;
@@ -485,6 +487,12 @@ a:hover {
 	padding: 20px 30px;
 	margin: 0 auto;
 	background: rgba(255, 255, 255, 0.81);
+}
+.what-box p {
+	font-family: 'Lato', sans-serif;
+    font-size: 12pt;
+    line-height: 1.3em;
+    font-weight:300;
 }
 .safe-harbor {
 	transform: translate(0px, -200px)
@@ -613,7 +621,7 @@ a:hover {
 }
 
 .container {
-	max-width:1200px;
+	max-width:1000px;
 	clear:both;
 	margin: 0 auto;
 
@@ -788,11 +796,17 @@ a:hover {
 	color: grey;
 
 }
-.skills {
+/*.skills {
 	font-weight: lighter;
 	font-size: 12pt;
 	line-height: 1.2;
 	font-family: 'Lato', sans-serif;
+}*/
+.skills p{
+	font-family: 'Lato', sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    padding: 10px 0;
 }
 
 .welder {
@@ -840,7 +854,7 @@ footer {
 /* WHY section */
 
 .why {
-	margin-top:15px;
+	margin-top:45px;
 	padding: 15px 0;
 }
 .books {
@@ -961,6 +975,10 @@ and (max-device-width : 1024px)  /* Tablet */ {
 		font-size: 20px;
     	line-height: 1.3em;
 	}
+	.why {
+		margin-top: 45px;
+	    padding: 15px 35px;
+	}
 	.bottom-nav button {
 		font: 16pt 'Lato', sans-serif;
 	}
@@ -1001,7 +1019,7 @@ and (max-width: 736px) /* Mobile */ {
 		transform: initial;
 	}
 	p {
-		font: 20pt 'Lora', serif;
+		font: 12pt 'Lora', serif;
     	line-height: 1.5em;
 	}
 	.bottom-nav button {
