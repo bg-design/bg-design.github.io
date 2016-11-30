@@ -967,6 +967,9 @@ and (max-device-width : 1024px)  /* Tablet */ {
 		font-size: 20px;
     	line-height: 1.3em;
 	}
+	.bottom-nav button {
+		font: 16pt 'Lato', sans-serif;
+	}
 }
 
 @media only screen
