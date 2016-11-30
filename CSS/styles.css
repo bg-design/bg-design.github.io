@@ -40,6 +40,84 @@ table {
 
 /*CUSTOM STYLES*/
 
+h1{
+	font-family: 'Lato', sans-serif;
+	font-size: 50px;
+	font-weight: 300;
+}
+h2 {
+	font-size: 45px;
+	line-height: 2;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	padding-top: 7px;
+}
+h3 {
+	font-family: 'Lato', sans-serif;
+	font-size:30px;
+	line-height: 2;
+	font-weight: 300;
+
+}
+
+h4 {
+	font-size:24px;
+	line-height: 2;
+	font-family: 'Lato', sans-serif;
+}
+h5 {
+	font-size: 20px;
+	line-height: 1.5;
+	font-weight: 300;
+	font-family: 'Lato', sans-serif;
+}
+p
+{
+	font-family: 'Lora', serif;
+	font-size: 14pt;
+    line-height: 1.6em;
+	color: black;
+	letter-spacing: .5px;
+
+}
+
+button {
+	padding: 20px;
+    margin: 10px;
+    font: 12pt 'Lato', sans-serif;
+	background: none;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+	border: 1px rgba(0, 0, 0, 0.7) solid;
+
+}
+button:hover {
+	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	color: white;
+	border:1px white solid;
+	-webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    transition:all .5s;
+    
+}
+img {
+	max-width: 100%;
+}
+
+ul {
+	list-style-type:circle;
+	list-style-position:inside;
+}
+
+figcaption {
+	font-family: 'Lora', serif;
+	font-size: 12pt;
+	line-height: 1.6em;
+	color: #979797;
+	text-align: center;
+
+}
 /*Splash*/
 
 #splash {
@@ -79,8 +157,8 @@ table {
 
 
 section {
-	display: inline-block;
-	padding: 15px 0;
+/*	display: inline-block;
+*/	padding: 15px 0;
 	width: 100%;
 }
 
@@ -211,27 +289,6 @@ a#active.what-bg {
 
  .navbar li a:hover.what-bg {
 	color: black;
-}
-
-button {
-	padding: 20px;
-    margin: 10px;
-    font: 12pt 'Lato', sans-serif;
-	background: none;
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;
-	border: 1px rgba(0, 0, 0, 0.7) solid;
-
-}
-button:hover {
-	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	color: white;
-	border:1px white solid;
-	-webkit-transition:all .5s;
-    -moz-transition:all .5s;
-    transition:all .5s;
-    
 }
 
 .what-bg {
@@ -387,47 +444,17 @@ transform: scale(-1,1);
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-h1{
-	font-family: 'Lato', sans-serif;
-	font-size: 50px;
-	font-weight: 300;
-}
-h2 {
-	font-size: 45px;
-	line-height: 2;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	padding-top: 7px;
-}
-h3 {
-	font-family: 'Lato', sans-serif;
-	font-size:30px;
-	line-height: 2;
-	font-weight: 300;
+/*WHO section*/
 
+.recommendations {
+	background:#252B33;
+	color:white;
 }
 
-h4 {
-	font-size:24px;
-	line-height: 2;
-	font-family: 'Lato', sans-serif;
+.recommendations h3 {
+	font-size:24pt;
+	font-weight:400;
 }
-h5 {
-	font-size: 20px;
-	line-height: 1.5;
-	font-weight: 300;
-	font-family: 'Lato', sans-serif;
-}
-p
-{
-	font-family: 'Lora', serif;
-	font-size: 14pt;
-    line-height: 1.6em;
-	color: black;
-	letter-spacing: .5px;
-
-}
-
 blockquote {
 	font-family: 'Lora', serif;
     padding: 16px;
@@ -441,6 +468,9 @@ cite {
 	padding: 0 0 25px 0;
 }
 
+cite p {
+	color:white;
+}
 .headshot {
 	float:left;
 	width: 130px;
@@ -530,7 +560,12 @@ a:hover {
 .bottom-nav button {
 /*	background: rgba(162, 162, 162, 0.38);*/
 /*	border-radius: 5px;*/
-	border: 1px rgba(0, 0, 0, 0.22) solid;
+/*	border: 1px rgba(0, 0, 0, 0.22) solid;
+*/}
+
+.white {
+	color:white;
+	border:1px solid white;
 }
 
 #what-nav {
