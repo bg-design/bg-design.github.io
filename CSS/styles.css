@@ -1024,7 +1024,7 @@ and (max-width: 736px) /* Mobile */ {
    	#splash {
 		margin:5px;
 		padding:10px;
-		top:10px;
+		top:20%;
 	}
   	#splash p {
   	font-size: 12pt;
