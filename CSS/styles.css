@@ -979,7 +979,7 @@ and (max-device-width : 1024px)  /* Tablet */ {
 	#splash {
 		margin:10px;
 		padding:20px;
-		top:0%;
+		top:20%;
 	}
 	.project-button {
 		font: 18px 'Lato', sans-serif;
