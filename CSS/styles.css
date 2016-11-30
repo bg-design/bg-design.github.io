@@ -123,7 +123,7 @@ figcaption {
 #splash {
 	position: absolute;
     max-width: 500px;
-	padding: 30px 45px;
+	padding: 20px 45px;
 	top: 25%;
 	background: rgba(35, 35, 35, 0.57);
 	border-radius: 20px;
@@ -529,19 +529,19 @@ a:hover {
     font-weight:300;
 }
 .safe-harbor {
-	transform: translate(0px, -200px)
+	transform: translate(0px, -150px)
 }
 .refer-me {
-	transform: translate(0px, -200px)
+	transform: translate(0px, -150px)
 }
 .shyft {
-	transform: translate(0px, -200px)
+	transform: translate(0px, -150px)
 }
 .life-alert {
-	transform: translate(0px, -200px)
+	transform: translate(0px, -150px)
 }
 .gumball {
-	transform: translate(0px, -200px)
+	transform: translate(0px, -150px)
 }
 #archive {
 	transform: translate(0px, 290px)
