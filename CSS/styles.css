@@ -1021,6 +1021,11 @@ and (max-width: 736px) /* Mobile */ {
 	.navbar li a {
    	font-size: 28px;
    	}
+   	#splash {
+		margin:5px;
+		padding:10px;
+		top:10px;
+	}
   	#splash p {
   	font-size: 12pt;
     }
