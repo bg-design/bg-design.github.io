@@ -45,7 +45,7 @@ table {
 #splash {
 	position: absolute;
     max-width: 500px;
-	padding: 45px;
+	padding: 30px 45px;
 	top: 25%;
 	background: rgba(35, 35, 35, 0.57);
 	border-radius: 20px;
@@ -71,11 +71,16 @@ table {
 #splash-nav {
 	font-size:12pt;
 }
+.splash-button {
+	color: white;
+	border: 1px solid white;
+	margin: 10px 0;
+}
 
 
 section {
 	display: inline-block;
-	padding: 30px 0;
+	padding: 15px 0;
 	width: 100%;
 }
 
@@ -209,9 +214,9 @@ a#active.what-bg {
 }
 
 button {
-	padding: 18px;
-	margin: 10px;
-	font: 12pt 'Lato', sans-serif;
+	padding: 20px;
+    margin: 10px;
+    font: 12pt 'Lato', sans-serif;
 	background: none;
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
@@ -219,7 +224,6 @@ button {
 	border: 1px rgba(0, 0, 0, 0.7) solid;
 
 }
-
 button:hover {
 	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 	color: white;
@@ -417,7 +421,7 @@ h5 {
 p
 {
 	font-family: 'Lora', serif;
-	font-size: 16pt;
+	font-size: 14pt;
     line-height: 1.6em;
 	color: black;
 	letter-spacing: .5px;
@@ -434,7 +438,7 @@ blockquote {
 }
 cite {
 	float:right;
-	padding: 15px 0;
+	padding: 0 0 25px 0;
 }
 
 .headshot {
@@ -446,7 +450,7 @@ cite {
 {
 	font-family: 'Lora', serif;
     font-size: 14pt;
-    line-height: 2em;
+    line-height: 1.7em;
     color: black;
     letter-spacing: .5px;
 /*	margin-bottom: 20px;
@@ -510,7 +514,7 @@ a:hover {
 	transform: translate(0px, -200px)
 }
 #archive {
-	transform: translate(0px, 315px)
+	transform: translate(0px, 290px)
 }
 .filler {
 	height: 100%;
@@ -851,6 +855,13 @@ footer {
 	margin-bottom: 15px;
 }
 
+/*WHEN section*/
+
+.when p{
+	line-height: 1.7em;
+    margin: 0px 0 15px 0;
+}
+
 /* WHY section */
 
 .why {
@@ -874,7 +885,8 @@ transform: translateX(-80px);
 
 /* HOW section */
 .tools {
-width: 100%;
+	width: 100%;
+	margin: 20px 0;
 }
 
 .process {
@@ -888,7 +900,8 @@ width: 100%;
 .typing-wrap {
 /*	width: 600px;
 */	margin:0 auto;
-padding: 30px 0;
+	padding: 30px 0;
+    margin-top: 20px;
 }
 /* code for animated blinking cursor on who */
         .typed-cursor{
@@ -1033,6 +1046,13 @@ and (max-width: 736px) /* Mobile */ {
 	}
 	.contact {
 		display: none;
+	}
+	blockquote {
+		padding: 8px;
+    	font-size: 12pt;
+	}
+	cite p {
+		font: 14pt 'Lora', serif;
 	}
 	footer {
 		width: 100%;
