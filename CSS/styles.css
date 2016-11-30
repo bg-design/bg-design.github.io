@@ -977,21 +977,20 @@ and (max-width: 736px) /* Mobile */ {
 	 .navbar {
   	height: 60px;
   	}
-  section {
+  	section {
     padding: 15px;
-  }
-  .books {
+  	}
+  	.books {
 	height: 25px;
     left: 40px;
 	}
 	.navbar li a {
    	font-size: 28px;
-   }
-
-  #splash p {
+   	}
+  	#splash p {
   	font-size: 12pt;
     }
-#splash-nav {
+	#splash-nav {
     font-size: 14pt;
     padding: 10px;
 	}
@@ -1002,7 +1001,7 @@ and (max-width: 736px) /* Mobile */ {
 		transform: initial;
 	}
 	p {
-		font-size: 18px;
+		font-size: 20px;
     	line-height: 1.3em;
 	}
 	.bottom-nav button {
