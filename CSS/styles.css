@@ -975,6 +975,9 @@ and (max-device-width : 1024px)  /* Tablet */ {
 		font-size: 20px;
     	line-height: 1.3em;
 	}
+	.what-box {
+		transform: initial;
+	}
 	.why {
 		margin-top: 45px;
 	    padding: 15px 35px;
