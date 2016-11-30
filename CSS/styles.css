@@ -509,11 +509,11 @@ a:hover {
 .gumball {
 	transform: translate(0px, -200px)
 }
-.archive {
-	transform: translate(0px, 225px)
+#archive {
+	transform: translate(0px, 315px)
 }
 .filler {
-	height: 1000px;
+	height: 100%;
 }
 .bottom-nav {
 /*	background: rgba(0, 0, 0, 0.03);*/
