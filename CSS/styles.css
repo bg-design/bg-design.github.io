@@ -949,12 +949,6 @@ and (max-device-width : 1024px)  /* Tablet */ {
 	height: 30px;
     left: 35px;
 }
-	footer {
-		width: 100%;
-	}
-	.contact {
-		display: none;
-	}
 	#splash {
 		margin:10px;
 		padding:20px;
@@ -1013,6 +1007,12 @@ and (max-width: 736px) /* Mobile */ {
 	}
 	.bottom-nav button {
 		font: 16pt 'Lato', sans-serif;
+	}
+	.contact {
+		display: none;
+	}
+	footer {
+		width: 100%;
 	}
 }
 
