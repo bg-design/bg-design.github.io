@@ -781,6 +781,8 @@ a:hover {
 
 }
 
+
+
 .project::after {
 	content: '';
 	position: relative;
@@ -839,11 +841,21 @@ a:hover {
 	box-sizing: border-box;
 	display: none;
 }
+.project-description h4 {
+	font-size:14pt;
+}
+
+.project-description p {
+	font-size: 12pt;
+	line-height: 1.2;
+	font-family:'Lato', sans-serif;
+	font-weight: 300;
+}
 .project-date {
 	position: absolute;
 	right: 5px;
 	bottom: 5px;
-	font-family: 'Lato';
+	font-family: 'Lato', sans-serif;
 	font-size: 15px;
 	font-weight: 400;
 	color: grey;
