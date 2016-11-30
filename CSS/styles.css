@@ -1001,8 +1001,8 @@ and (max-width: 736px) /* Mobile */ {
 		transform: initial;
 	}
 	p {
-		font-size: 20px;
-    	line-height: 1.3em;
+		font: 20pt 'Lora', serif;
+    	line-height: 1.5em;
 	}
 	.bottom-nav button {
 		font: 16pt 'Lato', sans-serif;
