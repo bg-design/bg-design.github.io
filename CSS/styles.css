@@ -1016,7 +1016,7 @@ and (max-width: 736px) /* Mobile */ {
 		font: 18px 'Lato', sans-serif;
 	}
 	.what-box {
-		transform: initial;
+		transform: translate(0,200px);
 	}
 	p {
 		font: 12pt 'Lora', serif;
