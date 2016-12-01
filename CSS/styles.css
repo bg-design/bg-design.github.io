@@ -81,6 +81,9 @@ p
 
 }
 
+.small {
+	font-size:50%;
+}
 button {
 	padding: 20px;
     margin: 10px;
