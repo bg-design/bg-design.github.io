@@ -683,10 +683,17 @@ a:hover {
 
 }
 
+.archive-container {
+	max-width: 850px;
+	clear: both;
+	margin: 0 auto;
+	padding-top:53px;
+}
+
 .projects-row {
 	clear: both;
 	margin: 0 auto;
-	width: 1200px;
+	max-width: 1200px;
 	transition: .5s;
 }
 
@@ -837,6 +844,7 @@ a:hover {
 .this-website {
 	padding-left: 30px;
 }
+
 .project-description {
 	float: left;
 	width: 310px;
