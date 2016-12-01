@@ -28,30 +28,30 @@
 	}
 		/* Defining each section background and styles
 	* --------------------------------------- */
-	#section0{
+/*	#section0{
 		background-image: url(IMG/safe-harbor-mock3.jpg);
 		padding: 0% 0 0 0;
-	}
-	#section1{
+	}*/
+	#section0{
 		background-image: url(IMG/refer-me-mock2.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section2{
+	#section1{
 		background-image: url(IMG/shyft-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section3{
+	#section2{
 		background-image: url(IMG/life-alert-mock4.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section4{
+	#section3{
 		background-image: url(IMG/gumball-mock.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section5{
+/*	#section5{
 		background-image: url(IMG/archive-mock.jpg);
 		padding: 0% 0 0 0;
-	}
+	}*/
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
@@ -60,11 +60,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['SafeHarbor', 'ReferMe', 'Shyft','LifeAlert','GumballToys','Archive'],
+				anchors: ['ReferMe', 'Shyft','LifeAlert','GumballToys'],
 				sectionsColor: [],
 				navigation: true,
 				navigationPosition: 'left',
-				navigationTooltips: ['Safe Harbor', 'Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys', 'Archive'],
+				navigationTooltips: ['Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys'],
 				responsiveWidth: 0,
 				afterResponsive: function(isResponsive){
 					
@@ -94,15 +94,15 @@
 		<hr>
 	</nav>
 	<div id="fullpage">
-	<div class="section" id="section0">
+<!-- <div class="section" id="section0">
 		<div class="what-box safe-harbor">
 			<h1>Safe Harbor</h1>
 			<br>
 			<img src="IMG/GES2016Logo.png" id="GES2016Logo"/>
 			<p>Won a hackathon at the Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>
 		</div>
-	</div>
-	<div class="section" id="section1">
+	</div> -->
+	<div class="section" id="section0">
 	    <div class="what-box refer-me">
 			<h1>Refer Me</h1>
 			<br>
@@ -112,7 +112,7 @@
 		</div>
 
 	</div>
-	<div class="section" id="section2">
+	<div class="section" id="section1">
 		<div class="what-box shyft">
 			<h1>Shyft Event Planning</h1>
 			<br>
@@ -121,7 +121,7 @@
 			<a href="https://ben-grandy-peuv.squarespace.com/shyft" data-lity><button class="project-button center">View Wires</button></a>
 		</div>
 	</div>
-	<div class="section" id="section3">
+	<div class="section" id="section2">
 		<div class="what-box life-alert">
 			<h1>Life Alert</h1>
 			<br>
@@ -130,7 +130,7 @@
 			<a href="https://ben-grandy-peuv.squarespace.com/life-alert" data-lity><button class="project-button center">Case Study</button></a>
 		</div>
 	</div>
-	<div class="section" id="section4">
+	<div class="section" id="section3">
 		<div class="what-box gumball">
 			<h1>Gumball Toys</h1>
 			<br>
@@ -138,8 +138,12 @@
 			<br>
 			<a href="https://ben-grandy-peuv.squarespace.com/gumball-toys" data-lity><button class="project-button center">View Project</button></a>
 		</div>
+		<div class="bottom-nav" id="what-nav">
+			<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='who.html'"><div class="flip float-left">➟</div>&nbsp;Who I am</button>
+			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
+		</div>
 	</div>
-	<div class="section" id="section5">
+<!-- 	<div class="section" id="section5">
 		<div class="what-box" id="archive">
 			<h1>Archive</h1>
 			<br>
@@ -153,7 +157,7 @@
 			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
 		</div>
 		<hr>
-	</div>
+	</div> -->
 </div>
 
 <!-- Lity -->
