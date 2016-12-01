@@ -104,6 +104,68 @@ button:hover {
     transition:all .5s;
     
 }
+
+.project-button:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 10px 5px rgb(200, 200, 200);
+}
+
+.project-button:active {
+	position: relative;
+	transform: translateY(5px);
+	box-shadow: 0px 0px 0px rgb(200, 200, 200);
+	}
+
+.who-button:before,.who-button:hover {
+	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+	background: -webkit-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+	background: -moz-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+}
+.what-button:before,.what-button:hover {
+	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+	background: -webkit-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+}
+.how-button:before,.how-button:hover {
+	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
+	background: -webkit-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
+	background: -moz-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
+
+}
+.when-button:before,.when-button:hover {
+	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+	background: -webkit-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+	background: -moz-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+}
+.why-button:before,.why-button:hover {
+	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	background: -webkit-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	background: -moz-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+}
+
+.bottom-nav {
+/*	background: rgba(0, 0, 0, 0.03);*/
+	width: 100%;
+	bottom: 0px;
+	right:0px;
+	display: flex;
+	justify-content: space-between;
+}
+.bottom-nav button {
+/*	background: rgba(162, 162, 162, 0.38);*/
+/*	border-radius: 5px;*/
+/*	border: 1px rgba(0, 0, 0, 0.22) solid;
+*/}
+
+#what-nav {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+#back-to-featured {
+	margin-left:20px;
+}
+
 img {
 	max-width: 100%;
 }
@@ -311,43 +373,6 @@ a#active.what-bg {
 .how-bg {
 	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 }
-.project-button:hover {
-	transform: translateY(-5px);
-	box-shadow: 0px 10px 5px rgb(200, 200, 200);
-}
-
-.project-button:active {
-	position: relative;
-	transform: translateY(5px);
-	box-shadow: 0px 0px 0px rgb(200, 200, 200);
-	}
-
-.who-button:before,.who-button:hover {
-	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-	background: -webkit-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-}
-.what-button:before,.what-button:hover {
-	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-	background: -webkit-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-}
-.how-button:before,.how-button:hover {
-	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-	background: -webkit-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-	background: -moz-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-
-}
-.when-button:before,.when-button:hover {
-	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-	background: -webkit-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-	background: -moz-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-}
-.why-button:before,.why-button:hover {
-	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	background: -webkit-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-}
 
 /* Sweep To Right */
 .hvr-sweep-to-right {
@@ -518,13 +543,9 @@ a:hover {
 .twenty-pad {margin-top:20px;}
 .thirty-pad {margin-top: 30px;}
 .fifty-pad {margin-top: 50px;}
+.float-right {float: right;}
+.float-left {float: left;}
 
-.float-right {
-	float: right;
-}
-.float-left {
-	float: left;
-}
 /*WHAT section */
 
 #construction {
@@ -566,28 +587,10 @@ a:hover {
 .filler {
 	height: 100%;
 }
-.bottom-nav {
-/*	background: rgba(0, 0, 0, 0.03);*/
-	width: 100%;
-	bottom: 0px;
-	right:0px;
-	display: flex;
-	justify-content: space-between;
-}
-.bottom-nav button {
-/*	background: rgba(162, 162, 162, 0.38);*/
-/*	border-radius: 5px;*/
-/*	border: 1px rgba(0, 0, 0, 0.22) solid;
-*/}
 
 .white {
 	color:white;
 	border:1px solid white;
-}
-
-#what-nav {
-	position: absolute;
-	background: rgba(255, 255, 255, 0.9);
 }
 
 .loading-bg {
@@ -684,7 +687,7 @@ a:hover {
 }
 
 .archive-container {
-	max-width: 850px;
+	max-width: 880px;
 	clear: both;
 	margin: 0 auto;
 	padding-top:53px;
@@ -777,8 +780,8 @@ a:hover {
 .project {
 	float:left;
 	position: relative;
-	height: 240px;
-	width: 235px;
+/*	height: 240px;
+*/	width: 235px;
 /*	width: 46%;
 *//*	border:1px solid rgb(200, 200, 200);*/
 	box-sizing: border-box;
@@ -836,7 +839,7 @@ a:hover {
 
 .project-thumb {
 	margin-left: -1px;
-	height: 240px;
+/*	height: 240px;*/
 	float: left;
 	border-radius: 0px;
 }
@@ -846,7 +849,8 @@ a:hover {
 	}
 
 .this-website {
-	padding-left: 30px;
+	padding-left: 25px;
+	width:235px;
 }
 
 .project-description {
