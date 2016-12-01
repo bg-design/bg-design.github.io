@@ -808,8 +808,8 @@ a:hover {
 	transform: scale(1.05, 1.05);
 	border-radius: 0px;
 	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-	width: 550px;
-	z-index: 3;
+/*	width: 550px;
+*/	z-index: 3;
 	
 }
 
@@ -840,6 +840,10 @@ a:hover {
 	float: left;
 	border-radius: 0px;
 }
+.project-thumb:hover {
+/*	-webkit-filter: brightness(50%);
+*/	transition: .7s;
+	}
 
 .this-website {
 	padding-left: 30px;
@@ -847,13 +851,18 @@ a:hover {
 
 .project-description {
 	float: left;
-	width: 310px;
+	display: none;
+	position: absolute;
+	width: 250px;
+	left:-13px;
+	top:100px;
+	text-align: center;
 	padding: 0 15px;
 	box-sizing: border-box;
-	display: none;
 }
 .project-description h4 {
 	font-size:14pt;
+	color:white;
 }
 
 .project-description p {

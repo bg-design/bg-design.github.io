@@ -79,16 +79,13 @@
 		            <img class="project-thumb" src="IMG/sf-voice-thumb.png">
 		            <div class="fade-in-fast project-description">
 			            <h4 class="">SF Voice</h4>
-			            <h5 class="project-date">March 2016</h5>
-			            <p>In this one day hackathon, I worked with two other designers, and two other developers to create SF Voice. It's Reddit meets Tindr for political activism &amp; engagement.<br>
-						<br>
-						<div class="skills">Skills: Rapid prototyping, System Design, Visual Design, Mobile &amp; Web UI/UX</div></p>
+	
 					</div>
 				</a>
 				<a href="https://ben-grandy-peuv.squarespace.com/health-journal-mobile-app"  data-lity class="project fade-in three marks">
 		            <img class="project-thumb" src="IMG/health-journal-thumb.png">
 		            <div class="fade-in-fast project-description">
-			            <h4 class="">Health Journal</h4>
+			            <h4 class="">Health Journal Mobile App</h4>
 			            <p></p>
 					</div>
 				</a>
@@ -99,15 +96,13 @@
 				<a href="http://boomboomwomb.com" data-lity class="project fade-in five">
 		            <img class="project-thumb" src="IMG/bbw-favicon2.png">
 		            <div class="fade-in-fast project-description">
-			            <h4 class="">Boom Boom Womb</h4>
-			            <p>Designed this page for my Burning man camp.</p>
+			            <h4 class="">Boom Boom Womb.com</h4>
 					</div>
 				</a>
 				<a href="https://web.archive.org/web/20130930024536/http://picycle.com/" target="_new" class="project fade-in six" id="picycle-site">
 		            <img class="project-thumb" src="IMG/picycle-site2.png">
 		            <div class="fade-in-fast project-description">
-			            <h4 class="">PiCycle</h4>
-			            <p>Designed all the pages, UX, UI, layout, photography, iconography, &amp; copy of PiCycle.com<br>
+			            <h4 class="">PiCycle.com</h4>
 						</p>
 					</div>
 				</a>
@@ -115,7 +110,6 @@
 		            <img class="project-thumb" src="IMG/noah_webstir.png">
 		            <div class="fade-in-fast project-description">
 			            <h4 class="">Webstir.org</h4>
-			            <p>Founded Webstir.org - a non-profit, open-source, crowd-sourced collection of the great websites &amp; innovation.<br>
 						</p>
 					</div>
 				</a>
@@ -151,7 +145,7 @@
 				<a href="https://ben-grandy-peuv.squarespace.com/pimobility" data-lity class="project fade-in six marks">
 		            <img class="project-thumb" src="IMG/2012_picycle_red.jpg">
 		            <div class="fade-in-fast project-description">
-			            <h4 class="">PiCycle</h4>
+			            <h4 class="">PiCycle Assets</h4>
 			            <p></p>
 					</div>
 				</a>				
@@ -236,12 +230,15 @@ $(document).on({
       timer = setTimeout(function() {
          $(event.currentTarget).find('.project-description').css("display", "inline");
          $(event.currentTarget).find('.project-thumb').css("border-radius", "0px 0 0 0px");
+         $(event.currentTarget).find('.project-thumb').css("-webkit-filter", "brightness(50%)");
+
       }, 300);
    },
    mouseleave: function(event) {
    		clearTimeout(timer);
        $('.project-description').css("display", "none");
        $('.project-thumb').css("border-radius", "0px");
+       $(event.currentTarget).find('.project-thumb').css("-webkit-filter", "brightness(100%)");
    }
 }, '.project')
 </script>
