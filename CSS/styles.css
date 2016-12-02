@@ -18,8 +18,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	cursor:url(http://i.imgur.com/DSGpvnJ.gif), auto;
-
+/*	cursor:url(/plane3.gif), auto;
+*/
 
 }
 ol, ul {
@@ -88,6 +88,7 @@ button {
 	padding: 20px;
     margin: 10px;
     font: 12pt 'Lato', sans-serif;
+    font-weight: 300;
 	background: none;
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
