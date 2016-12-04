@@ -44,6 +44,7 @@ h1{
 	font-family: 'Lato', sans-serif;
 	font-size: 50px;
 	font-weight: 300;
+	padding-bottom: 15px;
 }
 h2 {
 	font-size: 45px;
@@ -79,6 +80,24 @@ p
 	color: black;
 	letter-spacing: .5px;
 
+}
+
+hr {
+	clear: both;
+    border: none;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+}
+
+.clear {
+	clear:both;
+}
+
+footer {
+	background-color: white;
+	width:600px;
+	margin:0 auto;
+	margin-bottom: 50px;
 }
 
 .small {
@@ -170,17 +189,6 @@ button:hover {
 img {
 	max-width: 100%;
 }
-
-#triple-venn {
-	width: 120px;
-	margin: 20px;
-}
-#pyramid {
-	width:40%;
-}
-#abstraction-ladder {
-	width:50%;
-}
 ul {
 	list-style-type:circle;
 	list-style-position:inside;
@@ -194,43 +202,6 @@ figcaption {
 	text-align: center;
 
 }
-/*Splash*/
-
-#splash {
-	position: absolute;
-    max-width: 500px;
-	padding: 20px 45px;
-	top: 25%;
-	background: rgba(35, 35, 35, 0.57);
-	border-radius: 20px;
-	margin: 0 55px;
-}
-
-#splash p {
-	font-family: 'Lora';
-	color: white;
-	font-size:14pt;
-	line-height: 1.3em;
-}
-#splash h3 {
-	font-family: 'Lora';
-	color: white;
-	font-size:20pt;
-	line-height: 1.3em;
-}
-#splash-nav-wrapper {
-	position: absolute;
-	background: rgba(255, 255, 255, 0.66);
-}
-#splash-nav {
-	font-size:12pt;
-}
-.splash-button {
-	color: white;
-	border: 1px solid white;
-	margin: 10px 0;
-}
-
 
 section {
 /*	display: inline-block;
@@ -344,6 +315,7 @@ nav li {
     display: block;
     padding: 14px 0px;
     text-decoration: none;
+    border:0;
 }
 
 #active {
@@ -483,116 +455,8 @@ transform: scale(-1,1);
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-/*WHO section*/
 
-.recommendations {
-	background:#252B33;
-	color:white;
-}
-
-.recommendations h3 {
-	font-size:24pt;
-	font-weight:400;
-}
-blockquote {
-	font-family: 'Lora', serif;
-    padding: 16px;
-    font-size: 14pt;
-	line-height: 1.5;
-	font-style: italic;
-	font-weight: 400;
-}
-cite {
-	float:right;
-	padding: 0 0 25px 0;
-}
-
-cite p {
-	color:white;
-}
-.headshot {
-	float:left;
-	width: 130px;
-	padding:15px;
-}
-.first-copy p
-{
-	font-family: 'Lora', serif;
-    font-size: 14pt;
-    line-height: 1.7em;
-    color: black;
-    letter-spacing: .5px;
-/*	margin-bottom: 20px;
-	font-weight: 300;*/
-}
-a {
-	color: black;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-.center {
-	text-align: center;
-	display: block;
-	margin: 0 auto;
-}
-.six-col {width: 49%;}
-.ten-pad {margin-top:10px;}
-.twenty-pad {margin-top:20px;}
-.thirty-pad {margin-top: 30px;}
-.fifty-pad {margin-top: 50px;}
-.float-right {float: right;}
-.float-left {float: left;}
-
-/*WHAT section */
-
-#construction {
-}
-
-#GES2016Logo {
-	width: 200px;
-}
-.what-box {
-	max-width: 450px;
-	padding: 20px 30px;
-	margin: 0 auto;
-	background: rgba(255, 255, 255, 0.81);
-}
-.what-box p {
-	font-family: 'Lato', sans-serif;
-    font-size: 12pt;
-    line-height: 1.3em;
-    font-weight:300;
-}
-.safe-harbor {
-	transform: translate(0px, -150px)
-}
-.refer-me {
-	transform: translate(0px, -150px)
-}
-.shyft {
-	transform: translate(0px, -150px)
-}
-.life-alert {
-	transform: translate(0px, -150px)
-}
-.gumball {
-	transform: translate(0px, -150px)
-}
-#archive {
-	transform: translate(0px, 290px)
-}
-.filler {
-	height: 100%;
-}
-
-.white {
-	color:white;
-	border:1px solid white;
-}
+/*Loading Screen */
 
 .loading-bg {
 	z-index: 10;
@@ -672,7 +536,202 @@ a:hover {
   }
 }
 
+/*Splash*/
 
+#splash {
+	position: absolute;
+    max-width: 500px;
+	padding: 20px 45px;
+	top: 25%;
+	background: rgba(35, 35, 35, 0.57);
+	border-radius: 20px;
+	margin: 0 55px;
+}
+
+#splash p {
+	font-family: 'Lora';
+	color: white;
+	font-size:14pt;
+	line-height: 1.3em;
+}
+#splash h3 {
+	font-family: 'Lora';
+	color: white;
+	font-size:20pt;
+	line-height: 1.3em;
+}
+#splash-nav-wrapper {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.66);
+}
+#splash-nav {
+	font-size:12pt;
+}
+.splash-button {
+	color: white;
+	border: 1px solid white;
+	margin: 10px 0;
+}
+
+/*WHO section*/
+
+.recommendations {
+	background:#252B33;
+	color:white;
+}
+
+.recommendations h3 {
+	font-size:26pt;
+	font-weight:300;
+}
+blockquote {
+	font-family: 'Lora', serif;
+    padding: 16px;
+    font-size: 14pt;
+	line-height: 1.5;
+	font-style: italic;
+	font-weight: 400;
+}
+cite {
+	float:right;
+	padding: 0 0 25px 0;
+}
+
+cite p {
+	color:white;
+}
+.headshot {
+	float:left;
+	width: 130px;
+	padding:15px;
+}
+.first-copy p
+{
+	font-family: 'Lora', serif;
+    font-size: 14pt;
+    line-height: 1.7em;
+    color: black;
+    letter-spacing: .5px;
+/*	margin-bottom: 20px;
+	font-weight: 300;*/
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+
+p a {
+	border-bottom: 1px solid black;
+}
+
+a:hover {
+	text-decoration: none;
+	border:0;
+	font-weight: bold;
+}
+
+.center {
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+}
+.six-col {width: 49%;}
+.ten-pad {margin-top:10px;}
+.twenty-pad {margin-top:20px;}
+.thirty-pad {margin-top: 30px;}
+.fifty-pad {margin-top: 50px;}
+.float-right {float: right;}
+.float-left {float: left;}
+
+
+.typing-wrap {
+/*	width: 600px;
+*/	margin:0 auto;
+/*	padding: 30px 0;*/
+    margin-top: 58px;
+}
+/* code for animated blinking cursor on who */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 1.7s infinite;
+            -moz-animation: blink 1.7s infinite;
+            -ms-animation: blink 1.7s infinite;
+            -o-animation: blink 1.7s infinite;
+            animation: blink 1.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+/*WHAT section */
+
+#construction {
+}
+
+#GES2016Logo {
+	width: 200px;
+}
+.what-box {
+	max-width: 450px;
+	padding: 20px 30px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.81);
+}
+.what-box p {
+	font-family: 'Lato', sans-serif;
+    font-size: 12pt;
+    line-height: 1.3em;
+    font-weight:300;
+}
+.safe-harbor {
+	transform: translate(0px, -150px)
+}
+.refer-me {
+	transform: translate(0px, -150px)
+}
+.shyft {
+	transform: translate(0px, -150px)
+}
+.life-alert {
+	transform: translate(0px, -150px)
+}
+.gumball {
+	transform: translate(0px, -150px)
+}
+#archive {
+	transform: translate(0px, 290px)
+}
+.filler {
+	height: 100%;
+}
+
+.white {
+	color:white;
+	border:1px solid white;
+}
 
 .project-category {
 	color: rgb(112, 112, 112);
@@ -912,22 +971,10 @@ a:hover {
 	visibility: hidden;
 	transition: 1s;
 }
-hr {
-	clear: both;
-    border: none;
-	border-bottom: 1px solid #ddd;
-	margin: 0;
-}
 
-.clear {
-	clear:both;
-}
-
-footer {
-	background-color: white;
-	width:600px;
-	margin:0 auto;
-	margin-bottom: 50px;
+/*Full-page projects */
+.banner {
+	padding-top: 54px;
 }
 
 .contact {
@@ -969,6 +1016,17 @@ transform: translateX(-80px);
 	transition:all .4s ease-in-out;
 }
 
+#triple-venn {
+	width: 120px;
+	margin: 20px;
+}
+#pyramid {
+	width:40%;
+}
+#abstraction-ladder {
+	width:50%;
+}
+
 /* HOW section */
 .tools {
 	width: 100%;
@@ -982,48 +1040,6 @@ transform: translateX(-80px);
 	width: 100%;
 	transform: scale(1.1,1.1);
 }
-
-.typing-wrap {
-/*	width: 600px;
-*/	margin:0 auto;
-	padding: 30px 0;
-    margin-top: 20px;
-}
-/* code for animated blinking cursor on who */
-        .typed-cursor{
-            opacity: 1;
-            font-weight: 100;
-            -webkit-animation: blink 1.7s infinite;
-            -moz-animation: blink 1.7s infinite;
-            -ms-animation: blink 1.7s infinite;
-            -o-animation: blink 1.7s infinite;
-            animation: blink 1.7s infinite;
-        }
-        @-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-webkit-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-moz-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-ms-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
-        @-o-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
-        }
 
 /* MEDIA QUERIES */
 
