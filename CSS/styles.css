@@ -51,8 +51,8 @@ h2 {
 	line-height: 2;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	padding-top: 7px;
-}
+/*	padding-top: 7px;
+*/}
 h3 {
 	font-family: 'Lato', sans-serif;
 	font-size:30px;
@@ -575,6 +575,97 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 /*WHO section*/
 
+#persona {
+	margin-top:53px;
+}
+
+#persona p {
+	font-size:12pt;
+}
+
+#ben-persona {
+	margin-top:15px;
+	border-radius: 100%;
+}
+#traits {
+	display: flex;
+	justify-content: space-between;
+}
+
+#traits h5 {
+	background: rgb(228, 228, 228);
+	padding: 5px;
+	margin: 10px 5px 0 5px;
+	border-radius: 4px;
+	font-size: 13pt;
+	color: rgb(84, 84, 84);
+}
+
+#bio p{
+	background: rgb(100, 100, 100);
+	font: 10.5pt 'Lato';
+	font-weight: 300;
+	line-height: 1.3;
+	color: white;
+	padding: 5px 5px 5px 10px;
+	border-radius: 5px;
+}
+
+.persona-list li {
+	font-size:14pt;
+	line-height: 1.5em;
+}
+
+.persona-bar {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	background: rgb(230, 230, 230);
+	height: 15px;
+	width: 100%;
+}
+.persona-progress {
+	position: relative;
+	background: #252B33;
+	height: 15px;
+
+  -webkit-animation:stretch ease-in-out 1s;  
+  -moz-animation:stretch ease-in-out 1s;
+  animation:stretch ease-in-out 1s;
+
+  -webkit-animation-fill-mode:forwards; 
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:2s;
+  -moz-animation-duration:2s;
+  animation-duration:2s;
+
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+
+}
+
+@keyframes stretch {
+   0% { width: 0; }
+   100% { width: inherit; }
+}
+
+.persona-slider {
+	position: relative;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: #252B33;
+}
+
+#persona h4 {
+	font-size: 12pt;
+	line-height: 1.6;
+	color: #484848;
+	font-weight:300;
+}
 .recommendations {
 	background:#252B33;
 	color:white;
@@ -635,9 +726,24 @@ a:hover {
 	display: block;
 	margin: 0 auto;
 }
-.six-col {width: 49%;}
+
+.width-100 {width: 100%;}
+
+.six-col {
+	width: 47%;
+padding: 0 25px;
+}
+
+.half {
+	width: 50%;
+}
+.two-col {width: 15%;}
+.three-col {width: 24%;}
+.four-col {width: 30%;}
+
+
 .ten-pad {margin-top:10px;}
-.twenty-pad {margin-top:20px;}
+.twenty-pad {padding-top:20px;}
 .thirty-pad {margin-top: 30px;}
 .fifty-pad {margin-top: 50px;}
 .float-right {float: right;}
@@ -648,7 +754,7 @@ a:hover {
 /*	width: 600px;
 */	margin:0 auto;
 /*	padding: 30px 0;*/
-    margin-top: 58px;
+    margin-top: 30px;
 }
 /* code for animated blinking cursor on who */
         .typed-cursor{
