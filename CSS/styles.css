@@ -626,7 +626,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .persona-progress {
 	position: relative;
-	background: #252B33;
+	background: #3c4552;
 	height: 15px;
 
   -webkit-animation:stretch ease-in-out 1s;  
@@ -657,7 +657,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	display: block;
 	width: 15px;
 	height: 15px;
-	background: #252B33;
+	background: #3c4552;
 }
 
 #persona h4 {
