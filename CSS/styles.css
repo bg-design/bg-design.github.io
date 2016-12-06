@@ -602,7 +602,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 #bio p{
-	background: rgb(100, 100, 100);
+	background: rgba(43, 50, 59, 0.79);
 	font: 10.5pt 'Lato';
 	font-weight: 300;
 	line-height: 1.3;
