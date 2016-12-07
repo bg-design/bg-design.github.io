@@ -47,7 +47,7 @@ h1{
 	padding-bottom: 15px;
 }
 h2 {
-	font-size: 45px;
+	font-size: 43px;
 	line-height: 2;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
@@ -1139,7 +1139,15 @@ padding: 0 25px;
 
 /*Full-page projects */
 .banner {
-	padding-top: 54px;
+	background-size: contain;
+}
+.banner-description {
+	bottom: 00px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.74);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
 }
 
 .contact {
@@ -1153,6 +1161,42 @@ padding: 0 25px;
 	margin-bottom: 15px;
 }
 
+.project-icons {
+	float:left;
+	width: 100px;
+
+}
+
+.project-icons-wrapper {
+	position: relative;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	width: 350px;
+	right:50px;
+	padding: 20px 0 10px 0;
+}
+
+
+/*Shyft project */
+#shyft-model {
+	width: 700px;
+    margin: 0 auto;
+    display: block;
+}
+
+#shyft-values {
+	width: 500px;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+}
+
+#shyft-dimensions {
+	width: 300px;
+    margin: 0 auto;
+    display: block;
+}
 /*WHEN section*/
 
 .when p{
