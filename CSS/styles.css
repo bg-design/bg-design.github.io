@@ -193,6 +193,11 @@ button:hover {
 #what-nav {
 	position: absolute;
 	background: rgba(255, 255, 255, 0.9);
+	display: initial;
+}
+#who-nav {
+	color: white;
+	border:1px solid white;
 }
 
 #back-to-featured {
