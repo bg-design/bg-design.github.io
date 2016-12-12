@@ -96,8 +96,18 @@ hr {
 footer {
 	background-color: white;
 	width:600px;
+	height: 200px;
 	margin:0 auto;
 	margin-bottom: 50px;
+}
+.credits {
+	color: rgb(201, 201, 201);
+	font-family: 'Lato';
+	font-size: 11pt;
+	font-weight: 300;
+	background: rgb(248, 248, 248);
+	text-align: center;
+	padding: 10px;
 }
 
 .small {
@@ -203,7 +213,8 @@ figcaption {
 	line-height: 1.6em;
 	color: #979797;
 	text-align: center;
-
+	clear: both;
+	padding-bottom: 25px;
 }
 
 section {
@@ -277,6 +288,8 @@ section {
 	height: 54px;
 	z-index: 5;
 	background-color: rgba(255, 255, 255, .85);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
 
 }
 
@@ -286,6 +299,7 @@ section {
 	margin: 0 auto;
 	height:50px;
 	margin-bottom: -1px;*/
+	
 }
 .nav-menu {
 	max-width: 965px;
@@ -550,6 +564,8 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	background: rgba(35, 35, 35, 0.57);
 	border-radius: 20px;
 	margin: 0 55px;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
 }
 
 #splash p {
@@ -1145,9 +1161,13 @@ padding: 0 25px;
 	bottom: 00px;
     position: absolute;
     background: rgba(255, 255, 255, 0.74);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     margin: 20px;
+    -webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+	max-width: 900px;
+	margin: 10px auto;
 }
 
 .contact {
@@ -1175,6 +1195,7 @@ padding: 0 25px;
 	width: 350px;
 	right:50px;
 	padding: 20px 0 10px 0;
+	clear: both;
 }
 
 
@@ -1196,6 +1217,46 @@ padding: 0 25px;
 	width: 300px;
     margin: 0 auto;
     display: block;
+}
+
+#google-flights {
+	width: 400px;
+	float:left;
+	padding: 15px;
+}
+#hipmunk {
+	width: 450px;
+	float:right;
+	padding: 15px;
+}
+#shyft-components {
+	width: 600px;
+	margin:0 auto;
+	display: block;
+	padding: 15px;
+}
+#multiple-shifts {
+	width: 400px;
+	float: left;
+	padding:15px;
+}
+
+#natural-entry {
+	width: 400px;
+	float: right;
+	padding: 15px;
+}
+
+#shyft-booking {
+	width: 400px;
+	float:left;
+	padding: 15px;
+}
+
+#book-hover {
+	width: 400px;
+	float:right;
+	padding:15px;
 }
 /*WHEN section*/
 

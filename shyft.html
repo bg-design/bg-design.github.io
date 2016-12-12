@@ -61,16 +61,37 @@
 
 		<img src="IMG/Shyft/booking-dimensions.png" id="shyft-dimensions"/>
 
-		<p><strong>Targeting</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates willing to use the service, but was limited by the the agencies. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
+		<p><strong>Targeting</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates looking for work, but was instead limited by the the agencies offering work. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
 
 	</section>
 	<section>
-		
-
 		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Research.png" /><h2>Research</h2></div>
+		<br>
+		<p>Given that we were trying to solve a problem with many dimensions, we researched other instances where a great amount of information needs to be sorted through to find an ideal choice in as few steps as possible. Booking airline flights is a great example of this. It's hard to display all the information that the users needs without making the interaction feel overwhelming. Many websites make use of hover states, dropdowns, and a lot of exposed buttons so the user can focus on one task at a time without feeling overwhelmed or confused.</p>
+		<img src="IMG/Shyft/google-flights2.png" id="google-flights"/><img src="IMG/Shyft/hipmunk.png" id="hipmunk"/><br>
+		<figcaption>Google Flights and Hipmunk make use of a lot of exposed controls, dropdowns, &amp; hover modals to help organize the complex.</figcaption>
+		<p>We interviewed agencies and brand ambassadors to understand some of their pain points, as well as what method they currently use to schedule &amp; book staff. We found that agencies typically use <strong>pen &amp; paper</strong> or simply an <strong>excel spreedsheet</strong>. This lead us to believe there is plenty of room for improvement, as well as understand the current method to ensure that our approach made things simpler, not more complex.</p>
+		<img src="IMG/Shyft/shyft-components.png" id="shyft-components"/>
+		<p>We considered the relationships between Date, Time, Role, &amp; Location. Surely time was within a day, but what-if you had a shift that spanned midnight? Was it more common to have a single location that spanned multiple days or to have a single day that spanned multiple locations? Should a role be coupled with a shift, or should shifts exist inside roles? How common was it that you needed to add multiple roles? As we researched and explored each of these use cases, it helped narrow down how the core interaction would work.</p>
 	</section>
 	<section>
-		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Wires.png" /><h2>Wireframes</h2></div>
+		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Wires.png" /><h2>Wireframes</h2></div><br>
+		<h3>Solution 1: Detail First</h3>
+		<img src="IMG/Shyft/detail-first2.png" id=""/>
+		<p>Our first approach to the problem was to have the agency first fill out the details of the event and the shifts they expected to fill. By telling the system all the information that is needed this dramatically simplifies the process once you get to the booking stage. We opted for simplicity, having the user fill out as few fields as possible, while still having the power to input a lot of information and have Shyft do the heavy lifting matching your event with potential candidates. We also separated the task into stages to help it feel more manageable.</p>
+
+		<img src="IMG/Shyft/multiple-shifts2.png" id="multiple-shifts"/>
+		<img src="IMG/Shyft/natural-entry.png" id="natural-entry"/>
+		<figcaption><span class="float-left">Batch entry allows quick and powerful entry for multiple shifts.</span>
+		<span class="float-right">Time entry uses natural language i.e. "4am-6pm" or "6a to 1:15p"</span></figcaption>
+		<br>
+
+		<p>When you start searching for people to book, the system automatically organizes your results based on the candidates that are able to fill the most shifts. This allows the user to find candidates quickly and minimize the total amount of people to manage.</p>
+
+		<img src="IMG/Shyft/booking.png" id="shyft-booking"/><img src="IMG/Shyft/book-hover.png" id="book-hover" />
+		<figcaption><span class="float-left">Schedule and available shifts update in realtime.</span><span class="float-right">When hovering book button, available shifts light up to indicate availability.</span></figcaption>
+
+
 	</section>
 	<section>
 		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Design.png" /><h2>Design</h2></div>
@@ -79,7 +100,7 @@
 </div>
 
 <div class="banner">
-	<img src="IMG/Shyft/shyft-banner.jpg" />
+	<img src="IMG/Shyft/shyft-banner2.jpg" />
 </div>
 
 <div class="container">
@@ -104,7 +125,6 @@
 		<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img hidden alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"/></a><br/>
 		<p hidden>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
 	</footer>
-</body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="JS/logo.js"></script>
@@ -113,4 +133,6 @@
 <script src="JS/featherlight.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
+<hr>
+<p class="credits">Designed and coded with love by Ben.</p>
 </html>
