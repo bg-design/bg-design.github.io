@@ -232,6 +232,9 @@ section {
 	background: rgb(247, 247, 247);
 	margin-top: 53px;
 }
+.underline {
+	border-bottom:1px solid black;
+}
 /*Navigation*/
 
 .hamburger {
@@ -822,6 +825,7 @@ padding: 0 25px;
 
 
 .ten-pad {margin-top:10px;}
+.fifteen-pad {margin-top:15px;}
 .twenty-pad {padding-top:20px;}
 .thirty-pad {margin-top: 30px;}
 .fifty-pad {margin-top: 50px;}
@@ -1248,13 +1252,13 @@ padding: 0 25px;
 #multiple-shifts {
 	width: 400px;
 	float: left;
-	padding:15px;
+	padding: 20px 15px 15px 15px;
 }
 
 #natural-entry {
 	width: 400px;
 	float: right;
-	padding: 15px;
+	padding: 20px 15px 15px 15px;
 }
 
 #shyft-booking {
@@ -1267,6 +1271,17 @@ padding: 0 25px;
 	width: 400px;
 	float:right;
 	padding:15px;
+}
+#shyft-receipt {
+	width: 300px;
+	float:left;
+	padding: 15px;
+}
+#booking-status {
+	width: 500px;
+	float:right;
+	padding: 15px;
+	padding-top:50px;
 }
 /*WHEN section*/
 
