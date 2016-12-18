@@ -57,8 +57,14 @@ function showNav() {
 
 }
 
+
+
 // Disable loading screen when ready
+
+    $('.fade-in').addClass('placeholder').removeClass('fade-in')
+
     $(window).on("load", function() {
+      $('.placeholder').addClass('fade-in').removeClass('placeholder')
       setTimeout(function() {
         $('.loading-bg').css("opacity", "0");
         setTimeout(function() {
