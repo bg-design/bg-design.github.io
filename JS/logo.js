@@ -58,15 +58,13 @@ function showNav() {
 }
 
 // Disable loading screen when ready
-$(window).on("load", function() {
   setTimeout(function() {
-    $('.loading-bg').css("opacity", "0");
-        setTimeout(function() {
-        $('.loading-bg').css("display", "none");
+    $(window).on("load", function() {
+      $('.loading-bg').css("opacity", "0");
+      setTimeout(function() {$('.loading-bg').css("display", "none");
       },1100);
+    });
   },1100);
-  
-    })
 
 // Hide Header on on scroll down
 var didScroll;
