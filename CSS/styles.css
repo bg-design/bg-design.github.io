@@ -301,6 +301,7 @@ section {
 	transition: top 0.2s ease-in-out;
 
 }
+
 .nav-down {
 	top:0px;
 }
@@ -323,6 +324,7 @@ section {
 	display: flex;
 	justify-content: space-between;
 }
+
 
 .navbar li {
 	display: table-cell;
@@ -666,6 +668,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .persona-progress {
 	position: relative;
+	display: block;
 	background: #3c4552;
 	height: 15px;
 
@@ -673,9 +676,9 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -moz-animation:stretch ease-in-out 1s;
   animation:stretch ease-in-out 1s;
 
-  -webkit-animation-fill-mode:forwards; 
+/*  -webkit-animation-fill-mode:forwards; 
   -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
+  animation-fill-mode:forwards;*/
 
   -webkit-animation-duration:2s;
   -moz-animation-duration:2s;
