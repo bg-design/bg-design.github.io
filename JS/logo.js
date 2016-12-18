@@ -58,7 +58,7 @@ function showNav() {
 }
 
 // Disable loading screen when ready
-$(document).ready( function () {
+$(window).on("load", function() {
   setTimeout(function() {
     $('.loading-bg').css("opacity", "0");
         setTimeout(function() {
