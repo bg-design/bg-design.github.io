@@ -1340,6 +1340,14 @@ transform: translateX(-80px);
 .process {
 	width: 450px
 }
+
+#process-bullets {
+	font-family: 'Lora', serif;
+	font-size: 14pt;
+    line-height: 1.6em;
+	color: black;
+	letter-spacing: .5px;
+}
 .education {
 	width: 100%;
 	transform: scale(1.1,1.1);
