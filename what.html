@@ -28,19 +28,19 @@
 	}
 		/* Defining each section background and styles
 	* --------------------------------------- */
-/*	#section0{
-		background-image: url(IMG/safe-harbor-mock3.jpg);
-		padding: 0% 0 0 0;
-	}*/
 	#section0{
-		background-image: url(IMG/refer-me-mock3.jpg);
+		background-image: url(IMG/safe-harbor-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section1{
-		background-image: url(IMG/shyft-mock3.jpg);
+		background-image: url(IMG/refer-me-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section2{
+		background-image: url(IMG/shyft-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section3{
 		background-image: url(IMG/life-alert-mock4.jpg);
 		padding: 0% 0 0 0;
 	}
@@ -61,11 +61,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['ReferMe', 'Shyft','LifeAlert','GumballToys'],
+				anchors: ['SafeHarbor','ReferMe', 'Shyft','LifeAlert',],
 				sectionsColor: [],
 				navigation: true,
 				navigationPosition: 'left',
-				navigationTooltips: ['Refer Me', 'Shyft Event Planning', 'Life Alert', 'Gumball Toys'],
+				navigationTooltips: ['SafeHarbor','Refer Me', 'Shyft Event Planning', 'Life Alert'],
 				responsiveWidth: 0,
 				afterResponsive: function(isResponsive){
 					
@@ -103,7 +103,7 @@
 			<p>Won a hackathon at the Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>
 		</div>
 	</div> 
-	<div class="section" id="section0">
+	<div class="section" id="section1">
 	    <div class="what-box refer-me">
 			<h1>Refer Me</h1>
 			<br>
@@ -113,7 +113,7 @@
 		</div>
 
 	</div>
-	<div class="section" id="section1">
+	<div class="section" id="section2">
 		<div class="what-box shyft">
 			<h1>Shyft Event Planning</h1>
 			<br>
@@ -122,7 +122,7 @@
 			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
 		</div>
 	</div>
-	<div class="section" id="section2">
+	<div class="section" id="section3">
 		<div class="what-box life-alert">
 			<h1>Life Alert</h1>
 			<br>
