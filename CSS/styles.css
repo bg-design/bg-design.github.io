@@ -277,7 +277,8 @@ section {
 	width: 25px;
 	-webkit-transition:all 1s;
     -moz-transition:all 1s;
-    transition:all 1s
+    transition:all 1s;
+    display: none;
 }
 .hamburger-wrapper {
 	position: absolute;
@@ -301,7 +302,8 @@ section {
     transform:rotateX(0deg);
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
-    transition:all .5s
+    transition:all .5s;
+    display: none;
 }
 .logo:hover {
     backface-visibility:hidden;
@@ -351,11 +353,10 @@ section {
 
 
 .navbar li {
-	display: table-cell;
+	display: inline;
 	float:left;
 	width: 19%;
 	white-space: nowrap;
-	display: none;
 	transition: 1s;
 }
 nav li {
@@ -1385,11 +1386,7 @@ and (min-width: 1025px) /* Desktop */ {
   .first-copy {
 	width: 850px;
 }
-	.navbar li {
-   	display:inline;}
-	.logo, .ham-menu {
-		display:none;
-	}
+
 }
 
 @media only screen 
@@ -1401,15 +1398,11 @@ and (max-device-width : 1024px)  /* Tablet */ {
      .navbar {
   	height: 63px;
   	}
-   .navbar li {
-   	display:inline;
-   }
+
    .navbar li a {
    	font-size: 32px;
    }
-	.logo, .ham-menu {
-		display:none;
-	}
+
 	.books {
 	height: 30px;
     left: 35px;
@@ -1440,12 +1433,6 @@ and (max-device-width : 1024px)  /* Tablet */ {
 
 @media only screen
 and (max-width: 736px) /* Mobile */ {
-  	.navbar li {
-   	display:inline;}
-
-	.logo, .ham-menu {
-		display:none;
-	}
 	 .navbar {
   	height: 60px;
   	}
@@ -1474,12 +1461,6 @@ and (max-width: 736px) /* Mobile */ {
 	.project-button {
 		font: 18px 'Lato', sans-serif;
 	}
-/*	.what-box {
-		transform: translate(0,200px);
-	}
-	#archive {
-    transform: translate(0px, 170px);
-	}*/
 	p {
 		font: 12pt 'Lora', serif;
     	line-height: 1.5em;
