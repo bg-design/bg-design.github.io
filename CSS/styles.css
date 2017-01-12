@@ -108,8 +108,32 @@ footer {
 	background: rgb(248, 248, 248);
 	text-align: center;
 	padding: 10px;
+	padding-left:150px;
 }
+.github {
+	background: url('../IMG/Icons/github.png');
+	width: 30px;
+	height: 30px;
+	float:right;
+	background-size: 100% auto;
+}
+.github:hover {
+	background: url('../IMG/Icons/github-hover2.png');
+	background-size: 100% auto;
 
+}
+.github-white {
+	background: url('../IMG/Icons/github-white.png');
+	width: 30px;
+	height: 30px;
+	float:right;
+	background-size: 100% auto;
+}
+.github-white:hover {
+	background: url('../IMG/Icons/github-hover2.png');
+	background-size: 100% auto;
+
+}
 .small {
 	font-size:50%;
 }
