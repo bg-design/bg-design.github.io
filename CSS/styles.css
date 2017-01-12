@@ -934,24 +934,24 @@ padding: 0 25px;
     line-height: 1.3em;
     font-weight:300;
 }
-.safe-harbor {
-	transform: translate(0px, -150px)
+/*.safe-harbor {
+	transform: translate(0px, 200px)
 }
 .refer-me {
-	transform: translate(0px, -150px)
+	transform: translate(0px, 200px)
 }
 .shyft {
-	transform: translate(0px, -150px)
+	transform: translate(0px, 200px)
 }
 .life-alert {
-	transform: translate(0px, -150px)
+	transform: translate(0px, 200px)
 }
 .gumball {
-	transform: translate(0px, -150px)
+	transform: translate(0px, 200px)
 }
 #archive {
 	transform: translate(0px, 290px)
-}
+}*/
 .filler {
 	height: 100%;
 }
@@ -1502,6 +1502,14 @@ and (max-width: 736px) /* Mobile */ {
 	}
 }
 
+/*WHAT PROJECTS PADDING */
+
+@media only screen and (min-height: 700px) {
+	.what-box {
+		position: relative;
+		bottom:18%;
+	}
+}
 /*@media (max-width: 1199px) {
 	.project-thumb {
 		height: 220px;
