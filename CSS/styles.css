@@ -1474,12 +1474,12 @@ and (max-width: 736px) /* Mobile */ {
 	.project-button {
 		font: 18px 'Lato', sans-serif;
 	}
-	.what-box {
+/*	.what-box {
 		transform: translate(0,200px);
 	}
 	#archive {
     transform: translate(0px, 170px);
-	}
+	}*/
 	p {
 		font: 12pt 'Lora', serif;
     	line-height: 1.5em;
