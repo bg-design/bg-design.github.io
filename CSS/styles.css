@@ -111,8 +111,22 @@ footer {
 	width: 830px;
 	margin: 0 auto;
 }
+
 .credits-wrapper {
 	background: rgb(248, 248, 248);
+}
+
+#who-credits {
+	color: rgb(140, 140, 140);
+	background: #252B33;
+	width: 1000px;
+}
+.width1000 {
+	width: 1000px;
+}
+
+.who-credits-wrapper {
+	background: #252b33;
 }
 .github {
 	background: url('../IMG/Icons/github.png');
@@ -871,11 +885,6 @@ padding: 0 25px;
 .fifty-pad {margin-top: 50px;}
 .float-right {float: right;}
 .float-left {float: left;}
-
-#who-credits {
-	color: rgb(140, 140, 140);
-	background: #252B33;
-}
 
 
 .typing-wrap {
