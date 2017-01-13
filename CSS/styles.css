@@ -209,6 +209,7 @@ button:hover {
 	justify-content: space-between;
 }
 .bottom-nav button {
+	font: 12pt 'Lato', sans-serif;
 /*	background: rgba(162, 162, 162, 0.38);*/
 /*	border-radius: 5px;*/
 /*	border: 1px rgba(0, 0, 0, 0.22) solid;
@@ -1395,14 +1396,6 @@ and (max-device-width : 1024px)  /* Tablet */ {
   section {
     padding: 15px;
   }
-     .navbar {
-  	height: 63px;
-  	}
-
-   .navbar li a {
-   	font-size: 32px;
-   }
-
 	.books {
 	height: 30px;
     left: 35px;
@@ -1426,16 +1419,12 @@ and (max-device-width : 1024px)  /* Tablet */ {
 		margin-top: 45px;
 	    padding: 15px 35px;
 	}
-	.bottom-nav button {
-		font: 16pt 'Lato', sans-serif;
-	}
+
 }
 
 @media only screen
 and (max-width: 736px) /* Mobile */ {
-	 .navbar {
-  	height: 60px;
-  	}
+
   	section {
     padding: 15px;
   	}
@@ -1443,9 +1432,7 @@ and (max-width: 736px) /* Mobile */ {
 	height: 25px;
     left: 40px;
 	}
-	.navbar li a {
-   	font-size: 28px;
-   	}
+
    	#splash {
 		margin:5px;
 		padding:10px;
@@ -1464,9 +1451,6 @@ and (max-width: 736px) /* Mobile */ {
 	p {
 		font: 12pt 'Lora', serif;
     	line-height: 1.5em;
-	}
-	.bottom-nav button {
-		font: 16pt 'Lato', sans-serif;
 	}
 	.contact {
 		display: none;
