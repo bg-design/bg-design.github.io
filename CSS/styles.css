@@ -106,9 +106,13 @@ footer {
 	font-size: 11pt;
 	font-weight: 300;
 	background: rgb(248, 248, 248);
-	text-align: center;
+	text-align: left;
 	padding: 10px;
-	padding-left:150px;
+	width: 830px;
+	margin: 0 auto;
+}
+.credits-wrapper {
+	background: rgb(248, 248, 248);
 }
 .github {
 	background: url('../IMG/Icons/github.png');
