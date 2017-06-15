@@ -101,8 +101,10 @@ function hasScrolled() {
     // This is necessary so you never see what is "behind" the navbar.
     if (st > lastScrollTop && st > navbarHeight){
         // Scroll Down
-        $('.navbar').removeClass('nav-down').addClass('nav-up');
-        document.getElementById('backToTop').style.visibility = "hidden";
+        setTimeout(function() {
+          $('.navbar').removeClass('nav-down').addClass('nav-up');
+          document.getElementById('backToTop').style.visibility = "hidden";
+        },700);
             
     } else {
         // Scroll Up
