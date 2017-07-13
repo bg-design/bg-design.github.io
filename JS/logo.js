@@ -81,7 +81,7 @@ var navbarHeight = $('.navbar').outerHeight();
 
 $(window).scroll(function(event){
     didScroll = true;
-});
+},);
 
 setInterval(function() {
     if (didScroll) {
@@ -104,7 +104,7 @@ function hasScrolled() {
         setTimeout(function() {
           $('.navbar').removeClass('nav-down').addClass('nav-up');
           document.getElementById('backToTop').style.visibility = "hidden";
-        },700);
+        },);
             
     } else {
         // Scroll Up
