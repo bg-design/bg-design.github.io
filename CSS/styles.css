@@ -70,7 +70,7 @@ p
 {
 	font-family: 'Lora', serif;
 	font-size: 14pt;
-    line-height: 1.6em;
+    line-height: 1.2em;
 	color: black;
 	letter-spacing: .5px;
 	padding: 10px;
@@ -731,6 +731,11 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	color: white;
 	padding: 10px 10px 10px 15px;
 	border-radius: 5px;
+}
+
+#goals {
+	width: 500px;
+    margin: 0 auto;
 }
 
 .persona-list li {
