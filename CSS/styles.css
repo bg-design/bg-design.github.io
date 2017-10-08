@@ -1497,9 +1497,16 @@ and (max-width: 736px) /* Mobile */ {
   	#splash p {
   	font-size: 12pt;
     }
+
+    #splash .bottom-nav {
+    display: inline-grid;
+    }
 	#splash-nav {
     font-size: 14pt;
     padding: 10px;
+    clear: both;
+    float: left;
+    width: 100%;
 	}
 	.project-button {
 		font: 18px 'Lato', sans-serif;
