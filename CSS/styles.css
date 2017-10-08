@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5 {
 	text-align: center;
 	line-height: 1.5;
 	font-weight: 300;
+	clear: both;
 }
 
 h1{
@@ -76,10 +77,23 @@ p
 
 }
 
+.skills a {
+	border-bottom: 5px solid #b8e8ff;
+	opacity: 1;
+}
+
+.skills a:hover {
+	background: #b8e8ff;
+	opacity: 1;
+	transition: 1s;
+}
+
 a {
 	color: black;
 /*	border-bottom: 1px solid black;
 */	text-decoration: none;
+
+}
 }
 
 a:hover {
@@ -1226,9 +1240,8 @@ padding: 0 25px;
 }
 
 .contact {
-	width: 100px;
+	width: 50px;
     float: left;
-    margin-right: -100px;
 }
 .contact-description {
 /*	float:left;
@@ -1256,6 +1269,11 @@ padding: 0 25px;
 
 
 /*Shyft project */
+
+#shyft h2 {
+	clear:none;
+
+}
 #shyft-model {
 	width: 700px;
     margin: 0 auto;
