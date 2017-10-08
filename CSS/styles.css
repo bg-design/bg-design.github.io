@@ -1492,14 +1492,14 @@ and (max-width: 736px) /* Mobile */ {
    	#splash {
 		margin:5px;
 		padding:10px;
-		top:10%;
+		margin-top: 200px;
 	}
   	#splash p {
   	font-size: 12pt;
     }
 
     #splash .bottom-nav {
-    display: inline-grid;
+    display: block;
     }
 	#splash-nav {
     font-size: 14pt;
