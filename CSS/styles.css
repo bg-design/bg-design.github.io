@@ -1438,7 +1438,7 @@ transform: translateX(-80px);
 /* MEDIA QUERIES */
 
 @media only screen
-and (min-width: 1025px) /* Desktop */ {
+and (min-width: 1024px) /* Desktop */ {
 
   .first-copy {
 	width: 850px;
@@ -1447,17 +1447,14 @@ and (min-width: 1025px) /* Desktop */ {
 }
 
 @media only screen 
-and (min-device-width : 737px) 
+and (min-device-width : 736px) 
 and (max-device-width : 1024px)  /* Tablet */ {
-  section {
-    padding: 15px;
-  }
 	.books {
 	height: 30px;
     left: 35px;
 }
 	#splash {
-		margin:10px;
+		margin:200px 10px 10px 10px;
 		padding:20px;
 		top:20%;
 	}
@@ -1481,9 +1478,6 @@ and (max-device-width : 1024px)  /* Tablet */ {
 @media only screen
 and (max-width: 736px) /* Mobile */ {
 
-  	section {
-    padding: 15px;
-  	}
   	.books {
 	height: 25px;
     left: 40px;
@@ -1495,7 +1489,7 @@ and (max-width: 736px) /* Mobile */ {
 		margin-top: 200px;
 	}
   	#splash p {
-  	font-size: 12pt;
+  	font-size: 11pt;
     }
 
     #splash .bottom-nav {
