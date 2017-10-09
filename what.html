@@ -33,15 +33,15 @@
 		padding: 0% 0 0 0;
 	}
 	#section1{
-		background-image: url(IMG/refer-me-mock3.jpg);
-		padding: 0% 0 0 0;
-	}
-	#section2{
 		background-image: url(IMG/shyft-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section3{
+	#section2{
 		background-image: url(IMG/life-alert-mock4.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section3{
+		background-image: url(IMG/refer-me-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
 /*
@@ -61,11 +61,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['SafeHarbor','ReferMe', 'Shyft','LifeAlert',],
+				anchors: ['SafeHarbor','Shyft','LifeAlert','ReferMe'],
 				sectionsColor: [],
 				navigation: true,
 				navigationPosition: 'left',
-				navigationTooltips: ['SafeHarbor','Refer Me', 'Shyft Event Planning', 'Life Alert'],
+				navigationTooltips: ['SafeHarbor','Shyft Event Planning', 'Life Alert','Refer Me'],
 				responsiveWidth: 0,
 				afterResponsive: function(isResponsive){
 					
@@ -103,17 +103,8 @@
 			<p>Won a hackathon at the Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>
 		</div>
 	</div> 
-	<div class="section" id="section1">
-	    <div class="what-box refer-me">
-			<h1>Refer Me</h1>
-			<br>
-			<p>As part of General Assembly Labs worked with product managers and developers to design Refer Me- a platform that connects job seekers to those willing to refer.</p>
-			<br>
-			<a href="http://ben-grandy-peuv.squarespace.com/refer-me" data-lity><button class="project-button center">View Wires</button></a>
-		</div>
 
-	</div>
-	<div class="section" id="section2">
+	<div class="section" id="section1">
 		<div class="what-box shyft">
 			<h1>Shyft Event Planning</h1>
 			<br>
@@ -122,13 +113,24 @@
 			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
 		</div>
 	</div>
-	<div class="section" id="section3">
-		<div class="what-box life-alert">
+	<div class="section" id="section2">
+	    <div class="what-box life-alert">
 			<h1>Life Alert</h1>
 			<br>
 			<p>At General Assembly, two colleagues and I redesigned Life Alert. This included mobile apps, their marketing website, &amp; holistic system &amp; hardware design.</p>
 			<br>
 			<a href="https://ben-grandy-peuv.squarespace.com/life-alert" data-lity><button class="project-button center">Case Study</button></a>
+		</div>
+
+	</div>
+	<div class="section" id="section3">
+		
+		<div class="what-box refer-me">
+			<h1>Refer Me</h1>
+			<br>
+			<p>As part of General Assembly Labs worked with product managers and developers to design Refer Me- a platform that connects job seekers to those willing to refer.</p>
+			<br>
+			<a href="http://ben-grandy-peuv.squarespace.com/refer-me" data-lity><button class="project-button center">View Wires</button></a>
 		</div>
 	
 <!-- 	<div class="section" id="section3">
