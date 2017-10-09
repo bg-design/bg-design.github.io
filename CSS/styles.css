@@ -1539,6 +1539,12 @@ and (max-width: 480px)  {
     float: left;
     width: 100%;
 	}
+
+	#backToTop {
+		bottom: 10px;
+	    left: 10px;
+	    width: 50px;
+	}
 	.project-button {
 		font: 18px 'Lato', sans-serif;
 	}
