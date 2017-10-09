@@ -410,13 +410,13 @@ section {
 .navbar li {
 	display: inline;
 	float:left;
-	width: 19%;
 	white-space: nowrap;
 	transition: 1s;
 }
 nav li {
         display: block;
         width: 100%;
+        margin: 0 4px;
     }
 
 .navbar li a {
@@ -436,17 +436,11 @@ nav li {
 	color:black;
 	font-weight: 400;
 	border-bottom: 3px solid black;
-	width: 80px;
 	margin: 0 auto;
 }
 .navbar li a:hover {
 	color: black;
 	font-weight:400;
-}
-
-a#active.what-bg {
-	color: black;
-	border-bottom: 3px solid black;
 }
 
  .navbar li a:hover.what-bg {
@@ -1571,7 +1565,7 @@ and (max-width: 480px)  {
 	.bottom-nav button {
 		width: 45%;
     	padding: 10px;
-    	margin: 10px;
+    	margin: 8px;
 	}
 	footer {
 		width: 100%;
