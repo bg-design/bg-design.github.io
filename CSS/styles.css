@@ -1375,6 +1375,10 @@ transform: translateX(-80px);
 	transition:all .4s ease-in-out;
 }
 
+.book-stack {
+	margin: 40px 0;
+}
+
 #triple-venn {
 	width: 120px;
 	margin: 20px;
@@ -1518,8 +1522,8 @@ and (max-width : 1024px)   {
 and (max-width: 480px)  {
 
   	.books {
-	height: 25px;
-    left: 40px;
+	height: 80px;
+    left: 80px;
 	}
 
    	#splash {
@@ -1552,7 +1556,7 @@ and (max-width: 480px)  {
 	}
 	p {
 		font: 16pt 'Lora', serif;
-    	line-height: 1.3em;
+    	line-height: 1.7;
 	}
 	.contact {
 		display: none;
@@ -1574,6 +1578,9 @@ and (max-width: 480px)  {
 	}
 	.software-icons {
 		width: 125px;
+	}
+	#pyramid, #abstraction-ladder {
+		width: 100%;
 	}
 
 }
