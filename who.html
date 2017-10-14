@@ -138,7 +138,7 @@
 
 		.who-credits-wrapper {background: #252b33;}
 
-		@media only screen and (max-width: 641px) {
+		@media only screen and (max-width: 430px) {
 			#ben-persona {border-radius: 0;}
 
 			.persona-bar {
@@ -180,7 +180,7 @@
 			<div class="three-col float-left persona-col">
 				<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
 
-				<p><strong>Age</strong>: 28</p>
+				<p><strong>Age</strong>: <span id="years-counter"></span><br/>(<span id="seconds-counter"></span> seconds)</p>
 				<p><strong>Occupation</strong>: Designer / Developer</p>
 				<p><strong>Location</strong>: San Francisco Bay Area</p>
 				<p><strong>Archetype</strong>: Futurist</p>
@@ -312,6 +312,16 @@
 	});
 </script>
 
+<!-- Seconds counter -->
+<script type="text/javascript">
+	var secondsSince19890303 = Math.floor((Date.now()/1000) - 604947600)
+	setInterval(function () {
+				var secondsSince19890303= Math.floor((Date.now()/1000) - 604947600);
+				var yearsSince19890303 = (secondsSince19890303 / 31536000).toFixed(2); 
+        		document.getElementById("seconds-counter").innerHTML = secondsSince19890303.toLocaleString();
+        		document.getElementById("years-counter").innerHTML = yearsSince19890303;
+        }, 1000);
+</script>
 </body>
 <hr style="border-bottom: 1px solid #5e5e5e;">
 <div class="who-credits-wrapper">

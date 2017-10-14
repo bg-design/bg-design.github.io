@@ -866,7 +866,7 @@ and (min-width : 479px) and (max-width : 1024px)   {
 }
 
 /* Mobile */
-@media only screen and (max-width: 480px)  {
+@media only screen and (max-width: 430px)  {
 
 	.two-col, .three-col, .four-col, .six-col {width: 100%;}
 
