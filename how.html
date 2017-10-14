@@ -8,11 +8,160 @@
 	<title>How | Ben Grandy</title>
 
 	<link type="text/css" rel="stylesheet" href="CSS/featherlight.min.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css?d=2017.10.8" media="screen">
+    <link rel="stylesheet" type="text/css" href="CSS/global.css" media="screen">
 
 	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	<style>
+		.tools {
+			width: 100%;
+			margin: 20px 0;
+		}
+
+		.software-icons-wrapper {
+			margin-left:20px;
+		}
+		.software-icons {
+			width: 250px;
+			float: left;
+			transition: ease-in-out 2s;
+
+		}
+		.software-icons:hover {
+			opacity: 1;
+			transition: ease-in-out .2s;
+			filter:grayscale(0%);
+		}
+
+		.tooltip {
+		    position: relative;
+		    display: inline-block;
+
+		}
+
+		.tooltip .tooltiptext {
+			width: 150px;
+		    top: 91%;
+		    left: 50%; 
+		    margin-left: -75px;
+		    visibility: hidden;
+		    color: #666;
+		    text-align: center;
+		    border-radius: 6px;
+		    padding: 5px 0;
+
+		    /* Position the tooltip */
+		    position: absolute;
+		    z-index: 1;
+		}
+
+		.tooltip:hover .tooltiptext {
+		    visibility: visible;
+		}
+
+		.tooltiptext {
+			font-size: 17pt;
+		}
+
+		.process {
+			width: 450px
+		}
+
+		#process-bullets {
+			font-family: 'Lora', serif;
+			font-size: 14pt;
+		    line-height: 1.6em;
+			color: black;
+			letter-spacing: .5px;
+			padding: 10px;
+		}
+		.education {
+			width: 100%;
+			transform: scale(1.1,1.1);
+		}
+		.skills a {
+			border-bottom: 5px solid #b8e8ff;
+			opacity: 1;
+		}
+
+		.skills a:hover {
+			background: #b8e8ff;
+			opacity: 1;
+			transition: 1s;
+		}
+
+		.typing-wrap {
+		    margin: 10px;
+		}
+		/* code for animated blinking cursor on who */
+		.typed-cursor{
+	        opacity: 1;
+	        font-weight: 100;
+	        -webkit-animation: blink 1.7s infinite;
+	        -moz-animation: blink 1.7s infinite;
+	        -ms-animation: blink 1.7s infinite;
+	        -o-animation: blink 1.7s infinite;
+	        animation: blink 1.7s infinite;
+	    }
+	    @-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-webkit-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-moz-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-ms-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-o-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+
+
+
+		/*HOW PROCESS IMAGE*/
+		@media only screen and (max-width: 700px)
+		{
+			img.process {
+				width: 100%;
+			}
+		}
+
+		/* Desktop */
+		@media only screen
+		and (min-device-width: 1024px)  {
+
+		/*  .first-copy {
+			width: 850px;*/
+			.software-icons {
+				opacity: 0.5;
+				filter:grayscale(80%);
+			}
+		}
+
+		/*Tablet and Mobile*/
+		@media only screen and (max-device-width: 1023px) {
+			/*	HOW SECTION*/
+			.software-icons {
+		    	opacity: 1;
+		    	filter: grayscale(0%);
+			}
+}
+
+	</style>
 
 </head>
 <body>

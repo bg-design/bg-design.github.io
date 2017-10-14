@@ -7,11 +7,150 @@
 	<title>Who | Ben Grandy</title>
 <head>
 
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="CSS/global.css" media="screen">
 
 	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	<style type="text/css">
+
+		.persona-col {
+
+		}
+		#persona {
+			margin-top:53px;
+		}
+
+		#persona p {
+			font-size:12pt;
+		}
+
+		#persona blockquote {
+			 background: rgba(49, 57, 67, 0.87);
+			 color: white;
+			 text-align: center;
+		}
+
+		#ben-persona {border-radius: 100%;}
+
+		#traits {
+/*			display: flex;
+			justify-content: space-between;*/
+		}
+
+		#traits h5 {
+			background: rgb(228, 228, 228);
+			padding: 5px;
+			margin: 10px 5px 0 5px;
+			border-radius: 4px;
+			font-size: 13pt;
+			color: rgb(84, 84, 84);
+			float: left;
+			clear: none;
+		}
+
+		#bio p{
+			background: rgba(43, 50, 59, 0.79);
+			font: 10.5pt 'Lora', serif;
+			font-weight: 300;
+			line-height: 1.3;
+			color: white;
+			padding: 10px 10px 10px 15px;
+			border-radius: 5px;
+		}
+
+		#goals {
+/*			width: 500px;
+*/		    margin: 0 auto;
+		}
+
+		.persona-list li {
+			font-size:14pt;
+			line-height: 1.5em;
+			padding-left:30px;
+		}
+
+		.persona-bar {
+			position: relative;
+			display: block;
+			overflow: hidden;
+			background: rgb(230, 230, 230);
+			height: 15px;
+			width: 100%;
+		}
+		.persona-progress {
+			position: relative;
+			display: block;
+			background: #3c4552;
+			height: 15px;
+
+		  -webkit-animation:stretch ease-in-out 1s;  
+		  -moz-animation:stretch ease-in-out 1s;
+		  animation:stretch ease-in-out 1s;
+
+		/*  -webkit-animation-fill-mode:forwards; 
+		  -moz-animation-fill-mode:forwards;
+		  animation-fill-mode:forwards;*/
+
+		  -webkit-animation-duration:2s;
+		  -moz-animation-duration:2s;
+		  animation-duration:2s;
+
+		  -webkit-animation-delay: 2.5s;
+		  -moz-animation-delay: 2.5s;
+		  animation-delay: 2.5s;
+		}
+
+		#persona h4 {
+			font-size: 12pt;
+			line-height: 1.6;
+			color: #484848;
+			font-weight:300;
+    		clear: none;
+		}
+		#persona h4:not(.personality){
+			text-align: left;
+    		margin-left: 30px;
+		}
+		.personality {
+			padding: 0 30px 5px 30px;
+		}
+		.recommendations {
+			background:#252B33;
+			color:white;
+		}
+
+		.recommendations h3 {
+			font-size:26pt;
+			font-weight:300;
+		}
+		.persona-slider {
+			position: relative;
+			display: block;
+			width: 15px;
+			height: 15px;
+			background: #3c4552;
+		}
+		#who-credits {
+			color: rgb(140, 140, 140);
+			background: #252B33;
+		}
+
+		.who-credits-wrapper {background: #252b33;}
+
+		@media only screen and (max-width: 641px) {
+			#ben-persona {border-radius: 0;}
+
+			.persona-bar {
+				width: 80%;
+				margin: 10px auto;
+			}
+			#bio p {
+				border-radius: 0;
+			}
+		}
+
+	</style>
 
 </head>
 <body>
@@ -34,49 +173,48 @@
 	</nav>
 	<hr>
 	<div class="container">
+		<section id="persona">
 
-			<section id="persona">
-			<div class="three-col float-left"><img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
-
-			<p><strong>Age</strong>: 28</p>
-			<p><strong>Occupation</strong>: Designer</p>
-			<p><strong>Location</strong>: Oakland, CA</p>
-			<p><strong>Archetype</strong>: Futurist</p>
-			<br>
-
-			<p><strong>Beliefs</strong>: Secular Humanist, Environmentalist, Democratic Socialist, Optimist</p>
-			<div class="fade-in six">
-				<h3>Skills</h3>
-
-				<h4>UX Design</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" style="width: 70%"></span></div>
-				<h4>Visual Design</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" style="width: 60%"></span></div>
-				<h4>Frontend Web</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" style="width: 85%"></span></div>
-				<h4>Research</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" style="width: 55%"></span></div>
-			</div>
-
-
-			</div>
-
-			<div class="width-100">
 			<blockquote class="center">"I explore novel approaches and make things better."</blockquote>
-				<div class="six-col float-left fade-in three">
 
+			<div class="three-col float-left persona-col">
+				<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
+
+				<p><strong>Age</strong>: 28</p>
+				<p><strong>Occupation</strong>: Designer / Developer</p>
+				<p><strong>Location</strong>: San Francisco Bay Area</p>
+				<p><strong>Archetype</strong>: Futurist</p>
+				<p><strong>Beliefs</strong>: Secular Humanist, Environmentalist, Democratic Socialist, Optimist</p>
+
+				<div class="fade-in six">
+					<h3>Skills</h3>
+
+					<h4>UX Design</h4>
+					<div class="persona-bar"><span class="persona-progress float-left" style="width: 75%"></span></div>
+					<h4>Visual Design</h4>
+					<div class="persona-bar"><span class="persona-progress float-left" style="width: 65%"></span></div>
+					<h4>Frontend Web Dev.</h4>
+					<div class="persona-bar"><span class="persona-progress float-left" style="width: 90%"></span></div>
+					<h4>User Research</h4>
+					<div class="persona-bar"><span class="persona-progress float-left" style="width: 55%"></span></div>
+				</div>
+			</div>
+			<div class="six-col float-left fade-in three persona-col">
 
 					<h3>Personality</h3>
-					<h4 class="float-left fade-in four">Serious</h4><h4 class="float-right">Light-hearted</h4>
+
+					<h4 class="float-left fade-in four personality">Serious</h4><h4 class="float-right personality">Light-hearted</h4>
 					<div class="persona-bar fade-in four"><span class="persona-slider pop delay-one" style="left: 70%"></span></div>
-					<h4 class="float-left fade-in five">Extrovert</h4><h4 class="float-right">Introvert</h4>
+					<h4 class="float-left fade-in five personality">Extrovert</h4><h4 class="float-right personality">Introvert</h4>
 					<div class="persona-bar fade-in five"><span class="persona-slider pop delay-two" style="left: 60%"></span></div>
-					<h4 class="float-left fade-in six">Breadth</h4><h4 class="float-right">Depth</h4>
+					<h4 class="float-left fade-in six personality">Breadth</h4><h4 class="float-right personality">Depth</h4>
 					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-three" style="left: 50%"></span></div>
-					<h4 class="float-left fade-in six">Talker</h4><h4 class="float-right">Listener</h4>
+					<h4 class="float-left fade-in six personality">Talker</h4><h4 class="float-right personality">Listener</h4>
 					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-four" style="left: 65%"></span></div>
 
-					<div id="traits"><h5 class="float-left">Creative</h5><h5 class="float-left">Idealistic</h5><h5 class="float-left">Conceptual</h5><h5 class="float-left">Intellectual</h5></div>
+					<div id="traits">
+						<h5>Creative</h5><h5>Idealistic</h5><h5>Conceptual</h5><h5>Intellectual</h5>
+					</div>
 
 					<div id="bio">
 						<h3>Bio</h3><p>I'm an endlessly curious knowledge-junkie that's always learning, growing, &amp; building. As a founder, I'm used to tackling problems head on and love moving fast. I'm passionate about solving meaningful, complex, high-impact problems. I love design thinking and the creative process, for their ability to push the human race forward. That's why in an effort to combat Climate Change, I spent the last four years building, selling, and designing electric vehicles.</p>
@@ -91,9 +229,8 @@
 							<li>Collaborate.</li>
 						</ul>
 					</div>
-				</div>
-
-				<div class="three-col float-left fade-in six">
+			</div>
+			<div class="three-col float-left fade-in six persona-col">
 
 				<h3>Motivations</h3>
 				<h4>Wealth</h4>
@@ -108,7 +245,6 @@
 				<div class="persona-bar"><span class="persona-progress float-left" style="width: 40%"></span></div>
 				<h4>Connection</h4>
 				<div class="persona-bar"><span class="persona-progress float-left" style="width: 70%"></span></div>
-
 				<br>
 
 				<p><strong>Favorite People</strong>: Frank Lloyd Wright, Steve Jobs, Leonardo da Vinci, Hank Green, Elon Musk, William McDonough, Dieter Rams, Paolo Soleri</p><br>
@@ -117,13 +253,12 @@
 
 				<p><strong>Favorite Brands</strong>: Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project</p>
 
-				</div>
 			</div>
-			</section>
-			
-		<hr class="twenty-pad">
-	</div>
-	<hr>
+		</section>
+	</div>	
+	
+	<hr class="twenty-pad">
+
 	<div class="recommendations">
 		<section class="fade-in six container">	
 			<h3>References</h3>

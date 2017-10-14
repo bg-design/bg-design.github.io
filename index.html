@@ -13,10 +13,70 @@
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
-	html {
-		background: URL('IMG/NM-hero2.jpg') no-repeat right top fixed;
-		background-size: cover;
-	}
+		html {
+			background: URL('IMG/NM-hero2.jpg') no-repeat right top fixed;
+			background-size: cover;
+			}
+
+		#splash {
+			position: absolute;
+		    max-width: 500px;
+			padding: 20px 45px;
+			top: 25%;
+			background: rgba(35, 35, 35, 0.57);
+			border-radius: 20px;
+			margin: 0 55px;
+			-webkit-backdrop-filter: blur(8px);
+			backdrop-filter: blur(8px);
+		}
+
+		#splash p {
+			font-family: 'Lora';
+			color: white;
+			font-size:14pt;
+			line-height: 1.3em;
+		}
+		#splash h3 {
+			font-family: 'Lora';
+			color: white;
+			font-size:20pt;
+			line-height: 1.3em;
+		}
+		#splash-nav-wrapper {
+			position: absolute;
+			background: rgba(255, 255, 255, 0.66);
+		}
+		#splash-nav {
+			font-size:12pt;
+		}
+		.splash-button {
+			color: white;
+			border: 1px solid white;
+			margin: 10px 0;
+		}
+
+		/* Mobile */
+	@media only screen and (max-width: 480px)  {
+
+	   	#splash {
+			margin:5px;
+			padding:10px;
+			margin-top: 200px;
+		}
+	  	#splash p {
+	  	font-size: 11pt;
+	    }
+
+	    #splash .bottom-nav {
+	    display: block;
+	    }
+		#splash-nav {
+	    font-size: 14pt;
+	    padding: 10px;
+	    clear: both;
+	    float: left;
+	    width: 100%;
+		}
 
 	</style>
 
