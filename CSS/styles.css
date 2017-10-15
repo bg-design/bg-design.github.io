@@ -287,6 +287,7 @@ section {
 .navbar {
 	position: fixed;
 	width: 100%;
+	top: 0;
 	height: 54px;
 	z-index: 5;
 	background-color: rgba(255, 255, 255, .85);
@@ -572,8 +573,8 @@ cite p {color:white;}
 }
 
 .container {
-	max-width:1000px;
-	clear:both;
+/*	max-width:1000px;
+*/	clear:both;
 	margin: 0 auto;
 }
 
@@ -793,17 +794,6 @@ cite p {color:white;}
 /*Full-page projects */
 .banner {
 	background-size: contain;
-}
-.banner-description {
-	bottom: 70px;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.74);
-    padding: 10px;
-    border-radius: 10px;
-    -webkit-backdrop-filter: blur(3px);
-	backdrop-filter: blur(3px);
-	max-width: 900px;
-	margin: 10px auto;
 }
 
 .contact {

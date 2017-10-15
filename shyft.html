@@ -14,6 +14,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style type="text/css">
+
 		#shyft h2 {clear:none;}
 		#shyft-model {
 			width: 700px;
@@ -78,11 +79,28 @@
 			padding: 15px;
 			padding-top:50px;
 		}
+
+		.shyft-banner-description {
+			bottom: 400px;
+		    position: relative;
+		    background: rgba(255, 255, 255, 0.62);
+		    border-radius: 10px;
+		    -webkit-backdrop-filter: blur(3px);
+		    backdrop-filter: blur(3px);
+		    max-width: 900px;
+		    margin: 10px auto;
+		}
+
+		@media only screen and (max-width: 985px) {
+			.shyft-banner-description {
+				position: initial;
+
+			}
 	</style>
 
 </head>
 <body>
-	<div class="loading-bg" id="why-loading">
+	<div class="loading-bg" id="how-loading">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
 			<div class="loading-dot"></div>
@@ -94,19 +112,18 @@
   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
 			<img class="logo" src="IMG/ben-grandy-sig.png">
 			<ul class="nav-menu">
-				<li><a id="active" href="what.html">What</a></li><li><a href="how.html">How</a></li><li><a href="who.html">Who</a></li><li><a href="when-where.html">When</a></li><li><a href="why.html">Why</a></li>
+				<li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
 			</ul>
 		</div>
-		<hr>
 	</nav>
+	<div class="nav-spacer"></div>
 	<hr>
-
 	<div class="banner">
 		<img src="IMG/shyft-mock3.jpg" />
 	</div>
 <div class="container" id="shyft">
 	<section>
-		<div class="center  banner-description">
+		<div class="center shyft-banner-description">
 			<h1>Shyft Event Planning</h1>
 			<p>Interaction Design | February 2016</p>
 			<p><strong>Duration</strong>: 2 weeks | <strong>Team</strong>: 2 designers | <strong>Role</strong>: Visual &amp; UX design</p>
@@ -117,7 +134,7 @@
 		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
 		<br>
 		<p>Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
-		<img src="IMG/Shyft/shyft-model.png" id="shyft-model"/>
+		<img src="IMG/Shyft/shyft-business-model.jpg" id="shyft-model"/>
 
 		<p>To differentiate themselves from their competitors and deliver a quality experience, our client told us that they were focused on three core values: available, reliable, and local. <strong>Available</strong> is defined as having schedules that are open to the shifts needed. <strong>Reliable</strong> means that the ambassadors consistently show up and are professional. <strong>Local</strong> means they are within the local area and have the transportations means to get to their scheduled shifts.</p>
 		<img src="IMG/Shyft/shyft-criteria2.png" id="shyft-values"/>
@@ -184,9 +201,15 @@
 
 <div class="container">
 	<section>
-		<div class="bottom-nav">
+<!-- 		<div class="bottom-nav">
 		<a href="http://ben-grandy-peuv.squarespace.com/refer-me" target="_blank"><button class="float-left hvr-sweep-to-left when-button"><div class="flip float-left">➟</div>&nbsp;Refer Me</button></a>
 		<a href="https://ben-grandy-peuv.squarespace.com/life-alert" target="_blank"><button class="float-right hvr-sweep-to-right who-button">Life Alert ➟</button></a>
+		</div> -->
+
+		<div class="bottom-nav">
+			<button class="float-left hvr-sweep-to-left when-button" onClick="window.location.href='http://ben-grandy-peuv.squarespace.com/refer-me'"><div class="flip float-left">➟</div>&nbsp;Refer Me</button>
+			<button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert&nbsp;➟</button>
+			
 		</div>
 	</section>
 </div>
