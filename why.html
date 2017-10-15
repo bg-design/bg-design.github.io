@@ -40,11 +40,16 @@
 		}
 		#pyramid {width:40%;}
 		#abstraction-ladder {width:50%;}
+
+		@media only screen and (max-width: 430px)  {
+
+		#pyramid, #abstraction-ladder {width: 100%;}
+		}
 	</style>
 
 </head>
 <body>
-	<div class="loading-bg" id="why-loading">
+	<div class="loading-bg" id="when-loading">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
 			<div class="loading-dot"></div>
@@ -53,8 +58,8 @@
 	</div>
 	<nav class="navbar">
   		<div class="container nav-wrapper">
-  		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-			<img class="logo" src="IMG/ben-grandy-sig.png">
+<!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
 			<ul class="nav-menu">
 				<li><a href="what.html">What</a></li><li><a href="how.html">How</a></li><li><a href="who.html">Who</a></li><li><a href="when-where.html">When</a></li><li><a id="active" href="why.html">Why</a></li>
 			</ul>
@@ -72,6 +77,25 @@
 			<p class="fade-in two">When approaching any problem, it's tempting to jump right into the solution, the implementation, the visual design, and the polish. However, you risk missing the forest for the trees. When a problem or issue is identified, the instinct is to assume that the client giving you their problem has identified the correct issue. However, errors or issues usually occur because of a long line of corroborating events that led to the failure and what they're giving you is often just a signal or a thread that needs to be pulled to untangle the issue. The first half of the double diamond methodology is simply defining the real problem.</p>
 
 			<p class="fade-in three">When doing research, it is not enough to identify human error and stop searching. As designers, we are tasked with always digging deeper, asking 'why?' like an annoying kid, and continually searching for the root cause. Behind every seemingly simple answer, there's always another perspective, nuance, or angle to be uncovered. While you can't eliminate your assumptions, you can start testing and unpacking each one. In the end, it is conceptual, big-picture UX thinking that casts a wide net to find the right solution so that precious resources aren't squandered.<p>
+
+			<hr>
+
+			<h2>Design Philosophy</h2>
+			<ul>
+				<li>You are not your user.</li>
+				<li>Less is more.</li>
+				<li>Focus on core user needs.</li>
+				<li>Test early, test often.</li>
+				<li>Always ask "Why?" and dig deeper.</li>
+			</ul>
+
+			<h2>Development Philosophy</h2>
+			<ul>
+				<li>Less code is better code.</li>
+				<li>Don't Repeat Yourself</li>
+				<li>Modular code is good code.</li>
+				<li>Reduce, eliminate, &amp; simplify whenever possible.</li>
+			</ul>
 		</div>
 			<hr>
 			<img class="" src="IMG/abstraction-ladder3.png" id="abstraction-ladder">

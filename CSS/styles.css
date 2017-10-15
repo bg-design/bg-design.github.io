@@ -202,7 +202,13 @@ img {max-width: 100%;}
 ul {
 	list-style-type:circle;
 	list-style-position:inside;
-}
+	font-family: 'Lora', serif;
+	font-size: 14pt;
+    line-height: 1.6em;
+	color: black;
+	letter-spacing: .5px;
+	padding: 10px 0 0 15px;
+		}
 
 figcaption {
 	font-family: 'Lora', serif;
@@ -338,7 +344,7 @@ nav li {
 	font-weight: 300;
 	font-size: 23px;
     display: block;
-    padding: 14px 0px;
+    padding: 0 0 12px 0;
     text-decoration: none;
     border:0;
 }
@@ -848,11 +854,8 @@ and (min-width : 479px) and (max-width : 1024px)   {
 	.what-box {transform: initial;}
 
 	.why {
-		margin-top: 45px;
 	    padding: 15px 35px;
 	}
-
-	.software-icons {width: 200px;}
 }
 
 /* Mobile */
@@ -894,9 +897,5 @@ and (min-width : 479px) and (max-width : 1024px)   {
     	font-size: 14px;
 	}
 	footer {width: 100%;}
-
-	.software-icons {width: 125px;}
-
-	#pyramid, #abstraction-ladder {width: 100%;}
 
 }

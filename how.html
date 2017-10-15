@@ -67,14 +67,6 @@
 			width: 450px
 		}
 
-		#process-bullets {
-			font-family: 'Lora', serif;
-			font-size: 14pt;
-		    line-height: 1.6em;
-			color: black;
-			letter-spacing: .5px;
-			padding: 10px;
-		}
 		.education {
 			width: 100%;
 			transform: scale(1.1,1.1);
@@ -158,8 +150,18 @@
 		    	opacity: 1;
 		    	filter: grayscale(0%);
 			}
-}
+		}
+		/* Tablet */
+		@media only screen and (min-width : 479px) and (max-width : 1024px)   {
 
+		.software-icons {width: 200px;}
+		}
+		/* Mobile */
+		@media only screen and (max-width: 430px)  {
+
+		.software-icons {width: 125px;}
+		}
+		
 	</style>
 
 </head>
@@ -173,8 +175,8 @@
 	</div>
 	<nav class="navbar">
   		<div class="container nav-wrapper">
-  		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-			<img class="logo" src="IMG/ben-grandy-sig.png">
+<!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
 			<ul class="nav-menu">
 				<li><a class="fade-in four" href="what.html">What</a></li><li><a id="active" class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
 			</ul>
@@ -229,11 +231,11 @@
 		<img class="float-right process fade-in five" src="IMG/circular-process9.png">
 		<p class="fade-in four">Agile &amp; Lean UX, Human-Centered Design, Design Thinking, Collaborative/ Participatory Design, Lateral Thinking, Rapid Iteration &amp; Prototyping, Constant Feedback &amp; Usability Testing</p><br>
 
-		<ul id="process-bullets">
+		<ul>
 		<li class="fade-in six">Test early, test often.</li>
 		<li class="fade-in six">Build, measure, learn.</li>
 		<li class="fade-in six">Iterate, test, repeat.</li>
-		<li class="fade-in six">Keep calm, and iterate on.</li>
+		<li class="fade-in six">Ideate, iterate, deploy, &amp; squash bugs.</li>
 		</ul>
 
 		<h2 class="fade-in five">Process</h2>
@@ -241,7 +243,7 @@
 
 		<img class="center fade-in six" src="IMG/double-diamond.png" />
 		<figcaption class="fade-in six">Double Diamond Methodology</figcaption><br>
-		<p class="fade-in six"> Next, in the ideation stage we go wide, coming up with sometimes absurd 'outside the box' sorts of ideas. After ideating, we prune down and latch on several core approaches, letting only the best ideas come through. From here, we develop a prototype &amp; start testing against a whole range of potential users, ensuring the solution makes sense to a wide audience. Lastly, we can start engineering and building, continuing to work out usability issues &amp; incorporating regular feedback.</p>
+		<p class="fade-in six"> Next, in the ideation stage we go wide, coming up with sometimes absurd 'outside the box' sorts of ideas. After ideating, we prune down and latch on several core approaches, letting only the best ideas come through. From here, we develop a prototype &amp; start testing against a whole range of potential users, ensuring the solution makes sense to a wide audience. Lastly, we can start engineering and building, continuing to work out usability issues, incorporating regular feedback, and squashing bugs as needed.</p>
 	</section>
 		<div class="bottom-nav">
 			<button class="float-left hvr-sweep-to-left what-button" onClick="parent.location='what.html'"><div class="flip float-left">➟</div>&nbsp;Featured Work</button>
