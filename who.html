@@ -17,9 +17,11 @@
 		.persona-col {
 
 		}
-		#persona {
+/*		#persona {
 			margin-top:53px;
-		}
+			max-width: 1000px;
+			margin: 0 auto;
+		}*/
 
 		#persona p {
 			font-size:12pt;
@@ -33,20 +35,24 @@
 
 		#ben-persona {border-radius: 100%;}
 
+		#headshot-wrapper {margin: 10px;}
+
 		#traits {
-/*			display: flex;
-			justify-content: space-between;*/
+			max-width: 300px;
+			margin: 0 auto;
 		}
 
 		#traits h5 {
 			background: rgb(228, 228, 228);
-			padding: 5px;
-			margin: 10px 5px 0 5px;
-			border-radius: 4px;
-			font-size: 13pt;
-			color: rgb(84, 84, 84);
-			float: left;
-			clear: none;
+		    padding: 5px;
+		    border-radius: 4px;
+		    font-size: 13pt;
+		    color: rgb(84, 84, 84);
+		    width: 100px;
+		    margin: 10px auto 15px;
+		    clear: none;
+		    float: left;
+		    margin-left: 10px;
 		}
 
 		#bio p{
@@ -76,7 +82,9 @@
 			overflow: hidden;
 			background: rgb(230, 230, 230);
 			height: 15px;
-			width: 100%;
+/*			width: 100%;*/
+			margin: 0 10px;
+			clear: both;
 		}
 		.persona-progress {
 			position: relative;
@@ -110,10 +118,15 @@
 		}
 		#persona h4:not(.personality){
 			text-align: left;
-    		margin-left: 30px;
+    		margin-left: 10px;
 		}
 		.personality {
-			padding: 0 30px 5px 30px;
+			padding: 0 10px 5px 10px;
+		}
+
+		.reference-wrapper {
+			max-width: 1000px;
+			margin: 0 auto;
 		}
 		.recommendations {
 			background:#252B33;
@@ -123,6 +136,11 @@
 		.recommendations h3 {
 			font-size:26pt;
 			font-weight:300;
+		}
+
+		.recommendations .bottom-nav {
+			max-width: 1000px;
+			margin: 0 auto;
 		}
 		.persona-slider {
 			position: relative;
@@ -138,8 +156,14 @@
 
 		.who-credits-wrapper {background: #252b33;}
 
+		@media only screen and (max-width: 735px) {
+			#bio p {border-radius: 0;}
+		}
+
+
 		@media only screen and (max-width: 430px) {
 			#ben-persona {border-radius: 0;}
+			#headshot-wrapper {margin: 0;}
 
 			.persona-bar {
 				width: 80%;
@@ -171,6 +195,7 @@
 		</div>
 		<hr>
 	</nav>
+	<div class="nav-spacer"></div>
 	<hr>
 	<div class="container">
 		<section id="persona">
@@ -178,7 +203,9 @@
 			<blockquote class="center">"I explore novel approaches and make things better."</blockquote>
 
 			<div class="three-col float-left persona-col">
-				<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
+				<div id="headshot-wrapper">
+					<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
+				</div>
 
 				<p><strong>Age</strong>: <span id="years-counter"></span><br/>(<span id="seconds-counter"></span> seconds)</p>
 				<p><strong>Occupation</strong>: Designer / Developer</p>
@@ -186,51 +213,21 @@
 				<p><strong>Archetype</strong>: Futurist</p>
 				<p><strong>Beliefs</strong>: Secular Humanist, Environmentalist, Democratic Socialist, Optimist</p>
 
-				<div class="fade-in six">
-					<h3>Skills</h3>
+				<p><strong>Traits</strong>:</p>
 
-					<h4>UX Design</h4>
-					<div class="persona-bar"><span class="persona-progress float-left" style="width: 75%"></span></div>
-					<h4>Visual Design</h4>
-					<div class="persona-bar"><span class="persona-progress float-left" style="width: 65%"></span></div>
-					<h4>Frontend Web Dev.</h4>
-					<div class="persona-bar"><span class="persona-progress float-left" style="width: 90%"></span></div>
-					<h4>User Research</h4>
-					<div class="persona-bar"><span class="persona-progress float-left" style="width: 55%"></span></div>
+				<div id="traits">
+						<h5>Creative</h5><h5>Idealistic</h5><h5>Conceptual</h5><h5>Intellectual</h5>
 				</div>
 			</div>
-			<div class="six-col float-left fade-in three persona-col">
+			
+			<div class="three-col float-right fade-in six persona-col">
 
-					<h3>Personality</h3>
+				<p><strong>Favorite People</strong>: Frank Lloyd Wright, Steve Jobs, Leonardo da Vinci, Hank Green, Elon Musk, William McDonough, Dieter Rams, Paolo Soleri</p><br>
 
-					<h4 class="float-left fade-in four personality">Serious</h4><h4 class="float-right personality">Light-hearted</h4>
-					<div class="persona-bar fade-in four"><span class="persona-slider pop delay-one" style="left: 70%"></span></div>
-					<h4 class="float-left fade-in five personality">Extrovert</h4><h4 class="float-right personality">Introvert</h4>
-					<div class="persona-bar fade-in five"><span class="persona-slider pop delay-two" style="left: 60%"></span></div>
-					<h4 class="float-left fade-in six personality">Breadth</h4><h4 class="float-right personality">Depth</h4>
-					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-three" style="left: 50%"></span></div>
-					<h4 class="float-left fade-in six personality">Talker</h4><h4 class="float-right personality">Listener</h4>
-					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-four" style="left: 65%"></span></div>
+				<p><strong>Favorite Sites</strong>: Wikipedia, Kickstarter, Vimeo, Quora, Codecademy, Pinterest, Etsy, TED, Wait But Why</p><br>
 
-					<div id="traits">
-						<h5>Creative</h5><h5>Idealistic</h5><h5>Conceptual</h5><h5>Intellectual</h5>
-					</div>
-
-					<div id="bio">
-						<h3>Bio</h3><p>I'm an endlessly curious knowledge-junkie that's always learning, growing, &amp; building. As a founder, I'm used to tackling problems head on and love moving fast. I'm passionate about solving meaningful, complex, high-impact problems. I love design thinking and the creative process, for their ability to push the human race forward. That's why in an effort to combat Climate Change, I spent the last four years building, selling, and designing electric vehicles.</p>
-					</div>
-
-					<div id="goals" class="float-left">
-						<h3>Goals</h3>
-						<ul class="persona-list">
-							<li>Connect the dots.</li>
-							<li>Leave it better than you found it.</li>
-							<li>Learn &amp; grow.</li>
-							<li>Collaborate.</li>
-						</ul>
-					</div>
-			</div>
-			<div class="three-col float-left fade-in six persona-col">
+				<p><strong>Favorite Brands</strong>: Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project</p>
+				<br/>
 
 				<h3>Motivations</h3>
 				<h4>Wealth</h4>
@@ -245,14 +242,47 @@
 				<div class="persona-bar"><span class="persona-progress float-left" style="width: 40%"></span></div>
 				<h4>Connection</h4>
 				<div class="persona-bar"><span class="persona-progress float-left" style="width: 70%"></span></div>
-				<br>
 
-				<p><strong>Favorite People</strong>: Frank Lloyd Wright, Steve Jobs, Leonardo da Vinci, Hank Green, Elon Musk, William McDonough, Dieter Rams, Paolo Soleri</p><br>
+			</div>
+			<div class="six-col float-left fade-in three persona-col">
 
-				<p><strong>Favorite Sites</strong>: Wikipedia, Kickstarter, Vimeo, Quora, Codecademy, Pinterest, Etsy, TED, Wait But Why</p><br>
+					<div>
+						<h3>Skills</h3>
 
-				<p><strong>Favorite Brands</strong>: Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project</p>
+						<h4>UX Design</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" style="width: 75%"></span></div>
+						<h4>Visual Design</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" style="width: 65%"></span></div>
+						<h4>Frontend Web Dev.</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" style="width: 90%"></span></div>
+						<h4>User Research</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" style="width: 55%"></span></div>
+					</div>
 
+					<h3>Personality</h3>
+
+					<h4 class="float-left fade-in four personality">Serious</h4><h4 class="float-right personality">Light-hearted</h4>
+					<div class="persona-bar fade-in four"><span class="persona-slider pop delay-one" style="left: 70%"></span></div>
+					<h4 class="float-left fade-in five personality">Extrovert</h4><h4 class="float-right personality">Introvert</h4>
+					<div class="persona-bar fade-in five"><span class="persona-slider pop delay-two" style="left: 60%"></span></div>
+					<h4 class="float-left fade-in six personality">Breadth</h4><h4 class="float-right personality">Depth</h4>
+					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-three" style="left: 50%"></span></div>
+					<h4 class="float-left fade-in six personality">Talker</h4><h4 class="float-right personality">Listener</h4>
+					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-four" style="left: 65%"></span></div>
+
+					<div id="bio">
+						<h3>Bio</h3><p>I'm an endlessly curious knowledge-junkie that's always learning, growing, &amp; building. As a founder, I'm used to tackling problems head on and love moving fast. I'm passionate about solving meaningful, complex, high-impact problems. I love design thinking and the creative process, for their ability to push the human race forward. That's why in an effort to combat Climate Change, I spent the last four years building, selling, and designing electric vehicles.</p>
+					</div>
+
+					<div id="goals">
+						<h3>Goals</h3>
+						<ul class="persona-list">
+							<li>Connect the dots.</li>
+							<li>Leave it better than you found it.</li>
+							<li>Learn &amp; grow.</li>
+							<li>Collaborate.</li>
+						</ul>
+					</div>
 			</div>
 		</section>
 	</div>	
@@ -263,21 +293,28 @@
 		<section class="fade-in six container">	
 			<h3>References</h3>
 <!-- 			<hr class="ten-pad"> -->
+			<div class="reference-wrapper">
+				<img class="headshot" src="IMG/caitlin.png"><blockquote>"Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!"</blockquote><cite><p>-<strong>Caitlin Thompson</strong>, Founder &amp; CEO at EntheoZen
+				</p></cite>
+			</div>
 
-			<img class="headshot" src="IMG/caitlin.png"><blockquote>"Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!"</blockquote><cite><p>-<strong>Caitlin Thompson</strong>, Founder &amp; CEO at EntheoZen
-			</p></cite>
-			<br><hr class="ten-pad">
-
-			<img class="headshot" src="IMG/thom.png"><blockquote>"Ben was hired on as our Electric Vehicle Technician, but as I got to work with him, his skills beyond the maintenance and management of this specialized subsection of our fleet became readily apparent. He is an incredibly creative guy, often coming up with solutions to problems we didn't even think of while the program developed.<br><br>
-			His fingers were in many pies in the organization, though some of his best work that I saw came from his collaborations with our Marketing team. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Not to mention I have complete hair envy.<br><br>
-			Working with Ben was a pleasure and any company looking for a creative thinker, problem solver, and cheerleader for finding newer and better ways to administer a product should be happy to have Ben on its team."</blockquote><cite><p>-<strong>Thom Matli</strong>, Data Analyst at City CarShare
-			</p></cite>
 
 			<br><hr class="ten-pad">
 
-			<img class="headshot" src="IMG/marcus.png"><blockquote>"Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made him absolutely indispensable. Ben’s multitasking abilities made it possible to operate with fewer staff, minimizing the company’s burn-rate while simultaneously extending our operational capabilities.<br><br>
-			Among key responsibilities, Ben designed, wrote copy, and provided photography for the company’s web site. He also managed inventory, assembled bikes and provided after-sales care. I wish Ben would let me hire him again!”</blockquote><cite><p>-<strong>Marcus Hays</strong>, CEO of PiMobility 
-			</p></cite>
+			<div class="reference-wrapper">
+				<img class="headshot" src="IMG/thom.png"><blockquote>"Ben was hired on as our Electric Vehicle Technician, but as I got to work with him, his skills beyond the maintenance and management of this specialized subsection of our fleet became readily apparent. He is an incredibly creative guy, often coming up with solutions to problems we didn't even think of while the program developed.<br><br>
+				His fingers were in many pies in the organization, though some of his best work that I saw came from his collaborations with our Marketing team. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Not to mention I have complete hair envy.<br><br>
+				Working with Ben was a pleasure and any company looking for a creative thinker, problem solver, and cheerleader for finding newer and better ways to administer a product should be happy to have Ben on its team."</blockquote><cite><p>-<strong>Thom Matli</strong>, Data Analyst at City CarShare
+				</p></cite>
+			</div>
+
+			<br><hr class="ten-pad">
+
+			<div class="reference-wrapper">
+				<img class="headshot" src="IMG/marcus.png"><blockquote>"Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made him absolutely indispensable. Ben’s multitasking abilities made it possible to operate with fewer staff, minimizing the company’s burn-rate while simultaneously extending our operational capabilities.<br><br>
+				Among key responsibilities, Ben designed, wrote copy, and provided photography for the company’s web site. He also managed inventory, assembled bikes and provided after-sales care. I wish Ben would let me hire him again!”</blockquote><cite><p>-<strong>Marcus Hays</strong>, CEO of PiMobility 
+				</p></cite>
+			</div>
 
 			<br><hr class="ten-pad">
 			<div class="bottom-nav">

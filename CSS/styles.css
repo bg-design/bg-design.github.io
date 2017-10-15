@@ -579,8 +579,8 @@ cite p {color:white;}
 }
 
 .container {
-/*	max-width:1000px;
-*/	clear:both;
+	max-width:1000px;
+	clear:both;
 	margin: 0 auto;
 }
 
@@ -831,9 +831,9 @@ cite p {color:white;}
 
 /* MEDIA QUERIES */
 
-/* Tablet */
+/* Tablet (S & M) */
 @media only screen 
-and (min-width : 479px) and (max-width : 1024px)   {
+and (min-width : 431px) and (max-width : 1024px)   {
 
 	.books {
 		height: 30px;
@@ -858,8 +858,44 @@ and (min-width : 479px) and (max-width : 1024px)   {
 	}
 }
 
-/* Mobile */
+/*Column break point (XS & S) */
+@media only screen and (max-width: 735px) {
+	.two-col, .three-col, .four-col {width: 47%;float: left;}
+	
+	.six-col {width: 100%;float: right;}
+}
+
+/* Hidden classes */
+/* Large Desktop (L) */
+@media only screen 
+and (min-width : 1025px) {
+	.hidden.L {
+		display: none;
+	}
+
+}
+/* Large Tablet (M) */
+@media only screen 
+and (min-width : 736px) and (max-width : 1024px) {
+	.hidden.M {
+		display: none;
+	}
+}
+
+/* Small Tablet (S) */
+@media only screen 
+and (min-width : 431px) and (max-width : 735px) {
+	.hidden.S {
+		display: none;
+	}
+}
+
+/* Mobile (XS) */
 @media only screen and (max-width: 430px)  {
+
+	.hidden.XS {
+		display: none;
+	}
 
 	.two-col, .three-col, .four-col, .six-col {width: 100%;}
 
