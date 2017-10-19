@@ -352,11 +352,11 @@
 <!-- Seconds counter -->
 <script type="text/javascript">
 	var secondsSince19890303 = Math.floor((Date.now()/1000) - 604947600)
+	var yearsSince19890303 = (secondsSince19890303 / 31536000).toFixed(2);
+	document.getElementById("years-counter").innerHTML = yearsSince19890303;
 	setInterval(function () {
-				var secondsSince19890303= Math.floor((Date.now()/1000) - 604947600);
-				var yearsSince19890303 = (secondsSince19890303 / 31536000).toFixed(2); 
+				secondsSince19890303 += 1;
         		document.getElementById("seconds-counter").innerHTML = secondsSince19890303.toLocaleString();
-        		document.getElementById("years-counter").innerHTML = yearsSince19890303;
         }, 1000);
 </script>
 </body>
