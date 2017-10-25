@@ -18,12 +18,12 @@
 		.why {padding: 15px 0;}
 
 		.books {
-		height:50px;
-		display: block;
-		margin:0 auto;
-		position: relative;
-		transition: all .4s ease-in-out;
-		transform: translateX(-80px);
+			height:50px;
+			display: block;
+			margin:0 auto;
+			position: relative;
+			transition: all .4s ease-in-out;
+			transform: translateX(-80px);
 		}
 		.books:hover{
 			transform: scale(1.2, 1.2);
@@ -40,6 +40,17 @@
 		}
 		#pyramid {width:40%;}
 		#abstraction-ladder {width:50%;}
+
+		.philosophy {padding-bottom: 10px;}
+
+		@media only screen and (max-width: 735px) {
+		.four-col {
+			width: 100%;
+		}
+		.four-col p {
+			text-indent: 70px;
+		}
+		}
 
 		@media only screen and (max-width: 430px)  {
 
@@ -71,38 +82,41 @@
 	<div class="container">
 	<section>		
 		<div class="why">
-			<img class="float-left fade-in one" src="IMG/triple-venn.png" id="triple-venn"/>
-			<p class="fade-in one">So often in the world we encounter problems that are framed in a a 'us vs. them' mindset. In other words, for one group to prosper, the other must suffer. This kind of framing is short-sighted and it forces us to take sides and stay stuck in our way of looking at the problem. Design thinking offers a much needed antidote. By hearing and understanding the needs of all groups, we can craft non-zero sum win-win solutions.<p>
-
-			<p class="fade-in two">When approaching any problem, it's tempting to jump right into the solution, the implementation, the visual design, and the polish. However, you risk missing the forest for the trees. When a problem or issue is identified, the instinct is to assume that the client giving you their problem has identified the correct issue. However, errors or issues usually occur because of a long line of corroborating events that led to the failure and what they're giving you is often just a signal or a thread that needs to be pulled to untangle the issue. The first half of the double diamond methodology is simply defining the real problem.</p>
-
-			<p class="fade-in three">When doing research, it is not enough to identify human error and stop searching. As designers, we are tasked with always digging deeper, asking 'why?' like an annoying kid, and continually searching for the root cause. Behind every seemingly simple answer, there's always another perspective, nuance, or angle to be uncovered. While you can't eliminate your assumptions, you can start testing and unpacking each one. In the end, it is conceptual, big-picture UX thinking that casts a wide net to find the right solution so that precious resources aren't squandered.<p>
-
-			<hr>
-	</section>
-	<section>
-			<h2>Design Philosophy</h2>
-			<ul>
-				<li>You are not your user.</li>
-				<li>Focus on core user needs.</li>
-				<li>User Test early &amp; often.</li>
-				<li>Always ask "Why?" and dig deeper.</li>
-			</ul>
-
-			<h2>Development Philosophy</h2>
-			<ul>
-				<li>Less code is better code.</li>
-				<li>Don't Repeat Yourself</li>
-				<li>Modular code is good code.</li>
-				<li>Reduce, eliminate, &amp; simplify whenever possible.</li>
-				<li>Do more with less.</li>
-			</ul>
-	</section>
-	<section>
-			<hr>
-			<img class="" src="IMG/abstraction-ladder3.png" id="abstraction-ladder">
-			<img class="thirty-pad" src="IMG/my-values2.png" id="pyramid">
+			<div class='four-col'>
+				<img class="float-left fade-in one" src="IMG/triple-venn.png" id="triple-venn"/>
+				<p class="fade-in one">So often in the world we encounter problems that are framed in a a 'us vs. them' mindset. In other words, for one group to prosper, the other must suffer. This kind of framing is short-sighted and it forces us to take sides and stay stuck in our way of looking at the problem. Design thinking offers a much needed antidote. By hearing and understanding the needs of all groups, we can craft non-zero sum win-win solutions.<p>
+			</div>
+			<div class='four-col'>
+				<p class="fade-in two">When approaching any problem, it's tempting to jump right into the solution, the implementation, the visual design, and the polish. However, you risk missing the forest for the trees. When a problem or issue is identified, the instinct is to assume that the client giving you their problem has identified the correct issue. However, errors or issues usually occur because of a long line of corroborating events that led to the failure and what they're giving you is often just a signal or a thread that needs to be pulled to untangle the issue. The first half of the double diamond methodology is simply defining the real problem.</p>
+			</div>
+			<div class='four-col'>
+				<p class="fade-in three">When doing research, it is not enough to identify human error and stop searching. As designers, we are tasked with always digging deeper, asking 'why?' like an annoying kid, and continually searching for the root cause. Behind every seemingly simple answer, there's always another perspective, nuance, or angle to be uncovered. While you can't eliminate your assumptions, you can start testing and unpacking each one. In the end, it is conceptual, big-picture UX thinking that casts a wide net to find the <strong>best</strong> solution so that precious resources aren't squandered.<p>
+			</div>
 			<hr class="thirty-pad">
+	</section>
+	<section class="philosophy">
+		<h2>Design Philosophy</h2>
+		<ul>
+			<li>You are not your user.</li>
+			<li>Focus on core user needs.</li>
+			<li>User Test early &amp; often.</li>
+			<li>Always ask "Why?" and dig deeper.</li>
+		</ul>
+
+		<h2>Development Philosophy</h2>
+		<ul>
+			<li>Don't Repeat Yourself</li>
+			<li>Modular code is good code.</li>
+			<li>Reduce, eliminate, &amp; simplify whenever possible.</li>
+			<li>Do more with less.</li>
+			<li>Keep it Simple, Stupid.</li>
+		</ul>
+	</section>
+	<section>
+		<br><br><hr><br>
+		<img class="" src="IMG/abstraction-ladder3.png" id="abstraction-ladder">
+		<img class="thirty-pad" src="IMG/my-values2.png" id="pyramid">
+		<hr class="thirty-pad">
 	</section>
 </div>
 	<section>
@@ -137,8 +151,7 @@
 
 <hr>
 	<footer class="center">
-		<div class="container">
-			
+		<div class="container">		
 
 			<button id="lets-collaborate"><a href="mailto:bpgrandy@gmail.com"><img class="contact" src="IMG/white-chat-icon.png"></a><a href="mailto:bpgrandy@gmail.com">Let's Collaborate</a></button>
 

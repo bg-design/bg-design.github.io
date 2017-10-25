@@ -29,18 +29,32 @@ p  {
 	padding: 10px;
 }
 
-a {
-	color: black;
-/*	border-bottom: 1px solid black;
-*/	text-decoration: none;
+a {text-decoration: none;
+    opacity: .7;}
 
+p a  {
+	color: black;
+    border-bottom: 2px solid #8de5ff;
 }
 
-a:hover {
-	text-decoration: none;
-	border:0;
-	font-weight: bold;
-	color: black;
+a:link, a:visited {
+    color: #00008b;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+a:link {
+    -webkit-tap-highlight-color: #fcd700;
+}
+
+p a:hover {
+	border: 0;
+    background: #8de5ff;
+    transition: 1s;
+    opacity: 1;
+    padding: 15px;
 }
 
 a:visited {color: black;}
@@ -548,18 +562,26 @@ cite p {color:white;}
 
 .two-col {width: 15%;}
 .three-col {width: 24%;}
-.four-col {width: 30%;}
+.four-col {width: 30%;float: left;}
 .six-col {
 	width: 47%;
 /*	padding: 0 25px;
 */}
 
 .ten-pad {margin-top:10px;}
+
 .fifteen-pad {margin-top:15px;}
+
 .twenty-pad {padding-top:20px;}
-.thirty-pad {margin-top: 30px;}
+
+.thirty-pad {
+	padding: 30px;
+    margin-bottom: 30px;}
+
 .fifty-pad {margin-top: 50px;}
+
 .float-right {float: right;}
+
 .float-left {float: left;}
 
 
