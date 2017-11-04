@@ -66,6 +66,10 @@ hr {
 	margin: 0;
 }
 
+section hr {
+	padding: 20px 0;
+}
+
 .clear {clear:both;}
 
 .small {font-size:50%;}
@@ -560,13 +564,13 @@ cite p {color:white;}
 
 .half {width: 50%;}
 
-.two-col {width: 15%;}
-.three-col {width: 24%;}
+.two-col {width: 15%;float: left;}
+.three-col {width: 24%;float: left;}
 .four-col {width: 30%;float: left;}
 .six-col {
 	width: 47%;
-/*	padding: 0 25px;
-*/}
+	float: left;
+}
 
 .ten-pad {margin-top:10px;}
 
