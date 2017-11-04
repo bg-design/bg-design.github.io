@@ -22,12 +22,55 @@
 	    	margin: 0px 0 15px 0;
 		}
 
-		#cost-plus:hover {
-			background:#b12a34;
-			color: white;
+		#download-resume {
+			float: right;
+			border-radius: 50px;
+			font-size: 14px;
+			position: absolute;
+			right: 0;
+			top: 60px;
+			padding: 0;
+			height: 50px;
+			width: 200px;
 		}
 
+		#download-resume:hover {
+			font-weight: bolder;
+		}
 
+		#cost-plus:hover {
+			background:#b12a34;
+		    opacity: 1;
+			color: white;
+			background-image: url(https://s3.amazonaws.com/placewisesitecontent/images/api/stores/9433.svg);
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+
+		}
+
+		#picycle:hover {
+			background:#96181a;
+			color: white;
+			background-image: url(https://i0.wp.com/www.cyclelicio.us/wp-content/uploads/2012/03/pi-cycle.jpg?resize=500%2C329);
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+		}
+		/* L */
+		@media (min-width: 1025px) {#download-resume {margin-right: 13%;}}
+
+		@media (max-width: 700px) {
+			#download-resume {
+				position: relative;
+			    margin: 20px auto;
+			    top: 0;
+			    float: none;
+			}
+		}
 	</style>
 
 </head>
@@ -68,10 +111,13 @@
 
 			<p>As a side project, made this page for my burning man camp.</p> -->
 
-		<h3 class="clear fade-in one">Experience</h3>
+		<h1 class="clear fade-in one">Experience</h1>
+		<div class="flexbox">
+			<button id="download-resume"><a href="Ben-Grandy-Resume-7.11.2017.pdf" target="_blank">Download Résumé</a></button>
+		</div>
 
 		<p><strong>Frontend Web Developer</strong>: Cost Plus World Market<span class="float-right">'17—<strong>current</strong></span></p>
-		<p>HTML, CSS, and JS ninja! I build out the frontend of <a class="hvr-sweep-to-right" id="cost-plus" href="https://www.worldmarket.com/" target="_new">WorldMarket.com</a></p>
+		<p>HTML, CSS, and JS ninja! I build out the frontend of <a class="hvr-sweep-to-right" id="cost-plus" href="https://www.worldmarket.com/" target="_blank">WorldMarket.com</a></p>
 
 		<p><strong>UX, Web, &amp; Graphic Designer</strong>: Freelance Designer<span class="float-right">'16—<strong>current</strong></span></p>
 
@@ -88,11 +134,11 @@
 
 		<p><strong>Operations, &amp; Web Design</strong>: PiMobility Inc.<span class="float-right">'11—'12</span></p>
 
-		<p>PiCyle is a strikingly simple and beautiful electric bicycle, made of just a single arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes the best clean mode of transit. At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
+		<p><a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">PiCyle</a> is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes a fun, fast, and healthy way to get around. At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
 	</section>
 
 	<section class="clear fade-in three when">
-		<h3 class="clear fade-in one">Education</h3>
+		<h1 class="clear fade-in one">Education</h1>
 		<p><strong>General Assembly</strong>: UX Design Immersive <span class="float-right">'15—'16</span></p>
 
 		<p>10 week full immersive (over 500 hours) for UX Design taught by UX practitioners. Course Work: User Research, Interface Design, Wireframing, Prototyping, Interaction Design, Mobile Design, Responsive Web Design, Usability Testing, Testing Methodologies, and Design Best Practices. Emphasis on Lean UX, rapid prototyping, and design studio. From research and ideation to prototyping and testing.</p>

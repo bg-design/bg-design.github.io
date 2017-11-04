@@ -29,16 +29,15 @@ p  {
 	padding: 10px;
 }
 
-a {text-decoration: none;
-    opacity: .7;}
+a {text-decoration: none;color: black;}
 
 p a  {
 	color: black;
     border-bottom: 2px solid #8de5ff;
 }
 
-a:link, a:visited {
-    color: #00008b;
+a:link {
+    color: black;
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
@@ -53,7 +52,6 @@ p a:hover {
 	border: 0;
     background: #8de5ff;
     transition: 1s;
-    opacity: 1;
     padding: 15px;
 }
 
@@ -74,6 +72,9 @@ section hr {
 
 .small {font-size:50%;}
 
+.flexbox {
+	display: flex;
+}
 button {
 	padding: 20px;
     margin: 10px;
@@ -941,8 +942,9 @@ and (min-width : 431px) and (max-width : 735px) {
 	h1 {font-size: 35px;}
 	h2 {font-size: 30px;}
 	p {
-		font: 13pt 'Lora', serif;
-    	line-height: 1.5;
+		font: 11pt 'Lora', serif;
+    	line-height: 1.3;
+    	text-align: justify;
 	}
 	.contact {display: none;}
 
