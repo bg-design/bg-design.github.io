@@ -50,10 +50,10 @@ a:link {
 
 p a:hover {
 	border: 0;
-    background: #8de5ff;
-    transition: 1s;
-    padding: 15px;
-}
+/*    background: #8de5ff;
+*/    transition: 1s;
+/*    padding: 15px;
+*/}
 
 a:visited {color: black;}
 
