@@ -32,19 +32,21 @@ p  {
 	padding: 10px;
 }
 
-a {text-decoration: none;color: black;}
+a {text-decoration: none;
+	color: black;
+    text-shadow: -1px 0 0 #fff, 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px -1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+/*	border-bottom: 5px solid #b8e8ff;
+*/		}
 
 p a  {
 	color: black;
     border-bottom: 2px solid #8de5ff;
+    transition:.5s ease-out .5s, 1s;
 }
 
 a:link {
     color: black;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    transition: none;
+    
 }
 
 a:link {
@@ -52,10 +54,12 @@ a:link {
 }
 
 p a:hover {
-	border: 0;
-    background: #8de5ff;
-    transition: 1s;
-    padding: 15px;
+    color: #8de5ff;
+    transition:.2s ease-in .2s, .3s;
+	border-bottom: 1px solid rgba(23, 23, 23,0);
+    padding-bottom: 3px;
+    text-shadow: unset;
+/*    padding: 15px;*/
 }
 
 a:visited {color: black;}
@@ -111,6 +115,8 @@ footer {
 #footer-cta:hover {
 	background:linear-gradient(34deg, rgb(144, 239, 53), rgb(111, 255, 88) 46.22%, rgb(25, 171, 204));
 	color: white;
+	padding:15px;
+	transition:1s ease-in .5s, 1s;
 
 }
 
