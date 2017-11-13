@@ -34,13 +34,13 @@ p  {
 
 a {text-decoration: none;
 	color: black;
-    text-shadow: -1px 0 0 #fff, 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px -1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    text-shadow: -2px 0 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
 /*	border-bottom: 5px solid #b8e8ff;
 */		}
 
 p a  {
 	color: black;
-    border-bottom: 2px solid #8de5ff;
+    border-bottom: 1px solid #08c7ff;
     transition:.5s ease-out .5s, 1s;
 }
 
@@ -54,7 +54,7 @@ a:link {
 }
 
 p a:hover {
-    color: #8de5ff;
+    color: #08c7ff;
     transition:.2s ease-in .2s, .3s;
 	border-bottom: 1px solid rgba(23, 23, 23,0);
     padding-bottom: 3px;
