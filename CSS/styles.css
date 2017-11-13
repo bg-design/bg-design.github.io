@@ -17,7 +17,10 @@ h3 {font-size: 30px;}
 
 h4 {
 	font-size: 24px;
-	font-weight: 400;
+	text-align: left;
+	margin-left: 20px;
+	color: rgb(16, 7, 3);
+	font-weight: 300;
 }
 h5 {font-size: 20px;}
 p  {
@@ -50,10 +53,10 @@ a:link {
 
 p a:hover {
 	border: 0;
-/*    background: #8de5ff;
-*/    transition: 1s;
-/*    padding: 15px;
-*/}
+    background: #8de5ff;
+    transition: 1s;
+    padding: 15px;
+}
 
 a:visited {color: black;}
 
@@ -104,6 +107,13 @@ footer {
 	background-color: white;
 	margin:0 auto;
 }
+
+#footer-cta:hover {
+	background:linear-gradient(34deg, rgb(144, 239, 53), rgb(111, 255, 88) 46.22%, rgb(25, 171, 204));
+	color: white;
+
+}
+
 #lets-collaborate {
 	display: block;
 	width: 90%;
