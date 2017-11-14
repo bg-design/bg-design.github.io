@@ -849,7 +849,7 @@ cite p {color:white;}
 	right: 50px;
 	width: 80px;
 	opacity: 0;
-	transition: .5s;
+	transition: 1.7s;
 	background-image: url('../IMG/top3-old.png');
 	background-attachment: cover;
 	background-size: 100%;
@@ -864,7 +864,10 @@ cite p {color:white;}
     -o-animation: rainbow 2s linear infinite alternate;
     animation: rainbow 2s linear infinite alternate;
 }
-
+#backToTop:active {
+	transform:translateY(10px);
+	transition: .1s;
+}
 
 @-webkit-keyframes rainbow {
     0%{background-position:0% 82%}
@@ -886,6 +889,7 @@ cite p {color:white;}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
 }
+
 /*Full-page projects */
 .banner {
 	background-size: contain;

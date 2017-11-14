@@ -10,7 +10,10 @@ console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 // Scroll to top
 $("a[href='#top']").click(function() {
   $("html, body").animate({ scrollTop: 0 }, "slow");
-  return false;
+  $("#backToTop").css("margin-bottom", "100%");
+  setTimeout(function() {
+    $("#backToTop").css("margin-bottom", "0%");
+  }, 1200);
 });
 
 // MOVED TO HEADER-HIDE.JS
