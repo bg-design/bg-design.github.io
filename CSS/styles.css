@@ -517,27 +517,27 @@ nav li {
 	animation-duration:.3s;
 }
 .delay-one {
-	-webkit-animation-delay: 3.5s;
-	-moz-animation-delay: 3.5s;
-	animation-delay: 3.5s;
+	-webkit-animation-delay: 6.6s;
+	-moz-animation-delay: 6.6s;
+	animation-delay: 6.6s;
 }
 
 .delay-two {
-	-webkit-animation-delay: 4s;
-	-moz-animation-delay: 4s;
-	animation-delay: 4s;
+	-webkit-animation-delay: 6.9s;
+	-moz-animation-delay: 6.9s;
+	animation-delay: 6.9s;
 }
 
 .delay-three {
-	-webkit-animation-delay: 4.4s;
-	-moz-animation-delay: 4.4s;
-	animation-delay: 4.4s;
+	-webkit-animation-delay: 7.5s;
+	-moz-animation-delay: 7.5s;
+	animation-delay: 7.5s;
 }
 
 .delay-four {
-	-webkit-animation-delay: 4.7s;
-	-moz-animation-delay: 4.7s;
-	animation-delay: 4.7s;
+	-webkit-animation-delay: 7.8s;
+	-moz-animation-delay: 7.8s;
+	animation-delay: 7.8s;
 }
 
 @keyframes pop {
