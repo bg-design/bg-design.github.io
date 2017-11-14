@@ -12,6 +12,8 @@ $("a[href='#top']").click(function() {
   $("html, body").animate({ scrollTop: 0 }, "slow");
   return false;
 });
+
+// MOVED TO HEADER-HIDE.JS
 // window.onscroll = function () {
 //     if (pageYOffset >= 800) {
 //         document.getElementById('backToTop').style.visibility = "visible";

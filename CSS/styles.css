@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic
+);
+
 /*CUSTOM STYLES*/
 
 h1, h2, h3, h4, h5 {
@@ -117,6 +121,8 @@ footer {
 	color: white;
 	padding:15px;
 	transition:1s ease-in .5s, 1s;
+	border-bottom: 0;
+	border-radius: 5px;
 
 }
 
@@ -432,13 +438,16 @@ nav li {
 #what-loading {background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));}
 #who-loading {background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));}
 #how-loading {background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);}
-#when-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);}
+#when-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+}
 #why-loading {background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));}
 
 .loading-wrapper {
 	position: fixed;
 	top:50%;
 	left:50%;
+
+
 	}
 /*.loading {
 	position: absolute;
@@ -839,10 +848,44 @@ cite p {color:white;}
 	bottom: 50px;
 	right: 50px;
 	width: 80px;
-	visibility: hidden;
-	transition: 1s;
+	opacity: 0;
+	transition: .5s;
+	background-image: url('../IMG/top3-old.png');
+	background-attachment: cover;
+	background-size: 100%;
 }
 
+#backToTop:hover {
+      background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-attachment: cover;
+    background-size: 1000% 1000%;
+    -webkit-animation: rainbow 2s linear infinite alternate;
+    -moz-animation: rainbow 2s linear infinite alternate;
+    -o-animation: rainbow 2s linear infinite alternate;
+    animation: rainbow 2s linear infinite alternate;
+}
+
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
 /*Full-page projects */
 .banner {
 	background-size: contain;
