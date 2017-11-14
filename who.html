@@ -15,16 +15,6 @@
 
 		.navbar {height: 53px;}
 
-
-		.persona-col {
-
-		}
-/*		#persona {
-			margin-top:53px;
-			max-width: 1000px;
-			margin: 0 auto;
-		}*/
-
 		#persona p {
 			font-size:12pt;
 		}
@@ -324,23 +314,8 @@
 
 <script src="JS/global.js"></script>
 <script>
-	$(function(){
-		$("#typed").typed({
-			stringsElement: $('#typing'),
-			contentType: 'html',
-			// lower is faster
-			typeSpeed: 0,
-			startDelay: 2500,
-			// backspacing speed
-			backSpeed: 0,
-			// time before backspacing
-			backDelay: 1300,
-		});
-	});
-</script>
 
-<!-- Seconds counter -->
-<script type="text/javascript">
+	// Seconds counter
 	var secondsSince19890303 = Math.floor((Date.now()/1000) - 604947600)
 	var yearsSince19890303 = (secondsSince19890303 / 31536000).toFixed(2);
 	document.getElementById("years-counter").innerHTML = yearsSince19890303;
@@ -348,9 +323,8 @@
 				secondsSince19890303 += 1;
         		document.getElementById("seconds-counter").innerHTML = secondsSince19890303.toLocaleString();
         }, 1000);
-</script>
 
-<script>
+	// Persona expanding skill bars
 	$(function() {
 		setTimeout(function() {
 		$('#skills-ux').animate({ width: '75%' }, 1500);
