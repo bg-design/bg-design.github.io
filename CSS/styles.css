@@ -329,8 +329,8 @@ section {
 	position: fixed;
 	width: 100%;
 	top: 0;
-	height: 54px;
-	z-index: 5;
+/*	height: 54px;
+*/	z-index: 5;
 	background-color: rgba(255, 255, 255, .85);
 	-webkit-backdrop-filter: blur(8px);
 	backdrop-filter: blur(8px);
@@ -382,6 +382,7 @@ nav li {
     padding: 0 0 12px 0;
     text-decoration: none;
     border:0;
+    text-shadow: unset;
 }
 
 #active {

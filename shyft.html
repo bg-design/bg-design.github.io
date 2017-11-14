@@ -92,6 +92,13 @@
 		    margin: 10px auto;
 		}
 
+		.scroll-progress {
+			height: 5px;
+			opacity: .7;
+			background:#fda963;
+			width: 0;
+		}
+
 		@media only screen and (max-width: 985px) {
 			.shyft-banner-description {
 				position: initial;
@@ -116,6 +123,7 @@
 				<li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
 			</ul>
 		</div>
+		<div class="scroll-progress"></div>
 	</nav>
 	<div class="nav-spacer"></div>
 	<hr>
@@ -219,7 +227,7 @@
 <a href="#top"><img id="backToTop" src="IMG/top3.png"></a>
 
 	<hr>
-	<footer class="center">
+	<!-- <footer class="center">
 		<div class="container">
 			
 
@@ -229,10 +237,25 @@
 				<h4>Let's bring your ideas <strong>to life.</strong></h4>
 			</div>
 		</div>
+	</footer> -->
+
+	<footer class="center">
+		<div class="container">
+			<h5><p><!-- img class="contact" src="IMG/chat-icon.png"/> -->Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com"><strong>to life.</strong></a></p></h5>
+		</div>
 	</footer>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="JS/logo.js"></script>
+
+<script>
+	// Page Scroll Progress bar
+	$( window ).scroll(function() {
+		var scrollPercentage = 105*$( document ).scrollTop()/(($ ( document ).height())-700);
+		// console.log(scrollPercentage);
+		$ (".scroll-progress").css("width", scrollPercentage+'%');
+	});
+</script>
 
 <!--Lightbox script-->
 <script src="JS/featherlight.js" type="text/javascript" charset="utf-8"></script>
