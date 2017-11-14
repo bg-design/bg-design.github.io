@@ -6,8 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<title id="greeting-title">Hi, I'm Ben.</title>
 <head>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="CSS/buttons-hvr.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
@@ -29,13 +34,13 @@
 		}
 
 		#splash p {
-			font-family: 'Lora';
+			font-family: 'Lora', serif;
 			color: white;
 			font-size:14pt;
 			line-height: 1.3em;
 		}
 		#splash h3 {
-			font-family: 'Lora';
+			font-family: 'Lora', serif;
 			color: white;
 			font-size:20pt;
 			line-height: 1.3em;
@@ -45,7 +50,12 @@
 			background: rgba(255, 255, 255, 0.66);
 		}
 		#splash-nav {
-			font-size:12pt;
+			font-family: 'Lato', sans-serif;
+			font-size:13pt;
+			text-shadow: unset;
+    		color: white;
+    		padding: 20px;
+    		font-weight: 300;
 		}
 		.splash-button {
 			color: white;
@@ -72,9 +82,10 @@
 	    padding: 10px;
 	    clear: both;
 	    float: left;
-	    width: 100%;
+	    width: 90%;
+    	text-align: center;
 		}
-
+}
 	</style>
 
 </head>
@@ -95,15 +106,14 @@
 
 			<p class="fade-in four">Let’s build a <strong>brighter future.</strong></p><br>
 			<div class="bottom-nav">
-				<button class="float-left project-button what-button splash-button" onClick="parent.location='what.html'" id="splash-nav">View Work</button>
-				<button class="float-left project-button how-button splash-button" onClick="parent.location='how.html'" id="splash-nav">My Process</button>
-				<button class="float-right project-button who-button splash-button" onClick="parent.location='who.html'" id="splash-nav">Who I am</button>
+				<a class="float-left project-button what-button splash-button" href="what.html" id="splash-nav">View Work</a>
+				<a class="float-left project-button how-button splash-button" href="how.html" id="splash-nav">My Process</a>
+				<a class="float-right project-button who-button splash-button" href="who.html" id="splash-nav">Who I am</a>
 			</div>
 
 		</div>
 		</section>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="JS/logo.js"></script>
 <script src="JS/greeting.js"></script>
 
