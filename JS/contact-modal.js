@@ -24,7 +24,7 @@ function submitPadding() {
 	if (newRightValue > 0) {
 		$('#submit').css("right",newRightValue + "px");
 		$('#submit').removeClass("footer-lock");
-		$('#submit').css("top", "355px");
+		$('#submit').css("top", "350px");
 		$('body').css("margin-bottom", "0");
 	}
 	else {

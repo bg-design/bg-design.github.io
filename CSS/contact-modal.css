@@ -83,7 +83,7 @@ input {
   background: transparent;
   resize: none;
   color: black;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .non-editable, .notepad {
@@ -93,7 +93,7 @@ input {
 }
 
 .non-editable {
-	color: #a0a0a0;
+	color: #3d3d3d;
     font-weight: 300;
 }
 
