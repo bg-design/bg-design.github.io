@@ -1,0 +1,169 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  font: inherit;
+}
+.chatIcon {
+  position: fixed;
+width: 80px;
+left: 15%;
+bottom: 50px;
+padding: 5px;
+border: none;
+opacity: .8;
+}
+
+.chatIcon:hover {
+  border:none;
+  opacity: 1;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+}
+.modal-body {
+	padding: 20px;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pad {
+  font-family: var(--font);
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+fieldset {
+	border:0;
+}
+
+input {
+	padding: 10px 0;
+
+}
+.notepad {
+  display: block;
+  width: 100%;
+  font: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  color: black;
+  font-weight: 300;
+}
+
+.non-editable, .notepad {
+	font-family: Lato, sans-serif;
+	font-size:16pt;
+	letter-spacing: .7px;
+}
+
+.non-editable {
+	color: #a0a0a0;
+    font-weight: 300;
+}
+
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder{ 
+ 	text-decoration: underline;
+ 	font-family: Lato, sans-serif;
+}
+
+.submit {
+	border: 1px dashed dimgray;
+height: 40px;
+width: 70px;
+background: white;
+color: black;
+-webkit-text-fill-color: white;
+/* Will override color (regardless of order) */
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+position: absolute;
+/*  bottom: 50px;
+      */
+font-size: 250%;
+padding: 0;
+top: 350px;
+right: 80%;
+/* THIS IS THE INITIAL SETTING*/
+transition: .5s;
+}
+.submit-ready {
+	border:1px solid #3cffdb;;
+	background: #3cffdb;;
+	color:white;
+	-webkit-text-fill-color: white;
+	-webkit-text-stroke-color: white;
+	transition: .3s;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+}
+
+#submit.footer-lock {
+/*	position: fixed;
+*/    bottom: 0;
+    border-radius: 0;
+    width: 100%;
+    top:unset;
+    left: 0;
+    height: 50px;
+}
+
+#email {
+	max-width: 300px;
+}
+.notepad::selection {
+  	background: rgba(104, 254, 251, 0.44); 
+		}
+.notepad::-moz-selection {
+ 	background: rgba(104, 254, 251, 0.44); 
+			}
+.non-editable::selection {
+  	color: red; /* WebKit/Blink Browsers */
+  	background: none;
+
+		}
+.non-editable::-moz-selection {
+ 	color: red; /* Gecko Browsers */
+ 	background:none;
+			}
+
+#thankyou_message {
+	margin:30px;
+}

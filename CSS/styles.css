@@ -116,6 +116,13 @@ footer {
 	margin:0 auto;
 }
 
+::selection {
+  	background: rgba(255, 250, 116, 0.55); /* WebKit/Blink Browsers */
+		}
+::-moz-selection {
+ 	background: rgba(255, 250, 116, 0.55); /* Gecko Browsers */
+			}
+
 #footer-cta:hover {
 	background:linear-gradient(34deg, rgb(144, 239, 53), rgb(111, 255, 88) 46.22%, rgb(25, 171, 204));
 	color: white;
