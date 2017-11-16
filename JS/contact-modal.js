@@ -25,13 +25,11 @@ function submitPadding() {
 		$('#submit').css("right",newRightValue + "px");
 		$('#submit').removeClass("footer-lock");
 		$('#submit').css("top", "350px");
-		$('body').css("margin-bottom", "0");
 	}
 	else {
 		$('#submit').css("right","0");
 		$('#submit').addClass("footer-lock");
 		$('#submit').css("top","unset");
-		$('body').css("margin-bottom", "50px");
 	}
 	 // console.log('companyLength:'+companyLength+', nameLength'+nameLength);
 		if (messageLength > 49 && nameLength > 2 && companyLength > 2) {
