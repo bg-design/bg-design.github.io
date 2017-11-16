@@ -28,7 +28,7 @@ function hasScrolled() {
         // Scroll Down
         setTimeout(function() {
           $('.navbar').removeClass('nav-down').addClass('nav-up');
-          $('#backToTop').css("opacity" , "0");
+          $('.backToTop').css("opacity" , "0");
         },);
             
     } else {
@@ -36,9 +36,9 @@ function hasScrolled() {
         if(st + $(window).height() < $(document).height()) {
             $('.navbar').removeClass('nav-up').addClass('nav-down');
             if (pageYOffset >= 800) {
-                $('#backToTop').css("opacity" , "1");
+                $('.backToTop').css("opacity" , "1");
             } else {
-         $('#backToTop').css("opacity" , "0");
+         $('.backToTop').css("opacity" , "0");
             }
         }
     }

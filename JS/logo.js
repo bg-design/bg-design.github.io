@@ -8,12 +8,23 @@ console.log("%cOh– Hello!", 'background: grey; color: #fff; font-size:20px; pa
 console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 
 // Scroll to top
+
+$(".backToTop").mouseover( function() {
+  $(".backToTop").attr('src', 'IMG/top3.png');
+});
+
+$(".backToTop").mouseleave( function() {
+  $(".backToTop").attr('src', 'IMG/top3-old.png');
+});
+
 $("a[href='#top']").click(function() {
   $("html, body").animate({ scrollTop: 0 }, "slow");
-  $("#backToTop").css("margin-bottom", "100%");
+  $(".backToTop").addClass("rainbow-bg");
+  $(".backToTop").css("margin-bottom", "100%");
   setTimeout(function() {
-    $("#backToTop").css("margin-bottom", "0%");
-  }, 1200);
+    $(".backToTop").css("margin-bottom", "0%");
+    $(".backToTop").removeClass("rainbow-bg");
+  }, 1500);
 });
 
 // MOVED TO HEADER-HIDE.JS

@@ -850,19 +850,15 @@ cite p {color:white;}
 	float:left;
 }
 
-#backToTop {
+.backToTop {
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
 	width: 80px;
 	opacity: 0;
-	transition: 1.7s;
-	background-image: url('../IMG/top3-old.png');
-	background-attachment: cover;
-	background-size: 100%;
 }
 
-#backToTop:hover {
+.backToTop:hover {
       background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-attachment: cover;
     background-size: 1000% 1000%;
@@ -871,9 +867,21 @@ cite p {color:white;}
     -o-animation: rainbow 2s linear infinite alternate;
     animation: rainbow 2s linear infinite alternate;
 }
-#backToTop:active {
+.backToTop:active {
 	transform:translateY(10px);
 	transition: .1s;
+}
+
+.backToTop.rainbow-bg {
+	background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-attachment: cover;
+    background-size: 1000% 1000%;
+    -webkit-animation: rainbow 2s linear infinite alternate;
+    -moz-animation: rainbow 2s linear infinite alternate;
+    -o-animation: rainbow 2s linear infinite alternate;
+    animation: rainbow 2s linear infinite alternate;
+    transition: 1.3s;
+
 }
 
 @-webkit-keyframes rainbow {
