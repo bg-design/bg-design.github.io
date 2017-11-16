@@ -880,7 +880,7 @@ cite p {color:white;}
     -moz-animation: rainbow 2s linear infinite alternate;
     -o-animation: rainbow 2s linear infinite alternate;
     animation: rainbow 2s linear infinite alternate;
-    transition: 1.3s;
+    transition: .4s;
 
 }
 
