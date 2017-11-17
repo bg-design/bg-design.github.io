@@ -1,11 +1,5 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  box-sizing: border-box;
-  font: inherit;
-}
+
 .chatIcon {
   position: fixed;
 width: 50px;
@@ -45,6 +39,11 @@ z-index: 1;
 
 /* Modal Content/Box */
 .modal-content {
+    margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  font: inherit;
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     border: 1px solid #888;
@@ -130,6 +129,7 @@ top: 350px;
 right: 80%;
 /* THIS IS THE INITIAL SETTING*/
 transition: .5s;
+line-height: 0;
 }
 .submit-ready {
 	border:1px solid #3cffdb;;

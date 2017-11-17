@@ -18,7 +18,7 @@ $(".backToTop").mouseleave( function() {
 });
 
 $("a[href='#top']").click(function() {
-  $("html, body").animate({ scrollTop: 0 }, "slow");
+  // $("html, body").animate({ scrollTop: 0 }, "slow");
   $(".backToTop").addClass("rainbow-bg");
   $(".backToTop").css("margin-bottom", "100%");
   setTimeout(function() {
@@ -81,7 +81,25 @@ function showNav() {
 
 }
 
+// Read more 
 
+    var orgContent = $('.excerpt').html();
+    var txtContent = $('.excerpt').text().substr(0, 250) + '... <a id="morelink">more</a>';
+    $('.excerpt').html(txtContent);
+    $("body").on("click", '#morelink', function(){
+        $('.excerpt').html(orgContent);
+        $('<a id="lesslink"> less</a>').appendTo('.excerpt');
+    });
+    $("body").on("click", '#lesslink', function(){
+        $('.excerpt').html(txtContent);
+    });
+
+// Page Scroll Progress bar
+  $( window ).scroll(function() {
+    var scrollPercentage = 105*$( document ).scrollTop()/(($ ( document ).height())-700);
+    // console.log(scrollPercentage);
+    $ (".scroll-progress").css("width", scrollPercentage+'%');
+  });
 
 // Disable loading screen when ready
 

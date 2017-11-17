@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="CSS/global.css" media="screen">
     <link rel="stylesheet" href="CSS/styles.css?t=1437" media="screen">
+    <link rel="stylesheet" href="CSS/contact-modal.css" media="screen">
 	
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	
@@ -25,7 +26,7 @@
 			font-size: 14px;
 			position: absolute;
 			right: 0;
-			top: 60px;
+			bottom: 0;
 			padding: 0;
 			height: 50px;
 			width: 200px;
@@ -65,6 +66,13 @@
 		    padding:15px;
 		    transition: 1s;
 		}
+
+		.scroll-progress {
+			height: 5px;
+			opacity: 1;
+			background:grey;
+			width: 0;
+		}
 		/* L */
 		@media (min-width: 1025px) {#download-resume {margin-right: 13%;}}
 
@@ -95,7 +103,7 @@
 				<li><a href="what.html">What</a></li><li><a href="how.html">How</a></li><li><a href="who.html">Who</a></li><li><a id="active" href="when-where.html">When</a></li><li><a href="why.html">Why</a></li>
 			</ul>
 		</div>
-		<hr>
+		<div class="scroll-progress"></div>
 	</nav>
 	<div class="nav-spacer"></div>
 	<hr>
@@ -132,7 +140,7 @@
 
 		<p><strong>Designer &amp; EV Tech</strong>: City CarShare (non-profit)<span class="float-right">'14-'15</span></p>
 
-		<p>Started in 2001, CityCarShare was the first carsharing company in the nation. We were building an All Electric and Plug-in Electric (PHEV) carshare network to make it easily for people to get around— more affordable, more green, less congestion, less pollution, and live without the hassle of car maintainence.  I also was building the first in the country electric bike share network. With a growing fleet of next-generation hybrids, electric cars, and electric bicycels, EVs coupled to outdoor solar charging stations, I was pioneering a sustainable transportation network.</p><p>I oversaw and maintained a fleet of 50 PHEVs, debugged our in-car technology, monitored car battery status remotely to ensure uptime, created maintenance logs, improved the mobile app UI, contributed on frontend web design, produced promotional videos, grant evaluation docs, rebuilt important accounting documents, and other marketing &amp; design material.</p>
+		<p class="excerpt">Started in 2001, CityCarShare was the first carsharing company in the nation. We were building an All Electric and Plug-in Electric (PHEV) carshare network to make it easily for people to get around— more affordable, more green, less congestion, less pollution, and live without the hassle of car maintainence.  I also was building the first in the country electric bike share network. With a growing fleet of next-generation hybrids, electric cars, and electric bicycels, EVs coupled to outdoor solar charging stations, I was pioneering a sustainable transportation network.<br><br>I oversaw and maintained a fleet of 50 PHEVs, debugged our in-car technology, monitored car battery status remotely to ensure uptime, created maintenance logs, improved the mobile app UI, contributed on frontend web design, produced promotional videos, grant evaluation docs, rebuilt important accounting documents, and other marketing &amp; design material.</p>
 
 		<p><strong>Founder &amp; Engineering</strong>: Onward Electric Cycles LLC<span class="float-right">'13—'14</span></p>
 
@@ -140,7 +148,7 @@
 
 		<p><strong>Operations, &amp; Web Design</strong>: PiMobility Inc.<span class="float-right">'11—'12</span></p>
 
-		<p><a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">PiCyle</a> is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes a fun, fast, and healthy way to get around. At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
+		<p><a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">PiCyle</a> is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes a fun, fast, and healthy way to get around.<br><br> At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
 	</section>
 
 	<section class="clear fade-in three when">
@@ -174,6 +182,68 @@
 <!-- Back to top-->
 <a href="#top" ><img src="IMG/top3-old.png" class="backToTop"></a>
 
+<!-- Trigger/Open The Modal -->
+  <button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
+
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+  	<div class="modal-body">
+    <span class="close">&times;</span>
+    <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="bpgrandy@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbx9glEcWh1rffPyWWTqK7hXpbmP8t7osKxIwybZIZAdl2KJLW-l/exec" onsubmit="hideSubmit()">
+    <!-- change the form action to your script url -->
+
+  	<p class="non-editable">Hello, I'm </p>
+ 	<fieldset class="pure-group">
+      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
+    </fieldset>
+    
+    <p class="non-editable">from</p>
+
+    <fieldset class="pure-group">
+      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
+    </fieldset>
+
+    <p class="non-editable">where I am a</p>
+    <fieldset class="pure-group">
+    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
+    </fieldset>
+
+
+    <fieldset class="pure-group">
+      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
+    </fieldset>
+    <br><br>
+    
+    <fieldset class="pure-group">
+      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
+    </fieldset>
+</div>
+  	<input id="submit" type="submit" value="→" class="submit">
+</form>
+
+  <!-- Customise the Thankyou Message People See when they submit the form: -->
+  <div style="display:none;" id="thankyou_message">
+    <h2> Thanks for reaching out.</h2>
+    <h2>I will get back to you soon!</h2>
+  </div>
+
+ </div>
+</div>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" type="text/javascript"
+  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+  <!-- <script data-cfasync="false" type="text/javascript"
+  src="/form-submission-handler.js"></script> -->
+<!-- END -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+
 <hr>
 	<footer class="center">
 		<div class="container">
@@ -186,8 +256,9 @@
 		</div>
 	</footer>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="JS/global.js"></script>
+<script src="JS/contact-modal.js"></script>
+
 
 </body>
 <hr>

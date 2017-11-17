@@ -855,7 +855,6 @@ cite p {color:white;}
 	bottom: 50px;
 	right: 50px;
 	width: 80px;
-	opacity: 0;
 }
 
 .backToTop:hover {
@@ -866,6 +865,7 @@ cite p {color:white;}
     -moz-animation: rainbow 2s linear infinite alternate;
     -o-animation: rainbow 2s linear infinite alternate;
     animation: rainbow 2s linear infinite alternate;
+    opacity: .4;
 }
 .backToTop:active {
 	transform:translateY(10px);
