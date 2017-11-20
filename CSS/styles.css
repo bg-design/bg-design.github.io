@@ -44,8 +44,16 @@ a {text-decoration: none;
 
 p a  {
 	color: black;
-    border-bottom: 1px solid #08c7ff;
+/*    border-bottom: 1px solid #08c7ff;*/
     transition:.5s ease-out .5s, 1s;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(8, 199, 255), rgb(8, 199, 255));
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    cursor: pointer;
+    background-position: 0% 94%, 100% 94%, 0% 94%;
+    text-decoration: none;
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
 }
 
 a:link {
@@ -60,9 +68,10 @@ a:link {
 p a:hover {
     color: #08c7ff;
     transition:.2s ease-in .2s, .3s;
-	border-bottom: 1px solid rgba(23, 23, 23,0);
-    padding-bottom: 3px;
+/*	border-bottom: 1px solid rgba(23, 23, 23,0);
+*/    padding-bottom: 3px;
     text-shadow: unset;
+    background: none;
 /*    padding: 15px;*/
 }
 
@@ -118,10 +127,18 @@ footer {
 
 ::selection {
   	background: rgba(255, 250, 116, 0.55); /* WebKit/Blink Browsers */
+  	color:rgba(100,100,100,1);
 		}
 ::-moz-selection {
  	background: rgba(255, 250, 116, 0.55); /* Gecko Browsers */
 			}
+
+
+p a::selection {
+	color: white;
+	background: rgba(8, 199, 255, 1);
+	text-shadow: none;
+}
 
 #footer-cta:hover {
 	background:linear-gradient(34deg, rgb(144, 239, 53), rgb(111, 255, 88) 46.22%, rgb(25, 171, 204));
