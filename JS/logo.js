@@ -27,6 +27,7 @@ $("a[href='#top']").click(function() {
   }, 1500);
 });
 
+
 // MOVED TO HEADER-HIDE.JS
 // window.onscroll = function () {
 //     if (pageYOffset >= 800) {
