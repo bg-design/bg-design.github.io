@@ -1,13 +1,13 @@
 	var leftValue = $('#submit').css( "left" );
 	var rightPercent = $('#submit').css( "right" );
-	rightPercent = rightPercent.slice(0, -1);
+	// var rightPercent = rightPercent.slice(0, -1);
 	var windowWidth = $( window ).width();
 
 function submitPadding() {
 
 	var modalWidth = $('.modal-content').width();
 	var rightOffset = windowWidth / 10;
-	// console.log('rightOffset'+rightOffset+'rightPercent'+rightPercent);
+	console.log('rightOffset'+rightOffset+'rightPercent'+rightPercent);
 	var rightValue = (rightPercent/100) * modalWidth + rightOffset-150;
 	var messageLength = $('#message').val().length;
 	var companyLength = $('#company').val().length;
@@ -18,7 +18,7 @@ function submitPadding() {
 	console.log('totalLength:'+totalLength);
 	// var newLeftValue = (totalLength * ) + 100;
 	var newRightValue = rightValue - (totalLength*4);
-	  console.log('newRightValue:'+newRightValue+', messageLength:'+messageLength);
+	console.log('newRightValue:'+newRightValue+', messageLength:'+messageLength);
 
 
 	if (newRightValue > 0) {
@@ -31,7 +31,7 @@ function submitPadding() {
 		$('#submit').addClass("footer-lock");
 		$('#submit').css("top","unset");
 	}
-	 // console.log('companyLength:'+companyLength+', nameLength'+nameLength);
+	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
 		if (messageLength > 49 && nameLength > 2 && companyLength > 2) {
 			$('.submit').addClass("submit-ready")
 		}

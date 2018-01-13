@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 <html lang="en-us">
+<head>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>When | Ben Grandy</title>
-<head>
 
     <link rel="stylesheet" href="CSS/global.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
@@ -24,9 +25,9 @@
 			position: absolute;
 			right: 0;
 			top:60px;
-			padding: 0;
-			height: 50px;
-			width: 200px;
+			padding: 15px;
+			width: 170px;
+			text-align: center;
 
 		}
 
@@ -37,7 +38,8 @@
 			transition: .7s;
 		}
 
-		#download-resume a:hover {text-shadow: 0 0;color: white;}
+		#download-resume:hover {text-shadow: 0 0;color: white;
+			cursor: pointer;}
 
 		#cost-plus:hover {
 			background:#b12a34;
@@ -54,14 +56,15 @@
 		#picycle:hover {
 			background:#96181a;
 			color: white;
-			background-image: url(https://i0.wp.com/www.cyclelicio.us/wp-content/uploads/2012/03/pi-cycle.jpg?resize=500%2C329);
+			/*background-image: url(https://i0.wp.com/www.cyclelicio.us/wp-content/uploads/2012/03/pi-cycle.jpg?resize=500%2C329);
 		    -webkit-background-size: cover;
 		    -moz-background-size: cover;
 		    -o-background-size: cover;
 		    background-size: cover;
-		    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+		    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;*/
 		    padding:15px;
 		    transition: 1s;
+		    border-radius: 50%;
 		}
 
 		.scroll-progress {
@@ -69,6 +72,17 @@
 			opacity: 1;
 			background:grey;
 			width: 0;
+		}
+
+		#pi-video {
+			float: left;
+			width: 100px;
+			padding: 15px;
+			border-radius: 50%;
+		}
+		#pi-video:hover {
+			border-radius: 20%;
+			transition: 1s;
 		}
 		/* L */
 		@media (min-width: 1025px) {#download-resume {margin-right: 13%;}}
@@ -101,9 +115,9 @@
 			</ul>
 		</div>
 		<div class="scroll-progress"></div>
+		<hr>
 	</nav>
 	<div class="nav-spacer"></div>
-	<hr>
 	<div class="container first-copy">
 	<section class="clear fade-in one when">
 <!-- 
@@ -122,10 +136,9 @@
 			<p>As a side project, made this page for my burning man camp.</p> -->
 
 		<h1 class="clear fade-in one">Experience</h1>
+		
 		<div class="flexbox">
-			<button id="download-resume" onclick="location.href='Ben-Grandy-Resume-7.11.2017.pdf';" target="_blank" >
-				<a href="Ben-Grandy-Resume-7.11.2017.pdf" target="_blank" >Download Résumé</a>
-			</button>
+			<a href="Ben-Grandy-Resume-7.11.2017.pdf" target="_blank" class="button" id="download-resume">Download Résumé</a>
 		</div>
 
 		<p><strong>UX &amp; Web Designer Developer</strong>: Freelance<span class="float-right">'16—<strong>current</strong></span></p>
@@ -145,7 +158,7 @@
 
 		<p><strong>Operations, &amp; Web Design</strong>: PiMobility Inc.<span class="float-right">'11—'12</span></p>
 
-		<p><a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">PiCyle</a> is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes a fun, fast, and healthy way to get around.<br><br> At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
+		<img id="pi-video" src="IMG/picycle-videos.PNG" /><p><a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">PiCyle</a> is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning 2000MPGe in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes healthy, fast, and fun.<br><br> At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, shot &amp; edited several promo videos, did web design layout and copy, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
 	</section>
 
 	<section class="clear fade-in three when">
