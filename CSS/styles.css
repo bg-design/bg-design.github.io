@@ -380,9 +380,9 @@ section {
 }
 .nav-spacer {height: 60px;}
 
-.nav-down {top:0px;}
+.nav-down {/*top:0px;*/}
 
-.nav-up {top:-60px;}
+.nav-up {/*top:-60px;*/}
 
 .nav-wrapper {
 /*	display: table;
