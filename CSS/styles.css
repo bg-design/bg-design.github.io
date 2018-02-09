@@ -178,7 +178,7 @@ p a::selection {
 	font-weight: 300;
 	background: rgb(248, 248, 248);
 	text-align: left;
-	padding: 10px;
+	padding: 10px 0 15px 0;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -840,7 +840,7 @@ cite p {color:white;}
 	width:235px;
 }
 
-.project-description {
+.project-dekiption {
 	float: left;
 	display: none;
 	position: absolute;
