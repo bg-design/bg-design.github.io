@@ -31,18 +31,22 @@
 		/* Defining each section background and styles
 	* --------------------------------------- */
 	#section0{
-		background-image: url(IMG/safe-harbor-mock3.jpg);
+		background-image: url(IMG/awa-fit-mock.png);
 		padding: 0% 0 0 0;
 	}
 	#section1{
-		background-image: url(IMG/shyft-mock3.jpg);
+		background-image: url(IMG/safe-harbor-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section2{
-		background-image: url(IMG/life-alert-mock4.jpg);
+		background-image: url(IMG/shyft-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section3{
+		background-image: url(IMG/life-alert-mock4.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section4{
 		background-image: url(IMG/refer-me-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
@@ -94,11 +98,11 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				anchors: ['SafeHarbor','Shyft','LifeAlert','ReferMe'],
+				anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
 				sectionsColor: [],
 				navigation: true,
 				navigationPosition: 'left',
-				navigationTooltips: ['SafeHarbor','Shyft Event Planning', 'Life Alert','Refer Me'],
+				navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
 				responsiveWidth: 0,
 				afterResponsive: function(isResponsive){
 					
@@ -128,6 +132,16 @@
 	</nav>
 	<div id="fullpage">
 <div class="section" id="section0">
+		<div class="what-box awa-fit">
+			<h1>Awa Fit</h1>
+			<br>
+			<p>Client project for a mobile fitness app start-up to bring group fitness, guided workouts, yoga, friendly competition and trainer-guided videos to Latin America.</p>
+			<br>
+			<a href="https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857" target="_new"><button class="project-button center">View Demo</button></a>
+		</div>
+	</div> 
+	<div id="fullpage">
+<div class="section" id="section1">
 		<div class="what-box safe-harbor">
 			<h1>Safe Harbor</h1>
 			<br>
@@ -136,7 +150,7 @@
 		</div>
 	</div> 
 
-	<div class="section" id="section1">
+	<div class="section" id="section2">
 		<div class="what-box shyft">
 			<h1>Shyft Event Planning</h1>
 			<br>
@@ -145,7 +159,7 @@
 			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
 		</div>
 	</div>
-	<div class="section" id="section2">
+	<div class="section" id="section3">
 	    <div class="what-box life-alert">
 			<h1>Life Alert</h1>
 			<br>
@@ -155,7 +169,7 @@
 		</div>
 
 	</div>
-	<div class="section" id="section3">
+	<div class="section" id="section4">
 		
 		<div class="what-box refer-me">
 			<h1>Refer Me</h1>
