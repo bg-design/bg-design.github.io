@@ -13,6 +13,12 @@
 	
 	<style type="text/css">
 
+		.stripes-bg {background: repeating-linear-gradient(-55deg, rgb(244, 244, 244), rgb(244, 244, 244) 3px, #FFF 3px, #FFF 10px);}
+
+		#middle-persona {margin-left: 0.9%;}
+
+		.persona-progress-wrapper {padding:20px;}
+
 		#persona p {
 			font-size:12pt;
 		}
@@ -27,12 +33,22 @@
 
 		#headshot-wrapper {margin: 10px;}
 
-		#traits {
+		.traits {
 			max-width: 300px;
 			margin: 0 auto;
 		}
 
-		#traits h5 {
+		.traits:hover {
+		  background: white;
+		  background: repeating-linear-gradient(-55deg, rgb(244, 244, 244), rgb(244, 244, 244) 3px, #FFF 3px, #FFF 10px);
+		  text-shadow:
+		    -1px -1px 0 #FFF,
+		    1px -1px 0 #FFF,
+		    -1px 1px 0 #FFF,
+		    1px 1px 0 #FFF;
+		}
+
+		.traits {
 			background: rgb(228, 228, 228);
 		    padding: 5px;
 		    border-radius: 4px;
@@ -45,7 +61,7 @@
 		    margin-left: 10px;
 		}
 
-		#bio p{
+		#bio {
 			background: rgba(43, 50, 59, 0.79);
 			font: 10.5pt 'Lora', serif;
 			font-weight: 300;
@@ -53,11 +69,31 @@
 			color: white;
 			padding: 10px 10px 10px 15px;
 			border-radius: 5px;
+			max-width: 500px;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+
+		#goals-container {
+			clear: both;
+			margin: 0 auto;
+			/*background: repeating-linear-gradient(-55deg, rgb(244, 244, 244), rgb(244, 244, 244) 3px, #FFF 3px, #FFF 10px);*/
+			padding: 50px 0;
+
 		}
 
 		#goals {
-/*			width: 500px;
-*/		    margin: 0 auto;
+			max-width: 500px;
+			margin: 0 auto;
+			border: 1px dashed;
+			background:white;
+			padding-bottom: 20px;
+		}
+
+		.persona-col {
+			background:white;
+			padding: 8px;
+			border-radius: 0 0 20px 20px;
 		}
 
 		.persona-list li {
@@ -84,7 +120,6 @@
 			height: 15px;
 			width: 0;
 		}
-
 		#persona h4 {
 			font-size: 12pt;
 			line-height: 1.6;
@@ -107,6 +142,9 @@
 		.recommendations {
 			background:#252B33;
 			color:white;
+			-webkit-clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+			clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+			padding-top: 80px;
 		}
 
 		.recommendations h3 {
@@ -143,8 +181,9 @@
  			 background:  rgb(201, 201, 201); /* Gecko Browsers */
 			}
 
-		@media only screen and (max-width: 735px) {
-			#bio p {border-radius: 0;}
+		@media only screen and (max-width: 850px) {
+			#bio {border-radius: 0;}
+			.persona-col {padding: 0;}
 		}
 
 
@@ -164,7 +203,7 @@
 	</style>
 
 </head>
-<body>
+<body class="stripes-bg">
 	<div class="loading-bg" id="who-loading">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
@@ -184,102 +223,112 @@
 	</nav>
 	<div class="nav-spacer"></div>
 	<div class="container">
-		<section id="persona">
+ 		<section id="persona">
 
-			<blockquote class="center">"I explore novel approaches and make things better."</blockquote>
+ 			<blockquote class="center">"I explore novel approaches and make things better."</blockquote> 
 
-			<div class="three-col float-left persona-col">
-				<div id="headshot-wrapper">
-					<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
+			<div>	
+  				<div class="three-col float-left persona-col">
+  					<div class="persona-progress-wrapper">
+						<div id="headshot-wrapper">
+							<img src="IMG/hiking-ben3.jpg"/ id="ben-persona">
+						</div>
+
+						<p><strong>Age</strong>: <span id="years-counter"></span><br/>(<span id="seconds-counter"></span> seconds)</p>
+						<p><strong>Occupation</strong>: Designer</p>
+						<p><strong>Location</strong>: Oakland, CA</p>
+						<p><strong>Archetype</strong>: Futurist</p>
+						<p><strong>Beliefs</strong>: Secular Humanist, Environmentalist, Democratic Socialist, Optimist, Existenialist</p><p><strong>Diet</strong>: Mostly Vegetarian, sometimes Pescatarian, occasionally Flexitarian. </p>
+
+						<p><strong>Traits</strong>:</p>
+
+						<div>
+								<a class="traits"><h5>Creative</h5></a><a class="traits"><h5>Idealistic</h5><a class="traits"><h5>Conceptual</h5></a><a class="traits"><h5>Intellectual</h5></a>
+						</div>
+					</div>
 				</div>
+				
+  				<div class="three-col float-right fade-in six persona-col">
+					<div class="persona-progress-wrapper">
+						<p><strong>Favorite People</strong>:<br> Tim Brown, Jony Ive, Dieter Rams, Steve Jobs, Frank Lloyd Wright, Paolo Soleri, Elon Musk, William McDonough, Hank Green</p><br>
 
-				<p><strong>Age</strong>: <span id="years-counter"></span><br/>(<span id="seconds-counter"></span> seconds)</p>
-				<p><strong>Occupation</strong>: Designer / Developer</p>
-				<p><strong>Location</strong>: Oakland, CA</p>
-				<p><strong>Archetype</strong>: Futurist</p>
-				<p><strong>Beliefs</strong>: Secular Humanist, Environmentalist, Democratic Socialist, Optimist</p><p><strong>Diet</strong>: Mostly Vegetarian, sometimes Pescatarian, occasionally Flexatarian. </p>
+						<p><strong>Favorite Sites</strong>:<br>Dribbble, Pinterest, Quora, Codecademy, CodePen, Stack Exchange, Wikipedia, Kickstarter, Vimeo, Etsy, TED, Wait But Why</p><br>
 
-				<p><strong>Traits</strong>:</p>
+						<p><strong>Favorite Brands</strong>:<br> Bang and Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project</p>
+						<br/>
 
-				<div id="traits">
-						<h5>Creative</h5><h5>Idealistic</h5><h5>Conceptual</h5><h5>Intellectual</h5>
-				</div>
-			</div>
-			
-			<div class="three-col float-right fade-in six persona-col">
 
-				<p><strong>Favorite People</strong>:<br> Frank Lloyd Wright, Steve Jobs, Leonardo da Vinci, Hank Green, Elon Musk, William McDonough, Dieter Rams, Paolo Soleri</p><br>
+						<h3>Motivations</h3>
+						<h4>Wealth</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-wealth"></span></div>
+						<h4>Fear</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-fear"></span></div>
+						<h4>Impact</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-impact"></span></div>
+						<h4>Legacy</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-legacy"></span></div>
+						<h4>Power</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-power"></span></div>
+						<h4>Connection</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="mot-connection"></span></div>
+						<br><br>
+					</div>
+				</div> 
 
-				<p><strong>Favorite Sites</strong>:<br> Wikipedia, Kickstarter, Vimeo, Quora, Codecademy, Pinterest, Etsy, TED, Wait But Why</p><br>
 
-				<p><strong>Favorite Brands</strong>:<br> Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project</p>
-				<br/>
-				<h3>Motivations</h3>
-				<h4>Wealth</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-wealth"></span></div>
-				<h4>Fear</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-fear"></span></div>
-				<h4>Impact</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-impact"></span></div>
-				<h4>Legacy</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-legacy"></span></div>
-				<h4>Power</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-power"></span></div>
-				<h4>Connection</h4>
-				<div class="persona-bar"><span class="persona-progress float-left" id="mot-connection"></span></div>
+				<div class="six-col float-left fade-in three persona-col" id="middle-persona">
 
-			</div>
-			<div class="six-col float-left fade-in three persona-col">
-
-					<div>
+					<div class="persona-progress-wrapper">
 						<h3>Skills</h3>
 
+						<h4>Research</h4>
+						<div class="persona-bar"><span class="persona-progress float-left" id="skills-research"></span></div>
 						<h4>UX Design</h4>
 						<div class="persona-bar"><span class="persona-progress float-left" id="skills-ux"></span></div>
 						<h4>Visual Design</h4>
 						<div class="persona-bar"><span class="persona-progress float-left" id="skills-visual"></span></div>
 						<h4>Frontend Web Dev.</h4>
 						<div class="persona-bar"><span class="persona-progress float-left" id="skills-frontend"></span></div>
-						<h4>Research</h4>
-						<div class="persona-bar"><span class="persona-progress float-left" id="skills-research"></span></div>
-					</div>
 
 					<h3>Personality</h3>
 
 					<h4 class="float-left fade-in four personality">Serious</h4><h4 class="float-right personality">Light-hearted</h4>
-					<div class="persona-bar fade-in four"><span class="persona-slider pop delay-one" id="per-humor" style="left: 70%"></span></div>
+					<div class="persona-bar fade-in four"><span class="persona-slider pop delay-one" id="per-humor" style="left: 65%"></span></div>
 					<h4 class="float-left fade-in five personality">Extrovert</h4><h4 class="float-right personality">Introvert</h4>
-					<div class="persona-bar fade-in five"><span class="persona-slider pop delay-two" style="left: 30%"></span></div>
+					<div class="persona-bar fade-in five"><span class="persona-slider pop delay-two" style="left: 35%"></span></div>
 					<h4 class="float-left fade-in six personality">Competitive</h4><h4 class="float-right personality">Cooperative</h4>
-					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-three" style="left: 90%"></span></div>
+					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-three" style="left: 80%"></span></div>
 					<h4 class="float-left fade-in six personality">Open-minded</h4><h4 class="float-right personality">Conventional</h4>
-					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-four" style="left: 30%"></span></div>
+					<div class="persona-bar fade-in six"><span class="persona-slider pop delay-four" style="left: 15%"></span></div>
 
-					<div id="bio">
-						<h3>Bio</h3><p>I'm an endlessly curious knowledge-junkie that's always learning, growing, &amp; building. As a founder, I'm used to tackling problems head on and love moving fast. I'm passionate about solving meaningful, complex, high-impact problems. I love design thinking and the creative process, for their ability to push the human race forward. That's why in an effort to combat Climate Change, I spent the last four years building, selling, and designing electric vehicles.</p>
 					</div>
 
-					<div id="goals">
-						<h3>Goals</h3>
-						<ul class="persona-list">
-							<li>Solve profound problems</li>
-							<li>Leave it better than you found it.</li>
-							<li>Connect &amp; Collaborate.</li>
-							<li>Learn &amp; grow.</li>
-						</ul>
+					<div>
+						<h3>Bio</h3><p id="bio">I'm an endlessly curious knowledge-junkie that's always learning, growing, and building. As a founder, I'm used to tackling problems head-on and love moving fast. I'm passionate about solving meaningful, complex, high-impact problems. I love design thinking and the creative process, for their ability to push the human race forward.</p>
 					</div>
 			</div>
 		</section>
-	</div>	
-	
-	<hr class="twenty-pad">
+	</div>
+	<section id="goals-container">
+			<div id="goals">
+						<h3>Goals</h3>
+						<ul class="persona-list">
+							<li>Solve profound problems.</li>
+							<li>Leave it better than you found it.</li>
+							<li>Connect and collaborate.</li>
+							<li>Learn and grow.</li>
+							<li>Simplify complexity.</li>
+						</ul>
+			</div>
+	</section>
 
 	<div class="recommendations">
-		<section class="fade-in six container">	
-			<h3>References</h3>
+		<section class="fade-in six container">
+<!-- 		<hr class="twenty-pad">
+ -->			<h3>Recommendations</h3>
 <!-- 			<hr class="ten-pad"> -->
 			<div class="reference-wrapper">
-				<img class="headshot" src="IMG/caitlin.png"><blockquote>"Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!"</blockquote><cite><p>-<strong>Caitlin Thompson</strong>, Founder &amp; CEO at EntheoZen
+				<img class="headshot" src="IMG/caitlin.png"><blockquote>"Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!"</blockquote><cite><p>-<strong>Caitlin Thompson</strong>, Founder and CEO at EntheoZen
 				</p></cite>
 			</div>
 
@@ -389,17 +438,17 @@
 	// Persona expanding skill bars
 	$(function() {
 		setTimeout(function() {
-		$('#skills-ux').animate({ width: '75%' }, 1500);
+    	$('#skills-research').animate({ width: '60%' }, 1500);
 		},3500);
 		setTimeout(function() {
-    	$('#skills-visual').animate({ width: '65%' }, 1300);
-    	},4000);
+		$('#skills-ux').animate({ width: '75%' }, 1300);
+		},4000);
 		setTimeout(function() {
-    	$('#skills-frontend').animate({ width: '90%' }, 1800);
+    	$('#skills-visual').animate({ width: '65%' }, 1800);
     	},4500);
 		setTimeout(function() {
-    	$('#skills-research').animate({ width: '70%' }, 1400);
-		},5000);
+    	$('#skills-frontend').animate({ width: '90%' }, 1400);
+    	},5000);
 		setTimeout(function() {
     	$('#mot-wealth').animate({ width: '50%' }, 1000);
     	},8000);
@@ -407,13 +456,13 @@
     	$('#mot-impact').animate({ width: '100%' }, 2000);
     	},9000);
 		setTimeout(function() {
-    	$('#mot-legacy').animate({ width: '70%' }, 1400);
+    	$('#mot-legacy').animate({ width: '65%' }, 1400);
     	},10000);
 		setTimeout(function() {
     	$('#mot-power').animate({ width: '40%' }, 800);
     	},10800);
 		setTimeout(function() {
-    	$('#mot-connection').animate({ width: '70%' }, 1400);
+    	$('#mot-connection').animate({ width: '75%' }, 1400);
    		},11300);
 });
 </script>
