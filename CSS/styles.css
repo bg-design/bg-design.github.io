@@ -295,7 +295,7 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 
 img {max-width: 100%;}
 
-img .full-width {width: 100%;}
+img.full-width {width: 100%;}
 
 ul {
 	list-style-type:circle;
