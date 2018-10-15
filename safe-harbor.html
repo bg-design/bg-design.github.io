@@ -12,93 +12,28 @@
 	<style type="text/css">
 
 		#safe-harbor h2 {clear:none;}
-		#shyft-model {
-			width: 700px;
-		    margin: 0 auto;
-		    display: block;
+
+		.full-width-container {
+			background:#21262d;
 		}
 
-		#shyft-values {
-			width: 500px;
-		    margin: 0 auto;
-		    display: block;
-		    padding: 20px;
+		#victim-counter {
+			font-size: 20pt;
+			color: rgb(251, 118, 127);
 		}
 
-		#shyft-dimensions {
-			width: 300px;
-		    margin: 0 auto;
-		    display: block;
+		.full-width-container .container {
+			color: white;
+			font-size: 18pt;
+			max-width: 700px;
 		}
 
-		#google-flights, #shyft-booking {
-			width: 400px;
-			float:left;
-			padding: 15px;
-		}
-		#hipmunk {
-			width: 450px;
-			float:right;
-			padding: 15px;
-		}
-		#shyft-components {
-			width: 600px;
-			margin:0 auto;
-			display: block;
-			padding: 15px;
-		}
-		#multiple-shifts {
-			width: 400px;
-			float: left;
-			padding: 20px 15px 15px 15px;
-		}
-
-		#natural-entry {
-			width: 400px;
-			float: right;
-			padding: 20px 15px 15px 15px;
-		}
-
-		#book-hover {
-			width: 400px;
-			float:right;
-			padding:15px;
-		}
-		#shyft-receipt {
-			width: 300px;
-			float:left;
-			padding: 15px;
-		}
-		#booking-status {
-			width: 500px;
-			float:right;
-			padding: 15px;
-			padding-top:50px;
-		}
-
-		.shyft-banner-description {
-			bottom: 400px;
-		    position: relative;
-		    background: rgba(255, 255, 255, 0.62);
-		    border-radius: 10px;
-		    -webkit-backdrop-filter: blur(3px);
-		    backdrop-filter: blur(3px);
-		    max-width: 900px;
-		    margin: 10px auto;
-		    margin-bottom: -250px;
-		}
 
 		.scroll-progress {
-			height: 5px;
-			opacity: .7;
-			background:#1cb0cb;
-			width: 0;
-		}
 
-		@media only screen and (max-width: 985px) {
-			.shyft-banner-description {
-				position: initial;
-				margin-bottom: 0;
+			background:#1cb0cb;
+
+		}
 
 			}
 	</style>
@@ -120,8 +55,8 @@
 				<li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
 			</ul>
 		</div>
-		<div class="scroll-progress"></div>
 	</nav>
+	<div class="scroll-progress"></div>
 	<div class="nav-spacer"></div>
 	<hr>
 	<div class="banner">
@@ -133,89 +68,98 @@
 		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
 		<br>
 		<p>The theme of this Global Entrepeneurship Summit weekend Hackathon was issues and problems facing women. The first day we brainstormed all sorts of issues including access to Healthcare and Childcare, education, maintaing safety in foreign environments as well as helping children that are abandoned at birth. However, the issue that kept coming up again and again was the scourge of domestic abuse.</p>
-		<img src="IMG/Safe-Harbor/IMG_0284.JPG">
+		<img class="full-width" src="IMG/Safe-Harbor/IMG_0284.JPG">
 
 		<p><strong>Team</strong>: Our team was six people. Other people had specialities in business development and project management. I was the only designer/ developer.</p>
 
-		<img src="IMG/Safe-Harbor/sh-team.png">
+		<img class="full-width" src="IMG/Safe-Harbor/sh-team.png">
 
 		<p><strong>Methodology</strong>: We used the double-diamond methodolgy, which starts with deep research, which then leads to insights. From there we established the problem definition, brainstormed possible solutions for solving the problem, and from there focused on core user needs and built a prototype that could best address these needs.</p>
 
-		<img src="IMG/Safe-Harbor/double-diamond.png">
+		<img class="full-width" src="IMG/Safe-Harbor/double-diamond.png">
 
 		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Research.png" /><h2>Research</h2></div> <br>
 
 		<p>Along with learning about heartbreaking statistics online, we had phone interviews with victims, a case manager and shelters host, and tried to understand the perspectives of all people including the perpetrator and the police. </p>
 
-		
-
-		<p><strong>Insights</strong>: We identified different types of abuse– abuse can be physical, verbal, financial, emotional &amp; psychological. After identifying these issues, we created a 'threat-scale' from low to extreme to consider what sort of interventions might be appropriate in different cases. We also created an Empathy Map to connect with victims and a User Journey to understand the current process. We then brainstormed a potential Feature Inventory and prioritized what we should focus on for a minimally viable product.</p>
-
-		<img src="IMG/Safe-Harbor/sh-brainstorm1.jpeg">
-		
-
-
-		<img src="IMG/Shyft/booking-dimensions.png" id="shyft-dimensions"/>
-
-		<p><strong>Research</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates looking for work, but was instead limited by the the agencies offering work. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
-
 	</section>
-	<section>
-		<p>Given that we were trying to solve a problem with many dimensions, we researched other instances where a great amount of information needs to be sorted through to find an ideal choice in as few steps as possible. Booking airline flights is a great example of this. It's hard to display all the information that the users needs without making the interaction feel overwhelming. Many websites make use of hover states, dropdowns, and a lot of exposed buttons so the user can focus on one task at a time without feeling overwhelmed or confused.</p>
-		<img src="IMG/Shyft/google-flights2.png" id="google-flights"/><img src="IMG/Shyft/hipmunk.png" id="hipmunk"/><br>
-		<figcaption>Google Flights and Hipmunk make use of a lot of exposed controls, dropdowns, &amp; hover modals to help organize the complex.</figcaption>
-		<p>We interviewed agencies and brand ambassadors to understand some of their pain points, as well as what method they currently use to schedule &amp; book staff. We found that agencies typically use <strong>pen &amp; paper</strong> or simply an <strong>excel spreedsheet</strong>. This lead us to believe there is plenty of room for improvement, as well as understand the current method to ensure that our approach made things simpler, not more complex.</p>
-		<img src="IMG/Shyft/shyft-components.png" id="shyft-components"/>
-		<p>We considered the relationships between Date, Time, Role, &amp; Location. Surely time was within a day, but what-if you had a shift that spanned midnight? Was it more common to have a single location that spanned multiple days or to have a single day that spanned multiple locations? Should a role be coupled with a shift, or should shifts exist inside roles? How common was it that you needed to add multiple roles? As we researched and explored each of these use cases, it helped narrow down how the core interaction would work.</p>
-	</section>
-	<section>
-		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Wires.png" /><h2>Wireframes</h2></div><br>
-		<h3><span class="underline"> Solution 1</span>: Detail First</h3>
-		<img src="IMG/Shyft/detail-first2.png" id=""/>
-		<p class="ten-pad">Our first approach to the problem was to have the agency first fill out the details of the event and the shifts they expected to fill. By telling the system all the information that is needed this dramatically simplifies the process once you get to the booking stage. We opted for simplicity, having the user fill out as few fields as possible, while still having the power to input a lot of information and have Shyft do the heavy lifting matching your event with potential candidates. We also separated the task into stages to help it feel more manageable.</p>
+</div>
+<div class="full-width-container">
+	<div class="container">
+		<blockquote>
+			<p class="dark-quote">
+				On average, 24 people per minute are victims of rape, physical violence or stalking by an intimate partner in the United States. More than 12 million women and men over the course of a year.<a href="https://www.cdc.gov/violenceprevention/pdf/nisvs_report2010-a.pdf" target="_blank"><sup>1</sup></a>
+			</p>
+		</blockquote>
 
-		<img src="IMG/Shyft/multiple-shifts2.png" id="multiple-shifts"/>
-		<img src="IMG/Shyft/natural-entry.png" id="natural-entry"/>
-		<figcaption><span class="float-left">Batch entry allows quick and powerful entry for multiple shifts.</span>
-		<span class="float-right">Time entry uses natural language i.e. "4am-6pm" or "6a to 1:15p"</span></figcaption>
+		<p class="dark-quote">Since you opened this webpage, an estimated <span id="victim-counter">0</span> people have been physically abused by an intimate partner in the US.</p>
+
+		<blockquote>
+			<p class="dark-quote">
+				On a typical day, there are more than 20,000 phone calls placed to domestic violence hotlines nationwide, representing half of all calls.<a href="http://nnedv.org/downloads/Census/DVCounts2013/DVCounts13_NatlSummary.pdf" target="_blank"><sup>2</sup></a>
+			</p>
+		</blockquote>
+
+		<p class="dark-quote">
+			Emergency accomodation is limited to shelters and their availability is not accessible online by case managers.
+		</p>
+
+		<blockquote>
+			<p class="dark-quote">
+				In Santa Clara County alone, domestic-violence shelters can take in just 63 people at a time and turn away nearly 2,500 requests annually.<a href="https://www.paloaltoonline.com/news/2017/01/20/domestic-violence-shelters-are-turning-away-victims-for-lack-of-space" target="_blank"><sup>3</sup></a>
+			</p>
+		</blockquote>
+
+	</div>
+
+</div>
+<div class="container" id="safe-harbor">
+	<section>
+		<p><strong>Insights</strong>: We identified different types of abuse — abuse can be physical, verbal, financial, emotional &amp; psychological. After identifying these issues, we created a 'threat-scale' from low to extreme to consider what sort of interventions might be appropriate in different cases. We also created an empathy map to connect with victims and a user journey to understand the current process. We then brainstormed a potential Feature Inventory and prioritized what we should focus on for a minimally viable product.</p>
+
+		<img class="full-width" src="IMG/Safe-Harbor/sh-brainstorm1.jpeg">
+
+		<p>
+			After day 1, I led the team to create many UX artifacts - a journey map, an empathy, map, a system map, user flows, as well as mapped out categorically the insights from our research. We understood the problem in increasing depth, we created the idea of a threat scale. However, when we looked around at other teams they were much further along building the prototype.
+		</p>
+		<img class="full-width" src="IMG/Safe-Harbor/sh-brainstorm2b.jpeg">
+
+		<p>We learned about the context of the situation - that the victim is worried that the perpetrator will come after them. We realized how important it was to design a system that could help victims without giving a potential perpetrator the opportunity to abuse such a system. It's not obvious how you can screen whether someone is truly a victim or they're a perpetrator trying to track down victims. It's extremely important that the information of the Safe Harbors is not made public or available to perpetrators.</p>
+		<p><strong>Pivot</strong>: Therefore, we decided to pivot and make Safe Harbor a tool for case managers, rather than victims. Being victim-focused left a vulnerability wherein the perpetrator could chase the victim, spy on them, and use the app against them. Instead, a tool for case workers gives the victim a layer of protection and helps the case workers be more effective, who are the lynchpin in the system. The network currently available between case managers, shelters, police and victims is very outdated, slow, fragmented and broken. Safe Harbor aims to improve this system. 
+		</p>
+	</section>
+</div>
+
+<div class="full-width-container">
+	<div class="container">
+		<blockquote>
+		<p class="dark-quote">
+			<strong>Problem Definition</strong>: There is a real need for greater access to shelter beds to protect victims of domestic abuse.
+		</p>
+		</blockquote>
+	</div>
+</div>
+
+<div class="container"  id="safe-harbor">
+	<section>
+		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Design.png" /><h2>Solution</h2></div>
 		<br>
-
-		<p>When the user starts searching for people to book, the system automatically organizes your results based on the candidates that are able to fill the most shifts. This allows them to find candidates quickly and minimize the total amount of people to manage.</p>
-
-		<img src="IMG/Shyft/booking.png" id="shyft-booking"/><img src="IMG/Shyft/book-hover.png" id="book-hover" />
-		<figcaption><span class="float-left">Schedule and available shifts update in realtime.</span><span class="float-right">When hovering book button, available shifts light up to indicate availability.</span></figcaption>
-
-		<p class="fifteen-pad">When all the available shifts are filled, the user is taken to a confirmation page that clearly lays out the line-item cost of people you have booked for each shift, any added tax or fees, and Shyft's fee. After they send out the requests to book, they can check in on the booking status to see who has accepted, who is pending, and who has declined the requests. After 24 hours, whoever hasn't accepted the job request loses the job and the agency can then continue to rebook to fill in the remaining shifts.</p>
-		<div class="float-left">
-			<img src="IMG/Shyft/shyft-receipt2.png" id="shyft-receipt"/>
-			<figcaption>Easily scan the line-item totals for who is booked.</figcaption>
-		</div>
-		<div class="float-right">
-			<img src="IMG/Shyft/booking-status.png" id="booking-status" />
-			<figcaption>After the booking requests are sent out, the agency can <br>check-in to see the status of requests.</figcaption>
-		</div>
-		<br class="clear">
-
-		<p class="ten-pad">The client seemed receptive to the approach, however, wasn't sure that the advertising agency would necessarily be locked into the details of an event they are attempting to book. With the detail first flow, the assumption is that the agency is already constrained by the booking times for the event. However, if there are too few or undesirable results for their desired booking time, they might go back and edit the event details to open their results. Alternatively, the agency might have some staffers that they have worked with before, and have bookmarked for future gigs. They already know the staffers are reliable so would like to hire them again. Therefore, they might start scheduling by first looking at the availability of the desired staffers and then working to make a schedule that fits. This brings us to our second approach.</p>
-
+		<img class="full-width" src="IMG/Safe-Harbor/sh-screens.jpeg">
 
 	</section>
+
 	<section>
-		<div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Design.png" /><h2>Design</h2></div>
+		<h2>Reflection</h2>
 	</section>
 
 </div>
 
-<div class="banner">
+<!-- <div class="banner">
 	<img src="IMG/Shyft/shyft-banner3.jpg" />
-</div>
+</div> -->
 
 <div class="container">
 	<section>
-<!-- 		<div class="bottom-nav">
-		<a href="http://ben-grandy-peuv.squarespace.com/refer-me" target="_blank"><button class="float-left hvr-sweep-to-left when-button"><div class="flip float-left">➟</div>&nbsp;Refer Me</button></a>
-		<a href="https://ben-grandy-peuv.squarespace.com/life-alert" target="_blank"><button class="float-right hvr-sweep-to-right who-button">Life Alert ➟</button></a>
-		</div> -->
 
 		<div class="bottom-nav">
 			<button class="float-left hvr-sweep-to-left when-button" onClick="window.location.href='http://ben-grandy-peuv.squarespace.com/refer-me'"><div class="flip float-left">➟</div>&nbsp;Refer Me</button>
@@ -226,28 +170,28 @@
 </div>
 
 <!-- Back to top-->
-<a href="#top"><img id="backToTop" src="IMG/top3.png"></a>
+<a href="#top" ><img src="IMG/top3-old.png" class="backToTop"></a>
 
+<!-- <a href="#top"><img id="backToTop" src="IMG/top3.png"></a>
+ -->
 	<hr>
-	<!-- <footer class="center">
-		<div class="container">
-			
-
-			<button id="lets-collaborate"><a href="mailto:bpgrandy@gmail.com"><img class="contact" src="IMG/white-chat-icon.png"></a><a href="mailto:bpgrandy@gmail.com">Let's Collaborate</a></button>
-
-			<div class="contact-description">
-				<h4>Let's bring your ideas <strong>to life.</strong></h4>
-			</div>
-		</div>
-	</footer> -->
-
 	<footer class="center">
 		<div class="container">
-			<h5><p><!-- img class="contact" src="IMG/chat-icon.png"/> -->Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com"><strong>to life.</strong></a></p></h5>
+			<br><br><h5>Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com?subject=Inquiry"><strong>to life.</strong></a></h5><br><br>
 		</div>
 	</footer>
 
 <script src="JS/global.js"></script>
+
+<script>
+
+	// Victim counter
+	var secondsSincePageOpen = 0;
+	setInterval(function () {
+				secondsSincePageOpen += 1;
+        		document.getElementById("victim-counter").innerHTML = secondsSincePageOpen.toLocaleString();
+        }, 2500);
+</script>
 
 </body>
 <hr>

@@ -46,6 +46,18 @@ p  {
 	text-align: justify;
 }
 
+sup {
+	vertical-align: super;
+    font-size: smaller;
+    border-bottom: 0;
+    background:none;
+    color: rgb(186, 186, 186);
+}
+
+sup:hover {
+	color: #08c7ff;
+}
+
 .body {text-indent: 2em;}
 
 a {text-decoration: none;
@@ -57,11 +69,11 @@ p a  {
 	color: black;
     border-bottom: 1px solid #08c7ff;
     transition:.5s ease-out .5s, 1s;
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(8, 199, 255), rgb(8, 199, 255));
-    background-repeat: no-repeat, no-repeat, repeat-x;
+/*    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(8, 199, 255), rgb(8, 199, 255));
+*/    background-repeat: no-repeat, no-repeat, repeat-x;
     cursor: pointer;
-    text-shadow: -2px 0 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
-
+/*    text-shadow: -2px 0 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+*/
 /*    background-position: 0% 94%, 100% 94%, 0% 94%;
 */    text-decoration: none;
 /*    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
@@ -283,6 +295,8 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 
 img {max-width: 100%;}
 
+img .full-width {width: 100%;}
+
 ul {
 	list-style-type:circle;
 	list-style-position:inside;
@@ -455,6 +469,15 @@ nav li {
 	color: black;
 }
 
+.scroll-progress {
+			height: 5px;
+			opacity: 1;
+			width: 0;
+			position: fixed;
+			bottom: 0;
+			z-index: 1;
+		}
+
 .what-bg {
 /*	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
 /*	background-color: rgba(50, 120, 245, 0.15 );*/
@@ -606,12 +629,24 @@ blockquote {
 	font-style: italic;
 	font-weight: 400;
 }
+
+blockquote .dark-quote {
+	border-left: 1px solid #ccc;
+	padding-left: 35px;
+	margin: 20px 0 5px;
+}
+
+.dark-quote {
+	color: white;
+	font-size: 16pt;
+}
 cite {
 	float:right;
 	padding: 0 0 25px 0;
 }
 
 cite p {color:white;}
+
 
 .headshot {
 	float:left;
@@ -680,6 +715,10 @@ cite p {color:white;}
 	color: rgb(112, 112, 112);
 	margin-left: 23px;
 	clear: both;
+}
+
+.full-width-container {
+	background:#21262d;
 }
 
 .container {
@@ -965,7 +1004,7 @@ cite p {color:white;}
 
 .project-icons {
 	float:left;
-	width: 100px;
+	width: 75px;
 }
 
 .project-icons-wrapper {
