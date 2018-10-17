@@ -204,11 +204,20 @@
 <script>
 
 	// Victim counter
-	var secondsSincePageOpen = 0;
+	var secondsStart = Math.floor(Date.now()/1000);
 	setInterval(function () {
-				secondsSincePageOpen += 1;
-        		document.getElementById("victim-counter").innerHTML = secondsSincePageOpen.toLocaleString();
-        }, 2500);
+ 				secondsSincePageOpen = (Date.now()/1000) - secondsStart
+				var victimCounter = Math.floor(secondsSincePageOpen / 2.5);
+        		document.getElementById("victim-counter").innerHTML = victimCounter.toLocaleString();
+        }, 1000);
+
+	// ALTERNATIVE SOLUTION:
+	// var secondsSincePageOpen = 0;  
+	// setInterval(function () {
+	// 			secondsSincePageOpen += 1;
+	 //        		document.getElementById("victim-counter").innerHTML = secondsSincePageOpen.toLocaleString();
+ 	//        }, 2500);
+ 	
 </script>
 
 </body>

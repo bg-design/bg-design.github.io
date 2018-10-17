@@ -72,12 +72,25 @@
 			margin: 10px 0;
 		}
 
+		#mobile-headshot {
+			display: none;
+		}
+
 	@media only screen and (max-width: 800px)  {
 
+		html {
+			background-attachment: scroll;
+			background-color: black;
+			background-image: none;
+		}
+
 	   	#splash {
-			margin:5px;
-			padding:10px;
-			margin-top: 200px;
+			margin:0 auto;
+			padding:0;
+			margin-top: 0;
+			top:0;
+			border-radius: 0;
+			max-width: none;
 		}
 	  	#splash p {
 	  	font-size: 11pt;
@@ -94,6 +107,10 @@
 	    width: 90%;
     	text-align: center;
 		}
+		#mobile-headshot {
+			display: block;
+			width: 100%;
+		}
 }
 	</style>
 
@@ -108,6 +125,7 @@
 	</div>
 	<section class="fade-in two">
 		<div id="splash">
+		<img src="IMG/NM-hero2.jpg" id="mobile-headshot" />
 		<h3 class="fade-in two"> <span id="greeting"></span> Hi, I’m Ben.</h3><br>
 
 			<p class="fade-in three">Thanks for taking the time to have a look around! I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
