@@ -1,6 +1,4 @@
-<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
-
-<!--SSL UP IN HURR-->
+<!-- Designed and coded by Ben Grandy with love in Oakland, CA. -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -15,108 +13,155 @@
 	
 	<title id="greeting-title">Hi, I'm Ben.</title>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
-	<!-- <script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous"></script> -->
 
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css?t=3" media="screen">
     <link rel="stylesheet" type="text/css" href="CSS/buttons-hvr.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
-		html {
-			background: URL('IMG/NM-hero2.jpg') no-repeat right top fixed;
-			background-size: cover;
-			}
+	#top-greeting {
+		font-size: 30px;
+	}
 
-		#splash {
-			position: absolute;
-		    max-width: 500px;
-			padding: 20px 45px;
-			top: 25%;
-			background: rgba(35, 35, 35, 0.57);
-			border-radius: 20px;
-			margin: 0 55px;
-			-webkit-backdrop-filter: blur(8px);
-			backdrop-filter: blur(8px);
-		}
+	#top-greeting, #text-overlay p {
+		text-align: left;
+	}
+	#text-overlay {
+		max-width: 500px;
+		display: block;
+	}
 
-		#splash p {
-			font-family: 'Lora', serif;
-			color: white;
-			font-size:14pt;
-			line-height: 1.3em;
-		}
-		#splash h3 {
-			font-family: 'Lora', serif;
-			color: white;
-			font-size:20pt;
-			line-height: 1.3em;
-		}
-		#splash-nav-wrapper {
-			position: absolute;
-			background: rgba(255, 255, 255, 0.66);
-		}
-		#splash-nav {
-			font-family: 'Lato', sans-serif;
-			font-size:13pt;
-			text-shadow: unset;
-    		color: white;
-    		padding: 20px;
-    		font-weight: 300;
-		}
-		.splash-button {
-			color: white;
-			border: 1px solid white;
-			margin: 10px 0;
-		}
+	#full-body {
+		opacity: 0;
+		width: 40%;
+		max-width: 500px;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+	}
 
-		#mobile-headshot {
-			display: none;
-		}
+	#body-copy {
+		width: 80%;
+		max-width: 470px;
+	}
 
-	@media only screen and (max-width: 800px)  {
+	.home-links {
+		padding-left: 10px;
+		margin-bottom: 30px;
+	}
 
-		html {
-			background-attachment: scroll;
-			background-color: black;
-			background-image: none;
-		}
-
-	   	#splash {
-			margin:0 auto;
-			padding:0;
-			margin-top: 0;
-			top:0;
-			border-radius: 0;
-			max-width: none;
-		}
-	  	#splash p {
-	  	font-size: 11pt;
-	    }
-
-	    #splash .bottom-nav {
-	    display: block;
-	    }
-		#splash-nav {
-	    font-size: 14pt;
-	    padding: 10px;
-	    clear: both;
-	    float: left;
-	    width: 90%;
-    	text-align: center;
-		}
-		#mobile-headshot {
-			display: block;
-			width: 100%;
-		}
+	.home-links a {
+	font-family: 'Lato', sans-serif;
+	font-size: 18pt;
+	line-height: 2em;
+	letter-spacing: .5px;
+	padding: 10px 0;
+	border-bottom: 1px solid #08c7ff;
+	font-weight: 300;
+	margin-right: 30px;
 }
+
+	.home-links a:hover {
+/*    color: #08c7ff;*/
+    transition:.3s ease-in .3s, .3s;
+	border-bottom-style: dashed;
+}
+	#rect-gradient, #home-loading {
+	width:300px;
+	height: 3px;
+	margin-left: 10px;
+	color: #fff;
+	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease-in-out infinite;
+	-moz-animation: Gradient 15s ease-in-out infinite;
+	animation: Gradient 15s ease-in-out infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+#home-loading {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#full-body {
+    -webkit-animation-name: body; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+    animation-name: body;
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+    -webkit-animation: body 5s ease-in;
+	-moz-animation: body 5s ease-in;
+	animation: body 5s ease-in;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+#full-body {
+	opacity: 1;
+}
+
+.dark-mode {
+	color: white !important;
+	background: black;
+}
+
+.dark-mode a:hover{
+	color: #08c7ff !important;
+}
+
 	</style>
 
 </head>
 <body>
-	<div class="loading-bg" id="who-loading">
+	<div class="loading-bg" id="home-loading">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
 			<div class="loading-dot"></div>
@@ -124,27 +169,44 @@
 		</div>
 	</div>
 	<section class="fade-in two">
-		<div id="splash">
-		<img src="IMG/NM-hero2.jpg" id="mobile-headshot" />
-		<h3 class="fade-in two"> <span id="greeting"></span> Hi, I’m Ben.</h3><br>
+		<div id="text-overlay">
+		<p class="fade-in three" id="top-greeting">Hello, I’m Benjamin.<br/><span id="greeting"></span></p>
 
-			<p class="fade-in three">Thanks for taking the time to have a look around! I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
-			<br>
+		<div id="rect-gradient"></div>
 
-			<p class="fade-in four">Let’s build a <strong>brighter future.</strong></p><br>
-			<div class="bottom-nav">
-				<a class="float-left project-button what-button splash-button" href="what.html" id="splash-nav">View Work</a>
-				<a class="float-left project-button how-button splash-button" href="how.html" id="splash-nav">My Process</a>
-				<a class="float-right project-button who-button splash-button" href="who.html" id="splash-nav">Who I am</a>
+			<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
+			<p class="fade-in five"><strong>Let’s build a brighter future.</strong></p><br>
+			<div class="fade-in six home-links">
+				<a class="home-link" href="what.html">View Work</a>
+				<a class="home-link" href="how.html">My Process</a>
+				<a class="home-link" href="who.html">Who I am</a>
 			</div>
 
+			<div id="testor"></div>
+
 		</div>
+		<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 
 <script src="JS/logo.js"></script>
 <script src="JS/greeting.js"></script>
 
 <script type="text/javascript">
+
+// AM/PM Dark Mode
+function nightTime() {
+	var time = new Date();
+    var hour = time.getHours();
+    if ((hour <= 6) || (hour >= 18))
+    {
+    	$( "p" ).addClass( "dark-mode" );
+    	$( "html" ).addClass( "dark-mode" );
+    	$( ".home-link" ).addClass( "dark-mode" );
+    }
+;
+}
+nightTime();
+
 console.info('%cAhhh, you\'re the type of person that likes to look under the hood! I like that!', 'background: #fff; color: #000;font-family:serif;font-size:14px;');
 console.log('%cI hope I\'m not penalized for excessive commenting out of unused prototype code.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
 console.log('%cI like to use jQuery and code that is short, to the point, elegant, yet powerful.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
