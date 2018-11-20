@@ -19,6 +19,12 @@
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
+	html {
+		background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+	}
+
+
+
 	#top-greeting {
 		font-size: 30px;
 	}
@@ -62,9 +68,10 @@
 }
 
 	.home-links a:hover {
-/*    color: #08c7ff;*/
+    color: #08c7ff !important;
     transition:.3s ease-in .3s, .3s;
 	border-bottom-style: dashed;
+	padding-bottom: 15px;
 }
 	#rect-gradient, #home-loading {
 	width:300px;
@@ -114,6 +121,25 @@
 	}
 }
 
+@-webkit-keyframes nightTime-home {
+	0% {background: linear-gradient(rgb(255, 255, 255) 100% )}
+	100% {background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);}
+}
+
+@-moz-keyframes nightTime-home {
+	0% {background: linear-gradient(rgb(255, 255, 255) 100% )}
+	100% {background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);}
+}
+
+@keyframes nightTime-home {
+	0% {background:black;
+		opacity: 0;}
+	100% {opacity: 1;
+		background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+		background-size:200% 200%;
+	}
+}
+
 #home-loading {
 	width: 100%;
 	height: 100%;
@@ -150,11 +176,18 @@
 
 .dark-mode {
 	color: white !important;
-	background: black;
 }
 
 .dark-mode a:hover{
 	color: #08c7ff !important;
+}
+
+.dark-mode-bg-home {
+	-webkit-animation: nightTime-home 5s ease-in;
+	-moz-animation: nightTime-home 5s ease-in;
+	animation: nightTime-home 5s ease-in;
+	background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+	background-size: 200% 200%;
 }
 
 	</style>
@@ -168,25 +201,27 @@
 			<div class="loading-dot"></div>
 		</div>
 	</div>
-	<section class="fade-in two">
-		<div id="text-overlay">
-		<p class="fade-in three" id="top-greeting">Hello, I’m Benjamin.<br/><span id="greeting"></span></p>
+	<div class="container">
+		<section class="fade-in two">
+			<div id="text-overlay">
+			<p class="fade-in three" id="top-greeting">Hello, I’m Benjamin.<br/><span id="greeting"></span></p>
 
-		<div id="rect-gradient"></div>
+			<div id="rect-gradient"></div>
 
-			<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
-			<p class="fade-in five"><strong>Let’s build a brighter future.</strong></p><br>
-			<div class="fade-in six home-links">
-				<a class="home-link" href="what.html">View Work</a>
-				<a class="home-link" href="how.html">My Process</a>
-				<a class="home-link" href="who.html">Who I am</a>
+				<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
+				<p class="fade-in five"><strong>Let’s build a brighter future.</strong></p><br>
+				<div class="fade-in six home-links">
+					<a class="home-link" href="what.html">View Work</a>
+					<a class="home-link" href="how.html">My Process</a>
+					<a class="home-link" href="who.html">Who I am</a>
+				</div>
+
+				<div id="testor"></div>
+
 			</div>
-
-			<div id="testor"></div>
-
-		</div>
-		<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
+			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
+	</div>
 
 <script src="JS/logo.js"></script>
 <!-- <script src="JS/greeting.js"></script>
@@ -216,7 +251,7 @@ function nightTime() {
     if ((hour <= 6) || (hour >= 18))
     {
     	$( "p" ).addClass( "dark-mode" );
-    	$( "html" ).addClass( "dark-mode" );
+    	$( "html" ).addClass( "dark-mode-bg-home" );
     	$( ".home-link" ).addClass( "dark-mode" );
     }
 ;

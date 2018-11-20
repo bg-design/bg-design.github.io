@@ -509,9 +509,8 @@ nav li {
 }
 #what-loading {background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));}
 #who-loading {background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));}
-#how-loading {background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);}
-#when-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-}
+#how-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);}
+#when-loading {background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);}
 #why-loading {background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));}
 
 .loading-wrapper {
@@ -1031,6 +1030,22 @@ cite p {color:white;}
 	right:50px;
 	padding: 20px 0 10px 0;
 	clear: both;
+}
+
+.dark-mode {
+	color: white !important;
+}
+
+.dark-mode a:hover{
+	color: #08c7ff !important;
+}
+
+.dark-mode-bg-home {
+	-webkit-animation: nightTime-home 5s ease-in;
+	-moz-animation: nightTime-home 5s ease-in;
+	animation: nightTime-home 5s ease-in;
+	background: #252B33;
+	background-size: 200% 200%;
 }
 
 /* MEDIA QUERIES */
