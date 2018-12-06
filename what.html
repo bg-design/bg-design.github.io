@@ -97,9 +97,16 @@
 	}
 }*/
 
+
+/* Default set to none so doesn't display on loading screen */
+#fp-nav {
+	opacity: 0;
+	transition: 0.5s;
+}
+
 @media screen and (max-device-width: 415px){
 
-#fp-nav {display: none;}
+#fp-nav {opacity: 0}
 
 }
 
@@ -212,6 +219,7 @@
 
 <!-- Full Page -->
  <script type="text/javascript">
+
     var myFullpage = new fullpage('#fullpage', {
     	anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
 		sectionsColor: [],
@@ -222,6 +230,14 @@
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
         css3:false
+    });
+
+    $(window).on("load", function() {
+      setTimeout(function() {
+        setTimeout(function() {
+          $('#fp-nav').css("opacity", "1");
+        },1100);
+      },1100);
     });
 </script>
 
