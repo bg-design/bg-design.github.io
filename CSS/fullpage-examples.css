@@ -31,13 +31,13 @@ caption,th {
     text-align: left;
 
 }
-h1,h2,h3,h4,h5,h6 {
+/*h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
     font-size: 100%;
     margin:0;
     padding:0;
     color:#444;
-}
+}*/
 q:before,q:after {
     content:'';
 }
@@ -58,9 +58,9 @@ body{
 	width: 960px;
 	position: relative;
 }
-h1{
+/*h1{
 	font-size: 6em;
-}
+}*/
 p{
 	font-size: 2em;
 }
