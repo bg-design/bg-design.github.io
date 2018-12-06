@@ -13,8 +13,7 @@
 	
 	<!-- 	3rd Party -->
 	<link rel="stylesheet" type="text/css" href="CSS/fullpage.css"  media="screen"/>
-<!-- 	<link rel="stylesheet" type="text/css" href="CSS/fullpage-examples.css"  media="screen"/>
- -->    <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
+    <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
 
 	<style>
 
@@ -102,23 +101,6 @@
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
 	<script type="text/javascript" src="JS/fullpage.js"></script>
-<!-- 	<script type="text/javascript" src="JS/fullpage-examples.js"></script>
- --><!-- 	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
-				sectionsColor: [],
-				navigation: true,
-				navigationPosition: 'left',
-				navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
-				responsiveWidth: 0,
-				afterResponsive: function(isResponsive){
-					
-				}
-
-			});
-		});
-	</script> -->
 
 </head>
 <body>
@@ -225,6 +207,11 @@
 <!-- Full Page -->
  <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
+    	anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
+		sectionsColor: [],
+		navigation: true,
+		navigationPosition: 'left',
+		navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
@@ -235,7 +222,7 @@
 <!-- Lity -->
 <script src="JS/lity.js"></script>
 	
-<!--This makes the logo disappear on nav hover-->
+<!-- Bunch of scripts-->
 <script src="JS/logo.js"></script>
 
 <script type="text/javascript">

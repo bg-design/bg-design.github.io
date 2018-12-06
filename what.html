@@ -12,7 +12,7 @@
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	
 	<!-- 	3rd Party -->
-	<link rel="stylesheet" type="text/css" href="CSS/jquery.fullPage.css"  media="screen"/>
+	<link rel="stylesheet" type="text/css" href="CSS/fullpage.css"  media="screen"/>
     <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
 
 	<style>
@@ -70,10 +70,12 @@
 		width: 200px;
 	}
 	.what-box {
+		position: relative;
 		max-width: 450px;
 		padding: 20px 30px;
 		margin: 0 auto;
 		background: rgba(255, 255, 255, 0.81);
+		top:18%;
 	}
 	.what-box p {
 		font-family: 'Lato', sans-serif;
@@ -90,33 +92,15 @@
 
 	/*WHAT PROJECTS PADDING */
 
-@media only screen and (min-height: 700px) {
+/*@media only screen and (min-height: 700px) {
 	.what-box {
-		position: relative;
-		bottom:18%;
 	}
-}
+}*/
 
 	</style>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-	<script type="text/javascript" src="JS/jquery.fullPage.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
-				sectionsColor: [],
-				navigation: true,
-				navigationPosition: 'left',
-				navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
-				responsiveWidth: 0,
-				afterResponsive: function(isResponsive){
-					
-				}
-
-			});
-		});
-	</script>
+	<script type="text/javascript" src="JS/fullpage.js"></script>
 
 </head>
 <body>
@@ -219,10 +203,26 @@
 		<hr>
 	</div> 
 </div>
+
+<!-- Full Page -->
+ <script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+    	anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
+		sectionsColor: [],
+		navigation: true,
+		navigationPosition: 'left',
+		navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
+        verticalCentered: false,
+
+        //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+        css3:false
+    });
+</script>
+
 <!-- Lity -->
 <script src="JS/lity.js"></script>
 	
-<!--This makes the logo disappear on nav hover-->
+<!-- Bunch of scripts-->
 <script src="JS/logo.js"></script>
 
 <script type="text/javascript">
