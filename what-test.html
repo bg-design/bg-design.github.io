@@ -1,0 +1,237 @@
+<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>What | Ben Grandy</title>
+
+	<link rel="stylesheet" href="CSS/global.css" media="screen">
+	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	
+	<!-- 	3rd Party -->
+	<link rel="stylesheet" type="text/css" href="CSS/fullPage.css"  media="screen"/>
+    <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
+
+	<style>
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	.section, .slide{
+		background-size: cover;
+	}
+		/* Defining each section background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(IMG/awa-fit-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section1{
+		background-image: url(IMG/safe-harbor-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section2{
+		background-image: url(IMG/shyft-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section3{
+		background-image: url(IMG/life-alert-mock4.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section4{
+		background-image: url(IMG/refer-me-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+/*
+	#section3{
+		background-image: url(IMG/gumball-mock.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section5{
+		background-image: url(IMG/archive-mock.jpg);
+		padding: 0% 0 0 0;
+	}*/
+
+	.made-in {
+		text-align: center;
+		font-weight: 400;
+		color: rgb(159, 159, 159);
+	}
+
+	#GES2016Logo {
+		width: 200px;
+	}
+	.what-box {
+		max-width: 450px;
+		padding: 20px 30px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, 0.81);
+	}
+	.what-box p {
+		font-family: 'Lato', sans-serif;
+	    font-size: 12pt;
+	    line-height: 1.3em;
+/*	    font-weight:300;
+*/	}
+	/*.safe-harbor {transform: translate(0px, 200px)}
+	.refer-me {transform: translate(0px, 200px)}
+	.shyft {transform: translate(0px, 200px)}
+	.life-alert {transform: translate(0px, 200px)}
+	.gumball {transform: translate(0px, 200px)}
+	#archive {transform: translate(0px, 290px)}*/
+
+	/*WHAT PROJECTS PADDING */
+
+@media only screen and (min-height: 700px) {
+	.what-box {
+		position: relative;
+		bottom:18%;
+	}
+}
+
+	</style>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+	<script type="text/javascript" src="JS/fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
+				sectionsColor: [],
+				navigation: true,
+				navigationPosition: 'left',
+				navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
+				// responsiveWidth: 0,
+				// afterResponsive: function(isResponsive){
+					
+				// }
+
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div class="loading-bg" id="what-loading">
+		<div class="loading-wrapper">
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+		</div>
+	</div>
+	<nav class="navbar">
+  		<div class="nav-wrapper what-bg">
+<!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
+			<ul class="nav-menu">
+				<li><a href="what.html" id="active" class="fade-in one what-bg">What</a></li><li><a href="how.html" class="fade-in two what-bg">How</a></li><li><a href="who.html" class="fade-in two what-bg">Who</a></li><li><a href="when-where.html" class="fade-in three what-bg">When</a></li><li><a href="why.html" class="fade-in three what-bg">Why</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="fullpage">
+	<div class="section" id="section0">
+		<div class="what-box awa-fit">
+			<h1>AWA Fit</h1>
+			<br>
+			<p>Client project for a mobile fitness app start-up to bring group fitness, guided workouts, yoga, friendly competition and trainer-guided videos to Latin America.</p>
+			<br>
+			<a href="https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857" target="_new"><button class="project-button center">View Demo</button></a>
+			<p class="made-in">Made in Oct. 2017</p>
+		</div>
+	</div> 
+	<div class="section" id="section1">
+		<div class="what-box safe-harbor">
+			<h1>Safe Harbor</h1>
+			<br>
+<!-- 			<img src="IMG/GES2016Logo.png" id="GES2016Logo"/>
+ -->			<p>Won a hackathon at the Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>			<br>
+			<a href="safe-harbor.html" ><button class="project-button center">Case Study</button></a>
+			<p class="made-in">Made in Jun. 2016</p>
+		</div>
+	</div> 
+	<div class="section" id="section2">
+		<div class="what-box shyft">
+			<h1>Shyft Event Planning</h1>
+			<br>
+			<p>Shyft is a platform that connects brand ambassadors to agencies looking to hire. It simplifies the complex logistics of hiring and scheduling shifts.</p>
+			<br>
+			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
+			<p class="made-in">Made in Feb. 2016</p>
+		</div>
+	</div>
+	<div class="section" id="section3">
+	    <div class="what-box life-alert">
+			<h1>Life Alert</h1>
+			<br>
+			<p>At General Assembly, two colleagues and I redesigned Life Alert. This included mobile apps, their marketing website, and holistic system and hardware design.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/life-alert" data-lity><button class="project-button center">Case Study</button></a>
+			<p class="made-in">Made in Jan. 2016</p>
+		</div>
+
+	</div>
+	<div class="section" id="section4">
+		
+		<div class="what-box refer-me">
+			<h1>Refer Me</h1>
+			<br>
+			<p>As part of General Assembly Labs worked with product managers and developers to design Refer Me- a platform that connects job seekers to those willing to refer.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/refer-me" data-lity><button class="project-button center">View Wires</button></a>
+			<p class="made-in">Made in Apr. 2016</p>
+		</div>
+	
+<!-- 	<div class="section" id="section3">
+		<div class="what-box gumball">
+			<h1>Gumball Toys</h1>
+			<br>
+			<p>Branded and prototyped a website for a student project to bring a 30 year old toy store into the modern age.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/gumball-toys" data-lity><button class="project-button center">View Project</button></a>
+		</div>
+		<div class="bottom-nav" id="what-nav">
+			<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='why.html'"><div class="flip float-left">➟</div>&nbsp;My Philosophy</button>
+			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
+		</div>
+	</div>
+<div class="section" id="section5">
+		<div class="what-box" id="archive">
+			<h1>Archive</h1>
+			<br>
+			<p>Look at all my other work- web development, graphic design, fabrication, and art.</p>
+			<br>
+			<button class="project-button center" onClick="parent.location='archive.html'">View Archive</button>
+		</div>
+		<div class="filler"></div>-->
+		<div class="bottom-nav" id="what-nav">
+			<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='why.html'"><div class="flip float-left">➟</div>&nbsp;My Philosophy</button>
+			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
+		</div>
+		</div>
+		<hr>
+	</div> 
+</div>
+<!-- Lity -->
+<script src="JS/lity.js"></script>
+	
+<!--This makes the logo disappear on nav hover-->
+<script src="JS/logo.js"></script>
+
+<script type="text/javascript">
+console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
+console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling effect, and big thanks to Jan Sorgalla (sorgalla.com/lity/) for this lightbox script.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
+
+
+</script>
+</body>
+<hr>
+<p class="credits">Designed and coded with love by Ben.</p>
+</html>
