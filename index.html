@@ -206,6 +206,7 @@
  
  <script type="text/javascript">
 
+
  // Time of Day Greeting
 
 datetoday = new Date();
@@ -221,20 +222,6 @@ var greeting = (display);
 
 document.getElementById("greeting").innerHTML = greeting;
 
-
-// AM/PM Dark Mode
-function nightTime() {
-	var time = new Date();
-    var hour = time.getHours();
-    if ((hour <= 6) || (hour >= 18))
-    {
-    	$( "p" ).addClass( "dark-mode" );
-    	$( "html" ).addClass( "dark-mode-bg-home" );
-    	$( ".home-link" ).addClass( "dark-mode" );
-    }
-;
-}
-nightTime();
 
 console.info('%cAhhh, you\'re the type of person that likes to look under the hood! I like that!', 'background: #fff; color: #000;font-family:serif;font-size:14px;');
 console.log('%cI hope I\'m not penalized for excessive commenting out of unused prototype code.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
