@@ -12,7 +12,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title id="greeting-title">Hi, I'm Ben.</title>
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<style>
+		
+
+.at-banner {
+  position: fixed;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #33f1a1;
+  width: 100%;
+  border:0;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #141414;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
+          animation: at-banner-slide-in 1.5s ease forwards;
+          animation-delay: 15s;
+}
+	</style>
 
     <link rel="stylesheet" type="text/css" href="../CSS/styles.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../CSS/buttons-hvr.css" media="screen">
@@ -145,27 +167,6 @@
 	animation: body 5s ease-in;
 }
 
-
-
-.at-banner {
-  position: fixed;
-  opacity: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: #33f1a1;
-  width: 100%;
-  border:0;
-  padding: 10px;
-  box-sizing: border-box;
-  color: #141414;
-  font-family: 'Open Sans', 'Helvetica', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
-          animation: at-banner-slide-in 1.5s ease forwards;
-          animation-delay: 15s;
-}
 .at-banner__content {
   display: flex;
   align-items: center;
@@ -308,6 +309,7 @@
   <div class="at-banner__close"></div>
 </div>
 
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="JS/custom.js"></script>
 <script src="JS/dark-mode2.js"></script>
  
