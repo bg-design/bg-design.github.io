@@ -2,7 +2,7 @@
 <head>
 	<style>
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(../CSS/global.css);
 
 html {background: black;}
 
@@ -68,36 +68,97 @@ ul#dark-mode-switch {
 }
 
 
-/*======================
-   Set Cookies
-=======================*/
-#cookie-bar{
-  font-family: 'Montserrat', sans-serif;
-  background: #232c41;
-  display:block;
+.at-banner {
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #33f1a1;
   width: 100%;
-  left: 0px;
-  color: #fff;
-  width: 100%;
+  border:0;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #141414;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
+          animation: at-banner-slide-in 1.5s ease forwards;
 }
-#cookie-bar p{width: 85%;float: left;display: inline-block;font-size: 15px;line-height: 24px;color: #adadad;}
-#cookie-bar button{float: right;background: transparent;border: 1px solid #fff;color: #fff;padding: 15px 20px;text-transform: uppercase;font-size: 16px;margin-top: 5px; border-radius: 4px;}
-#cookie-bar a{color: #fff;}
-#contentcookie{ padding:20px 50px; width: 80%; margin: auto; }
+.at-banner__content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 40px;
+  box-sizing: border-box;
+}
+.at-banner__title {
+  font-size: 18px;
+}
+.at-banner__text {
+  margin: 0 20px 0 0;
+}
 
-.clear{ clear:both; }
-        
+.at-banner__close {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+.at-banner__close:before, .at-banner__close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #FFFFFF;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.at-banner__close:before {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+.at-banner__close:after {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
 
-  @media(max-width: 767px){
-
-#cookie-bar p{width: 100%;font-size: 14px;}
-#cookie-bar button{width: 100%;}
-#cookie-bar a{color: #fff;}
-#contentcookie{padding: 20px 0px;width: 90%;margin: auto;}
+@-webkit-keyframes at-banner-slide-in {
+  0% {
+    -webkit-transform: translateY(150%);
+            transform: translateY(150%);
   }
 
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  
+}
+
+@keyframes at-banner-slide-in {
+  0% {
+    -webkit-transform: translateY(150%);
+            transform: translateY(150%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  
+}
 
 	</style>
 	
@@ -108,58 +169,21 @@ ul#dark-mode-switch {
 </ul>
 
 
-
-
-
-<!--do not use html on you page it will comming by js here i am use for show design-->
-<div id='cookie-bar'><div id='contentcookie'><p>Just wanted to let you know that this website doesn't use cookies, collect any data, store it, or sell it. There's nothing nefarious going on in the background. Nada. Nil. Null. 0. False. You're welcome.</p><button id='Cookie' tabindex=1 onclick='AcceptCookies();'>You're Great</button><div class='clear'></div></div></div>
+<div class="at-banner">
+  <div class="at-banner__content">
+    <div class="at-banner__text">Just wanted to let you know that this website doesn't use cookies, collect any data, analyze any data, store data, or sell it. There's nothing nefarious going on in the background. Nada. Nil. Null. 0. False. You have complete privacy. No one and nothing is watching. You're welcome.</div>
+  </div>
+  <div class="at-banner__close"></div>
+</div>
 
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 
 <script>
 
-
-
-
-//All the cookie setting stuff
-function SetCookie(cookieName, cookieValue, nDays) {
-"use strict";
-var today = new Date();
-var expire = new Date();
-if (nDays == null || nDays == 0) nDays = 1;
-expire.setTime(today.getTime() + 3600000 * 24 * nDays);
-document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString() + "; path=/";
-}
-function ReadCookie(cookieName) {
-"use strict";
-var theCookie = " " + document.cookie;
-var ind = theCookie.indexOf(" " + cookieName + "=");
-if (ind == -1) ind = theCookie.indexOf(";" + cookieName + "=");
-if (ind == -1 || cookieName == "") return "";
-var ind1 = theCookie.indexOf(";", ind + 1);
-if (ind1 == -1) ind1 = theCookie.length;
-return unescape(theCookie.substring(ind + cookieName.length + 2, ind1));
-}
-function DeleteCookie(cookieName){
-"use strict";
-var today = new Date();
-var expire = new Date() - 30;
-expire.setTime(today.getTime() - 3600000 * 24 * 90);
-document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString();
-}
-function AcceptCookies() {
-SetCookie('sgCookies', true, 30);
-jQuery("#cookie-bar").hide();
-}
-$(document).ready(function (e) {  
-var toTop = $("<div id='cookie-bar'><div id='contentcookie'><p>Just wanted to let you know that this website doesn't use cookies, collect any data, analyze any data, store data, or sell it. There's nothing nefarious going on in the background. Nada. Nil. Null. 0. False. You have complete privacy. No one and nothing is watching. You're welcome.</p><button id='Cookie' tabindex=1 onclick='AcceptCookies();'>You're great.</button><div class='clear'></div></div></div>").appendTo("body");
-if (!ReadCookie("sgCookies")) { //If the cookie has not been set
-jQuery("#cookie-bar").show();
-} else {
-jQuery("#cookie-bar").hide();
-}
+// Close no-cookie banner
+$('.at-banner__close').on('click', function() {
+  $(this).parent().remove();
 });
-
 
 	////////////////////////////////
 // Highlight Buttons

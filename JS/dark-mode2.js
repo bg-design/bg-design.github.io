@@ -17,8 +17,6 @@ $( document ).ready(function() {
 	nightTime();
 });
 
-alert("Is this thing on?");
-
 //// DARK MODE SWITCH
 // Highlight Buttons
 var $highlight = $('.highlight');

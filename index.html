@@ -201,10 +201,15 @@
 		</section>
 	</div>
 
-<script src="JS/logo.js"></script>
+<script src="JS/custom.js"></script>
 <script src="JS/dark-mode.js"></script>
  
  <script type="text/javascript">
+
+ // Close no-cookie banner
+$('.at-banner__close').on('click', function() {
+  $(this).parent().remove();
+});
 
 
  // Time of Day Greeting

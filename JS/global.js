@@ -9,4 +9,4 @@ includeJS('JS/selection-sharer.js');
 includeJS('JS/contact-modal.js');
 includeJS('JS/featherlight.js');
 
-includeJS('JS/logo.js');
+includeJS('JS/custom.js');
