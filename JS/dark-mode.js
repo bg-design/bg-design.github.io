@@ -1,5 +1,4 @@
 
-  alert('What the actual fuck?');
 
 
 // AM/PM Dark Mode
@@ -20,7 +19,6 @@ $( document ).ready(function() {
 	nightTime();
 });
 
-alert("Is this thing on?");
 
 //// DARK MODE SWITCH
 // Highlight Buttons
