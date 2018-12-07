@@ -55,13 +55,13 @@
 					text-align:left;
 				}
 
-				#haiti-girl {
+				.haiti-girl {
 					left:10%;
 					width: 420px;
-					background: rgba(47, 47, 47, 0.93);
+					background: rgba(47, 47, 47, 0.72);
 				}
 
-				#refugees {
+				.refugees {
 					top:initial;
 					left:5%;
 					bottom: 5%;
@@ -69,7 +69,7 @@
 					background: rgba(47, 47, 47, 0.5)
 				}
 
-				#american-airlines {
+				.american-airlines {
 					top: initial;
 					bottom:10%;
 					left:10%;
@@ -79,32 +79,32 @@
 					color: rgb(125, 125, 125);
 				}
 
-				#earth-overshoot {
-					bottom: 5%;
-					top: 20%;
+				.earth-overshoot {
+/*					bottom: 5%;
+*/					top: 20%;
 					left: initial;
 					right: 5%;
 					width: 550px;
-					height: 110px;
-					background: rgba(72, 72, 72, 0.65);
+/*					height: 110px;
+*/					background: rgba(72, 72, 72, 0.8);
 				}
 
-				#overshoot-caption p {
+				.overshoot-caption p {
 					color: rgb(125, 125, 125);
 				}
 
-				#plastic {
+				.plastic {
 					left: 35%;
 					top: 41%;
 					width: 320px;
 				}
 
-				#plastic p {
+				.plastic p {
 					top:5%;
 					background: rgba(65, 66, 65, 0.81);
 				}
 
-				#ucd {
+				.ucd {
 					right: 3%;
 					top: 30%;
 					left: initial;
@@ -112,24 +112,24 @@
 					width: 320px;
 				}
 
-				#drafting {
+				.drafting {
 					bottom: 5%;
 					width: 800px;
 					top:initial;
 					left: initial;
-					background: rgb(66, 66, 66);
+					background: rgba(66, 66, 66, 0.72);
 				}
 
-				#arcologies {
+				.arcologies {
 					left: initial;
 					top: initial;
 					bottom: 0;
 					width: 100%;
-					background: rgb(66, 66, 66);
+					background: rgba(66, 66, 66, 0.85);
 
 				}
 
-				#paradigm-shift {
+				.paradigm-shift {
 					background: none;
 					width: 700px;
 					top: initial;
@@ -137,81 +137,82 @@
 					color:white;
 				}
 
-				#eBikes {
+				.eBikes {
 					left: initial;
 					top: 40%;
 					width: 400px;
 					background: rgba(89, 89, 89, 0.85);
 				}
 
-				#what-to-do {
+				.what-to-do {
 					background: none;
-					left: 35%;
-					top: 44%;
+					left: initial;
+				    top: initial;
+				    padding-bottom: 30px;
 				}
 
-				#what-to-do h3 {
+				.what-to-do h3 {
 					background:none;
 					color: white;
 					font-size: 24pt;
 				}
 
-				#transit {
+				.transit {
 					left:20%;
 					top:20%;
 				}
 
-				#share {
+				.share {
 					left:40%;
 					top:45%;
 					width: 200px;
 				}
 
-				#dinner {
+				.dinner {
 					top: 3%;
 					left: 25%;
 					width: 300px;
 				}
 
-				#repair {
+				.repair {
 					left: 10%;
 					top: 10%;
 					width: 250px;
-					background: rgb(88, 88, 88);
+					background: rgba(88, 88, 88, 0.75);
 				}
 
-				#carbon-offsets {
+				.carbon-offsets {
 					top: initial;
 					left: initial;
 					bottom: 0;
 					width: 435px;
-					background: rgb(88, 88, 88);
+					background: rgba(88, 88, 88, 0.71);
 				}
 
-				#solar {
+				.solar {
 					top: 25%;
 					left: 33%;
 					width: 390px;
 				}
 
-				#ocean-cleanup {
+				.ocean-cleanup {
 					left: 65%;
 					top: 65%;
 					width: 225px;
 				}
 
-				#rainforest {
+				.rainforest {
 					top:10%;
-					left: 40%;
-					width: 231px;
+					left: initial;
+					width: 240px;
 				}
 
 		
 
-				#earth {
+				.earth {
 					left: initial;
 					top:initial;
-					width: 302px;
+					width: 310px;
 				}
 
 				.slide-credit {
@@ -307,10 +308,11 @@
 			float: right;
 		}
 
-		#pi-video-slideshow {
+		.pi-video-slideshow {
 			left: 5%;
 			top: 5%;
 			width: 260px;
+			background: rgba(0, 0, 0, 0.72);
 		}
 
 		#download-resume {
@@ -375,6 +377,31 @@
 /*		Small */
 		@media screen and (max-device-width: 530px){
 
+		.swiper-button-prev, .swiper-button-next {display: none;}
+
+		.slide-caption {
+			left: initial;
+			width: initial;
+		}
+
+
+		.slide-caption p, .slide-caption p a {
+			font-weight: 500;
+			font-size: 12pt;
+		}
+
+		.slide-credit p {
+			font-size: 80%;
+		}
+
+		h3 {font-size:100%;margin: 0;}
+
+		.what-to-do {padding-bottom: 0;}
+
+		.what-to-do h3 {font-size:20pt;}
+
+/*		.earth-overshoot {display: none;}
+*/
 		.numbers-third, .numbers-half {
 			width: 100%;
 		}
@@ -536,7 +563,7 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/earth-overshoot3.jpg" />
-		      	<div class="slide-caption" id="earth-overshoot">
+		      	<div class="slide-caption earth-overshoot">
 		      		<p><a href="http://www.overshootday.org/" target="_blank">Earth Overshoot Day</a> is an annual event when humanity's consumption outstrips Earth's production of resources. This annual event is getting earlier every year. </p>
 		      	</div>
 		      	<div class="slide-credit" id="overshoot-caption">
@@ -545,7 +572,7 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/haiti-girl.jpg" />
-		      	<div class="slide-caption" id="haiti-girl">
+		      	<div class="slide-caption haiti-girl">
 		      		<p>Climate Change disproportionally affects those already most impoverished. This girl walks through the debris in the aftermath of Hurricane Matthew in 2016, Haiti.</p>
 		      	</div>
 		      	<div class="slide-credit">
@@ -554,7 +581,7 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/refugees.jpg" />
-		      	<div class="slide-caption" id="refugees">
+		      	<div class="slide-caption refugees">
 		      		<p>Since you loaded this page, an <a href="http://www.internal-displacement.org/publications/global-estimates-2015-people-displaced-by-disasters" target="_blank">estimated</a> <strong><span id="victim-counter">0</span></strong> people have been displaced by a disaster, with an average of 22.5 million people displaced annually since 2008. Climate Change sows seeds for conflict and also makes displacement much worse.</p>
 		      	</div>
 		      	<div class="slide-credit">
@@ -563,7 +590,7 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/american-airlines.jpg" />
-		      	<div class="slide-caption" id="american-airlines">
+		      	<div class="slide-caption american-airlines">
 		      		<p>Americans are just 4 percent of the world’s population, yet are responsible for almost a third of the greenhouse gases heating the planet.</p>
 		      	</div>
 		      	<div class="slide-credit" id="aa-caption">
@@ -572,7 +599,7 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/plastic-garbage3.jpg" />
-		      	<div class="slide-caption" id="plastic">
+		      	<div class="slide-caption plastic">
 		      		<p>Faced with the weight of this global, life-threatening disaster, I had to do <strong>something</strong>.</p>
 		      	</div>
 		      	<div class="slide-credit">
@@ -581,109 +608,109 @@
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/landscape-architecture-UCD3.jpg" />
-		      	<div class="slide-caption" id="ucd">
+		      	<div class="slide-caption ucd">
 		      		<p>At UC Davis, I learned the latest thinking in sustainable design.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/arcologies2.jpg" />
-		      	<div class="slide-caption" id="arcologies">
+		      	<div class="slide-caption arcologies">
 		      		<p>Urban and suburban sprawl chokes off the biosphere and leads to a lot of wasted energy and land. I wrote <a href="https://medium.com/@bpgrandy/increasing-our-density-arcology-principles-for-a-sustainable-future-ac8506ee1563" target="_blank">an essay</a> about Arcologies principles and how they can provide a sustainable model for the future.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/drafting2.jpg" />
-		      	<div class="slide-caption" id="drafting">
+		      	<div class="slide-caption drafting">
 		      		<p>As I worked on various projects, I realized the constraints of a site were ultimately determined by urban planning requirements. As long as we live in a culture dominated by cars, my designs were ultimately constrained by that need.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/paradigm-shift.png" />
-		      	<div class="slide-caption" id="paradigm-shift">
+		      	<div class="slide-caption paradigm-shift">
 		      		<h3>Only by first having a transportation <strong>paradigm shift</strong> could we truly be sustainable.</h3>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/ben-pi3.jpg" />
-		      	<div class="slide-caption" id="eBikes">
+		      	<div class="slide-caption eBikes">
 		      		<p>In 2010, I learned of the emergent technology of electric bicycles and started working for an eBike start-up.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/2012-pi-brochure.jpg" />
-		      	<div class="slide-caption" id="eBikes">
+		      	<div class="slide-caption eBikes">
 		      		<p>eBikes are the fastest, cheapest, <a class="btn btn-default" href="IMG/picycle-MPGe.jpg" data-featherlight="image">most sustainable</a>, most fun way to get around and they don't contribute to congestion. </p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<a href="https://player.vimeo.com/video/36724831" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true" data-featherlight-iframe-width="978" data-featherlight-iframe-height="550"><img src="IMG/when-slideshow/pi-video.jpg" /></a>
-		      	<div class="slide-caption" id="pi-video-slideshow">
+		      	<div class="slide-caption pi-video-slideshow">
 		      		<p>What more do you want?</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<a href="https://player.vimeo.com/video/36724831" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true" data-featherlight-iframe-width="978" data-featherlight-iframe-height="550"><img src="IMG/when-slideshow/ccs-EV-charging.jpg" /></a>
-		      	<div class="slide-caption" id="pi-video-slideshow">
+		      	<div class="slide-caption pi-video-slideshow">
 		      		<p>At City CarShare, I lead the first electric bike share program in the country and managed our electic carsharing fleet.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/what-to-do.jpg" />
-		      	<div class="slide-caption" id="what-to-do">
+		      	<div class="slide-caption what-to-do">
 		      		<h3>What can <strong>you</strong> do?</h3>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/transit.jpg" />
-		      	<div class="slide-caption" id="transit">
+		      	<div class="slide-caption transit">
 		      		<p>eBike, bike, eScoot, eSkate, walk and take public transit.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/share-tomatoes.jpg" />
-		      	<div class="slide-caption" id="share">
+		      	<div class="slide-caption share">
 		      		<p>Participate in the <strong>sharing economy</strong>.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/dinner-party.jpg" />
-		      	<div class="slide-caption" id="dinner">
+		      	<div class="slide-caption dinner">
 		      		<p>Reduce food waste. Switch to a plant-based diet, or at least eat less beef.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/iphone-repair.jpg" />
-		      	<div class="slide-caption" id="repair">
+		      	<div class="slide-caption repair">
 		      		<p>Repair, not replace. Buy second-hand goods.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/carbon-offsets3.jpg" />
-		      	<div class="slide-caption" id="carbon-offsets">
+		      	<div class="slide-caption carbon-offsets">
 		      		<p>Fly less. When you do fly, buy <a href="https://carbonfund.org/" target="_blank">carbon offsets</a>.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/solar.jpg" />
-		      	<div class="slide-caption" id="solar">
+		      	<div class="slide-caption solar">
 		      		<p>Switch to solar. If you're a renter, consider PG&amp;E's <a href="https://www.pge.com/en_US/residential/solar-and-vehicles/options/solar/solar-choice/solar-choice.page?WT.mc_id=Vanity_solarchoice" target="_blank">Solar Choice</a> program.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/ocean-cleanup.jpg" />
-		      	<div class="slide-caption" id="ocean-cleanup">
+		      	<div class="slide-caption ocean-cleanup">
 		      		<p><a href="https://www.theoceancleanup.com" target="_blank">Donate</a> to The Ocean Cleanup project.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/rainforest2.jpg" />
-		      	<div class="slide-caption" id="rainforest">
+		      	<div class="slide-caption rainforest">
 		      		<p><a href="https://rainforestfoundation.org/10-things-you-can-do-save-the-rainforest/?fbclid=IwAR11wE2K_AmOtC9n656bARgRU7NoZ8EAXIaP6xDtNy2IxjCagrPxnvYv59Q" target="_blank">Protect</a> our rainforest.</p>
 		      	</div>
 		      </div>
 		      <div class="swiper-slide">
 		      	<img src="IMG/when-slideshow/earth.jpg" />
-		      	<div class="slide-caption" id="earth">
+		      	<div class="slide-caption earth">
 		      		<p>Let's tackle <strong>wicked problems.</strong></p>
 		      	</div>
 		      </div>
