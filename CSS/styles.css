@@ -1016,19 +1016,16 @@ cite p {color:white;}
 .project-icons {
 	float:left;
 	width: 75px;
+	padding: 8px 0 5px 15px;
 }
 
 .project-icons-wrapper {
-	position: relative;
-	text-align: center;
-	display: block;
-	margin: 0 auto;
-	width: 350px;
-	right:50px;
-	padding: 20px 0 10px 0;
-	clear: both;
+	margin-right: 90px;
 }
 
+.project-icons-wrapper h2 {
+	margin-top:50px;
+}
 .dark-mode {
 	color: white !important;
 }
