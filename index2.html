@@ -1,0 +1,233 @@
+<!-- Designed and coded by Ben Grandy with love in Oakland, CA. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<base href="https://bg-design.github.io/">
+	<link rel="canonical" href="https://bg-design.github.io/">
+	<meta name="application-name" content="Ben Grandy's Portfolio">
+	<meta name="apple-mobile-web-app-title" content="Ben Grandy's Portfolio">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title id="greeting-title">Hi, I'm Ben.</title>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/buttons-hvr.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/dark-mode.css" media="screen">
+	
+	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	<style>
+
+	html {
+		margin-bottom: 20px;
+	}
+
+	#top-greeting {
+		font-size: 30px;
+	}
+
+	#top-greeting, #text-overlay p {
+		text-align: left;
+	}
+	#text-overlay {
+		max-width: 500px;
+		display: block;
+	}
+
+	#full-body {
+		opacity: 0;
+		width: 40%;
+		max-width: 500px;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+	}
+
+	#body-copy {
+		width: 80%;
+		max-width: 470px;
+	}
+
+	.home-links {
+		padding-left: 10px;
+		margin-bottom: 30px;
+	}
+
+	.home-links a {
+	font-family: 'Lato', sans-serif;
+	font-size: 18pt;
+	line-height: 2em;
+	letter-spacing: .5px;
+	padding: 10px 0;
+	border-bottom: 1px solid #08c7ff;
+	font-weight: 300;
+	margin-right: 30px;
+	text-decoration: none;
+}
+
+	.home-links a:hover {
+    color: #08c7ff !important;
+    transition:.3s ease-in .3s, .3s;
+	border-bottom-style: dashed;
+	padding-bottom: 15px;
+}
+	#rect-gradient, #home-loading {
+	width:300px;
+	height: 3px;
+	margin-left: 10px;
+	color: #fff;
+	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease-in-out infinite;
+	-moz-animation: Gradient 15s ease-in-out infinite;
+	animation: Gradient 15s ease-in-out infinite;
+}
+
+/*@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}*/
+
+#home-loading {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#home-container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#full-body {
+    -webkit-animation-name: body; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+    animation-name: body;
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+    -webkit-animation: body 5s ease-in;
+	-moz-animation: body 5s ease-in;
+	animation: body 5s ease-in;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+#full-body {
+	opacity: 1;
+}
+
+
+@media screen and (max-device-width: 590px){
+	.home-link {
+		display: block;
+		float: left;
+		clear: both;
+	}
+}
+
+	</style>
+
+</head>
+<body>
+	<div class="loading-bg" id="home-loading">
+		<div class="loading-wrapper">
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+		</div>
+	</div>
+	<div id="home-container">
+		<section class="fade-in two">
+			<div id="text-overlay">
+			<p class="fade-in three" id="top-greeting">Hello, I’m Benjamin.<br/><span id="greeting"></span></p>
+
+			<div id="rect-gradient"></div>
+
+				<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of design to be a force for good in the world. Through design we can create the unimaginable and solve problems that seem to have no answers. No problem is too small or too big to be outside the profound reach of design thinking.</p>
+				<p class="fade-in five"><strong>Let’s build a brighter future.</strong></p><br>
+				<div class="fade-in six home-links">
+					<a class="home-link" href="what.html">View Work</a>
+					<a class="home-link" href="how.html">My Process</a>
+					<a class="home-link" href="who.html">Who I am</a>
+				</div>
+
+			</div>
+			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
+		</section>
+	</div>
+
+<script src="JS/logo.js"></script>
+<script src="JS/dark-mode2.js"></script>
+ 
+ <script type="text/javascript">
+
+
+ // Time of Day Greeting
+
+datetoday = new Date();
+timenow=datetoday.getTime();
+datetoday.setTime(timenow);
+thehour = datetoday.getHours();
+if (thehour > 21 || thehour < 4) display = "Burning the midnight oil?";
+else if (thehour > 16) display = "Good evening.";
+else if (thehour > 11) display = "Good afternoon.";
+else if (thehour > 7) display = "Good morning.";
+else display = "Top of the mornin'!";
+var greeting = (display);
+
+document.getElementById("greeting").innerHTML = greeting;
+
+
+console.info('%cAhhh, you\'re the type of person that likes to look under the hood! I like that!', 'background: #fff; color: #000;font-family:serif;font-size:14px;');
+console.log('%cI hope I\'m not penalized for excessive commenting out of unused prototype code.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
+console.log('%cI like to use jQuery and code that is short, to the point, elegant, yet powerful.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
+</script>
+
+
+</body>
+</html>
