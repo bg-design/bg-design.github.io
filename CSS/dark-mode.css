@@ -1,0 +1,91 @@
+
+@-webkit-keyframes nightTime-home {
+  0% {background: #282828; opacity: 0;}
+  100% {opacity: 1;
+    /*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+    background-size:200% 200%;*/}
+}
+
+@-moz-keyframes nightTime-home {
+  0% {background: #282828; opacity: 0;}
+  100% {opacity: 1;
+    /*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+    background-size:200% 200%;*/}
+}
+
+@keyframes nightTime-home {
+  0% {background:#282828;
+    opacity: 0;}
+  100% {opacity: 1;
+    /*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+    background-size:200% 200%;*/
+  }
+}
+
+.dark-mode {
+  color: white !important;
+}
+
+.dark-mode a:hover{
+  color: #08c7ff !important;
+}
+
+.dark-mode-bg-home {
+  -webkit-animation: nightTime-home 5s ease-in;
+  -moz-animation: nightTime-home 5s ease-in;
+  animation: nightTime-home 5s ease-in;
+  background:#282828;
+  /*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+  background-size: 200% 200%;*/
+
+}
+
+/*DARK MODE SWITCH */
+ul#dark-mode-switch {
+  position: relative;
+  margin: 125px auto 0;
+  padding: 0;
+  text-align: center;
+}
+
+#dark-mode-switch > li {
+  display: inline-block;
+  list-style: none;
+  border: 2px solid #0F90C0;
+  cursor: pointer;
+}
+#dark-mode-switch > li:nth-of-type(1) {
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+#dark-mode-switch > li:nth-of-type(3) {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+
+#dark-mode-switch button {
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 8px 12px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+#dark-mode-switch button:focus {
+  outline: none;
+}
+
+#dark-mode-switch .highlight {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: #0F90C0;
+  transform-origin: 0;
+}

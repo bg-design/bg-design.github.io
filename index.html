@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" type="text/css" href="../CSS/styles.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../CSS/buttons-hvr.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/dark-mode.css" media="screen">
+	
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
@@ -120,29 +122,6 @@
 	}
 }*/
 
-@-webkit-keyframes nightTime-home {
-	0% {background: #282828; opacity: 0;}
-	100% {opacity: 1;
-		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-		background-size:200% 200%;*/}
-}
-
-@-moz-keyframes nightTime-home {
-	0% {background: #282828; opacity: 0;}
-	100% {opacity: 1;
-		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-		background-size:200% 200%;*/}
-}
-
-@keyframes nightTime-home {
-	0% {background:#282828;
-		opacity: 0;}
-	100% {opacity: 1;
-		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-		background-size:200% 200%;*/
-	}
-}
-
 #home-loading {
 	width: 100%;
 	height: 100%;
@@ -182,23 +161,6 @@
 	opacity: 1;
 }
 
-.dark-mode {
-	color: white !important;
-}
-
-.dark-mode a:hover{
-	color: #08c7ff !important;
-}
-
-.dark-mode-bg-home {
-	-webkit-animation: nightTime-home 5s ease-in;
-	-moz-animation: nightTime-home 5s ease-in;
-	animation: nightTime-home 5s ease-in;
-	background:#282828;
-	/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-	background-size: 200% 200%;*/
-
-}
 
 @media screen and (max-device-width: 590px){
 	.home-link {
@@ -240,8 +202,8 @@
 	</div>
 
 <script src="JS/logo.js"></script>
-<!-- <script src="JS/greeting.js"></script>
- -->
+<script src="JS/dark-mode.js"></script>
+ 
  <script type="text/javascript">
 
  // Time of Day Greeting

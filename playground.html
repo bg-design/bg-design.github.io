@@ -1,0 +1,115 @@
+<html>
+<head>
+	<style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+html {background: black;}
+
+body {
+  background: #33B0E3;
+  margin: 0;
+  padding: 0;
+}
+
+ul#dark-mode-switch {
+  position: relative;
+  margin: 125px auto 0;
+  padding: 0;
+  text-align: center;
+}
+
+#dark-mode-switch > li {
+  display: inline-block;
+  list-style: none;
+  border: 2px solid #0F90C0;
+  cursor: pointer;
+}
+#dark-mode-switch > li:nth-of-type(1) {
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+#dark-mode-switch > li:nth-of-type(3) {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+
+#dark-mode-switch button {
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 8px 12px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+#dark-mode-switch button:focus {
+  outline: none;
+}
+
+#dark-mode-switch .highlight {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: #0F90C0;
+  transform-origin: 0;
+}
+
+
+	</style>
+	
+</head>
+<body>
+	<ul id="dark-mode-switch">
+  <li><button>Light</button></li><li class="highlight"></li><li><button>Dark</button></li>
+</ul>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+	////////////////////////////////
+// Highlight Buttons
+var $highlight = $('.highlight');
+
+function translate(obj) {
+  
+    var $this    = obj.addClass('active'),
+        width    = $this.width(),
+        margin   = $this.outerWidth(true) - $this.outerWidth(),
+        position = $this.offset().left + margin/2;
+
+    $highlight.css({
+        width: parseInt(width) + 'px',
+        transform: 'translate(' + parseInt(position) + 'px' + ')'
+    });
+}
+
+// add transition after page load
+$(window).on('load resize', function() {
+    
+    // wait a little bit to add transition so we don't see on page load
+    setTimeout(function() {
+        $highlight.css({
+            transition: 'all .5s'
+        });
+    }, 100);
+
+    // load highlight on active control
+  translate($('li:first-child'));
+});
+
+// switch to active control on click
+$('li:not(.highlight)').on('click', function() {
+  
+  $('li').removeClass('active');
+  translate($(this));
+});
+</script>
+</body>
+</html>
