@@ -14,10 +14,14 @@
 	<title id="greeting-title">Hi, I'm Ben.</title>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css?t=3" media="screen">
-    <link rel="stylesheet" type="text/css" href="CSS/buttons-hvr.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/buttons-hvr.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
+
+	html {
+		margin-bottom: 20px;
+	}
 
 	#top-greeting {
 		font-size: 30px;
@@ -59,6 +63,7 @@
 	border-bottom: 1px solid #08c7ff;
 	font-weight: 300;
 	margin-right: 30px;
+	text-decoration: none;
 }
 
 	.home-links a:hover {
@@ -79,7 +84,7 @@
 	animation: Gradient 15s ease-in-out infinite;
 }
 
-@-webkit-keyframes Gradient {
+/*@-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
 	}
@@ -113,24 +118,28 @@
 	100% {
 		background-position: 0% 50%
 	}
-}
+}*/
 
 @-webkit-keyframes nightTime-home {
-	0% {background: linear-gradient(rgb(255, 255, 255) 100% )}
-	100% {background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);}
+	0% {background: #282828; opacity: 0;}
+	100% {opacity: 1;
+		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+		background-size:200% 200%;*/}
 }
 
 @-moz-keyframes nightTime-home {
-	0% {background: linear-gradient(rgb(255, 255, 255) 100% )}
-	100% {background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);}
+	0% {background: #282828; opacity: 0;}
+	100% {opacity: 1;
+		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+		background-size:200% 200%;*/}
 }
 
 @keyframes nightTime-home {
-	0% {background:black;
+	0% {background:#282828;
 		opacity: 0;}
 	100% {opacity: 1;
-		background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-		background-size:200% 200%;
+		/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+		background-size:200% 200%;*/
 	}
 }
 
@@ -139,6 +148,11 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
+}
+
+#home-container {
+	max-width: 800px;
+	margin: 0 auto;
 }
 
 #full-body {
@@ -180,8 +194,18 @@
 	-webkit-animation: nightTime-home 5s ease-in;
 	-moz-animation: nightTime-home 5s ease-in;
 	animation: nightTime-home 5s ease-in;
-	background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
-	background-size: 200% 200%;
+	background:#282828;
+	/*background: linear-gradient(rgb(43, 43, 44) 14.29%, rgb(111, 112, 114) 36.13%, rgb(161, 161, 165) 39.08%, rgb(113, 113, 115) 42.02%, #393939 50.84%, rgb(0, 0, 0) 61.34%);
+	background-size: 200% 200%;*/
+
+}
+
+@media screen and (max-device-width: 590px){
+	.home-link {
+		display: block;
+		float: left;
+		clear: both;
+	}
 }
 
 	</style>
@@ -195,7 +219,7 @@
 			<div class="loading-dot"></div>
 		</div>
 	</div>
-	<div class="container">
+	<div id="home-container">
 		<section class="fade-in two">
 			<div id="text-overlay">
 			<p class="fade-in three" id="top-greeting">Hello, I’m Benjamin.<br/><span id="greeting"></span></p>
@@ -209,8 +233,6 @@
 					<a class="home-link" href="how.html">My Process</a>
 					<a class="home-link" href="who.html">Who I am</a>
 				</div>
-
-				<div id="testor"></div>
 
 			</div>
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
