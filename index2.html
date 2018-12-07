@@ -149,6 +149,7 @@
 
 .at-banner {
   position: fixed;
+  opacity: 0;
   bottom: 0;
   right: 0;
   left: 0;
@@ -163,6 +164,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-animation: at-banner-slide-in 1.5s ease forwards;
           animation: at-banner-slide-in 1.5s ease forwards;
+          animation-delay: 15s;
 }
 .at-banner__content {
   display: flex;
@@ -215,11 +217,13 @@
 
 @-webkit-keyframes at-banner-slide-in {
   0% {
+  	opacity: 1;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
   }
 
   100% {
+  	opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
   }
@@ -228,11 +232,13 @@
 
 @keyframes at-banner-slide-in {
   0% {
+  	opacity: 1;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
   }
 
   100% {
+  	opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
   }
@@ -306,6 +312,11 @@
 <script src="JS/dark-mode2.js"></script>
  
  <script type="text/javascript">
+
+// Close no-cookie banner
+$('.at-banner__close').on('click', function() {
+  $(this).parent().remove();
+});
 
 
  // Time of Day Greeting
