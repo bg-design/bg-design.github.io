@@ -14,7 +14,7 @@
 	<title id="greeting-title">Hi, I'm Ben.</title>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="CSS/global.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="CSS/global.css?t=4" media="screen">
 
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
@@ -48,7 +48,7 @@ body {
 		width: 40%;
 		max-width: 500px;
 		position: fixed;
-		bottom: 0;
+		bottom: 80px;
 		right: 0;
 	}
 
@@ -59,7 +59,9 @@ body {
 
 	.home-links {
 		padding-left: 10px;
-		margin-bottom: 30px;
+		margin-bottom: 140px;
+		display: table;
+		max-width: 400px;
 	}
 
 	.home-links a {
@@ -72,6 +74,7 @@ body {
 	font-weight: 300;
 	margin-right: 30px;
 	text-decoration: none;
+	display: inline-block;
 }
 
 	.home-links a:hover {
@@ -313,8 +316,6 @@ body {
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 	</div>
-	<div id="footer"></div>
-
 <div class="at-banner">
   <div class="at-banner__content">
     <div class="at-banner__text">Just wanted to let you know that this website doesn't collect, analyze, sell or store your data. There's just one self-destructing cookie that remembers your dark mode preference. There's nothing nefarious going on in the background. Nada. Nil. Null. Nien. 0. dataCollection = False. You have complete privacy. No one and nothing is watching. You're welcome.</div>

@@ -203,6 +203,13 @@ p a::selection {
     font-size: 10pt;
 }
 
+@media screen and (min-device-width: 500px) {
+	.copyright {
+		text-align: center;
+		font-size: 15pt;
+	}
+}
+
 #lets-collaborate {
 	display: block;
 	width: 90%;
