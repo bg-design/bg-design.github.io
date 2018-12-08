@@ -200,14 +200,7 @@ p a::selection {
 	text-align: left;
     clear: both;
     color: rgb(185, 185, 185);
-    font-size: 10pt;
-}
-
-@media screen and (min-device-width: 500px) {
-	.copyright {
-		text-align: center;
-		font-size: 15pt;
-	}
+    font-size: 11pt;
 }
 
 #lets-collaborate {
