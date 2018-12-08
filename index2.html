@@ -16,8 +16,8 @@
 
     <link rel="stylesheet" type="text/css" href="../CSS/styles.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../CSS/buttons-hvr.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../CSS/dark-mode.css" media="screen">
-	
+<!--     <link rel="stylesheet" type="text/css" href="../CSS/dark-mode.css" media="screen">
+ -->	
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
@@ -300,7 +300,7 @@
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 	</div>
-	<footer></footer>
+	<div id="footer"></div>
 
 <div class="at-banner">
   <div class="at-banner__content">
@@ -313,10 +313,6 @@
 <!-- <script src="JS/dark-mode2.js"></script>
  --> 
  <script type="text/javascript">
-
-    $(function(){
-          $("footer").load("footer.html"); 
-        });
 
 // Close no-cookie banner
 $('.at-banner__close').on('click', function() {
@@ -347,4 +343,10 @@ console.log('%cI like to use jQuery and code that is short, to the point, elegan
 
 
 </body>
+
+<script>
+	$(function(){
+          $("#footer").load("footer.html"); 
+        });
+</script>
 </html>
