@@ -1,4 +1,4 @@
-<!-- Designed and coded by Ben Grandy with love in Oakland, CA. -->
+<!-- Designed, handcoded, and handcrafted with love by Benjamin Grandy in the San Francisco Bay Area. -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -12,37 +12,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title id="greeting-title">Hi, I'm Ben.</title>
-	<style>
-		
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-.at-banner {
-  position: fixed;
-  z-index: 1;
-  opacity: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: #33f1a1;
-  width: 100%;
-  border:0;
-  padding: 10px;
-  box-sizing: border-box;
-  color: #141414;
-  font-family: 'Open Sans', 'Helvetica', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
-          animation: at-banner-slide-in 1.5s ease forwards;
-          animation-delay: 15s;
-}
-	</style>
+	<link rel="stylesheet" type="text/css" href="CSS/global.css" media="screen">
 
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="CSS/buttons-hvr.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="CSS/dark-mode.css" media="screen">
-	
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
+
+
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+  transition: 3s ease-in-out;
+}
 
 	html {
 		margin-bottom: 20px;
@@ -109,7 +92,7 @@
 	animation: Gradient 15s ease-in-out infinite;
 }
 
-@-webkit-keyframes Gradient {
+/*@-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
 	}
@@ -143,7 +126,7 @@
 	100% {
 		background-position: 0% 50%
 	}
-}
+}*/
 
 #home-loading {
 	width: 100%;
@@ -168,6 +151,28 @@
 	animation: body 5s ease-in;
 }
 
+
+
+.at-banner {
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #33f1a1;
+  width: 100%;
+  border:0;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #141414;
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
+          animation: at-banner-slide-in 1.5s ease forwards;
+          animation-delay: 15s;
+}
 .at-banner__content {
   display: flex;
   align-items: center;
@@ -272,22 +277,6 @@
 	}
 }
 
-  /* Light mode */
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #fff;
-        color: black;
-    }
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #000;
-        color: white;
-    }
-}
-
 	</style>
 
 </head>
@@ -314,13 +303,13 @@
 					<a class="home-link" href="who.html">Who I am</a>
 					<a class="home-link" href="when-where.html">CV</a>
 					<a class="home-link" href="why.html">My Philosophy</a>
-
 				</div>
 
 			</div>
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 	</div>
+	<div id="footer"></div>
 
 <div class="at-banner">
   <div class="at-banner__content">
@@ -329,11 +318,33 @@
   <div class="at-banner__close"></div>
 </div>
 
-<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="JS/custom.js"></script>
-<!-- <script src="JS/dark-mode2.js"></script>
- --> 
+<script>
+
+// // Current year for copyright (future-proof)
+// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
+
+// Dark mode switch listener
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  });
+});
+
+
+</script>
  <script type="text/javascript">
+
+    // $(function(){
+    //       $("#footer").load("footer.html"); 
+    //     });
 
 // Close no-cookie banner
 $('.at-banner__close').on('click', function() {
@@ -365,4 +376,18 @@ console.log('%cI like to use jQuery and code that is short, to the point, elegan
 
 </body>
 
+
+<footer class="center">
+		<div class="container">
+			<div class="footer-top-row">
+				<p class="dark-mode-switch-text">Dark mode:</p>
+				  <label class="switch" for="checkbox">
+				    <input type="checkbox" id="checkbox" />
+				    <div class="slider round"></div>
+				  </label>
+					
+			</div>
+			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
+		</div>
+	</footer>
 </html>
