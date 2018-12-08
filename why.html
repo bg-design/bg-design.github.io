@@ -163,23 +163,25 @@
 		<button class="float-right hvr-sweep-to-right what-button" onClick="parent.location='what.html'">Featured Work ➟</button>
 	</div>
 	</section>
+	<hr style="border-bottom: 1px solid #5e5e5e;">
+	<footer id="footer">
+	</footer>
 </div>
 
 <!-- Back to top-->
 <!-- <a href="#top" ><img src="IMG/top3-old.png" class="backToTop"></a>
  -->
-<hr>
-	<footer class="center">
-		<div class="container">
-			<br><br><h5>Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com?subject=Inquiry"><strong>to life.</strong></a></h5><br><br>
-		</div>
-	</footer>
+
 
 <script src="JS/global.js"></script>
 
+<script>
+
+// Load footer
+$(function(){
+      $("#footer").load("footer.html"); 
+    });
+</script>
+
 </body>
-<hr>
-<div class="credits-wrapper">
-	<p class="credits"><span><a href="https://github.com/Webstir" target="_new"><img src="IMG/Icons/github.png" class="github"></img></a></span>Designed and coded with love by Ben in Oakland, CA. ©</p>
-</div>
 </html>
