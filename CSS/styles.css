@@ -167,6 +167,18 @@ p a::selection {
 	background: rgba(8, 199, 255, 1);
 	text-shadow: none;
 }
+
+.social-icon {
+	width: 30px;
+	height: 30px;
+	background-size: 100% auto;
+	filter:invert(3%);
+}
+
+.social-icon:hover {
+	filter:invert(100%);
+	transition: 0.2s ease-in;
+}
 #footer-cta {
 	border-bottom: 1px solid #08c7ff;
 }
@@ -183,6 +195,7 @@ p a::selection {
 
 .copyright {
 	text-align: center;
+	color:rgb(185, 185, 185);
 }
 
 #lets-collaborate {

@@ -16,7 +16,7 @@
 
 	<style>
 
-@import url(../CSS/global.css);
+@import url(CSS/global.css);
 
 html {background: black;}
 
@@ -174,6 +174,80 @@ ul#dark-mode-switch {
   
 }
 
+		svg {
+		  width: 50px;
+			display: block;
+			position: relative;
+		}
+
+		.anim{
+		display: inline;
+		  fill:#de2144;
+		  stroke:#de2144;
+		  stroke-dasharray: 2000;
+		  stroke-dashoffset: 0;
+		  stroke-width: 1;
+		  -webkit-animation: heart 9s ease-in-out 0s infinite;
+		  animation: heart 9s ease-in-out 0s infinite;
+		}
+
+		  @-webkit-keyframes heart {
+		      0% {
+		        stroke-dashoffset: 0;
+		        fill:#de2144;
+		      }
+
+		      35% {
+		      	stroke-dashoffset: 2000;
+		      }
+
+		      50% {
+		        fill:rgba(222, 33, 68, 0.1);
+		    }
+
+/*		    Filling stroke heart
+*/		    60% {stroke-dashoffset: 2000;}
+		    
+		    100% {
+		        stroke-dashoffset: 0;
+		      fill:#de2144;
+		        
+		      }
+			}
+
+			#footer-left, #footer-right {
+				position: relative;
+				bottom:12px;
+			}
+			#footer-left {left: 31px;}
+			#footer-right {right: 27px;}
+
+		   .heart {
+		   	width: 100px;
+			  background: url("IMG/footer/heart5.png") no-repeat;
+			  background-position: 18px 0;
+			  cursor: pointer;
+			  transition: background-position 1s steps(56);
+			  transition-duration: 0s;
+			}
+			.anim.is-active, .heart.is-active {
+			  transition-duration: 2s;
+			  background-position: -3718.5px 0;
+			}
+
+			body {
+			  background: #000000;
+			}
+
+			.placement {
+			  display: inline-block;
+				position: relative;
+				-webkit-clip-path: circle(40% at 50% 50%);
+						clip-path: circle(40% at 50% 50%);
+			}
+
+
+
 	</style>
 	
 </head>
@@ -195,18 +269,18 @@ ul#dark-mode-switch {
 
 			<p>
 				<div class="float-right">
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/email-icon.png" class="github"></img></a></span>
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/linked-in-icon.png" class="github"></img></a></span>
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/github-icon.png" class="github"></img></a></span>
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/dribbble-icon.png" class="github"></img></a></span>
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/medium-icon.png" class="github"></img></a></span>
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="../IMG/footer/instagram-icon.png" class="github"></img></a></span>
 					Connect:
+					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
+					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
+					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
+					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
+					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
+					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
 				</div>
 			</p>
-			<br><br><h5>Designed, handcoded, and handcrafted with love by Benjamin Grandy in the San Francisco Bay Area.</strong></a></h5><br><br>
+</div>
+			<br><br><h5><span id="footer-left">Designed, handcoded, and handcrafted with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a></h5><br><br>
 		</div>
-		<hr>
 			<p class="copyright">2018 © Copyright. All rights reserved.</p>
 	</footer>
 
@@ -216,6 +290,17 @@ ul#dark-mode-switch {
 
 
 <script>
+
+
+// Click on heart
+	$(function() {
+  $(".heart").on("click", function() {
+    $(".heart").toggleClass("is-active");
+    setTimeout(function() {
+          $(".heart").toggleClass("is-active");
+        },2000);
+  });
+});
 
 // Close no-cookie banner
 $('.at-banner__close').on('click', function() {
