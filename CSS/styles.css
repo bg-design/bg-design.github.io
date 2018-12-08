@@ -150,7 +150,10 @@ a < button {border-bottom: none;}
 footer {
 	background-color: #21262d;
 	color: white;
-	margin:0 auto;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 ::selection {
