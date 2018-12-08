@@ -1071,7 +1071,7 @@ cite p {color:white;}
 /* Tablet (S & M) */
 @media screen and (min-width : 431px) and (max-width : 1024px)   {
 
-	p.body {
+	.body {
 		font-size: 12pt;
 		line-height: 1.3;
 		font-weight: 500;
