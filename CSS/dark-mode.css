@@ -88,4 +88,20 @@ ul#dark-mode-switch {
   height: 30px;
   background: #0F90C0;
   transform-origin: 0;
+
+}
+  /* Light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #fff;
+        color: black;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: white;
+    }
 }

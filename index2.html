@@ -300,18 +300,23 @@
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 	</div>
+	<footer></footer>
 
 <div class="at-banner">
   <div class="at-banner__content">
-    <div class="at-banner__text">Just wanted to let you know that this website doesn't use cookies, collect any data, analyze any data, store data, or sell it. There's nothing nefarious going on in the background. Nada. Nil. Null. 0. False. You have complete privacy. No one and nothing is watching. You're welcome.</div>
+    <div class="at-banner__text">Just wanted to let you know that this website doesn't collect, analyze, sell or store your data. There's just one self-destructing cookie that remembers your dark mode preference. There's nothing nefarious going on in the background. Nada. Nil. Null. Nien. 0. dataCollection = False. You have complete privacy. No one and nothing is watching. You're welcome.</div>
   </div>
   <div class="at-banner__close"></div>
 </div>
 
 <script src="JS/custom.js"></script>
-<script src="JS/dark-mode2.js"></script>
- 
+<!-- <script src="JS/dark-mode2.js"></script>
+ --> 
  <script type="text/javascript">
+
+    $(function(){
+          $("footer").load("footer.html"); 
+        });
 
 // Close no-cookie banner
 $('.at-banner__close').on('click', function() {

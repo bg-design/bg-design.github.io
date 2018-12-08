@@ -1,287 +1,198 @@
-<!-- Designed and coded by Ben Grandy with love in Oakland, CA. -->
+<!-- Designed, handcoded, and handcrafted with love by Benjamin Grandy in the San Francisco Bay Area. -->
 
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>When | Ben Grandy</title>
-
-    <link rel="stylesheet" href="CSS/global.css" media="screen">
-	<link rel="icon" type="image/png" href="IMG/favicon.png">
-	<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" href="CSS/swiper.css">
 
 
-	<style>
+<style>
 
 @import url(CSS/global.css);
 
-html {background: black;}
-
 body {
-  background: #33B0E3;
+  background: white;
   margin: 0;
   padding: 0;
+  transition: 3s ease-in-out;
 }
 
-ul#dark-mode-switch {
-  position: relative;
-  margin: 125px auto 0;
-  padding: 0;
-  text-align: center;
+.dark-mode {
+	background: black;
+	transition: 3s ease-in-out;
 }
 
-#dark-mode-switch > li {
+
+/*Dark mode switch*/
+
+.dark-mode-switch-text {
+	color: rgb(185, 185, 185);
+	font-weight: 300;
+	width: 100px;
+	float: left;
+}
+.switch {
   display: inline-block;
-  list-style: none;
-  border: 2px solid #0F90C0;
-  cursor: pointer;
-}
-#dark-mode-switch > li:nth-of-type(1) {
-  border-radius: 3px 0 0 3px;
-  border-right: none;
-}
-#dark-mode-switch > li:nth-of-type(3) {
-  border-radius: 0 3px 3px 0;
-  border-left: none;
+	height: 25px;
+	position: relative;
+	width: 50px;
+	top: 5px;
 }
 
-#dark-mode-switch button {
-  position: relative;
-  z-index: 1;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 8px 12px;
-  font-family: 'Open Sans', sans-serif;
-  letter-spacing: 1px;
-  border: none;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-}
-#dark-mode-switch button:focus {
-  outline: none;
+.switch input {
+  display:none;
 }
 
-#dark-mode-switch .highlight {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 1px;
-  height: 30px;
-  background: #0F90C0;
-  transform-origin: 0;
-}
-
-
- *{ margin: 0px; padding: 0px; }
-  body{   font-family: 'Montserrat', sans-serif;
-  margin: 0px; padding: 0px;
-}
-
-
-.at-banner {
-  position: fixed;
+.slider {
+  background-color: #fff;
   bottom: 0;
-  right: 0;
-  left: 0;
-  background: #33f1a1;
-  width: 100%;
-  border:0;
-  padding: 10px;
-  box-sizing: border-box;
-  color: #141414;
-  font-family: 'Open Sans', 'Helvetica', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-animation: at-banner-slide-in 1.5s ease forwards;
-          animation: at-banner-slide-in 1.5s ease forwards;
-}
-.at-banner__content {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  width: 90%;
-  margin: 0 auto;
-  padding: 10px 40px;
-  box-sizing: border-box;
-}
-.at-banner__title {
-  font-size: 18px;
-}
-.at-banner__text {
-  margin: 0 20px 0 0;
-}
-
-.at-banner__close {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
   cursor: pointer;
-}
-.at-banner__close:before, .at-banner__close:after {
-  content: "";
+  left: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  background: #FFFFFF;
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-.at-banner__close:before {
-  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-          transform: translate(-50%, -50%) rotate(-45deg);
-}
-.at-banner__close:after {
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
+  right: 0;
+  top: 0;
+  transition: .4s;
 }
 
-@-webkit-keyframes at-banner-slide-in {
+.slider:before {
+  background-color: #1e2228;
+  bottom: 2px;
+  content: "";
+  height: 21px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 21px;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+input:checked + .slider.round:before {
+	background: #1e2228;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*Heart Animation */
+svg {
+width: 50px;
+display: block;
+position: relative;
+}
+
+.anim{
+display: inline;
+fill:#de2144;
+stroke:#de2144;
+stroke-dasharray: 2000;
+stroke-dashoffset: 0;
+stroke-width: 1;
+-webkit-animation: heart 9s ease-in-out 0s infinite;
+animation: heart 9s ease-in-out 0s infinite;
+}
+
+@-webkit-keyframes heart {
   0% {
-    -webkit-transform: translateY(150%);
-            transform: translateY(150%);
+    stroke-dashoffset: 0;
+    fill:#de2144;
   }
 
-  100% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+  35% {
+  	stroke-dashoffset: 2000;
   }
-  
+
+  50% {
+    fill:rgba(222, 33, 68, 0.1);
 }
 
-@keyframes at-banner-slide-in {
-  0% {
-    -webkit-transform: translateY(150%);
-            transform: translateY(150%);
-  }
+/* Filling stroke heart */
 
-  100% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+60% {stroke-dashoffset: 2000;}
+
+100% {
+    stroke-dashoffset: 0;
+  fill:#de2144;
+    
   }
-  
 }
 
-		svg {
-		  width: 50px;
-			display: block;
-			position: relative;
-		}
+.footer-top-row {
+	padding-top:20px;
+}
 
-		.anim{
-		display: inline;
-		  fill:#de2144;
-		  stroke:#de2144;
-		  stroke-dasharray: 2000;
-		  stroke-dashoffset: 0;
-		  stroke-width: 1;
-		  -webkit-animation: heart 9s ease-in-out 0s infinite;
-		  animation: heart 9s ease-in-out 0s infinite;
-		}
+.footer-middle-row {
+	padding: 25px 0;
+}
 
-		  @-webkit-keyframes heart {
-		      0% {
-		        stroke-dashoffset: 0;
-		        fill:#de2144;
-		      }
+#footer-left, #footer-right {
+	position: relative;
+	bottom:12px;
+}
+#footer-left {left: 31px;}
+#footer-right {right: 27px;}
 
-		      35% {
-		      	stroke-dashoffset: 2000;
-		      }
+.heart {
+	width: 100px;
+  background: url("IMG/footer/heart5.png") no-repeat;
+  background-position: 18px 0;
+  cursor: pointer;
+  transition: background-position 1s steps(56);
+  transition-duration: 0s;
+}
+.anim.is-active, .heart.is-active {
+  transition-duration: 2s;
+  background-position: -3718.5px 0;
+}
 
-		      50% {
-		        fill:rgba(222, 33, 68, 0.1);
-		    }
-
-/*		    Filling stroke heart
-*/		    60% {stroke-dashoffset: 2000;}
-		    
-		    100% {
-		        stroke-dashoffset: 0;
-		      fill:#de2144;
-		        
-		      }
-			}
-
-			#footer-left, #footer-right {
-				position: relative;
-				bottom:12px;
-			}
-			#footer-left {left: 31px;}
-			#footer-right {right: 27px;}
-
-		   .heart {
-		   	width: 100px;
-			  background: url("IMG/footer/heart5.png") no-repeat;
-			  background-position: 18px 0;
-			  cursor: pointer;
-			  transition: background-position 1s steps(56);
-			  transition-duration: 0s;
-			}
-			.anim.is-active, .heart.is-active {
-			  transition-duration: 2s;
-			  background-position: -3718.5px 0;
-			}
-
-			body {
-			  background: #000000;
-			}
-
-			.placement {
-			  display: inline-block;
-				position: relative;
-				-webkit-clip-path: circle(40% at 50% 50%);
-						clip-path: circle(40% at 50% 50%);
-			}
-
-
+.placement {
+  display: inline-block;
+	position: relative;
+	-webkit-clip-path: circle(40% at 50% 50%);
+			clip-path: circle(40% at 50% 50%);
+}
 
 	</style>
 	
 </head>
 <body>
-	<ul id="dark-mode-switch">
-  <li><button>Light</button></li><li class="highlight"></li><li><button>Dark</button></li>
-</ul>
 
-
-<div class="at-banner">
-  <div class="at-banner__content">
-    <div class="at-banner__text">Just wanted to let you know that this website doesn't use cookies, collect any data, analyze any data, store data, or sell it. There's nothing nefarious going on in the background. Nada. Nil. Null. 0. False. You have complete privacy. No one and nothing is watching. You're welcome.</div>
-  </div>
-  <div class="at-banner__close"></div>
-</div>
 
 <footer class="center">
 		<div class="container">
-
-			<p>
-				<div class="float-right">
-					Connect:
-					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
-					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
-					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
-					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
-					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
-					<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
-				</div>
-			</p>
-</div>
-			<br><br><h5><span id="footer-left">Designed, handcoded, and handcrafted with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a></h5><br><br>
+			<div class="footer-top-row">
+				<p class="dark-mode-switch-text">Dark mode:</p>
+				  <label class="switch" for="checkbox">
+				    <input type="checkbox" id="checkbox" />
+				    <div class="slider round"></div>
+				  </label>
+						<div class="float-right">
+							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
+						</div>
+			</div>
+			<div class="footer-middle-row">
+				<h5>
+					<span id="footer-left">Designed, handcoded, and handcrafted with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a>
+				</h5>
+			</div>
+			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
 		</div>
-			<p class="copyright">2018 © Copyright. All rights reserved.</p>
 	</footer>
 
 <script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -289,7 +200,22 @@ ul#dark-mode-switch {
 <script src="JS/global.js"></script>
 
 
+
 <script>
+
+// Dark mode switch listener
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  });
+});
 
 
 // Click on heart
@@ -302,48 +228,6 @@ ul#dark-mode-switch {
   });
 });
 
-// Close no-cookie banner
-$('.at-banner__close').on('click', function() {
-  $(this).parent().remove();
-});
-
-	////////////////////////////////
-// Highlight Buttons
-var $highlight = $('.highlight');
-
-function translate(obj) {
-  
-    var $this    = obj.addClass('active'),
-        width    = $this.width(),
-        margin   = $this.outerWidth(true) - $this.outerWidth(),
-        position = $this.offset().left + margin/2;
-
-    $highlight.css({
-        width: parseInt(width) + 'px',
-        transform: 'translate(' + parseInt(position) + 'px' + ')'
-    });
-}
-
-// add transition after page load
-$(window).on('load resize', function() {
-    
-    // wait a little bit to add transition so we don't see on page load
-    setTimeout(function() {
-        $highlight.css({
-            transition: 'all .5s'
-        });
-    }, 100);
-
-    // load highlight on active control
-  translate($('li:first-child'));
-});
-
-// switch to active control on click
-$('li:not(.highlight)').on('click', function() {
-  
-  $('li').removeClass('active');
-  translate($(this));
-});
 </script>
 </body>
 </html>
