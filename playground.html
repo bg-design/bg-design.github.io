@@ -8,6 +8,8 @@
 <style>
 
 @import url(CSS/global.css);
+@import url(CSS/smooth-scroll.css);
+
 
 body {
   background: white;
@@ -163,10 +165,150 @@ animation: heart 9s ease-in-out 0s infinite;
 			clip-path: circle(40% at 50% 50%);
 }
 
+.floatingArrowIcon {
+  position: fixed;
+  width: 50px;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  border: none;
+  opacity: 1;
+  background: white;
+  border: 2px solid black;
+  border-radius: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
 	</style>
 	
 </head>
 <body>
+  <div class="loading-bg" id="how-loading">
+    <div class="loading-wrapper">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </div>
+  <nav class="navbar">
+      <div class="container nav-wrapper">
+          <div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+      <img class="logo" src="IMG/ben-grandy-sig.png">
+      <ul class="nav-menu">
+        <li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
+      </ul>
+    </div>
+    <div class="scroll-progress"></div>
+  </nav>
+  <div class="nav-spacer"></div>
+  <hr>
+  <div class="banner">
+    <img src="IMG/shyft-mock3.jpg" />
+  </div>
+<div class="container" id="shyft">
+  <section>
+    <div class="center shyft-banner-description">
+      <h1>Shyft Event Planning</h1>
+      <p>Interaction Design | February 2016</p>
+      <p><strong>Duration</strong>: 2 weeks | <strong>Team</strong>: 2 designers | <strong>Role</strong>: Visual &amp; UX design</p>
+      <p><strong>Deliverables</strong>: Competitive Analysis, Comparative Analysis, User interviews, Booking Flow, Wireframes, Style Guide</p>
+    </div>
+  </section>
+  <section>
+    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
+    <br>
+    <p class="body">Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
+    <img src="IMG/Shyft/shyft-business-model.jpg" id="shyft-model"/>
+
+    <p class="body">To differentiate themselves from their competitors and deliver a quality experience, our client told us that they were focused on three core values: available, reliable, and local. <strong>Available</strong> is defined as having schedules that are open to the shifts needed. <strong>Reliable</strong> means that the ambassadors consistently show up and are professional. <strong>Local</strong> means they are within the local area and have the transportations means to get to their scheduled shifts.</p>
+    <img src="IMG/Shyft/shyft-criteria2.png" id="shyft-values"/>
+
+    <p class="body">For each event, there can be multiple locations, multiple roles, multiple shifts, and multiple people. You might in some cases want the cheapest staffors, in others you might want the most reliable. The nature of this problem is like a 5-dimensional puzzle. This is a perfect interaction design challenge- to simplify the complex.</p>
+
+
+    <img src="IMG/Shyft/booking-dimensions.png" id="shyft-dimensions"/>
+
+    <p class="body"><strong>Targeting</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates looking for work, but was instead limited by the the agencies offering work. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
+
+  </section>
+  <section>
+    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Research.png" /><h2>Research</h2></div>
+    <br>
+    <p class="body">Given that we were trying to solve a problem with many dimensions, we researched other instances where a great amount of information needs to be sorted through to find an ideal choice in as few steps as possible. Booking airline flights is a great example of this. It's hard to display all the information that the users needs without making the interaction feel overwhelming. Many websites make use of hover states, dropdowns, and a lot of exposed buttons so the user can focus on one task at a time without feeling overwhelmed or confused.</p>
+    <img src="IMG/Shyft/google-flights2.png" id="google-flights"/><img src="IMG/Shyft/hipmunk.png" id="hipmunk"/><br>
+    <figcaption>Google Flights and Hipmunk make use of a lot of exposed controls, dropdowns, &amp; hover modals to help organize the complex.</figcaption>
+    <p class="body">We interviewed agencies and brand ambassadors to understand some of their pain points, as well as what method they currently use to schedule &amp; book staff. We found that agencies typically use <strong>pen &amp; paper</strong> or simply an <strong>excel spreedsheet</strong>. This lead us to believe there is plenty of room for improvement, as well as understand the current method to ensure that our approach made things simpler, not more complex.</p>
+    <img src="IMG/Shyft/shyft-components.png" id="shyft-components"/>
+    <p class="body">We considered the relationships between Date, Time, Role, &amp; Location. Surely time was within a day, but what-if you had a shift that spanned midnight? Was it more common to have a single location that spanned multiple days or to have a single day that spanned multiple locations? Should a role be coupled with a shift, or should shifts exist inside roles? How common was it that you needed to add multiple roles? As we researched and explored each of these use cases, it helped narrow down how the core interaction would work.</p>
+  </section>
+  <section>
+    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Wires.png" /><h2>Wireframes</h2></div><br>
+    <h3><span class="underline"> Solution 1</span>: Detail First</h3>
+    <img src="IMG/Shyft/detail-first2.png" id=""/>
+    <p class="body ten-pad">Our first approach to the problem was to have the agency first fill out the details of the event and the shifts they expected to fill. By telling the system all the information that is needed this dramatically simplifies the process once you get to the booking stage. We opted for simplicity, having the user fill out as few fields as possible, while still having the power to input a lot of information and have Shyft do the heavy lifting matching your event with potential candidates. We also separated the task into stages to help it feel more manageable.</p>
+
+    <img src="IMG/Shyft/multiple-shifts2.png" id="multiple-shifts"/>
+    <img src="IMG/Shyft/natural-entry.png" id="natural-entry"/>
+    <figcaption><span class="float-left">Batch entry allows quick and powerful entry for multiple shifts.</span>
+    <span class="float-right">Time entry uses natural language i.e. "4am-6pm" or "6a to 1:15p"</span></figcaption>
+    <br>
+
+    <p class="body">When the user starts searching for people to book, the system automatically organizes your results based on the candidates that are able to fill the most shifts. This allows them to find candidates quickly and minimize the total amount of people to manage.</p>
+
+    <img src="IMG/Shyft/booking.png" id="shyft-booking"/><img src="IMG/Shyft/book-hover.png" id="book-hover" />
+    <figcaption><span class="float-left">Schedule and available shifts update in realtime.</span><span class="float-right">When hovering book button, available shifts light up to indicate availability.</span></figcaption>
+
+    <p class="body fifteen-pad">When all the available shifts are filled, the user is taken to a confirmation page that clearly lays out the line-item cost of people you have booked for each shift, any added tax or fees, and Shyft's fee. After they send out the requests to book, they can check in on the booking status to see who has accepted, who is pending, and who has declined the requests. After 24 hours, whoever hasn't accepted the job request loses the job and the agency can then continue to rebook to fill in the remaining shifts.</p>
+    <div class="float-left">
+      <img src="IMG/Shyft/shyft-receipt2.png" id="shyft-receipt"/>
+      <figcaption>Easily scan the line-item totals for who is booked.</figcaption>
+    </div>
+    <div class="float-right">
+      <img src="IMG/Shyft/booking-status.png" id="booking-status" />
+      <figcaption>After the booking requests are sent out, the agency can <br>check-in to see the status of requests.</figcaption>
+    </div>
+    <br class="clear">
+
+    <p class="body ten-pad">The client seemed receptive to the approach, however, wasn't sure that the advertising agency would necessarily be locked into the details of an event they are attempting to book. With the detail first flow, the assumption is that the agency is already constrained by the booking times for the event. However, if there are too few or undesirable results for their desired booking time, they might go back and edit the event details to open their results. Alternatively, the agency might have some staffers that they have worked with before, and have bookmarked for future gigs. They already know the staffers are reliable so would like to hire them again. Therefore, they might start scheduling by first looking at the availability of the desired staffers and then working to make a schedule that fits. This brings us to our second approach.</p>
+
+
+  </section>
+  <section>
+    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Design.png" /><h2>Design</h2></div>
+  </section>
+
+</div>
+
+<div class="banner">
+  <img src="IMG/Shyft/shyft-banner3.jpg" />
+</div>
+
+<div class="container">
+  <section>
+<!--    <div class="bottom-nav">
+    <a href="http://ben-grandy-peuv.squarespace.com/refer-me" target="_blank"><button class="float-left hvr-sweep-to-left when-button"><div class="flip float-left">➟</div>&nbsp;Refer Me</button></a>
+    <a href="https://ben-grandy-peuv.squarespace.com/life-alert" target="_blank"><button class="float-right hvr-sweep-to-right who-button">Life Alert ➟</button></a>
+    </div> -->
+
+    <div class="bottom-nav">
+      <button class="float-left hvr-sweep-to-left when-button" onClick="../safe-harbor.html"><div class="flip float-left">➟</div>&nbsp;Safe Harbor</button>
+      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert&nbsp;➟</button>
+      
+    </div>
+  </section>
+  <hr style="border-bottom: 1px solid #5e5e5e;">
+</div>
+
+<div class="modal-main">
+  <div class="modal-content">
+    <div class="modal-scroll" id="farmdirect-scroll" onclick="scrollFarmDirect()">
+      <button id="myBtn" class="floatingArrowIcon">
+        <img src="IMG/Icons/arrow-icon-filled.png">
+      </button>
+    </div>
+  </div>
+</div>
 
 
 <footer class="center">
@@ -199,6 +341,7 @@ animation: heart 9s ease-in-out 0s infinite;
 
 <script src="JS/global.js"></script>
 
+<script src="JS/smooth-scroll.js"></script>
 
 
 
