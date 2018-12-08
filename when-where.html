@@ -755,6 +755,9 @@
 		<button class="float-right hvr-sweep-to-right why-button" onClick="parent.location='why.html'">My Philosophy ➟</button>
 	</div>
 	</section>
+	<hr>
+	<footer id="footer">
+	</footer>
 </div>
 
 <!-- Back to top-->
@@ -824,15 +827,16 @@
   src="/form-submission-handler.js"></script> -->
 <!-- END -->
 
-<hr>
-	<footer class="center">
-		<div class="container">
-			<br><br><h5>Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com?subject=Inquiry"><strong>to life.</strong></a></h5><br><br>
-		</div>
-	</footer>
-
 <script src="JS/global.js"></script>
 <script src="JS/featherlight.js"></script>
+
+<script>
+
+// Load footer
+$(function(){
+      $("#footer").load("footer.html"); 
+    });
+</script>
 <!-- <script src="JS/dark-mode.js"></script>
  -->
 
