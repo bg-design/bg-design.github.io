@@ -5,13 +5,16 @@ body {
   transition: 3s ease-in-out;
 }
 
-.dark-mode, .dark-mode p {
+.dark-mode {
   background: black;
   color: white;
   transition: 3s ease-in-out;
 }
 
-.dark-mode a {color: white;}
+.dark-mode a, .dark-mode p {
+  color: white;
+  transition: 3s ease-in-out;
+}
 
 
 /*Dark mode switch*/
