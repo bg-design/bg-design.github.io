@@ -8,5 +8,5 @@ includeJS('JS/header-hide.js');
 includeJS('JS/selection-sharer.js');
 includeJS('JS/contact-modal.js');
 includeJS('JS/featherlight.js');
-
 includeJS('JS/custom.js');
+includeJS('JS/cookie-monster.js');

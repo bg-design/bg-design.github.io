@@ -197,7 +197,7 @@ p a::selection {
 }
 
 .copyright {
-	text-align: left;
+	text-align: center;
     clear: both;
     color: rgb(185, 185, 185);
     font-size: 11pt;
