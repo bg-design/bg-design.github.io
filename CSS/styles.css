@@ -148,7 +148,8 @@ a < button {border-bottom: none;}
 /* Footer */
 
 footer {
-	background-color: white;
+	background-color: #21262d;
+	color: white;
 	margin:0 auto;
 }
 
@@ -178,6 +179,10 @@ p a::selection {
 	border-bottom: 0;
 	border-radius: 100%;
 
+}
+
+.copyright {
+	text-align: center;
 }
 
 #lets-collaborate {
