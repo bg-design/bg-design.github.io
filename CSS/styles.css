@@ -1067,6 +1067,26 @@ cite p {color:white;}
 
 /* MEDIA QUERIES */
 
+/*Medium- phones and tablets*/
+@media screen and (max-device-width:770px) {
+  .social-icons {
+      margin: 0 auto;
+      width: 230px;
+      float: none;
+  }
+  .footer-middle-row {
+      margin: 0 auto;
+  }
+
+  #footer-left, #footer-right {
+    display: none;
+  }
+  #footer-left-min, #footer-right-min {
+    display: inline-block;
+  }
+}
+
+
 /* Tablet (S & M) */
 @media only screen 
 and (min-width : 431px) and (max-width : 1024px)   {
