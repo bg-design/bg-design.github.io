@@ -460,6 +460,9 @@
 
 		
 		</section>
+		<hr style="border-bottom: 1px solid #5e5e5e;">
+		<footer id="footer">
+		</footer>
 	</div>
 
 	<!-- Back to top-->
@@ -571,10 +574,13 @@
 });
 </script>
 
-</body>
-<hr style="border-bottom: 1px solid #5e5e5e;">
+<script>
 
-<div class="who-credits-wrapper">
-	<p class="credits" id="who-credits">Designed and coded with love by Ben in Oakland, CA. © <a href="https://github.com/Webstir" target="_new"><span class="github-white"></span></a></p>
-</div>
+// Load footer
+$(function(){
+      $("#footer").load("footer.html"); 
+    });
+</script>
+
+</body>
 </html>
