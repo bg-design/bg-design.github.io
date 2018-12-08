@@ -1066,17 +1066,17 @@ cite p {color:white;}
 }
 
 /* MEDIA QUERIES */
+@media screen and (max-width : 730px)   {
 
+			.body {
+				font-size: 12pt;
+				line-height: 1.3;
+				font-weight: 500;
+				color: rgb(27, 27, 27);}
+		}
 
 /* Tablet (S & M) */
 @media screen and (min-width : 431px) and (max-width : 1024px)   {
-
-	.body {
-		font-size: 12pt;
-		line-height: 1.3;
-		font-weight: 500;
-		color: rgb(27, 27, 27);
-}
 
 	.books {
 		height: 30px;
