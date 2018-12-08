@@ -5,6 +5,10 @@ body {
   transition: 3s ease-in-out;
 }
 
+p, a {
+  transition: 3s ease-in-out;
+}
+
 .dark-mode {
   background: black;
   color: white;
