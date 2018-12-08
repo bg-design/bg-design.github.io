@@ -306,18 +306,7 @@
  </div>
 </div>
 
-  <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" type="text/javascript"
-  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-  <!-- <script data-cfasync="false" type="text/javascript"
-  src="/form-submission-handler.js"></script> -->
-<!-- END -->
-
-	<hr>
-	<footer class="center">
-		<div class="container">
-			<br><br><h5>Let's bring your ideas <a id="footer-cta" href="mailto:bpgrandy@gmail.com?subject=Inquiry"><strong>to life.</strong></a></h5><br><br>
-		</div>
+	<footer id="footer">
 	</footer>
 
 
@@ -327,6 +316,13 @@
 
 <script>
 
+
+// Load footer
+$(function(){
+      $("#footer").load("footer.html"); 
+    });
+
+// Typing script
 $( document ).ready(function(){
 		$("#typed").typed({
 			stringsElement: $('#typing'),
@@ -346,9 +342,7 @@ console.log('%cA big shout-out to MattBoldt.com for this awesome typing script.'
 
 </script>
 
+
+
 </body>
-<hr>
-<div class="credits-wrapper">
-	<p class="credits"><span><a href="https://github.com/Webstir" target="_new"><img src="IMG/Icons/github.png" class="github"></img></a></span>Designed and coded with love by Ben in Oakland, CA. ©</p>
-</div>
 </html>
