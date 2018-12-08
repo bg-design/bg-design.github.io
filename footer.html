@@ -2,6 +2,9 @@
 <head>
   <style>
 
+@import url(CSS/global.css);
+
+
 body {
   background: white;
   margin: 0;
@@ -186,6 +189,10 @@ animation: heart 9s ease-in-out 0s infinite;
 		</div>
 	</footer>
 
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+<script src="JS/global.js"></script>
+
 <script>
 
 // Current year for copyright (future-proof)
@@ -199,10 +206,10 @@ document.addEventListener('DOMContentLoaded', function () {
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
       document.body.classList.add("dark-mode");
-      alert('Im Dark');
+      alert('Im dark');
     } else {
       document.body.classList.remove("dark-mode");
-      alert('Im Not');
+      alert('Im not');
     }
   });
 });
