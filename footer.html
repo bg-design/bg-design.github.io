@@ -174,6 +174,23 @@ animation: heart 9s ease-in-out 0s infinite;
 			clip-path: circle(40% at 50% 50%);
 }
 
+
+.floatingArrowIcon {
+  position: fixed;
+  width: 50px;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  border: none;
+  opacity: 1;
+  background: white;
+  border: 2px solid black;
+  border-radius: 100%;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
 /*Medium- phones and tablets*/
 @media screen and (max-width:770px) {
   .social-icons {
@@ -221,7 +238,7 @@ animation: heart 9s ease-in-out 0s infinite;
 			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
 		</div>
 	</footer>
-  
+
 <!-- Page down arrow -->
   <div class="scroll" onclick="scrollBoth()">
       <button class="floatingArrowIcon">
