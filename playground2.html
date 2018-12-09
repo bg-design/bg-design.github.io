@@ -343,13 +343,10 @@ animation: heart 9s ease-in-out 0s infinite;
 
 <script>
 
-// Scroll listener
 window.addEventListener("scroll", function (event) {
-
+    
     var scroll = this.scrollY;
     // console.log(scroll);
-
-    // Flip Arrow
     if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
         $(".floatingArrowIcon").css("transform", "rotate(0deg)");
         }
