@@ -227,7 +227,14 @@ animation: heart 9s ease-in-out 0s infinite;
 
 <body>
 
-<footer class="center">
+    <!-- Page down arrow -->
+  <div class="scroll" onclick="scrollBoth()">
+      <button class="floatingArrowIcon">
+        <img src="IMG/Icons/arrow-icon-filled.png">
+      </button>
+    </div>
+
+<footer>
 		<div class="container">
 			<div class="footer-top-row">
         <!-- <span class="dark-mode-wrapper">
@@ -254,13 +261,6 @@ animation: heart 9s ease-in-out 0s infinite;
 			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
 		</div>
 	</footer>
-
-  <!-- Page down arrow -->
-  <div class="scroll" onclick="scrollBoth()">
-      <button class="floatingArrowIcon">
-        <img src="IMG/Icons/arrow-icon-filled.png">
-      </button>
-    </div>
 
     <!-- Submit the Form to Google Using "AJAX" -->
   <script data-cfasync="false" type="text/javascript"
