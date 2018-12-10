@@ -90,6 +90,16 @@ p, a {
   transition: 3s ease-in-out;
 }
 
+.img-invert {
+  transition: 3s;
+  filter:invert(0%);
+}
+
+.dark-mode .img-invert {
+  filter: invert(82%);
+  transition: 3s;
+}
+
 .dark-mode .navbar {background: rgba(88, 88, 88, 0.57);}
 
     .dark-mode .navbar li a:hover, .dark-mode .navbar li a{color: white;}
