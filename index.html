@@ -326,6 +326,21 @@ max-width: 865px;
 			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		</section>
 	</div>
+
+<footer class="center">
+		<div class="home-container">
+			<div class="footer-top-row">
+				<p class="dark-mode-switch-text">Dark mode:</p>
+				  <label class="switch" for="checkbox">
+				    <input type="checkbox" id="checkbox" />
+				    <div class="slider round"></div>
+				  </label>
+					
+			</div>
+			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
+		</div>
+</footer>
+
 <div class="at-banner">
   <div class="at-banner__content">
   
@@ -359,6 +374,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+var time = new Date();
+var hour = time.getHours();
+if ( sessionStorage.getItem('setDarkMode') === 'true') {
+      document.body.classList.add("dark-mode");
+      document.getElementById("checkbox").checked = true;
+    }
+else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+    document.body.classList.remove("dark-mode");
+    document.getElementById("checkbox").checked = false;
+}
+else if ((hour <= 6) || (hour >= 18)) {
+    document.body.classList.add("dark-mode");
+    document.getElementById("checkbox").checked = true;
+}
+else {
+  document.body.classList.remove("dark-mode");
+  document.getElementById("checkbox").checked = false;
+}
 
 
 </script>
@@ -397,19 +432,4 @@ console.log('%cI like to use jQuery and code that is short, to the point, elegan
 
 
 </body>
-
-
-<footer class="center">
-		<div class="home-container">
-			<div class="footer-top-row">
-				<p class="dark-mode-switch-text">Dark mode:</p>
-				  <label class="switch" for="checkbox">
-				    <input type="checkbox" id="checkbox" />
-				    <div class="slider round"></div>
-				  </label>
-					
-			</div>
-			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-		</div>
-	</footer>
 </html>

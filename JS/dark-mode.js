@@ -1,22 +1,22 @@
 
-var time = new Date();
-var hour = time.getHours();
-if ( sessionStorage.getItem('setDarkMode') === 'true') {
-      document.body.classList.add("dark-mode");
-      document.getElementById("checkbox").checked = true;
-    }
-else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-    document.body.classList.remove("dark-mode");
-    document.getElementById("checkbox").checked = false;
-}
-else if ((hour <= 6) || (hour >= 18)) {
-    document.body.classList.add("dark-mode");
-    document.getElementById("checkbox").checked = true;
-}
-else {
-  document.body.classList.remove("dark-mode");
-  document.getElementById("checkbox").checked = false;
-}
+// var time = new Date();
+// var hour = time.getHours();
+// if ( sessionStorage.getItem('setDarkMode') === 'true') {
+//       document.body.classList.add("dark-mode");
+//       document.getElementById("checkbox").checked = true;
+//     }
+// else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+//     document.body.classList.remove("dark-mode");
+//     document.getElementById("checkbox").checked = false;
+// }
+// else if ((hour <= 6) || (hour >= 18)) {
+//     document.body.classList.add("dark-mode");
+//     document.getElementById("checkbox").checked = true;
+// }
+// else {
+//   document.body.classList.remove("dark-mode");
+//   document.getElementById("checkbox").checked = false;
+// }
 
 // AM/PM Dark Mode
 // function nightTime() {
