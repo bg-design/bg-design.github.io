@@ -233,7 +233,7 @@ animation: heart 9s ease-in-out 0s infinite;
 
 .heart {
   width: 100px;
-  background: url("IMG/footer/heart5.png") no-repeat;
+  background: url("../IMG/footer/heart5.png") no-repeat;
   background-position: 18px 0;
   cursor: pointer;
   transition: background-position 1s steps(56);
