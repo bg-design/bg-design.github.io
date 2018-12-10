@@ -773,7 +773,6 @@
 		<button class="float-right hvr-sweep-to-right why-button" onClick="parent.location='why.html'">My Philosophy ➟</button>
 	</div>
 	</section>
-	<hr>
 
 </div>
 
@@ -838,8 +837,29 @@
   src="/form-submission-handler.js"></script> -->
 <!-- END -->
 
-<footer id="footer">
-</footer>
+<footer>
+			<div class="container">
+				<div class="footer-top-row">
+					<span class="dark-mode-wrapper">
+		  				<p class="dark-mode-switch-text">Dark mode:</p>
+		  				  <label class="switch" for="checkbox">
+		  				    <input type="checkbox" id="checkbox" />
+		  				    <div class="slider round"></div>
+			  				  </label>
+			        </span>
+						<div class="social-icons float-right">
+							<span><a href="mailto:bpgrandy@gmail.com" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://www.linkedin.com/in/bengrandy" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
+						</div>
+				</div>
+			</div>
+
+			<div id="footer-import"></div>
+		</footer>
 
 
   <script src="//code.jquery.com/jquery-latest.js"></script>
@@ -852,8 +872,26 @@
 
 // Load footer
 $(function(){
-      $("#footer").load("footer.html"); 
+      $("#footer-insert").load("footer-dark-mode.html"); 
     });
+
+// // Current year for copyright (future-proof)
+// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
+
+// Dark mode switch listener
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  });
+});
+
 </script>
 <!-- <script src="JS/dark-mode.js"></script>
  -->
