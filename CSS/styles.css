@@ -497,7 +497,7 @@ nav li {
 			width: 0;
 			position: fixed;
 			bottom: 0;
-			z-index: 9999;
+			z-index: 2;
 		}
 
 .what-bg {
