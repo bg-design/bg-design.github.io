@@ -13,7 +13,23 @@
 	
 	<style type="text/css">
 
-		.stripes-bg {background: repeating-linear-gradient(-55deg, rgb(244, 244, 244), rgb(244, 244, 244) 3px, #FFF 3px, #FFF 10px);}
+	
+		.stripesBG {background: repeating-linear-gradient(-55deg, rgb(244, 244, 244), rgb(244, 244, 244) 3px, #FFF 3px, #FFF 10px);}
+
+		.dark-mode {
+			background: repeating-linear-gradient(-55deg, rgb(100,100,100), rgb(100, 100, 100) 3px, #2d2d2d 3px, #2d2d2d 10px);
+			color: black;
+		}
+
+		.dark-mode .persona-col {
+			background:rgb(31, 31, 31);
+		}
+
+		.dark-mode #persona h4 {color: white;}
+
+		.dark-mode .traits h5 {color:black;}
+
+		.dark-mode #goals h3 {color:black;}
 
 		#middle-persona {margin-left: 0.9%;}
 
@@ -276,7 +292,7 @@
 	</style>
 
 </head>
-<body class="stripes-bg">
+<body class="stripesBG">
 	<div class="loading-bg" id="who-loading">
 		<div class="loading-wrapper">
 			<div class="loading-dot"></div>
@@ -529,6 +545,28 @@
 <!-- END -->
 
 <script src="JS/global.js"></script>
+
+<script>
+
+// // Current year for copyright (future-proof)
+// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
+
+// Dark mode switch listener
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  });
+});
+
+
+</script>
 <script>
 
 	// Seconds counter
@@ -578,7 +616,7 @@
 
 // Load footer
 $(function(){
-      $("#footer").load("footer.html"); 
+      $("#footer").load("footer-dark-mode.html"); 
     });
 </script>
 
