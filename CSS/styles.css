@@ -1055,7 +1055,7 @@ cite p {color:white;}
 .project-icons-wrapper h2 {
 	margin-top:50px;
 }
-.dark-mode {
+/*.dark-mode {
 	color: white !important;
 }
 
@@ -1069,7 +1069,7 @@ cite p {color:white;}
 	animation: nightTime-home 5s ease-in;
 	background: #252B33;
 	background-size: 200% 200%;
-}
+}*/
 
 /* MEDIA QUERIES */
 @media screen and (max-width : 730px)   {

@@ -1,18 +1,11 @@
 
 body {
-  background: white;
   margin: 0;
   padding: 0;
   transition: 3s ease-in-out;
 }
 
 .social-icons {margin: 10px 20px;}
-
-.dark-mode {
-  background: black;
-  color: white;
-  transition: 3s ease-in-out;
-}
 
 
 .my-byline {
@@ -92,7 +85,7 @@ p, a {
   transition: 3s ease-in-out;
 }
 
-.dark-mode a, .dark-mode p, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4 {
+.dark-mode a, .dark-mode p, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode ul {
   color: white;
   transition: 3s ease-in-out;
 }
