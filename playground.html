@@ -343,6 +343,8 @@ animation: heart 9s ease-in-out 0s infinite;
 
 <script>
 
+
+
 // Scroll listener
 window.addEventListener("scroll", function (event) {
 
@@ -387,17 +389,36 @@ document.addEventListener('DOMContentLoaded', function () {
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
       document.body.classList.add("dark-mode");
-      alert('Im Dark');
+      sessionStorage.setItem('setDarkMode', 'true');
     } else {
       document.body.classList.remove("dark-mode");
-      alert('Im Not');
+      sessionStorage.setItem('setDarkMode', 'false');
     }
   });
 });
 
+var time = new Date();
+var hour = time.getHours();
+if ( sessionStorage.getItem('setDarkMode') === 'true') {
+      document.body.classList.add("dark-mode");
+      document.getElementById("checkbox").checked = true;
+    }
+else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+    document.body.classList.remove("dark-mode");
+    document.getElementById("checkbox").checked = false;
+}
+else if ((hour <= 6) || (hour >= 18)) {
+    document.body.classList.add("dark-mode");
+    document.getElementById("checkbox").checked = true;
+}
+else {
+  document.body.classList.remove("dark-mode");
+  document.getElementById("checkbox").checked = false;
+}
 
 // Click on heart
   $(function() {
+
   $(".heart").on("click", function() {
     $(".heart").toggleClass("is-active");
     setTimeout(function() {
