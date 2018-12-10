@@ -1,9 +1,86 @@
+
 body {
   background: white;
   margin: 0;
   padding: 0;
   transition: 3s ease-in-out;
 }
+
+.social-icons {margin: 10px 20px;}
+
+.dark-mode {
+  background: black;
+  color: white;
+  transition: 3s ease-in-out;
+}
+
+
+.my-byline {
+  font-size:14pt;
+}
+
+
+
+#footer-left-min, #footer-right-min {
+  display: none;
+  position: relative;
+}
+#footer-right-min {
+  right: 20px;
+}
+
+#footer-left-min {
+  left: 20px;
+}
+
+
+.floatingArrowIcon {
+  position: fixed;
+  width: 50px;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  border: none;
+  opacity: 1;
+  background: white;
+  border: 2px solid black;
+  border-radius: 100%;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/*Medium- phones and tablets*/
+@media screen and (max-width:770px) {
+
+
+  .dark-mode-wrapper {
+    clear: both;
+  }
+  .social-icons {
+      margin: 0 auto;
+      width: 230px;
+      float: none;
+      clear: both;
+      margin-top: 15px;
+  }
+  .footer-middle-row {
+      margin: 0 auto;
+  }
+
+  #footer-left, #footer-right {
+    display: none;
+  }
+  #footer-left-min, #footer-right-min {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:550px) {
+  .chatIcon {display: none;}
+  .floatingArrowIcon {display: none;}
+}
+
 
 p, a {
   transition: 3s ease-in-out;
