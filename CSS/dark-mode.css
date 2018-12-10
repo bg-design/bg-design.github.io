@@ -22,7 +22,7 @@ p, a {
 
 .dark-mode .navbar {background: rgba(88, 88, 88, 0.57);}
 
-    .dark-mode .navbar li a:hover, .navbar li a{color: white;}
+    .dark-mode .navbar li a:hover, .dark-mode .navbar li a{color: white;}
     .dark-mode .navbar li a#active {
       color: white;
       border-bottom:3px solid white;}
