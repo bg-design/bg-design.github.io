@@ -53,6 +53,8 @@ z-index: 1;
 .modal-body {
 	padding: 20px;
 }
+
+.dark-mode .modal-body {background: #2d2d2d;}
 /* The Close Button */
 .close {
     color: #aaa;
