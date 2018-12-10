@@ -86,6 +86,8 @@
 		    top: 18%;
 	}
 
+	.dark-mode .what-box {background: rgba(50, 50, 50, 0.9);}
+
 	.what-box h1 {
 		    font-family: 'Lora';
 		    color: #333333;
@@ -98,6 +100,7 @@
 			font-weight: 500;
 			color: #5a5a5a;
 }
+	.dark-mode .what-box h1, .dark-mode .what-box p {color: white;}
 
 	.what-box a {
 		color:#171717;
@@ -133,6 +136,15 @@
     float: left;
 }
 
+#what-nav {
+	position: absolute;
+	background: rgba(255, 255, 255, 0.9);
+	display: initial;
+}
+
+.dark-mode #what-nav {
+	background: rgba(50, 50, 50, 0.9);
+}
 
 @media screen and (min-width: 768px) {
 	.copyright {
@@ -308,7 +320,24 @@
 	
 <!-- Bunch of scripts-->
 <script src="JS/custom.js"></script>
+<script>
 
+	// Dark Mode detector
+	var time = new Date();
+	var hour = time.getHours();
+	if ( sessionStorage.getItem('setDarkMode') === 'true') {
+	      document.body.classList.add("dark-mode");
+	    }
+	else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+	    document.body.classList.remove("dark-mode");
+	}
+	else if ((hour <= 6) || (hour >= 18)) {
+	    document.body.classList.add("dark-mode");
+	}
+	else {
+	  document.body.classList.remove("dark-mode");
+	}
+</script>
 <script type="text/javascript">
 console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
 console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling effect, and big thanks to Jan Sorgalla (sorgalla.com/lity/) for this lightbox script.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
