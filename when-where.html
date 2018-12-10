@@ -230,6 +230,11 @@
 			padding: 0;
 			margin: 0;
 			float: left;
+			transition: 0.5s;
+		}
+
+		.dark-mode .numbers-third, .dark-mode .numbers-half {
+			filter: brightness(90%);
 		}
 
 		.numbers-third:hover, .numbers-half:hover {
@@ -237,6 +242,10 @@
 			transition: 0.4s;
 		}
 
+		.dark-mode .numbers-third:hover, .dark-mode .numbers-half:hover {
+			filter: brightness(120%);
+			transition: 1s;
+		}
 
 		.numbers-third {
 			width: 33.33333%;
@@ -254,6 +263,10 @@
 			color: white;
 		}
 
+		.dark-mode .numbers h1 {
+			color: rgb(239, 239, 239);
+		}
+
 		.numbers-count {
 			color: grey;
 			font-size:0.4em;
@@ -263,6 +276,10 @@
 			text-align: center;
 			color: rgb(47, 47, 47);
 			font-size: 22px;
+		}
+
+		.dark-mode .numbers-text {
+			color: grey;
 		}
 
 		#design-yrs {

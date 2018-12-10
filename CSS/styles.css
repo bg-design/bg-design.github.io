@@ -134,6 +134,12 @@ a.button, button {
 	border: 1px rgba(0, 0, 0, 0.7) solid;
 
 }
+
+.dark-mode a.button, .dark-mode button {
+	border: 1px rgba(255, 255, 255, 0.7) solid;
+	color: white;
+}
+
 button:hover,a.button:hover {
 	color: white;
 	border:1px white solid;
