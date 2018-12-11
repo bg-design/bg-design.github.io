@@ -42,7 +42,7 @@ p  {
 	font-family: 'Cardo', serif;
 	font-size: 14pt;
     line-height: 1.5em;
-	color: black;
+	color: rgb(47, 47, 47);
 	letter-spacing: .5px;
 	padding: 10px;
 	font-weight: 300;
@@ -61,7 +61,6 @@ sup:hover {
 	color: #08c7ff;
 }
 
-.body {text-indent: 2em;}
 
 a {text-decoration: none;
 	color: black;
