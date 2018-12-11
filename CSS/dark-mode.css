@@ -36,11 +36,23 @@ body {
   border: none;
   opacity: 1;
   background: white;
-  border: 2px solid black;
+  border: 1px solid rgb(100, 100, 100);
   border-radius: 100%;
   z-index: 1;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
+}
+
+.floatingArrowIcon:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  bottom: 8px;
+}
+
+.floatingArrowIcon:active {
+  bottom: 0px;
+  transition: .3s;
+  box-shadow: 0;
+  border: 2px solid black;
 }
 
 /*Medium- phones and tablets*/
