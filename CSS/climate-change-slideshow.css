@@ -1,3 +1,77 @@
+
+/*		Swiper Styles*/
+				.swiper-container {
+			      width: 100%;
+			      height: 100%;
+			    }
+			    .swiper-slide {
+			      text-align: center;
+			      font-size: 18px;
+			      background: #fff;
+			      /* Center slide text vertically */
+			      display: -webkit-box;
+			      display: -ms-flexbox;
+			      display: -webkit-flex;
+			      display: flex;
+			      -webkit-box-pack: center;
+			      -ms-flex-pack: center;
+			      -webkit-justify-content: center;
+			      justify-content: center;
+			      -webkit-box-align: center;
+			      -ms-flex-align: center;
+			      -webkit-align-items: center;
+			      align-items: center;
+				}
+
+				.slide-caption {
+					position: absolute;
+					top: 20%;
+					left: 50%;
+					width: 300px;
+					background: rgba(0, 0, 0, 0.32);
+				}
+
+				.slide-caption p, .slide-caption p a {
+					color: white;
+					font-size: 16pt;
+					line-height: 1.4;
+					text-align:left;
+				}
+
+				.haiti-girl {
+					left:10%;
+					width: 420px;
+					background: rgba(47, 47, 47, 0.72);
+				}
+
+				.refugees {
+					top:initial;
+					left:5%;
+					bottom: 5%;
+					width: 320px;
+					background: rgba(47, 47, 47, 0.5)
+				}
+
+				.american-airlines {
+					top: initial;
+					bottom:10%;
+					left:10%;
+				}
+
+				#aa-caption p {
+					color: rgb(125, 125, 125);
+				}
+
+				.earth-overshoot {
+/*					bottom: 5%;
+*/					top: 20%;
+					left: initial;
+					right: 5%;
+					width: 550px;
+/*					height: 110px;
+*/					background: rgba(72, 72, 72, 0.8);
+				}
+
 				.overshoot-caption p {
 					color: rgb(125, 125, 125);
 				}
