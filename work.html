@@ -43,14 +43,14 @@
 		background-image: url(IMG/shyft-mock3.jpg);
 		padding: 0% 0 0 0;
 	}
-	#section3{
+/*	#section3{
 		background-image: url(IMG/life-alert-mock4.jpg);
 		padding: 0% 0 0 0;
 	}
 	#section4{
 		background-image: url(IMG/refer-me-mock3.jpg);
 		padding: 0% 0 0 0;
-	}
+	}*/
 /*
 	#section3{
 		background-image: url(IMG/gumball-mock.jpg);
@@ -235,8 +235,16 @@
 			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
 			<p class="made-in">Made in Feb. 2016</p>
 		</div>
+		<div class="bottom-nav" id="what-nav">
+				<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='philosophy.html'"><div class="flip float-left">➟</div>&nbsp;My Philosophy</button>
+				<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='about.html'">Who I am ➟</button>
+
+				<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
+			</div>
+		</div>
+		<hr>
 	</div>
-	<div class="section" id="section3">
+<!-- 	<div class="section" id="section3">
 	    <div class="what-box life-alert">
 			<h1>Life Alert</h1>
 			<br>
@@ -256,7 +264,7 @@
 			<br>
 			<a href="https://ben-grandy-peuv.squarespace.com/refer-me" data-lity><button class="project-button center">View Wires</button></a>
 			<p class="made-in">Made in Apr. 2016</p>
-		</div>
+		</div> -->
 	
 <!-- 	<div class="section" id="section3">
 		<div class="what-box gumball">
@@ -280,15 +288,6 @@
 			<button class="project-button center" onClick="parent.location='archive.html'">View Archive</button>
 		</div>
 		<div class="filler"></div>-->
-		<div class="bottom-nav" id="what-nav">
-			<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='philosophy.html'"><div class="flip float-left">➟</div>&nbsp;My Philosophy</button>
-			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='about.html'">Who I am ➟</button>
-
-			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-		</div>
-
-		</div>
-		<hr>
 	</div> 
 </div>
 
@@ -296,11 +295,11 @@
  <script type="text/javascript">
 
     var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['AwaFit','SafeHarbor','Shyft','LifeAlert','ReferMe'],
+    	anchors: ['AwaFit','SafeHarbor','Shyft'],
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning', 'Life Alert','Refer Me'],
+		navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
@@ -346,6 +345,4 @@ console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling e
 
 </script>
 </body>
-<hr>
-<p class="credits">Designed and coded with love by Ben.</p>
 </html>
