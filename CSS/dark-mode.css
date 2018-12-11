@@ -120,6 +120,7 @@ p, a {
   font-weight: 300;
   width: 100px;
   float: left;
+  font-family: 'Lato';
 }
 .switch {
   display: inline-block;

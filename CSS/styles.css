@@ -211,6 +211,7 @@ p a::selection {
     clear: both;
     color: rgb(185, 185, 185);
     font-size: 11pt;
+    font-family: 'Lato';
 }
 
 #lets-collaborate {
