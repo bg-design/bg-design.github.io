@@ -11,4 +11,6 @@ includeJS('JS/featherlight.js');
 includeJS('JS/custom.js');
 includeJS('JS/cookie-monster.js');
 includeJS('JS/dark-mode.js');
+includeJS('JS/lity.js');
+
 
