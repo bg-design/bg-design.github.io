@@ -1,0 +1,862 @@
+<!-- Designed and coded by Ben Grandy with love in Oakland, CA. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>When | Ben Grandy</title>
+
+    <link rel="stylesheet" href="CSS/global.css" media="screen">
+	<link rel="icon" type="image/png" href="IMG/favicon.png">
+	<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="CSS/swiper.css">
+
+	
+	<style>
+
+/*		Swiper Styles*/
+				.swiper-container {
+			      width: 100%;
+			      height: 100%;
+			    }
+			    .swiper-slide {
+			      text-align: center;
+			      font-size: 18px;
+			      background: #fff;
+			      /* Center slide text vertically */
+			      display: -webkit-box;
+			      display: -ms-flexbox;
+			      display: -webkit-flex;
+			      display: flex;
+			      -webkit-box-pack: center;
+			      -ms-flex-pack: center;
+			      -webkit-justify-content: center;
+			      justify-content: center;
+			      -webkit-box-align: center;
+			      -ms-flex-align: center;
+			      -webkit-align-items: center;
+			      align-items: center;
+				}
+
+				.slide-caption {
+					position: absolute;
+					top: 20%;
+					left: 50%;
+					width: 300px;
+					background: rgba(0, 0, 0, 0.32);
+				}
+
+				.slide-caption p, .slide-caption p a {
+					color: white;
+					font-size: 16pt;
+					line-height: 1.4;
+					text-align:left;
+				}
+
+				.haiti-girl {
+					left:10%;
+					width: 420px;
+					background: rgba(47, 47, 47, 0.72);
+				}
+
+				.refugees {
+					top:initial;
+					left:5%;
+					bottom: 5%;
+					width: 320px;
+					background: rgba(47, 47, 47, 0.5)
+				}
+
+				.american-airlines {
+					top: initial;
+					bottom:10%;
+					left:10%;
+				}
+
+				#aa-caption p {
+					color: rgb(125, 125, 125);
+				}
+
+				.earth-overshoot {
+/*					bottom: 5%;
+*/					top: 20%;
+					left: initial;
+					right: 5%;
+					width: 550px;
+/*					height: 110px;
+*/					background: rgba(72, 72, 72, 0.8);
+				}
+
+				.tools {
+			width: 100%;
+			margin: 20px 0;
+		}
+
+		.software-icons-wrapper {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;  
+			-webkit-flex-flow: row wrap;
+			justify-content: space-around;
+		}
+		.software-icons {
+			width: 250px;
+			float: left;
+			transition: ease-in-out 2s;
+
+		}
+		.software-icons:hover {
+			opacity: 1;
+			transition: ease-in-out .2s;
+			filter:grayscale(0%);
+		}
+
+		.tooltip {
+		    position: relative;
+		    display: inline-block;
+
+		}
+
+		.tooltip .tooltiptext {
+			width: 150px;
+		    top: 91%;
+		    left: 50%; 
+		    margin-left: -75px;
+		    visibility: hidden;
+		    color: #666;
+		    text-align: center;
+		    border-radius: 6px;
+		    padding: 5px 0;
+
+		    /* Position the tooltip */
+		    position: absolute;
+		    z-index: 1;
+		}
+
+		.tooltip:hover .tooltiptext {
+		    visibility: visible;
+		}
+
+		.tooltiptext {
+			font-size: 17pt;
+		}
+
+		.process {
+			width: 450px
+		}
+
+		.education {
+			width: 100%;
+			transform: scale(1.1,1.1);
+		}
+
+		.skills a:hover {
+/*			background: #b8e8ff;
+*/
+		}
+
+		.typing-wrap {
+		    margin: 10px;
+		}
+		/* code for animated blinking cursor on who */
+		.typed-cursor{
+	        opacity: 1;
+	        font-weight: 100;
+	        -webkit-animation: blink 1.7s infinite;
+	        -moz-animation: blink 1.7s infinite;
+	        -ms-animation: blink 1.7s infinite;
+	        -o-animation: blink 1.7s infinite;
+	        animation: blink 1.7s infinite;
+	    }
+	    @-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-webkit-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-moz-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-ms-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+	    @-o-keyframes blink{
+	        0% { opacity:1; }
+	        50% { opacity:0; }
+	        100% { opacity:1; }
+	    }
+
+
+
+		/*HOW PROCESS IMAGE*/
+		@media only screen and (max-width: 700px)
+		{
+			img.process {
+				width: 100%;
+			}
+
+			p {
+				font-size: 100%;
+				line-height: 1.3;
+			}
+		}
+
+		/* Desktop */
+		@media only screen
+		and (min-device-width: 1024px)  {
+
+		/*  .first-copy {
+			width: 850px;*/
+			.software-icons {
+				opacity: 0.5;
+				filter:grayscale(80%);
+			}
+		}
+
+		/*Tablet and Mobile*/
+		@media only screen and (max-device-width: 1023px) {
+			.software-icons {
+		    	opacity: 1;
+		    	filter: grayscale(0%);
+			}
+		}
+		/* Tablet */
+		@media only screen and (min-width : 479px) and (max-width : 1024px)   {
+
+			.software-icons {width: 150px;}
+		}
+		/* Mobile */
+		@media only screen and (max-width: 479px)  {
+
+			.software-icons {width: 125px;}
+		}
+
+		.numbers-third, .numbers-half {
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+			float: left;
+			transition: 0.5s;
+		}
+
+		.dark-mode .numbers-third, .dark-mode .numbers-half {
+			filter: brightness(90%);
+		}
+
+		.numbers-third:hover, .numbers-half:hover {
+			filter: contrast(120%);
+			transition: 0.4s;
+		}
+
+		.dark-mode .numbers-third:hover, .dark-mode .numbers-half:hover {
+			filter: brightness(120%);
+			transition: 1s;
+		}
+
+		.numbers-third {
+			width: 33.33333%;
+		}
+		.numbers-half {
+			width: 50%;			
+		}
+
+		.numbers-box {
+			margin: 70px 0;
+		}
+
+		.numbers h1 {
+			font-size:500%;
+			color: white;
+		}
+
+		.dark-mode .numbers h1 {
+			color: rgb(239, 239, 239);
+		}
+
+		.numbers-count {
+			color: grey;
+			font-size:0.4em;
+		}
+
+		.numbers-text {
+			text-align: center;
+			color: rgb(47, 47, 47);
+			font-size: 22px;
+		}
+
+		.dark-mode .numbers-text {
+			color: grey;
+		}
+
+		#design-yrs {
+			background: #3af3ab;
+		}
+		#ux-yrs {
+			background: #69D2E7;
+		}
+
+		#web-yrs {
+			background: #A7DBD8;
+		}
+
+		#web-design-projects {
+			background: #c8cfff;
+		}
+
+		#web-dev-projects {
+			background: #e4c9e4;
+		}
+
+		#mobile-apps {
+			background: #f3d8ae;
+		}
+
+		#logos {
+			background: #F38630;
+		}
+
+		#clients {
+			background: #FA6900;
+		}
+
+
+		.when p{
+			line-height: 1.7em;
+	    	margin: 0px 0 15px 0;
+		}
+
+		.position-length {
+			color: grey;
+			font-size: 16px;
+			float: right;
+		}
+
+		.dark-mode .position-length {
+			color:rgb(202, 202, 202);
+		}
+
+		.pi-video-slideshow {
+			left: 5%;
+			top: 5%;
+			width: 260px;
+			background: rgba(0, 0, 0, 0.72);
+		}
+
+		.ccs {
+			left: initial;
+			top: initial;
+			width: 560px;
+			background: rgba(0, 0, 0, 0.72);
+			bottom: 0;
+		}
+
+		#download-resume {
+			border-radius: 50px;
+			width: 170px;
+			text-align: center;
+			margin: 0 auto;
+			margin-top:15px;
+
+		}
+
+		#download-resume:hover {
+			font-weight: bolder;
+			border:1px solid;
+			background: linear-gradient(34deg, rgb(237, 84, 239), rgb(154, 181, 255) 45.8%, rgb(25, 171, 204) 86.13%);
+			transition: .7s;
+		}
+
+		#download-resume:hover {text-shadow: 0 0;color: white;
+			cursor: pointer;}
+
+		#picycle:hover {
+			/*color: #fe292c;
+			border-bottom:0;
+
+			background-image: url(https://i0.wp.com/www.cyclelicio.us/wp-content/uploads/2012/03/pi-cycle.jpg?resize=500%2C329);
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+		    padding:15px;
+		    transition: 1s;
+		    border-radius: 50%;*/
+		}
+
+		.scroll-progress {
+
+			background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+
+		}
+
+		#pi-video {
+			float: left;
+			width: 100px;
+			padding: 15px;
+			border-radius: 50%;
+		}
+		#pi-video:hover {
+			border-radius: 20%;
+			transition: 1s;
+		}
+
+
+		/* MEDIA QUERIES */
+		@media screen and (max-width : 1024px)   {
+			.when p {
+				line-height: 1.5;
+			}
+		}
+
+		@media screen and (min-width: 530px) and (max-width: 720px){
+
+		.numbers-third {
+			width: 50%;
+		}
+
+}
+
+/*		Small */
+		@media screen and (max-width: 530px){
+
+		.when-titles {
+			font-size:12pt;
+		}
+
+		.swiper-button-prev, .swiper-button-next {display: none;}
+
+		.slide-caption {
+			left: initial;
+			width: initial;
+		}
+
+
+		.slide-caption p, .slide-caption p a {
+			font-weight: 500;
+			font-size: 12pt;
+		}
+
+		.slide-credit p {
+			font-size: 80%;
+		}
+
+		h3 {font-size:100%;margin: 0;}
+
+		.what-to-do {padding-bottom: 0;}
+
+		.what-to-do h3 {font-size:20pt;}
+
+/*		.earth-overshoot {display: none;}
+*/
+		.numbers-third, .numbers-half {
+			width: 100%;
+		}
+
+		.numbers-box {
+			margin: 30px 0;
+		}
+
+
+		}
+
+</style>
+
+</head>
+<body>
+	<div class="loading-bg" id="when-loading">
+		<div class="loading-wrapper">
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+			<div class="loading-dot"></div>
+		</div>
+	</div>
+	<nav class="navbar">
+  		<div class="container nav-wrapper">
+<!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
+			<ul class="nav-menu">
+				<li><a href="what.html">What</a></li><li><a href="how.html">How</a></li><li><a href="who.html">Who</a></li><li><a id="active" href="when-where.html">When</a></li><li><a href="why.html">Why</a></li>
+			</ul>
+		</div>
+<!-- 		<hr>
+ -->	</nav>
+	<div class="scroll-progress"></div>
+	<div class="nav-spacer"></div>
+
+<section class="clear fade-in one when">
+  <div class="what-box numbers">
+
+	    	<div class="numbers-third" id="design-yrs">
+
+	    		<div class="numbers-box">
+		    		<h1>10 <span class="numbers-count">yrs.</span></h1>
+		    		<p class="numbers-text">of design experience.</p>
+	    		</div>
+	    		
+	    	</div>
+			<div class="numbers-third" id="ux-yrs">
+
+				<div class="numbers-box">
+					<h1>3 <span class="numbers-count">yrs.</span></h1>
+		    		<p class="numbers-text">as a UX practitioner.</p>
+		    	</div>
+				
+			</div>
+			<div class="numbers-third" id="web-yrs">
+				<div class="numbers-box">
+					<h1>8 <span class="numbers-count">yrs.</span></h1>
+		    		<p class="numbers-text">building websites.</p>
+		    	</div>
+				
+			</div>
+
+			<div class="numbers-half" id="web-design-projects">
+				<div class="numbers-box">
+					<h1>15 <span class="numbers-count">websites</span></h1>
+		    		<p class="numbers-text">designed.</p>
+		    	</div>
+				
+			</div>
+			<div class="numbers-half" id="web-dev-projects">
+				<div class="numbers-box">
+					<h1>8 <span class="numbers-count">websites</span></h1>
+		    		<p class="numbers-text">designed and built.</p>
+		    	</div>
+				
+			</div>
+			
+			<div class="numbers-third" id="mobile-apps">
+				<div class="numbers-box">
+					<h1>7 <span class="numbers-count">mobile apps</span></h1>
+		    		<p class="numbers-text">designed.</p>
+		    	</div>
+			</div>
+			<div class="numbers-third" id="logos">
+				<div class="numbers-box">
+					<h1>21 <span class="numbers-count">logos</span></h1>
+		    		<p class="numbers-text">designed.</p>
+		    	</div>
+				
+			</div>
+			<div class="numbers-third" id="clients">
+				<div class="numbers-box">
+					<h1>10</h1>
+		    		<p class="numbers-text">clients.</p>
+		    	</div>
+			</div>
+			
+		</div>
+</section>
+
+<div class="container first-copy">
+
+  <section class="clear fade-in two when">
+
+  	<section class="skills">
+				<div class="typing-wrap">
+					<h1>I am <span id="typed"></span></h1>
+					<div id="typing">
+						<p>a <strong>UX/UI Designer</strong>.</p><p>a <strong>Visual Designer</strong>.</p><p>a <strong>User Researcher</strong>.</p><p>a <strong>Frontend Developer</strong>.</p><p>an <strong>Experience Designer</strong>.<br><span class="small">(I turn lovely ideas into great experiences.) </span></p>
+					</div>
+				</div>
+
+			<p class="fade-in one"><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
+
+			<p class="fade-in two"><strong>Visual Design</strong>: Style Guides, Web and Mobile Design, Photoshop, Illustrator, Branding Concepts, Logos, and Identity, Look and Feel, Iconography and UI, Color Theory, Visual Hierarchy, Typography, Photography and Video</p>
+
+			<p class="fade-in three"><strong>User Research</strong>: Competitive Analysis, Design Pattern Research, User Research, Contextual Inquiry, Quantitative Analysis, Card Sorting, User Interviews, User Personas, A/B Testing, User Scenarios, User Journeys, User Surveys, Usability Testing
+
+			<p class="fade-in four"><strong>Frontend Development</strong>: Responsive Web Development, HTML5, CSS3, Javascript, Git, Bootstrap, Wordpress, SEO'd, Universal Access (Accessible)</p>
+
+<!-- 			<p class="fade-in five"><strong>Physical Design</strong>: SketchUp, AutoCADD, Autodesk Inventor, Wood and Metal Fabrication, Lasercutting, CNC, 3D Printing, CAM, Mechanical Design, Signage and Swag</p>
+
+			<p class="fade-in five">When I'm not designing for work I'm <a href="https://www.instagram.com/nuanced.design/" target="_new">designing for fun</a> and trying to make it work. What can I say? I love design.</p> -->
+			
+			<div class="software-icons-wrapper img-invert">
+				<div class="tooltip"><span class="tooltiptext">Sketch</span><img class="software-icons" src="IMG/Icons/sketch.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Illustrator</span><img class="software-icons" src="IMG/Icons/AI.png"></div>
+				<div class="tooltip"><span class="tooltiptext">InVision</span><img class="software-icons" src="IMG/Icons/invision.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Photoshop</span><img class="software-icons" src="IMG/Icons/PS.png"></div>
+				<div class="tooltip"><span class="tooltiptext">OmniGraffle</span><img class="software-icons" src="IMG/Icons/omni.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Google Docs</span><img class="software-icons" src="IMG/Icons/gdocs.png"></div>
+
+				<div class="tooltip"><span class="tooltiptext">HTML 5</span><img class="software-icons" src="IMG/Icons/HTML.png"></div>
+				<div class="tooltip"><span class="tooltiptext">CSS 3</span><img class="software-icons" src="IMG/Icons/CSS.png"></div>
+				<div class="tooltip"><span class="tooltiptext">JavaScript</span><img class="software-icons" src="IMG/Icons/JS.png"></div>
+				<!-- <div class="tooltip"><span class="tooltiptext">SketchUp</span><img class="software-icons" src="IMG/Icons/sketchup.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Inventor</span><img class="software-icons" src="IMG/Icons/inventor.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Python</span><img class="software-icons" src="IMG/Icons/python.png"></div>
+				<div class="tooltip"><span class="tooltiptext">Swift</span><img class="software-icons" src="IMG/Icons/swift.png"></div>
+ -->			</div>
+
+		</section>
+		<section>
+		<h2 class="fade-in one clear">Tools</h2>
+		<p class="fade-in two">
+			<ul>
+				<li><strong>Concept &amp; Lo-fi</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
+				<li><strong>Prototype &amp; Hi-fi</strong>: Sketch, Illustrator, Photoshop, InVision.</li>
+				<li><strong>Other tools</strong>: Omnigraffle, Keynote.</li>
+				<li><strong>Build</strong>: Sublime Text, Git, Lasercutter, CNC Mill, 3D printer.</li>
+			</ul>
+		</p>
+		<img class="tools fade-in three img-invert" src="IMG/tools2.jpg">
+
+		<h1 class="clear fade-in one">Experience</h1>
+
+		<p class="when-titles"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right">Feb. '16—<strong>present</strong> &#160;&#160;<span class="position-length">(2 yrs. 11 mos)</span></span></p>
+
+		<p class="body">I&#39;m here to tell your story. I&#39;m here to work out usability bugs. I&#39;m here to rebrand your idea. I&#39;m here to find all the ways that your product can be better, generate more business, and improve peoples' lives. Whether your product is just an idea in your head or already fully-deployed, I'm here to help.</p>
+		<h4>Past Clients:</h4>
+		<p >LilyPad, <a href="http://www.zink.la" target="_blank">Zink Fitness</a>, <a href="https://www.grandbakeryoakland.com" target="_blank">Grand Bakery</a>, <a href="http://slingshotfoods.com" target="_blank">Slingshot Foods</a>, <a href="http://oneofsf.weebly.com" target="_blank">OneOf</a>, <a href="http://entheozen.com" target="_blank">EntheoZen</a>, <a href="https://thegoodcraft.github.io" target="_blank">The Good Craft</a>, Luman, Calm, <a href="shyft.html" >Shyft</a>, <a href="http://www.sophiesilverstein.com" target="_blank">Sophie Silverstein College Counseling</a>, Hey Photo</p>
+
+		<p class="when-titles"><strong>Web Developer</strong>: Cost Plus World Market (Contract)<span class="float-right">Aug. '17—Nov. '17 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
+
+		<p class="body"><span class="body">HTML, CSS, and JS ninja. I built out store opening pages, promotion pages, navigation, and many custom pages for WorldMarket.com. I also helped unify their style guide and fix broken layouts. Having both design chops and development chops lets me communicate across the divide.</span></p>
+
+
+		<p class="when-titles"><strong>Designer and E.V. Technician</strong>: City CarShare (Non-Profit)<span class="float-right">Sep. '14—Sep. '15 &#160;&#160;<span class="position-length">(1 yr 1 mo)</span></span></p>
+
+		<p class="excerpt body"><span class="body">Started in 2001, CityCarShare was the first carsharing company in the nation. We were building an All Electric and Plug-in Electric (PHEV) carshare network to make it easily for people to get around— more affordable, more green, less congestion, less pollution, and live without the hassle of car maintainence.  I also was building the first in the country electric bike share network. With a growing fleet of next-generation hybrids, electric cars, and electric bicycels, EVs coupled to outdoor solar charging stations, I was pioneering a sustainable transportation network. I oversaw and maintained a fleet of 50 PHEVs, debugged our in-car technology, monitored car battery status remotely to ensure uptime, created maintenance logs, improved the mobile app UI, contributed on frontend web design, produced promotional videos, grant evaluation docs, rebuilt important accounting documents, and other marketing and design material.</span></p>
+
+		<p class="when-titles"><strong>Head of Engineering; Founder</strong>: Onward Electric Cycles LLC<span class="float-right">Sep. '12—Mar. '14 &#160;&#160;<span class="position-length">(1 yr 7 mos)</span></span></p>
+
+		<p class="body">Founded an electric bike company to develop a new hydraulic electric bike drive system. We were thinking completely outside the 'electrical box' and inventing a bicycle system built on the pumping of fluids and hydraulics instead. After  interations, I designed a hydraulic drive bike pump that achieved 10-15 PSI in pumping force by pedaling.</p>
+
+		<div>
+		<p class="when-titles"><strong>Head of Operations and Web Design</strong>: PiMobility Inc.<span class="float-right">Dec. '10—Aug. '12 &#160;&#160;<span class="position-length">(1 yr 9 mos)</span></span></p>
+
+
+		<a href="https://player.vimeo.com/video/36724831" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true" data-featherlight-iframe-width="978" data-featherlight-iframe-height="550"><img id="pi-video" src="IMG/picycle-videos.png" /></a>
+		<p class="body">PiCyle is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning <a class="btn btn-default" href="IMG/picycle-MPGe.jpg" data-featherlight="image">2000MPGe</a> in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes healthy, fast, and fun.</p><p class="body">At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, produced several promo videos, designed and built <a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">the website</a>, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
+		</div>
+
+	</section>
+
+	<section class="clear fade-in three when">
+		<h1 class="clear fade-in one">Education</h1>
+		<p class="when-titles"><strong>General Assembly</strong>: UX Design Immersive <span class="float-right">Nov. '15—Feb.'16 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
+
+		<p class="body">10 week full immersive (over 500 hours) for UX Design taught by UX practitioners. Course Work: User Research, Interface Design, Wireframing, Prototyping, Interaction Design, Mobile Design, Responsive Web Design, Usability Testing, Testing Methodologies, and Design Best Practices. Emphasis on Lean UX, rapid prototyping, and design studio. From research and ideation to prototyping and testing.</p>
+
+		<p class="when-titles"><strong>Online Courses</strong>: Frontend Web Development, Programming <span class="float-right">'13—'14 &#160;&#160;<span class="position-length">(1 yr 3 mos)</span></span></p>
+
+		<p class="body">Took courses online at iTunes U, MIT open courseware, Coursera, Code School, Code Academy, and Thinkful. Learned Programming Fundamentals, iOS development, Java, Algorithms, Object-oriented Design, and Frontend Development.</p>
+
+		<p class="when-titles"><strong>TechShop</strong>: Metal and Wood Fabrication, 3D Modeling, CNC, Lasercutting <span class="float-right">'13 &#160;&#160;<span class="position-length">(8 mos)</span></span></p>
+
+		<p class="body">Took roughly 30 classes at TechShop related to 3D printing, finishing, aluminum and steel welding (MIG and TIG), CNC mill and lathe, CAM/CADD software, injection molding, Arduino programming, circuit board soldering, wood fabrication, wood finishing, carbon fiber fabrication, sheet metal construction, powder-coating (painting), waterjet cutting, vinyl cutting, and more.</p>
+
+		<p class="when-titles"><strong>UC Davis</strong>: Landscape Architecture and Electrical Engineering <span class="float-right">'07—'10 &#160;&#160;<span class="position-length">(3 yr)</span></span></p>
+
+		<p class="body">At UC Davis I straddled the line between design and engineering. I pursued electrical engineering for one year, before switching into Landscape Architecture (LDA) for two years. LDA helped me hone my design, concept generation, and presentation skills while electrical engineering helped me think logically through a problem and how to test and debug. Ultimately, these two fields allowed me combine right-brain ideation and prototyping with left-brain research, testing, debugging, and refinement.</p>
+<!-- 		<img class="education" src="IMG/skills7.png"/>
+ -->
+
+	</section>
+
+	<section>
+		 <div class="flexbox">
+			<a href="Resume/Ben-Grandy-Resume-10.30.2018.pdf" target="_blank" class="button" id="download-resume">Download Résumé</a>
+		</div>
+		<div class="bottom-nav">
+		<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='who.html'"><div class="flip float-left">➟</div>&nbsp;Who I am</button>
+		<button class="float-right hvr-sweep-to-right why-button" onClick="parent.location='why.html'">My Philosophy ➟</button>
+	</div>
+	</section>
+
+</div>
+
+
+	<!-- Trigger/Open The Modal -->
+  <button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
+
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+  	<div class="modal-body">
+    <span class="close">&times;</span>
+    <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="bpgrandy@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbx9glEcWh1rffPyWWTqK7hXpbmP8t7osKxIwybZIZAdl2KJLW-l/exec" onsubmit="hideSubmit()">
+    <!-- change the form action to your script url -->
+
+  	<p class="non-editable">Hello, I'm </p>
+ 	<fieldset class="pure-group">
+      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
+    </fieldset>
+    
+    <p class="non-editable">from</p>
+
+    <fieldset class="pure-group">
+      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
+    </fieldset>
+
+    <p class="non-editable">where I am a</p>
+    <fieldset class="pure-group">
+    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
+    </fieldset>
+
+
+    <fieldset class="pure-group">
+      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
+    </fieldset>
+    <br><br>
+    
+    <fieldset class="pure-group">
+      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
+    </fieldset>
+</div>
+  	<input id="submit" type="submit" value="→" class="submit">
+</form>
+
+  <!-- Customise the Thankyou Message People See when they submit the form: -->
+  <div style="display:none;" id="thankyou_message">
+    <h2> Thanks for reaching out.</h2>
+    <h2>I will get back to you soon!</h2>
+  </div>
+
+ </div>
+</div>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" type="text/javascript"
+  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+  <!-- <script data-cfasync="false" type="text/javascript"
+  src="/form-submission-handler.js"></script> -->
+<!-- END -->
+
+<footer>
+			<div class="container">
+				<div class="footer-top-row">
+					<span class="dark-mode-wrapper">
+		  				<p class="dark-mode-switch-text">Dark mode:</p>
+		  				  <label class="switch" for="checkbox">
+		  				    <input type="checkbox" id="checkbox" />
+		  				    <div class="slider round"></div>
+			  				  </label>
+			        </span>
+						<div class="social-icons float-right">
+							<span><a href="mailto:bpgrandy@gmail.com" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://www.linkedin.com/in/bengrandy" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
+							<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
+						</div>
+				</div>
+			</div>
+
+			<div id="footer-import"></div>
+		</footer>
+
+
+  <script src="//code.jquery.com/jquery-latest.js"></script>
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="JS/global.js"></script>
+<script src="JS/featherlight.js"></script>
+
+<script>
+
+// Load footer
+$(function(){
+      $("#footer-import").load("footer-dark-mode.html"); 
+    });
+
+// // Current year for copyright (future-proof)
+// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
+
+// Dark mode switch listener
+
+var isSetDark = "false";
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      document.body.classList.add("dark-mode");
+      sessionStorage.setItem('setDarkMode', 'true');
+    } else {
+      document.body.classList.remove("dark-mode");
+      sessionStorage.setItem('setDarkMode', 'false');
+    }
+  });
+});
+
+
+var time = new Date();
+var hour = time.getHours();
+if ( sessionStorage.getItem('setDarkMode') === 'true') {
+      document.body.classList.add("dark-mode");
+      document.getElementById("checkbox").checked = true;
+    }
+else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+    document.body.classList.remove("dark-mode");
+    document.getElementById("checkbox").checked = false;
+}
+else if ((hour <= 6) || (hour >= 18)) {
+    document.body.classList.add("dark-mode");
+    document.getElementById("checkbox").checked = true;
+}
+else {
+  document.body.classList.remove("dark-mode");
+  document.getElementById("checkbox").checked = false;
+}
+
+
+</script>
+<!-- <script src="JS/dark-mode.js"></script>
+ -->
+
+<!-- Swiper JS -->
+ <script src="JS/swiper.min.js"></script>
+
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      keyboard: {
+		enabled: true,
+
+	   },
+    });
+  </script>
+
+  <script>
+  	// Victim counter
+	var secondsStart = Math.floor(Date.now()/1000);
+	setInterval(function () {
+ 				secondsSincePageOpen = (Date.now()/1000) - secondsStart
+				var victimCounter = Math.floor(secondsSincePageOpen);
+        		document.getElementById("victim-counter").innerHTML = victimCounter.toLocaleString();
+        }, 1000);
+  </script>
+
+</body>
+</html>

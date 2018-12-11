@@ -1,0 +1,135 @@
+				.overshoot-caption p {
+					color: rgb(125, 125, 125);
+				}
+
+				.plastic {
+					left: 35%;
+					top: 41%;
+					width: 320px;
+				}
+
+				.plastic p {
+					top:5%;
+					background: rgba(65, 66, 65, 0.81);
+				}
+
+				.ucd {
+					right: 3%;
+					top: 30%;
+					left: initial;
+					background: none;
+					width: 320px;
+				}
+
+				.drafting {
+					bottom: 5%;
+					width: 800px;
+					top:initial;
+					left: initial;
+					background: rgba(66, 66, 66, 0.72);
+				}
+
+				.arcologies {
+					left: initial;
+					top: initial;
+					bottom: 0;
+					width: 100%;
+					background: rgba(66, 66, 66, 0.85);
+
+				}
+
+				.paradigm-shift {
+					background: none;
+					width: 700px;
+					top: initial;
+					left: initial;
+					color:white;
+				}
+
+				.eBikes {
+					left: initial;
+					top: 40%;
+					width: 400px;
+					background: rgba(89, 89, 89, 0.85);
+				}
+
+				.what-to-do {
+					background: none;
+					left: initial;
+				    top: initial;
+				    padding-bottom: 30px;
+				}
+
+				.what-to-do h3 {
+					background:none;
+					color: white;
+					font-size: 24pt;
+				}
+
+				.transit {
+					left:20%;
+					top:20%;
+				}
+
+				.share {
+					left:40%;
+					top:45%;
+					width: 200px;
+				}
+
+				.dinner {
+					top: 3%;
+					left: 25%;
+					width: 300px;
+				}
+
+				.repair {
+					left: 10%;
+					top: 10%;
+					width: 250px;
+					background: rgba(88, 88, 88, 0.75);
+				}
+
+				.carbon-offsets {
+					top: initial;
+					left: initial;
+					bottom: 0;
+					width: 435px;
+					background: rgba(88, 88, 88, 0.71);
+				}
+
+				.solar {
+					top: 25%;
+					left: 33%;
+					width: 390px;
+				}
+
+				.ocean-cleanup {
+					left: 65%;
+					top: 65%;
+					width: 225px;
+				}
+
+				.rainforest {
+					top:10%;
+					left: initial;
+					width: 240px;
+				}
+
+		
+
+				.earth {
+					left: initial;
+					top:initial;
+					width: 310px;
+				}
+
+				.slide-credit {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+				}
+
+				.slide-credit p {
+					color: white;
+				}

@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,300italic,100italic,400italic);
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,400i,700');
 
 /*CUSTOM STYLES*/
 
@@ -35,14 +36,14 @@ h5 {
 	
 }
 p  {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Cardo', serif;
 	font-size: 14pt;
     line-height: 1.5em;
 	color: black;
 	letter-spacing: .5px;
 	padding: 10px;
 	font-weight: 300;
-	text-align: justify;
+	text-align: left;
 }
 
 sup {
