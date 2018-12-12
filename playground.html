@@ -163,6 +163,90 @@ animation: heart 9s ease-in-out 0s infinite;
 	-webkit-clip-path: circle(40% at 50% 50%);
 			clip-path: circle(40% at 50% 50%);
 }
+
+/* ---------------------- */
+/*       TESTIMONIAL      */
+/* ---------------------- */
+.parallax-section{
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#testimonial{
+  padding: 130px 0 95px;
+  background-image: url(../images/bg-testimonial.jpg);
+}
+#testimonial .overlay{
+  background: rgba(221,87,128,0.8);
+}
+.ts-testimonial-slide{
+  text-align: center;
+  color: #ffffff;
+  width: 85%;
+  margin: 0 auto;
+}
+.ts-testimonial-slide p{
+  font-size: 24px;
+  line-height: 36px;
+  font-style: italic;
+  font-family: 'Droid Serif';
+  margin-bottom: 35px;
+}
+.ts-testimonial-slide .ts-testimonial-item {
+  margin-bottom: 15px;
+}
+.ts-testimonial-slide .ts-testimonial-item .icon-client{
+  background: #ffffff;
+  width: 29px;
+  height: 29px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  float: left;
+  text-align: center;
+  line-height: 29px;
+  margin-top: 2px;
+}
+.ts-testimonial-slide .ts-testimonial-item .infor-client {
+  display: inline-block;
+  margin: 0 auto;
+  width: auto;
+}
+.ts-testimonial-slide .ts-testimonial-item  .client-name{
+  padding-left: 38px;
+  font-size: 12.8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  display: block;
+  line-height: normal;
+  white-space: nowrap;
+}
+.ts-testimonial-slide .ts-testimonial-item  .client-position{
+  font-size: 12px;
+  font-style: italic;
+  line-height: normal;
+  padding-left: 38px;
+  display: block;
+  text-align: left;
+}
+.ts-testimonial-slide .ts-testimonial-item  .client-position a{
+  color: white;
+}
+.ts-testimonial-slide .ts-testimonial-item  .client-position a:hover{
+  color: #5ed9e7;
+}
 	</style>
 	
 </head>
@@ -198,6 +282,37 @@ animation: heart 9s ease-in-out 0s infinite;
       <p><strong>Deliverables</strong>: Competitive Analysis, Comparative Analysis, User interviews, Booking Flow, Wireframes, Style Guide</p>
     </div>
   </section>
+  <section id="testimonial" class="parallax-section">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="ts-testimonial-slide">
+          <div class="ts-testimonial-item">
+            <p>"By having a bigger purpose, it just might be that Avira's building a 21st century design studio: the crucible of big, world-changing ideas."</p>
+            <div class="infor-client">
+              <span class="icon-client"><img src="assets/images/icon-testimonial.png" alt=""></span>
+              <span class="client-name">ROBERT SMITH</span>
+              <span class="client-position">Ceo of <a href="#">Geckoos.com</a></span>
+            </div>
+          </div>
+          <div class="ts-testimonial-item">
+            <p>"By having a bigger purpose, it just might be that Avira's building a 21st century design studio: the crucible of big, world-changing ideas."</p>
+            <div class="infor-client">
+              <span class="icon-client"><img src="assets/images/icon-testimonial.png" alt=""></span>
+              <span class="client-name">ROBERT SMITH</span>
+              <span class="client-position">Ceo of <a href="#">Geckoos.com</a></span>
+            </div>
+          </div>
+          <div class="ts-testimonial-item">
+            <p>"By having a bigger purpose, it just might be that Avira's building a 21st century design studio: the crucible of big, world-changing ideas."</p>
+            <div class="infor-client">
+              <span class="icon-client"><img src="assets/images/icon-testimonial.png" alt=""></span>
+              <span class="client-name">ROBERT SMITH</span>
+              <span class="client-position">Ceo of <a href="#">Geckoos.com</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   <section>
     <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
     <br>
@@ -316,17 +431,29 @@ animation: heart 9s ease-in-out 0s infinite;
 			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
 		</div>
 	</footer>
+<script src="JS/global.js"></script>
 
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 
-<script src="JS/global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+
 
 
 
 
 <script>
 
-
+   //TESTIMONIAL SLIDER
+    if ($(".ts-testimonial-slide").length > 0) {
+    
+        $(".ts-testimonial-slide").owlCarousel({
+            autoPlay: 4000,
+            slideSpeed: 1000,
+            navigation: false,
+            pagination: true,
+            singleItem: true
+        });
+    };
 
 // Scroll listener
 window.addEventListener("scroll", function (event) {

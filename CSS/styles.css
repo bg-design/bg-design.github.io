@@ -269,45 +269,52 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 .project-button:hover {
 	transform: translateY(-5px);
 	box-shadow: 0px 10px 5px rgb(200, 200, 200);
-	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-}
+	background: #69D2E7;
+	border:0;
+/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+*/}
 
 .project-button:active {
 	position: relative;
 	transform: translateY(5px);
 	box-shadow: 0px 0px 0px rgb(200, 200, 200);
-	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	}
-
+	background: #69D2E7;
+	border:2px solid black;
+	/*background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	*/}
 .who-button:before {
-	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+	background: rgba(127, 243, 193, 1);
+/*	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
 	background: -webkit-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
+	background: -moz-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));*/
 }
 .what-button:before {
-	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+	background: #69D2E7;
+/*	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
 	background: -webkit-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
 }
-.how-button:before {
+
+/*.how-button:before {
 	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 	background: -webkit-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 	background: -moz-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 
-}
+}*/
 .when-button:before {
-	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+	background: #828ef6;
+/*	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
 	background: -webkit-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-	background: -moz-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
+	background: -moz-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);*/
 }
 .why-button:before {
-	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	background: rgba(243, 182, 146, 1);
+/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 	background: -webkit-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
+	background: -moz-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));*/
 }
 
 .bottom-nav {
-/*	background: rgba(0, 0, 0, 0.03);*/
 	width: 100%;
 	bottom: 0px;
 	right:0px;
@@ -315,11 +322,17 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 	justify-content: space-between;
 }
 
-.bottom-nav button {font: 12pt 'Lato', sans-serif;}
+.bottom-nav button {
+	font: 12pt 'Lato', sans-serif;
+	background: #eaeaea;
+	border: 0;
+	color: black;
+}
+
 
 #who-nav {
-	color: white;
-	border:1px solid white;
+/*	color: white;
+	border:1px solid white;*/
 }
 
 #back-to-featured {margin-left:20px;}
