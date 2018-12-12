@@ -279,7 +279,7 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 	transform: translateY(5px);
 	box-shadow: 0px 0px 0px rgb(200, 200, 200);
 	background: #69D2E7;
-	border:2px solid black;
+	border:2px solid grey;
 	/*background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
 	*/}
 .who-button:before {
@@ -295,12 +295,16 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
 }
 
-/*.how-button:before {
+.how-button:before {
+	background: #69D2E7;
+/*
 	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 	background: -webkit-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 	background: -moz-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
 
-}*/
+*/
+
+}
 .when-button:before {
 	background: #828ef6;
 /*	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
@@ -324,7 +328,7 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 
 .bottom-nav button {
 	font: 12pt 'Lato', sans-serif;
-	background: #eaeaea;
+	background: #dcdcdc;
 	border: 0;
 	color: black;
 }
@@ -982,44 +986,6 @@ cite p {color:white;}
 
 }
 
-.welder {
-	width:250px;
-	float:left;
-}
-
-.backToTop {
-	position: fixed;
-	bottom: 50px;
-	right: 50px;
-	width: 80px;
-}
-
-.backToTop:hover {
-      background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-    background-attachment: cover;
-    background-size: 1000% 1000%;
-    -webkit-animation: rainbow 2s linear infinite alternate;
-    -moz-animation: rainbow 2s linear infinite alternate;
-    -o-animation: rainbow 2s linear infinite alternate;
-    animation: rainbow 2s linear infinite alternate;
-    opacity: .4;
-}
-.backToTop:active {
-	transform:translateY(10px);
-	transition: .1s;
-}
-
-.backToTop.rainbow-bg {
-	background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-    background-attachment: cover;
-    background-size: 1000% 1000%;
-    -webkit-animation: rainbow 2s linear infinite alternate;
-    -moz-animation: rainbow 2s linear infinite alternate;
-    -o-animation: rainbow 2s linear infinite alternate;
-    animation: rainbow 2s linear infinite alternate;
-    transition: .4s;
-
-}
 
 @-webkit-keyframes rainbow {
     0%{background-position:0% 82%}
@@ -1168,12 +1134,6 @@ and (min-width : 540px) and (max-width : 735px) {
   	.books {
 		height: 80px;
 	    left: 80px;
-	}
-
-	#backToTop {
-		bottom: 10px;
-	    left: 10px;
-	    width: 50px;
 	}
 
 	.project-button {font: 18px 'Lato', sans-serif;}

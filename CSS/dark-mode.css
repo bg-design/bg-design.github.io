@@ -51,8 +51,8 @@ body {
 .floatingArrowIcon:active {
   bottom: 0px;
   transition: .3s;
-  box-shadow: 0;
-  border: 2px solid black;
+  box-shadow: none;
+  border: 2px solid grey;
 }
 
 /*Medium- phones and tablets*/
