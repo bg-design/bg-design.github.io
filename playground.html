@@ -4,6 +4,8 @@
 <html lang="en-us">
 <head>
 
+   <link rel="stylesheet" href="../CSS/owl.carousel.min.css">
+
 
 <style>
 
@@ -294,6 +296,8 @@ animation: heart 9s ease-in-out 0s infinite;
               <span class="client-position">Ceo of <a href="#">Geckoos.com</a></span>
             </div>
           </div>
+        </div>
+        <div class="ts-testimonial-slide">
           <div class="ts-testimonial-item">
             <p>"By having a bigger purpose, it just might be that Avira's building a 21st century design studio: the crucible of big, world-changing ideas."</p>
             <div class="infor-client">
@@ -302,6 +306,8 @@ animation: heart 9s ease-in-out 0s infinite;
               <span class="client-position">Ceo of <a href="#">Geckoos.com</a></span>
             </div>
           </div>
+        </div>
+        <div class="ts-testimonial-slide">
           <div class="ts-testimonial-item">
             <p>"By having a bigger purpose, it just might be that Avira's building a 21st century design studio: the crucible of big, world-changing ideas."</p>
             <div class="infor-client">
@@ -444,16 +450,20 @@ animation: heart 9s ease-in-out 0s infinite;
 <script>
 
    //TESTIMONIAL SLIDER
-    if ($(".ts-testimonial-slide").length > 0) {
-    
-        $(".ts-testimonial-slide").owlCarousel({
-            autoPlay: 4000,
-            slideSpeed: 1000,
-            navigation: false,
-            pagination: true,
-            singleItem: true
-        });
-    };
+var testimonials = $('.owl-carousel');
+testimonials.owlCarousel({
+    items:4,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    autoPlay: 4000,
+    slideSpeed: 1000,
+    navigation: true,
+    pagination: true,
+    singleItem: true,
+});
 
 // Scroll listener
 window.addEventListener("scroll", function (event) {
