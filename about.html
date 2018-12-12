@@ -10,7 +10,10 @@
 
     <link rel="stylesheet" href="CSS/global.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
-	<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+<!-- 	<link href="//cdn.rawgit.com/noelboss/featherlight/1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+ -->
+	  <link rel="stylesheet" href="CSS/owl.carousel.min.css">
+ <link rel="stylesheet" href="CSS/owl.theme.default.css">
 
 	<link rel="stylesheet" href="CSS/swiper.css">
 
@@ -483,73 +486,117 @@
 
 /*  Recommendations  */
 
-/*		* {
-		  box-sizing: border-box;
-		}
-		body {
-		  display: flex;
-		  justify-content: center;
-		  padding: 10px;
-		  background: #efefef;
-		  font-family: 'Source Sans Pro', sans-serif;
-		  color: #333;
-		}
-*/
+#clients-talking {
+	padding: 30px 0 25px 0;
+}
 
-		.tabs {
-		  display: flex;
-		  flex-wrap: wrap;
-		  max-width: 700px;
-		  background: #e5e5e5;
-		  box-shadow: 0 48px 80px -32px rgba(0,0,0,0.3);
-		}
-		.input {
-		  position: absolute;
-		  opacity: 0;
-		}
-		.label {
-		  width: 100%;
-		  padding: 20px 30px;
-		  background: #e5e5e5;
-		  cursor: pointer;
-		  font-weight: bold;
-		  font-size: 18px;
-		  color: #7f7f7f;
-		  transition: background 0.1s, color 0.1s;
-		}
-		.label:hover {
-		  background: #d8d8d8;
-		}
-		.label:active {
-		  background: #ccc;
-		}
-		.input:focus + .label {
-		  box-shadow: inset 0px 0px 0px 3px #2aa1c0;
-		  z-index: 1;
-		}
-		.input:checked + .label {
-		  background: #fff;
-		  color: #000;
-		}
-		@media (min-width: 600px) {
-		  .label {
-		    width: auto;
-		  }
-		}
-		.panel {
-		  display: none;
-		  padding: 20px 30px 30px;
-		  background: #fff;
-		}
-		@media (min-width: 600px) {
-		  .panel {
-		    order: 99;
-		  }
-		}
-		.input:checked + .label + .panel {
-		  display: block;
-		}
 
+/* ---------------------- */
+/*       TESTIMONIAL      */
+/* ---------------------- */
+
+figure.snip1197 {
+}
+figure.snip1197 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.snip1197 img {
+  float: right;
+  max-width: 40%;
+  vertical-align: middle;
+  border-radius: 0 8px 8px 8px;
+}
+figure.snip1197 figcaption {
+  top: 0;
+  left: 0;
+  width: 60%;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 8px 0 0 8px;
+  transition: 1s;
+}
+
+.dark-mode figure.snip1197 figcaption {
+	background: #2d2d2d;
+	transition: 1s;
+	color: white;
+}
+figure.snip1197 blockquote {
+  position: relative;
+  padding: 25px 50px 25px 50px;
+  font-size: 16pt;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  text-align: left;
+  margin: 0;
+  line-height: 1.4em;
+  font-style: italic;
+}
+figure.snip1197 blockquote:before,
+figure.snip1197 blockquote:after {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.3;
+  font-style: normal;
+}
+figure.snip1197 blockquote:before {
+  top: 25px;
+  left: 20px;
+}
+figure.snip1197 blockquote:after {
+  content: "\201D";
+  right: 20px;
+  bottom: 0px;
+}
+figure.snip1197 .arrow {
+  top: 30px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #fff;
+  margin: 0;
+  position: absolute;
+}
+
+.dark-mode figure.snip1197 .arrow {
+	 border-top: 25px solid #2d2d2d;
+	 transition: 1s;
+}
+figure.snip1197 .author {
+  position: absolute;
+  top: 100%;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.author span {
+  font-weight: 200;
+}
+figure.snip1197 .author h5 {
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 800;
+}
+
+#test-headshot {
+  width: 250px;
+}
+
+#view-recs {
+	color: white;
+font-family: 'Lato', sans-serif;
+font-size: 14pt;
+float: right;
+font-weight: 300;
+border-bottom: 1px solid white;
+padding-bottom: 10px;
+margin-bottom: 20px;
+}
 
 /*  END Recommendations  */
 
@@ -974,42 +1021,72 @@
 </div>
 
 	<div class="recommendations">
+					<h1 id="clients-talking">Clients Talking</h1>
 		<section class="fade-in six container">
-<!-- 		<hr class="twenty-pad">
- -->			<h3>Recommendations</h3>
-<!-- 			<hr class="ten-pad"> -->
-			<div class="reference-wrapper">
-				<img class="headshot" src="IMG/caitlin.png"><blockquote>"Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!"</blockquote><cite><p>-<strong>Caitlin Thompson</strong>, Founder and CEO at EntheoZen
-				</p></cite>
-			</div>
-
-
-			<br><hr class="ten-pad">
-
-			<div class="reference-wrapper">
-				<img class="headshot" src="IMG/thom.png"><blockquote>"Ben was hired on as our Electric Vehicle Technician, but as I got to work with him, his skills beyond the maintenance and management of this specialized subsection of our fleet became readily apparent. He is an incredibly creative guy, often coming up with solutions to problems we didn't even think of while the program developed.<br><br>
-				His fingers were in many pies in the organization, though some of his best work that I saw came from his collaborations with our Marketing team. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Not to mention I have complete hair envy.<br><br>
-				Working with Ben was a pleasure and any company looking for a creative thinker, problem solver, and cheerleader for finding newer and better ways to administer a product should be happy to have Ben on its team."</blockquote><cite><p>-<strong>Thom Matli</strong>, Data Analyst at City CarShare
-				</p></cite>
-			</div>
-
-			<br><hr class="ten-pad">
-
-			<div class="reference-wrapper">
-				<img class="headshot" src="IMG/marcus.png"><blockquote>"Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made him absolutely indispensable. Ben’s multitasking abilities made it possible to operate with fewer staff, minimizing the company’s burn-rate while simultaneously extending our operational capabilities.<br><br>
-				Among key responsibilities, Ben designed, wrote copy, and provided photography for the company’s web site. He also managed inventory, assembled bikes and provided after-sales care. I wish Ben would let me hire him again!”</blockquote><cite><p>-<strong>Marcus Hays</strong>, CEO of PiMobility 
-				</p></cite>
-			</div>
-
-			<br><hr class="ten-pad">
+		      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <figure class="snip1197">
+                <figcaption>
+                  <blockquote>Ben is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
+                  <div class="arrow"></div>
+                   <div class="author">
+                  <h5>Shamrina Oshana <span> -- Brand Manager at Slingshot Foods</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/shamrina-test.jpg"/>
+               
+              </figure>
+            </div>
+            <div class="item">
+              <figure class="snip1197 hover">
+                <figcaption>
+                  <blockquote>Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Caitlin Thompson<span> -- CEO/Owner at EntheoZen</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/caitlyn-test.jpg" />
+              </figure>
+            </div>
+            <div class="item">
+              <figure class="snip1197">
+                <figcaption style="width: 70%;border-radius: 8px;">
+                  <blockquote>Ben is an incredibly creative guy, often coming up with solutions to problems we didn't even think of. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Any company looking for a creative thinker, problem solver, and a cheerleader should be happy to have Ben on their team.</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Thom Matli<span> -- Data Analyst at City CarShare</span></h5>
+                </div>
+                </figcaption>
+                <img id="test-headshot" src="IMG/thom.png">
+              </figure>
+            </div>
+            <div class="item">
+              <figure class="snip1197 hover">
+                <figcaption style="width: 65%">
+                  <blockquote>Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made Ben absolutely indispensable. Ben's multitasking abilities made it possible to operate with fewer staff, minimizing the company's burn-rate while simultaneously extending our operational capabilities... I wish Ben would let me hire him again!</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Marcus Hays<span> -- CEO &amp; Founder at PiMobility</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/marcus-kr.jpg"/ style="height: 308px">
+              </figure>
+            </div>
+          </div>
+          <a href="http://www.linkedin.com/in/bengrandy" target="_blank" id="view-recs">View full recommendations on LinkedIn ></a>
+			<br>
 			<div class="bottom-nav">
 			<section>
 				<button class="float-left hvr-sweep-to-left what-button" onClick="parent.location='work.html'" id="who-nav"><div class="flip float-left">➟</div>&nbsp;Featured Work</button>
 				<button class="float-right hvr-sweep-to-right when-button" onClick="parent.location='cv.html'" id="who-nav">My Background ➟</button>
 			</section>
 		</div>
-
+	</div>
 </div>
+</section></div></a></div></div></div></div></section></div>
 
 
 	<!-- Trigger/Open The Modal -->
@@ -1103,6 +1180,28 @@
 
 <script src="JS/global.js"></script>
 <script src="JS/featherlight.js"></script>
+
+<script src="JS/owl.carousel.min.js"></script>
+
+<script>
+
+// testimonial carousel
+$(document).ready(function() {
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+    items:1,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:6000,
+    autoplayHoverPause:true,
+    autoPlay: 4000,
+    slideSpeed: 4500,
+    navigation: true,
+    pagination: true,
+    singleItem: true,
+});
+})
+</script>
 
 <script>
 

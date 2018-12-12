@@ -1,12 +1,13 @@
 <!-- Designed, handcoded, and handcrafted with love by Benjamin Grandy in the San Francisco Bay Area. -->
 
+
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
 
   <link rel="stylesheet" href="CSS/owl.carousel.min.css">
-  <link rel="stylesheet" href="CSS/owl.theme.min.css">
-  <link rel="stylesheet" href="CSS/owl.theme.default.min.css">
+ <link rel="stylesheet" href="CSS/owl.theme.default.css">
 
 
 
@@ -17,7 +18,7 @@
 
 
 body {
-  background: white;
+  background: #21262d;
   margin: 0;
   padding: 0;
   transition: 3s ease-in-out;
@@ -173,86 +174,88 @@ animation: heart 9s ease-in-out 0s infinite;
 /* ---------------------- */
 /*       TESTIMONIAL      */
 /* ---------------------- */
-.parallax-section{
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  position: relative;
+
+figure.snip1197 {
 }
-.overlay{
-  position: absolute;
+figure.snip1197 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.snip1197 img {
+  float: right;
+  max-width: 40%;
+  vertical-align: middle;
+  border-radius: 0 8px 8px 8px;
+}
+figure.snip1197 figcaption {
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
+  width: 60%;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 8px 0 0 8px;
 }
-#testimonial{
-  padding: 130px 0 95px;
-  background-image: url(../images/bg-testimonial.jpg);
-}
-#testimonial .overlay{
-  background: rgba(221,87,128,0.8);
-}
-.ts-testimonial-slide{
-  text-align: center;
-  color: #ffffff;
-  width: 85%;
-  margin: 0 auto;
-}
-.ts-testimonial-slide p{
-  font-size: 24px;
-  line-height: 36px;
-  font-style: italic;
-  font-family: 'Droid Serif';
-  margin-bottom: 35px;
-}
-.ts-testimonial-slide .ts-testimonial-item {
-  margin-bottom: 15px;
-}
-.ts-testimonial-slide .ts-testimonial-item .icon-client{
-  background: #ffffff;
-  width: 29px;
-  height: 29px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  float: left;
-  text-align: center;
-  line-height: 29px;
-  margin-top: 2px;
-}
-.ts-testimonial-slide .ts-testimonial-item .infor-client {
-  display: inline-block;
-  margin: 0 auto;
-  width: auto;
-}
-.ts-testimonial-slide .ts-testimonial-item  .client-name{
-  padding-left: 38px;
-  font-size: 12.8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-family: 'Montserrat';
-  display: block;
-  line-height: normal;
-  white-space: nowrap;
-}
-.ts-testimonial-slide .ts-testimonial-item  .client-position{
-  font-size: 12px;
-  font-style: italic;
-  line-height: normal;
-  padding-left: 38px;
-  display: block;
+figure.snip1197 blockquote {
+  position: relative;
+  padding: 25px 50px 25px 50px;
+  font-size: 16pt;
+  font-weight: 500;
+  font-family: 'Lora', serif;
   text-align: left;
+  margin: 0;
+  line-height: 1.4em;
+  font-style: italic;
 }
-.ts-testimonial-slide .ts-testimonial-item  .client-position a{
-  color: white;
+figure.snip1197 blockquote:before,
+figure.snip1197 blockquote:after {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.3;
+  font-style: normal;
 }
-.ts-testimonial-slide .ts-testimonial-item  .client-position a:hover{
-  color: #5ed9e7;
+figure.snip1197 blockquote:before {
+  top: 25px;
+  left: 20px;
 }
+figure.snip1197 blockquote:after {
+  content: "\201D";
+  right: 20px;
+  bottom: 0px;
+}
+figure.snip1197 .arrow {
+  top: 30px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #ffffff;
+  margin: 0;
+  position: absolute;
+}
+figure.snip1197 .author {
+  position: absolute;
+  top: 100%;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.author span {
+  font-weight: 200;
+}
+figure.snip1197 .author h5 {
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 800;
+}
+
+#test-headshot {
+  width: 250px;
+}
+
+
 	</style>
 	
 </head>
@@ -285,16 +288,53 @@ animation: heart 9s ease-in-out 0s infinite;
         <div class="large-12 columns">
           <div class="owl-carousel owl-theme">
             <div class="item">
-              <h4>1</h4>
+              <figure class="snip1197">
+                <figcaption>
+                  <blockquote>Ben is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
+                  <div class="arrow"></div>
+                   <div class="author">
+                  <h5>Shamrina Oshana <span> -- Brand Manager at Slingshot Foods</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/shamrina-test.jpg"/>
+               
+              </figure>
             </div>
             <div class="item">
-              <h4>2</h4>
+              <figure class="snip1197 hover">
+                <figcaption>
+                  <blockquote>Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Caitlin Thompson<span> -- CEO/Owner at EntheoZen</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/caitlyn-test.jpg" />
+              </figure>
             </div>
             <div class="item">
-              <h4>3</h4>
+              <figure class="snip1197">
+                <figcaption style="width: 70%;border-radius: 8px;">
+                  <blockquote>Ben is an incredibly creative guy, often coming up with solutions to problems we didn't even think of. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Any company looking for a creative thinker, problem solver, and a cheerleader should be happy to have Ben on their team.</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Thom Matli<span> -- Data Analyst at City CarShare</span></h5>
+                </div>
+                </figcaption>
+                <img id="test-headshot" src="IMG/thom.png">
+              </figure>
             </div>
             <div class="item">
-              <h4>4</h4>
+              <figure class="snip1197 hover">
+                <figcaption style="width: 65%">
+                  <blockquote>Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made Ben absolutely indispensable. Ben's multitasking abilities made it possible to operate with fewer staff, minimizing the company's burn-rate while simultaneously extending our operational capabilities... I wish Ben would let me hire him again!</blockquote>
+                  <div class="arrow"></div>
+                  <div class="author">
+                  <h5>Marcus Hays<span> -- CEO &amp; Founder at PiMobility</span></h5>
+                </div>
+                </figcaption>
+                <img src="IMG/marcus-kr.jpg"/ style="height: 308px">
+              </figure>
             </div>
           </div>
   <section>
@@ -429,7 +469,6 @@ $(document).ready(function() {
   owl.owlCarousel({
     items:1,
     loop:true,
-    margin:10,
     autoplay:true,
     autoplayTimeout:6000,
     autoplayHoverPause:true,
