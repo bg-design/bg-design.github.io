@@ -575,7 +575,8 @@ figure.snip1197 .author {
 }
 
 .author span {
-  font-weight: 200;
+   font-weight: 400;
+    font-size: 18pt;
 }
 figure.snip1197 .author h5 {
   opacity: 0.8;
@@ -587,6 +588,9 @@ figure.snip1197 .author h5 {
   width: 250px;
 }
 
+#marcus-kr {
+	height: 308px;
+}
 #view-recs {
 	color: white;
 font-family: 'Lato', sans-serif;
@@ -594,7 +598,7 @@ font-size: 14pt;
 float: right;
 font-weight: 300;
 border-bottom: 1px solid white;
-padding-bottom: 10px;
+padding: 10px;
 margin-bottom: 20px;
 }
 
@@ -617,13 +621,130 @@ margin-bottom: 20px;
  			 background:  rgb(201, 201, 201); /* Gecko Browsers */
 			}
 
+
+
+
+
+		/* MEDIA QUERIES */
+		@media screen and (max-width : 1024px)   {
+
+			figure.snip1197 blockquote {
+				font-size:14pt;
+				padding: 35px 20px 15px 20px;
+			}
+			.when p {
+				line-height: 1.5;
+			}
+
+			.author span {font-size:16pt;}
+
+			#marcus-kr {
+				height: initial;
+			}
+
+			.owl-carousel .owl-stage-outer {
+				height: 370px;
+			}
+		}
+
 		@media only screen and (max-width: 850px) {
+
+			figure.snip1197 blockquote {
+				font-size:13pt;
+			}
+
+			.author span {font-size:15pt;}
+
 			#bio {border-radius: 0;}
 			.persona-col {padding: 0;}
 		}
+			.owl-carousel .owl-stage-outer {
+				height: 410px;
+			}
 
+
+		@media screen and (min-width: 530px) and (max-width: 720px){
+
+		.numbers-third {
+			width: 50%;
+		}
+
+}
+
+		@media only screen and (max-width: 600px) {
+
+			figure.snip1197 blockquote {
+				font-size:12pt;
+			}
+
+			.author span {font-size:14pt;}
+
+			.owl-carousel .owl-stage-outer {
+				height: 430px;
+			}
+}
+/*		Small */
+		@media screen and (max-width: 530px){
+
+			.when-titles {
+				font-size:12pt;
+				padding: 35px 15px 10px 15px;
+			}
+
+			.swiper-button-prev, .swiper-button-next {display: none;}
+
+			.slide-caption {
+				left: initial;
+				width: initial;
+			}
+
+
+			.slide-caption p, .slide-caption p a {
+				font-weight: 500;
+				font-size: 12pt;
+			}
+
+			.slide-credit p {
+				font-size: 80%;
+			}
+
+			h3 {    font-size: 18pt;
+    padding: 10px 0 0 0;
+    margin: 0;}
+
+			.what-to-do {padding-bottom: 0;}
+
+			.what-to-do h3 {font-size:20pt;}
+
+	/*		.earth-overshoot {display: none;}
+	*/
+			.numbers-third, .numbers-half {
+				width: 100%;
+			}
+
+			.numbers-box {
+				margin: 30px 0;
+			}
+
+			.owl-carousel .owl-stage-outer {
+				height: 440px;
+			}
+
+		}
 
 		@media only screen and (max-width: 430px) {
+
+			figure.snip1197 blockquote {
+				font-size:10pt;
+				padding: 35px 10px 5px 15px;
+			}
+
+			.author span {font-size:12pt;}
+
+			.owl-carousel .owl-stage-outer {
+				height: 450px;
+			}
+
 			#ben-persona {border-radius: 0;}
 			#headshot-wrapper {margin: 0;}
 
@@ -634,66 +755,6 @@ margin-bottom: 20px;
 			#bio p {
 				border-radius: 0;
 			}
-		}
-
-
-
-		/* MEDIA QUERIES */
-		@media screen and (max-width : 1024px)   {
-			.when p {
-				line-height: 1.5;
-			}
-		}
-
-		@media screen and (min-width: 530px) and (max-width: 720px){
-
-		.numbers-third {
-			width: 50%;
-		}
-
-}
-
-/*		Small */
-		@media screen and (max-width: 530px){
-
-		.when-titles {
-			font-size:12pt;
-		}
-
-		.swiper-button-prev, .swiper-button-next {display: none;}
-
-		.slide-caption {
-			left: initial;
-			width: initial;
-		}
-
-
-		.slide-caption p, .slide-caption p a {
-			font-weight: 500;
-			font-size: 12pt;
-		}
-
-		.slide-credit p {
-			font-size: 80%;
-		}
-
-		h3 {font-size:100%;margin: 0;}
-
-		.what-to-do {padding-bottom: 0;}
-
-		.what-to-do h3 {font-size:20pt;}
-
-/*		.earth-overshoot {display: none;}
-*/
-		.numbers-third, .numbers-half {
-			width: 100%;
-		}
-
-		.numbers-box {
-			margin: 30px 0;
-		}
-
-
 		}
 
 </style>
@@ -748,11 +809,11 @@ margin-bottom: 20px;
 				
   				<div class="three-col float-right fade-in six persona-col">
 					<div class="persona-progress-wrapper">
-						<p><strong>Inspirational People</strong>:<br>Paolo Soleri, Steve Jobs, Jony Ive, Dieter Rams, Charles and Ray Eames, Elon Musk, William McDonough, Leonardo da Vinci, Frederich Nietzsche, Larry Harvey</p><br>
+						<p><strong>Favorite People</strong>:<br>Paolo Soleri, Steve Jobs, Jony Ive, Dieter Rams, Charles and Ray Eames, Elon Musk, William McDonough, Leonardo da Vinci, Frederich Nietzsche, Larry Harvey</p><br>
 
-						<p><strong>Inspirational Sites</strong>:<br>Dribbble, Pinterest, Quora, Codecademy, CodePen, Stack Exchange, Wikipedia, Kickstarter, Vimeo, Etsy, TED, Wait But Why</p><br>
+						<p><strong>Favorite Sites</strong>:<br>Dribbble, Pinterest, Quora, Codecademy, CodePen, Stack Exchange, Wikipedia, Kickstarter, Vimeo, Etsy, TED, Wait But Why</p><br>
 
-						<p><strong>Inspirational Brands</strong>:<br> Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project, Molekule, Apple, Google</p>
+						<p><strong>Favorite Brands</strong>:<br> Bang &amp; Olufsen, iRobot, Tesla, Dyson, Pax, Chemex, Fuse Project, Molekule, Apple, Google</p>
 						<br/>
 
 					</div>
@@ -1032,7 +1093,7 @@ margin-bottom: 20px;
                   <blockquote>Ben is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
                   <div class="arrow"></div>
                    <div class="author">
-                  <h5>Shamrina Oshana <span> -- Brand Manager at Slingshot Foods</span></h5>
+                  <h5><span><strong>Shamrina Oshana</strong> -- Brand Manager at Slingshot Foods</span></h5>
                 </div>
                 </figcaption>
                 <img src="IMG/shamrina-test.jpg"/>
@@ -1045,7 +1106,7 @@ margin-bottom: 20px;
                   <blockquote>Ben does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Ben for your webpage projects!</blockquote>
                   <div class="arrow"></div>
                   <div class="author">
-                  <h5>Caitlin Thompson<span> -- CEO/Owner at EntheoZen</span></h5>
+                  <h5><span><strong>Caitlin Thompson</strong> -- CEO/Owner at EntheoZen</span></h5>
                 </div>
                 </figcaption>
                 <img src="IMG/caitlyn-test.jpg" />
@@ -1057,7 +1118,7 @@ margin-bottom: 20px;
                   <blockquote>Ben is an incredibly creative guy, often coming up with solutions to problems we didn't even think of. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Any company looking for a creative thinker, problem solver, and a cheerleader should be happy to have Ben on their team.</blockquote>
                   <div class="arrow"></div>
                   <div class="author">
-                  <h5>Thom Matli<span> -- Data Analyst at City CarShare</span></h5>
+                  <h5><span><strong>Thom Matli</strong> -- Data Analyst at City CarShare</span></h5>
                 </div>
                 </figcaption>
                 <img id="test-headshot" src="IMG/thom.png">
@@ -1069,10 +1130,10 @@ margin-bottom: 20px;
                   <blockquote>Ben is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made Ben absolutely indispensable. Ben's multitasking abilities made it possible to operate with fewer staff, minimizing the company's burn-rate while simultaneously extending our operational capabilities... I wish Ben would let me hire him again!</blockquote>
                   <div class="arrow"></div>
                   <div class="author">
-                  <h5>Marcus Hays<span> -- CEO &amp; Founder at PiMobility</span></h5>
+                  <h5><span><strong>Marcus Hays</strong> -- CEO &amp; Founder at PiMobility</span></h5>
                 </div>
                 </figcaption>
-                <img src="IMG/marcus-kr.jpg"/ style="height: 308px">
+                <img src="IMG/marcus-kr.jpg"/ id="marcus-kr">
               </figure>
             </div>
           </div>
