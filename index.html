@@ -65,6 +65,27 @@ body {
 		font-size: 20px;
 	}
 
+	#work {
+	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
+	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+	}
+
+	#about {
+	background-image: linear-gradient(to bottom, transparent 65%, rgba(243, 134, 48, 0.54) 10%);
+	border-bottom: 4px solid rgba(243, 134, 48, 0.54);
+	}
+
+	#cv {
+	background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
+	border-bottom: 4px solid #69D2E7;
+	}
+
+	#philosophy {
+		background-image: linear-gradient(to bottom, transparent 65%, #c8cfff 10%);
+		border-bottom: 4px solid #c8cfff;
+	}
+
+
 	.home-links {
 		padding-left: 10px;
 		margin-bottom: 140px;
@@ -77,20 +98,26 @@ body {
 	font-size: 18pt;
 	line-height: 2em;
 	letter-spacing: .5px;
-	padding: 10px 0;
-	border-bottom: 1px solid #08c7ff;
 	font-weight: 300;
 	margin-right: 30px;
 	text-decoration: none;
-/*	display: block;
-*/}
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	-webkit-transition: background-size 0.4s ease;
+	-moz-transition: background-size 0.4s ease;
+	-ms-transition: background-size 0.4s ease;
+	-o-transition: background-size 0.4s ease;
+	transition: background-size 0.4s ease;
+}
 
 	.home-links a:hover {
-    color: #08c7ff !important;
-    transition:.3s ease-in .3s, .3s;
-	border-bottom-style: dashed;
-	padding-bottom: 15px;
-}
+    transition:.4s ease-in .4s, .4s;
+	border:0;
+	background-size:100% 100%;
+	cursor: pointer;
+	}
+
 	#rect-gradient, #home-loading {
 	width:300px;
 	height: 3px;
@@ -103,7 +130,7 @@ body {
 	animation: Gradient 15s ease-in-out infinite;
 }
 
-/*@-webkit-keyframes Gradient {
+@-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%
 	}
@@ -137,7 +164,7 @@ body {
 	100% {
 		background-position: 0% 50%
 	}
-}*/
+}
 
 #home-loading {
 	width: 100%;
@@ -172,7 +199,6 @@ footer {
 }
 
 .at-banner {
-  position: fixed;
   z-index: 0;
   opacity: 0;
   bottom: 0;
@@ -181,7 +207,6 @@ footer {
   background: #33f1a1;
   width: 100%;
   border:0;
-  padding: 10px;
   box-sizing: border-box;
   color: #141414;
   font-family: 'Open Sans', 'Helvetica', sans-serif;
@@ -190,6 +215,7 @@ footer {
   -webkit-animation: at-banner-slide-in 1.5s ease forwards;
           animation: at-banner-slide-in 1.5s ease forwards;
           animation-delay: 5s;
+   position: absolute;
 }
 .at-banner__content {
   display: flex;
@@ -209,6 +235,7 @@ font-family: 'Lato', 'Helvetica', sans-serif;
 line-height: 1.5;
 color: #171717;
 max-width: 865px;
+font-size:14px;
 }
 
 .at-banner__close {
@@ -249,7 +276,6 @@ max-width: 865px;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
     z-index: 1;
-    display: block;
   }
 
   100% {
@@ -257,7 +283,6 @@ max-width: 865px;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
     z-index: 1;
-    display: block;
   }
   
 }
@@ -268,7 +293,6 @@ max-width: 865px;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
      z-index: 1;
-     display: block;
   }
 
   100% {
@@ -276,7 +300,6 @@ max-width: 865px;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
      z-index: 1;
-     display: block;
   }
   
 }
@@ -327,10 +350,10 @@ max-width: 865px;
 				<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of <strong>Human-Centered Design</strong> to be a force for good in the world. Through great design, we can create the unimaginable and solve problems that seem to have no answers. Any problem, no matter how big or small, is within the profound reach of design thinking.</p>
 				<p class="fade-in five" id="brighter-future"><strong>Let’s build a brighter future.</strong></p><br>
 				<div class="fade-in six home-links">
-					<a class="home-link" href="work.html">Work</a>
-					<a class="home-link" href="about.html">About</a>
-					<a class="home-link" href="cv.html">CV</a>
-					<a class="home-link" href="philosophy.html">Philosophy</a>
+					<a class="home-link" href="work.html" id="work">Work</a>
+					<a class="home-link" href="about.html" id="about">About</a>
+					<a class="home-link" href="cv.html" id="cv">CV</a>
+					<a class="home-link" href="philosophy.html" id="philosophy">Philosophy</a>
 				</div>
 
 			</div>
@@ -418,7 +441,6 @@ else {
 $('.at-banner__close').on('click', function() {
   $(this).parent().remove();
 });
-
 
  // Time of Day Greeting
 
