@@ -18,7 +18,6 @@
 
 
 body {
-  background: #21262d;
   margin: 0;
   padding: 0;
   transition: 3s ease-in-out;
@@ -255,6 +254,65 @@ figure.snip1197 .author h5 {
   width: 250px;
 }
 
+#darkModeOn, #darkModeOff {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 30px;
+  font-size: 17px;
+  font-family: 'Lato', sans-serif;
+  border: 1px solid grey;
+  font-weight: 300;
+}
+
+
+#darkModeOn {
+  background-color: #333;
+  color: #fff;
+}
+
+#darkModeOn.show {
+  visibility: visible;
+  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+}
+
+#darkModeOff {
+  background-color: white;
+  color: black;
+}
+
+#darkModeOff.show {
+  visibility: visible;
+  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+}
+
+@-webkit-keyframes darkfadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes darkfadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes darkfadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes darkfadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
 
 	</style>
 	
@@ -418,6 +476,16 @@ figure.snip1197 .author h5 {
       <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert&nbsp;➟</button>
       
     </div>
+
+<button onclick="darkModeOn()">Show darkModeConfirmation</button>
+
+<div id="darkModeOn"><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
+
+<button onclick="darkModeOff()">Show darkModeOff</button>
+
+<div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>
+
+
   </section>
   <hr style="border-bottom: 1px solid #5e5e5e;">
 </div>
@@ -461,7 +529,65 @@ figure.snip1197 .author h5 {
 
 <script src="JS/owl.carousel.min.js"></script>
 
+<script src="JS/dark-mode.js"></script>
+
+
 <script>
+
+//   function darkModeOn() {
+
+//     $("#darkModeOff").removeClass("show");
+
+//     var snackbar = document.getElementById("darkModeOn");
+//     snackbar.className = "show";
+//     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 4000);
+//   }
+
+//   function darkModeOff() {
+
+//     $("#darkModeOn").removeClass("show");
+
+//     var snackbar = document.getElementById("darkModeOff");
+//     snackbar.className = "show";
+//     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 4000);
+//   }
+
+// // Dark mode switch listener
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   var checkbox = document.querySelector('input[type="checkbox"]');
+
+//   checkbox.addEventListener('change', function () {
+//     if (checkbox.checked) {
+//       document.body.classList.add("dark-mode");
+//       sessionStorage.setItem('setDarkMode', 'true');
+//       darkModeOn ();
+//     } else {
+//       document.body.classList.remove("dark-mode");
+//       sessionStorage.setItem('setDarkMode', 'false');
+//       darkModeOff ();
+//     }
+//   });
+// });
+
+// var time = new Date();
+// var hour = time.getHours();
+// if ( sessionStorage.getItem('setDarkMode') === 'true') {
+//       document.body.classList.add("dark-mode");
+//       document.getElementById("checkbox").checked = true;
+//     }
+// else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+//     document.body.classList.remove("dark-mode");
+//     document.getElementById("checkbox").checked = false;
+// }
+// else if ((hour <= 6) || (hour >= 18)) {
+//     document.body.classList.add("dark-mode");
+//     document.getElementById("checkbox").checked = true;
+// }
+// else {
+//   document.body.classList.remove("dark-mode");
+//   document.getElementById("checkbox").checked = false;
+// }
 
 // testimonial carousel
 $(document).ready(function() {
@@ -518,41 +644,6 @@ function scrollBoth (){
 
 // // Current year for copyright (future-proof)
 // document.getElementById("current-year").innerHTML = (new Date().getFullYear());
-
-// Dark mode switch listener
-
-document.addEventListener('DOMContentLoaded', function () {
-  var checkbox = document.querySelector('input[type="checkbox"]');
-
-  checkbox.addEventListener('change', function () {
-    if (checkbox.checked) {
-      document.body.classList.add("dark-mode");
-      sessionStorage.setItem('setDarkMode', 'true');
-    } else {
-      document.body.classList.remove("dark-mode");
-      sessionStorage.setItem('setDarkMode', 'false');
-    }
-  });
-});
-
-var time = new Date();
-var hour = time.getHours();
-if ( sessionStorage.getItem('setDarkMode') === 'true') {
-      document.body.classList.add("dark-mode");
-      document.getElementById("checkbox").checked = true;
-    }
-else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-    document.body.classList.remove("dark-mode");
-    document.getElementById("checkbox").checked = false;
-}
-else if ((hour <= 6) || (hour >= 18)) {
-    document.body.classList.add("dark-mode");
-    document.getElementById("checkbox").checked = true;
-}
-else {
-  document.body.classList.remove("dark-mode");
-  document.getElementById("checkbox").checked = false;
-}
 
 // Click on heart
   $(function() {
