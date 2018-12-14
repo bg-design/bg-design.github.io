@@ -104,11 +104,11 @@ body {
 	background-size: 0% 100%;
 	background-repeat: no-repeat;
 	text-decoration: none;
-	-webkit-transition: background-size 0.4s ease;
-	-moz-transition: background-size 0.4s ease;
-	-ms-transition: background-size 0.4s ease;
-	-o-transition: background-size 0.4s ease;
-	transition: background-size 0.4s ease;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
 }
 
 	.home-links a:hover {
@@ -199,8 +199,7 @@ footer {
 }
 
 .at-banner {
-  z-index: 0;
-  opacity: 0;
+  visibility: hidden;
   bottom: 0;
   right: 0;
   left: 0;
@@ -214,7 +213,7 @@ footer {
   -moz-osx-font-smoothing: grayscale;
   -webkit-animation: at-banner-slide-in 1.5s ease forwards;
           animation: at-banner-slide-in 1.5s ease forwards;
-          animation-delay: 5s;
+          animation-delay: 10s;
    position: fixed;
 }
 .at-banner__content {
@@ -272,34 +271,31 @@ font-size:14px;
 
 @-webkit-keyframes at-banner-slide-in {
   0% {
-  	opacity: 1;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
-    z-index: 1;
+    visibility: visible;
   }
 
   100% {
-  	opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
-    z-index: 1;
+    visibility: visible;
+
   }
   
 }
 
 @keyframes at-banner-slide-in {
   0% {
-  	opacity: 1;
     -webkit-transform: translateY(150%);
             transform: translateY(150%);
-     z-index: 1;
+    visibility: visible;
   }
 
   100% {
-  	opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
-     z-index: 1;
+    visibility: visible;
   }
   
 }
@@ -367,7 +363,7 @@ font-size:14px;
 <div id="darkModeOn"><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
 <div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>
 
-		<div class="home-container">
+		<div class="home-container fade-in six">
 			<div class="footer-top-row">
 				<p class="dark-mode-switch-text">Dark mode:</p>
 				  <label class="switch" for="checkbox">
