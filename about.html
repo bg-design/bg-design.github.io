@@ -465,6 +465,7 @@
 			-webkit-clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
 			clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
 			padding-top: 80px;
+			transition: 1s;
 		}
 
 		.dark-mode .recommendations {
@@ -492,6 +493,11 @@
 
 #clients-talking {
 	padding: 30px 0 25px 0;
+	color: black;
+}
+
+.dark-mode #clients-talking {
+	color: white;
 }
 
 
@@ -522,10 +528,29 @@ figure.snip1197 figcaption {
 }
 
 .dark-mode figure.snip1197 figcaption {
-	background: #2d2d2d;
+	background: rgb(78, 78, 78);
 	transition: 1s;
 	color: white;
 }
+
+figure.snip1197 .arrow {
+  top: 30px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #fff;
+  margin: 0;
+  position: absolute;
+  transition: 1s;
+}
+
+.dark-mode figure.snip1197 .arrow {
+	 border-top: 25px solid rgb(78, 78, 78);
+	 transition: 1s;
+}
+
 figure.snip1197 blockquote {
   position: relative;
   padding: 25px 50px 25px 50px;
@@ -555,29 +580,17 @@ figure.snip1197 blockquote:after {
   right: 20px;
   bottom: 0px;
 }
-figure.snip1197 .arrow {
-  top: 30px;
-  left: 100%;
-  width: 0;
-  height: 0;
-  border-left: 0 solid transparent;
-  border-right: 25px solid transparent;
-  border-top: 25px solid #fff;
-  margin: 0;
-  position: absolute;
-}
 
-.dark-mode figure.snip1197 .arrow {
-	 border-top: 25px solid #2d2d2d;
-	 transition: 1s;
-}
 figure.snip1197 .author {
   position: absolute;
   top: 100%;
   padding: 10px 15px;
-  color: #fff;
+  color: color:rgb(43, 43, 43);
 }
 
+.dark-mode figure.snip1197 .author {
+	color: white;
+}
 .author span {
    font-weight: 400;
     font-size: 18pt;
@@ -588,6 +601,8 @@ figure.snip1197 .author h5 {
   font-weight: 800;
 }
 
+.owl-theme .owl-dots .owl-dot span {background: white;}
+
 #test-headshot {
   width: 250px;
 }
@@ -596,14 +611,19 @@ figure.snip1197 .author h5 {
 	height: 308px;
 }
 #view-recs {
-	color: white;
+	color: black;
 font-family: 'Lato', sans-serif;
 font-size: 14pt;
 float: right;
 font-weight: 300;
-border-bottom: 1px solid white;
+border-bottom: 1px solid black;
 padding: 10px;
 margin-bottom: 20px;
+}
+
+.dark-mode #view-recs {
+	color: white;
+	border-bottom: 1px solid white;
 }
 
 /*  END Recommendations  */

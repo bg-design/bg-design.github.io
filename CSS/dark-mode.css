@@ -159,10 +159,10 @@ p, a {
 
 .slider:before {
   background-color: #1e2228;
-  bottom: 2px;
+  bottom: 1px;
   content: "";
   height: 21px;
-  left: 2px;
+  left: 1px;
   position: absolute;
   transition: .4s;
   width: 21px;
@@ -177,11 +177,16 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider.round:before {
-  background: #1e2228;
+  background: white;
 }
 
 .slider.round {
   border-radius: 34px;
+  border:1px solid transparent;
+}
+
+.dark-mode .slider.round {
+  border:1px solid grey;
 }
 
 .slider.round:before {
