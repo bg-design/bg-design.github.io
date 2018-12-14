@@ -188,6 +188,67 @@ input:checked + .slider.round:before {
   border-radius: 50%;
 }
 
+#darkModeOn, #darkModeOff {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 30px;
+  font-size: 17px;
+  font-family: 'Lato', sans-serif;
+  border: 1px solid grey;
+  font-weight: 300;
+}
+
+/*Dark Mode User Confirmation Snackbar */
+
+#darkModeOn {
+  background-color: #333;
+  color: #fff;
+}
+
+#darkModeOn.show {
+  visibility: visible;
+  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+}
+
+#darkModeOff {
+  background-color: white;
+  color: black;
+}
+
+#darkModeOff.show {
+  visibility: visible;
+  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
+}
+
+@-webkit-keyframes darkfadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes darkfadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes darkfadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes darkfadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
 
 /*Heart Animation */
 svg {
