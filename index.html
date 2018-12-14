@@ -14,7 +14,7 @@
 	<title id="greeting-title">Hi, I'm Ben.</title>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="CSS/global.css?t=4" media="screen">
+	<link rel="stylesheet" type="text/css" href="CSS/global.css" media="screen">
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
@@ -386,56 +386,9 @@ font-size:14px;
 </div>
 
 <script src="JS/custom.js"></script>
-<script>
+<script src="JS/dark-mode.js"></script>
 
-// // Current year for copyright (future-proof)
-// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
-
-// Dark mode switch listener
-
-var isSetDark = "false";
-
-document.addEventListener('DOMContentLoaded', function () {
-  var checkbox = document.querySelector('input[type="checkbox"]');
-
-  checkbox.addEventListener('change', function () {
-    if (checkbox.checked) {
-      document.body.classList.add("dark-mode");
-      sessionStorage.setItem('setDarkMode', 'true');
-    } else {
-      document.body.classList.remove("dark-mode");
-      sessionStorage.setItem('setDarkMode', 'false');
-    }
-  });
-});
-
-
-var time = new Date();
-var hour = time.getHours();
-if ( sessionStorage.getItem('setDarkMode') === 'true') {
-      document.body.classList.add("dark-mode");
-      document.getElementById("checkbox").checked = true;
-    }
-else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-    document.body.classList.remove("dark-mode");
-    document.getElementById("checkbox").checked = false;
-}
-else if ((hour <= 6) || (hour >= 18)) {
-    document.body.classList.add("dark-mode");
-    document.getElementById("checkbox").checked = true;
-}
-else {
-  document.body.classList.remove("dark-mode");
-  document.getElementById("checkbox").checked = false;
-}
-
-
-</script>
  <script type="text/javascript">
-
-    // $(function(){
-    //       $("#footer").load("footer.html"); 
-    //     });
 
 // Close no-cookie banner
 $('.at-banner__close').on('click', function() {
