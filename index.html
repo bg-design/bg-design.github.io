@@ -20,6 +20,62 @@
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 	<style>
 
+#rect-gradient, #home-loading {
+	width:300px;
+	height: 3px;
+	margin-left: 10px;
+	color: #fff;
+	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease-in-out infinite;
+	-moz-animation: Gradient 15s ease-in-out infinite;
+	animation: Gradient 15s ease-in-out infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+#home-loading {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
 
 body {
   background: white;
@@ -118,61 +174,7 @@ body {
 	cursor: pointer;
 	}
 
-	#rect-gradient, #home-loading {
-	width:300px;
-	height: 3px;
-	margin-left: 10px;
-	color: #fff;
-	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease-in-out infinite;
-	-moz-animation: Gradient 15s ease-in-out infinite;
-	animation: Gradient 15s ease-in-out infinite;
-}
-
-@-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-#home-loading {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
+	
 .home-container {
 	max-width: 800px;
 	margin: 0 auto;
