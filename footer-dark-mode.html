@@ -62,8 +62,8 @@ window.addEventListener("scroll", function (event) {
 function scrollDown() {
     var scrollPosition = window.pageYOffset
     var winHeight = window.innerHeight;
-    var scrollTo = winHeight + scrollPosition - 150;
-    $("html, body").animate({ scrollTop: scrollTo }, "slow");
+    var scrollTo = winHeight + scrollPosition - 50;
+    $("html, body").animate({ scrollTop: scrollTo }, "medium");
 }
 
 function scrollBoth (){
@@ -72,7 +72,7 @@ function scrollBoth (){
         }
     else {
         $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $("html, body").animate({ scrollTop: 0 }, "medium");
       }
 }
 
