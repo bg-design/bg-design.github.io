@@ -307,6 +307,10 @@ animation: heart 9s ease-in-out 0s infinite;
 
 @media screen and (max-width: 500px) {
   #darkModeOn, #darkModeOff {
-    width: 100%;
+    width: 90%;
+    left: 3%;
+    right: 5%;
+    padding: 15px 5px;
+    margin: 0;
   }
 }
