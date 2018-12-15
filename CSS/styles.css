@@ -529,6 +529,7 @@ nav li {
 			position: fixed;
 			bottom: 0;
 			z-index: 2;
+			border-top:1px solid white;
 		}
 
 .what-bg {
@@ -561,10 +562,10 @@ nav li {
 	left: 0;
 }
 #what-loading {background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));}
-#who-loading {background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));}
+#who-loading {background: linear-gradient(140deg, #3af3ab 28.15%, rgb(98, 255, 159));}
 #how-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);}
-#when-loading {background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);}
-#why-loading {background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));}
+#when-loading {background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));}
+#why-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%)}
 
 .loading-wrapper {
 	position: fixed;
