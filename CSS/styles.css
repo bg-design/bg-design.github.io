@@ -330,9 +330,13 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 
 .bottom-nav button {
 	font: 12pt 'Lato', sans-serif;
+	background: white;
+/*	border: 0;
+*/	color: black;
+}
+
+.dark-mode .bottom-nav button {
 	background: #dcdcdc;
-	border: 0;
-	color: black;
 }
 
 
