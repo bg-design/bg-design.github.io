@@ -66,20 +66,20 @@ console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 // }, '.nav-wrapper')
 
 // Click on hamburger
-function showNav() {
-  $('.logo').css("transform", "rotateX(180deg)");
-  $('.logo').css("opacity", "0");
-  $('.ham-menu').css("transform", "scale(0,0)");
-  $('.ham-menu').css("opacity", "0");
-  $('.navbar li').css("display", "inline");
-  $('.hamburger').css("border", "none");
+// function showNav() {
+//   $('.logo').css("transform", "rotateX(180deg)");
+//   $('.logo').css("opacity", "0");
+//   $('.ham-menu').css("transform", "scale(0,0)");
+//   $('.ham-menu').css("opacity", "0");
+//   $('.navbar li').css("display", "inline");
+//   $('.hamburger').css("border", "none");
 
-  setTimeout(function() {
-    $('.logo').css("display", "none");
-    $('.ham-menu').css("display", "none");
-  },1000);
+//   setTimeout(function() {
+//     $('.logo').css("display", "none");
+//     $('.ham-menu').css("display", "none");
+//   },1000);
 
-}
+// }
 
 // Read more 
 
@@ -102,6 +102,8 @@ function showNav() {
   });
 
 // Disable loading screen when ready
+
+    $('html').css("overflow", "hidden");
 
     $('.fade-in').addClass('placeholder').removeClass('fade-in')
 
