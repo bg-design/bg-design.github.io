@@ -111,6 +111,7 @@ function showNav() {
         $('.loading-bg').css("opacity", "0");
         setTimeout(function() {
           $('.loading-bg').css("display", "none");
+          $('html').css("overflow", "auto");
         },1100);
       },1100);
     });
