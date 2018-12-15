@@ -168,7 +168,7 @@ input:checked + .slider.round:before {
 #darkModeOn, #darkModeOff {
   visibility: hidden;
   min-width: 250px;
-  margin-left: -125px;
+  margin-left: -205px;
   text-align: center;
   border-radius: 2px;
   padding: 16px;
@@ -303,4 +303,10 @@ animation: heart 9s ease-in-out 0s infinite;
   position: relative;
   -webkit-clip-path: circle(40% at 50% 50%);
       clip-path: circle(40% at 50% 50%);
+}
+
+@media screen and (max-width: 500px) {
+  #darkModeOn, #darkModeOff {
+    width: 100%;
+  }
 }
