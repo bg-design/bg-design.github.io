@@ -323,8 +323,7 @@ p a::selection {
 	text-align: center;
     clear: both;
     color: rgb(185, 185, 185);
-    font-size: 11pt;
-    font-family: 'Lato';
+    font-size: 13pt;
 }
 
 #lets-collaborate {
@@ -1124,7 +1123,11 @@ cite p {color:white;}
 				font-weight: 500;
 		}
 
+		.copyright {
+			font-size:11pt;
+		}
 
+}
 /* Tablet (S & M) */
 @media screen and (min-width : 431px) and (max-width : 1024px)   {
 

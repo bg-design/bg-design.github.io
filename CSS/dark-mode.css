@@ -104,7 +104,7 @@ p, a {
   font-weight: 300;
   width: 100px;
   float: left;
-  font-family: 'Lato';
+  font-size:13pt;
 }
 .switch {
   display: inline-block;
