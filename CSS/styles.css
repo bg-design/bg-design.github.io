@@ -507,6 +507,7 @@ p a::selection {
     clear: both;
     color: rgb(185, 185, 185);
     font-size: 13pt;
+    font-family: 'Lato', sans-serif;
 }
 
 #lets-collaborate {

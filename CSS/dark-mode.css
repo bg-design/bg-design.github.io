@@ -101,6 +101,7 @@ body {
   width: 100px;
   float: left;
   font-size:13pt;
+  font-family: 'Lato', sans-serif;
 }
 .switch {
   display: inline-block;
