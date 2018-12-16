@@ -903,6 +903,8 @@ cite p {color:white;}
 	float: left;
 }
 
+.eight-col {width: 60%;float:left;}
+
 .ten-pad {margin-top:10px;}
 
 .fifteen-pad {margin-top:15px;}
