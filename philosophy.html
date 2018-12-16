@@ -15,7 +15,7 @@
 		.why {padding: 0;}
 
 		.books {
-			display: block;
+			display: none;
 			margin:0 auto;
 			position: relative;
 			transition: all .3s ease-in-out;
@@ -23,6 +23,10 @@
     		filter: grayscale(100%);
     		border: 1px solid grey;
 			border-radius: 5px;
+			visibility: hidden;
+			-webkit-animation:fadeIn ease-in 0.7s;  
+			   -moz-animation:fadeIn ease-in 0.7s;
+					animation:fadeIn ease-in 0.7s;
 		}
 		.books:hover{
 			transition:all .3s ease-in-out;
@@ -60,9 +64,74 @@
 		.philosophy {padding-bottom: 10px;}
 
 
-.process {
+		.process {
 			width: 450px
 		}
+
+/*Recommended Reading Selector*/
+.reading-nav-wrapper {
+  border: 1px solid lightgrey;
+  border-radius: 0;
+  width:691px;
+  background: lightgrey;
+  margin: 0 auto;
+  margin-bottom:20px;
+}
+
+.reading-nav-item {
+  display: inline-block;
+  transition: 0;
+  font-family:'Lato', sans-serif;
+  font-size:33px;
+  padding-right:10px;
+  cursor: pointer;
+  margin: 0;
+  height: 40px;
+  color:grey;
+}
+
+.reading-nav-item:hover {
+  transition:0s;
+}
+.shift {
+  transform: translateX(-110px);
+}
+
+.reading-nav-item.active {
+  color: white;
+  transition:0.7s;
+}
+
+#design-list {
+  color: white;
+  display: inline-block;
+  transition: 0.7s;
+  font-family:'Lato', sans-serif;
+  font-size:33px;
+  margin: 0;
+  height: 40px;
+  padding-right:10px;
+}
+
+#thinking-list.active {
+  background: black;
+  transform: translateX(-5px);
+}
+
+#thinking-list:hover:not(.active) {color: white;}
+#product-list.active {background: red;}
+#product-list:hover:not(.active) {color: red;}
+#ux-list.active {background: #FA6900;}
+#ux-list:hover:not(.active) {color:#FA6900;}
+#visual-list.active {background: #3af3ab;;}
+#visual-list:hover:not(.active) {color: #3af3ab;;}
+#research-list.active {background: violet;}
+#research-list:hover:not(.active) {color: violet;}
+
+.isVisible {
+	visibility: visible;
+	display: block;
+}
 
 .scroll-progress {
 			background: linear-gradient(90deg, #C6FFDD 0%, #FBD786 50%, #f7797d 100%);
@@ -203,43 +272,59 @@
 	<section>
 			<h2>Recommended Reading</h2><br>
 
+			<div class="reading-nav-wrapper">
+			  <div id="design-list">Design</div>
+			  <div class="reading-nav-item" onclick="showThinkingList()" id="thinking-list">Thinking</div>
+			  <div class="reading-nav-item" onclick="showProductList()" id="product-list">Product</div>
+			  <div class="reading-nav-item" onclick="showUXList()" id="ux-list">UX</div>
+			  <div class="reading-nav-item" onclick="showVisualList()" id="visual-list">Visual</div>
+			  <div class="reading-nav-item" onclick="showResearchList()" id="research-list">Research</div></div>
+			</div>  
+
 			<div class="book-stack">
-				<a href="https://read.amazon.com/kp/embed?asin=B0074QGGK6&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_CoonybSGQFBTV" target="_new"><img class="books" src="IMG/books2/23-steal-like-an.png"></a>
-				<a href="https://read.amazon.com/kp/embed?asin=B00C57C392&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_PSonybGEBD801" target="_new"><img class="books" src="IMG/books2/22-decision-book.png"></a>
-				<a href="https://www.amazon.com/Thinking-Type-2nd-revised-expanded/dp/1568989695" target="_new"><img class="books" src="IMG/books2/21-thinking-with-type.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B0074QGGK6&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_CoonybSGQFBTV" target="_new"><img class="books design-thinking" src="IMG/books2/23-steal-like-an.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B00C57C392&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_PSonybGEBD801" target="_new"><img class="books design-thinking" src="IMG/books2/22-decision-book.png"></a>
+				<a href="https://www.amazon.com/Thinking-Type-2nd-revised-expanded/dp/1568989695" target="_new"><img class="books visual-design" src="IMG/books2/21-thinking-with-type.png"></a>
 
-				<a href="" target="_new"><img class="books" src="IMG/books2/20-graphic-design.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/19-practitioners-guide.png"></a>
+				<a href="https://www.amazon.com/Graphic-Design-Basics-Revised-Expanded/dp/161689332X" target="_new"><img class="books visual-design" src="IMG/books2/20-graphic-design.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B005X0K8CM&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_rMonybW5BXHS1" target="_new"><img class="books" src="IMG/books2/18-subliminal.png"></a>
+				<a href="https://www.amazon.com/Practitioners-Guide-User-Experience-Design-ebook/dp/B00I829QK2/ref=sr_1_2?s=books&ie=UTF8&qid=1544975149&sr=1-2&keywords=practitioners+guide+to+user+experience" target="_new"><img class="books ux-design" src="IMG/books2/19-practitioners-guide.png"></a>
 
-				<a href="" target="_new"><img class="books" src="IMG/books2/17-make-it-so.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B005X0K8CM&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_rMonybW5BXHS1" target="_new"><img class="books design-thinking" src="IMG/books2/18-subliminal.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B00HJUBRPG&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_AYonybZW0E4K2" target="_new"><img class="books" src="IMG/books2/25-dont-make-me-think.png"></a>
-				<a href="https://www.amazon.com/Things-Learned-Architecture-School-Press/dp/0262062666" target="_new"><img class="books" src="IMG/books2/24-101-thing.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/16-articulating-design.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/15-UX-strategy.png"></a>
+				<a href="https://www.amazon.com/Make-So-Interaction-Lessons-Science-ebook/dp/B009EGPJCU/ref=sr_1_1?s=books&ie=UTF8&qid=1544975176&sr=1-1&keywords=make+it+so+ux" target="_new"><img class="books visual-design" src="IMG/books2/17-make-it-so.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B015JAVK2M&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_mWonybP0V8VSH" target="_new"><img class="books" src="IMG/books2/14-get-agile.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/13-letting-go.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/12-interviewing-users.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B00HJUBRPG&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_AYonybZW0E4K2" target="_new"><img class="books ux-design" src="IMG/books2/25-dont-make-me-think.png"></a>
+				<a href="https://www.amazon.com/Things-Learned-Architecture-School-Press/dp/0262062666" target="_new"><img class="books product-design" src="IMG/books2/24-101-thing.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B00A3T5UO4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_iXonyb391ZW7P" target="_new"><img class="books" src="IMG/books2/11-universal-principles.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/10-design-like-you-give-a-damn.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/09-project-guide-to-UX.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/08-lean-ux.png"></a>
-				<a href="" target="_new"><img class="books" src="IMG/books2/07-cradle-to-cradle.png"></a>
+				<a href="https://www.amazon.com/Articulating-Design-Decisions-Communicate-Stakeholders/dp/1491921560/ref=sr_1_1?s=books&ie=UTF8&qid=1544975218&sr=1-1&keywords=articulating+design+decision" target="_new"><img class="books ux-design" src="IMG/books2/16-articulating-design.png"></a>
+				<a href="https://www.amazon.com/UX-Strategy-Innovative-Digital-Products/dp/1449372864/ref=sr_1_3?s=books&ie=UTF8&qid=1544975238&sr=1-3&keywords=ux+strategy" target="_new"><img class="books design-research" src="IMG/books2/15-UX-strategy.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B00E257T6C&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_WQFuybJC2Y2YX" target="_new"><img class="books" src="IMG/books2/06-design-of-everyday.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B015JAVK2M&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_mWonybP0V8VSH" target="_new"><img class="books ux-design" src="IMG/books2/14-get-agile.png"></a>
+
+				<a href="https://www.amazon.com/Letting-Go-Words-Interactive-Technologies/dp/0123859301/ref=sr_1_1?s=books&ie=UTF8&qid=1544975281&sr=1-1&keywords=letting+go+of+the+words" target="_new"><img class="books visual-design" src="IMG/books2/13-letting-go.png"></a>
+				<a href="https://www.amazon.com/Interviewing-Users-Uncover-Compelling-Insights/dp/193382011X/ref=sr_1_1?s=books&ie=UTF8&qid=1544975409&sr=1-1&keywords=interviewing+users" target="_new"><img class="books design-research" src="IMG/books2/12-interviewing-users.png"></a>
+
+				<a href="https://read.amazon.com/kp/embed?asin=B00A3T5UO4&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_iXonyb391ZW7P" target="_new"><img class="books design-thinking" src="IMG/books2/11-universal-principles.png"></a>
+
+				<a href="https://www.amazon.com/Design-Like-Give-Damn-Architectural/dp/1933045256/ref=sr_1_2?s=books&ie=UTF8&qid=1544975548&sr=1-2&keywords=design+like+you+give+a+damn" target="_new"><img class="books product-design" src="IMG/books2/10-design-like-you-give-a-damn.png"></a>
+
+				<a href="https://www.amazon.com/Project-Guide-Design-experience-designers/dp/0321815386/ref=sr_1_3?s=books&ie=UTF8&qid=1544975645&sr=1-3&keywords=a+project+guide+to+ux+design" target="_new"><img class="books ux-design" src="IMG/books2/09-project-guide-to-UX.png"></a>
+
+				<a href="https://www.amazon.com/Lean-UX-Designing-Great-Products/dp/1491953608/ref=sr_1_1?s=books&ie=UTF8&qid=1544975620&sr=1-1&keywords=lean+ux" target="_new"><img class="books ux-design" src="IMG/books2/08-lean-ux.png"></a>
+
+				<a href="https://www.amazon.com/Cradle-Remaking-Way-Make-Things/dp/0865475873/ref=sr_1_1?s=books&ie=UTF8&qid=1544975596&sr=1-1&keywords=cradle+to+cradle" target="_new"><img class="books product-design" src="IMG/books2/07-cradle-to-cradle.png"></a>
+
+				<a href="https://read.amazon.com/kp/embed?asin=B00E257T6C&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_WQFuybJC2Y2YX" target="_new"><img class="books product-design" src="IMG/books2/06-design-of-everyday.png"></a>
+
+				<a href="https://read.amazon.com/kp/embed?asin=B003V1WTLI&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_sTonybVJK3WN0" target="_new"><img class="books design-thinking" src="IMG/books2/05-lateral-thinking.png"></a>
+
+				<a href="https://read.amazon.com/kp/embed?asin=B004X1V1CS&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_5YonybNQ2RRVM" target="_new"><img class="books design-research" src="IMG/books2/03-100-things.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B003XDUCLS&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SWonybKKRRN83" target="_new"><img class="books design-research" src="IMG/books2/04-gamestorming.png"></a>
 				
-				<a href="https://read.amazon.com/kp/embed?asin=B003V1WTLI&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_sTonybVJK3WN0" target="_new"><img class="books" src="IMG/books2/05-lateral-thinking.png"></a>
-				
-				<a href="https://read.amazon.com/kp/embed?asin=B004X1V1CS&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_5YonybNQ2RRVM" target="_new"><img class="books" src="IMG/books2/03-100-things.png"></a>
-				<a href="https://read.amazon.com/kp/embed?asin=B003XDUCLS&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_SWonybKKRRN83" target="_new"><img class="books" src="IMG/books2/04-gamestorming.png"></a>
-				
-				<a href="" target="_new"><img class="books" src="IMG/books2/02-elements-of-UX.png"></a>
+				<a href="https://www.amazon.com/Elements-User-Experience-User-Centered-Design/dp/0321683684/ref=sr_1_1?ie=UTF8&qid=1544976174&sr=8-1&keywords=the+elements+of+user+experience" target="_new"><img class="books ux-design" src="IMG/books2/02-elements-of-UX.png"></a>
 
-				<a href="https://read.amazon.com/kp/embed?asin=B00T0ER57I&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_9XonybF8V8C9Y" target="_new"><img class="books" src="IMG/books2/01-best-interface.png"></a>
+				<a href="https://read.amazon.com/kp/embed?asin=B00T0ER57I&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_9XonybF8V8C9Y" target="_new"><img class="books design-thinking" src="IMG/books2/01-best-interface.png"></a>
 			</div>
 	</section>
 	<section>
@@ -314,13 +399,6 @@
  </div>
 </div>
 
-  <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" type="text/javascript"
-  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-  <!-- <script data-cfasync="false" type="text/javascript"
-  src="/form-submission-handler.js"></script> -->
-<!-- END -->
-
 </div>
 
 
@@ -328,6 +406,69 @@
 <script src="JS/global.js"></script>
 
 <script>
+
+
+// Reading Recommendations Selector
+function showThinkingList() {
+  $('#design-list').css("transform", "translateX(0px)");
+  $('.reading-nav-item').removeClass("shift");
+  $('.reading-nav-item').removeClass("active");
+  $('#design-list').css("background", "black");
+  $('#thinking-list').addClass("active");
+  $('.books').removeClass("isVisible");
+  $('.design-thinking').addClass("isVisible");
+}
+function showProductList() {
+  $('.reading-nav-item').removeClass("shift");
+  $('.reading-nav-item').removeClass("active");
+  $('#design-list').css("background", "red");
+  $('#design-list').css("transform", "translateX(270px)");
+  $('#thinking-list').addClass("shift");
+  $('#product-list').addClass("shift");
+  $('#product-list').addClass("active");
+  $('.books').removeClass("isVisible");
+  $('.product-design').addClass("isVisible");
+}
+function showUXList() {
+  $('.reading-nav-item').removeClass("shift");
+  $('.reading-nav-item').removeClass("active");
+  $('#design-list').css("background", "#FA6900");
+  $('#design-list').css("transform", "translateX(328px)");
+  $('#thinking-list').addClass("shift");
+  $('#product-list').addClass("shift"); 
+  $('#ux-list').addClass("shift"); 
+  $('#ux-list').addClass("active");
+  $('.books').removeClass("isVisible");
+  $('.ux-design').addClass("isVisible");
+}
+function showVisualList() {
+  $('.reading-nav-item').removeClass("shift");
+  $('.reading-nav-item').removeClass("active");
+  $('#design-list').css("background", "#3af3ab");
+  $('#design-list').css("transform", "translateX(430px)");
+  $('#thinking-list').addClass("shift");
+  $('#product-list').addClass("shift"); 
+  $('#ux-list').addClass("shift");
+  $('#visual-list').addClass("shift");
+  $('#visual-list').addClass("active");
+  $('.books').removeClass("isVisible");
+  $('.visual-design').addClass("isVisible");
+}
+function showResearchList() {
+  $('.reading-nav-item').removeClass("shift");
+  $('.reading-nav-item').removeClass("active");
+  $('#design-list').css("background", "violet");
+  $('#design-list').css("transform", "translateX(438px)");
+  $('#thinking-list').addClass("shift");
+  $('#product-list').addClass("shift"); 
+  $('#ux-list').addClass("shift");
+  $('#visual-list').addClass("shift");
+  $('#research-list').addClass("active");
+  $('.books').removeClass("isVisible");
+  $('.design-research').addClass("isVisible");
+}
+showThinkingList();
+
 
 // Load footer
 $(function(){
