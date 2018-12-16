@@ -221,6 +221,82 @@
 }
 
 
+.navbar {
+	position: fixed;
+	width: 100%;
+	top: 0;
+/*	height: 54px;
+*/	z-index: 5;
+	background-color: rgba(255, 255, 255, .85);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	transition: top 0.2s ease-in-out;
+
+}
+.nav-spacer {height: 60px;}
+
+.nav-down {top:0px;}
+
+.nav-up {top:-60px;}
+
+.nav-wrapper {
+/*	display: table;
+	width: 980px;
+	margin: 0 auto;
+	height:50px;
+	margin-bottom: -1px;*/
+	
+}
+.nav-menu {
+	max-width: 965px;
+	margin: 0 auto;
+	padding: 10px 0 0 0;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.navbar li {
+/*	display: inline;
+	float:left;
+	white-space: nowrap;*/
+	
+}
+nav li {
+        display: block;
+/*        width: 100%;
+        margin: 0 4px;*/
+    }
+
+.navbar li a {
+	/*color: rgb(96, 96, 96);*/
+	color:black;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	font-weight: 300;
+	font-size: 23px;
+    display: block;
+    padding: 0 0 12px 0;
+    text-decoration: none;
+    border:0;
+    text-shadow: unset;
+    transition: 0;
+}
+
+#active {
+	color:black;
+	font-weight: 400;
+	border-bottom: 3px solid black;
+	margin: 0 auto;
+}
+.navbar li a:hover {
+	color: black;
+	font-weight:400;
+	transition: 0;
+}
+
+ .navbar li a:hover.what-bg {
+	color: black;
+}
 h1, h2, h3, h4, h5 {
 	font-family: 'Lato', sans-serif;
 	text-align: center;
@@ -662,82 +738,6 @@ section {
 }
 
 
-.navbar {
-	position: fixed;
-	width: 100%;
-	top: 0;
-/*	height: 54px;
-*/	z-index: 5;
-	background-color: rgba(255, 255, 255, .85);
-	-webkit-backdrop-filter: blur(8px);
-	backdrop-filter: blur(8px);
-	transition: top 0.2s ease-in-out;
-
-}
-.nav-spacer {height: 60px;}
-
-.nav-down {top:0px;}
-
-.nav-up {top:-60px;}
-
-.nav-wrapper {
-/*	display: table;
-	width: 980px;
-	margin: 0 auto;
-	height:50px;
-	margin-bottom: -1px;*/
-	
-}
-.nav-menu {
-	max-width: 965px;
-	margin: 0 auto;
-	padding: 10px 0 0 0;
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.navbar li {
-/*	display: inline;
-	float:left;
-	white-space: nowrap;*/
-	
-}
-nav li {
-        display: block;
-/*        width: 100%;
-        margin: 0 4px;*/
-    }
-
-.navbar li a {
-	/*color: rgb(96, 96, 96);*/
-	color:black;
-	font-family: 'Lato', sans-serif;
-	text-align: center;
-	font-weight: 300;
-	font-size: 23px;
-    display: block;
-    padding: 0 0 12px 0;
-    text-decoration: none;
-    border:0;
-    text-shadow: unset;
-    transition: 0;
-}
-
-#active {
-	color:black;
-	font-weight: 400;
-	border-bottom: 3px solid black;
-	margin: 0 auto;
-}
-.navbar li a:hover {
-	color: black;
-	font-weight:400;
-	transition: 0;
-}
-
- .navbar li a:hover.what-bg {
-	color: black;
-}
 
 .scroll-progress {
 			height: 5px;
