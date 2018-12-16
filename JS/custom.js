@@ -107,7 +107,7 @@ console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 
     $('.fade-in').addClass('placeholder').removeClass('fade-in')
 
-    $(window).on("load", function() {
+    $(document).ready( function() {
       $('.placeholder').addClass('fade-in').removeClass('placeholder')
       setTimeout(function() {
         $('.loading-bg').css("opacity", "0");
