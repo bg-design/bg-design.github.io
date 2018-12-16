@@ -21,7 +21,7 @@
 	<style>
 
 
-	
+
 
 /*		Swiper Styles*/
 				.swiper-container {
@@ -1181,7 +1181,7 @@ margin-bottom: 20px;
 </section></div></a></div></div></div></div></section></div>
 
 
-	<!-- Trigger/Open The Modal -->
+<!-- Trigger/Open The Modal -->
   <button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
 
 <!-- The Modal -->
@@ -1192,32 +1192,26 @@ margin-bottom: 20px;
 
   	<div class="modal-body">
     <span class="close">&times;</span>
-    <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="bpgrandy@gmail.com"
-  action="https://script.google.com/macros/s/AKfycbx9glEcWh1rffPyWWTqK7hXpbmP8t7osKxIwybZIZAdl2KJLW-l/exec" onsubmit="hideSubmit()">
+<form  action="mailto:inquiries@bengrandy.info" method="POST" onsubmit="hideSubmit()">
+
     <!-- change the form action to your script url -->
 
   	<p class="non-editable">Hello, I'm </p>
  	<fieldset class="pure-group">
       <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
     </fieldset>
-    
     <p class="non-editable">from</p>
-
     <fieldset class="pure-group">
       <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
     </fieldset>
-
     <p class="non-editable">where I am a</p>
     <fieldset class="pure-group">
     	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
     </fieldset>
-
-
     <fieldset class="pure-group">
       <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
     </fieldset>
-    <br><br>
-    
+    <br><br>  
     <fieldset class="pure-group">
       <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
     </fieldset>
@@ -1225,21 +1219,6 @@ margin-bottom: 20px;
   	<input id="submit" type="submit" value="→" class="submit">
 </form>
 
-  <!-- Customise the Thankyou Message People See when they submit the form: -->
-  <div style="display:none;" id="thankyou_message">
-    <h2> Thanks for reaching out.</h2>
-    <h2>I will get back to you soon!</h2>
-  </div>
-
- </div>
-</div>
-
-  <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" type="text/javascript"
-  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-  <!-- <script data-cfasync="false" type="text/javascript"
-  src="/form-submission-handler.js"></script> -->
-<!-- END -->
 
 <footer>
 	<hr>
@@ -1253,7 +1232,7 @@ margin-bottom: 20px;
 			  				  </label>
 			        </span>
 						<div class="social-icons float-right">
-							<span><a href="mailto:bpgrandy@gmail.com" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
+							<span><a href="mailto:inquiries@bengrandy.info" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
 							<span><a href="https://www.linkedin.com/in/bengrandy" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
 							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
 							<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
@@ -1340,6 +1319,8 @@ $(function(){
         		document.getElementById("seconds-counter").innerHTML = secondsSince19890303.toLocaleString();
         }, 1000);
 
+
+
 	// Persona expanding skill bars
 	$(function() {
 
@@ -1358,7 +1339,20 @@ $(function(){
 		setTimeout(function() {
     	$('#mot-connection').animate({ width: '75%' }, 1400);
    		},9300);
-});</script>
+});
+
+// // Get the H1 heading
+// var h1 = document.querySelector('#mot-connection');
+
+// // Get it's position in the viewport
+// var bounding = h1.getBoundingClientRect();
+
+// // Log the results
+// console.log(bounding);
+
+// $("div").outerHeight();
+
+</script>
 
   <script>
   	// Victim counter
