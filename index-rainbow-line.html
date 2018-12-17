@@ -24,7 +24,7 @@
 #rect-gradient, #home-loading {
 	width:300px;
 	height: 3px;
-	margin-left: 10px;
+	margin-left: 0;
 	color: #fff;
 	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
 	background-size: 400% 400%;
@@ -262,99 +262,10 @@ font-size:14px;
 
 </head>
 <body>
-	<div class="loading-bg" id="home-loading">
-		<div class="loading-wrapper loader">
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-		</div>
-	</div>
-	<header>
-		<div class="container" id="header-container">
-			<blockquote>Great products are simple. Great design should be invisible, yet discoverable when necessary.  Our products should understand different contexts and different users and adjust accordingly. They should be conversational. They should know our needs before we do. They should be so easy that we don't have to think.</blockquote> 
-		</div>
-	</header>
-	<div class="home-container">
-		<section class="">
-			<div id="text-overlay">
-			<h2 class="fade-in three" id="top-greeting">Hey, I’m Benjamin.<br/><span id="greeting"></span></h2>
 
-			<div id="rect-gradient"></div>
+<div id="rect-gradient"></div>
 
-				<p class="fade-in four" id="body-copy">Thanks for taking the time to have a look around. I believe whole-heartedly in the ability of <strong>Human-Centered Design</strong> to be a force for good in the world. Through great design, we can create the unimaginable and solve problems that seem to have no answers. Any problem, no matter how big or small, is within the profound reach of design thinking.</p>
-				<p class="fade-in five" id="brighter-future"><strong>Let’s build a brighter future.</strong></p><br>
-				<div class="fade-in six home-links">
-					<div><a class="home-link" href="work.html" id="work">Featured Work</a></div>
-					<div><a class="home-link" href="about.html" id="about">About</a></div>
-					<div><a class="home-link" href="cv.html" id="cv">C.V.</a></div>
-					<div><a class="home-link" href="philosophy.html" id="philosophy">Philosophy</a></div>
-				</div>
-
-			</div>
-			<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
-		</section>
-	</div>
-
-<footer class="center">
-
-	<!-- Snackbar DarkMode confirmation -->
-<div id="darkModeOn"><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
-<div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>
-
-		<div class="home-container fade-in six">
-			<div class="footer-top-row">
-				<p class="dark-mode-switch-text">Dark mode:</p>
-				  <label class="switch" for="checkbox">
-				    <input type="checkbox" id="checkbox" />
-				    <div class="slider round"></div>
-				  </label>
-					
-			</div>
-			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-		</div>
-</footer>
-
-<div class="at-banner">
-  <div class="at-banner__content">
-  
-    <div class="at-banner__text">
-    	<p class="at-banner__text">
-    		<div class="float-left"><img src="IMG/Icons/cookie-monster-icon.png" / id="cookie-monster-icon"></div>Unlike everywhere else on the internet, this website doesn't use cookies. It doesn't collect, analyze, store, track or sell your data, and it doesn't connect to any 3rd parties that do. No person or algorithm is watching.<br/><i class="em em-full_moon_with_face"></i> <strong>Enjoy your privacy!</strong></p></div>
-  </div>
-  <div class="at-banner__close"></div>
-</div>
-
+			
 <script src="JS/custom.js"></script>
-<script src="JS/dark-mode.js"></script>
-
- <script type="text/javascript">
-
-// Close no-cookie banner
-$('.at-banner__close').on('click', function() {
-  $(this).parent().remove();
-});
-
- // Time of Day Greeting
-
-datetoday = new Date();
-timenow=datetoday.getTime();
-datetoday.setTime(timenow);
-thehour = datetoday.getHours();
-if (thehour > 21 || thehour < 4) display = "Burning the midnight oil?";
-else if (thehour > 16) display = "Good evening.";
-else if (thehour > 11) display = "Good afternoon.";
-else if (thehour > 7) display = "Good morning.";
-else display = "Top of the mornin'!";
-var greeting = (display);
-
-document.getElementById("greeting").innerHTML = greeting;
-
-
-console.info('%cAhhh, you\'re the type of person that likes to look under the hood! I like that!', 'background: #fff; color: #000;font-family:serif;font-size:14px;');
-console.log('%cI hope I\'m not penalized for excessive commenting out of unused prototype code.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
-console.log('%cI like to use jQuery and code that is short, to the point, elegant, yet powerful.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
-</script>
-
-
 </body>
 </html>

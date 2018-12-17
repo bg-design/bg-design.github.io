@@ -518,9 +518,9 @@ p a::selection {
   -webkit-text-fill-color: transparent;
   transition:1s;
   cursor: pointer;
-  -webkit-animation: Gradient 15s ease-in-out infinite;
-	-moz-animation: Gradient 15s ease-in-out infinite;
-	animation: Gradient 15s ease-in-out infinite;
+  -webkit-animation: Gradient 5s linear infinite;
+	-moz-animation: Gradient 5s linear infinite;
+	animation: Gradient 5s linear infinite;
 }
 
 #rect-gradient.talk-gradient {
@@ -1039,22 +1039,67 @@ cite p {color:white;}
 .project-icons-wrapper h2 {
 	margin-top:50px;
 }
-/*.dark-mode {
-	color: white !important;
+
+#overlay-nav {
+	margin: 0 auto;
+}
+	#work {
+	background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
+	border-bottom: 4px solid #69D2E7;
+	}
+
+	#about {
+	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
+	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+	}
+
+	#cv {
+	background-image: linear-gradient(to bottom, transparent 65%, #828ef6 10%);
+	border-bottom: 4px solid #828ef6;
+	}
+
+	#philosophy {
+		background-image: linear-gradient(to bottom, transparent 65%, #FBD786 10%);
+		border-bottom: 4px solid #FBD786;
+	}
+
+.home-links {
+		padding-left: 10px;
+		margin-bottom: 140px;
+		display: table;
+		max-width: 350px;
+	}
+
+.home-links a {
+	font-family: 'Lato', sans-serif;
+	font-size: 18pt;
+	line-height: 2em;
+	letter-spacing: .5px;
+	font-weight: 300;
+	margin-right: 30px;
+	text-decoration: none;
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
 }
 
-.dark-mode a:hover{
-	color: #08c7ff !important;
+.home-links a:hover {
+    transition:.4s ease-in .4s, .4s;
+	border:0;
+	background-size:100% 100%;
+	cursor: pointer;
+	}
+
+	
+.home-container {
+	max-width: 800px;
+	margin: 0 auto;
 }
-
-.dark-mode-bg-home {
-	-webkit-animation: nightTime-home 5s ease-in;
-	-moz-animation: nightTime-home 5s ease-in;
-	animation: nightTime-home 5s ease-in;
-	background: #252B33;
-	background-size: 200% 200%;
-}*/
-
 /* MEDIA QUERIES */
 @media screen and (max-width : 730px)   {
 
