@@ -6,6 +6,55 @@
 /*CUSTOM STYLES*/
 
 
+#rect-gradient, #home-loading {
+	width:300px;
+	height: 3px;
+	margin-left: 10px;
+	color: #fff;
+	background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease-in-out infinite;
+	-moz-animation: Gradient 15s ease-in-out infinite;
+	animation: Gradient 15s ease-in-out infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+
 /*Loading Screen */
 
 .loading-bg {
@@ -477,6 +526,51 @@ p a::selection {
 	text-shadow: none;
 }
 
+.lets-talk {
+  position: relative;
+  transition: 1s;
+  float: left;
+  left: 50%;
+  margin-left: -233px;
+  margin-bottom: 10px;
+}
+
+.linear-wipe {
+  font-size:20pt;
+  font-weight: 700;
+  -webkit-animation: Gradient 5s ease-in-out infinite;
+  -moz-animation: Gradient 5s ease-in-out infinite;
+  animation: Gradient 5s ease-in-out infinite;
+  background: white;
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:0.3s;
+}
+
+.linear-wipe:hover, #rect-gradient.talk-gradient {
+  background: linear-gradient(90deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+}
+
+.linear-wipe:hover {
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:1s;
+  cursor: pointer;
+}
+
+#rect-gradient.talk-gradient {
+  width: 120px;
+  background-size: 400% 400%;
+  margin: 15px auto;
+  height: 1px;
+}
+
 .social-icon {
 	width: 35px;
 	height: 35px;
@@ -488,19 +582,7 @@ p a::selection {
 	filter:invert(100%);
 	transition: 0.2s ease-in;
 }
-#footer-cta {
-	border-bottom: 1px solid #08c7ff;
-}
 
-#footer-cta:hover {
-	background:linear-gradient(34deg, rgb(144, 239, 53), rgb(111, 255, 88) 46.22%, rgb(25, 171, 204));
-	color: white;
-	padding:15px;
-	transition: .5s ease-in .3s, .5s;
-	border-bottom: 0;
-	border-radius: 100%;
-
-}
 
 .copyright {
 	text-align: center;
@@ -510,62 +592,15 @@ p a::selection {
     font-family: 'Lato', sans-serif;
 }
 
-#lets-collaborate {
-	display: block;
-	width: 90%;
-    margin-left: 5%;
-    background: black;
-    padding: 20px;
-    max-width: 250px;
-    margin: 15px auto;
-    padding: 20px;
-}
-
-#lets-collaborate a {
-	font-size: 20px;
-	text-transform: uppercase;
-	color: white;
-}
-.credits {
-	color: rgb(201, 201, 201);
-	font-family: 'Lato';
-	font-size: 11pt;
-	font-weight: 300;
-	background: rgb(248, 248, 248);
-	text-align: left;
-	padding: 10px 0 15px 0;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.credits-wrapper {background: rgb(248, 248, 248);}
-
 .width1000 {width: 1000px;}
 
-
-/*img.github {
-	background: url('../IMG/Icons/github.png');
-}*/
-img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
-
-.github-white {background: url('../IMG/Icons/github-white.png');}
-
-.github-white:hover {background: url('../IMG/Icons/github-hover2.png');}
-
-.github, .github:hover, .github-white, .github-white:hover {
-	width: 30px;
-	height: 30px;
-	float:right;
-	background-size: 100% auto;
-}
 
 .project-button:hover {
 	transform: translateY(-5px);
 	box-shadow: 0px 10px 5px rgb(200, 200, 200);
 	background: #69D2E7;
 	border:0;
-/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-*/}
+}
 
 .project-button:active {
 	position: relative;
@@ -573,42 +608,26 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 	box-shadow: 0px 0px 0px rgb(200, 200, 200);
 	background: #69D2E7;
 	border:2px solid grey;
-	/*background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	*/}
+}
 .who-button:before {
 	background: rgba(127, 243, 193, 1);
-/*	background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-	background: -webkit-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));*/
+
 }
 .what-button:before {
 	background: #69D2E7;
-/*	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-	background: -webkit-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-	background: -moz-linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
+
 }
 
 .how-button:before {
 	background: #69D2E7;
-/*
-	background: linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-	background: -webkit-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-	background: -moz-linear-gradient(140deg, rgb(244, 145, 32) 37.39%, rgb(255, 11, 8));
-
-*/
 
 }
 .when-button:before {
 	background: #828ef6;
-/*	background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-	background: -webkit-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);
-	background: -moz-linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);*/
+
 }
 .why-button:before {
 	background: rgba(243, 182, 146, 1);
-/*	background: linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	background: -webkit-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));
-	background: -moz-linear-gradient(140deg, rgb(5, 244, 239) 37.39%, rgb(120, 21, 255));*/
 }
 
 .bottom-nav {
@@ -622,8 +641,7 @@ img.github:hover {content:url('../IMG/Icons/github-hover2.png');}
 .bottom-nav button {
 	font: 12pt 'Lato', sans-serif;
 	background: white;
-/*	border: 0;
-*/	color: black;
+	color: black;
 }
 
 .dark-mode .bottom-nav button {

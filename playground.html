@@ -16,11 +16,49 @@
 
 @import url(CSS/global.css);
 
+.lets-talk {
+  position: relative;
+  transition: 1s;
+  float: left;
+  left: 50%;
+  margin-left: -233px;
+  margin-bottom: 10px;
+}
 
-body {
-  margin: 0;
-  padding: 0;
-  transition: 3s ease-in-out;
+.linear-wipe {
+  font-size:20pt;
+  font-weight: 700;
+  -webkit-animation: Gradient 5s ease-in-out infinite;
+  -moz-animation: Gradient 5s ease-in-out infinite;
+  animation: Gradient 5s ease-in-out infinite;
+  background: white;
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:0.3s;
+}
+
+.linear-wipe:hover, #rect-gradient.talk-gradient {
+  background: linear-gradient(90deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+}
+
+.linear-wipe:hover {
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:1s;
+  cursor: pointer;
+}
+
+#rect-gradient.talk-gradient {
+  width: 120px;
+  background-size: 400% 400%;
+  margin: 15px auto;
+  height: 1px;
 }
 
 
@@ -67,20 +105,6 @@ animation: heart 9s ease-in-out 0s infinite;
   }
 }
 
-.footer-top-row {
-	padding-top:20px;
-}
-
-.footer-middle-row {
-	padding: 25px 0;
-}
-
-#footer-left, #footer-right {
-	position: relative;
-	bottom:12px;
-}
-#footer-left {left: 31px;}
-#footer-right {right: 27px;}
 
 .heart {
 	width: 100px;
@@ -186,65 +210,6 @@ figure.snip1197 .author h5 {
   width: 250px;
 }
 
-/*#darkModeOn, #darkModeOff {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 999;
-  left: 50%;
-  top: 30px;
-  font-size: 17px;
-  font-family: 'Lato', sans-serif;
-  border: 1px solid grey;
-  font-weight: 300;
-}
-
-
-#darkModeOn {
-  background-color: #333;
-  color: #fff;
-}
-
-#darkModeOn.show {
-  visibility: visible;
-  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
-  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
-}
-
-#darkModeOff {
-  background-color: white;
-  color: black;
-}
-
-#darkModeOff.show {
-  visibility: visible;
-  -webkit-animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
-  animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
-}
-
-@-webkit-keyframes darkfadein {
-  from {top: 0; opacity: 0;} 
-  to {top: 30px; opacity: 1;}
-}
-
-@keyframes darkfadein {
-  from {top: 0; opacity: 0;}
-  to {top: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes darkfadeout {
-  from {top: 30px; opacity: 1;} 
-  to {top: 0; opacity: 0;}
-}
-
-@keyframes darkfadeout {
-  from {top: 30px; opacity: 1;}
-  to {top: 0; opacity: 0;}
-}*/
 
 	</style>
 	
@@ -273,6 +238,7 @@ figure.snip1197 .author h5 {
     <img src="IMG/shyft-mock3.jpg" />
   </div>
 <div class="container" id="shyft">
+
     <section id="demos">
       <div class="row">
         <div class="large-12 columns">
@@ -330,6 +296,7 @@ figure.snip1197 .author h5 {
   <section>
     <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
     <br>
+    
     <p class="body">Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
     <img src="IMG/Shyft/shyft-business-model.jpg" id="shyft-model"/>
 
@@ -418,6 +385,7 @@ figure.snip1197 .author h5 {
 
   </section>
   <hr style="border-bottom: 1px solid #5e5e5e;">
+
 </div>
 
 
@@ -427,15 +395,25 @@ figure.snip1197 .author h5 {
       </button>
     </div>
 
-</div></section></div>
+</div>
+<div>
+          <h3 >Let's talk!</h3>
+        </div>
+</section></div>
 <footer class="center">
 		<div class="container">
 			<div class="footer-top-row">
-				<p class="dark-mode-switch-text">Dark mode:</p>
+        <div class="float-left">
+				  <p class="dark-mode-switch-text">Dark mode:</p>
 				  <label class="switch" for="checkbox">
 				    <input type="checkbox" id="checkbox" />
 				    <div class="slider round"></div>
-				  </label>
+          </label>
+        </div>
+        <div class="lets-talk">
+          <h3 class="linear-wipe">Let's chat</h3>
+          <div class="talk-gradient" id="rect-gradient"></div>
+        </div>
 						<div class="float-right">
 							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
 							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
@@ -447,7 +425,7 @@ figure.snip1197 .author h5 {
 			</div>
 			<div class="footer-middle-row">
 				<h5>
-					<span id="footer-left">Designed, handcoded, and handcrafted with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a>
+					<span id="footer-left">Designed and hand coded with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a>
 				</h5>
 			</div>
 			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
