@@ -535,7 +535,7 @@ p a::selection {
   margin-bottom: 10px;
 }
 
-.linear-wipe {
+.lets-talk .linear-wipe {
   font-size:20pt;
   font-weight: 700;
   -webkit-animation: Gradient 5s ease-in-out infinite;
@@ -547,7 +547,7 @@ p a::selection {
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition:0.3s;
+  transition:0.5s;
 }
 
 .linear-wipe:hover, #rect-gradient.talk-gradient {
