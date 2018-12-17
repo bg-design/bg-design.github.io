@@ -528,7 +528,10 @@ p a::selection {
   background-size: 100% 100%;
   margin: 15px auto;
   height: 1px;
-/*  -webkit-animation: Gradient 15s ease-in-out infinite;
+
+/*  Disabled for CPU Performance :( //////
+
+  -webkit-animation: Gradient 15s ease-in-out infinite;
 	-moz-animation: Gradient 15s ease-in-out infinite;
 	animation: Gradient 15s ease-in-out infinite;*/
 }
