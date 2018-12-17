@@ -1117,10 +1117,6 @@ cite p {color:white;}
 /* Tablet (S & M) */
 @media screen and (min-width : 431px) and (max-width : 1024px)   {
 
-	.books {
-		height: 30px;
-	    left: 35px;
-	}
 	#splash {
 		margin:200px 10px 10px 10px;
 		padding:20px;
