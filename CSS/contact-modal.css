@@ -45,6 +45,22 @@ cursor: pointer;
   border: 2px solid grey;
 }
 
+.projectIcon {
+  width: 50px;
+  padding: 10px;
+  border: none;
+  opacity: 1;
+  background: white;
+  border: 1px solid rgb(100, 100, 100);
+  border-radius: 100%;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.projectIcon.right {transform: rotate(-90deg);}
+.projectIcon.left {transform: rotate(90deg);}
+
 .chatIcon:hover {
 /*  opacity: 1;
   background: rgba(255,255,255,.8);*/

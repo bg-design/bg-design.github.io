@@ -1,223 +1,103 @@
-<!-- Designed, handcoded, and handcrafted with love by Benjamin Grandy in the San Francisco Bay Area. -->
+<!-- Designed and coded by Ben Grandy with love in SF, CA. -->
 
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="CSS/global.css" media="screen">
+
+  
+  <style>
 
 
-<style>
+.vertical-nav {
 
-@import url(CSS/global.css);
-
-
-body {
-  background: white;
-  margin: 0;
-  padding: 0;
-  transition: 3s ease-in-out;
-}
-
-.dark-mode {
-	background: black;
-	transition: 3s ease-in-out;
-}
-
-
-/*Dark mode switch*/
-
-.dark-mode-switch-text {
-	color: rgb(185, 185, 185);
-	font-weight: 300;
-	width: 100px;
-	float: left;
-}
-.switch {
-  display: inline-block;
-	height: 25px;
-	position: relative;
-	width: 50px;
-	top: 5px;
-}
-
-.switch input {
-  display:none;
-}
-
-.slider {
-  background-color: #fff;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-}
-
-.slider:before {
-  background-color: #1e2228;
-  bottom: 2px;
-  content: "";
-  height: 21px;
-  left: 2px;
-  position: absolute;
-  transition: .4s;
-  width: 21px;
-}
-
-input:checked + .slider {
-  background-color: black;
-}
-
-input:checked + .slider:before {
-  transform: translateX(25px);
-}
-
-input:checked + .slider.round:before {
-	background: #1e2228;
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-
-/*Heart Animation */
-svg {
-width: 50px;
-display: block;
-position: relative;
-}
-
-.anim{
-display: inline;
-fill:#de2144;
-stroke:#de2144;
-stroke-dasharray: 2000;
-stroke-dashoffset: 0;
-stroke-width: 1;
--webkit-animation: heart 9s ease-in-out 0s infinite;
-animation: heart 9s ease-in-out 0s infinite;
-}
-
-@-webkit-keyframes heart {
-  0% {
-    stroke-dashoffset: 0;
-    fill:#de2144;
-  }
-
-  35% {
-  	stroke-dashoffset: 2000;
-  }
-
-  50% {
-    fill:rgba(222, 33, 68, 0.1);
-}
-
-/* Filling stroke heart */
-
-60% {stroke-dashoffset: 2000;}
-
-100% {
-    stroke-dashoffset: 0;
-  fill:#de2144;
-    
-  }
-}
-
-.footer-top-row {
-	padding-top:20px;
-}
-
-.footer-middle-row {
-	padding: 25px 0;
-}
-
-#footer-left, #footer-right {
-	position: relative;
-	bottom:12px;
-}
-#footer-left {left: 31px;}
-#footer-right {right: 27px;}
-
-.heart {
-	width: 100px;
-  background: url("IMG/footer/heart5.png") no-repeat;
-  background-position: 18px 0;
-  cursor: pointer;
-  transition: background-position 1s steps(56);
-  transition-duration: 0s;
-}
-.anim.is-active, .heart.is-active {
-  transition-duration: 2s;
-  background-position: -3718.5px 0;
-}
-
-.placement {
-  display: inline-block;
-	position: relative;
-	-webkit-clip-path: circle(40% at 50% 50%);
-			clip-path: circle(40% at 50% 50%);
-}
-
-.floatingArrowIcon {
+  width: 25%;
+  background-color: #414a58;
   position: fixed;
-  width: 50px;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  border: none;
-  opacity: 1;
-  background: white;
-  border: 2px solid black;
-  border-radius: 100%;
-  z-index: 1;
-  cursor: pointer;
-  transition: 0.5s;
+  height: 100%;
+  overflow: auto;
 }
 
-	</style>
-	
+.vertical-nav >* {color: white;}
+
+.project-title {
+  font-size: 40px;
+  margin-bottom: -15px;
+  line-height: 1.3;
+  font-weight: 500;
+  text-align: left;
+  padding: 15px;
+  font-family: 'Lato', sans-serif;
+}
+
+.project-date {
+  text-align: center;
+  background: #2d2d2d;
+}
+
+.project-skills li{
+  font-family: 'Lato', sans-serif;
+  margin-left:30px;
+  font-weight: 500;
+}
+
+.project-content {
+  margin-left:25%;
+}
+
+.project-details {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.vertical-nav hr {
+  margin: 20px 0;
+}
+
+</style>
 </head>
 <body>
-  <div class="loading-bg" id="how-loading">
-    <div class="loading-wrapper">
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-    </div>
-  </div>
-  <nav class="navbar">
-      <div class="container nav-wrapper">
-          <div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-      <img class="logo" src="IMG/ben-grandy-sig.png">
-      <ul class="nav-menu">
-        <li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
-      </ul>
-    </div>
-    <div class="scroll-progress"></div>
-  </nav>
-  <div class="nav-spacer"></div>
+
+<div class="vertical-nav">
+  <button class="projectIcon">
+        <img src="IMG/Icons/close-project-icon.png">
+  </button>
+  <button class="projectIcon left">
+        <img src="IMG/Icons/arrow-icon-filled.png">
+  </button>
+  <button class="projectIcon right">
+        <img src="IMG/Icons/arrow-icon-filled.png">
+  </button>
+  <p class="project-title">Shyft Event Planning</p>
   <hr>
-  <div class="banner">
-    <img src="IMG/shyft-mock3.jpg" />
-  </div>
+  <p class="project-date">February 2016 | 2 weeks</p>
+    <ul class="project-skills">
+      <li>User Research</li>
+      <li>Visual Design</li>
+      <li>Interaction Design</li>
+    </ul>
+  <p class="project-details"><strong>Team</strong>: 2 designers<br/><strong>My Role</strong>: Visual & UX design<br/><strong>Deliverables</strong>: Competitive Analysis, Comparative Analysis, User interviews, Booking Flow, Wireframes, Style Guide</p>
+  <p>Shyft was a client project to create a platform to connect temp. workers, usually Brand Ambassadors, to agencies looking to hire.</p>
+<hr>
+  <p class="dark-mode-switch-text">Dark mode:</p>
+  <label class="switch" for="checkbox">
+    <input type="checkbox" id="checkbox" />
+    <div class="slider round"></div>
+  </label>
+  <p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
+</div>
+
+<div class="project-content">
+
 <div class="container" id="shyft">
-  <section>
-    <div class="center shyft-banner-description">
-      <h1>Shyft Event Planning</h1>
-      <p>Interaction Design | February 2016</p>
-      <p><strong>Duration</strong>: 2 weeks | <strong>Team</strong>: 2 designers | <strong>Role</strong>: Visual &amp; UX design</p>
-      <p><strong>Deliverables</strong>: Competitive Analysis, Comparative Analysis, User interviews, Booking Flow, Wireframes, Style Guide</p>
-    </div>
-  </section>
-  <section>
+
     <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
     <br>
+    
     <p class="body">Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
     <img src="IMG/Shyft/shyft-business-model.jpg" id="shyft-model"/>
 
@@ -292,12 +172,20 @@ animation: heart 9s ease-in-out 0s infinite;
     </div> -->
 
     <div class="bottom-nav">
-      <button class="float-left hvr-sweep-to-left when-button" onClick="../safe-harbor.html"><div class="flip float-left">➟</div>&nbsp;Safe Harbor</button>
-      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert&nbsp;➟</button>
+      <button class="float-left hvr-sweep-to-left when-button" onClick="../safe-harbor.html">< Safe Harbor</button>
+      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert ></button>
       
     </div>
+
+<button onclick="darkModeOn()">Show darkModeConfirmation</button>
+
+<button onclick="darkModeOff()">Show darkModeOff</button>
+
+
+
   </section>
   <hr style="border-bottom: 1px solid #5e5e5e;">
+
 </div>
 
 
@@ -307,103 +195,13 @@ animation: heart 9s ease-in-out 0s infinite;
       </button>
     </div>
 
-
-<footer class="center">
-		<div class="container">
-			<div class="footer-top-row">
-				<p class="dark-mode-switch-text">Dark mode:</p>
-				  <label class="switch" for="checkbox">
-				    <input type="checkbox" id="checkbox" />
-				    <div class="slider round"></div>
-				  </label>
-						<div class="float-right">
-							<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
-							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
-							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
-							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
-							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
-							<span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
-						</div>
-			</div>
-			<div class="footer-middle-row">
-				<h5>
-					<span id="footer-left">Designed, handcoded, and handcrafted with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a>
-				</h5>
-			</div>
-			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-		</div>
-	</footer>
-
-<script src="https://code.jquery.com/jquery-latest.js"></script>
+</div>
+<div>
+        </div>
+</section></div>
 
 <script src="JS/global.js"></script>
 
-
-
-
-<script>
-
-window.addEventListener("scroll", function (event) {
-    
-    var scroll = this.scrollY;
-    // console.log(scroll);
-    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        $(".floatingArrowIcon").css("transform", "rotate(0deg)");
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-      }
-});
-
-// Scroll down one page
-function scrollDown() {
-    var scrollPosition = window.pageYOffset
-    var winHeight = window.innerHeight;
-    var scrollTo = winHeight + scrollPosition - 150;
-    $("html, body").animate({ scrollTop: scrollTo }, "slow");
-}
-
-function scrollBoth (){
-  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        scrollDown();
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-      }
-}
-
-// // Current year for copyright (future-proof)
-// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
-
-// Dark mode switch listener
-
-document.addEventListener('DOMContentLoaded', function () {
-  var checkbox = document.querySelector('input[type="checkbox"]');
-
-  checkbox.addEventListener('change', function () {
-    if (checkbox.checked) {
-      document.body.classList.add("dark-mode");
-      alert('Im Dark');
-    } else {
-      document.body.classList.remove("dark-mode");
-      alert('Im Not');
-    }
-  });
-});
-
-
-// Click on heart
-  $(function() {
-  $(".heart").on("click", function() {
-    $(".heart").toggleClass("is-active");
-    setTimeout(function() {
-          $(".heart").toggleClass("is-active");
-        },2000);
-  });
-});
-
-</script>
-
 </body>
 </html>
+
