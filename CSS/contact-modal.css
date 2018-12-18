@@ -45,8 +45,13 @@ cursor: pointer;
   border: 2px solid grey;
 }
 
+.project-nav-buttons {
+  height: 70px;
+}
+
 .projectIcon {
   width: 50px;
+  height: 50px;
   padding: 10px;
   border: none;
   opacity: 1;
@@ -56,10 +61,36 @@ cursor: pointer;
   z-index: 1;
   cursor: pointer;
   transition: 0.3s;
+  position: fixed;
 }
 
-.projectIcon.right {transform: rotate(-90deg);}
-.projectIcon.left {transform: rotate(90deg);}
+.projectIcon:hover {
+  background: rgb(161, 161, 161);
+}
+
+.projectIcon.projectClose:hover {
+  background: #ef6462;
+}
+
+.projectIcon.right {
+  transform: rotate(-90deg);
+  right:0;
+}
+
+.projectIcon.right:hover {
+  background: #3af3ab;
+}
+
+
+
+.projectIcon.left {
+  transform: rotate(90deg);
+  right:65px;
+}
+
+.projectIcon.left:hover {
+  background: #69D2E7;
+}
 
 .chatIcon:hover {
 /*  opacity: 1;

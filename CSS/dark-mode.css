@@ -102,6 +102,7 @@ body {
   float: left;
   font-size:13pt;
   font-family: 'Lato', sans-serif;
+  padding: 2px 5px 2px 10px;
 }
 .switch {
   display: inline-block;
