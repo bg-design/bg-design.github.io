@@ -75,7 +75,7 @@ window.addEventListener("scroll", function (event) {
     var scroll = this.scrollY;
     // console.log(scroll);
 
-    // Flip Arrow
+    // Flip Arrow (200 is offset for footer)
     if ((window.innerHeight + window.pageYOffset) < (document.body.clientHeight - 200)) {
         $(".floatingArrowIcon").css("transform", "rotate(0deg)");
         }
@@ -93,6 +93,7 @@ function scrollDown() {
 }
 
 function scrollBoth (){
+    // (200 is offset for footer)
   if ((window.innerHeight + window.pageYOffset) < (document.body.clientHeight - 200)) {
         scrollDown();
         }

@@ -36,40 +36,6 @@
 <!-- END -->
 <script>
 
-
-// Scroll listener
-window.addEventListener("scroll", function (event) {
-
-    var scroll = this.scrollY;
-    // console.log(scroll);
-
-    // Flip Arrow
-    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        $(".floatingArrowIcon").css("transform", "rotate(0deg)");
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-      }
-});
-
-// Scroll down one page
-function scrollDown() {
-    var scrollPosition = window.pageYOffset
-    var winHeight = window.innerHeight;
-    var scrollTo = winHeight + scrollPosition - 50;
-    $("html, body").animate({ scrollTop: scrollTo }, "medium");
-}
-
-function scrollBoth (){
-  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        scrollDown();
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-        $("html, body").animate({ scrollTop: 0 }, "medium");
-      }
-}
-
 // // Current year for copyright (future-proof)
 // document.getElementById("current-year").innerHTML = (new Date().getFullYear());
 
