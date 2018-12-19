@@ -295,7 +295,6 @@
   
 </div>
 
-
     <div class="scroll" onclick="scrollBoth()">
       <button class="floatingArrowIcon">
         <img src="IMG/Icons/arrow-icon-filled.png">
@@ -306,65 +305,10 @@
 
 </div>
 
-<div id="footer-import"></div>
-
+<div id="menu-import"></div>
 
 <script src="JS/global.js"></script>
 
-<script>
-
-  // Load menu button
-$(function(){
-      $("#footer-import").load("menu.html"); 
-    });
-
-  /* Open when someone clicks on the span element */
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-  $('html').css("overflow", "hidden");
-}
-
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-  $('html').css("overflow", "auto");
-}
-
-
-  // Scroll listener
-window.addEventListener("scroll", function (event) {
-
-    var scroll = this.scrollY;
-    // console.log(scroll);
-
-    // Flip Arrow
-    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        $(".floatingArrowIcon").css("transform", "rotate(0deg)");
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-      }
-});
-
-// Scroll down one page
-function scrollDown() {
-    var scrollPosition = window.pageYOffset
-    var winHeight = window.innerHeight;
-    var scrollTo = winHeight + scrollPosition - 50;
-    $("html, body").animate({ scrollTop: scrollTo }, "medium");
-}
-
-function scrollBoth (){
-  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        scrollDown();
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-        $("html, body").animate({ scrollTop: 0 }, "medium");
-      }
-}
-
-</script>
 
 </body>
 </html>

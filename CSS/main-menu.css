@@ -44,7 +44,7 @@
 }
 
 .overlayBG {
-  background: url(IMG/nd-logo-v2c-invert.png);
+  background: url(../IMG/nd-logo-v2c-invert.png);
 background-size: contain;
 opacity: 0.1;
 position: absolute;

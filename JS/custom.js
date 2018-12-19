@@ -52,6 +52,57 @@ console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 
 // }
 
+  // Load menu button
+$(function(){
+      $("#menu-import").load("menu.html"); 
+    });
+
+  /* Open when someone clicks on the span element */
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  $('html').css("overflow", "hidden");
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  $('html').css("overflow", "auto");
+}
+
+  // Scroll listener
+window.addEventListener("scroll", function (event) {
+
+    var scroll = this.scrollY;
+    // console.log(scroll);
+
+    // Flip Arrow
+    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
+        $(".floatingArrowIcon").css("transform", "rotate(0deg)");
+        }
+    else {
+        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
+      }
+});
+
+// Scroll down one page
+function scrollDown() {
+    var scrollPosition = window.pageYOffset
+    var winHeight = window.innerHeight;
+    var scrollTo = winHeight + scrollPosition - 50;
+    $("html, body").animate({ scrollTop: scrollTo }, "medium");
+}
+
+function scrollBoth (){
+  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
+        scrollDown();
+        }
+    else {
+        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
+        $("html, body").animate({ scrollTop: 0 }, "medium");
+      }
+}
+
+
 // Read more 
 
     var orgContent = $('.excerpt').html();
