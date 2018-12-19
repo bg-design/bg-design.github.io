@@ -92,8 +92,6 @@ cursor: pointer;
   background: #3af3ab;
 }
 
-
-
 .projectIcon.left {
   transform: rotate(90deg);
   right:65px;
@@ -160,7 +158,10 @@ fieldset {
 
 input {
 	padding: 10px 0;
+}
 
+#nda-text {
+  color:grey;
 }
 
 .pure-group {
