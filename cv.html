@@ -702,7 +702,14 @@ $( document ).ready(function() {
 	$(function(){
 	      $("#contact-import").load("contact-modal.html"); 
 	    });
+
+	function includeJS(incFile)
+	{document.write('<script type="text/javascript" src="'+ incFile+ '"></script>');}
+
+	includeJS('JS/contact-modal.js');
 }
+
+
 
 </script>
 
