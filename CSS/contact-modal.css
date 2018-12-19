@@ -4,7 +4,7 @@
   position: fixed;
 width: 50px;
 left: 3px;
-bottom: 8px;
+bottom: 5px;
 padding: 10px;
 border: none;
 opacity: 1;
@@ -14,6 +14,17 @@ border-radius: 100%;
 z-index: 1;
 cursor: pointer;
   transition: 0.3s;
+}
+
+.chatIcon:hover {
+/*  opacity: 1;
+  background: rgba(255,255,255,.8);*/
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.chatIcon:active {
+  transition: .3s;
+  box-shadow: none;
+  border: 2px solid grey;
 }
 
 .floatingArrowIcon {
@@ -90,18 +101,6 @@ cursor: pointer;
 
 .projectIcon.left:hover {
   background: #69D2E7;
-}
-
-.chatIcon:hover {
-/*  opacity: 1;
-  background: rgba(255,255,255,.8);*/
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.chatIcon:active {
-  bottom: 8px;
-  transition: .3s;
-  box-shadow: none;
-  border: 2px solid grey;
 }
 
 /* The Modal (background) */

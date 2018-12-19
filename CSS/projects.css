@@ -88,8 +88,9 @@
   }
 
 .chatIcon:not(#menu-icon) {
-    right:330px;
-    left:initial;
+    right: 24.3%;
+margin-right: -50px;
+left: initial;
 }
 @media only screen and (max-width: 985px) {
       .projectImgHalf {
