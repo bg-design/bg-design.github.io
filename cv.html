@@ -93,27 +93,6 @@
 			margin: 20px 0;
 		}
 
-		.software-icons-wrapper {
-			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;  
-			-webkit-flex-flow: row wrap;
-			justify-content: space-around;
-		}
-		.software-icons {
-			width: 250px;
-			float: left;
-			transition: ease-in-out 2s;
-
-		}
-		.software-icons:hover {
-			opacity: 1;
-			transition: ease-in-out .2s;
-			filter:grayscale(0%);
-		}
-
 		.tooltip {
 		    position: relative;
 		    display: inline-block;
@@ -151,11 +130,6 @@
 		.education {
 			width: 100%;
 			transform: scale(1.1,1.1);
-		}
-
-		.skills a:hover {
-/*			background: #b8e8ff;
-*/
 		}
 
 		.typing-wrap {
@@ -197,50 +171,11 @@
 	        100% { opacity:1; }
 	    }
 
+	    #numbers, #experience, #education, #tools, #skills {
+	    	height: 50px;
+	    	display: block;
+	    }
 
-
-		/*HOW PROCESS IMAGE*/
-		@media only screen and (max-width: 700px)
-		{
-			img.process {
-				width: 100%;
-			}
-
-			p {
-				font-size: 100%;
-				line-height: 1.3;
-			}
-		}
-
-		/* Desktop */
-		@media only screen
-		and (min-device-width: 1024px)  {
-
-		/*  .first-copy {
-			width: 850px;*/
-			.software-icons {
-				opacity: 0.5;
-				filter:grayscale(80%);
-			}
-		}
-
-		/*Tablet and Mobile*/
-		@media only screen and (max-device-width: 1023px) {
-			.software-icons {
-		    	opacity: 1;
-		    	filter: grayscale(0%);
-			}
-		}
-		/* Tablet */
-		@media only screen and (min-width : 479px) and (max-width : 1024px)   {
-
-			.software-icons {width: 150px;}
-		}
-		/* Mobile */
-		@media only screen and (max-width: 479px)  {
-
-			.software-icons {width: 125px;}
-		}
 
 		.numbers-third, .numbers-half {
 			display: inline-block;
@@ -248,6 +183,7 @@
 			margin: 0;
 			float: left;
 			transition: 0.5s;
+			height: 32vh;
 		}
 
 		.dark-mode .numbers-third, .dark-mode .numbers-half {
@@ -272,7 +208,7 @@
 		}
 
 		.numbers-box {
-			margin: 70px 0;
+			margin: 1.7vh 0;
 		}
 
 		.numbers h1 {
@@ -335,16 +271,13 @@
 		}
 		.when p{
 			line-height: 1.7em;
-	    	margin: 0px 0 15px 0;
+	    	margin: 0;
 		}
 
 		.position-length {
 			color: grey;
 			font-size: 16px;
 			float: right;
-		}
-
-		.dark-mode .position-length {
 			color:rgb(202, 202, 202);
 		}
 
@@ -424,6 +357,40 @@
 			transition: 1s;
 		}
 
+		.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+}
+
+.collapsibleActive, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:before {
+  content: '\002B';
+color: white;
+font-size: 50px;
+float: left;
+margin: -1px 20px 0px 0px;
+}
+
+.collapsibleActive:before {
+  content: "\2212";
+}
+
+.collapsibleContent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/*.collapsibleStartActive {
+	display: block;
+	overflow: initial;
+}
+*/
 
 		/* MEDIA QUERIES */
 		@media screen and (max-width : 1024px)   {
@@ -494,12 +461,26 @@
 			<div class="loader__ball"></div>
 		</div>
 	</div>
-	<nav class="navbar">
+	<nav class="navbar" id="mainNav">
   		<div class="container nav-wrapper">
 <!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
 			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
 			<ul class="nav-menu">
 				<li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="cv.html" id="active">CV</a></li><li><a href="philosophy.html">Philosophy</a></li>
+			</ul>
+		</div>
+<!-- 		<hr>
+ -->	</nav>
+ <nav class="navbar" id="contextualNav">
+  		<div class="container nav-wrapper">
+<!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
+			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
+			<ul class="nav-menu">
+				<li><a href="#skills" id="skillsBtn" class="nav-item">Skills</a></li>
+				<li><a href="#tools" id="toolsBtn" class="nav-item">Tools</a></li>
+				<li><a href="#numbers" id="numbersBtn" class="nav-item" >Numbers</a></li>
+				<li><a href="#experience" id="experienceBtn" class="nav-item" >Experience</a></li>
+				<li><a href="#education" id="educationBtn" class="nav-item">Education</a></li>
 			</ul>
 		</div>
 <!-- 		<hr>
@@ -518,6 +499,9 @@
 						<p>a <strong>UX/UI Designer</strong>.</p><p>a <strong>Visual Designer</strong>.</p><p>a <strong>User Researcher</strong>.</p><p>a <strong>Frontend Developer</strong>.</p><p>an <strong>Experience Designer</strong>.<br><span class="small">(I turn lovely ideas into great experiences.) </span></p>
 					</div>
 				</div>
+
+			<a name="skills" id="skills"></a>
+
 			<div class="fade-in three">
 				<p class=""><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Sketch, Zeplin, InVision, Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
 
@@ -528,7 +512,8 @@
 				<p class="fade-in four"><strong>Frontend Development</strong>: Responsive Web Development, HTML5, CSS3, SCSS, SASS, Javascript, Git, Bootstrap, Wordpress, SEO'd, Universal Access (Accessible)</p>
 			</div>
 
-			<h2 class="fade-in four clear">Tools</h2>
+			<a name="tools" id="tools"></a>
+				<h2 class="fade-in four clear">Tools</h2>
 		<p class="fade-in two">
 			<ul>
 				<li><strong>Concept &amp; Lo-fi</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
@@ -539,51 +524,45 @@
 		</p>
 		<img class="tools fade-in four img-invert" src="IMG/tools2.jpg">
 
+		
+
 		</section>
 	</p></section></section>
-</div>
-		<section class="clear when">
+</div>	
+
+<section class="clear when">
+<a name="numbers" id="numbers"></a>
   <div class="what-box numbers">
-
 	    	<div class="numbers-third" id="design-yrs">
-
 	    		<div class="numbers-box">
 		    		<h1>10 <span class="numbers-count">yrs.</span></h1>
 		    		<p class="numbers-text">of design experience.</p>
 	    		</div>
-	    		
 	    	</div>
 			<div class="numbers-third" id="ux-yrs">
-
 				<div class="numbers-box">
 					<h1>3 <span class="numbers-count">yrs.</span></h1>
 		    		<p class="numbers-text">as a UX practitioner.</p>
 		    	</div>
-				
 			</div>
 			<div class="numbers-third" id="web-yrs">
 				<div class="numbers-box">
 					<h1>8 <span class="numbers-count">yrs.</span></h1>
 		    		<p class="numbers-text">building websites.</p>
 		    	</div>
-				
 			</div>
-
 			<div class="numbers-half" id="web-design-projects">
 				<div class="numbers-box">
 					<h1>15 <span class="numbers-count">websites</span></h1>
 		    		<p class="numbers-text">designed.</p>
 		    	</div>
-				
 			</div>
 			<div class="numbers-half" id="web-dev-projects">
 				<div class="numbers-box">
 					<h1>8 <span class="numbers-count">websites</span></h1>
 		    		<p class="numbers-text">designed and built.</p>
 		    	</div>
-				
 			</div>
-			
 			<div class="numbers-third" id="mobile-apps">
 				<div class="numbers-box">
 					<h1>7 <span class="numbers-count">mobile apps</span></h1>
@@ -595,7 +574,6 @@
 					<h1>21 <span class="numbers-count">logos</span></h1>
 		    		<p class="numbers-text">designed.</p>
 		    	</div>
-				
 			</div>
 			<div class="numbers-third" id="clients">
 				<div class="numbers-box">
@@ -603,59 +581,76 @@
 		    		<p class="numbers-text">clients.</p>
 		    	</div>
 			</div>
-			
 		</div>
 </section>
-<div class="container">
+<div class="container" >
 		<section>
+
+		<a name="experience" id="experience"></a>
+
 		<h1 class="clear">Experience</h1>
 
-		<p class="when-titles"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right">Feb. '16—<strong>present</strong> &#160;&#160;<span class="position-length">(2 yrs. 11 mos)</span></span></p>
+		<p class="when-titles collapsible"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right">Feb. '16—<strong>present</strong> &#160;&#160;<span class="position-length">(2 yrs. 11 mos)</span></span></p>
 
-		<p class="body">I&#39;m here to tell your story. I&#39;m here to work out usability bugs. I&#39;m here to rebrand your idea. I&#39;m here to find all the ways that your product can be better, generate more business, and improve peoples' lives. Whether your product is just an idea in your head or already fully-deployed, I'm here to help.</p>
-		<h4>Past Clients:</h4>
-		<p >LilyPad, <a href="http://www.zink.la" target="_blank">Zink Fitness</a>, <a href="https://www.grandbakeryoakland.com" target="_blank">Grand Bakery</a>, <a href="http://slingshotfoods.com" target="_blank">Slingshot Foods</a>, <a href="http://oneofsf.weebly.com" target="_blank">OneOf</a>, <a href="http://entheozen.com" target="_blank">EntheoZen</a>, <a href="https://thegoodcraft.github.io" target="_blank">The Good Craft</a>, Luman, Calm, <a href="shyft.html" >Shyft</a>, <a href="http://www.sophiesilverstein.com" target="_blank">Sophie Silverstein College Counseling</a>, Hey Photo</p>
+		<div class="collapsibleContent collapsibleStartActive">
+			<p class="body">I&#39;m here to tell your story. I&#39;m here to work out usability bugs. I&#39;m here to rebrand your idea. I&#39;m here to find all the ways that your product can be better, generate more business, and improve peoples' lives. Whether your product is just an idea in your head or already fully-deployed, I'm here to help.</p>
+			<h4>Past Clients:</h4>
+			<p >LilyPad, <a href="http://www.zink.la" target="_blank">Zink Fitness</a>, <a href="https://www.grandbakeryoakland.com" target="_blank">Grand Bakery</a>, <a href="http://slingshotfoods.com" target="_blank">Slingshot Foods</a>, <a href="http://oneofsf.weebly.com" target="_blank">OneOf</a>, <a href="http://entheozen.com" target="_blank">EntheoZen</a>, <a href="https://thegoodcraft.github.io" target="_blank">The Good Craft</a>, Luman, Calm, <a href="shyft.html" >Shyft</a>, Sophie Silverstein College Counseling, Hey Photo</p>
+		</div>
+		
+		<p class="when-titles collapsible"><strong>Web Developer</strong>: Cost Plus World Market (Contract)<span class="float-right">Aug. '17—Nov. '17 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
+		<div class="collapsibleContent collapsibleStartActive">
+			<p class="body">HTML, CSS, and JS ninja. I built out store opening pages, promotion pages, navigation, and many custom pages for WorldMarket.com. I also helped unify their style guide and fix broken layouts. Having both design chops and development chops lets me communicate across the divide.</p>
+		</div>
 
-		<p class="when-titles"><strong>Web Developer</strong>: Cost Plus World Market (Contract)<span class="float-right">Aug. '17—Nov. '17 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
 
-		<p class="body">HTML, CSS, and JS ninja. I built out store opening pages, promotion pages, navigation, and many custom pages for WorldMarket.com. I also helped unify their style guide and fix broken layouts. Having both design chops and development chops lets me communicate across the divide.</p>
+		<p class="when-titles collapsible"><strong>Designer and E.V. Technician</strong>: City CarShare (Non-Profit)<span class="float-right">Sep. '14—Sep. '15 &#160;&#160;<span class="position-length">(1 yr 1 mo)</span></span></p>
+		<div class="collapsibleContent">
+			<p class="body">Started in 2001, CityCarShare was the first carsharing company in the nation. We were building an All Electric and Plug-in Electric (PHEV) carshare network to make it easily for people to get around— more affordable, more green, less congestion, less pollution, and live without the hassle of car maintainence.  I also was building the first in the country electric bike share network. With a growing fleet of next-generation hybrids, electric cars, and electric bicycels, EVs coupled to outdoor solar charging stations, I was pioneering a sustainable transportation network. I oversaw and maintained a fleet of 50 PHEVs, debugged our in-car technology, monitored car battery status remotely to ensure uptime, created maintenance logs, improved the mobile app UI, contributed on frontend web design, produced promotional videos, grant evaluation docs, rebuilt important accounting documents, and other marketing and design material.</p>
+		</div>
 
-
-		<p class="when-titles"><strong>Designer and E.V. Technician</strong>: City CarShare (Non-Profit)<span class="float-right">Sep. '14—Sep. '15 &#160;&#160;<span class="position-length">(1 yr 1 mo)</span></span></p>
-
-		<p class="excerpt body"><span class="body">Started in 2001, CityCarShare was the first carsharing company in the nation. We were building an All Electric and Plug-in Electric (PHEV) carshare network to make it easily for people to get around— more affordable, more green, less congestion, less pollution, and live without the hassle of car maintainence.  I also was building the first in the country electric bike share network. With a growing fleet of next-generation hybrids, electric cars, and electric bicycels, EVs coupled to outdoor solar charging stations, I was pioneering a sustainable transportation network. I oversaw and maintained a fleet of 50 PHEVs, debugged our in-car technology, monitored car battery status remotely to ensure uptime, created maintenance logs, improved the mobile app UI, contributed on frontend web design, produced promotional videos, grant evaluation docs, rebuilt important accounting documents, and other marketing and design material.</span></p>
-
-		<p class="when-titles"><strong>Head of Engineering; Founder</strong>: Onward Electric Cycles LLC<span class="float-right">Sep. '12—Mar. '14 &#160;&#160;<span class="position-length">(1 yr 7 mos)</span></span></p>
-
-		<p class="body">Founded an electric bike company to develop a new hydraulic electric bike drive system. We were thinking completely outside the 'electrical box' and inventing a bicycle system built on the pumping of fluids and hydraulics instead. After  interations, I designed a hydraulic drive bike pump that achieved 10-15 PSI in pumping force by pedaling.</p>
+		<p class="when-titles collapsible"><strong>Head of Engineering; Founder</strong>: Onward Electric Cycles LLC<span class="float-right">Sep. '12—Mar. '14 &#160;&#160;<span class="position-length">(1 yr 7 mos)</span></span></p>
+		<div class="collapsibleContent">
+			<p class="body">Founded an electric bike company to develop a new hydraulic electric bike drive system. We were thinking completely outside the 'electrical box' and inventing a bicycle system built on the pumping of fluids and hydraulics instead. After  interations, I designed a hydraulic drive bike pump that achieved 10-15 PSI in pumping force by pedaling.</p>
+		</div>
 
 		<div>
-		<p class="when-titles"><strong>Head of Operations and Web Design</strong>: PiMobility Inc.<span class="float-right">Dec. '10—Aug. '12 &#160;&#160;<span class="position-length">(1 yr 9 mos)</span></span></p>
+		<p class="when-titles collapsible"><strong>Head of Operations and Web Design</strong>: PiMobility Inc.<span class="float-right">Dec. '10—Aug. '12 &#160;&#160;<span class="position-length">(1 yr 9 mos)</span></span></p>
 
-
-		<a href="https://player.vimeo.com/video/36724831" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true" data-featherlight-iframe-width="978" data-featherlight-iframe-height="550"><img id="pi-video" src="IMG/picycle-videos.png" /></a>
-		<p class="body">PiCyle is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning <a class="btn btn-default" href="IMG/picycle-MPGe.jpg" data-featherlight="image">2000MPGe</a> in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes healthy, fast, and fun.</p><p class="body">At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, produced several promo videos, designed and built <a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">the website</a>, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
+		<div class="collapsibleContent">
+			<a href="https://player.vimeo.com/video/36724831" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true" data-featherlight-iframe-width="978" data-featherlight-iframe-height="550"><img id="pi-video" src="IMG/picycle-videos.png" /></a>
+			<p class="body">PiCyle is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning <a class="btn btn-default" href="IMG/picycle-MPGe.jpg" data-featherlight="image">2000MPGe</a> in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes healthy, fast, and fun.</p><p class="body">At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, produced several promo videos, designed and built <a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">the website</a>, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
 		</div>
+	</div>
 
 	</section>
 
 	<section class="clear when">
+
+		<a name="education" id="education"></a>
+		
 		<h1 class="clear">Education</h1>
-		<p class="when-titles"><strong>General Assembly</strong>: UX Design Immersive <span class="float-right">Nov. '15—Feb.'16 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
 
-		<p class="body">10 week full immersive (over 500 hours) for UX Design taught by UX practitioners. Course Work: User Research, Interface Design, Wireframing, Prototyping, Interaction Design, Mobile Design, Responsive Web Design, Usability Testing, Testing Methodologies, and Design Best Practices. Emphasis on Lean UX, rapid prototyping, and design studio. From research and ideation to prototyping and testing.</p>
+		<p class="when-titles collapsible"><strong>General Assembly</strong>: UX Design Immersive <span class="float-right">Nov. '15—Feb.'16 &#160;&#160;<span class="position-length">(4 mos)</span></span></p>
+		<div class="collapsibleContent collapsibleStartActive">
+			<p class="body">10 week full immersive (over 500 hours) for UX Design taught by UX practitioners. Course Work: User Research, Interface Design, Wireframing, Prototyping, Interaction Design, Mobile Design, Responsive Web Design, Usability Testing, Testing Methodologies, and Design Best Practices. Emphasis on Lean UX, rapid prototyping, and design studio. From research and ideation to prototyping and testing.</p>
+		</div>
 
-		<p class="when-titles"><strong>Online Courses</strong>: Frontend Web Development, Programming <span class="float-right">'13—'14 &#160;&#160;<span class="position-length">(1 yr 3 mos)</span></span></p>
+		<p class="when-titles collapsible"><strong>Online Courses</strong>: Frontend Web Development, Programming <span class="float-right">'13—'14 &#160;&#160;<span class="position-length">(1 yr 3 mos)</span></span></p>
 
-		<p class="body">Took courses online at iTunes U, MIT open courseware, Coursera, Code School, Code Academy, and Thinkful. Learned Programming Fundamentals, iOS development, Java, Algorithms, Object-oriented Design, and Frontend Development.</p>
+		<div class="collapsibleContent collapsibleStartActive">
+			<p class="body">Took courses online at iTunes U, MIT open courseware, Coursera, Code School, Code Academy, and Thinkful. Learned Programming Fundamentals, iOS development, Java, Algorithms, Object-oriented Design, and Frontend Development.</p>
+		</div>
 
-		<p class="when-titles"><strong>TechShop</strong>: Metal and Wood Fabrication, 3D Modeling, CNC, Lasercutting <span class="float-right">'13 &#160;&#160;<span class="position-length">(8 mos)</span></span></p>
+		<p class="when-titles collapsible"><strong>TechShop</strong>: Metal and Wood Fabrication, 3D Modeling, CNC, Lasercutting <span class="float-right">'13 &#160;&#160;<span class="position-length">(8 mos)</span></span></p>
+		<div class="collapsibleContent">
+			<p class="body">Took roughly 30 classes at TechShop related to 3D printing, finishing, aluminum and steel welding (MIG and TIG), CNC mill and lathe, CAM/CADD software, injection molding, Arduino programming, circuit board soldering, wood fabrication, wood finishing, carbon fiber fabrication, sheet metal construction, powder-coating (painting), waterjet cutting, vinyl cutting, and more.</p>
+		</div>
 
-		<p class="body">Took roughly 30 classes at TechShop related to 3D printing, finishing, aluminum and steel welding (MIG and TIG), CNC mill and lathe, CAM/CADD software, injection molding, Arduino programming, circuit board soldering, wood fabrication, wood finishing, carbon fiber fabrication, sheet metal construction, powder-coating (painting), waterjet cutting, vinyl cutting, and more.</p>
-
-		<p class="when-titles"><strong>UC Davis</strong>: Landscape Architecture and Electrical Engineering <span class="float-right">'07—'10 &#160;&#160;<span class="position-length">(3 yr)</span></span></p>
-
-		<p class="body">At UC Davis I straddled the line between design and engineering. I pursued electrical engineering for one year, before switching into Landscape Architecture (LDA) for two years. LDA helped me hone my design, concept generation, and presentation skills while electrical engineering helped me think logically through a problem and how to test and debug. Ultimately, these two fields allowed me combine right-brain ideation and prototyping with left-brain research, testing, debugging, and refinement.</p>
+		<p class="when-titles collapsible"><strong>UC Davis</strong>: Landscape Architecture and Electrical Engineering <span class="float-right">'07—'10 &#160;&#160;<span class="position-length">(3 yr)</span></span></p>
+		<div class="collapsibleContent">
+			<p class="body">At UC Davis I straddled the line between design and engineering. I pursued electrical engineering for one year, before switching into Landscape Architecture (LDA) for two years. LDA helped me hone my design, concept generation, and presentation skills while electrical engineering helped me think logically through a problem and how to test and debug. Ultimately, these two fields allowed me combine right-brain ideation and prototyping with left-brain research, testing, debugging, and refinement.</p>
+		</div>
 <!-- 		<img class="education" src="IMG/skills7.png"/>
  -->
 
@@ -748,6 +743,76 @@
 
 <script src="JS/typed.js" type="text/javascript"></script>
 <script>
+
+	// ACTIVE NAV
+$(document).scroll(function() {
+
+    var scroll_top = $(document).scrollTop();
+    var div_one_top = $('#skills').position().top;
+    var div_two_top = $('#tools').position().top;
+    var div_three_top = $('#numbers').position().top;
+    var div_four_top = $('#experience').position().top;
+    var div_five_top = $('#education').position().top;
+
+    if (scroll_top < div_one_top) {
+    	$('.nav-item').removeClass('active-nav');
+    }
+    else if(scroll_top > div_one_top && scroll_top < div_two_top) {
+        //You are now past div one
+        $('.nav-item').removeClass('active-nav');
+        $("#skillsBtn").addClass('active-nav');
+    } 
+    else if( scroll_top > div_two_top && scroll_top < div_three_top) {
+        //You are now past div two
+        $('.nav-item').removeClass('active-nav');
+       $("#toolsBtn").addClass('active-nav');
+    } 
+    else if( scroll_top > div_three_top && scroll_top < div_four_top) {
+    	$('.nav-item').removeClass('active-nav');
+    	$("#numbersBtn").addClass('active-nav');
+    }
+	else if( scroll_top > div_four_top && scroll_top < div_five_top) {
+		$('.nav-item').removeClass('active-nav');
+		$("#experienceBtn").addClass('active-nav');
+	}
+	else if( scroll_top > div_five_top) {
+		$('.nav-item').removeClass('active-nav');
+		$("#educationBtn").addClass('active-nav');
+    }
+    else {$('.nav-item').removeClass('active-nav');
+	}
+
+});
+
+
+// SMOOTH SCROLLING
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+
 	// Typing script
 $( document ).ready(function(){
 		$("#typed").typed({
@@ -762,6 +827,26 @@ $( document ).ready(function(){
 			backDelay: 1500,
 		});
 	});
+
+// Collapsible
+var coll = document.getElementsByClassName("collapsible");
+var collStart = document.getElementsByClassName("collapsibleStartActive");
+
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleActive");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+};
+
+
 </script>
 
 <script>

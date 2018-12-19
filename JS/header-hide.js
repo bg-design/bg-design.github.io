@@ -20,18 +20,23 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight){
         // Scroll Down
         setTimeout(function() {
-          $('.navbar').removeClass('nav-down').addClass('nav-up');
-          $('.backToTop').css("opacity" , "0");
+            $('.navbar').removeClass('nav-down').addClass('nav-up');
+            $('#contextualNav').removeClass('nav-up').addClass('nav-down');
         },);
             
     } else {
         // Scroll Up
         if(st + $(window).height() < $(document).height()) {
-            $('.navbar').removeClass('nav-up').addClass('nav-down');
-            if (pageYOffset >= 800) {
-                $('.backToTop').css("opacity" , ".6");
+
+            if ((pageYOffset <= 120) && ($('#contextualNav').length > 0)) {
+                $('#contextualNav').removeClass('nav-down').addClass('nav-up');
+                $('#mainNav').removeClass('nav-up').addClass('nav-down');
+            }
+            else if ($('#contextualNav').length > 0) {
+                $('#mainNav').removeClass('nav-down').addClass('nav-up');
+                $('#contextualNav').removeClass('nav-up').addClass('nav-down');
             } else {
-         $('.backToTop').css("opacity" , "0");
+                $('.navbar').addClass('nav-down').removeClass('nav-up');
             }
         }
     }

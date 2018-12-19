@@ -6,35 +6,6 @@ var css = "text-shadow: -1px -1px hsl(0,100%,50%), 1px 1px hsl(5.4, 100%, 50%), 
 console.log("%cOh– Hello!", 'background: grey; color: #fff; font-size:20px; padding:20px; font-family:sans-serif');
 console.group("%cDev to Dev sidebar", 'background: #222; color: red');
 
-// Scroll to top
-
-// $(".backToTop").mouseover( function() {
-//   $(".backToTop").attr('src', 'IMG/top3.png');
-// });
-
-// $(".backToTop").mouseleave( function() {
-//   $(".backToTop").attr('src', 'IMG/top3-old.png');
-// });
-
-// $("a[href='#top']").click(function() {
-//   // $("html, body").animate({ scrollTop: 0 }, "slow");
-//   $(".backToTop").addClass("rainbow-bg");
-//   $(".backToTop").css("margin-bottom", "100%");
-//   setTimeout(function() {
-//     $(".backToTop").css("margin-bottom", "0%");
-//     $(".backToTop").removeClass("rainbow-bg");
-//   }, 1500);
-// });
-
-
-// MOVED TO HEADER-HIDE.JS
-// window.onscroll = function () {
-//     if (pageYOffset >= 800) {
-//         document.getElementById('backToTop').style.visibility = "visible";
-//     } else {
-//  document.getElementById('backToTop').style.visibility = "hidden";
-//     }
-// };
 
 // Mouseover nav flip
 // $(document).on({
