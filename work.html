@@ -1,7 +1,7 @@
 <!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html class="isArrowable" lang="en-us">
 <head>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta charset="UTF-8">
@@ -295,6 +295,19 @@
 
 <!-- Full Page -->
  <script type="text/javascript">
+
+ 	//	Listen for right/left keypress
+	$( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "philosophy.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "about.html";
+  }
+  else {};
+  });
 
     var myFullpage = new fullpage('#fullpage', {
     	anchors: ['awa-fit','safe-harbor','shyft'],

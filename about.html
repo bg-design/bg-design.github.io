@@ -1,7 +1,7 @@
 <!-- Designed and coded by Ben Grandy with love in SF, CA. -->
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html class="isArrowable" lang="en-us">
 <head>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta charset="UTF-8">
@@ -1195,11 +1195,25 @@ margin-bottom: 20px;
 
 <div id="menu-import"></div>
 
-<div id="contact-import">
+<div id="contact-import"></div>
 
 <script src="JS/global.js"></script>
 
 <script>
+
+//	Listen for right/left keypress
+	$( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "work.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "cv.html";
+  }
+  else {};
+  });
+
 $( document ).ready(function() {
 	// Load footer
 	$("#footer-import").load("footer-dark-mode.html"); 
