@@ -87,6 +87,10 @@
     border:1px solid #ef6462;
   }
 
+.chatIcon:not(#menu-icon) {
+    right:330px;
+    left:initial;
+}
 @media only screen and (max-width: 985px) {
       .projectImgHalf {
         width: 90%;
