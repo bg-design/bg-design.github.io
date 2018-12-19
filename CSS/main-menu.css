@@ -131,8 +131,9 @@ p.overlay-copyright {
 }
 
 #menu-icon {
-  top: 5px;
+  top: 0;
   bottom: initial;
+  z-index: 9;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
