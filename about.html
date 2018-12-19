@@ -1195,7 +1195,20 @@ margin-bottom: 20px;
 
 <div id="menu-import"></div>
 
+<div id="contact-import">
+
 <script src="JS/global.js"></script>
+
+<script>
+$( document ).ready(function() {
+	// Load footer
+	$("#footer-import").load("footer-dark-mode.html"); 
+
+	// Load Chat Icon
+	$("#contact-import").load("contact-modal.html"); 
+});
+
+</script>
 
 <script src="JS/owl.carousel.min.js"></script>
 
@@ -1217,17 +1230,6 @@ $(document).ready(function() {
     singleItem: true,
 });
 })
-</script>
-
-<script>
-
-// Load footer
-$(function(){
-      $("#footer-import").load("footer-dark-mode.html"); 
-    });
-
-// // Current year for copyright (future-proof)
-// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
 </script>
 
 <!-- Swiper JS -->
