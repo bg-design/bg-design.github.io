@@ -97,8 +97,7 @@ font-size: 22px;
 }
 
 p.overlay-copyright {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   left: 50%;
   margin-left: -250px;
   color:rgb(76, 76, 76);
