@@ -118,7 +118,7 @@ function scrollBoth (){
 
 // Page Scroll Progress bar
   $( window ).scroll(function() {
-    var scrollPercentage = 105*$( document ).scrollTop()/(($ ( document ).height())-700);
+    var scrollPercentage = 115*$( document ).scrollTop()/(($ ( document ).height())-700);
     // console.log(scrollPercentage);
     $ (".scroll-progress").css("width", scrollPercentage+'%');
   });
