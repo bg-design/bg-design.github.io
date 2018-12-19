@@ -1,0 +1,146 @@
+
+/*.linear-wipe {
+  font-size:20pt;
+  font-weight: 700;
+  -webkit-animation: Gradient 5s ease-in-out infinite;
+  -moz-animation: Gradient 5s ease-in-out infinite;
+  animation: Gradient 5s ease-in-out infinite;
+  background: white;
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:0.3s;
+}
+
+.linear-wipe:hover, #rect-gradient.talk-gradient {
+  background: linear-gradient(90deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
+}
+
+.linear-wipe:hover {
+  background-size: 300% 300%;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition:1s;
+  cursor: pointer;
+}
+
+#rect-gradient.talk-gradient {
+  width: 120px;
+  background-size: 400% 400%;
+  margin: 15px auto;
+  height: 1px;
+}
+*/
+
+
+/* The Overlay (background) */
+
+#welcome-nav {
+  margin: 0 auto;
+}
+
+.overlayBG {
+  background: url(IMG/nd-logo-v2c-invert.png);
+background-size: contain;
+opacity: 0.1;
+position: absolute;
+top: 0;
+bottom: 5%;
+right: 0;
+left: 50%;
+margin-left: -415px;
+background-repeat: no-repeat;
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed; 
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0);
+  overflow: hidden; 
+  transition: 0.5s;
+}
+
+#overlay-nav ul {
+  padding: 0 0 20px 20px;
+  display: table;
+}
+
+#overlay-nav li {
+  float: left;
+  clear: both;
+  list-style-type: none;
+  height: 50px;
+}
+
+#overlay-nav .home-link {
+  color: white;
+  float:left;
+  clear: both;
+}
+
+#overlay-nav h3 {
+  color: grey;
+  padding:0;
+  margin: 0;
+}
+.overlayProject.home-link {
+  background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
+border-bottom: 4px solid #69D2E7;
+font-size: 22px;
+}
+
+p.overlay-copyright {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -250px;
+  color:rgb(76, 76, 76);
+  font-family:'Lato',sans-serif;
+}
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  right: 1%; 
+  z-index: 9;
+
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: white;
+}
+
+#menu-icon {
+  top: 5px;
+  bottom: initial;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
