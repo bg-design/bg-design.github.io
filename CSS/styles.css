@@ -1072,7 +1072,12 @@ cite p {color:white;}
 
 #overlay-nav {
 	margin: 0 auto;
+	padding-left: 230px;
+	padding-top: 20px;
+	margin-bottom: 140px;
+	max-width: 280px;
 }
+
 	#work {
 	background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
 	border-bottom: 4px solid #69D2E7;

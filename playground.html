@@ -130,19 +130,19 @@ animation: heart 9s ease-in-out 0s infinite;
 /*       TESTIMONIAL      */
 /* ---------------------- */
 
-figure.snip1197 {
+figure.testimonials {
 }
-figure.snip1197 * {
+figure.testimonials * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-figure.snip1197 img {
+figure.testimonials img {
   float: right;
   max-width: 40%;
   vertical-align: middle;
   border-radius: 0 8px 8px 8px;
 }
-figure.snip1197 figcaption {
+figure.testimonials figcaption {
   top: 0;
   left: 0;
   width: 60%;
@@ -150,7 +150,7 @@ figure.snip1197 figcaption {
   background-color: #ffffff;
   border-radius: 8px 0 0 8px;
 }
-figure.snip1197 blockquote {
+figure.testimonials blockquote {
   position: relative;
   padding: 25px 50px 25px 50px;
   font-size: 16pt;
@@ -161,8 +161,8 @@ figure.snip1197 blockquote {
   line-height: 1.4em;
   font-style: italic;
 }
-figure.snip1197 blockquote:before,
-figure.snip1197 blockquote:after {
+figure.testimonials blockquote:before,
+figure.testimonials blockquote:after {
   font-family: 'FontAwesome';
   content: "\201C";
   position: absolute;
@@ -170,16 +170,16 @@ figure.snip1197 blockquote:after {
   opacity: 0.3;
   font-style: normal;
 }
-figure.snip1197 blockquote:before {
+figure.testimonials blockquote:before {
   top: 25px;
   left: 20px;
 }
-figure.snip1197 blockquote:after {
+figure.testimonials blockquote:after {
   content: "\201D";
   right: 20px;
   bottom: 0px;
 }
-figure.snip1197 .arrow {
+figure.testimonials .arrow {
   top: 30px;
   left: 100%;
   width: 0;
@@ -190,7 +190,7 @@ figure.snip1197 .arrow {
   margin: 0;
   position: absolute;
 }
-figure.snip1197 .author {
+figure.testimonials .author {
   position: absolute;
   top: 100%;
   padding: 10px 15px;
@@ -200,7 +200,7 @@ figure.snip1197 .author {
 .author span {
   font-weight: 200;
 }
-figure.snip1197 .author h5 {
+figure.testimonials .author h5 {
   opacity: 0.8;
   margin: 0;
   font-weight: 800;
@@ -232,6 +232,14 @@ figure.snip1197 .author h5 {
   clear: both;
 }
 
+#overlay-nav .home-link {
+  color: white;
+  text-align: center;
+}
+
+#overlay-nav h3 {
+  color: grey;
+}
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
@@ -252,6 +260,7 @@ figure.snip1197 .author h5 {
   top: 20px;
   right: 45px;
   font-size: 60px;
+  color: white;
 }
 
 
@@ -304,17 +313,15 @@ figure.snip1197 .author h5 {
     <div class="home-links" id="overlay-nav">
           <div><a class="home-link" href="index.html" id="welcome-nav">Welcome</a></div>
           <h3>Featured Work</h3>
-          <ul>
-            <li><a class="home-link" href="work.html">AWA Fit</a></li>
-            <li><a class="home-link" href="work.html">Safe Harbor</a></li>
-            <li><a class="home-link" href="work.html">Shyft</a></li>
-          </ul>
+          <div><a class="home-link" href="work.html" id="work">AWA Fit</a></div>
+          <div><a class="home-link" href="work.html" id="work">Safe Harbor</a></div>
+          <div><a class="home-link" href="work.html" id="work">Shyft</a></div>
           <h4>Other Work: Refer Me, Life Alert, Health Journal</h4>
           <div><a class="home-link" href="about.html" id="about">About</a></div>
           <div><a class="home-link" href="cv.html" id="cv">C.V.</a></div>
           <div><a class="home-link" href="philosophy.html" id="philosophy">Philosophy</a></div>
-          <div><a class="home-link" href="credits.html" id="credits">Credits</a></div>
-        </div>
+<!--           <div><a class="home-link" href="credits.html" id="credits">Credits</a></div>
+ -->        </div>
         <p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
   </div>
 
