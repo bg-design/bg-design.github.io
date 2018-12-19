@@ -160,8 +160,15 @@ input {
 	padding: 10px 0;
 }
 
+#nda {
+  width: 50px;
+  float: left;
+  margin-top: 20px;
+}
+
 #nda-text {
   color:grey;
+  float:left;
 }
 
 .pure-group {
