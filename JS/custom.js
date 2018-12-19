@@ -76,7 +76,7 @@ window.addEventListener("scroll", function (event) {
     // console.log(scroll);
 
     // Flip Arrow
-    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
+    if ((window.innerHeight + window.pageYOffset - 50) < document.body.clientHeight ) {
         $(".floatingArrowIcon").css("transform", "rotate(0deg)");
         }
     else {
@@ -93,7 +93,7 @@ function scrollDown() {
 }
 
 function scrollBoth (){
-  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
+  if ((window.innerHeight + window.pageYOffset - 50) < document.body.clientHeight ) {
         scrollDown();
         }
     else {
@@ -105,16 +105,16 @@ function scrollBoth (){
 
 // Read more 
 
-    var orgContent = $('.excerpt').html();
-    var txtContent = $('.excerpt').text().substr(0, 250) + '... <a id="morelink">more</a>';
-    $('.excerpt').html(txtContent);
-    $("body").on("click", '#morelink', function(){
-        $('.excerpt').html(orgContent);
-        $('<a id="lesslink"> less</a>').appendTo('.excerpt');
-    });
-    $("body").on("click", '#lesslink', function(){
-        $('.excerpt').html(txtContent);
-    });
+    // var orgContent = $('.excerpt').html();
+    // var txtContent = $('.excerpt').text().substr(0, 250) + '... <a id="morelink">more</a>';
+    // $('.excerpt').html(txtContent);
+    // $("body").on("click", '#morelink', function(){
+    //     $('.excerpt').html(orgContent);
+    //     $('<a id="lesslink"> less</a>').appendTo('.excerpt');
+    // });
+    // $("body").on("click", '#lesslink', function(){
+    //     $('.excerpt').html(txtContent);
+    // });
 
 // Page Scroll Progress bar
   $( window ).scroll(function() {
