@@ -689,28 +689,24 @@ margin: -1px 20px 0px 0px;
 
 <div id="contact-import"></div>
 
-
-<!-- First LOAD jQuery -->
- <script src="https://code.jquery.com/jquery-latest.js"></script>
-
 <script>
 
-// Second LOAD HTML IMPORTS
 
-// Load footer
-$(function(){
-      $("#footer-import").load("footer-dark-mode.html"); 
-    });
+$( document ).ready(function() {
+	// Load footer
+	$(function(){
+	      $("#footer-import").load("footer-dark-mode.html"); 
+	    });
 
-// Load Chat Icon
-$(function(){
-      $("#contact-import").load("contact-modal.html"); 
-    });
+	// Load Chat Icon
+	$(function(){
+	      $("#contact-import").load("contact-modal.html"); 
+	    });
+}
 
 </script>
 
-<!-- Third LOAD global.js -->
- <script src="JS/global.js"></script>
+<script src="JS/global.js"></script>
 
 <script src="JS/typed.js" type="text/javascript"></script>
 <script>
