@@ -245,7 +245,7 @@
     background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
   }
 
-  .loader__ball {
+  .projects .loader__ball {
     background: white;
     border:1px solid rgb(43, 227, 215);
   }
