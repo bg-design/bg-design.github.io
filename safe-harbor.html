@@ -24,6 +24,21 @@
       width: 0;
     }
 */
+
+#victim-counter {
+	font-size: 30px;
+	font-weight: 700;
+	color:#ef6462;
+}
+
+/*    Disabled left project*/
+    .projectIcon.left, .projectIcon.left:hover {
+    background: rgb(161, 161, 161);
+  }
+
+  .projectIcon.left:hover {
+    border:1px solid #ef6462;
+  }
 </style>
 </head>
 <body>
@@ -95,7 +110,7 @@
 
     <p class="body">We used the double-diamond methodolgy, which starts with deep research, which then leads to insights. From there we established the problem definition, brainstormed possible solutions for solving the problem, and from there focused on core user needs and built a prototype that could best address these needs.</p>
 
-    <img class="full-width" src="IMG/Safe-Harbor/double-diamond.png">
+    <img class="full-width img-invert" src="IMG/Safe-Harbor/double-diamond.png">
 
     <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Research.png" /><h2>Research</h2></div> <br>
 
@@ -172,7 +187,7 @@
       After our research, synthesis, ideation and feature priorities, I built a prototype. Safe Harbor offers victims of domestic abuse shelter by connecting them to volunteers willing to offer space in their home. The design thinking and the branding evoke a calming, relaxing, safe atmosphere. It is very snappy with few extra features as in many cases the victims are in high-pressure life or death situations.
     </p>
 
-    <img id="sh-logo" src="IMG/Safe-Harbor/sh-logo.png">
+    <img class="full-width" id="sh-logo" src="IMG/Safe-Harbor/sh-logo.png">
     <figcaption>An outside agency designed this logo.</figcaption>
 
   </section>
@@ -210,6 +225,24 @@
 <script src="JS/global.js"></script>
 
 <script>
+
+
+	// Victim counter
+	var secondsStart = Math.floor(Date.now()/1000);
+	setInterval(function () {
+ 				secondsSincePageOpen = (Date.now()/1000) - secondsStart
+				var victimCounter = Math.floor(secondsSincePageOpen / 2.5);
+        		document.getElementById("victim-counter").innerHTML = victimCounter.toLocaleString();
+        }, 1000);
+
+	// ALTERNATIVE SOLUTION:
+	// var secondsSincePageOpen = 0;  
+	// setInterval(function () {
+	// 			secondsSincePageOpen += 1;
+	 //        		document.getElementById("victim-counter").innerHTML = secondsSincePageOpen.toLocaleString();
+ 	//        }, 2500);
+ 	
+
   // Load Chat Icon
   $("#contact-import").load("contact-modal.html"); 
 </script>
