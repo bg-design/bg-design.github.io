@@ -79,14 +79,6 @@
   display: block;
 }
 
-.projectIcon.right, .projectIcon.right:hover {
-    background: rgb(161, 161, 161);
-  }
-
-.projectIcon.right:hover {
-    border:1px solid #ef6462;
-  }
-
 .chatIcon:not(#menu-icon) {
     right: 24.3%;
 margin-right: -50px;
