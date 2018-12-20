@@ -1,0 +1,143 @@
+<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="CSS/reset.css" media="screen">
+    <link rel="stylesheet" href="CSS/global.css" media="screen">
+  <link rel="icon" type="image/png" href="IMG/favicon.png">
+  
+<style>
+
+  .rightCurtain, .leftCurtain {
+    position: fixed;
+    height: 0;
+    top:50%;
+    z-index: 9999;
+    width:50%;
+    background-size:400% 400%;
+  }
+  .leftCurtain {
+    left: 0;
+    animation: openingLeft 2s ease-in-out;
+    background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+  .rightCurtain {
+    right: 0;
+    animation: openingRight 2s ease-in-out;
+    background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+
+  .loader__ball {
+    background: white;
+    border:1px solid rgb(43, 227, 215);
+  }
+
+  .loading-wrapper {
+    z-index: 99999;
+  }
+@keyframes openingLeft {
+  0% {
+    background-position: 0% 50%
+  }
+
+  30% {
+    background-position: 100% 50%;
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  40% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0%;
+    width: 0;
+  }
+}
+
+@keyframes openingRight {
+  0% {
+    background-position: 0% 50%
+  }
+
+  30% {
+    background-position: 100% 50%;
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  40% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0;
+    width: 0;
+  }
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+
+<div class="leftCurtain"></div>
+
+
+
+<div class="rightCurtain"></div>
+
+<div class="loading-wrapper loader">
+      
+      <div class="loading-bg">
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+      </div>
+
+</div>
+
+
+<!-- Bunch of scripts-->
+<!-- <script src="JS/global.js"></script>
+ --><script>
+
+// Disable loading screen when ready
+
+    // $('html').css("overflow", "hidden");
+
+    // $('.fade-in').addClass('placeholder').removeClass('fade-in')
+
+    // $(document).ready( function() {
+    //   $('.placeholder').addClass('fade-in').removeClass('placeholder')
+    //   setTimeout(function() {
+    //     $('.loading-bg').css("opacity", "0");
+    //     setTimeout(function() {
+    //       $('.loading-bg').css("display", "none");
+    //       $('html').css("overflow", "auto");
+    //     },3800);
+    //   },3800);
+    // });
+
+</script>
+
+</body>
+</html>

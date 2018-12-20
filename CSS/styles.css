@@ -226,6 +226,62 @@
 	}
 
 
+  .rightCurtain, .leftCurtain {
+    position: fixed;
+    height: 0;
+    top:50%;
+    z-index: 9999;
+    width:50%;
+    background-size:400% 400%;
+  }
+  .leftCurtain {
+    left: 0;
+    animation: openingLeft 2s ease-in-out;
+    background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+  .rightCurtain {
+    right: 0;
+    animation: openingRight 2s ease-in-out;
+    background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+
+  .loader__ball {
+    background: white;
+    border:1px solid rgb(43, 227, 215);
+  }
+
+  .loading-wrapper {
+    z-index: 99999;
+  }
+@keyframes openingLeft {
+  0% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0%;
+    width: 0;
+  }
+}
+
+@keyframes openingRight {
+  0% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0;
+    width: 0;
+  }
+}
+
 .navbar {
 	position: fixed;
 	width: 100%;
