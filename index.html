@@ -132,7 +132,7 @@ footer {
   -moz-osx-font-smoothing: grayscale;
   -webkit-animation: at-banner-slide-in 1.5s ease forwards;
           animation: at-banner-slide-in 1.5s ease forwards;
-          animation-delay: 15s;
+          animation-delay: 18s;
    position: fixed;
 }
 .at-banner__content {
@@ -277,7 +277,18 @@ font-size:14px;
 	<div class="home-container">
 		<section class="">
 			<div id="text-overlay">
-			<h2 class="fade-in three" id="top-greeting">Hey, I’m Benjamin.<br/><span id="greeting"></span></h2>
+			<h2 class="fade-in three" id="top-greeting">
+				<span id="greeting-1">Hello</span>
+				<span id="greeting-10">Hola</span>
+				<span id="greeting-2">Hey</span>
+				<span id="greeting-9">Bonjour</span>
+				<span id="greeting-3">Greetings</span>
+				<span id="greeting-4">Encantado</span>
+				<span id="greeting-5">Howdy</span>
+				<span id="greeting-7">Ciao</span>
+				<span id="greeting-6">Hi there</span>
+				<span id="greeting-8">Aloha</span>
+				, I’m Benjamin.<br/><span id="greeting"></span></h2>
 
 			<div id="rect-gradient"></div>
 
@@ -333,6 +344,21 @@ font-size:14px;
 $('.at-banner__close').on('click', function() {
   $(this).parent().remove();
 });
+
+
+// Cycle through different greetings
+var divs = $('span[id^="greeting-"]').hide(),
+    i = 0;
+
+(function cycle() { 
+
+    divs.eq(i).fadeIn(1200)
+              .delay(4000)
+              .fadeOut(500, cycle);
+
+    i = ++i % divs.length;
+
+})();
 
  // Time of Day Greeting
 

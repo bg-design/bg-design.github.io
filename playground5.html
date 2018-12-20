@@ -5,7 +5,21 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-  
+
+<div id="greeting-1">Hello</div>
+<div id="greeting-2">Hey</div>
+<div id="greeting-3">Greetings</div>
+<div id="greeting-4">Salutations</div>
+<div id="greeting-5">Encantado</div>
+<div id="greeting-6">Howdy</div>
+<div id="greeting-7">Hi there</div>
+<div id="greeting-8">Ciao</div>
+<div id="greeting-9">Aloha</div>
+<div id="greeting-10">Bonjour</div>
+<div id="greeting-11">Hola</div>
+<div id="greeting-12">Nǐn hǎo</div>
+
+
 <script>
 $( ".isArrowable" ).on( "keydown", function( event ) {
   if (event.which == 37 ){
@@ -18,6 +32,21 @@ $( ".isArrowable" ).on( "keydown", function( event ) {
   }
   else {};
   });
+
+
+// Cycle through different greetings
+var divs = $('div[id^="greeting-"]').hide(),
+    i = 0;
+
+(function cycle() { 
+
+    divs.eq(i).fadeIn(500)
+              .delay(1000)
+              .fadeOut(300, cycle);
+
+    i = ++i % divs.length;
+
+})();
 </script>
  
 </body>
