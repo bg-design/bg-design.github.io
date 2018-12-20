@@ -45,7 +45,7 @@ else if ( sessionStorage.getItem('setDarkMode') === 'false') {
     document.body.classList.remove("dark-mode");
     document.getElementById("checkbox").checked = false;
 }
-else if ((hour <= 6) || (hour >= 18)) {
+else if ((hour <= 8) || (hour >= 17)) {
     document.body.classList.add("dark-mode");
     document.getElementById("checkbox").checked = true;
 }
