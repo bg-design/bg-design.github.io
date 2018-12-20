@@ -300,6 +300,10 @@ nav li {
 	font-weight: 400;
 	border-bottom: 3px solid black;
 }
+
+.dark-mode .active-nav {
+	border-bottom: 3px solid white;
+}
 .navbar li a:hover:not(.active-nav) {
 	color: black;
 	font-weight:400;

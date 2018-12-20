@@ -293,8 +293,10 @@
 	</div> 
 </div>
 
+<div id="menu-import"></div>
+
 <!-- Full Page -->
- <script type="text/javascript">
+ <script>
 
  	//	Listen for right/left keypress
 	$( ".isArrowable" ).on( "keydown", function( event ) {
@@ -336,6 +338,12 @@
 <!-- Bunch of scripts-->
 <script src="JS/global.js"></script>
 <script>
+
+$( document ).ready(function() {
+	// Load main menu
+	$("#menu-import").load("menu.html"); 
+
+});
 
 	// Dark Mode detector
 	var time = new Date();
