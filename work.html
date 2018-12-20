@@ -365,6 +365,24 @@ $( document ).ready(function() {
 console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
 console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling effect, and big thanks to Jan Sorgalla (sorgalla.com/lity/) for this lightbox script.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
 
+// LOAD PROJECT IMAGES IN THE BACKGROUND
+$(window).load(function(){
+
+	//SAFE HARBOR PROJECT IMAGES
+		new Image(0,0).src = 'IMG/Safe-Harbor/sh-iPhone-mock2.jpg';
+		new Image(0,0).src = 'IMG/Icons/Overview.png';
+		new Image(0,0).src = 'IMG/Safe-Harbor/IMG_0284.JPG';
+		new Image(0,0).src = 'IMG/Safe-Harbor/sh-team.png';
+		new Image(0,0).src = 'IMG/Icons/Research.png';
+		new Image(0,0).src = 'IMG/double-diamond.png';
+
+	//SHYFT PROJECT IMAGES
+		new Image(0,0).src = 'IMG/shyft-mock3.jpg';
+		new Image(0,0).src = 'IMG/Shyft/shyft-business-model.jpg';
+		new Image(0,0).src = 'IMG/Shyft/shyft-criteria2.png';
+
+ });
+
 
 </script>
 </body>
