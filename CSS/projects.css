@@ -81,6 +81,11 @@
   margin: 0 auto;
 }
 
+#darkModeSwitchProject #moonIcon {
+  bottom: 18px;
+  left: 6px;
+}
+
 .project-date {
   text-align: center;
   transition:3s;
