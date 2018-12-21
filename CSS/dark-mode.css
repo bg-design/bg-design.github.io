@@ -211,6 +211,24 @@ input:checked + .slider.round:before {
   animation: darkfadein 0.5s, darkfadeout 0.5s 3.5s;
 }
 
+#moonIcon {
+  height: 13px;
+position: relative;
+z-index: 9;
+right: 47px;
+top: 2px;
+}
+
+#moonIconSnackbar {
+  height: 25px;
+  position: relative;
+  z-index: 99;
+  margin:0;
+  padding: 0;
+  margin-right: 5px;
+
+}
+
 @-webkit-keyframes darkfadein {
   from {top: 0; opacity: 0;} 
   to {top: 30px; opacity: 1;}
