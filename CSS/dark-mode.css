@@ -191,6 +191,7 @@ input:checked + .slider.round:before {
 #darkModeOn {
   background-color: #333;
   color: #fff;
+  padding:8px 8px 16px 8px;
 }
 
 #darkModeOn.show {

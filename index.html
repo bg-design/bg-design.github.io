@@ -196,6 +196,16 @@ right: 47px;
 bottom: 1px;
 }
 
+#moonIconSnackbar {
+	height: 25px;
+	position: relative;
+	z-index: 99;
+	margin:0;
+	padding: 0;
+	margin-right: 5px;
+
+}
+
 @-webkit-keyframes at-banner-slide-in {
   0% {
     -webkit-transform: translateY(150%);
@@ -316,7 +326,7 @@ bottom: 1px;
 <footer class="center">
 
 	<!-- Snackbar DarkMode confirmation -->
-<div id="darkModeOn"><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
+<div id="darkModeOn"><img src="IMG/Icons/darkMoon.png" id="moonIconSnackbar"/><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
 <div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>
 
 		<div class="home-container fade-in six">
@@ -406,6 +416,7 @@ console.log('%cI like to use jQuery and code that is short, to the point, elegan
 		new Image(0,0).src = 'IMG/Icons/close-project-icon.png';
 		new Image(0,0).src = 'IMG/nd-logo-v2c-invert.png';
 		new Image(0,0).src = 'IMG/when-slideshow/raging-fire.jpeg';
+		new Image(0,0).src = 'IMG/tools-gif-flattened.gif';
 		
 		new Image(0,0).src = 'IMG/shamrina-test.jpg';
 
