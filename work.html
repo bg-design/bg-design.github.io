@@ -323,13 +323,6 @@
         css3:false
     });
 
-    // Only show nav on larger devices
-    $(window).on("load", function() {
-      setTimeout(function() {
-      	 if (window.screen.availWidth > 415)
-          {$('#fp-nav').css("opacity", "1");}
-      },2200);
-    });
 </script>
 
 <!-- Lity -->
@@ -345,21 +338,21 @@ $( document ).ready(function() {
 
 });
 
-	// Dark Mode detector
-	var time = new Date();
-	var hour = time.getHours();
-	if ( sessionStorage.getItem('setDarkMode') === 'true') {
-	      document.body.classList.add("dark-mode");
-	    }
-	else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-	    document.body.classList.remove("dark-mode");
-	}
-	else if ((hour <= 6) || (hour >= 18)) {
-	    document.body.classList.add("dark-mode");
-	}
-	else {
-	  document.body.classList.remove("dark-mode");
-	}
+	// // Dark Mode detector
+	// var time = new Date();
+	// var hour = time.getHours();
+	// if ( sessionStorage.getItem('setDarkMode') === 'true') {
+	//       document.body.classList.add("dark-mode");
+	//     }
+	// else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+	//     document.body.classList.remove("dark-mode");
+	// }
+	// else if ((hour <= 8) || (hour >= 17)) {
+	//     document.body.classList.add("dark-mode");
+	// }
+	// else {
+	//   document.body.classList.remove("dark-mode");
+	// }
 </script>
 <script type="text/javascript">
 console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
