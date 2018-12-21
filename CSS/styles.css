@@ -544,6 +544,26 @@ p a::selection {
 	text-shadow: none;
 }
 
+.persona-bar {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	background: rgb(230, 230, 230);
+	height: 15px;
+/*			width: 100%;*/
+	margin: 0 10px;
+	clear: both;
+}
+
+.persona-progress {
+	position: relative;
+	display: block;
+	background: #3c4552;
+	height: 15px;
+	width: 0;
+	float: left;
+}
+
 .lets-talk {
   position: relative;
   transition: 1s;

@@ -490,20 +490,8 @@ margin: -1px 20px 0px 0px;
 					</div>
 				</div>
 
-			<a name="skills" id="skills"></a>
-
-			<div class="fade-in three">
-				<p class=""><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Sketch, Zeplin, InVision, Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
-
-				<p class=""><strong>Visual Design</strong>: Style Guides, Web and Mobile Design, Photoshop, Illustrator, Branding Concepts, Logos, and Identity, Look and Feel, Iconography and UI, Color Theory, Visual Hierarchy, Typography, Photography and Video</p>
-
-				<p class="fade-in three"><strong>User Research</strong>: Competitive Analysis, Design Pattern Research, User Research, Contextual Inquiry, Quantitative Analysis, Card Sorting, User Interviews, User Personas, A/B Testing, User Scenarios, User Journeys, User Surveys, Usability Testing</p>
-
-				<p class="fade-in four"><strong>Frontend Development</strong>: Responsive Web Development, HTML5, CSS3, SCSS, SASS, Javascript, Git, Bootstrap, Wordpress, SEO'd, Universal Access (Accessible)</p>
-			</div>
-
-			<a name="tools" id="tools"></a>
-				<h2 class="fade-in four clear">Tools</h2>
+		<h2 class="fade-in four clear">Skills &amp; Tools<a name="tools" id="tools"></a>
+</h2>
 		<p class="fade-in two">
 			<ul>
 				<li><strong>Concept &amp; Lo-fi</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
@@ -514,7 +502,43 @@ margin: -1px 20px 0px 0px;
 		</p>
 		<img class="tools fade-in four img-invert" src="IMG/tools2.jpg">
 
-		
+			<a name="skills" id="skills"></a>
+		<div class="six-col">
+			<div class="fade-in three">
+				<p class=""><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Sketch, Zeplin, InVision, Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
+
+				<p class=""><strong>Visual Design</strong>: Style Guides, Web and Mobile Design, Photoshop, Illustrator, Branding Concepts, Logos, and Identity, Look and Feel, Iconography and UI, Color Theory, Visual Hierarchy, Typography, Photography and Video</p>
+
+				<p class="fade-in three"><strong>User Research</strong>: Competitive Analysis, Design Pattern Research, User Research, Contextual Inquiry, Quantitative Analysis, Card Sorting, User Interviews, User Personas, A/B Testing, User Scenarios, User Journeys, User Surveys, Usability Testing</p>
+
+				<p class="fade-in four"><strong>Frontend Development</strong>: Responsive Web Development, HTML5, CSS3, SCSS, SASS, Javascript, Git, Bootstrap, Wordpress, SEO'd, Universal Access (Accessible)</p>
+			</div>
+		</div>
+		<div class="six-col">
+			<h4>Sketch</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-sketch"></span></div>
+            <h4>Photoshop</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-photoshop"></span></div>
+            <h4>Illustrator</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-illustrator"></span></div>
+            <h4>InVision</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-invision"></span></div>
+            <h4>HTML5</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-html5"></span></div>
+            <h4>CSS3</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-css3"></span></div>
+            <h4>Javascript</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-js"></span></div>
+            <h4>jQuery</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-jquery"></span></div>
+            <h4>Sublime Text</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-sublime"></span></div>
+            <h4>Google Docs</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-gdocs"></span></div>
+            <h4>Omnigraffle</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-omni"></span></div>
+
+		</div>
 
 		</section>
 	</p></section></section>
@@ -806,6 +830,48 @@ $( document ).ready(function(){
 			backDelay: 1500,
 		});
 	});
+
+// Persona expanding skill bars
+
+  // Scroll listener
+window.addEventListener("scroll", function (event) {
+	
+	if (window.pageYOffset > 200) {
+    setTimeout(function() {
+      $('#skills-sketch').animate({ width: '90%' }, 1000);
+      },500);
+    setTimeout(function() {
+      $('#skills-photoshop').animate({ width: '100%' }, 1100);
+      },600);
+    setTimeout(function() {
+      $('#skills-illustrator').animate({ width: '70%' }, 1200);
+      },700);
+    setTimeout(function() {
+      $('#skills-invision').animate({ width: '95%' }, 1300);
+      },800);
+    setTimeout(function() {
+      $('#skills-html5').animate({ width: '100%' }, 1400);
+      },900);
+    setTimeout(function() {
+      $('#skills-css3').animate({ width: '100%' }, 1500);
+      },1000);
+    setTimeout(function() {
+      $('#skills-js').animate({ width: '75%' }, 1600);
+      },1100);
+    setTimeout(function() {
+      $('#skills-jquery').animate({ width: '70%' }, 1700);
+      },1200);
+    setTimeout(function() {
+      $('#skills-sublime').animate({ width: '90%' }, 1800);
+      },1300);
+    setTimeout(function() {
+      $('#skills-gdocs').animate({ width: '80%' }, 1900);
+      },1400);
+    setTimeout(function() {
+      $('#skills-omni').animate({ width: '90%' }, 2000);
+      },1500);
+	};
+});
 
 // Collapsible
 var coll = document.getElementsByClassName("collapsible");

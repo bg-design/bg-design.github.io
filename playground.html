@@ -1,13 +1,8 @@
 <!-- Designed and hand coded with love by Benjamin Grandy in the San Francisco Bay Area. -->
 
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-
-  <link rel="stylesheet" href="CSS/owl.carousel.min.css">
- <link rel="stylesheet" href="CSS/owl.theme.default.css">
 
 
 
@@ -16,547 +11,77 @@
 
 @import url(CSS/global.css);
 
-.lets-talk {
-  position: relative;
-  transition: 1s;
-  float: left;
-  left: 50%;
-  margin-left: -233px;
-  margin-bottom: 10px;
-}
 
-.linear-wipe {
-  font-size:20pt;
-  font-weight: 700;
-  -webkit-animation: Gradient 5s ease-in-out infinite;
-  -moz-animation: Gradient 5s ease-in-out infinite;
-  animation: Gradient 5s ease-in-out infinite;
-  background: white;
-  background-size: 300% 300%;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition:0.3s;
-}
-
-.linear-wipe:hover, #rect-gradient.talk-gradient {
-  background: linear-gradient(90deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);
-}
-
-.linear-wipe:hover {
-  background-size: 300% 300%;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition:1s;
-  cursor: pointer;
-}
-
-#rect-gradient.talk-gradient {
-  width: 120px;
-  background-size: 400% 400%;
-  margin: 15px auto;
-  height: 1px;
-}
-
-
-/*Heart Animation */
-svg {
-width: 50px;
-display: block;
-position: relative;
-}
-
-.anim{
-display: inline;
-fill:#de2144;
-stroke:#de2144;
-stroke-dasharray: 2000;
-stroke-dashoffset: 0;
-stroke-width: 1;
--webkit-animation: heart 9s ease-in-out 0s infinite;
-animation: heart 9s ease-in-out 0s infinite;
-}
-
-@-webkit-keyframes heart {
-  0% {
-    stroke-dashoffset: 0;
-    fill:#de2144;
-  }
-
-  35% {
-  	stroke-dashoffset: 2000;
-  }
-
-  50% {
-    fill:rgba(222, 33, 68, 0.1);
-}
-
-/* Filling stroke heart */
-
-60% {stroke-dashoffset: 2000;}
-
-100% {
-    stroke-dashoffset: 0;
-  fill:#de2144;
-    
-  }
-}
-
-
-.heart {
-	width: 100px;
-  background: url("IMG/footer/heart5.png") no-repeat;
-  background-position: 18px 0;
-  cursor: pointer;
-  transition: background-position 1s steps(56);
-  transition-duration: 0s;
-}
-.anim.is-active, .heart.is-active {
-  transition-duration: 2s;
-  background-position: -3718.5px 0;
-}
-
-.placement {
-  display: inline-block;
-	position: relative;
-	-webkit-clip-path: circle(40% at 50% 50%);
-			clip-path: circle(40% at 50% 50%);
-}
-
-/* ---------------------- */
-/*       TESTIMONIAL      */
-/* ---------------------- */
-
-figure.testimonials {
-}
-figure.testimonials * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-figure.testimonials img {
-  float: right;
-  max-width: 40%;
-  vertical-align: middle;
-  border-radius: 0 8px 8px 8px;
-}
-figure.testimonials figcaption {
-  top: 0;
-  left: 0;
-  width: 60%;
-  position: absolute;
-  background-color: #ffffff;
-  border-radius: 8px 0 0 8px;
-}
-figure.testimonials blockquote {
-  position: relative;
-  padding: 25px 50px 25px 50px;
-  font-size: 16pt;
-  font-weight: 500;
-  font-family: 'Lora', serif;
-  text-align: left;
-  margin: 0;
-  line-height: 1.4em;
-  font-style: italic;
-}
-figure.testimonials blockquote:before,
-figure.testimonials blockquote:after {
-  font-family: 'FontAwesome';
-  content: "\201C";
-  position: absolute;
-  font-size: 50px;
-  opacity: 0.3;
-  font-style: normal;
-}
-figure.testimonials blockquote:before {
-  top: 25px;
-  left: 20px;
-}
-figure.testimonials blockquote:after {
-  content: "\201D";
-  right: 20px;
-  bottom: 0px;
-}
-figure.testimonials .arrow {
-  top: 30px;
-  left: 100%;
-  width: 0;
-  height: 0;
-  border-left: 0 solid transparent;
-  border-right: 25px solid transparent;
-  border-top: 25px solid #ffffff;
-  margin: 0;
-  position: absolute;
-}
-figure.testimonials .author {
-  position: absolute;
-  top: 100%;
-  padding: 10px 15px;
-  color: #fff;
-}
-
-.author span {
-  font-weight: 200;
-}
-figure.testimonials .author h5 {
-  opacity: 0.8;
-  margin: 0;
-  font-weight: 800;
-}
-
-#test-headshot {
-  width: 250px;
-}
-
-#welcome-nav {
-  margin: 0 auto;
-}
-
-/* The Overlay (background) */
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed; 
-  z-index: 99999;
-  left: 0;
-  top: 0;
-  background-color: rgb(0,0,0);
-  overflow: hidden; 
-  transition: 0.5s;
-}
-
-#overlay-nav li {
-  float: left;
-  clear: both;
-}
-
-#overlay-nav .home-link {
-  color: white;
-  text-align: center;
-}
-
-#overlay-nav h3 {
-  color: grey;
-}
-/* Position the content inside the overlay */
-.overlay-content {
-  position: relative;
-  top: 10%; 
-  width: 100%; 
-  text-align: center;
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
-
-/* The navigation links inside the overlay */
-.overlay a {
-  transition: 0.3s; /* Transition effects on hover (color) */
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  color: white;
-}
-
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
-
-
-	</style>
+</style>
 	
 </head>
 <body>
-  <div class="loading-bg" id="how-loading">
-    <div class="loading-wrapper">
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-    </div>
-  </div>
-  <nav class="navbar">
-      <div class="container nav-wrapper">
-          <div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-      <img class="logo" src="IMG/ben-grandy-sig.png">
-      <ul class="nav-menu">
-        <li><a class="fade-in four" href="what.html">What</a></li><li><a class="fade-in three" href="how.html">How</a></li><li><a class="fade-in five" href="who.html">Who</a></li><li><a class="fade-in four" href="when-where.html">When</a></li><li><a class="fade-in five" href="why.html">Why</a></li>
-      </ul>
-    </div>
-    <div class="scroll-progress"></div>
-  </nav>
-  <div class="nav-spacer"></div>
-  <hr>
-  <div class="banner">
-    <img src="IMG/shyft-mock3.jpg" />
-  </div>
 
-<!-- The overlay -->
-<div id="myNav" class="overlay">
+    <h3>Skills</h3>
+            <h4>Sketch</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-sketch"></span></div>
+            <h4>Photoshop</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-photoshop"></span></div>
+            <h4>Illustrator</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-illustrator"></span></div>
+            <h4>InVision</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-invision"></span></div>
+            <h4>HTML5</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-html5"></span></div>
+            <h4>CSS3</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-css3"></span></div>
+            <h4>Javascript</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-js"></span></div>
+            <h4>jQuery</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-jquery"></span></div>
+            <h4>Sublime Text</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-sublime"></span></div>
+            <h4>Google Docs</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-gdocs"></span></div>
+            <h4>Omnigraffle</h4>
+            <div class="persona-bar"><span class="persona-progress" id="skills-omni"></span></div>
+            <br>
 
-  <!-- Button to close the overlay navigation -->
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-  <!-- Overlay content -->
-  <div class="overlay-content">
-    <div class="home-links" id="overlay-nav">
-          <div><a class="home-link" href="index.html" id="welcome-nav">Welcome</a></div>
-          <h3>Featured Work</h3>
-          <div><a class="home-link" href="work.html" id="work">AWA Fit</a></div>
-          <div><a class="home-link" href="work.html" id="work">Safe Harbor</a></div>
-          <div><a class="home-link" href="work.html" id="work">Shyft</a></div>
-          <h4>Other Work: Refer Me, Life Alert, Health Journal</h4>
-          <div><a class="home-link" href="about.html" id="about">About</a></div>
-          <div><a class="home-link" href="cv.html" id="cv">C.V.</a></div>
-          <div><a class="home-link" href="philosophy.html" id="philosophy">Philosophy</a></div>
-<!--           <div><a class="home-link" href="credits.html" id="credits">Credits</a></div>
- -->        </div>
-        <p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-  </div>
-
-  </div>
-
-<!-- Use any element to open/show the overlay navigation menu -->
-<span onclick="openNav()">open</span>
-
-
-<div class="container" id="shyft">
-
-    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Overview.png" /><h2>Overview</h2></div>
-    <br>
-    
-    <p class="body">Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
-    <img src="IMG/Shyft/shyft-business-model.jpg" id="shyft-model"/>
-
-    <p class="body">To differentiate themselves from their competitors and deliver a quality experience, our client told us that they were focused on three core values: available, reliable, and local. <strong>Available</strong> is defined as having schedules that are open to the shifts needed. <strong>Reliable</strong> means that the ambassadors consistently show up and are professional. <strong>Local</strong> means they are within the local area and have the transportations means to get to their scheduled shifts.</p>
-    <img src="IMG/Shyft/shyft-criteria2.png" id="shyft-values"/>
-
-    <p class="body">For each event, there can be multiple locations, multiple roles, multiple shifts, and multiple people. You might in some cases want the cheapest staffors, in others you might want the most reliable. The nature of this problem is like a 5-dimensional puzzle. This is a perfect interaction design challenge- to simplify the complex.</p>
-
-
-    <img src="IMG/Shyft/booking-dimensions.png" id="shyft-dimensions"/>
-
-    <p class="body"><strong>Targeting</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates looking for work, but was instead limited by the the agencies offering work. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
-
-  </section>
-  <section>
-    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Research.png" /><h2>Research</h2></div>
-    <br>
-    <p class="body">Given that we were trying to solve a problem with many dimensions, we researched other instances where a great amount of information needs to be sorted through to find an ideal choice in as few steps as possible. Booking airline flights is a great example of this. It's hard to display all the information that the users needs without making the interaction feel overwhelming. Many websites make use of hover states, dropdowns, and a lot of exposed buttons so the user can focus on one task at a time without feeling overwhelmed or confused.</p>
-    <img src="IMG/Shyft/google-flights2.png" id="google-flights"/><img src="IMG/Shyft/hipmunk.png" id="hipmunk"/><br>
-    <figcaption>Google Flights and Hipmunk make use of a lot of exposed controls, dropdowns, &amp; hover modals to help organize the complex.</figcaption>
-    <p class="body">We interviewed agencies and brand ambassadors to understand some of their pain points, as well as what method they currently use to schedule &amp; book staff. We found that agencies typically use <strong>pen &amp; paper</strong> or simply an <strong>excel spreedsheet</strong>. This lead us to believe there is plenty of room for improvement, as well as understand the current method to ensure that our approach made things simpler, not more complex.</p>
-    <img src="IMG/Shyft/shyft-components.png" id="shyft-components"/>
-    <p class="body">We considered the relationships between Date, Time, Role, &amp; Location. Surely time was within a day, but what-if you had a shift that spanned midnight? Was it more common to have a single location that spanned multiple days or to have a single day that spanned multiple locations? Should a role be coupled with a shift, or should shifts exist inside roles? How common was it that you needed to add multiple roles? As we researched and explored each of these use cases, it helped narrow down how the core interaction would work.</p>
-  </section>
-  <section>
-    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Wires.png" /><h2>Wireframes</h2></div><br>
-    <h3><span class="underline"> Solution 1</span>: Detail First</h3>
-    <img src="IMG/Shyft/detail-first2.png" id=""/>
-    <p class="body ten-pad">Our first approach to the problem was to have the agency first fill out the details of the event and the shifts they expected to fill. By telling the system all the information that is needed this dramatically simplifies the process once you get to the booking stage. We opted for simplicity, having the user fill out as few fields as possible, while still having the power to input a lot of information and have Shyft do the heavy lifting matching your event with potential candidates. We also separated the task into stages to help it feel more manageable.</p>
-
-    <img src="IMG/Shyft/multiple-shifts2.png" id="multiple-shifts"/>
-    <img src="IMG/Shyft/natural-entry.png" id="natural-entry"/>
-    <figcaption><span class="float-left">Batch entry allows quick and powerful entry for multiple shifts.</span>
-    <span class="float-right">Time entry uses natural language i.e. "4am-6pm" or "6a to 1:15p"</span></figcaption>
-    <br>
-
-    <p class="body">When the user starts searching for people to book, the system automatically organizes your results based on the candidates that are able to fill the most shifts. This allows them to find candidates quickly and minimize the total amount of people to manage.</p>
-
-    <img src="IMG/Shyft/booking.png" id="shyft-booking"/><img src="IMG/Shyft/book-hover.png" id="book-hover" />
-    <figcaption><span class="float-left">Schedule and available shifts update in realtime.</span><span class="float-right">When hovering book button, available shifts light up to indicate availability.</span></figcaption>
-
-    <p class="body fifteen-pad">When all the available shifts are filled, the user is taken to a confirmation page that clearly lays out the line-item cost of people you have booked for each shift, any added tax or fees, and Shyft's fee. After they send out the requests to book, they can check in on the booking status to see who has accepted, who is pending, and who has declined the requests. After 24 hours, whoever hasn't accepted the job request loses the job and the agency can then continue to rebook to fill in the remaining shifts.</p>
-    <div class="float-left">
-      <img src="IMG/Shyft/shyft-receipt2.png" id="shyft-receipt"/>
-      <figcaption>Easily scan the line-item totals for who is booked.</figcaption>
-    </div>
-    <div class="float-right">
-      <img src="IMG/Shyft/booking-status.png" id="booking-status" />
-      <figcaption>After the booking requests are sent out, the agency can <br>check-in to see the status of requests.</figcaption>
-    </div>
-    <br class="clear">
-
-    <p class="body ten-pad">The client seemed receptive to the approach, however, wasn't sure that the advertising agency would necessarily be locked into the details of an event they are attempting to book. With the detail first flow, the assumption is that the agency is already constrained by the booking times for the event. However, if there are too few or undesirable results for their desired booking time, they might go back and edit the event details to open their results. Alternatively, the agency might have some staffers that they have worked with before, and have bookmarked for future gigs. They already know the staffers are reliable so would like to hire them again. Therefore, they might start scheduling by first looking at the availability of the desired staffers and then working to make a schedule that fits. This brings us to our second approach.</p>
-
-
-  </section>
-  <section>
-    <div class="project-icons-wrapper"><img class="project-icons" src="IMG/Icons/Design.png" /><h2>Design</h2></div>
-  </section>
-
-</div>
-
-<div class="banner">
-  <img src="IMG/Shyft/shyft-banner3.jpg" />
-</div>
-
-<div class="container">
-  <section>
-<!--    <div class="bottom-nav">
-    <a href="http://ben-grandy-peuv.squarespace.com/refer-me" target="_blank"><button class="float-left hvr-sweep-to-left when-button"><div class="flip float-left">➟</div>&nbsp;Refer Me</button></a>
-    <a href="https://ben-grandy-peuv.squarespace.com/life-alert" target="_blank"><button class="float-right hvr-sweep-to-right who-button">Life Alert ➟</button></a>
-    </div> -->
-
-    <div class="bottom-nav">
-      <button class="float-left hvr-sweep-to-left when-button" onClick="../safe-harbor.html">< Safe Harbor</button>
-      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='https://ben-grandy-peuv.squarespace.com/life-alert'">Life Alert ></button>
-      
-    </div>
-
-<button onclick="darkModeOn()">Show darkModeConfirmation</button>
-
-<button onclick="darkModeOff()">Show darkModeOff</button>
-
-
-
-  </section>
-  <hr style="border-bottom: 1px solid #5e5e5e;">
-
-</div>
-
-
-    <div class="scroll" onclick="scrollBoth()">
-      <button class="floatingArrowIcon">
-        <img src="IMG/Icons/arrow-icon-filled.png">
-      </button>
-    </div>
-
-</div>
-<div>
-        </div>
-</section></div>
-
-<footer class="center">
-    <div class="container">
-      <div class="footer-top-row">
-        <div class="float-left">
-          <p class="dark-mode-switch-text">Dark mode:</p>
-          <label class="switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-          </label>
-        </div>
-        <div class="lets-talk">
-          <h3 class="linear-wipe">Let's chat</h3>
-          <div class="talk-gradient" id="rect-gradient"></div>
-        </div>
-            <div class="float-right">
-              <span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/email-icon.png" class="social-icon"></img></a></span>
-              <span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></img></a></span>
-              <span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></img></a></span>
-              <span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></img></a></span>
-              <span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></img></a></span>
-              <span><a href="https://social-icon.com/Webstir" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></img></a></span>
-            </div>
-      </div>
-      <div class="footer-middle-row">
-        <h5>
-          <span id="footer-left">Designed and hand coded with </span><div class="placement"><div class="heart"><svg class="anim placement" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg"><g id="Group" fill-rule="evenodd" transform="translate(467 392)"><path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" /><circle id="main-circ" opacity="0" cx="29.5" cy="29.5" r="1.5"/><g id="grp7" opacity="0" transform="translate(7 6)"><circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/><circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/></g><g id="grp6" opacity="0" transform="translate(0 28)"><circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/><circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/></g><g id="grp3" opacity="0" transform="translate(52 28)"><circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/><circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/></g><g id="grp2" opacity="0" transform="translate(44 6)" fill="#CC8EF5"><circle id="oval2" transform="matrix(-1 0 0 1 10 0)" cx="5" cy="6" r="2"/><circle id="oval1" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp5" opacity="0" transform="translate(14 50)" fill="#91D2FA"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp4" opacity="0" transform="translate(35 50)" fill="#F48EA7"><circle id="oval1" transform="matrix(-1 0 0 1 12 0)" cx="6" cy="5" r="2"/><circle id="oval2" transform="matrix(-1 0 0 1 4 0)" cx="2" cy="2" r="2"/></g><g id="grp1" opacity="0" transform="translate(24)" fill="#9FC7FA"><circle id="oval1" cx="2.5" cy="3" r="2"/><circle id="oval2" cx="7.5" cy="2" r="2"/></g></g></svg></div></div><span id="footer-right">by Benjamin Grandy in the San Francisco Bay Area.</span></strong></a>
-        </h5>
-      </div>
-      <p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-    </div>
-  </footer>
+          </div>
+ 
 <script src="JS/global.js"></script>
-
-<script src="https://code.jquery.com/jquery-latest.js"></script>
-
-<script src="JS/owl.carousel.min.js"></script>
-
-<script src="JS/dark-mode.js"></script>
-
-
 <script>
-
-  /* Open when someone clicks on the span element */
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-  $('html').css("overflow", "hidden");
-}
-
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-  $('html').css("overflow", "auto");
-}
-
-// testimonial carousel
-$(document).ready(function() {
-  var owl = $('.owl-carousel');
-  owl.owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:6000,
-    autoplayHoverPause:true,
-    autoPlay: 4000,
-    slideSpeed: 4500,
-    navigation: true,
-    pagination: true,
-    singleItem: true,
-});
-})
-</script>
-
-<script>
-
-// Scroll listener
-window.addEventListener("scroll", function (event) {
-
-    var scroll = this.scrollY;
-    // console.log(scroll);
-
-    // Flip Arrow
-    if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        $(".floatingArrowIcon").css("transform", "rotate(0deg)");
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-      }
-});
-
-// Scroll down one page
-function scrollDown() {
-    var scrollPosition = window.pageYOffset
-    var winHeight = window.innerHeight;
-    var scrollTo = winHeight + scrollPosition - 50;
-    $("html, body").animate({ scrollTop: scrollTo }, "medium");
-}
-
-function scrollBoth (){
-  if ((window.innerHeight + window.pageYOffset) < document.body.clientHeight ) {
-        scrollDown();
-        }
-    else {
-        $(".floatingArrowIcon").css("transform", "rotate(180deg)");
-        $("html, body").animate({ scrollTop: 0 }, "medium");
-      }
-}
-
-// // Current year for copyright (future-proof)
-// document.getElementById("current-year").innerHTML = (new Date().getFullYear());
-
-// Click on heart
+// Persona expanding skill bars
   $(function() {
 
-  $(".heart").on("click", function() {
-    $(".heart").toggleClass("is-active");
     setTimeout(function() {
-          $(".heart").toggleClass("is-active");
-        },2000);
-  });
+      $('#skills-sketch').animate({ width: '90%' }, 1000);
+      },500);
+    setTimeout(function() {
+      $('#skills-photoshop').animate({ width: '100%' }, 1100);
+      },500);
+    setTimeout(function() {
+      $('#skills-illustrator').animate({ width: '70%' }, 1200);
+      },500);
+    setTimeout(function() {
+      $('#skills-invision').animate({ width: '95%' }, 1300);
+      },500);
+    setTimeout(function() {
+      $('#skills-html5').animate({ width: '100%' }, 1400);
+      },500);
+    setTimeout(function() {
+      $('#skills-css3').animate({ width: '100%' }, 1500);
+      },500);
+    setTimeout(function() {
+      $('#skills-js').animate({ width: '75%' }, 1600);
+      },500);
+    setTimeout(function() {
+      $('#skills-jquery').animate({ width: '70%' }, 1700);
+      },500);
+    setTimeout(function() {
+      $('#skills-sublime').animate({ width: '90%' }, 1800);
+      },500);
+    setTimeout(function() {
+      $('#skills-gdocs').animate({ width: '80%' }, 1900);
+      },500);
+    setTimeout(function() {
+      $('#skills-omni').animate({ width: '90%' }, 2000);
+      },500);
 });
 
 </script>
