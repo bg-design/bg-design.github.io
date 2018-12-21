@@ -79,6 +79,11 @@ body {
   filter: invert(82%);
   transition: 3s;
 }
+-
+.dark-mode .img-invert-full {
+  filter: invert(100%);
+  transition: 3s;
+}
 
 .dark-mode .navbar {background: rgba(88, 88, 88, 0.57);}
 
