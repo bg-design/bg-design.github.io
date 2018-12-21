@@ -358,28 +358,13 @@ margin: -1px 20px 0px 0px;
 	.numbers-third {
 		width: 50%;
 	}
+	.typing-wrap h1 {font-size:40px;margin: 0;}
 }
 
 /*		Small */
 @media screen and (max-width: 530px){
 	.when-titles {
 		font-size:12pt;
-	}
-
-	.swiper-button-prev, .swiper-button-next {display: none;}
-
-	.slide-caption {
-		left: initial;
-		width: initial;
-	}
-
-	.slide-caption p, .slide-caption p a {
-		font-weight: 500;
-		font-size: 12pt;
-	}
-
-	.slide-credit p {
-		font-size: 80%;
 	}
 
 	h3 {font-size:100%;margin: 0;}
@@ -769,7 +754,11 @@ $(document).ready(function(){
 
 	// Typing script
 $( document ).ready(function(){
-		$("#typed").typed({
+		typing();
+	});
+
+function typing () {
+	$("#typed").typed({
 			stringsElement: $('#typing'),
 			contentType: 'html',
 			// lower is faster
@@ -779,15 +768,15 @@ $( document ).ready(function(){
 			backSpeed: 0,
 			// time before backspacing
 			backDelay: 1500,
-		});
-	});
+		})
+}
 
 // Persona expanding skill bars
 
   // Scroll listener
 window.addEventListener("scroll", function (event) {
 	
-	if (window.pageYOffset > 200) {
+	if (window.pageYOffset > 600) {
     setTimeout(function() {
       $('#skills-sketch').animate({ width: '90%' }, 1000);
       },500);
