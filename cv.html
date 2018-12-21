@@ -15,76 +15,33 @@
 	
 	<style>
 
-/*		Swiper Styles*/
-				.swiper-container {
-			      width: 100%;
-			      height: 100%;
-			    }
-			    .swiper-slide {
-			      text-align: center;
-			      font-size: 18px;
-			      background: #fff;
-			      /* Center slide text vertically */
-			      display: -webkit-box;
-			      display: -ms-flexbox;
-			      display: -webkit-flex;
-			      display: flex;
-			      -webkit-box-pack: center;
-			      -ms-flex-pack: center;
-			      -webkit-justify-content: center;
-			      justify-content: center;
-			      -webkit-box-align: center;
-			      -ms-flex-align: center;
-			      -webkit-align-items: center;
-			      align-items: center;
-				}
+	body {background: rgb(221, 221, 221);}
 
-				.slide-caption {
-					position: absolute;
-					top: 20%;
-					left: 50%;
-					width: 300px;
-					background: rgba(0, 0, 0, 0.32);
-				}
+	body.dark-mode {background: #101010;}
 
-				.slide-caption p, .slide-caption p a {
-					color: white;
-					font-size: 16pt;
-					line-height: 1.4;
-					text-align:left;
-				}
+	h1 {padding: 0px 0 10px 0;}
 
-				.haiti-girl {
-					left:10%;
-					width: 420px;
-					background: rgba(47, 47, 47, 0.72);
-				}
+.dottedBox {
+	margin: 0 auto;
+border: 1px dashed;
+padding-bottom: 20px;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
+height: 1458px;
+padding: 15px 0 50px 40px;
+background: white;
+}
 
-				.refugees {
-					top:initial;
-					left:5%;
-					bottom: 5%;
-					width: 320px;
-					background: rgba(47, 47, 47, 0.5)
-				}
+.dark-mode .dottedBox {
+	background:rgb(45, 45, 45);
+}
 
-				.american-airlines {
-					top: initial;
-					bottom:10%;
-					left:10%;
-				}
 
-				#aa-caption p {
-					color: rgb(125, 125, 125);
-				}
 
-				.earth-overshoot {
-					top: 20%;
-					left: initial;
-					right: 5%;
-					width: 550px;
-					background: rgba(72, 72, 72, 0.8);
-				}
+#exEdBox {
+	padding: 30px;
+	height: initial;
+	margin-bottom: 30px;
+}
 
 		.tools {
 			width: 100%;
@@ -169,7 +126,7 @@
 	        100% { opacity:1; }
 	    }
 
-	    #numbers, #experience, #education, #tools, #skills {
+	    #numbers, #education, #skills {
 	    	height: 50px;
 	    	display: block;
 	    }
@@ -480,18 +437,15 @@ margin: -1px 20px 0px 0px;
 
 <div class="container first-copy">
 
-  <section class="clear when">
-
-  	<section class="skills">
+  	<section class="skills clear when">
 				<div class="typing-wrap">
 					<h1>I am <span id="typed"></span></h1>
 					<div id="typing">
 						<p>a <strong>UX/UI Designer</strong>.</p><p>a <strong>Visual Designer</strong>.</p><p>a <strong>User Researcher</strong>.</p><p>a <strong>Frontend Developer</strong>.</p><p>an <strong>Experience Designer</strong>.<br><span class="small">(I turn lovely ideas into great experiences.) </span></p>
 					</div>
 				</div>
-
-		<h2 class="fade-in four clear">Tools &amp; Skills<a name="tools" id="tools"></a>
-</h2>
+<div class="dottedBox">
+		<h2 class="fade-in four clear">Tools &amp; Skills<a name="tools" id="tools"></a></h2>
 		<p class="fade-in two">
 			<ul>
 				<li><strong>Concept &amp; Lo-fi</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
@@ -502,7 +456,7 @@ margin: -1px 20px 0px 0px;
 		</p>
 		<img class="tools fade-in four img-invert" src="IMG/tools2.jpg">
 
-			<a name="skills" id="skills"></a>
+			<a name="skills" id="skills" class="twenty-pad"></a>
 		<div class="six-col">
 			<div class="fade-in three">
 				<p class=""><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Sketch, Zeplin, InVision, Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
@@ -539,10 +493,9 @@ margin: -1px 20px 0px 0px;
             <div class="persona-bar"><span class="persona-progress" id="skills-omni"></span></div>
 
 		</div>
-
-		</section>
-	</p></section></section>
-</div>	
+		</div>
+	</section>
+</div>
 
 <section class="clear when">
 <a name="numbers" id="numbers"></a>
@@ -598,7 +551,11 @@ margin: -1px 20px 0px 0px;
 		</div>
 </section>
 <div class="container" >
-		<section>
+
+<section>
+
+	<div class="thirty-pad"></div>
+	<div class="dottedBox" id="exEdBox">
 
 		<a name="experience" id="experience"></a>
 
@@ -637,10 +594,6 @@ margin: -1px 20px 0px 0px;
 		</div>
 	</div>
 
-	</section>
-
-	<section class="clear when">
-
 		<a name="education" id="education"></a>
 		
 		<h1 class="clear">Education</h1>
@@ -668,12 +621,10 @@ margin: -1px 20px 0px 0px;
 <!-- 		<img class="education" src="IMG/skills7.png"/>
  -->
 
-	</section>
-
-	<section>
 		 <div class="flexbox">
 			<a href="Resume/Ben-Grandy-Resume-10.30.2018.pdf" target="_blank" class="button" id="download-resume">Download Résumé</a>
 		</div>
+	</div>
 		<div class="bottom-nav">
 		<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='about.html'">< Who I am</button>
 		<button class="float-right hvr-sweep-to-right why-button" onClick="parent.location='philosophy.html'">My Philosophy ></button>

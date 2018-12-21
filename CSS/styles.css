@@ -967,15 +967,17 @@ cite p {color:white;}
 
 .nine-col {width: 67.5%;float: left;}
 
-.ten-pad {margin-top:10px;}
+.ten-pad {height:10px;}
 
-.fifteen-pad {margin-top:15px;}
+.fifteen-pad {height:15px;}
 
-.twenty-pad {padding-top:20px;}
+.twenty-pad {height:20px;}
 
-.thirty-pad {margin-bottom: 30px;}
+.thirty-pad {
+	height: 30px;
+}
 
-.fifty-pad {margin-top: 50px;}
+.fifty-pad {height:50px;}
 
 .float-right {float: right;}
 
