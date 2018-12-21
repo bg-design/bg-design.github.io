@@ -188,6 +188,14 @@ font-size:14px;
           transform: translate(-50%, -50%) rotate(45deg);
 }
 
+#moonIcon {
+	height: 13px;
+position: relative;
+z-index: 9;
+right: 47px;
+bottom: 1px;
+}
+
 @-webkit-keyframes at-banner-slide-in {
   0% {
     -webkit-transform: translateY(150%);
@@ -315,10 +323,10 @@ font-size:14px;
 			<div class="footer-top-row">
 				<p class="dark-mode-switch-text">Dark mode:</p>
 				  <label class="switch" for="checkbox">
-				  	<img src="IMG/Icons/darkMoon.png"/>
 				    <input type="checkbox" id="checkbox" />
 				    <div class="slider round"></div>
 				  </label>
+				  <img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
 					
 			</div>
 			<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
