@@ -97,7 +97,7 @@ html.fp-enabled,
 }
 #fp-nav {
     position: fixed;
-    z-index: 100;
+    z-index: 99;
     margin-top: -32px;
     top: 50%;
     opacity: 1;
@@ -168,7 +168,7 @@ html.fp-enabled,
     z-index: 1;
     height: 4px;
     width: 4px;
-    border: 1px solid rgba(90, 90, 90, 0.14);
+    border: 1px solid rgba(90, 90, 90, 0.3);
     background: white;
     left: 50%;
     top: 50%;
@@ -177,6 +177,10 @@ html.fp-enabled,
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
+}
+.dark-mode #fp-nav ul li a span {
+    background:rgba(50, 50, 50, 0.9);
+    border:1px solid white;
 }
 #fp-nav ul li:hover a span,
 .fp-slidesNav ul li:hover a span{
