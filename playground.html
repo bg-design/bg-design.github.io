@@ -4,84 +4,34 @@
 <html lang="en-us">
 <head>
 
-
-
-
 <style>
 
 @import url(CSS/global.css);
 
+div {
+    height:800px;
+    background:red;
+}
 
 </style>
 	
 </head>
 <body>
 
-    <h3>Skills</h3>
-            <h4>Sketch</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-sketch"></span></div>
-            <h4>Photoshop</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-photoshop"></span></div>
-            <h4>Illustrator</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-illustrator"></span></div>
-            <h4>InVision</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-invision"></span></div>
-            <h4>HTML5</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-html5"></span></div>
-            <h4>CSS3</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-css3"></span></div>
-            <h4>Javascript</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-js"></span></div>
-            <h4>jQuery</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-jquery"></span></div>
-            <h4>Sublime Text</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-sublime"></span></div>
-            <h4>Google Docs</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-gdocs"></span></div>
-            <h4>Omnigraffle</h4>
-            <div class="persona-bar"><span class="persona-progress" id="skills-omni"></span></div>
-            <br>
-
-          </div>
+<div>Scroll Down</div>
+<h1 id="scroll-to">I am The H1</h1>
  
 <script src="JS/global.js"></script>
 <script>
-// Persona expanding skill bars
-  $(function() {
 
-    setTimeout(function() {
-      $('#skills-sketch').animate({ width: '90%' }, 1000);
-      },500);
-    setTimeout(function() {
-      $('#skills-photoshop').animate({ width: '100%' }, 1100);
-      },500);
-    setTimeout(function() {
-      $('#skills-illustrator').animate({ width: '70%' }, 1200);
-      },500);
-    setTimeout(function() {
-      $('#skills-invision').animate({ width: '95%' }, 1300);
-      },500);
-    setTimeout(function() {
-      $('#skills-html5').animate({ width: '100%' }, 1400);
-      },500);
-    setTimeout(function() {
-      $('#skills-css3').animate({ width: '100%' }, 1500);
-      },500);
-    setTimeout(function() {
-      $('#skills-js').animate({ width: '75%' }, 1600);
-      },500);
-    setTimeout(function() {
-      $('#skills-jquery').animate({ width: '70%' }, 1700);
-      },500);
-    setTimeout(function() {
-      $('#skills-sublime').animate({ width: '90%' }, 1800);
-      },500);
-    setTimeout(function() {
-      $('#skills-gdocs').animate({ width: '80%' }, 1900);
-      },500);
-    setTimeout(function() {
-      $('#skills-omni').animate({ width: '90%' }, 2000);
-      },500);
+$(window).scroll(function() {
+   var hT = $('#scroll-to').offset().top,
+       hH = $('#scroll-to').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS < (hT+hH-wH)){
+         console.log((hT+hH-wH) , wS);
+   }
 });
 
 </script>

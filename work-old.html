@@ -17,87 +17,67 @@
 
 	<style>
 
-.navbar {display: none;}
+	.navbar {display: none;}
 
-/* Centered texts in each section
-* --------------------------------------- */
-.section {
-	text-align:center;
-}
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
 
-/* Backgrounds will cover all the section
-* --------------------------------------- */
-.section, .slide{
-	background-size: cover;
-	background-attachment: fixed;
-}
-	/* Defining each section background and styles
-* --------------------------------------- */
-#section0 {
-	background-image: url(IMG/Awa-Fit/awa-fit-mock.jpg);
-	padding: 0;
-}
-#section1 {
-	background-image: url(IMG/Safe-Harbor/safe-harbor-mock5.jpg);
-	padding: 0;
-}
-#section2 {
-	background-image: url(IMG/Shyft/shyft-mock5.jpg);
-	padding: 0;
-}
-
-.project-info {
-	position: relative;
-	top:30%;
-	left: 10%;
-	width: 400px;
-}
-
-#fullpage hr {
-	border-bottom: 2px solid grey;
-	height: 0;
-	width: 100px;
-	margin: 0 auto;
-}
-
-#fullpage #section0 hr {
-	border-bottom:2px solid #4eefe5;
-}
-
-#fullpage #section1 hr {
-	border-bottom:2px solid #7fbce2;
-}
-
-#fullpage #section2 hr {
-	border-bottom:2px solid #f79f5a;
-}
-
-#section2 .project-info {
-}
-
-#section1 .project-button, #section1 .project-button:hover {
-	background: #7fbce2;
-}
-
-#section2 .project-button, #section2 .project-button:hover {
-	background: #f79f5a;
-}
-
-.project-button {
-	color: white;
-	font-size: 16px;
-	border-radius: 40px;
-	background: #4eefe5;
-	border: 0;
-}
-
-#fullpage .made-in {
-	text-align: center;
-	font-weight: 400;
-	color: rgb(130, 130, 130);
-	font-family: 'Lato', sans-serif;
-}
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	.section, .slide{
+		background-size: cover;
+		background-attachment: fixed;
+	}
+		/* Defining each section background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(IMG/awa-fit-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section1{
+		background-image: url(IMG/Safe-Harbor/safe-harbor-mock4.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section2{
+		background-image: url(IMG/Shyft/shyft-mock3.jpg);
+		padding: 0% 0 0 0;
+	}
+/*	#section3{
+		background-image: url(IMG/life-alert-mock4.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section4{
+		background-image: url(IMG/refer-me-mock3.jpg);
+		padding: 0% 0 0 0;
+	}*/
 /*
+	#section3{
+		background-image: url(IMG/gumball-mock.jpg);
+		padding: 0% 0 0 0;
+	}
+	#section5{
+		background-image: url(IMG/archive-mock.jpg);
+		padding: 0% 0 0 0;
+	}*/
+
+
+	.project-button {
+		color: #2b2b2b;
+		font-size:16px;
+	}
+
+	.made-in {
+		text-align: center;
+		font-weight: 400;
+		color: rgb(76, 76, 76);
+	}
+
+	#GES2016Logo {
+		width: 200px;
+	}
 	.what-box {
 		    position: relative;
 		    max-width: 450px;
@@ -106,46 +86,56 @@
 		    background: rgba(255, 255, 255, 0.9);
 		    border-radius: 10px;
 		    top: 18%;
-	}*/
+	}
 
-/*	.dark-mode .what-box {background: rgba(50, 50, 50, 0.9);}
-*/
+	.dark-mode .what-box {background: rgba(50, 50, 50, 0.9);}
 
-.fullpage-wrapper h1 {
-    font-family: 'Lato', Helvetica, sans-serif;
-	color: #333333;
-	font-weight: 700;
-	font-size:40px;
+	.what-box h1 {
+		    font-family: 'Lato', Helvetica, sans-serif;
+			color: #333333;
+			font-weight: 300;
+			font-size:40px;
+	}
+	.what-box p {
+		    font-family: 'Lora', sans-serif;
+			font-size: 12pt;
+			line-height: 1.3em;
+			font-weight: 500;
+			color: #5a5a5a;
 }
-#fullpage p {
-    font-family: 'Lora', sans-serif;
-	font-size: 12pt;
-	line-height: 1.3em;
-	font-weight: 500;
-	color: #5a5a5a;
-	text-align:center;
-}
-/*	.dark-mode .what-box h1, .dark-mode .what-box p {color: white;}
-*/
-#fullpage a {
-	color:#171717;
-}
+	.dark-mode .what-box h1, .dark-mode .what-box p {color: white;}
+
+	.what-box a {
+		color:#171717;
+	}
+	/*.safe-harbor {transform: translate(0px, 200px)}
+	.refer-me {transform: translate(0px, 200px)}
+	.shyft {transform: translate(0px, 200px)}
+	.life-alert {transform: translate(0px, 200px)}
+	.gumball {transform: translate(0px, 200px)}
+	#archive {transform: translate(0px, 290px)}*/
+
+	/*WHAT PROJECTS PADDING */
+
+/*@media only screen and (min-height: 700px) {
+	.what-box {
+	}
+}*/
+
 
 /* Default set to none so doesn't display on loading screen */
 #fp-nav {
 	transition: 0.5s;
 }
 
-#fullpage .copyright {
+.copyright {
 	position: absolute;
-    bottom: 0;
+    bottom: 11px;
     left: 50%;
-    color: rgb(151, 151, 151);
+    color: rgb(64, 64, 64);
     width: 250px;
     margin-left: -125px;
     float: left;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
 }
 
 #what-nav {
@@ -156,33 +146,6 @@
 
 .dark-mode #what-nav {
 	background: rgba(50, 50, 50, 0.9);
-}
-
-.nav-links {
-	height: 60px;
-}
-
-.nav-links a {
-	font-family: 'Lato', sans-serif;
-	font-size: 18pt;
-	letter-spacing: .5px;
-	font-weight: 300;
-	background-size: 0% 100%;
-	background-repeat: no-repeat;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	-ms-transition: 1s;
-	-o-transition: 1s;
-	transition: 1s;
-	padding: 15px 0 5px 0;
-	margin:0 15px 15px 15px ;
-}
-
-.nav-links a:hover {
-    transition:.4s ease-in .4s, .4s;
-	border:0;
-	background-size:100% 100%;
-	cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -197,7 +160,6 @@
 	.what-box h1 {
 		font-weight: 300;
 		font-size: 35px;
-	}
 }
 
 @media screen and (max-width: 600px) {
@@ -218,6 +180,7 @@
 @media screen and (max-width: 415px){
 
 #fp-nav {opacity: 0}
+
 }
 
 	</style>
@@ -245,46 +208,87 @@
 	</nav>
 	<div id="fullpage">
 	<div class="section" id="section0">
-		<div class="project-info">
+		<div class="what-box awa-fit">
 			<h1>AWA Fit</h1>
-			<hr>
 			<br>
-			<p>Mobile fitness app for Latin America</p>
+			<p>Client project for a mobile fitness app start-up to bring group fitness, guided workouts, yoga, friendly competition and trainer-guided videos to Latin America.</p>
+			<br>
 			<a href="https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857" target="_new"><button class="project-button center">View Demo</button></a>
 			<p class="made-in">Made in Oct. 2017</p>
 		</div>
 	</div> 
 	<div class="section" id="section1">
-		<div class="project-info">
+		<div class="what-box safe-harbor">
 			<h1>Safe Harbor</h1>
-			<hr>
 			<br>
 <!-- 			<img src="IMG/GES2016Logo.png" id="GES2016Logo"/>
- -->			<p>Won a hackathon at the 2016 Global Entrepeneupship Summit.</p>			<br>
+ -->			<p>Won a hackathon at the 2016 Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>			<br>
 			<a href="safe-harbor.html" ><button class="project-button center">Case Study</button></a>
 			<p class="made-in">Made in Jun. 2016</p>
 		</div>
 	</div> 
 	<div class="section" id="section2">
-		<div class="project-info">
+		<div class="what-box shyft">
 			<h1>Shyft Event Planning</h1>
-			<hr>
 			<br>
-			<p>Shyft simplifies complex logistics of hiring and scheduling temp. workers.</p>
+			<p>Client project that connects brand ambassadors to agencies looking to hire. It simplifies the complex logistics of hiring and scheduling shifts.</p>
 			<br>
 			<a href="shyft.html" ><button class="project-button center">Case Study</button></a>
 			<p class="made-in">Made in Feb. 2016</p>
 		</div>
 		<div class="bottom-nav" id="what-nav">
-				<div class="nav-links">
-					<a class="home-link float-left" href="philosophy.html" id="philosophy">Philosophy</a>
-					<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
-					<a class="home-link float-right" href="about.html" id="about">About</a>
-				</div>
+				<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='philosophy.html'">< My Philosophy</button>
+				<button class="float-right hvr-sweep-to-right who-button" onClick="parent.location='about.html'">Who I am ></button>
+
+				<p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2018 All Rights Reserved.</p>
 			</div>
 		</div>
 		<hr>
 	</div>
+<!-- 	<div class="section" id="section3">
+	    <div class="what-box life-alert">
+			<h1>Life Alert</h1>
+			<br>
+			<p>At General Assembly, two colleagues and I redesigned Life Alert. This included mobile apps, their marketing website, and holistic system and hardware design.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/life-alert" data-lity><button class="project-button center">Case Study</button></a>
+			<p class="made-in">Made in Jan. 2016</p>
+		</div>
+
+	</div>
+	<div class="section" id="section4">
+		
+		<div class="what-box refer-me">
+			<h1>Refer Me</h1>
+			<br>
+			<p>As part of General Assembly Labs, I worked with PMs and Devs to design Refer Me- a platform that connects job seekers to those willing to refer.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/refer-me" data-lity><button class="project-button center">View Wires</button></a>
+			<p class="made-in">Made in Apr. 2016</p>
+		</div> -->
+	
+<!-- 	<div class="section" id="section3">
+		<div class="what-box gumball">
+			<h1>Gumball Toys</h1>
+			<br>
+			<p>Branded and prototyped a website for a student project to bring a 30 year old toy store into the modern age.</p>
+			<br>
+			<a href="https://ben-grandy-peuv.squarespace.com/gumball-toys" data-lity><button class="project-button center">View Project</button></a>
+		</div>
+		<div class="bottom-nav" id="what-nav">
+			<button class="float-left hvr-sweep-to-left why-button" onClick="parent.location='why.html'"><div class="flip float-left">➟</div>&nbsp;My Philosophy</button>
+			<button class="float-right hvr-sweep-to-right how-button" onClick="parent.location='how.html'">My Process ➟</button>
+		</div>
+	</div>
+<div class="section" id="section5">
+		<div class="what-box" id="archive">
+			<h1>Archive</h1>
+			<br>
+			<p>Look at all my other work- web development, graphic design, fabrication, and art.</p>
+			<br>
+			<button class="project-button center" onClick="parent.location='archive.html'">View Archive</button>
+		</div>
+		<div class="filler"></div>-->
 	</div> 
 </div>
 
