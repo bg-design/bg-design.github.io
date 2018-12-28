@@ -382,25 +382,25 @@ header {
 	<nav class="navbar">
   		<div class="nav-wrapper what-bg">
 <!--   		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-			<img class="logo" src="IMG/ben-grandy-sig.png"> -->
+			<img class="logo" src="IMG/ben-grandy-sig.png">
 			<ul class="nav-menu">
-				<li><a href="work.html" id="active">Work</a></li><li><a href="about.html">About</a></li><li><a href="cv.html">CV</a></li><li><a href="philosophy.html">Philosophy</a></li>
-			</ul>
+				<li><a href="index.html" id="active">Work</a></li><li><a href="about.html">About</a></li><li><a href="cv.html">CV</a></li><li><a href="philosophy.html">Philosophy</a></li>
+			</ul> -->
 		</div>
 	</nav>
 	<div id="fullpage">
 	<div class="section" id="section0">
 		<div class="project-info">
-			<h2 class="fade-in three" id="top-greeting"><span id="greeting"></span>
+			<h2 class="fade-in two" id="top-greeting"><span id="greeting"></span>
 				<span id="greeting-1">Hello,</span>
 				<span id="greeting-2">Hey,</span>
 				<span id="greeting-3">Greetings,</span>
 				<span id="greeting-5">Howdy,</span>
 				<span id="greeting-6">Hi there,</span><br/> I’m Benjamin.</h2>
 			<div id="rect-gradient"></div>
-			<p class="fade-in four" id="body-copy">
-			<h4><strong>Experience Designer</strong> // SF Bay Area</h4>
-			<h4 class="fade-in five">Let's collaborate &amp; make something wonderful.</h4> 
+			<p class="fade-in two" id="body-copy">
+			<h4 class="fade-in three"><strong>Experience Designer</strong> // SF Bay Area</h4>
+			<h4 class="fade-in four">Let's collaborate &amp; make something wonderful.</h4> 
 		</div>
 		<img src="IMG/splash-full-body.png" id="full-body" class="fade-in-slow"/>
 		<div id="scroll-line">
@@ -470,11 +470,11 @@ header {
   });
 
     var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['awa-fit','safe-harbor','shyft'],
+    	anchors: ['welcome','awa-fit','safe-harbor','shyft'],
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['AWA Fit','Safe Harbor','Shyft Event Planning'],
+		navigationTooltips: ['Welcome','AWA Fit','Safe Harbor','Shyft Event Planning'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
@@ -502,8 +502,8 @@ var divs = $('span[id^="greeting-"]').hide(),
 
 (function cycle() { 
 
-    divs.eq(i).fadeIn(300)
-              .delay(2500)
+    divs.eq(i).fadeIn(500)
+              .delay(3000)
               .fadeOut(700, cycle);
 
     i = ++i % divs.length;
