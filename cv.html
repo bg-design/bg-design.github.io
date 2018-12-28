@@ -366,17 +366,20 @@ margin: 0 0 0 20px;
 
   	<section class="skills clear when">
 				<div class="typing-wrap">
-					<h1>I am <span id="typed"></span></h1>
-					<div id="typing">
-						<p>a <strong>UX/UI Designer</strong>.</p><p>a <strong>Visual Designer</strong>.</p><p>a <strong>User Researcher</strong>.</p><p>a <strong>Frontend Developer</strong>.</p><p>an <strong>Experience Designer</strong>.<br><span class="small">(I turn lovely ideas into great experiences.) </span></p>
-					</div>
+					<h1>I am <span id="typed"></span><span id="typed"><strong>Designer</strong>.</span></h1>
+					<span id="typing">
+						<p>a <strong>UX/UI</strong></p>
+						<p>a <strong>Visual</strong></p>
+						<p>a <strong>Branding</strong></p>
+						<p>an <strong>Experience</strong></p>
+					</span>
 				</div>
 <div class="dottedBox">
 		<h2 class="fade-in four clear">Tools &amp; Skills<a name="tools" id="tools"></a></h2>
 		<p class="fade-in two">
 			<ul>
-				<li><strong>Concept &amp; Lo-fi</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
-				<li><strong>Prototype &amp; Hi-fi</strong>: Sketch, Illustrator, Photoshop, InVision.</li>
+				<li><strong>Concept &amp; Lo-fidelity</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
+				<li><strong>Prototype &amp; Hi-fidelity</strong>: Sketch, Illustrator, Photoshop, InVision.</li>
 				<li><strong>Other tools</strong>: Omnigraffle, Keynote.</li>
 				<li><strong>Build</strong>: Sublime Text, Git, Lasercutter, CNC Mill, 3D printer.</li>
 			</ul>
@@ -581,11 +584,13 @@ function typing () {
 			contentType: 'html',
 			// lower is faster
 			typeSpeed: 0,
-			startDelay: 3000,
+			startDelay: 0,
 			// backspacing speed
 			backSpeed: 0,
 			// time before backspacing
 			backDelay: 1500,
+			// infinite
+			loop:true,
 		})
 }
 

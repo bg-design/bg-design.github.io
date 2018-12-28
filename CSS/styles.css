@@ -555,13 +555,21 @@ p a::selection {
 	clear: both;
 }
 
+.dark-mode .persona-bar {
+	background: #3c4552;
+}
+
 .persona-progress {
 	position: relative;
 	display: block;
-	background: #3c4552;
+	background: rgb(230, 230, 230);
 	height: 15px;
 	width: 0;
 	float: left;
+}
+
+.dark-mode .persona-progress {
+	background: rgb(228, 228, 228);
 }
 
 .lets-talk {

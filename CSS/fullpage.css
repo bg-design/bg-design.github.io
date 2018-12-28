@@ -168,9 +168,9 @@ html.fp-enabled,
     z-index: 1;
     height: 4px;
     width: 4px;
-/*    border: 1px solid white;
-*/    background: grey;
-    left: 50%;
+    border: 1px solid grey;
+/*    background: grey;
+*/    left: 50%;
     top: 50%;
     margin: -2px 0 0 -2px;
     -webkit-transition: all 0.1s ease-in-out;
