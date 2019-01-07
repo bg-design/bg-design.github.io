@@ -569,7 +569,7 @@ p a::selection {
 }
 
 .dark-mode .persona-progress {
-	background: #3c4552;
+	background: #505050;
 }
 
 .lets-talk {
@@ -816,6 +816,10 @@ section {
 			z-index: 2;
 			border-top:1px solid white;
 		}
+
+.dark-mode .scroll-progress {
+	border-top:1px solid black;
+}
 
 .what-bg {
 /*	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
