@@ -562,7 +562,7 @@ p a::selection {
 .persona-progress {
 	position: relative;
 	display: block;
-	background: rgb(230, 230, 230);
+	background: rgb(80, 80, 80);
 	height: 15px;
 	width: 0;
 	float: left;
@@ -577,7 +577,7 @@ p a::selection {
   transition: 1s;
   float: left;
   left: 50%;
-  margin-left: -233px;
+  margin-left: -170px;
   margin-bottom: 10px;
 }
 
