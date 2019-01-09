@@ -114,6 +114,7 @@ p.overlay-copyright {
   margin-left: -250px;
   color:rgb(76, 76, 76);
   font-family:'Lato',sans-serif;
+  bottom: 0;
 }
 /* Position the content inside the overlay */
 .overlay-content {
@@ -138,7 +139,7 @@ p.overlay-copyright {
   top: 20px;
   right: 45px;
   font-size: 60px;
-  color: #ddd;
+  color: #777;
 }
 
 .dark-mode .overlay .closebtn {
