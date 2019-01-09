@@ -153,6 +153,10 @@ p.overlay-copyright {
 }
 
 #menu-icon:hover {
+  background:#ddd;
+}
+
+.dark-mode #menu-icon:hover {
   background:rgba(50, 50, 50, 0.9);
 }
 
