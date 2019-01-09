@@ -60,6 +60,7 @@ background-repeat: no-repeat;
   background: url(../IMG/nd-logo-v2c-invert.png);
   background-size: contain;
   background-repeat: no-repeat;
+  opacity: 0.3;
 }
 .overlay {
   height: 100%;
@@ -117,6 +118,10 @@ p.overlay-copyright {
   color:rgb(76, 76, 76);
   font-family:'Lato',sans-serif;
   bottom: 0;
+}
+
+.dark-mode p.overlay-copyright {
+  color:#ddd;
 }
 /* Position the content inside the overlay */
 .overlay-content {
