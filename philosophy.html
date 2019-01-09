@@ -393,7 +393,10 @@ $( document ).ready(function() {
 	$("#footer-import").load("footer-dark-mode.html"); 
 
 	// Load Chat Icon
-	$("#contact-import").load("contact-modal.html"); 
+	$("#contact-import").load("contact-modal.html");
+
+	// Load main menu
+	$("#menu-import").load("just-menu2.html");
 });
 
 </script>
@@ -401,17 +404,17 @@ $( document ).ready(function() {
 <script>
 
 //	Listen for right/left keypress
-	$( ".isArrowable" ).on( "keydown", function( event ) {
-  if (event.which == 37 ){
-    // alert('Left');
-    window.location.href = "cv.html";
-  }
-  else if (event.which == 39 ){
-    // alert('Right');
-    window.location.href = "work.html";
-  }
-  else {};
-  });
+	// $( ".isArrowable" ).on( "keydown", function( event ) {
+ //  if (event.which == 37 ){
+ //    // alert('Left');
+ //    window.location.href = "cv.html";
+ //  }
+ //  else if (event.which == 39 ){
+ //    // alert('Right');
+ //    window.location.href = "work.html";
+ //  }
+ //  else {};
+ //  });
 
 // Reading Recommendations Selector
 function showThinkingList() {
