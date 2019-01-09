@@ -1166,6 +1166,11 @@ cite p {color:white;}
 	max-width: 280px;
 }
 
+	#home-nav {
+	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
+	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+	}
+
 	#work {
 	background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
 	border-bottom: 4px solid #69D2E7;
@@ -1209,6 +1214,7 @@ cite p {color:white;}
 	-ms-transition: 1s;
 	-o-transition: 1s;
 	transition: 1s;
+	margin-bottom: 20px;
 }
 
 .home-links a:hover {
