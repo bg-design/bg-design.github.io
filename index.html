@@ -492,9 +492,9 @@ header {
 				<path class="a3" d="M0 40 L30 72 L60 40"></path>
 			</svg>
 		</a>
-		<div id="scroll-line">
+		<!-- <div id="scroll-line">
 			<span id="scroll-text">scroll</span>
-		</div>
+		</div> -->
 	</div> 
 	<div class="section" id="section1">
 		<div class="project-info">
@@ -544,6 +544,9 @@ header {
 
 <div id="menu-import"></div>
 
+<div id="contact-import"></div>
+
+
  <script>
 
  	//	Listen for right/left keypress
@@ -584,7 +587,10 @@ header {
 
 $( document ).ready(function() {
 	// Load main menu
-	$("#menu-import").load("just-menu.html"); 
+	$("#menu-import").load("just-menu.html");
+
+	// Load Chat Icon
+	$("#contact-import").load("contact-modal.html"); 
 
 });
 
