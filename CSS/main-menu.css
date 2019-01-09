@@ -58,6 +58,8 @@ background-repeat: no-repeat;
 
 .dark-mode .overlayBG {
   background: url(../IMG/nd-logo-v2c-invert.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .overlay {
   height: 100%;
