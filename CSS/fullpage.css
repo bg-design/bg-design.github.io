@@ -179,8 +179,8 @@ html.fp-enabled,
     transition: all 0.1s ease-in-out;
 }
 .dark-mode #fp-nav ul li a span {
-/*    background:rgba(50, 50, 50, 0.9);
-    border:1px solid white;*/
+    background:rgba(50, 50, 50, 0.9);
+    border:1px solid white;
 }
 #fp-nav ul li:hover a span,
 .fp-slidesNav ul li:hover a span{

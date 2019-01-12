@@ -139,6 +139,10 @@
 	color:#171717;
 }
 
+.dark-mode #fullpage a {
+	color: white;
+}
+
 /* Default set to none so doesn't display on loading screen */
 #fp-nav {
 	transition: 0.5s;
@@ -295,6 +299,10 @@ header {
 	stroke-width: 1px;	
 	animation: arrow 4s infinite;
 	-webkit-animation: arrow 4s infinite; 
+}
+
+.dark-mode .arrows path {
+	stroke: white;
 }
 
 @keyframes arrow
@@ -624,20 +632,20 @@ var greeting = (display);
 document.getElementById("greeting").innerHTML = greeting;
 
 	// // Dark Mode detector
-	// var time = new Date();
-	// var hour = time.getHours();
-	// if ( sessionStorage.getItem('setDarkMode') === 'true') {
-	//       document.body.classList.add("dark-mode");
-	//     }
-	// else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-	//     document.body.classList.remove("dark-mode");
-	// }
-	// else if ((hour <= 8) || (hour >= 17)) {
-	//     document.body.classList.add("dark-mode");
-	// }
-	// else {
-	//   document.body.classList.remove("dark-mode");
-	// }
+	var time = new Date();
+	var hour = time.getHours();
+	if ( sessionStorage.getItem('setDarkMode') === 'true') {
+	      document.body.classList.add("dark-mode");
+	    }
+	else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+	    document.body.classList.remove("dark-mode");
+	}
+	else if ((hour <= 8) || (hour >= 17)) {
+	    document.body.classList.add("dark-mode");
+	}
+	else {
+	  document.body.classList.remove("dark-mode");
+	}
 </script>
 <script type="text/javascript">
 console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
