@@ -1186,8 +1186,8 @@ cite p {color:white;}
 }
 
 	#home-nav {
-	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
-	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+	background-image: linear-gradient(to bottom, transparent 65%, #3af3ab 10%);
+	border-bottom: 4px solid #3af3ab;
 	}
 
 	#work {
