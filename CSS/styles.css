@@ -1201,13 +1201,13 @@ cite p {color:white;}
 	}
 
 	#cv {
-	background-image: linear-gradient(to bottom, transparent 65%, #828ef6 10%);
-	border-bottom: 4px solid #828ef6;
+	background-image: linear-gradient(to bottom, transparent 65%, #e4c9e4 10%);
+	border-bottom: 4px solid #e4c9e4;
 	}
 
 	#philosophy {
-		background-image: linear-gradient(to bottom, transparent 65%, #f79f5a 10%);
-		border-bottom: 4px solid #f79f5a;
+		background-image: linear-gradient(to bottom, transparent 65%, #FA6900 10%);
+		border-bottom: 4px solid #FA6900;
 	}
 
 .home-links {
