@@ -120,7 +120,7 @@ input {
 	padding: 10px 0;
 }
 
-#nda {
+#RESULT_CheckBox-4_0 {
   width: 50px;
   float: left;
   margin-top: 20px;
@@ -163,7 +163,7 @@ input {
  	font-family: Lato, sans-serif;
 }
 
-.submit {
+.submit_button {
 	border: 1px dashed dimgray;
 height: 40px;
 width: 70px;
