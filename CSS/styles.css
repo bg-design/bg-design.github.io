@@ -236,8 +236,8 @@
 	position: fixed;
 	top:50%;
 	left:50%;
+	z-index: 99999;
 	}
-
 
   .rightCurtain, .leftCurtain {
     position: fixed;
@@ -258,10 +258,16 @@
     background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
   }
 
-  .loading-wrapper {
-    z-index: 99999;
+  .fullCurtain {
+  	position: fixed;
+  	height: 0;
+  	width: 0;
+  	background: black;
+  	z-index: 9998;
+  	animation: openingFull 2s ease-in-out;
   }
-@keyframes openingLeft {
+
+/*@keyframes openingLeft {
   0% {
     height:100%;
     top:0%;
@@ -287,6 +293,79 @@
     height:100%;
     top:0;
     width: 0;
+  }
+}
+*/
+
+@keyframes openingLeft {
+  0% {
+    background-position: 0% 50%
+  }
+
+  30% {
+    background-position: 100% 50%;
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  40% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0%;
+    width: 0;
+  }
+}
+
+@keyframes openingRight {
+  0% {
+    background-position: 0% 50%
+  }
+
+  30% {
+    background-position: 100% 50%;
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  40% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+    height:100%;
+    top:0;
+    width: 0;
+  }
+}
+
+
+@keyframes openingFull {
+
+0% {
+	height: 100%;
+	width: 100%;
+}
+30% {
+	height:100%;
+	width: 100%;
+  }
+40% {
+  	height: 0;
+  	width: 0;
+  }
+100% {
+  	height: 0;
+  	width: 0;
   }
 }
 
