@@ -1,0 +1,229 @@
+
+
+.chatIcon {
+  position: fixed;
+width: 50px;
+left: 3px;
+bottom: 5px;
+padding: 10px;
+border: none;
+opacity: 1;
+background: white;
+border: 1px solid rgb(100, 100, 100);
+border-radius: 100%;
+z-index: 1;
+cursor: pointer;
+  transition: 0.3s;
+}
+
+.chatIcon:hover {
+/*  opacity: 1;
+  background: rgba(255,255,255,.8);*/
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.chatIcon:active {
+  transition: .3s;
+  box-shadow: none;
+  border: 2px solid grey;
+}
+
+.floatingArrowIcon {
+  position: fixed;
+  width: 50px;
+  right: 3px;
+  bottom: 8px;
+  padding: 10px;
+  border: none;
+  opacity: 1;
+  background: white;
+  border: 1px solid rgb(100, 100, 100);
+  border-radius: 100%;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.floatingArrowIcon:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  bottom: 16px;
+}
+
+
+.floatingArrowIcon:active {
+  bottom: 8px;
+  transition: .3s;
+  box-shadow: none;
+  border: 2px solid grey;
+}
+
+.project-nav-buttons {
+  height: 70px;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(38, 38, 38, 0.75);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  font: inherit;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+}
+.modal-body {
+	padding: 20px;
+}
+
+.dark-mode .modal-body {background: #2d2d2d;}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pad {
+  font-family: var(--font);
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+fieldset {
+	border:0;
+}
+
+input {
+	padding: 10px 0;
+}
+
+#nda {
+  width: 50px;
+  float: left;
+  margin-top: 20px;
+}
+
+#nda-text {
+  color:grey;
+  float:left;
+}
+
+.pure-group {
+  border-bottom:1px solid rgba(193, 193, 193, 0.41);
+}
+.notepad {
+  display: block;
+  width: 100%;
+  font: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  color: black;
+  font-weight: 300;
+}
+
+.non-editable, .notepad {
+	font-family: Lato, sans-serif;
+	font-size:16pt;
+	letter-spacing: .7px;
+}
+
+.non-editable {
+	color: #2b2b2b;
+    font-weight: 300;
+}
+
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder{ 
+ 	text-decoration: underline;
+ 	font-family: Lato, sans-serif;
+}
+
+.submit {
+	border: 1px dashed dimgray;
+height: 40px;
+width: 70px;
+background: white;
+color: black;
+-webkit-text-fill-color: white;
+/* Will override color (regardless of order) */
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+position: absolute;
+/*  bottom: 50px;
+      */
+font-size: 250%;
+padding: 0;
+bottom: 0;
+/* THIS IS THE INITIAL SETTING*/
+transition: .5s;
+line-height: 0;
+}
+.submit-ready {
+	border:1px solid #3cffdb;;
+	background: #3cffdb;;
+	color:white;
+	-webkit-text-fill-color: white;
+	-webkit-text-stroke-color: white;
+	transition: .3s;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+}
+
+#submit.footer-lock {
+/*	position: fixed;
+*/    bottom: 0;
+    border-radius: 0;
+    width: 100%;
+    top:unset;
+    left: 0;
+    height: 50px;
+}
+
+#email {
+	max-width: 300px;
+}
+.notepad::selection {
+  	background: rgba(104, 254, 251, 0.44); 
+		}
+.notepad::-moz-selection {
+ 	background: rgba(104, 254, 251, 0.44); 
+			}
+.non-editable::selection {
+  	color: red; /* WebKit/Blink Browsers */
+  	background: none;
+
+		}
+.non-editable::-moz-selection {
+ 	color: red; /* Gecko Browsers */
+ 	background:none;
+			}
+
+#thankyou_message {
+	margin:30px;
+}

@@ -500,68 +500,59 @@
 		</footer>
 	</div>
 
-	<!-- Back to top-->
-<!-- <a href="#top"><img id="backToTop" src="IMG/top3-old.png"></a> -->
 
-	<!-- Trigger/Open The Modal -->
-  <a class="hvr-bubble-bottom"><button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button></a> 
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
 
 <!-- The Modal -->
 <div id="myModal" class="modal" >
 
-  <!-- Modal content -->
-  <div class="modal-content">
-
+  	<!-- Modal content -->
+	<div class="modal-content">
   	<div class="modal-body">
     <span class="close">&times;</span>
-    <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="bpgrandy@gmail.com"
-  action="https://script.google.com/macros/s/AKfycbx9glEcWh1rffPyWWTqK7hXpbmP8t7osKxIwybZIZAdl2KJLW-l/exec" onsubmit="hideSubmit()">
-    <!-- change the form action to your script url -->
-
-  	<p class="non-editable">Hello, I'm </p>
- 	<fieldset class="pure-group">
-      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
-    </fieldset>
-    
-    <p class="non-editable">from</p>
-
-    <fieldset class="pure-group">
-      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
-    </fieldset>
-
-    <p class="non-editable">where I am a</p>
-    <fieldset class="pure-group">
-    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
-    </fieldset>
+	<!--     <form action="https://formspree.io/inquiries@bengrandy.info" method="POST" >
 
 
-    <fieldset class="pure-group">
-      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
-    </fieldset>
-    <br><br>
-    
-    <fieldset class="pure-group">
-      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
-    </fieldset>
+			  	<p class="non-editable">Hello, I'm </p>
+			 	<fieldset class="pure-group">
+			      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
+			    </fieldset>
+			    <p class="non-editable">from</p>
+			    <fieldset class="pure-group">
+			      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
+			    </fieldset>
+			    <p class="non-editable">where I am a</p>
+			    <fieldset class="pure-group">
+			    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
+			    </fieldset>
+			    <fieldset class="pure-group">
+			      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
+			    </fieldset>
+			    <fieldset class="pure-group">
+			      <p class="non-editable" id="nda-text">Request NDA</p><input name="nda" type="checkbox" class="notepad" id="nda" oninput="submitPadding()"></input>
+			    </fieldset>  
+			    <fieldset class="pure-group">
+			      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
+			    </fieldset>
+			</div>
+			  	<input id="submit" type="submit" value="→" class="submit">
+		</form> -->
+
+		<iframe height="500px" src="https://fs8.formsite.com/zye2aA/bg-design/index.html"></iframe>
+
+ 	</div>
+	</div>
 </div>
-  	<input id="submit" type="submit" value="→" class="submit">
-</form>
 
   <!-- Customise the Thankyou Message People See when they submit the form: -->
-  <div style="display:none;" id="thankyou_message">
+<!--   <div style="display:none;" id="thankyou_message">
     <h2> Thanks for reaching out.</h2>
     <h2>I will get back to you soon!</h2>
-  </div>
+  </div> -->
 
  </div>
 </div>
-
-  <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" type="text/javascript"
-  src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-  <!-- <script data-cfasync="false" type="text/javascript"
-  src="/form-submission-handler.js"></script> -->
-<!-- END -->
 
 <script src="JS/global.js"></script>
 
@@ -664,6 +655,107 @@ else {
 $(function(){
       $("#footer-import").load("footer-dark-mode.html"); 
     });
+
+	var leftValue = $('#submit').css( "left" );
+	var rightPercent = $('#submit').css( "right" );
+	// var rightPercent = rightPercent.slice(0, -1);
+	var windowWidth = $( window ).width();
+
+function submitPadding() {
+
+	var modalWidth = $('.modal-content').width();
+	var rightOffset = windowWidth / 10;
+	console.log('rightOffset'+rightOffset+'rightPercent'+rightPercent);
+	var rightValue = (rightPercent/100) * modalWidth + rightOffset-150;
+	var messageLength = $('#message').val().length;
+	var companyLength = $('#company').val().length;
+	var roleLength = $('#role').val().length;
+	var nameLength = $('#name').val().length;
+	var emailLength = $('#email').val().length;
+	var totalLength = nameLength + companyLength + roleLength + emailLength + messageLength;
+	console.log('totalLength:'+totalLength);
+	// var newLeftValue = (totalLength * ) + 100;
+	var newRightValue = rightValue - (totalLength*4);
+	console.log('newRightValue:'+newRightValue+', messageLength:'+messageLength);
+
+
+	if (newRightValue > 0) {
+		$('#submit').css("right",newRightValue + "px");
+		$('#submit').removeClass("footer-lock");
+		$('#submit').css("top", "350px");
+	}
+	else {
+		$('#submit').css("right","0");
+		$('#submit').addClass("footer-lock");
+		$('#submit').css("top","unset");
+	}
+	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
+		if (messageLength > 49 && nameLength > 2 && companyLength > 2) {
+			$('.submit').addClass("submit-ready")
+		}
+		else {
+			$('.submit').removeClass("submit-ready");
+		 };
+};
+
+function hideSubmit() {
+	$('#submit').css("display", "none");
+}
+
+
+	// SCRIPT SO ENTER TABS TO NEXT FIELD
+jQuery.extend(jQuery.expr[':'], {
+    focusable: function (el, index, selector) {
+        return $(el).is('a, button, :input, [tabindex]');
+    }
+});
+
+$(document).on('keydown', ':focusable', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(this) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
+});
+
+	$(function(){
+    	$("#name").focus();
+	});
+
+
+	// MODAL
+	// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    $('html').css("overflow", "hidden");
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    $('html').css("overflow", "auto");
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        $('html').css("overflow", "auto");
+    }
+}
 </script>
 
 </body>
