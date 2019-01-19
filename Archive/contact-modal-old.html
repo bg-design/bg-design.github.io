@@ -1,0 +1,44 @@
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
+
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+	  	<!-- Modal content -->
+	<div class="modal-content">
+	<div class="modal-body">
+	    <span class="close">&times;</span>
+	    <form action="https://formspree.io/inquiries@bengrandy.info" method="POST" >
+
+		    <!-- change the form action to your script url onsubmit="hideSubmit()"-->
+
+		  	<p class="non-editable">Hello, I'm </p>
+		 	<fieldset class="pure-group">
+		      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
+		    </fieldset>
+		    <p class="non-editable">from</p>
+		    <fieldset class="pure-group">
+		      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
+		    </fieldset>
+		    <p class="non-editable">where I am a</p>
+		    <fieldset class="pure-group">
+		    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
+		    </fieldset>
+		    <fieldset class="pure-group">
+		      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
+		    </fieldset>
+		    <fieldset class="pure-group">
+		      <p class="non-editable" id="nda-text">Request NDA</p><input name="nda" type="checkbox" class="notepad" id="nda" oninput="submitPadding()"></input>
+		    </fieldset>  
+		    <fieldset class="pure-group">
+		      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
+		    </fieldset>
+		</div>
+		  	<input id="submit" type="submit" value="→" class="submit">
+		</form>
+ 	</div>
+	</div>
+</div>
+
+<script src="JS/contact-modal.js"></script>

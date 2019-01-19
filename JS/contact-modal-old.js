@@ -1,31 +1,38 @@
+	var leftValue = $('#submit').css( "left" );
+	var rightPercent = $('#submit').css( "right" );
+	// var rightPercent = rightPercent.slice(0, -1);
+	var windowWidth = $( window ).width();
 
 function submitPadding() {
 
-	var nameLength = $('#RESULT_TextField-0').val().length;
-	var companyLength = $('#RESULT_TextField-1').val().length;
-	var roleLength = $('#RESULT_TextField-2').val().length;
-	var emailLength = $('#RESULT_TextField-3').val().length;
-	var messageLength = $('#RESULT_TextArea-5').val().length;
+	var modalWidth = $('.modal-content').width();
+	var rightOffset = windowWidth / 10;
+	console.log('rightOffset'+rightOffset+'rightPercent'+rightPercent);
+	var rightValue = (rightPercent/100) * modalWidth + rightOffset-150;
+	var messageLength = $('#message').val().length;
+	var companyLength = $('#company').val().length;
+	var roleLength = $('#role').val().length;
+	var nameLength = $('#name').val().length;
+	var emailLength = $('#email').val().length;
 	var totalLength = nameLength + companyLength + roleLength + emailLength + messageLength;
-
-	console.log('messageLength:'+messageLength);
 	console.log('totalLength:'+totalLength);
+	// var newLeftValue = (totalLength * ) + 100;
+	var newRightValue = rightValue - (totalLength*4);
+	console.log('newRightValue:'+newRightValue+', messageLength:'+messageLength);
 
-	var offset = totalLength * 9;
 
-
-	if (37 > totalLength > 0) {
-		$('.submit').css("left", offset + "px");
-		$('.submit').removeClass("footer-lock");
+	if (newRightValue > 0) {
+		$('#submit').css("right",newRightValue + "px");
+		$('#submit').removeClass("footer-lock");
+		$('#submit').css("top", "350px");
 	}
-	else  if (totalLength > 36) {
-		$('.submit').css("left", "0");
-		$('.submit').addClass("footer-lock");
+	else {
+		$('#submit').css("right","0");
+		$('#submit').addClass("footer-lock");
+		$('#submit').css("top","unset");
 	}
-
-	else {}
 	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
-		if (messageLength > 49 && nameLength > 1 && companyLength > 2) {
+		if (messageLength > 49 && nameLength > 2 && companyLength > 2) {
 			$('.submit').addClass("submit-ready")
 		}
 		else {
@@ -34,7 +41,7 @@ function submitPadding() {
 };
 
 function hideSubmit() {
-	$('.submit').css("display", "none");
+	$('#submit').css("display", "none");
 }
 
 
@@ -57,7 +64,7 @@ $(document).on('keydown', ':focusable', function (e) {
 });
 
 	$(function(){
-    	$("#RESULT_TextField-0").focus();
+    	$("#name").focus();
 	});
 
 

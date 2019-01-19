@@ -1,6 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="https://fs8.formsite.com/zye2aA/" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@formsite" />
+<meta property="og:title" content="Contact" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://fs8.formsite.com/zye2aA/bg-design/index.html" />
+<meta property="og:site_name" content="Formsite" />
+<meta property="og:description" content="View this form on Formsite" />
+<meta property="og:image" content="https://fs8.formsite.com/images/social/twitter-share.jpg" />
+<meta property="fb:admins" content="150429050199"/>
+<title>Contact</title>
+
+<link rel="stylesheet" href="https://nuanced.design/CSS/global.css" media="screen">
+<link rel="stylesheet" href="https://nuanced.design/CSS/contact-modal2.css" media="screen">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="/include/form/form7.js?4255131182212"></script>
+</head>
+<body>
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
+<button id="myBtn" class="chatIcon"><img src="https://nuanced.design/IMG/chat-icon-filled.png"/></button> 
 
 <!-- The Modal -->
 <div id="myModal" class="modal" >
@@ -9,36 +34,63 @@
 	<div class="modal-content">
 	<div class="modal-body">
 	    <span class="close">&times;</span>
-	    <form action="https://formspree.io/inquiries@bengrandy.info" method="POST" >
+	    <form method="post" id="FSForm" action="https://fs8.formsite.com/res/submit" enctype="application/x-www-form-urlencoded" onsubmit="return Vromansys.Form.processSubmit(this);">
 
-		    <!-- change the form action to your script url onsubmit="hideSubmit()"-->
+		<!-- BEGIN_ITEMS -->
+		<div class="form_table">
+
+		<div id="q0" class="q required">
 
 		  	<p class="non-editable">Hello, I'm </p>
-		 	<fieldset class="pure-group">
-		      <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()">
-		    </fieldset>
-		    <p class="non-editable">from</p>
-		    <fieldset class="pure-group">
-		      <input name="company" rows="1" required maxlength="30" placeholder="your company" class="notepad" id="company" oninput="submitPadding()">
-		    </fieldset>
-		    <p class="non-editable">where I am a</p>
-		    <fieldset class="pure-group">
-		    	<input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()">
-		    </fieldset>
-		    <fieldset class="pure-group">
-		      <input name="email" type="email" required placeholder="e-mail" class="notepad" id="email" oninput="submitPadding()"></input>
-		    </fieldset>
-		    <fieldset class="pure-group">
-		      <p class="non-editable" id="nda-text">Request NDA</p><input name="nda" type="checkbox" class="notepad" id="nda" oninput="submitPadding()"></input>
-		    </fieldset>  
-		    <fieldset class="pure-group">
-		      <textarea name="message" rows="8" minlength="50" required placeholder="message" class="notepad" id="message" oninput="submitPadding()"></textarea>
-		    </fieldset>
+		  	
+		    <input rows="1" maxlength="20" placeholder="your name &#9997;" autofocus type="text" name="RESULT_TextField-0" class="text_field notepad" id="RESULT_TextField-0" value="" required oninput="submitPadding()"/>
+
 		</div>
-		  	<input id="submit" type="submit" value="→" class="submit">
-		</form>
+		<div id="q1" class="q required">
+		    <p class="non-editable">from</p>
+
+		    <input type="text" name="RESULT_TextField-1" class="text_field notepad" id="RESULT_TextField-1" required maxlength="30" value="" placeholder="your company" oninput="submitPadding()"/>
+
+		 </div>
+		 <div id="q2" class="q required">
+		    <p class="non-editable">where I am a</p>
+
+		    <input type="text" name="RESULT_TextField-2" class="text_field notepad" id="RESULT_TextField-2" maxlength="30" value="" placeholder="your role" required oninput="submitPadding()"/>
+
+		  </div>
+		  <div id="q3" class="q required">
+			<input type="email" name="RESULT_TextField-3" class="text_field notepad" id="RESULT_TextField-3" value="" required placeholder="e-mail" oninput="submitPadding()"/>
+			</div>
+	 	<div id="q4" class="q">
+		     <p class="non-editable" id="nda-text">Request NDA</p><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice notepad" id="RESULT_CheckBox-4_0" value="CheckBox-0" oninput="submitPadding()"/>
+		 </div>
+		 <div id="q5" class="q required">	
+		     <textarea name="RESULT_TextArea-5" class="text_field count_chars notepad" id="RESULT_TextArea-5" rows="8" minlength="50" required placeholder="message" oninput="submitPadding()"></textarea>
+
+ 		</div>
+
+ 		<div style="display:none;">
+			<input type="hidden" name="locid" value="zye2aA/bg-design" />
+			<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
+			<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
+			<input type="hidden" name="Referrer" id="Referrer" value="" />
+			<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
+		</div>
+
+ 	</div>
+<!-- END_ITEMS -->
+<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
+
+<div class="outside_container">
+	<div class="buttons_reverse">
+		<input type="submit" name="Submit" value="->" class="submit_button submit" id="FSsubmit" />
+	</div>
+</div>
+</form>
+
  	</div>
 	</div>
 </div>
 
 <script src="JS/contact-modal.js"></script>
+
