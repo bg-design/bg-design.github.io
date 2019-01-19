@@ -195,7 +195,7 @@ left:0;
 	border-radius: 50px;
 }
 
-#submit.footer-lock {
+.submit.footer-lock {
 /*	position: fixed;
 */    bottom: 0;
     border-radius: 0;

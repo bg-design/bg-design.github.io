@@ -112,16 +112,20 @@ function submitPadding() {
 	console.log('messageLength:'+messageLength);
 	console.log('totalLength:'+totalLength);
 
+	var offset = totalLength * 9;
 
-	if (totalLength > 0) {
-		$('.submit').css("left",totalLength*4 + "px");
+
+	if (38 > totalLength > 0) {
+		$('.submit').css("left", offset + "px");
 		$('.submit').removeClass("footer-lock");
 	}
-	else {
+	else  if (totalLength > 37) {
 		$('.submit').css("right","0");
 		$('.submit').addClass("footer-lock");
 		$('.submit').css("top","unset");
 	}
+
+	else {}
 	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
 		if (messageLength > 49 && nameLength > 1 && companyLength > 2) {
 			$('.submit').addClass("submit-ready")
