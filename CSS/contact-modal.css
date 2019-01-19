@@ -134,6 +134,11 @@ input {
 .pure-group {
   border-bottom:1px solid rgba(193, 193, 193, 0.41);
 }
+
+.dark-mode .notepad {
+  color: white;
+}
+
 .notepad {
   display: block;
   width: 100%;
