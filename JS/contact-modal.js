@@ -67,7 +67,7 @@ var modal = document.getElementById('myModal');
 
 // Get the buttons that open the modal
 var btn = document.getElementById("myBtn");
-var btn2 = document.getElementsByClassName("lets-talk");
+var btn2 = document.getElementById("rainbow-btn");
 var btn3 = document.getElementById("email-btn");
 
 // Get the <span> element that closes the modal
