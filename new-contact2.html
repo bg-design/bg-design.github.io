@@ -23,81 +23,9 @@
 <script src="/include/form/form7.js?4255131182212"></script>
 </head>
 <body>
-<form method="post" id="FSForm" action="https://fs8.formsite.com/res/submit" enctype="application/x-www-form-urlencoded" onsubmit="return Vromansys.Form.processSubmit(this);">
-<div style="display:none;">
-<input type="hidden" name="locid" value="zye2aA/bg-design" />
-<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
-<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
-<input type="hidden" name="Referrer" id="Referrer" value="" />
-<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
-</div>
-
-<!-- BEGIN_ITEMS -->
-<div class="form_table">
-
-<div class="clear"></div>
-
-<div id="q0" class="q required">
-<a class="item_anchor" name="ItemAnchor0"></a>
-<label class="question top_question" for="RESULT_TextField-0">What's your name?&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="RESULT_TextField-0" class="text_field" id="RESULT_TextField-0"  size="25" maxlength="255" value="" />
-</div>
-
-<div class="clear"></div>
-
-<div id="q1" class="q required">
-<a class="item_anchor" name="ItemAnchor1"></a>
-<label class="question top_question" for="RESULT_TextField-1">What company are you from?&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="RESULT_TextField-1" class="text_field" id="RESULT_TextField-1"  size="25" maxlength="255" value="" />
-</div>
-
-<div class="clear"></div>
-
-<div id="q2" class="q required">
-<a class="item_anchor" name="ItemAnchor2"></a>
-<label class="question top_question" for="RESULT_TextField-2">What's your role?&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="RESULT_TextField-2" class="text_field" id="RESULT_TextField-2"  size="25" maxlength="255" value="" />
-</div>
-
-<div class="clear"></div>
-
-<div id="q3" class="q required">
-<a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="RESULT_TextField-3">What's your e-mail?&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="email" name="RESULT_TextField-3" class="text_field" id="RESULT_TextField-3"  size="25" maxlength="255" value="" />
-</div>
-
-<div class="clear"></div>
-
-<div id="q4" class="q">
-<a class="item_anchor" name="ItemAnchor4"></a>
-<span class="question top_question"></span>
-<table class="inline_grid">
-<tr><td><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice" id="RESULT_CheckBox-4_0" value="CheckBox-0" /><label for="RESULT_CheckBox-4_0">Request NDA</label></tr>
-</table>
-</div>
-
-<div class="clear"></div>
-
-<div id="q5" class="q required">
-<a class="item_anchor" name="ItemAnchor5"></a>
-<label class="question top_question" for="RESULT_TextArea-5">What's your message?&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<textarea name="RESULT_TextArea-5" class="text_field count_chars" id="RESULT_TextArea-5" rows="7" cols="50"></textarea>
-<div class="counter">0 characters</div>
-
-</div>
-
-</div>
-<!-- END_ITEMS -->
-<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
-<div class="outside_container">
-<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div>
-</div>
-</form>
-
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn" class="chatIcon"><img src="IMG/chat-icon-filled.png"/></button> 
+<button id="myBtn" class="chatIcon"><img src="https://nuanced.design/IMG/chat-icon-filled.png"/></button> 
 
 <!-- The Modal -->
 <div id="myModal" class="modal" >
@@ -107,78 +35,59 @@
 	<div class="modal-body">
 	    <span class="close">&times;</span>
 	    <form method="post" id="FSForm" action="https://fs8.formsite.com/res/submit" enctype="application/x-www-form-urlencoded" onsubmit="return Vromansys.Form.processSubmit(this);">
-		<div style="display:none;">
-		<input type="hidden" name="locid" value="zye2aA/bg-design" />
-		<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
-		<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
-		<input type="hidden" name="Referrer" id="Referrer" value="" />
-		<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
-		</div>
 
 		<!-- BEGIN_ITEMS -->
 		<div class="form_table">
 
-		<div class="clear"></div>
-
 		<div id="q0" class="q required">
 
 		  	<p class="non-editable">Hello, I'm </p>
-
 		  	
-		    <input rows="1" maxlength="20" placeholder="your name &#9997;" autofocus type="text" name="RESULT_TextField-0" class="text_field notepad" id="RESULT_TextField-0" value="" />
+		    <input rows="1" maxlength="20" placeholder="your name &#9997;" autofocus type="text" name="RESULT_TextField-0" class="text_field notepad" id="RESULT_TextField-0" value="" required oninput="submitPadding()"/>
 
 		</div>
 		<div id="q1" class="q required">
-<!-- 
-		    <input name="name" rows="1" required maxlength="20" placeholder="your name &#9997;" id="name" class="notepad" autofocus oninput="submitPadding()"> -->
-		    
 		    <p class="non-editable">from</p>
 
-		    <input type="text" name="RESULT_TextField-1" class="text_field notepad" id="RESULT_TextField-1" required maxlength="30" value="" placeholder="your company" />
+		    <input type="text" name="RESULT_TextField-1" class="text_field notepad" id="RESULT_TextField-1" required maxlength="30" value="" placeholder="your company" oninput="submitPadding()"/>
 
 		 </div>
 		 <div id="q2" class="q required">
-		     
-<!-- 		     <input name="company" rows="1" required maxlength="30"  class="notepad" id="company">
- -->
 		    <p class="non-editable">where I am a</p>
 
-		    <input type="text" name="RESULT_TextField-2" class="text_field notepad" id="RESULT_TextField-2" maxlength="30" value="" placeholder="your role"/>
+		    <input type="text" name="RESULT_TextField-2" class="text_field notepad" id="RESULT_TextField-2" maxlength="30" value="" placeholder="your role" required oninput="submitPadding()"/>
 
 		  </div>
 		  <div id="q3" class="q required">
-
-<!-- 		    <input name="role" rows="1" maxlength="30" placeholder="your role" class="notepad" id="role" oninput="submitPadding()"> -->
-
-			<input type="email" name="RESULT_TextField-3" class="text_field notepad" id="RESULT_TextField-3" value="" required placeholder="e-mail"/>
-
-<!-- 		    <input name="email" type="email"  class="notepad" id="email" oninput="submitPadding()"></input>
- -->
+			<input type="email" name="RESULT_TextField-3" class="text_field notepad" id="RESULT_TextField-3" value="" required placeholder="e-mail" oninput="submitPadding()"/>
 			</div>
 	 	<div id="q4" class="q">
-		     <p class="non-editable" id="nda-text">Request NDA</p><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice notepad" id="RESULT_CheckBox-4_0" value="CheckBox-0" />
+		     <p class="non-editable" id="nda-text">Request NDA</p><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice notepad" id="RESULT_CheckBox-4_0" value="CheckBox-0" oninput="submitPadding()"/>
 		 </div>
-		 <div id="q5" class="q required">
-
-<!-- 		     <input name="nda" type="checkbox" class="notepad" id="nda" oninput="submitPadding()"></input>
- -->
-		     <textarea name="RESULT_TextArea-5" class="text_field count_chars notepad" id="RESULT_TextArea-5" ows="8" minlength="50" required placeholder="message"></textarea>
-
-<!-- 		     <textarea name="message"  class="notepad" id="message" oninput="submitPadding()"></textarea>
- -->
- 		</div>
+		 <div id="q5" class="q required">	
+		     <textarea name="RESULT_TextArea-5" class="text_field count_chars notepad" id="RESULT_TextArea-5" rows="8" minlength="50" required placeholder="message" oninput="submitPadding()"></textarea>
 
  		</div>
+
+ 		<div style="display:none;">
+			<input type="hidden" name="locid" value="zye2aA/bg-design" />
+			<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
+			<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
+			<input type="hidden" name="Referrer" id="Referrer" value="" />
+			<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
+		</div>
+
+ 	</div>
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
+
 <div class="outside_container">
-<div class="buttons_reverse"><input type="submit" name="Submit" value="→" class="submit_button" id="FSsubmit" /></div>
+	<div class="buttons_reverse">
+		<input type="submit" name="Submit" value="->" class="submit_button submit" id="FSsubmit" />
+	</div>
 </div>
 </form>
 
-<!-- 		</div>
-		  	<input id="submit" type="submit" value="→" class="submit">
-		</form> -->
  	</div>
 	</div>
 </div>
@@ -189,41 +98,32 @@
 
 <script>
 
-	var leftValue = $('#submit').css( "left" );
-	var rightPercent = $('#submit').css( "right" );
-	// var rightPercent = rightPercent.slice(0, -1);
-	var windowWidth = $( window ).width();
+		
 
 function submitPadding() {
 
-	var modalWidth = $('.modal-content').width();
-	var rightOffset = windowWidth / 10;
-	console.log('rightOffset'+rightOffset+'rightPercent'+rightPercent);
-	var rightValue = (rightPercent/100) * modalWidth + rightOffset-150;
-	var messageLength = $('#message').val().length;
-	var companyLength = $('#company').val().length;
-	var roleLength = $('#role').val().length;
-	var nameLength = $('#name').val().length;
-	var emailLength = $('#email').val().length;
+	var nameLength = $('#RESULT_TextField-0').val().length;
+	var companyLength = $('#RESULT_TextField-1').val().length;
+	var roleLength = $('#RESULT_TextField-2').val().length;
+	var emailLength = $('#RESULT_TextField-3').val().length;
+	var messageLength = $('#RESULT_TextArea-5').val().length;
 	var totalLength = nameLength + companyLength + roleLength + emailLength + messageLength;
+
+	console.log('messageLength:'+messageLength);
 	console.log('totalLength:'+totalLength);
-	// var newLeftValue = (totalLength * ) + 100;
-	var newRightValue = rightValue - (totalLength*4);
-	console.log('newRightValue:'+newRightValue+', messageLength:'+messageLength);
 
 
-	if (newRightValue > 0) {
-		$('#submit').css("right",newRightValue + "px");
-		$('#submit').removeClass("footer-lock");
-		$('#submit').css("top", "350px");
+	if (totalLength > 0) {
+		$('.submit').css("left",totalLength*4 + "px");
+		$('.submit').removeClass("footer-lock");
 	}
 	else {
-		$('#submit').css("right","0");
-		$('#submit').addClass("footer-lock");
-		$('#submit').css("top","unset");
+		$('.submit').css("right","0");
+		$('.submit').addClass("footer-lock");
+		$('.submit').css("top","unset");
 	}
 	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
-		if (messageLength > 49 && nameLength > 2 && companyLength > 2) {
+		if (messageLength > 49 && nameLength > 1 && companyLength > 2) {
 			$('.submit').addClass("submit-ready")
 		}
 		else {
@@ -232,7 +132,7 @@ function submitPadding() {
 };
 
 function hideSubmit() {
-	$('#submit').css("display", "none");
+	$('.submit').css("display", "none");
 }
 
 
@@ -255,7 +155,7 @@ $(document).on('keydown', ':focusable', function (e) {
 });
 
 	$(function(){
-    	$("#name").focus();
+    	$("#RESULT_TextField-0").focus();
 	});
 
 
