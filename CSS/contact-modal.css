@@ -120,7 +120,7 @@ input {
 	padding: 10px 0;
 }
 
-#nda {
+#RESULT_CheckBox-4_0 {
   width: 50px;
   float: left;
   margin-top: 20px;
@@ -163,7 +163,7 @@ input {
  	font-family: Lato, sans-serif;
 }
 
-.submit {
+.submit_button {
 	border: 1px dashed dimgray;
 height: 40px;
 width: 70px;
@@ -174,15 +174,15 @@ color: black;
 -webkit-text-stroke-width: 1px;
 -webkit-text-stroke-color: black;
 position: absolute;
-/*  bottom: 50px;
-      */
 font-size: 250%;
 padding: 0;
 bottom: 0;
 /* THIS IS THE INITIAL SETTING*/
 transition: .5s;
 line-height: 0;
+left:0;
 }
+
 .submit-ready {
 	border:1px solid #3cffdb;;
 	background: #3cffdb;;
@@ -195,7 +195,7 @@ line-height: 0;
 	border-radius: 50px;
 }
 
-#submit.footer-lock {
+.submit.footer-lock {
 /*	position: fixed;
 */    bottom: 0;
     border-radius: 0;
