@@ -8,8 +8,8 @@ function submitPadding() {
 	var messageLength = $('#RESULT_TextArea-5').val().length;
 	var totalLength = nameLength + companyLength + roleLength + emailLength + messageLength;
 
-	console.log('messageLength:'+messageLength);
-	console.log('totalLength:'+totalLength);
+	// console.log('messageLength:'+messageLength);
+	// console.log('totalLength:'+totalLength);
 
 	var offset = totalLength * 9;
 
@@ -24,7 +24,7 @@ function submitPadding() {
 	}
 
 	else {}
-	 console.log('companyLength:'+companyLength+', nameLength'+nameLength);
+	 // console.log('companyLength:'+companyLength+', nameLength'+nameLength);
 		if (messageLength > 49 && nameLength > 1 && companyLength > 2) {
 			$('.submit').addClass("submit-ready")
 		}
@@ -65,8 +65,10 @@ $(document).on('keydown', ':focusable', function (e) {
 	// Get the modal
 var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
+// Get the buttons that open the modal
 var btn = document.getElementById("myBtn");
+var btn2 = document.getElementsByClassName("lets-talk");
+var btn3 = document.getElementById("email-btn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -75,7 +77,14 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
     modal.style.display = "block";
     $('html').css("overflow", "hidden");
-
+}
+btn2.onclick = function() {
+    modal.style.display = "block";
+    $('html').css("overflow", "hidden");
+}
+btn3.onclick = function() {
+    modal.style.display = "block";
+    $('html').css("overflow", "hidden");
 }
 
 // When the user clicks on <span> (x), close the modal

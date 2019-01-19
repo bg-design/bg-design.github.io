@@ -664,6 +664,10 @@ p a::selection {
 	background: #ddd;
 }
 
+#email-btn {
+	cursor: pointer;
+}
+
 .lets-talk {
   position: relative;
   transition: 1s;
