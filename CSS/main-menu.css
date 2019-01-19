@@ -94,6 +94,8 @@ background-repeat: no-repeat;
   color: black;
   float:left;
   clear: both;
+  position: relative;
+  left: 10px;
 }
 
 .dark-mode #overlay-nav .home-link {
@@ -104,6 +106,8 @@ background-repeat: no-repeat;
   color: grey;
   padding:0;
   margin: 0;
+  position: relative;
+  left: 5px;
 }
 .overlayProject.home-link {
   background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
