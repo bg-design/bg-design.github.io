@@ -1321,7 +1321,6 @@ cite p {color:white;}
 
 .home-links a:hover {
     transition:.4s ease-in .4s, .4s;
-	border:0;
 	background-size:100% 100%;
 	cursor: pointer;
 	}
