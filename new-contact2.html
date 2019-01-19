@@ -115,11 +115,11 @@ function submitPadding() {
 	var offset = totalLength * 9;
 
 
-	if (38 > totalLength > 0) {
+	if (37 > totalLength > 0) {
 		$('.submit').css("left", offset + "px");
 		$('.submit').removeClass("footer-lock");
 	}
-	else  if (totalLength > 37) {
+	else  if (totalLength > 36) {
 		$('.submit').css("right","0");
 		$('.submit').addClass("footer-lock");
 		$('.submit').css("top","unset");
