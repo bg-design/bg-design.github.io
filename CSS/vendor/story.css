@@ -7,10 +7,11 @@ Alternate Fixed & Scroll Backgrounds - by CodyHouse.co
 .cd-fixed-bg {
   position: relative;
   min-height: 100vh;
-  background-size: cover;
+  background-size: 45%;
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 1;
+  background-position: left;
+  width: 50%;
 }
 
 .cd-fixed-bg__content, .cd-fixed-bg h2 {
@@ -47,7 +48,7 @@ Alternate Fixed & Scroll Backgrounds - by CodyHouse.co
 }
 
 .cd-fixed-bg.cd-fixed-bg--4 {
-  background-image: url("https://nuanced.design/IMG/UX-ben.jpg");
+  background-image: url("https://nuanced.design/IMG/UX-ben.jpeg");
 }
 
 @media only screen and (min-width: 768px) {
