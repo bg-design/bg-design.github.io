@@ -1330,6 +1330,10 @@ cite p {color:white;}
 	max-width: 800px;
 	margin: 0 auto;
 }
+
+.hidden-md {
+	display: none;
+}
 /* MEDIA QUERIES */
 @media screen and (max-width : 730px)   {
 
@@ -1375,31 +1379,33 @@ cite p {color:white;}
 
 /* Hidden classes */
 /* Large Desktop (L) */
-@media only screen 
-and (min-width : 1025px) {
+@media screen and (min-width : 1025px) {
 	.hidden.L {
 		display: none;
 	}
 
 }
 /* Large Tablet (M) */
-@media only screen 
-and (min-width : 736px) and (max-width : 1024px) {
+@media screen and (min-width : 736px) and (max-width : 1024px) {
 	.hidden.M {
 		display: none;
 	}
 }
 
 /* Small Tablet (S) */
-@media only screen 
-and (min-width : 540px) and (max-width : 735px) {
+@media screen and (min-width : 540px) and (max-width : 735px) {
 	.hidden.S {
 		display: none;
 	}
 }
 
 /* Mobile (XS) */
-@media only screen and (max-width: 539px)  {
+@media screen and (max-width: 539px)  {
+
+
+	.hidden-md {
+		display: block;
+	}
 
 	.hidden.XS {
 		display: none;
