@@ -70,6 +70,7 @@ $(window).load(function(){
 	// Get the buttons that open the modal
 	var btn = document.getElementById("myBtn");
 	var btn2 = document.getElementById("story-chat");
+	var btn3 = document.getElementById("email-btn");
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
@@ -80,6 +81,11 @@ $(window).load(function(){
 	    $('html').css("overflow", "hidden");
 	}
 	btn2.onclick = function() {
+	    modal.style.display = "block";
+	    $('html').css("overflow", "hidden");
+	}
+
+	btn3.onclick = function() {
 	    modal.style.display = "block";
 	    $('html').css("overflow", "hidden");
 	}
