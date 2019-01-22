@@ -11,42 +11,69 @@
     <link rel="stylesheet" href="CSS/global.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
 
-	<link rel="stylesheet" href="CSS/vendor/story.css">
-
 	<style>
 
-		.dark-mode html {
-			background: #21262d;
-		}
+.dark-mode html {
+	background: #21262d;
+}
 
-		.story-text {
-			position: absolute;
-			z-index: 999;
-			width: 50%;
-			top:0;
-			right: 0;
-			padding: 20px;
+.story-text {
+	position: absolute;
+	z-index: 999;
+	width: 50%;
+	top:0;
+	right: 0;
+	padding: 20px;
 
-		}
+}
 
 /*		.dark-mode .story-text {
-			background: rgba(255,255,255,.7);
-		}*/
+	background: rgba(255,255,255,.7);
+}*/
 
-		.story-text p {
-			color: black;
-			letter-spacing: 0;
-			font-size:28px;
-		}
+.story-text p {
+	color: black;
+	letter-spacing: 0;
+	font-size:28px;
+}
 
-		.dark-mode .story-text p {
-			color: white;
-		}
+.dark-mode .story-text p {
+	color: white;
+}
 
-		#story-chat {
-			text-decoration: underline;
-			cursor: pointer;
-		}
+#story-chat {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+.cd-fixed-bg {
+  position: relative;
+  min-height: 80vh;
+  background-size: 45%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 50%;
+}
+
+
+.cd-fixed-bg.cd-fixed-bg--1 {
+  background-image: url("https://nuanced.design/IMG/when-slideshow/landscape-architecture-UCD3.jpg");
+}
+
+.cd-fixed-bg.cd-fixed-bg--2 {
+  background-image: url("https://nuanced.design/IMG/when-slideshow/ben-pi3.jpg");
+}
+
+.cd-fixed-bg.cd-fixed-bg--3 {
+  background-image: url("https://nuanced.design/IMG/UX-ben.jpeg");
+}
+
+.cd-fixed-bg.cd-fixed-bg--4 {
+  background-image: url("https://nuanced.design/IMG/story/lying-down.jpg");
+}
+
 
 		@media screen and (max-width: 1400px) {
 			.story-text p {
