@@ -35,19 +35,19 @@ Alternate Fixed & Scroll Backgrounds - by CodyHouse.co
 }
 
 .cd-fixed-bg.cd-fixed-bg--1 {
-  background-image: url("../IMG/when-slideshow/landscape-architecture-UCD3.jpg");
+  background-image: url("https://nuanced.design/IMG/when-slideshow/landscape-architecture-UCD3.jpg");
 }
 
 .cd-fixed-bg.cd-fixed-bg--2 {
-  background-image: url("../IMG/when-slideshow/ben-pi3.jpg");
+  background-image: url("https://nuanced.design/IMG/when-slideshow/ben-pi3.jpg");
 }
 
 .cd-fixed-bg.cd-fixed-bg--3 {
-  background-image: url("../IMG/when-slideshow/ccs-ebike-mock.jpg");
+  background-image: url("https://nuanced.design/IMG/when-slideshow/ccs-ebike-mock.jpg");
 }
 
 .cd-fixed-bg.cd-fixed-bg--4 {
-  background-image: url("../IMG/UX-ben.jpg");
+  background-image: url("https://nuanced.design/IMG/UX-ben.jpg");
 }
 
 @media only screen and (min-width: 768px) {
