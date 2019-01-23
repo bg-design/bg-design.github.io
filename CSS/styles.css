@@ -1340,14 +1340,14 @@ cite p {color:white;}
 		border-bottom: 4px solid #FA6900;
 	}
 
-.menu-links {
+/*.home-links {
 		padding-left: 10px;
 		margin-bottom: 140px;
 		display: table;
 		max-width: 350px;
-	}
+	}*/
 
-.menu-links a {
+.home-links a {
 	font-family: 'Lato', sans-serif;
 	font-size: 18pt;
 	line-height: 1;
@@ -1366,7 +1366,7 @@ cite p {color:white;}
 	margin-bottom: 20px;
 }
 
-.menu-links a:hover {
+.home-links a:hover {
     transition:.4s ease-in .4s, .4s;
 	background-size:100% 100%;
 	cursor: pointer;
