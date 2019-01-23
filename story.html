@@ -43,7 +43,14 @@
 
 #story-chat {
 	text-decoration: underline;
+	transition: 1s;
+}
+
+#story-chat:hover {
 	cursor: pointer;
+	background-image: linear-gradient(to bottom, transparent 45%, #fffbb8 0%);
+	display: inline-block;
+	transition: 1s;
 }
 
 
@@ -169,6 +176,14 @@
 </head>
 <body>
 
+	<div class="loading-bg" id="story-loading">
+		<div class="loading-wrapper loader">
+			<div class="loader__ball"></div>
+			<div class="loader__ball"></div>
+			<div class="loader__ball"></div>
+		</div>
+	</div>
+
 	<main>
 
 		<div class="story-text">
@@ -197,6 +212,11 @@
 			<p>Working internally for a company allows a great depth of experience with one product, while freelancing offers an opportunity of breadth to solve many different problems. I decided to freelance so I could be more impactful in this capacity. I have now designed 21 logos, 15 desktop experiences, 7 mobile experiences, built out many websites, and worked with 10 happy clients. I’m now looking to connect, learn and grow in a team environment with a company that has a great product, team, and mission. Does that sound like you?</p>
 			 
 			<p id="story-chat">Let's chat.</p>
+
+			<div class="home-links">
+				<a class="float-right clear about-cv" href="cv.html" id="">C.V. ></a>
+				<a class="float-right clear about-philosophy" href="philosophy.html" id="">Design Philosophy ></a>
+			</div>
 
 		</div>
 
