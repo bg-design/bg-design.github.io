@@ -477,11 +477,16 @@ nav li {
 	background-image: linear-gradient(to bottom, transparent 65%, #828ef6 10%);
 	border-bottom: 4px solid #828ef6;
 }
-#about-story {
-	top:15px;
+.about-story {
 	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
 	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
 }
+
+#about-story {
+	top:15px;
+	}
+
+
 
 h1, h2, h3, h4, h5 {
 	font-family: 'Lato', sans-serif;
