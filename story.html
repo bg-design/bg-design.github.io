@@ -275,7 +275,10 @@ $( document ).ready(function() {
 	// Load main menu
 	$("#menu-import").load("menu.html");
 
-	document.write('<script src="JS/contact-modal-story.js"></script>');
+	function includeJS(incFile)
+		{document.write('<script type="text/javascript" src="'+ incFile+ '"></script>');}
+
+	includeJS('JS/contact-modal-story.js');
 
 });
 
