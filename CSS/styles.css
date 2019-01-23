@@ -456,6 +456,32 @@ nav li {
  .navbar li a:hover.what-bg {
 	color: black;
 }
+
+#about-philosophy, #about-cv, #about-story {
+	position: absolute;
+	font-size: 24px;
+	font-family:'Lato', sans-serif;
+	font-weight: 300;
+	line-height: 1;
+	right:30px;
+}
+
+#about-philosophy {
+	top:80px;
+	background-image: linear-gradient(to bottom, transparent 65%, #f79f5a 10%);
+	border-bottom: 4px solid #f79f5a;
+}
+#about-cv {
+	top:40px;
+	background-image: linear-gradient(to bottom, transparent 65%, #828ef6 10%);
+	border-bottom: 4px solid #828ef6;
+}
+#about-story {
+	top:5px;
+	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
+	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+}
+
 h1, h2, h3, h4, h5 {
 	font-family: 'Lato', sans-serif;
 	text-align: center;
