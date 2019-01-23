@@ -478,8 +478,8 @@ nav li {
 	border-bottom: 4px solid #828ef6;
 }
 .about-story {
-	background-image: linear-gradient(to bottom, transparent 65%, rgba(58, 243, 171, 0.44) 10%);
-	border-bottom: 4px solid rgba(58, 243, 171, 0.44);
+	background-image: linear-gradient(to bottom, transparent 65%, #e4c9e4 10%);
+	border-bottom: 4px solid #e4c9e4;
 }
 
 #about-story {
