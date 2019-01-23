@@ -18,12 +18,9 @@
 }
 
 .story-text {
-	position: absolute;
-	z-index: 999;
 	width: 50%;
-	top:0;
-	right: 0;
 	padding: 20px;
+	float:right;
 
 }
 
@@ -31,25 +28,15 @@
 	background: rgba(255,255,255,.7);
 }*/
 
-.story-text p {
-	color: black;
-	letter-spacing: 0;
-	font-size:29px;
-}
-
-.dark-mode .story-text p {
-	color: white;
-}
-
 #story-chat {
 	text-decoration: underline;
 	transition: 1s;
+	width: 120px;
 }
 
 #story-chat:hover {
 	cursor: pointer;
 	background-image: linear-gradient(to bottom, transparent 45%, #fffbb8 0%);
-	display: inline-block;
 	transition: 1s;
 }
 
@@ -81,22 +68,37 @@
   background-image: url("IMG/story/lying-down.jpg");
 }
 
+.home-links {
+	display: inline-block;
+	float:right;
+}
+
+.story-text p {
+	color: black;
+	letter-spacing: 0;
+	font-size:27.5px;
+}
+
+.dark-mode .story-text p {
+	color: white;
+}
+
 
 		@media screen and (max-width: 1400px) {
 			.story-text p {
-				font-size:27px;
+				font-size:26.5px;
 			}
 		}
 
-		@media screen and (max-width: 1300px) {
+		@media screen and (max-width: 1200px) {
 			.story-text p {
-				font-size:26px;
+				font-size:25px;
 			}
 		}
 
-		@media screen and (max-width: 1150px) {
+		@media screen and (max-width: 1100px) {
 			.story-text p {
-				font-size:24px;
+				font-size:23.5px;
 			}
 		}
 
@@ -160,14 +162,14 @@
 			}
 
 			.story-text p {
-				font-size:16px;
+				font-size:17px;
 			}
 		}
 
 		@media screen and (max-width: 455px) {
 
 			.story-text p {
-				font-size:14px;
+				font-size:16px;
 			}
 }
 
@@ -231,9 +233,11 @@
 
 		<div class="cd-fixed-bg cd-fixed-bg--4">
 		</div> <!-- cd-fixed-bg -->
-	</main>
 
-	<footer>
+		<div class="clear"></div>
+</main>
+
+<footer>
 	<div class="container">
 		<div class="footer-top-row">
 			<span class="dark-mode-wrapper">
@@ -257,6 +261,7 @@
 
 	<div id="footer-import"></div>
 </footer>
+
 
 <div id="menu-import"></div>
 
