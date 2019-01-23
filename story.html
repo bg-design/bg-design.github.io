@@ -263,7 +263,72 @@
 <!-- Trigger/Open The Modal -->
 <button id="myBtn" class="chatIcon"><img src="https://nuanced.design/IMG/chat-icon-filled.png"/></button> 
 
-<div id="contact-import"></div>
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+	  	<!-- Modal content -->
+	<div class="modal-content">
+	<div class="modal-body">
+	    <span class="close">&times;</span>
+	    <form method="post" id="FSForm" action="https://fs8.formsite.com/res/submit" enctype="application/x-www-form-urlencoded" onsubmit="return Vromansys.Form.processSubmit(this);">
+
+		<!-- BEGIN_ITEMS -->
+		<div class="form_table">
+
+		<div id="q0" class="q required">
+
+		  	<p class="non-editable">Hello, I'm </p>
+		  	
+		    <input rows="1" maxlength="20" placeholder="your name &#9997;" autofocus type="text" name="RESULT_TextField-0" class="text_field notepad" id="RESULT_TextField-0" value="" required oninput="submitPadding()"/>
+
+		</div>
+		<div id="q1" class="q required">
+		    <p class="non-editable">from</p>
+
+		    <input type="text" name="RESULT_TextField-1" class="text_field notepad" id="RESULT_TextField-1" required maxlength="30" value="" placeholder="your company" oninput="submitPadding()"/>
+
+		 </div>
+		 <div id="q2" class="q required">
+		    <p class="non-editable">where I am a</p>
+
+		    <input type="text" name="RESULT_TextField-2" class="text_field notepad" id="RESULT_TextField-2" maxlength="30" value="" placeholder="your role" required oninput="submitPadding()"/>
+
+		  </div>
+		  <div id="q3" class="q required">
+			<input type="email" name="RESULT_TextField-3" class="text_field notepad" id="RESULT_TextField-3" value="" required placeholder="e-mail" oninput="submitPadding()"/>
+			</div>
+	 	<div id="q4" class="q">
+		     <p class="non-editable" id="nda-text">Request NDA</p><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice notepad" id="RESULT_CheckBox-4_0" value="CheckBox-0" oninput="submitPadding()"/>
+		 </div>
+		 <div id="q5" class="q required">	
+		     <textarea name="RESULT_TextArea-5" class="text_field count_chars notepad" id="RESULT_TextArea-5" rows="8" minlength="50" required placeholder="message" oninput="submitPadding()"></textarea>
+
+ 		</div>
+
+ 		<div style="display:none;">
+			<input type="hidden" name="locid" value="zye2aA/bg-design" />
+			<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
+			<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
+			<input type="hidden" name="Referrer" id="Referrer" value="" />
+			<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
+		</div>
+
+ 	</div>
+<!-- END_ITEMS -->
+<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
+
+<div class="outside_container">
+	<div class="buttons_reverse">
+		<input type="submit" name="Submit" value="->" class="submit_button submit" id="FSsubmit" />
+	</div>
+</div>
+</form>
+
+ 	</div>
+	</div>
+</div>
+
+<!-- <div id="contact-import"></div> -->
 
 <script src="JS/global.js"></script>
 
@@ -273,7 +338,7 @@ $( document ).ready(function() {
 	$("#footer-import").load("footer-dark-mode.html"); 
 
 	// Load Chat Icon
-	$("#contact-import").load("contact-modal.html");
+	// $("#contact-import").load("contact-modal.html");
 
 	// Load main menu
 	$("#menu-import").load("menu.html");
