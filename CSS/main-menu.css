@@ -153,8 +153,16 @@ p.overlay-copyright {
   color: #777;
 }
 
+.overlay .closebtn:hover {
+  color: white;
+}
+
 .dark-mode .overlay .closebtn {
   color: white;
+}
+
+.dark-mode .overlay .closebtn:hover {
+  color: #777;
 }
 
 #menu-icon {
