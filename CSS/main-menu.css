@@ -151,18 +151,22 @@ p.overlay-copyright {
   right: 45px;
   font-size: 60px;
   color: #777;
+  transition: 0.5s;
 }
 
-.overlay .closebtn:hover {
+.closebtn:hover {
   color: white;
+  transition: 0.5s;
 }
 
 .dark-mode .overlay .closebtn {
   color: white;
+  transition: 0.5s;
 }
 
-.dark-mode .overlay .closebtn:hover {
+.dark-mode .closebtn:hover {
   color: #777;
+  transition: 0.5s;
 }
 
 #menu-icon {
