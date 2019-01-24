@@ -76,7 +76,7 @@ body {
 }
 
 .dark-mode .img-invert {
-  filter: invert(82%);
+  filter: invert(87.8%);
   transition: 3s;
 }
 -
