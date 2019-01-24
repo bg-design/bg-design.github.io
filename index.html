@@ -86,7 +86,7 @@
 }
 
 #fullpage #section3 hr {
-	border-bottom:2px solid #70635b;
+	border-bottom:2px solid #bbd85e;
 }
 
 #fullpage #section4 hr {
@@ -106,7 +106,7 @@
 }
 
 #section3 .project-button, #section3 .project-button:hover {
-	background: #70635b;
+	background: #bbd85e;
 }
 
 #section4 .project-button, #section4 .project-button:hover {
@@ -151,6 +151,11 @@
 	font-weight: 700;
 	font-size:40px;
 }
+
+.dark-mode .fullpage-wrapper h1 {
+	color: white;
+}
+
 #fullpage p {
     font-family: 'Lora', sans-serif;
 	font-size: 12pt;
@@ -159,8 +164,9 @@
 	color: #5a5a5a;
 	text-align:center;
 }
-/*	.dark-mode .what-box h1, .dark-mode .what-box p {color: white;}
-*/
+.dark-mode #fullpage p {
+	color: white;
+}
 
 #fullpage #body-copy {
 	text-align:left;
@@ -383,6 +389,15 @@ header {
 	top:125px;
 }
 
+.projectCurtain {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 38%;
+	height: 100%;
+	background: #1f1f20;
+}
+
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes body {
     from {opacity: 0}
@@ -507,6 +522,7 @@ header {
 		</div> -->
 	</div>
 	<div class="section" id="section1">
+		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>LilyPad</h1>
 			<hr>
@@ -517,6 +533,7 @@ header {
 		</div>
 	</div>
 	<div class="section" id="section2">
+		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>AWA Fit</h1>
 			<hr>
@@ -527,6 +544,7 @@ header {
 		</div>
 	</div>
 	<div class="section" id="section3">
+		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>Slingshot Foods</h1>
 			<hr>
@@ -537,6 +555,7 @@ header {
 		</div>
 	</div>
 	<div class="section" id="section4">
+		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>Safe Harbor</h1>
 			<hr>
@@ -548,6 +567,7 @@ header {
 		</div>
 	</div> 
 	<div class="section" id="section5">
+		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>Shyft Event Planning</h1>
 			<hr>

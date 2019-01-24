@@ -60,7 +60,7 @@ body {
 
 
 .dark-mode {
-  background: #2d2d2d;
+  background: #1f1f20;
   color: white;
   transition: 3s ease-in-out;
 }
