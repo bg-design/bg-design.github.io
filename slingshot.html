@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="CSS/global.css" media="screen">
     <link rel="stylesheet" href="CSS/projects.css" media="screen">
     <link rel="icon" type="image/png" href="IMG/favicon.png">
+    <link rel="stylesheet" href="CSS/testimonials.css">
 
   <style>
 
@@ -47,6 +48,11 @@
   .projectIcon.left:hover {
     border:1px solid #ef6462;
   }
+
+/* Overwrite defaults */  
+/*  figure.testimonials figcaption {
+    position: relative;
+  }*/
 
 </style>
 </head>
@@ -183,18 +189,30 @@
   </section>
 
   <section>
-
-    <div class="bottom-nav">
-      <button class="float-left hvr-sweep-to-left when-button" onClick="window.open('https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857')">< Awa Fit</button>
-      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='safe-harbor.html'" target="_blank">Safe Harbor ></button>
-      
-    </div>
+      <div class="project-test">
+        <div class="item">
+          <figure class="testimonials">
+            <figcaption>
+              <blockquote>Ben is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
+              <div class="arrow" style="top: 110px;"></div>
+               <div class="author">
+              <h5><span><strong>Shamrina Oshana</strong> -- Brand Manager at Slingshot Foods</span></h5>
+            </div>
+            </figcaption>
+            <img src="IMG/shamrina-test.jpg"/>
+            </figure>
+          </div>
+        <div class="bottom-nav">
+          <button class="float-left hvr-sweep-to-left when-button" onClick="window.open('https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857')">< Awa Fit</button>
+          <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='safe-harbor.html'" target="_blank">Safe Harbor ></button>
+          
+        </div>
+      </div>
   </section>
-  
-</div>
 
 </div>
 
+</div>
     <!-- Snackbar DarkMode confirmation -->
 <div id="darkModeOn"><img src="IMG/Icons/darkMoon.png" id="moonIconSnackbar"/><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
 <div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>

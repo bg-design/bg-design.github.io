@@ -1,0 +1,150 @@
+
+/*  Recommendations  */
+
+#clients-talking {
+	padding: 30px 0 25px 0;
+	color: black;
+}
+
+.dark-mode #clients-talking {
+	color: white;
+}
+
+
+/* ---------------------- */
+/*       TESTIMONIALS      */
+/* ---------------------- */
+
+figure.testimonials {
+}
+figure.testimonials * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+figure.testimonials img {
+  float: right;
+  max-width: 40%;
+  vertical-align: middle;
+  border-radius: 0 8px 8px 8px;
+}
+figure.testimonials figcaption {
+  top: 0;
+  left: 0;
+  width: 60%;
+  position: absolute;
+  background-color: #ddd;
+  border-radius: 8px 0 0 8px;
+  transition: 1s;
+}
+
+.dark-mode figure.testimonials figcaption {
+	background: rgb(78, 78, 78);
+	transition: 1s;
+	color: white;
+}
+
+figure.testimonials .arrow {
+  top: 45px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #ddd;
+  margin: 0;
+  position: absolute;
+  transition: 1s;
+}
+
+.dark-mode figure.testimonials .arrow {
+	 border-top: 25px solid rgb(78, 78, 78);
+	 transition: 1s;
+}
+
+figure.testimonials blockquote {
+  position: relative;
+  padding: 25px 50px 25px 50px;
+  font-size: 16pt;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  text-align: left;
+  margin: 0;
+  line-height: 1.4em;
+  font-style: italic;
+}
+figure.testimonials blockquote:before,
+figure.testimonials blockquote:after {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.3;
+  font-style: normal;
+}
+figure.testimonials blockquote:before {
+  top: 25px;
+  left: 20px;
+}
+figure.testimonials blockquote:after {
+  content: "\201D";
+  right: 20px;
+  bottom: 0px;
+}
+
+figure.testimonials .author {
+  position: absolute;
+  top: 100%;
+  padding: 10px 15px;
+  color: color:rgb(43, 43, 43);
+}
+
+.dark-mode figure.testimonials .author {
+	color: white;
+}
+.author span {
+   font-weight: 300;
+    font-size: 22px;
+}
+figure.testimonials .author h5 {
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 800;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+	background: white;
+	border:1px solid black;
+}
+
+#test-headshot {
+  width: 250px;
+}
+
+#marcus-kr {
+	height: 307px;
+}
+
+#ana-test {
+	width: 325px;
+}
+
+#caitlyn-test {
+	width: 250px;
+}
+#view-recs {
+	color: black;
+font-family: 'Lato', sans-serif;
+font-size: 14pt;
+float: right;
+font-weight: 300;
+border-bottom: 1px solid black;
+padding: 10px;
+margin-bottom: 20px;
+}
+
+.dark-mode #view-recs {
+	color: white;
+	border-bottom: 1px solid white;
+}
+
+/*  END Recommendations  */

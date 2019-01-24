@@ -144,6 +144,13 @@
 margin-right: -50px;
 left: initial;
 }
+
+.project-test {
+  position: absolute;
+  width: 71%;
+  float:left;
+  margin: 25px;
+}
 @media only screen and (max-width: 985px) {
       .projectImgHalf {
         width: 90%;
