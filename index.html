@@ -34,21 +34,31 @@
 	/* Defining each section background and styles
 * --------------------------------------- */
 #section1 {
+	background-image: url(IMG/LilyPad/LilyPad-mock.jpg);
+	padding: 0;
+}
+
+#section2 {
 	background-image: url(IMG/Awa-Fit/awa-fit-mock.jpg);
 	padding: 0;
 }
-#section2 {
+
+#section3 {
+	background-image: url(IMG/Slingshot/slingshot-mock.jpg);
+	padding: 0;
+}
+#section4 {
 	background-image: url(IMG/Safe-Harbor/safe-harbor-mock5.jpg);
 	padding: 0;
 }
-#section3 {
+#section5 {
 	background-image: url(IMG/Shyft/shyft-mock5.jpg);
 	padding: 0;
 }
 
 .welcome {
 	position: relative;
-	top: 20%;
+	top: 29%;
 	left: 10%;
 }
 
@@ -67,23 +77,43 @@
 }
 
 #fullpage #section1 hr {
+	border-bottom:2px solid #30f2bc;
+}
+
+
+#fullpage #section2 hr {
 	border-bottom:2px solid #4eefe5;
 }
 
-#fullpage #section2 hr {
+#fullpage #section3 hr {
+	border-bottom:2px solid #70635b;
+}
+
+#fullpage #section4 hr {
 	border-bottom:2px solid #7fbce2;
 }
 
-#fullpage #section3 hr {
+#fullpage #section5 hr {
 	border-bottom:2px solid #f79f5a;
 }
 
+#section1 .project-button, #section1 .project-button:hover {
+	background: #30f2bc;
+}
 
 #section2 .project-button, #section2 .project-button:hover {
-	background: #7fbce2;
+	background: #4eefe5;
 }
 
 #section3 .project-button, #section3 .project-button:hover {
+	background: #70635b;
+}
+
+#section4 .project-button, #section4 .project-button:hover {
+	background: #7fbce2;
+}
+
+#section5 .project-button, #section5 .project-button:hover {
 	background: #f79f5a;
 }
 
@@ -480,8 +510,18 @@ header {
 		<!-- <div id="scroll-line">
 			<span id="scroll-text">scroll</span>
 		</div> -->
-	</div> 
+	</div>
 	<div class="section" id="section1">
+		<div class="project-info">
+			<h1>LilyPad</h1>
+			<hr>
+			<br>
+			<p>Responsive site that showcases high-performance home building</p>
+			<a href="http://lilypad.house/home.html" target="_new"><button class="project-button center">View Site</button></a>
+			<p class="made-in">Made in Jan. 2019</p>
+		</div>
+	</div>
+	<div class="section" id="section2">
 		<div class="project-info">
 			<h1>AWA Fit</h1>
 			<hr>
@@ -491,18 +531,28 @@ header {
 			<p class="made-in">Made in Oct. 2017</p>
 		</div>
 	</div>
-	<div class="section" id="section2">
+	<div class="section" id="section3">
+		<div class="project-info">
+			<h1>Slingshot Foods</h1>
+			<hr>
+			<br>
+			<p>Marketing and print design for this innovative breakfast food</p>
+			<a href="slingshot.html" target="_new"><button class="project-button center">Learn More</button></a>
+			<p class="made-in">Made in June 2017</p>
+		</div>
+	</div>
+	<div class="section" id="section4">
 		<div class="project-info">
 			<h1>Safe Harbor</h1>
 			<hr>
 			<br>
 <!-- 			<img src="IMG/GES2016Logo.png" id="GES2016Logo"/>
  -->			<p>Won a hackathon at the 2016 Global Entrepeneupship Summit.</p>			<br>
-			<a href="safe-harbor.html" ><button class="project-button center">Case Study</button></a>
-			<p class="made-in">Made in Jun. 2016</p>
+			<a href="safe-harbor.html" ><button class="project-button center">Learn More</button></a>
+			<p class="made-in">Made in June 2016</p>
 		</div>
 	</div> 
-	<div class="section" id="section3">
+	<div class="section" id="section5">
 		<div class="project-info">
 			<h1>Shyft Event Planning</h1>
 			<hr>
@@ -550,11 +600,11 @@ header {
 // Full Page
 
     var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['welcome','awa-fit','safe-harbor','shyft'],
+    	anchors: ['welcome','lilypad','awa-fit','slingshot','safe-harbor','shyft'],
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['Welcome','AWA Fit','Safe Harbor','Shyft Event Planning'],
+		navigationTooltips: ['Welcome','LilyPad','AWA Fit','Slingshot Foods','Safe Harbor','Shyft Event Planning'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208

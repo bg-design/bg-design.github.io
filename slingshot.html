@@ -1,0 +1,225 @@
+<!-- Designed and coded by Ben Grandy with love in SF, CA. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slingshot Foods</title>
+
+    <link rel="stylesheet" href="CSS/global.css" media="screen">
+    <link rel="stylesheet" href="CSS/projects.css" media="screen">
+    <link rel="icon" type="image/png" href="IMG/favicon.png">
+
+  <style>
+
+/* PROJECT SPECIFIC */
+
+
+    .scroll-progress {
+      height: 5px;
+      opacity: .7;
+      background:#fda963;
+      width: 0;
+    }
+
+    #slingshot-bottles {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    #mm-candy {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    #shot-redesign {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+/*    Disabled left project*/
+    .projectIcon.left, .projectIcon.left:hover {
+    background: rgb(161, 161, 161);
+  }
+
+  .projectIcon.left:hover {
+    border:1px solid #ef6462;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="fullCurtain"></div>
+<div class="leftCurtain"></div>
+<div class="rightCurtain"></div>
+<div class="loading-wrapper loader projects">
+      <div class="loading-bg">
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+      </div>
+</div>
+
+
+
+<div class="vertical-nav">
+  <div class="project-nav-buttons">
+    <button class="projectIcon projectClose"  onClick="window.location.href='index.html#slingshot'">
+          <img src="IMG/Icons/close-project-icon.png">
+    </button>
+    
+    <button class="projectIcon left"  onClick="">
+          <img src="IMG/Icons/arrow-icon-filled.png">
+    </button>
+    <button class="projectIcon right" onClick="window.location.href='safe-harbor.html'">
+          <img src="IMG/Icons/arrow-icon-filled.png">
+    </button>
+  </div>
+  <p class="project-title">Slingshot Foods</p>
+ 
+  <p class="project-date">June 2017 | 2 months</p>
+   <hr>
+    <ul class="project-skills">
+      <li>Marketing Design</li>
+      <li>Packaging Design</li>
+      <li>Lasercut Booth Sign</li>
+    </ul>
+  <p class="project-details"><strong>Team</strong>: Benjamin Grandy (Designer) <br/><strong>Deliverables</strong>: Baseball Cap Promo Design, T-shirt Promo Design, Print Label Design</p>
+  <p>Slingshot Foods is an innovative parfait breakfast food. They needed help with marketing collateral as well as redesigning their label to be more intuitive.</p>
+  <hr>
+
+  <div id="darkModeSwitchProject">
+    <p class="dark-mode-switch-text">Dark mode:</p>
+    <label class="switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+    <img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
+  </div>
+  <p class="copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2019 All Rights Reserved.</p>
+</div>
+
+<div class="project-content">
+
+  <div class="banner">
+    <img src="IMG/Slingshot/slingshot-overview.jpg" />
+  </div>
+
+<div class="container" id="slingshot">
+  <section>
+    <div class="project-icons-wrapper">
+      <img class="project-icons" src="IMG/Icons/Overview.png" />
+      <h2>Overview</h2>
+    </div>
+
+    <p class="body">Slingshot is in all-in-one breakfast food for people that don't have time in the morning. It's a parfait yogurt drink with a lot of healthy nutrients and seeds. Because you want the granola to stay fresh, it's packaged separately around the top and you pour it into the drink right before you consume it. Because this is a novel interaction, many users didn't understand what they were supposed to do. I helped them develop a more intuitive label as well as designed some marketing shwag.</p>
+
+  </section>
+  <section>
+    <div class="project-icons-wrapper">
+      <img class="project-icons" src="IMG/Icons/Research.png" />
+      <h2>Research</h2>
+    </div>
+
+    <p class="body">I headed to my local grocery store to research packaging design and find examples that I thought were particularly exceptional.</p>
+
+    <div class="projectImgHalf">
+      <img class="" src="IMG/Slingshot/bolthouse-1915.jpg"/>
+    </div>
+    <div class="projectImgHalf">
+      <img class="" src="IMG/Slingshot/califia-cold-brew.jpg" />
+    </div>
+
+    <img class="full-width" src="IMG/Slingshot/califia-farms.jpg">
+    <figcaption>Bolthouse Farms Juice, Califia Cold Brew, and Califia Coconut Almond Milk</figcaption>
+
+    <p class="body">I showed the client these examples and she agreed that they were examples of exceptionally attractive, clean, and beautiful label design:</p>
+
+    <div class="full-width-container">
+      <blockquote>
+        <p class="dark-quote">
+          “The designs from Califia and 1915 are all ones that I admire. Clear lines and bold colors create a refined appearance. And yes, 1915 is certainly a product that does the clear bottle nicely.”
+          <br/><span class="float-right clear">-Shamrina Oshana, Brand Manager</span>
+        </p>
+      </blockquote>
+    </div>
+
+    <p class="body">Bolthouse Farms uses a clear label which conveys honestly-sourced ingredients and a high-quality product. Califia makes good use of modern, clean, flat design with plenty of negative space. All of them use a consistent and limited color palette which thematically ties together the different elements, and have a balanced layout. They're differentiated from other products by lacking photorealistic fruit, distracting elements, or loud gaudy text styles.</p>
+
+    <img src="IMG/Slingshot/mm-candy.jpg" id="mm-candy">
+    <figcaption>This M&amp;M Candy design forces the user to remove the top, which contains the candy, before they can get to the snack.</figcaption>
+
+    <p class="body">One of the issues they were running into was that some people were drinking the beverage without even noticing the granola wrapped around the outside. This anti-affordance design from M&amp;M forces the user to confront the M&amp;Ms before continuing. I suggested such an approach might be used by Slingshot. However, they didn't want to add more plastic and didn't like the "top hat" ecstatic.</p>
+
+  </section>
+
+  <section>
+    <div class="project-icons-wrapper clear">
+      <img class="project-icons" src="IMG/Icons/Design.png" />
+      <h2>Shot Redesign</h2>
+    </div>
+    <img class="clear" src="IMG/Slingshot/shot-redesign-before.png" id="shot-redesign"/>
+
+    <p class="body">
+      The shot is the name they give to the granola package wrapped around the neck of the bottle. One of the usability issues they encountered was getting people to open the correct end of the shot. I redesigned the shot to incorporate three easy steps which intuitively explain the process. This, combined labeling on the bottle which leads people to the shot would hopefully result in fewer errors. The graphics were made by a previous designer and the colors were picked up from the dominant colors from their labels.
+    </p>
+  
+  </section>
+
+  <section>
+    <div class="project-icons-wrapper">
+      <img class="project-icons" src="IMG/Icons/Wires.png" />
+      <h2>Coupon Design</h2>
+    </div>
+
+    <img class="full-width" src="IMG/Slingshot/slingshot-50-cent-coupon-export-01.png">
+    <p class="body">
+      People love getting discounts and one of the main objections to Slingshot is the price point. This coupon offers 50 cents off the product and intuitively explains how you consume the product. The graphics were made by a previous designer and the colors were pulled from their labels.
+    </p>
+
+  </section>
+
+  <section>
+
+    <div class="bottom-nav">
+      <button class="float-left hvr-sweep-to-left when-button" onClick="window.open('https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857')">< Awa Fit</button>
+      <button class="float-left hvr-sweep-to-left who-button" onClick="window.location.href='safe-harbor.html'" target="_blank">Safe Harbor ></button>
+      
+    </div>
+  </section>
+  
+</div>
+
+</div>
+
+    <!-- Snackbar DarkMode confirmation -->
+<div id="darkModeOn"><img src="IMG/Icons/darkMoon.png" id="moonIconSnackbar"/><strong>Dark Mode</strong> is enabled. Your preference is saved.</div>
+<div id="darkModeOff"><strong>Dark Mode</strong> is disabled. Your preference is saved.</div>
+
+<!--   Scroll down Button -->
+<div class="scroll" onclick="scrollBoth()">
+  <button class="floatingArrowIcon">
+    <img src="IMG/Icons/arrow-icon-filled.png">
+  </button>
+</div>
+
+<div id="menu-import"></div>
+
+<div id="contact-import"></div> 
+
+
+<script src="JS/global.js"></script>
+
+<script>
+  // Load Chat Icon
+  $("#contact-import").load("contact-modal.html"); 
+</script>
+
+<script src="JS/contact-modal-onebtn.js"></script>
+
+</body>
+</html>
+

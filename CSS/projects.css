@@ -109,6 +109,14 @@
   margin-right:25%;
 }
 
+.project-content blockquote {
+  padding-bottom: 40px;
+}
+
+.project-content img {
+  display: block;
+}
+
 .project-details {
   font-family: 'Lato', sans-serif;
   font-size: 18px;

@@ -873,7 +873,9 @@ p a::selection {
 
 #back-to-featured {margin-left:20px;}
 
-img {max-width: 100%;}
+img {
+	max-width: 100%;
+}
 
 img.full-width {width: 100%;}
 
@@ -902,6 +904,10 @@ figcaption {
 	text-align: center;
 	clear: both;
 	padding-bottom: 25px;
+}
+
+.dark-mode figcaption {
+	color: #d7d7d7;
 }
 
 section {
