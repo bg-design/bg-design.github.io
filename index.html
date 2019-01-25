@@ -63,7 +63,7 @@
 
 .welcome {
 	position: relative;
-	top: 29%;
+	top: 17%;
 	left: 10%;
 }
 
@@ -285,7 +285,7 @@ header {
 
 #full-body {
 	opacity: 0;
-	width: 40%;
+	width: 35%;
 	max-width: 500px;
 	position: absolute;
 	bottom: 0;
@@ -390,15 +390,15 @@ header {
 	margin-left: -75px;
 }
 
-#about-story {
+.about-story {
 	top:25px;
 	}
 
-#about-cv {
+.about-cv {
 	top:75px;
 }
 
-#about-philosophy {
+.about-philosophy {
 	top:125px;
 }
 
@@ -426,35 +426,22 @@ header {
     to {opacity: 1}
 }
 
+@media screen and (max-width: 900px) {
 
-@media screen and (min-width: 800px) (max-width: 1550px) and (max-height: 860px){
-	#header-container {
-		padding-right:18%;
+	h4 {
+		font-size:21px;
 	}
-}
 
-@media screen and (min-width: 800px) and (max-width: 1570px) and (max-height: 860px){
-	#header-container {
-		padding-right:23%;
+	#feat-work-arrow {
+		margin-left: -65px;
 	}
-}
 
-@media screen and (max-width: 430px) {
-	    blockquote {
-	    	padding: 10px 4px;
-	    	text-align: left;
-	    	line-height: 1.4em;
+	#top-greeting {
+		font-size:28px;
 	}
-	#body-copy {
-		width: initial;
-	}
-}
 
-@media screen and (min-width: 768px) {
-	.copyright {
-		width: 500px;
-	    margin-left: -250px;
-	    bottom: 17px;
+	a.welcome-link{
+		font-size:21px;
 	}
 }
 
@@ -480,10 +467,21 @@ header {
 	.what-box {border-radius: 0;}
 }
 
+@media screen and (max-width: 430px) {
+	    blockquote {
+	    	padding: 10px 4px;
+	    	text-align: left;
+	    	line-height: 1.4em;
+	}
+	#body-copy {
+		width: initial;
+	}
+}
+
 @media screen and (max-width: 415px){
 
-#fp-nav {opacity: 0}
-}
+/*#fp-nav {opacity: 0}
+}*/
 
 	</style>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -502,9 +500,9 @@ header {
 <div id="fullpage">
 	<div class="section" id="section0">
 		<div class="home-links">
-			<a class="fade-in seven about-story" href="story.html" id="about-story">My Story ></a>
-			<a class="fade-in seven about-cv" href="cv.html" id="about-cv">C.V. ></a>
-			<a class="fade-in seven about-philosophy" href="philosophy.html" id="about-philosophy">Design Philosophy ></a>
+			<h4><a class="fade-in seven about-story welcome-link" href="story.html" >My Story ></a></h4>
+			<h4><a class="fade-in seven about-cv welcome-link" href="cv.html" >C.V. ></a></h4>
+			<h4><a class="fade-in seven about-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
 			
 		</div>
 		<div class="welcome">

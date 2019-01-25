@@ -452,7 +452,7 @@ nav li {
 	color: black;
 }
 
-#about-philosophy, #about-cv, #about-story {
+.welcome-link {
 	position: absolute;
 	font-size: 24px;
 	font-family:'Lato', sans-serif;
