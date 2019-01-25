@@ -32,8 +32,11 @@
 /* Backgrounds will cover all the section
 * --------------------------------------- */
 .section, .slide{
-	background-size: cover;
+	background: #edf1f4;
+	background-size: contain;
 	background-attachment: fixed;
+	background-position: right;
+	background-repeat: no-repeat;
 }
 	/* Defining each section background and styles
 * --------------------------------------- */
@@ -429,6 +432,19 @@ header {
 @keyframes body {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+@media screen and (max-width: 1050px) {
+
+	.project-info {
+		top: 50%;
+		left: 30%;
+	}
+
+	.section {
+		background-position: right top;
+		background-position-x: -170px;
+	}
 }
 
 @media screen and (max-width: 900px) {
