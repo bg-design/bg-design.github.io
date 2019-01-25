@@ -139,7 +139,7 @@
 
 .project-button {
 	color: white;
-	font-size: 16px;
+	font-size: 18px;
 	border-radius: 40px;
 	background: #4eefe5;
 	border: 0;
@@ -150,20 +150,8 @@
 	font-weight: 400;
 	color: rgb(130, 130, 130);
 	font-family: 'Lato', sans-serif;
+	font-size:12pt;
 }
-/*
-	.what-box {
-		    position: relative;
-		    max-width: 450px;
-		    padding: 20px 30px;
-		    margin: 0 auto;
-		    background: rgba(255, 255, 255, 0.9);
-		    border-radius: 10px;
-		    top: 18%;
-	}*/
-
-/*	.dark-mode .what-box {background: rgba(50, 50, 50, 0.9);}
-*/
 
 .fullpage-wrapper h1 {
     font-family: 'Lato', Helvetica, sans-serif;
@@ -178,7 +166,7 @@
 
 #fullpage p {
     font-family: 'Lora', sans-serif;
-	font-size: 12pt;
+	font-size: 18pt;
 	line-height: 1.3em;
 	font-weight: 500;
 	color: #5a5a5a;
@@ -422,6 +410,11 @@ header {
 	background: #1f1f20;
 }
 
+#shyft-title {
+	width: 350px;
+    margin: 0 auto;
+}
+
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes body {
     from {opacity: 0}
@@ -437,13 +430,24 @@ header {
 @media screen and (max-width: 1050px) {
 
 	.project-info {
-		top: 50%;
-		left: 30%;
+		    top: 60%;
+		    left: 50%;
+		    margin-left: -194px;
+		    background: #ffffffde;
+    		border-radius: 20px;
 	}
 
 	.section {
 		background-position: right top;
-		background-position-x: -170px;
+		background-size:145%;
+		background-position-y: -90px;
+	}
+
+	.projectCurtain {
+		display: none;
+	}
+	#shyft-title {
+		width: 400px;
 	}
 }
 
@@ -589,7 +593,7 @@ header {
 			<p class="made-in">Made in Sep. 2017</p>
 		</div>
 	</div>
-	<div class="section" id="section4" style="background-position-x: -183px;">
+	<div class="section" id="section4" >
 		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>Slingshot Foods</h1>
@@ -615,7 +619,7 @@ header {
 	<div class="section" id="section6">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
-			<h1>Shyft Event<br/>Planning</h1>
+			<h1 id="shyft-title">Shyft Event Planning</h1>
 			<hr>
 			<br>
 			<p>Let's simplify complexity.</p>
