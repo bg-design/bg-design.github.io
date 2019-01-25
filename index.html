@@ -168,7 +168,7 @@
 
 #fullpage p {
     font-family: 'Lora', sans-serif;
-	font-size: 18pt;
+	font-size: 20px;
 	line-height: 1.3em;
 	font-weight: 500;
 	color: #5a5a5a;
@@ -454,7 +454,15 @@ header {
 	}
 
 	#fullpage p {
-		font-size:20px;
+		font-size:18px;
+	}
+
+	#fullpage .project-button {
+		font-size:15px;
+	}
+
+	#fullpage .made-in {
+		font-size:15px;
 	}
 }
 
@@ -462,6 +470,7 @@ header {
 
 	h4 {
 		font-size:21px;
+		margin: 15px;
 	}
 
 	#feat-work-arrow {
@@ -480,10 +489,19 @@ header {
 		background-position-y: 0;
 	}
 
+	.welcome {
+		top:3%;
+		left:45px;
+	}
+
 	.welcome-links {
 		position: relative;
-		top: unset;
 		right: 0;
+	}
+
+	.welcome-links a {
+		position: relative;
+		top: unset;
 	}
 }
 
@@ -522,6 +540,10 @@ header {
 }
 
 @media screen and (max-width: 430px) {
+
+	h4 {
+		font-size:20px;
+	}
 	blockquote {
 	    	padding: 10px 4px;
 	    	text-align: left;
@@ -529,6 +551,13 @@ header {
 	}
 	#body-copy {
 		width: initial;
+	}
+
+	.project-info {
+		border-radius: 0;
+		width: 100%;
+		margin: 0;
+		left: 0;
 	}
 
 	#fullpage h1 {
