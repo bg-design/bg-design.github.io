@@ -44,14 +44,19 @@
 }
 
 #section3 {
+	background-image: url(IMG/OneOf/oneof-home-mock.jpg);
+	padding: 0;
+}
+
+#section4 {
 	background-image: url(IMG/Slingshot/slingshot-mock.jpg);
 	padding: 0;
 }
-#section4 {
+#section5 {
 	background-image: url(IMG/Safe-Harbor/safe-harbor-mock5.jpg);
 	padding: 0;
 }
-#section5 {
+#section6 {
 	background-image: url(IMG/Shyft/shyft-mock5.jpg);
 	padding: 0;
 }
@@ -86,14 +91,18 @@
 }
 
 #fullpage #section3 hr {
-	border-bottom:2px solid #bbd85e;
+	border-bottom:2px solid #fec156;
 }
 
 #fullpage #section4 hr {
-	border-bottom:2px solid #7fbce2;
+	border-bottom:2px solid #bbd85e;
 }
 
 #fullpage #section5 hr {
+	border-bottom:2px solid #7fbce2;
+}
+
+#fullpage #section6 hr {
 	border-bottom:2px solid #f79f5a;
 }
 
@@ -106,14 +115,18 @@
 }
 
 #section3 .project-button, #section3 .project-button:hover {
-	background: #bbd85e;
+	background: #fec156;
 }
 
 #section4 .project-button, #section4 .project-button:hover {
-	background: #7fbce2;
+	background: #bbd85e;
 }
 
 #section5 .project-button, #section5 .project-button:hover {
+	background: #7fbce2;
+}
+
+#section6 .project-button, #section6 .project-button:hover {
 	background: #f79f5a;
 }
 
@@ -393,7 +406,7 @@ header {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 38%;
+	width: 500px;
 	height: 100%;
 	background: #1f1f20;
 }
@@ -546,6 +559,17 @@ header {
 	<div class="section" id="section3">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
+			<h1>OneOf</h1>
+			<hr>
+			<br>
+			<p>Let's make beautiful things.</p>
+			<a href="oneof.html"><button class="project-button center">Learn More</button></a>
+			<p class="made-in">Made in Sep. 2017</p>
+		</div>
+	</div>
+	<div class="section" id="section4">
+		<div class="projectCurtain"></div>
+		<div class="project-info">
 			<h1>Slingshot Foods</h1>
 			<hr>
 			<br>
@@ -554,7 +578,7 @@ header {
 			<p class="made-in">Made in June 2017</p>
 		</div>
 	</div>
-	<div class="section" id="section4">
+	<div class="section" id="section5">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
 			<h1>Safe Harbor</h1>
@@ -566,10 +590,10 @@ header {
 			<p class="made-in">Made in June 2016</p>
 		</div>
 	</div> 
-	<div class="section" id="section5">
+	<div class="section" id="section6">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
-			<h1>Shyft Event Planning</h1>
+			<h1>Shyft Event<br/>Planning</h1>
 			<hr>
 			<br>
 			<p>Let's simplify complexity.</p>
@@ -615,11 +639,11 @@ header {
 // Full Page
 
     var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['welcome','lilypad','awa-fit','slingshot','safe-harbor','shyft'],
+    	anchors: ['welcome','lilypad','awa-fit','oneof','slingshot','safe-harbor','shyft'],
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['Welcome','LilyPad','AWA Fit','Slingshot Foods','Safe Harbor','Shyft Event Planning'],
+		navigationTooltips: ['Welcome','LilyPad','AWA Fit','OneOf','Slingshot Foods','Safe Harbor','Shyft Event Planning'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
