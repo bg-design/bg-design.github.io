@@ -76,31 +76,6 @@ border-bottom: 4px solid #69D2E7;
 font-size: 22px;
 }
 
-#lilypad-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #30f2bc 10%);
-  border-bottom: 4px solid #30f2bc;
-}
-#awafit-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #4eefe5 10%);
-  border-bottom: 4px solid #4eefe5;
-}
-#oneof-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #fec156 10%);
-  border-bottom: 4px solid #fec156;
-}
-#slingshot-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #bbd85e 10%);
-  border-bottom: 4px solid #bbd85e;
-}
-#sh-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #7fbce2 10%);
-  border-bottom: 4px solid #7fbce2;
-}
-#shyft-link {
-  background-image: linear-gradient(to bottom, transparent 65%, #f79f5a 10%);
-  border-bottom: 4px solid #f79f5a;
-}
-
 p.overlay-copyright {
   position: absolute;
   left: 50%;
