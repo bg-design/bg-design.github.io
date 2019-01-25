@@ -1070,17 +1070,6 @@ cite p {color:white;}
 	width: 130px;
 	padding:15px;
 }
-/*
-.first-copy p
-{
-	font-family: 'Lora', serif;
-    font-size: 14pt;
-    line-height: 1.7em;
-    color: black;
-    letter-spacing: .5px;
-	margin-bottom: 20px;
-	font-weight: 300;*/
-}
 
 .center {
 	text-align: center;
@@ -1348,7 +1337,7 @@ cite p {color:white;}
 	-ms-transition: 1s;
 	-o-transition: 1s;
 	transition: 1s;
-	margin-bottom: 20px;
+	margin-bottom: 18px;
 }
 
 .home-links a:hover {
