@@ -101,8 +101,8 @@ body {
 /*Dark mode switch*/
 
 .dark-mode-switch-text {
-/*  color: rgb(185, 185, 185);
-*/  font-weight: 300;
+  color: rgb(185, 185, 185);
+  font-weight: 300;
   width: 100px;
   float: left;
   font-size:13pt;
