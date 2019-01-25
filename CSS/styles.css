@@ -1314,12 +1314,12 @@ cite p {color:white;}
 		border-bottom: 4px solid #FA6900;
 	}
 
-/*.home-links {
-		padding-left: 10px;
-		margin-bottom: 140px;
-		display: table;
-		max-width: 350px;
-	}*/
+.welcome-links {
+	position: fixed;
+    top: -10px;
+    right: -30px;
+    width: 380px;
+	}
 
 .home-links a {
 	font-family: 'Lato', sans-serif;
@@ -1327,7 +1327,6 @@ cite p {color:white;}
 	line-height: 1;
 	letter-spacing: .5px;
 	font-weight: 300;
-	margin-right: 30px;
 	text-decoration: none;
 	background-size: 0% 100%;
 	background-repeat: no-repeat;
@@ -1337,6 +1336,7 @@ cite p {color:white;}
 	-ms-transition: 1s;
 	-o-transition: 1s;
 	transition: 1s;
+	margin-right: 30px;
 	margin-bottom: 18px;
 }
 

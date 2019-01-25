@@ -72,7 +72,7 @@
 .welcome {
 	position: relative;
 	top: 17%;
-	left: 10%;
+	left: 14%;
 }
 
 .project-info {
@@ -431,7 +431,7 @@ header {
 	.project-info {
 		    top: 60%;
 		    left: 50%;
-		    margin-left: -194px;
+		    margin-left: -200px;
 		    background: #ffffffde;
     		border-radius: 20px;
 	}
@@ -475,12 +475,34 @@ header {
 	a.welcome-link{
 		font-size:21px;
 	}
+
+	.section {
+		background-position-y: 0;
+	}
+
+	.welcome-links {
+		position: relative;
+		top: unset;
+		right: 0;
+	}
 }
 
 @media screen and (max-width: 730px) {
 	.what-box h1 {
 		font-weight: 300;
 		font-size: 35px;
+	}
+
+	.project-info {
+		top: 45%;
+	}
+
+		#fullpage h1 {
+		font-size:30px;
+	}
+
+	#fullpage p {
+		font-size:18px;
 	}
 }
 
@@ -500,13 +522,29 @@ header {
 }
 
 @media screen and (max-width: 430px) {
-	    blockquote {
+	blockquote {
 	    	padding: 10px 4px;
 	    	text-align: left;
 	    	line-height: 1.4em;
 	}
 	#body-copy {
 		width: initial;
+	}
+
+	#fullpage h1 {
+		font-size:30px;
+	}
+
+	#fullpage p {
+		font-size:16px;
+	}
+
+	#fullpage .made-in {
+		font-size:10pt;
+	}
+
+	#fullpage .project-button {
+		font-size:14px;
 	}
 }
 
@@ -531,12 +569,6 @@ header {
 	</div>
 <div id="fullpage">
 	<div class="section" id="section0">
-		<div class="home-links">
-			<h4><a class="fade-in seven about-story welcome-link" href="story.html" >My Story ></a></h4>
-			<h4><a class="fade-in seven about-cv welcome-link" href="cv.html" >C.V. ></a></h4>
-			<h4><a class="fade-in seven about-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
-			
-		</div>
 		<div class="welcome">
 			<h2 class="fade-in two" id="top-greeting"><span id="greeting"></span>
 				<span id="greeting-1">Hello,</span>
@@ -551,6 +583,12 @@ header {
 				<span id="title-3">Interaction</span>
 				<span id="title-4">UX/UI</span> Designer</strong> // SF Bay Area</h4>
 			<h4 class="fade-in four">Let's collaborate &amp; make something wonderful.</h4>
+
+			<div class="welcome-links home-links">
+				<h4><a class="fade-in seven about-story welcome-link" href="story.html" >My Story ></a></h4>
+				<h4><a class="fade-in seven about-cv welcome-link" href="cv.html" >C.V. ></a></h4>
+				<h4><a class="fade-in seven about-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
+			</div>
 		</div>
 		<img src="IMG/splash-bust2.png" id="full-body" class="fade-in-slow"/>
 
