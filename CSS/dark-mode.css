@@ -101,7 +101,16 @@ body {
 /*Dark mode switch*/
 
 .dark-mode-switch-text {
-  color: rgb(185, 185, 185);
+/*  color: rgb(185, 185, 185);
+*/  font-weight: 300;
+  width: 100px;
+  float: left;
+  font-size:13pt;
+  font-family: 'Lato', sans-serif;
+  padding: 2px 5px 2px 10px;
+}
+#dark-mode-switch-text {
+  color: rgb(34, 34, 34);
   font-weight: 300;
   width: 100px;
   float: left;

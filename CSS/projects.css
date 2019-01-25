@@ -1,6 +1,6 @@
   .projects .loader__ball {
     background: white;
-    border:1px solid rgb(43, 227, 215);
+    border:1px solid rgba(255, 255, 255, 0.8);
   }
 
 .vertical-nav {
@@ -70,8 +70,8 @@
 }
 
 .dark-mode .project-title {
-  background: #2d2d2d;
-  color: white;
+  background: #1f1f20;
+  color: white !important;
   transition:3s;
 }
 
@@ -120,6 +120,12 @@
 
 .vertical-nav hr {
   margin: 10px 0;
+  border-bottom: 1px solid white;
+}
+
+.dark-mode .vertical-nav hr {
+  margin: 10px 0;
+  border-bottom: 1px solid #1f1f20;
 }
 
 .projectImgHalf {
@@ -145,7 +151,6 @@ left: initial;
   position: absolute;
   width: 71%;
   float:left;
-  margin: 25px;
 }
 @media only screen and (max-width: 985px) {
       .projectImgHalf {

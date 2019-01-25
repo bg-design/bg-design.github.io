@@ -31,13 +31,33 @@
 	color:#ef6462;
 }
 
+/*Overwrite defaults*/
+#sh-loading {
+      background: #7fbce2;
+    }
+
+    .vertical-nav {
+      background: #7fbce2;
+    }
+
+    #sh-nav.vertical-nav >*{
+      color:rgb(34, 34, 34);
+    }
+
+    .projectIcon.right:hover {
+      background: #f79f5a;
+    }
+    .projectIcon.left:hover {
+      background: #bbd85e;
+    }
+
 </style>
 </head>
 <body>
 
 <div class="fullCurtain"></div>
-<div class="leftCurtain"></div>
-<div class="rightCurtain"></div>
+<div class="leftCurtain" id="sh-loading"></div>
+<div class="rightCurtain" id="sh-loading"></div>
 <div class="loading-wrapper loader projects">
       <div class="loading-bg">
         <div class="loader__ball"></div>
@@ -47,7 +67,7 @@
 </div>
 
 
-<div class="vertical-nav">
+<div class="vertical-nav" id="sh-nav">
   <div class="project-nav-buttons">
     <button class="projectIcon projectClose"  onClick="window.location.href='index.html#safe-harbor'">
           <img src="IMG/Icons/close-project-icon.png">
@@ -73,7 +93,7 @@
   <p>Won a hackathon at the 2016 Global Entrepeneupship Summit for an app that helps victims of domestic abuse find shelter.</p>
   <hr>
   <div id="darkModeSwitchProject">
-    <p class="dark-mode-switch-text">Dark mode:</p>
+    <p id="dark-mode-switch-text">Dark mode:</p>
     <label class="switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round"></div>

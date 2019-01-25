@@ -37,13 +37,30 @@
     border:1px solid #ef6462;
   }
 
+  /*Overwrite defaults*/
+#shyft-loading {
+      background: #f79f5a;
+    }
+
+    .vertical-nav {
+      background: #f79f5a;
+    }
+
+    #shyft-nav.vertical-nav >*{
+      color:rgb(34, 34, 34);
+    }
+
+    .projectIcon.left:hover {
+      background: #7fbce2;
+    }
+
 </style>
 </head>
 <body>
 
 <div class="fullCurtain"></div>
-<div class="leftCurtain"></div>
-<div class="rightCurtain"></div>
+<div class="leftCurtain" id="shyft-loading"></div>
+<div class="rightCurtain" id="shyft-loading"></div>
 <div class="loading-wrapper loader projects">
       <div class="loading-bg">
         <div class="loader__ball"></div>
@@ -54,7 +71,7 @@
 
 
 
-<div class="vertical-nav">
+<div class="vertical-nav" id="shyft-nav">
   <div class="project-nav-buttons">
     <button class="projectIcon projectClose"  onClick="window.location.href='index.html#shyft'">
           <img src="IMG/Icons/close-project-icon.png">
@@ -80,7 +97,7 @@
   <hr>
 
   <div id="darkModeSwitchProject">
-    <p class="dark-mode-switch-text">Dark mode:</p>
+    <p id="dark-mode-switch-text">Dark mode:</p>
     <label class="switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round"></div>
