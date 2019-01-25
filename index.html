@@ -32,14 +32,17 @@
 
 /* Backgrounds will cover all the section
 * --------------------------------------- */
-.section, .slide{
-	background: #edf1f4;
+.section, .slide {
 	background-size: contain;
 	background-attachment: fixed;
 	background-position: right;
 	background-repeat: no-repeat;
 }
+
+.dark-mode #section0 {background: #1f1f20;}
+
 	/* Defining each section background and styles
+}
 * --------------------------------------- */
 #section1 {
 	background-image: url(IMG/LilyPad/LilyPad-mock.jpg);
@@ -244,7 +247,7 @@
 }
 
 body {
-  background: white;
+  background: #edf1f4;;
   margin: 0;
   padding: 0;
   transition: 3s ease-in-out;
@@ -380,7 +383,7 @@ header {
 
 #feat-work-arrow {
 	position: absolute;
-	bottom: 70px;
+	bottom: 85px;
 	left: 50%;
 	margin-left: -75px;
 }
@@ -406,7 +409,7 @@ header {
 }
 
 .dark-mode .projectCurtain {
-	background: #1f1f20;
+	background: rgba(10, 10, 11, 0.91);
 }
 
 #shyft-title {
@@ -426,14 +429,24 @@ header {
     to {opacity: 1}
 }
 
+@media screen and (max-width: 1350px) {
+	.section {
+		background-size: 85vw;
+	}
+}
+
 @media screen and (max-width: 1050px) {
 
 	.project-info {
-		    top: 60%;
-		    left: 50%;
-		    margin-left: -200px;
-		    background: #ffffffde;
-    		border-radius: 20px;
+	    top: 60%;
+	    left: 50%;
+	    margin-left: -200px;
+	    background: #ffffffde;
+		border-radius: 20px;
+	}
+
+	.dark-mode .project-info {
+		background:rgba(31, 31, 32, 0.87);
 	}
 
 	.section {
@@ -501,7 +514,7 @@ header {
 
 	.welcome-links a {
 		position: relative;
-		top: unset;
+		top: unset !important;
 	}
 }
 
@@ -577,9 +590,14 @@ header {
 	}
 }
 
-@media screen and (max-width: 415px){
+/*Override Defaults */
+	.dark-mode {
+		background: #edf1f4;
+	}
 
-/*#fp-nav {opacity: 0}
+/*@media screen and (max-width: 415px){
+
+#fp-nav {opacity: 0}
 }*/
 
 	</style>
