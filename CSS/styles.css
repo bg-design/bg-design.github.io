@@ -257,7 +257,7 @@
   	position: fixed;
   	height: 0;
   	width: 0;
-  	background: black;
+  	background: #1f1f20;
   	z-index: 9998;
   	animation: openingFull 2s ease-in-out;
   }
