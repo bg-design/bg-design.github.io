@@ -91,7 +91,6 @@ p.overlay-copyright {
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 10%;
   width: 100%;
   text-align: center;
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
@@ -149,6 +148,12 @@ p.overlay-copyright {
   #menu-icon {
     width: 50px;
     left:0;
+  }
+
+  p.overlay-copyright 
+  {
+    left:0;
+    margin-left: 0;
   }
 }
 

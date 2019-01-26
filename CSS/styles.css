@@ -1282,9 +1282,7 @@ cite p {color:white;}
 
 #overlay-nav {
 	margin: 0 auto;
-	padding-left: 242px;
-	padding-top: 20px;
-	margin-bottom: 140px;
+	padding-left: 0;
 	max-width: 280px;
 }
 
