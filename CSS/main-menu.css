@@ -15,6 +15,7 @@ right: 0;
 left: 50%;
 margin-left: -415px;
 background-repeat: no-repeat;
+background-position: center top;
 }
 
 .dark-mode .overlayBG {
@@ -153,7 +154,12 @@ p.overlay-copyright {
   p.overlay-copyright 
   {
     left:0;
-    margin-left: 0;
+    margin-left: 7%;
+    font-size:14px;
+  }
+  .overlayBG {
+    background-position: right top;
+    background-size: 80% 80%;
   }
 }
 
