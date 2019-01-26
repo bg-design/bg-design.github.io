@@ -1419,7 +1419,7 @@ cite p {color:white;}
 	}
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:600px) {
   #myBtn {left:80px;}
   .floatingArrowIcon {
     bottom: 0;

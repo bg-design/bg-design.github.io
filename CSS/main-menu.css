@@ -144,7 +144,7 @@ p.overlay-copyright {
   background:rgba(50, 50, 50, 0.9);
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:600px) {
 
   #menu-icon {
     top: unset;
