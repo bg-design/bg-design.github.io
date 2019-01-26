@@ -108,6 +108,7 @@ html.fp-enabled,
 }
 #fp-nav.fp-left {
     left: 17px;
+    top:50%;
 }
 .fp-slidesNav{
     position: absolute;
