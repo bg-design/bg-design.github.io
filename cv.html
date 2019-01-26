@@ -21,7 +21,10 @@
 
 	body.dark-mode {background: #101010;}
 
-	h1 {padding: 0px 0 10px 0;}
+	h1 {
+		padding: 0px 0 10px 0;
+		margin-top:20px;
+	}
 
 .dottedBox {
 	margin: 0 auto;
@@ -122,7 +125,7 @@
 }
 
 .typing-wrap {
-    margin: 100px;
+    margin: 100px auto;
 }
 /* code for animated blinking cursor on who */
 .typed-cursor{
@@ -398,7 +401,9 @@ margin: 0 0 0 20px;
 		font-size:16px;
 	}
 
-	#cv-body h1 {font-size:40px;}
+	#cv-body h1 {
+		font-size:40px;
+	}
 
 	#skills-wrapper h4 {
 		font-size:20px;
@@ -485,6 +490,7 @@ margin: 0 0 0 20px;
 
 	#skills-wrapper h4 {
 		margin-top: 3px;
+		font-size: 18px;
 	}
 
 	.when-time {
@@ -507,9 +513,6 @@ margin: 0 0 0 20px;
 		font-size:15px;
 	}
 
-	.owl-carousel .owl-stage-outer {
-		height: 370px;
-	}
 	.when-titles {
 		font-size:12pt;
 	}
@@ -527,6 +530,60 @@ margin: 0 0 0 20px;
 	.numbers-box {
 		margin: 30px 0;
 	}
+
+	#download-resume {
+		font-size: 14px;
+		width: 130px;
+	}
+}
+@media screen and (max-width: 490px) {
+	.owl-carousel .owl-stage-outer {
+		height: 365px;
+	}
+}
+
+@media screen and (max-width: 430px){
+
+	#skills-wrapper h4 {
+		font-size: 16px;
+	}
+
+	h1 {
+		padding: 0;
+	}
+
+	#cv-body p, #cv-body li {
+		font-size:14px;
+	}
+	.position-length {
+		display: none;
+	}
+
+	figure.testimonials blockquote {
+    	padding: 20px 10px 0 10px;
+    	font-size:14px;
+	}
+
+	figure.testimonials .author {
+		padding: 0;
+	}
+
+	figure.testimonials .author span {
+		font-size:17px;
+	}
+	#view-recs {
+		font-size: 14px;
+	    font-weight: 500;
+	    color: #585858;
+	}
+}
+
+@media screen and (max-width: 372px){
+	.when-time {
+		display: none;
+	}
+
+
 }
 
 </style>
@@ -570,7 +627,7 @@ margin: 0 0 0 20px;
 					</span>
 				</div>
 <div class="dottedBox">
-	<h2 class="fade-in four clear">Accomplishments</h2>
+	<h1 class="fade-in four clear">Accomplishments</h1>
 	<div class="circles">
 		<div class="circle-bg" id="design-yrs">
 			<div class="circle">
@@ -626,17 +683,14 @@ margin: 0 0 0 20px;
 </div>		
 
 <div class="dottedBox">
-		<h2 class="fade-in four clear">Tools &amp; Skills<a name="tools" id="tools"></a></h2>
-		<p class="fade-in two">
-			<ul>
+		<h1 class="fade-in four clear">Tools &amp; Skills</h1>
+			<ul class="fade-in two">
 				<li><strong>Concept &amp; Lo-fidelity</strong>: Whiteboards, Sticky Notes, Pen and Paper, Paper prototype.</li>
 				<li><strong>Prototype &amp; Hi-fidelity</strong>: Sketch, Illustrator, Photoshop, InVision.</li>
 				<li><strong>Other tools</strong>: Omnigraffle, Keynote.</li>
 				<li><strong>Build</strong>: Sublime Text, Git, Lasercutter, CNC Mill, 3D printer.</li>
 			</ul>
-		</p>
 		<img class="tools fade-in four img-invert" src="IMG/tools-gif-flattened.gif">
-		<a name="skills" id="skills" class="twenty-pad"></a>
 		<div class="six-col">
 				<p class=""><strong>UX Design</strong>: Concept sketches > Wireframes > Hi-fi Mocks > Prototyes. Sketch, Zeplin, InVision, Information Architecture, Interaction Design, User Flows, Site Maps, System Maps, Layout, Messaging and Copy, UX Artifacts (Empathy maps, Affinity Maps, Concept Diagrams, Experience Journeys etc.)</p>
 
@@ -678,8 +732,6 @@ margin: 0 0 0 20px;
 
 	<div class="dottedBox" id="exEdBox">
 
-		<a name="experience" id="experience"></a>
-
 		<h1 class="clear">Experience</h1>
 
 		<p class="when-titles collapsible"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right when-time">Feb. '16 — <strong>present</strong> &#160;&#160;<span class="position-length">(2 yrs. 11 mos.)</span></span></p>
@@ -714,8 +766,6 @@ margin: 0 0 0 20px;
 			<p class="body">PiCyle is a strikingly simple and beautiful electric bicycle, made of just a single aluminum arch. Electric Bicycles are the most efficient form of transportation achieving a stunning <a class="btn btn-default" href="IMG/picycle-MPGe.jpg" data-featherlight="image">2000MPGe</a> in efficiency. This coupled with zero emissions, pennies to charge, the benefits of exercise, and the fastest way to get from point A to point B in an urban environment makes eBikes healthy, fast, and fun.</p><p class="body">At PiMobility, I ran operations (inventory control), helped with sales, starred in promo videos, did photography, produced several promo videos, designed and built <a href="https://web.archive.org/web/20130830033949/http://picycle.com/" id="picycle" target="_blank">the website</a>, managed the shop, assembled bikes, helped with concept ideation for product development and provided customer service.</p>
 		</div>
 	</div>
-
-		<a name="education" id="education"></a>
 		
 		<h1 class="clear">Education</h1>
 

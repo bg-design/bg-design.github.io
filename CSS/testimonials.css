@@ -70,7 +70,6 @@ figure.testimonials blockquote {
   text-align: left;
   margin: 0;
   line-height: 1.4em;
-  font-style: italic;
 }
 figure.testimonials blockquote:before,
 figure.testimonials blockquote:after {
