@@ -113,6 +113,8 @@ p.overlay-copyright {
   font-size: 60px;
   color: #777;
   transition: 0.5s;
+  width: 40px;
+  height: 70px;
 }
 
 .closebtn:hover {
