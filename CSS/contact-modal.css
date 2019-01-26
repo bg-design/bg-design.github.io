@@ -237,7 +237,8 @@ left:0;
   .chatIcon {
     bottom: unset;
     left: unset;
-    top: 5px;
-    right:5px;
+    top: 0;
+    right:0;
+    width: 45px;
   }
 }
