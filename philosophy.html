@@ -21,72 +21,97 @@
 	#methodology {
 		font-family: 'Lato', sans-serif;
 	}
-		.why {padding: 0;}
+	.text-wrapper {
+		padding: 0;
+		max-width: 500px;
+		margin: 0 auto;
+	}
 
-		.books {
-			display: none;
-			margin:0 auto;
-			position: relative;
-			transition: all .3s ease-in-out;
-			-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    		filter: grayscale(100%);
-    		border: 1px solid grey;
-			border-radius: 5px;
-			visibility: hidden;
-			-webkit-animation:fadeIn ease-in 0.7s;  
-			   -moz-animation:fadeIn ease-in 0.7s;
-					animation:fadeIn ease-in 0.7s;
-		}
-		.books:hover{
-			transition:all .3s ease-in-out;
-			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
-    		filter: grayscale(0%);
-    		 transform: translate(-15px,0);
-    		box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
+	.books {
+		display: none;
+		margin:0 auto;
+		position: relative;
+		transition: all .3s ease-in-out;
+		-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+		filter: grayscale(100%);
+		border: 1px solid grey;
+		border-radius: 5px;
+		visibility: hidden;
+		-webkit-animation:fadeIn ease-in 0.7s;  
+		   -moz-animation:fadeIn ease-in 0.7s;
+				animation:fadeIn ease-in 0.7s;
+	}
+	.books:hover{
+		transition:all .3s ease-in-out;
+		-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+		filter: grayscale(0%);
+		 transform: translate(-15px,0);
+		box-shadow:0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	}
 
-		.books:active {
-			transform: translate(0,0);
-			box-shadow: none;
-			transition:all .3s ease-in-out;
+	.books:active {
+		transform: translate(0,0);
+		box-shadow: none;
+		transition:all .3s ease-in-out;
 
-		}
+	}
 
-		.book-stack {
-			width: 800px;
-			margin: 20px auto;
-		}
+	.book-stack {
+		max-width: 800px;
+		margin: 20px auto;
+	}
 
-		#triple-venn, #abstraction-ladder, #pyramid {
-			transition: 3s;
-		}
+	#pyramid-wrapper {
+		width: 33%;
+	}
 
-		#triple-venn {
-			width: 120px;
-			margin: 20px;
-		}
+	#triple-venn, #abstraction-ladder, #pyramid {
+		transition: 3s;
+	}
 
-		.philosophy {padding-bottom: 10px;}
+	#pyramid {
+		max-width: 300px;
+		margin: 0 auto;
+		display: block;
+	}
 
+	#triple-venn {
+		width: 120px;
+		margin: 20px;
+	}
 
-		.process {
-			width: 450px
-		}
+	#process {
+		max-width: 400px;
+		margin: 0 auto;
+		display: block;
+	}
 
-		#abstraction-ladder {
-			width: 600px;
-left: 50%;
-position: relative;
-margin-left: -300px;
-		}
+	#abstraction-ladder {
+		max-width: 400px;
+    	margin: 20px auto;
+    	display: block;
+	}
 
 /*Recommended Reading Selector*/
-.reading-nav-wrapper {
+.reading-nav-wrapper.lg {
   border: 1px solid lightgrey;
   border-radius: 0;
   width:691px;
   background: lightgrey;
   margin: 0 auto;
+}
+
+.reading-nav-wrapper.md {
+  	border-radius: 0;
+  	margin: 0 auto;
+	display: none;
+	position: relative;
+    left: 50%;
+    margin-left: -240px;
+}
+
+.reading-nav-wrapper.md .reading-nav-item {
+	font-size:28px;
 }
 
 .reading-nav-item {
@@ -129,7 +154,13 @@ margin-left: -300px;
   transform: translateX(-5px);
 }
 
-#thinking-list:hover:not(.active) {color: white;}
+#thinking-list:hover:not(.active) {
+	color: white;
+}
+.reading-nav-wrapper.md #thinking-list:hover:not(.active) {
+	-webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
 #product-list.active {background: red;}
 #product-list:hover:not(.active) {color: red;}
 #ux-list.active {background: #FA6900;}
@@ -145,44 +176,82 @@ margin-left: -300px;
 }
 
 .scroll-progress {
-			background: linear-gradient(90deg, #C6FFDD 0%, #FBD786 50%, #f7797d 100%);
+	background: linear-gradient(90deg, #C6FFDD 0%, #FBD786 50%, #f7797d 100%);
+}
+
+@media screen and (max-width: 900px) {
+
+	.reading-nav-wrapper.lg{
+		display: none;
+	}
+
+	.reading-nav-wrapper.md{
+		display: block;
+	}
+
+	.four-col {
+		width: 100%;
+	}
+	#process {
+		width: 100%;
+		float: unset;
+	}
+
+	.book-stack {
+		padding: 0 70px;
+	}
+}
+
+@media screen and (max-width: 735px) {
+
+	.eight-col {
+		width: 100%;
+	}
+
+	.twenty-pad {padding-top: 30px;}
 
 
-		/*HOW PROCESS IMAGE*/
-		@media only screen and (max-width: 700px)
-		{
-			img.process {
-				width: 100%;
-			}
+	#pyramid, #abstraction-ladder {width: 90%;}
+	}
 
-			p {
-				font-size: 100%;
-				line-height: 1.3;
-			}
-		}
+@media screen and (max-width: 700px) {
 
+	p {
+		font-size: 100%;
+	}
 
-		@media only screen and (max-width: 900px) {
-		.four-col {
-			width: 100%;
-		}
-		}
+	.reading-nav-wrapper.md {
+		margin-left:-210px;
+	}
 
-		@media only screen and (max-width: 735px) {
-		
-		.four-col p {
-			text-indent: 70px;
-		}
-		.twenty-pad {padding-top: 30px;}
-	
+	.reading-nav-wrapper.md .reading-nav-item {
+		font-size:24px;
+		height: 35px;
+	}
+}
 
-		#pyramid, #abstraction-ladder {width: 90%;}
-		}
+@media screen and (max-width: 600px) {
+	.reading-nav-wrapper.md {
+		margin-left:-185px;
+	}
 
-		/*		Small */
-		@media screen and (max-width: 425px){
-			.book-stack {margin-left: 0;}
-		}
+	.reading-nav-wrapper.md .reading-nav-item {
+		font-size:20px;
+		height: 30px;
+	}
+}
+
+@media screen and (max-width: 535px){
+	.reading-nav-wrapper.md {
+		margin-left:-145px;
+	}
+
+	.reading-nav-wrapper.md .reading-nav-item {
+		font-size:18px;
+		height: 25px;
+		padding: 0;
+	}
+}
 
 		
 	</style>
@@ -210,7 +279,7 @@ margin-left: -300px;
 <!-- 	<div class="nav-spacer"></div>
  -->	<div class="container">
 	<section>		
-		<div class="why">
+		<div class="text-wrapper">
 			<div class='four-col fade-in one'>
 				<img class="float-left img-invert" src="IMG/triple-venn.png" id="triple-venn"/>
 				<p class="body">So often in the world we encounter problems that are framed in an “Us vs. Them” mindset. In other words, for one group to prosper, the other must suffer.</p><p class="body">This kind of framing is short-sighted and it forces us to take sides and stay stuck in our way of looking at a problem. Design thinking offers a much needed antidote. By hearing and understanding the needs of all groups, we can craft <a href="https://en.wikipedia.org/wiki/Zero-sum_thinking" target="_blank">non-zero sum</a> win-win solutions</strong>.</p>
@@ -219,11 +288,12 @@ margin-left: -300px;
 				<p class="body">When approaching any problem, it's tempting to jump right into the solution, the implementation, the visual design, and the polish. However, you risk missing the forest for the trees. When a problem or issue is identified, the instinct is to assume that the client giving you their problem has identified the correct issue.</p><p class="body">Errors or issues usually occur because of a long line of corroborating events that led to the failure, like a fly going through the holes in slices of swiss cheese. What they're giving you is often just a signal or a thread that needs to be pulled to untangle the issue. The first half of the double diamond methodology is simply defining the <em>real problem</em>.</p>
 			</div>
 			<div class='four-col fade-in three '>
-				<p class="body">When doing research, it is not enough to identify human error and stop searching. As designers, we are tasked with always digging deeper, asking “Why?” like an annoying kid, and continually searching for the root cause.</p><p class="body">Behind every seemingly simple answer, there's always another perspective, nuance, or angle to be uncovered. While you can't eliminate your assumptions, you can start testing and unpacking each one. In the end, it is conceptual, big-picture UX thinking that casts the widest net to find the <strong>best</strong> solutions so that precious resources aren't squandered.<p>
+				<p class="body">When doing research, it is not enough to identify human error and stop searching. As designers, we are tasked with always digging deeper, asking “Why?” like an annoying kid, and continually searching for the root cause.</p><p class="body">Behind every seemingly simple answer, there's always another perspective, nuance, or angle to be uncovered. While you can't eliminate your assumptions, you can start testing and unpacking each one. In the end, it is conceptual, big-picture UX thinking that casts the widest net to find the <strong>best</strong> solutions so that precious resources aren't squandered.</p>
 			</div>
-			<hr>
+		</div>
+		<hr>
 	</section>
-	<section class="philosophy">
+	<section class="text-wrapper">
 			<h2>Philosophy</h2>
 			<div class='eight-col'>
 				<h4 id="great-ux">Start with a great experience and find tech that enables it, not the other way around:</h4>
@@ -236,9 +306,8 @@ margin-left: -300px;
 					<li>Keep it simple, stupid. (KISS)</li>
 					<li>Remove steps and complexity whenever possible. (Less is more.)</li>	
 				</ul>
-				<div class="twenty-pad"></div>
 			</div>
-			<div class="four-col">
+			<div class="pyramid-wrapper">
 				<img class="img-invert" src="IMG/my-values2.png" id="pyramid">
 			</div>
 
@@ -253,48 +322,59 @@ margin-left: -300px;
 				<li>Keep it simple, stupid. (KISS)</li>
 			</ul>
 		</div> -->
-		<hr>
 	</section>
+	<hr>
+	<section>
 
 	<h2 class="fade-in three">Methodology</h2>
-		<img class="float-right process fade-in five img-invert" src="IMG/circular-process9.png">
-		<p class="fade-in four" id="methodology">Double-Diamond Methodology, Human-Centered Design, Design Thinking, Collaborative/ Participatory Design, Lateral Thinking, Rapid Iteration and Prototyping, Constant Feedback and Usability Testing, Agile/ Lean UX</p><br>
-
-		<ul>
-		
-		<li class="fade-in six">Test early, test often.</li>
-		<li class="fade-in six">Build, measure, learn, repeat.</li>
-		<li class="fade-in six">Iterate, get feedback, user test, repeat.</li>
-		<li class="fade-in six">Do more with less (Occam's razor).</li>
-		<li class="fade-in six">Don't repeat yourself. (DRY)</li>
-		<li class="fade-in six">Keep calm, and iterate on.</li>
-<!-- 		<li class="fade-in six">Ideate, iterate, deploy, and squash bugs.</li>
- -->		</ul>
+		<img class="float-right fade-in five img-invert" src="IMG/circular-process9.png" id="process">
+		<div class="text-wrapper">
+			<p class="fade-in four" id="methodology">Double-Diamond Methodology, Human-Centered Design, Design Thinking, Collaborative/ Participatory Design, Lateral Thinking, Rapid Iteration and Prototyping, Constant Feedback and Usability Testing, Agile/ Lean UX</p><br>
+			<ul>
+				<li class="fade-in six">Test early, test often.</li>
+				<li class="fade-in six">Build, measure, learn, repeat.</li>
+				<li class="fade-in six">Iterate, get feedback, user test, repeat.</li>
+				<li class="fade-in six">Do more with less (Occam's razor).</li>
+				<li class="fade-in six">Don't repeat yourself. (DRY)</li>
+				<li class="fade-in six">Keep calm, and iterate on.</li>
+		<!-- 	<li class="fade-in six">Ideate, iterate, deploy, and squash bugs.</li>
+		 --></ul>
+		</div>
 
 		<h2 class="fade-in five">Process</h2>
-		<p class="body fade-in six">I follow the Double-Diamond Methodology, which starts with exploration and research. First we ask, “What are we trying to solve?”, “Is this the best method to solve this problem?”, and “Are we sure this is the users' problem?.” The more you research your users to better understand a day in their shoes, the more empathetic you'll be to fully understand a day in their life and their needs. The problem the client or user thinks they have isn't always the actual issue so we constantly ask “Why?” to drill deeper. After interviewing potential users, gathering data, and creating insights, we create a hypothesis on what the central problem is. We also ask “Who else has solved this problem?” and “How successful have their approaches been?”</p><br>
+		<div class="text-wrapper">
+			<p class="body fade-in six">I follow the Double-Diamond Methodology, which starts with exploration and research. First we ask, “What are we trying to solve?”, “Is this the best method to solve this problem?”, and “Are we sure this is the users' problem?.” The more you research your users to better understand a day in their shoes, the more empathetic you'll be to fully understand a day in their life and their needs. The problem the client or user thinks they have isn't always the actual issue so we constantly ask “Why?” to drill deeper. After interviewing potential users, gathering data, and creating insights, we create a hypothesis on what the central problem is. We also ask “Who else has solved this problem?” and “How successful have their approaches been?”</p><br>
 
-		<img class="center fade-in six img-invert" src="IMG/double-diamond.png" />
-		<figcaption class="fade-in six">Double Diamond Methodology</figcaption><br>
-		<p class="body fade-in six"> Next, in the ideation stage we go wide, coming up with sometimes absurd ‘outside the box’ sorts of ideas. After ideating, we prune down and latch on several core approaches, letting only the best ideas come through. From here, we develop a prototype and start testing against a whole range of potential users, ensuring the solution makes sense to a wide audience. Lastly, we can start engineering and building, continuing to work out usability issues, incorporating regular feedback, and squashing bugs in the experience and the code.</p>
+			<img class="center fade-in six img-invert" src="IMG/double-diamond.png" />
+			<figcaption class="fade-in six">Double Diamond Methodology</figcaption><br>
+			<p class="body fade-in six"> Next, in the ideation stage we go wide, coming up with sometimes absurd ‘outside the box’ sorts of ideas. After ideating, we prune down and latch on several core approaches, letting only the best ideas come through. From here, we develop a prototype and start testing against a whole range of potential users, ensuring the solution makes sense to a wide audience. Lastly, we can start engineering and building, continuing to work out usability issues, incorporating regular feedback, and squashing bugs in the experience and the code.</p>
+		</div>
 	</section>
 	<hr>
 	<section>
 		<img class="img-invert" src="IMG/abstraction-ladder3.png" id="abstraction-ladder">
-		<hr class="thirty-pad">
+		<hr>
 	</section>
 </div>
 	<section>
 			<h2>Recommended Reading</h2><br>
 
-			<div class="reading-nav-wrapper">
+			<div class="reading-nav-wrapper lg">
 			  <div id="design-list">Design</div>
 			  <div class="reading-nav-item" onclick="showThinkingList()" id="thinking-list">Thinking</div>
 			  <div class="reading-nav-item" onclick="showProductList()" id="product-list">Product</div>
 			  <div class="reading-nav-item" onclick="showUXList()" id="ux-list">UX</div>
 			  <div class="reading-nav-item" onclick="showVisualList()" id="visual-list">Visual</div>
 			  <div class="reading-nav-item" onclick="showResearchList()" id="research-list">Research</div></div>
-			</div>  
+			</div>
+
+			<div class="reading-nav-wrapper md">
+			  <div class="reading-nav-item" onclick="showThinkingList()" id="thinking-list">Thinking</div>
+			  <div class="reading-nav-item" onclick="showProductList()" id="product-list">Product</div>
+			  <div class="reading-nav-item" onclick="showUXList()" id="ux-list">UX</div>
+			  <div class="reading-nav-item" onclick="showVisualList()" id="visual-list">Visual</div>
+			  <div class="reading-nav-item" onclick="showResearchList()" id="research-list">Research</div></div>
+			</div> 
 
 			<div class="book-stack">
 				<a href="https://read.amazon.com/kp/embed?asin=B0074QGGK6&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_CoonybSGQFBTV" target="_new"><img class="books design-thinking" src="IMG/books2/23-steal-like-an.png"></a>
@@ -428,7 +508,8 @@ function showThinkingList() {
   $('.reading-nav-item').removeClass("shift");
   $('.reading-nav-item').removeClass("active");
   $('#design-list').css("background", "black");
-  $('#thinking-list').addClass("active");
+  $('.reading-nav-wrapper.lg #thinking-list').addClass("active");
+  $('.reading-nav-wrapper.md #thinking-list').addClass("active");
   $('.books').removeClass("isVisible");
   $('.design-thinking').addClass("isVisible");
 }
@@ -439,7 +520,8 @@ function showProductList() {
   $('#design-list').css("transform", "translateX(270px)");
   $('#thinking-list').addClass("shift");
   $('#product-list').addClass("shift");
-  $('#product-list').addClass("active");
+  $('.reading-nav-wrapper.lg #product-list').addClass("active");
+  $('.reading-nav-wrapper.md #product-list').addClass("active");
   $('.books').removeClass("isVisible");
   $('.product-design').addClass("isVisible");
 }
@@ -451,7 +533,8 @@ function showUXList() {
   $('#thinking-list').addClass("shift");
   $('#product-list').addClass("shift"); 
   $('#ux-list').addClass("shift"); 
-  $('#ux-list').addClass("active");
+  $('.reading-nav-wrapper.lg #ux-list').addClass("active");
+  $('.reading-nav-wrapper.md #ux-list').addClass("active");
   $('.books').removeClass("isVisible");
   $('.ux-design').addClass("isVisible");
 }
@@ -464,7 +547,8 @@ function showVisualList() {
   $('#product-list').addClass("shift"); 
   $('#ux-list').addClass("shift");
   $('#visual-list').addClass("shift");
-  $('#visual-list').addClass("active");
+  $('.reading-nav-wrapper.lg #visual-list').addClass("active");
+  $('.reading-nav-wrapper.md #visual-list').addClass("active");
   $('.books').removeClass("isVisible");
   $('.visual-design').addClass("isVisible");
 }
@@ -477,7 +561,8 @@ function showResearchList() {
   $('#product-list').addClass("shift"); 
   $('#ux-list').addClass("shift");
   $('#visual-list').addClass("shift");
-  $('#research-list').addClass("active");
+  $('.reading-nav-wrapper.lg #research-list').addClass("active");
+  $('.reading-nav-wrapper.md #research-list').addClass("active");
   $('.books').removeClass("isVisible");
   $('.design-research').addClass("isVisible");
 }
