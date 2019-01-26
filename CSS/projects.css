@@ -142,12 +142,6 @@
   display: block;
 }
 
-.chatIcon:not(#menu-icon) {
-    right: 24.3%;
-margin-right: -50px;
-left: initial;
-}
-
 .project-test {
   position: absolute;
   width: 71%;
@@ -187,4 +181,10 @@ left: initial;
     top: 0;
     left: 60px;
   }
+
+  .chatIcon:not(#menu-icon) {
+        right: 50%;
+    margin-right: -20px;
+    left: initial;
+}
 }
