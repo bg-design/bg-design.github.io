@@ -144,6 +144,15 @@ p.overlay-copyright {
   background:rgba(50, 50, 50, 0.9);
 }
 
+@media screen and (max-width:550px) {
+
+  #menu-icon {
+    top: unset;
+    bottom: 5px;
+    left: 5px;
+  }
+}
+
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
   .overlay a {font-size: 20px}
