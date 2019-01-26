@@ -147,9 +147,7 @@ p.overlay-copyright {
 @media screen and (max-width:600px) {
 
   #menu-icon {
-    top: 0;
-    left: 0;
-    width: 45px;
+    width: 50px;
   }
 }
 

@@ -181,3 +181,10 @@ left: initial;
   }
 
 }
+
+@media only screen and (max-width: 600px) {
+  #menu-icon {
+    top: 0;
+    left: 60px;
+  }
+}
