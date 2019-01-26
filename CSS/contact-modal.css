@@ -232,3 +232,12 @@ left:0;
 #thankyou_message {
 	margin:30px;
 }
+
+@media screen and (max-width: 600px) {
+  .chatIcon {
+    bottom: unset;
+    left: unset;
+    top: 5px;
+    right:5px;
+  }
+}

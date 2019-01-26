@@ -1420,10 +1420,6 @@ cite p {color:white;}
 }
 
 @media screen and (max-width:600px) {
-  #myBtn {
-  	right:5px;
-  	top:5px;
-  }
   .floatingArrowIcon {
     display: none;
   }
