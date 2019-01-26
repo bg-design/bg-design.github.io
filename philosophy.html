@@ -21,11 +21,6 @@
 	#methodology {
 		font-family: 'Lato', sans-serif;
 	}
-	.text-wrapper {
-		padding: 0;
-		max-width: 500px;
-		margin: 0 auto;
-	}
 
 	.books {
 		display: none;
@@ -106,8 +101,7 @@
   	margin: 0 auto;
 	display: none;
 	position: relative;
-    left: 50%;
-    margin-left: -240px;
+    margin-left: 19.5%;
 }
 
 .reading-nav-wrapper.md .reading-nav-item {
@@ -192,6 +186,11 @@
 	.four-col {
 		width: 100%;
 	}
+
+	.eight-col {
+		width: 100%;
+	}
+	
 	#process {
 		width: 100%;
 		float: unset;
@@ -200,13 +199,15 @@
 	.book-stack {
 		padding: 0 70px;
 	}
+
+	.text-wrapper {
+		padding: 0;
+		max-width: 500px;
+		margin: 0 auto;
+	}
 }
 
 @media screen and (max-width: 735px) {
-
-	.eight-col {
-		width: 100%;
-	}
 
 	.twenty-pad {padding-top: 30px;}
 
@@ -221,7 +222,7 @@
 	}
 
 	.reading-nav-wrapper.md {
-		margin-left:-210px;
+		margin-left:17%;
 	}
 
 	.reading-nav-wrapper.md .reading-nav-item {
@@ -232,7 +233,7 @@
 
 @media screen and (max-width: 600px) {
 	.reading-nav-wrapper.md {
-		margin-left:-185px;
+		margin-left:19%;
 	}
 
 	.reading-nav-wrapper.md .reading-nav-item {
@@ -243,7 +244,8 @@
 
 @media screen and (max-width: 535px){
 	.reading-nav-wrapper.md {
-		margin-left:-145px;
+		width: 295px;
+		margin:0 auto;
 	}
 
 	.reading-nav-wrapper.md .reading-nav-item {
@@ -353,13 +355,12 @@
 	<hr>
 	<section>
 		<img class="img-invert" src="IMG/abstraction-ladder3.png" id="abstraction-ladder">
-		<hr>
 	</section>
-</div>
+	<hr>
 	<section>
 			<h2>Recommended Reading</h2><br>
 
-			<div class="reading-nav-wrapper lg">
+ 			<div class="reading-nav-wrapper lg">
 			  <div id="design-list">Design</div>
 			  <div class="reading-nav-item" onclick="showThinkingList()" id="thinking-list">Thinking</div>
 			  <div class="reading-nav-item" onclick="showProductList()" id="product-list">Product</div>
@@ -374,7 +375,7 @@
 			  <div class="reading-nav-item" onclick="showUXList()" id="ux-list">UX</div>
 			  <div class="reading-nav-item" onclick="showVisualList()" id="visual-list">Visual</div>
 			  <div class="reading-nav-item" onclick="showResearchList()" id="research-list">Research</div></div>
-			</div> 
+			</div>  
 
 			<div class="book-stack">
 				<a href="https://read.amazon.com/kp/embed?asin=B0074QGGK6&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_CoonybSGQFBTV" target="_new"><img class="books design-thinking" src="IMG/books2/23-steal-like-an.png"></a>
