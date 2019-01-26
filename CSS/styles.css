@@ -1422,6 +1422,11 @@ cite p {color:white;}
 /* Mobile (XS) */
 @media screen and (max-width: 539px)  {
 
+	.lets-talk {
+		opacity: 0;
+		height: 55px;
+	}
+
 	blockquote {
 		padding: 10px;
 		line-height: 1.3;
