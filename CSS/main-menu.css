@@ -58,6 +58,7 @@ background-position: center top;
   clear: both;
   position: relative;
   left: 52px;
+  z-index: 9;
 }
 
 .dark-mode #overlay-nav .home-link {
