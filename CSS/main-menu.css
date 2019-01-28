@@ -10,10 +10,10 @@ background-size: contain;
 opacity: 0.1;
 position: absolute;
 top: 0;
-bottom: 5%;
+bottom: 0;
 right: 0;
 left: 50%;
-margin-left: -415px;
+margin-left: -630px;
 background-repeat: no-repeat;
 background-position: center top;
 }
@@ -92,11 +92,7 @@ p.overlay-copyright {
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  right: 1%; 
-  z-index: 9;
+  margin-top: 5%;
 
 }
 
