@@ -1,3 +1,4 @@
+
   .projects .loader__ball {
     background: white;
     border:1px solid rgba(255, 255, 255, 0.8);
@@ -147,6 +148,39 @@
   width: 71%;
   float:left;
 }
+
+.oneof-button {
+  border: 1px solid #fec156;
+}
+
+.oneof-button:before {
+  background: #fec156;
+}
+
+.sh-button {
+  border: 1px solid #7fbce2;
+}
+
+.sh-button:before {
+  background: #7fbce2;
+}
+
+.slingshot-button {
+  border: 1px solid #bbd85e;
+}
+
+.slingshot-button:before {
+  background: #bbd85e;
+}
+
+.shyft-button {
+  border: 1px solid #f79f5a;
+}
+
+.shyft-button:before {
+  background: #f79f5a;
+}
+
 @media only screen and (max-width: 985px) {
       .projectImgHalf {
         width: 90%;
