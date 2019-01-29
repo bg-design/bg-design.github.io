@@ -173,6 +173,22 @@ margin-right: 100px;
   float:left;
 }
 
+.lilypad-button {
+  border: 1px solid #30f2bc;
+}
+
+.lilypad-button:before {
+  background: #30f2bc;
+}
+
+.awa-button {
+  border: 1px solid #4eefe5;
+}
+
+.awa-button:before {
+  background: #4eefe5;
+}
+
 .oneof-button {
   border: 1px solid #fec156;
 }
@@ -205,13 +221,6 @@ margin-right: 100px;
   background: #f79f5a;
 }
 
-.awa-button {
-  border: 1px solid #4eefe5;
-}
-
-.awa-button:before {
-  background: #4eefe5;
-}
 
 @media only screen and (max-width: 1200px) {
 
