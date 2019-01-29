@@ -6,21 +6,21 @@
 
 .overlayBG {
   background: url(../IMG/nd-logo-v2c.png);
-background-size: contain;
-opacity: 0.1;
-position: absolute;
-top: 0;
-bottom: 0;
-right: 0;
-left: 50%;
-margin-left: -630px;
-background-repeat: no-repeat;
-background-position: center top;
+  background-size: contain;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* margin-left: -35%; */
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 .dark-mode .overlayBG {
   background: url(../IMG/nd-logo-v2c-invert.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.3;
 }
