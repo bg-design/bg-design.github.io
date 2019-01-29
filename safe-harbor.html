@@ -1,7 +1,7 @@
 <!-- Designed and coded by Ben Grandy with love in SF, CA. -->
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="isArrowable">
 <head>
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta charset="UTF-8">
@@ -224,7 +224,7 @@
 
     <div class="bottom-nav">
       <button class="float-left hvr-sweep-to-left slingshot-button" onClick="window.location.href='slingshot.html'">< Slingshot</button>
-      <button class="float-left hvr-sweep-to-left shyft-button" onClick="window.location.href='shyft.html'">Shyft ></button>
+      <button class="float-left hvr-sweep-to-right shyft-button" onClick="window.location.href='shyft.html'">Shyft ></button>
       
     </div>
   </section>
@@ -246,6 +246,19 @@
 <script src="JS/global.js"></script>
 
 <script>
+
+    //  Listen for right/left keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "slingshot.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "shyft.html";
+  }
+  else {};
+  });
 
 
 	// Victim counter

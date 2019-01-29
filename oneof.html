@@ -1,7 +1,7 @@
 <!-- Designed and coded by Ben Grandy with love in SF, CA. -->
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="isArrowable">
 <head>
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta charset="UTF-8">
@@ -58,13 +58,13 @@
 
 
 /*    Disabled left project*/
-    .projectIcon.left, .projectIcon.left:hover {
+/*    .projectIcon.left, .projectIcon.left:hover {
     background: rgb(161, 161, 161);
   }
 
   .projectIcon.left:hover {
     border:1px solid #ef6462;
-  }
+  }*/
 
 /* Overwrite defaults */  
     #oneof-loading {
@@ -82,9 +82,9 @@
     .projectIcon.right:hover {
       background: #bbd85e;
     }
-/*    .projectIcon.left:hover {
-      background: #fec156;
-    }*/
+    .projectIcon.left:hover {
+      background: #4eefe5;
+    }
 
 </style>
 </head>
@@ -109,7 +109,7 @@
           <img src="IMG/Icons/close-project-icon.png">
     </button>
     
-    <button class="projectIcon left"  onClick="">
+    <button class="projectIcon left"  onClick="window.location.href='awa-fit.html'">
           <img src="IMG/Icons/arrow-icon-filled.png">
     </button>
     <button class="projectIcon right" onClick="window.location.href='slingshot.html'">
@@ -237,8 +237,8 @@
     </div>
 
     <div class="bottom-nav">
-          <button class="float-left hvr-sweep-to-left when-button" onClick="window.open('https://projects.invisionapp.com/share/3HE13IBPZ#/screens/258934857')">< Awa Fit</button>
-          <button class="float-left hvr-sweep-to-left slingshot-button" onClick="window.location.href='slingshot.html'" target="_blank">Slingshot ></button>
+          <button class="float-left hvr-sweep-to-left awa-button" onClick="window.location.href='awa-fit.html'">< Awa Fit</button>
+          <button class="float-left hvr-sweep-to-right slingshot-button" onClick="window.location.href='slingshot.html'" target="_blank">Slingshot ></button>
           
         </div>
 </section>
@@ -265,6 +265,21 @@
 <script src="JS/global.js"></script>
 
 <script>
+
+    //  Listen for right/left keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "awa-fit.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "slingshot.html";
+  }
+  else {};
+  });
+
+
   // Load Chat Icon
   $("#contact-import").load("contact-modal.html"); 
 </script>

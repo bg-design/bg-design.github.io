@@ -1,4 +1,6 @@
-
+h3 {
+  margin:0;
+}
   .projects .loader__ball {
     background: white;
     border:1px solid rgba(255, 255, 255, 0.8);
@@ -59,6 +61,23 @@
   background: #69D2E7;
 }
 
+
+.project-icons {
+  float:left;
+  width: 75px;
+  padding: 15px;
+}
+
+.project-icons-wrapper {
+/*  margin-right: 90px;
+*/}
+
+.project-icons-wrapper h2 {
+clear: none;
+padding-top: 20px;
+margin-right: 100px;
+}
+
 .project-title {
   font-size: 34px;
   margin-bottom: -15px;
@@ -108,11 +127,15 @@
 }
 
 .project-content {
-  margin-right:300px;
+  margin-right:25%;
 }
 
 .project-content img {
   display: block;
+}
+
+.project-content .bottom-nav {
+  width: 99.5%;
 }
 
 .project-details {
@@ -129,6 +152,7 @@
   margin: 10px 0;
   border-bottom: 1px solid #1f1f20;
 }
+
 
 .projectImgHalf {
   width: 45%;
@@ -181,7 +205,22 @@
   background: #f79f5a;
 }
 
+.awa-button {
+  border: 1px solid #4eefe5;
+}
+
+.awa-button:before {
+  background: #4eefe5;
+}
+
+@media only screen and (max-width: 1200px) {
+
+      .project-content {
+        margin-right:300px;
+      }
+
 @media only screen and (max-width: 985px) {
+
       .projectImgHalf {
         width: 90%;
         padding: 5%;
@@ -199,6 +238,10 @@
     width: 100%;
     position: relative;
   }
+
+  .project-content .container {
+  max-width: unset;
+}
 
   .project-content {
     margin: 0;
