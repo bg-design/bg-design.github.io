@@ -220,7 +220,7 @@ function domLoad (){
       new Image(0,0).src = '../IMG/Slingshot/sling-booth.jpg';
 
     //SAFE HARBOR PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-iPhone-mock3.jpg';
+      new Image(0,0).src = '../IMG/Safe-Harbor/safe-harbor-mock3.jpg';
       new Image(0,0).src = '../IMG/Icons/Overview.png';
       new Image(0,0).src = '../IMG/Safe-Harbor/IMG_0284.JPG';
       new Image(0,0).src = '../IMG/Safe-Harbor/sh-team.png';
