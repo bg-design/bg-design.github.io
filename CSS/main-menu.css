@@ -20,7 +20,6 @@
 
 .dark-mode .overlayBG {
   background: url(../IMG/nd-logo-v2c-invert.png);
-  background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.3;
 }
@@ -71,6 +70,7 @@
   margin: 0;
   position: relative;
   left: 5px;
+  z-index: 9;
 }
 .overlayProject.home-link {
   background-image: linear-gradient(to bottom, transparent 65%, #69D2E7 10%);
