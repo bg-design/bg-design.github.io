@@ -236,21 +236,37 @@
 
   .rightCurtain, .leftCurtain {
     position: fixed;
-    height: 0;
-    top:50%;
     z-index: 9999;
     width:50%;
     background-size:400% 400%;
+    height: 100%;
   }
+
   .leftCurtain {
-    left: 0;
-    animation: openingLeft 2s ease-in-out;
-    background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  	left:0;
+  	background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
   }
   .rightCurtain {
-    right: 0;
+  	right:0;
+  	background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+  .leftCurtain {
+    animation: openingLeft 2s ease-in-out;
+  }
+  .rightCurtain {
     animation: openingRight 2s ease-in-out;
-    background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+  }
+
+  .leftCurtain.close {
+    animation: closingLeft 2s ease-in-out;
+  }
+  .rightCurtain.close {
+    animation: closingRight 2s ease-in-out;
+  }
+
+  .fullCurtain.close {
+  	animation: closingFull 2s ease-in-out;
+
   }
 
   .fullCurtain {
@@ -294,17 +310,48 @@
 
 @keyframes openingLeft {
   0% {
+  	height: 0;
+  	top:50%;
     background-position: 0% 50%
   }
 
-  30% {
+  50% {
     background-position: 100% 50%;
     height:100%;
     top:0%;
     width: 50%;
   }
 
-  40% {
+  100% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+}
+
+@keyframes openingRight {
+  0% {
+  	height: 0;
+  	top:50%;
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%;
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+
+  100% {
+    height:100%;
+    top:0%;
+    width: 50%;
+  }
+}
+
+@keyframes closingLeft {
+  0% {
     height:100%;
     top:0%;
     width: 50%;
@@ -318,19 +365,8 @@
   }
 }
 
-@keyframes openingRight {
+@keyframes closingRight {
   0% {
-    background-position: 0% 50%
-  }
-
-  30% {
-    background-position: 100% 50%;
-    height:100%;
-    top:0%;
-    width: 50%;
-  }
-
-  40% {
     height:100%;
     top:0%;
     width: 50%;
@@ -343,26 +379,32 @@
   }
 }
 
-
 @keyframes openingFull {
 
 0% {
 	height: 100%;
 	width: 100%;
 }
-30% {
-	height:100%;
+
+100% {
+  	height: 100%;
 	width: 100%;
   }
-40% {
-  	height: 0;
-  	width: 0;
-  }
+}
+
+@keyframes closingFull {
+
+0% {
+	height: 0;
+	width: 0;
+}
+
 100% {
   	height: 0;
   	width: 0;
   }
 }
+
 
 .navbar {
 	position: fixed;

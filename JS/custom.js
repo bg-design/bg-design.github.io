@@ -130,6 +130,7 @@ function scrollBoth (){
 
     $('.fade-in').addClass('placeholder').removeClass('fade-in')
 
+function domLoad (){
     $(document).ready( function() {
       $('.placeholder').addClass('fade-in').removeClass('placeholder')
       setTimeout(function() {
@@ -140,3 +141,20 @@ function scrollBoth (){
         },1100);
       },1100);
     });
+  }
+
+  function imgLoad (){
+    $(window).on("load", function() {
+      $('.rightCurtain').addClass('close');
+      $('.leftCurtain').addClass('close');
+      $('.fullCurtain').addClass('close');
+
+      setTimeout(function() {
+        $('.loading-bg').css("display", "none");
+        $('.rightCurtain').css("display", "none");
+        $('.leftCurtain').css("display", "none");
+        $('.fullCurtain').css("display", "none");
+        $('html').css("overflow", "auto");
+      },2000);
+    });
+  }

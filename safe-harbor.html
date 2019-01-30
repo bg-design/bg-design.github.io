@@ -278,7 +278,10 @@
  	
 
   // Load Chat Icon
-  $("#contact-import").load("contact-modal.html"); 
+  $("#contact-import").load("contact-modal.html");
+
+    // Wait until images are loaded, then remove loading screen
+  imgLoad();
 </script>
 
 <script src="JS/contact-modal-onebtn.js"></script>
