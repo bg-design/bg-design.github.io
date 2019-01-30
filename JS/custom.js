@@ -131,7 +131,7 @@ function scrollBoth (){
     $('.fade-in').addClass('placeholder').removeClass('fade-in')
 
 function domLoad (){
-    $(document).ready( function() {
+    $(window).on("load", function() {
       $('.placeholder').addClass('fade-in').removeClass('placeholder')
       setTimeout(function() {
         $('.loading-bg').css("opacity", "0");
