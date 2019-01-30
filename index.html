@@ -633,13 +633,15 @@ header {
 
 </head>
 <body>
-	<div class="loading-bg" id="home-loading">
-		<div class="loading-wrapper loader">
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-		</div>
+
+<div class="loading-bg" id="home-loading">
+	<div class="loading-wrapper loader">
+		<div class="loader__ball"></div>
+		<div class="loader__ball"></div>
+		<div class="loader__ball"></div>
 	</div>
+</div>
+
 <div id="fullpage">
 	<div class="section" id="section0">
 		<div class="welcome">
@@ -756,6 +758,10 @@ header {
 
 
  <script>
+
+ 	//LOAD UI IMAGES
+      new Image(0,0).src = '../IMG/Icons/menu-icon.png';
+      new Image(0,0).src = '../IMG/chat-icon-filled.png';
 
  	//	Listen for right/left keypress
 	// $( ".isArrowable" ).on( "keydown", function( event ) {
