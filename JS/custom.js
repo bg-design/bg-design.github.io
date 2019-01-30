@@ -163,7 +163,26 @@ function domLoad (){
 
   $(window).load(function(){
 
-    new Image(0,0).src = '../IMG/tools-gif-flattened.gif';
+    // STORY IMAGES
+      new Image(0,0).src = '../IMG/when-slideshow/landscape-architecture-UCD3.jpg';
+      new Image(0,0).src = '../IMG/when-slideshow/ben-pi3.jpg';
+      new Image(0,0).src = '../IMG/story/whiteboard.jpg';
+      new Image(0,0).src = '../IMG/story/lying-down.jpg';
+
+    // CV IMAGES
+      new Image(0,0).src = '../IMG/tools-gif-flattened.gif';
+      new Image(0,0).src = '../IMG/ana-test.jpg';
+      new Image(0,0).src = '../IMG/shamrina-test.jpg';
+      new Image(0,0).src = '../IMG/caitlyn-test2.jpg';
+      new Image(0,0).src = '../IMG/thom.png';
+      new Image(0,0).src = '../IMG/marcus-kr.jpg';
+
+    // PHILOSOPHY IMAGES
+      new Image(0,0).src = '../IMG/triple-venn.png';
+      new Image(0,0).src = '../IMG/my-values2.png';
+      new Image(0,0).src = '../IMG/circular-process9.png';
+      new Image(0,0).src = '../IMG/double-diamond.png';
+      new Image(0,0).src = '../IMG/abstraction-ladder3.png';
 
     //AWA FIT PROJECT IMAGES
       new Image(0,0).src = '../IMG/Awa-Fit/zink-fitness-stage2.jpg';

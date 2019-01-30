@@ -13,6 +13,11 @@
 
 	<style>
 
+
+#story-loading {
+	background: #e4c9e4;
+}
+
 .dark-mode html {
 	background: #21262d;
 }
@@ -182,17 +187,18 @@
 </head>
 <body>
 
-	<div class="loading-bg" id="story-loading">
-		<div class="loading-wrapper loader">
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-			<div class="loader__ball"></div>
-		</div>
-	</div>
-
+<div class="fullCurtain"></div>
+<div class="leftCurtain" id="story-loading"></div>
+<div class="rightCurtain" id="story-loading"></div>
+<div class="loading-wrapper loader projects">
+      <div class="loading-bg">
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+        <div class="loader__ball"></div>
+      </div>
+</div>
 
 	<main>
-
 		<div class="story-text">
 			<p>I’ve always been interested in web design and development, going back to middle school when I first began learning HTML and Photoshop. By the time I reached college, I had become obsessed with the profound problem of Climate Change, as well as learning about the latest solutions. At UC Davis, I studied both design and engineering which are traditionally siloed, yet represent two sides of the same coin. My engineering background strengthened my “left brain” debugging and problem-solving, while my design background strengthened “right brain” ideation and creative exploration.</p>
 
@@ -349,7 +355,7 @@ $( document ).ready(function() {
 
 });
 
-domLoad ();
+imgLoad ();
 
 
 </script>
