@@ -158,3 +158,71 @@ function domLoad (){
       },2000);
     });
   }
+
+  // LOAD PROJECT IMAGES IN THE BACKGROUND
+
+  $(window).load(function(){
+
+    new Image(0,0).src = '../IMG/tools-gif-flattened.gif';
+
+    //AWA FIT PROJECT IMAGES
+      new Image(0,0).src = '../IMG/Awa-Fit/zink-fitness-stage2.jpg';
+      new Image(0,0).src = '../IMG/Awa-Fit/zink3.jpg';
+      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-logo.png';
+      new Image(0,0).src = '../IMG/Awa-Fit/awa-process.jpg';
+      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-mock2.jpg';
+      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-overview.jpg';
+
+    //ONEOF PROJECT IMAGES
+      new Image(0,0).src = '../IMG/OneOf/watch-array.jpg';
+      new Image(0,0).src = '../IMG/OneOf/OneOf-featured3.jpg';
+      new Image(0,0).src = '../IMG/OneOf/OneOf_logo.png';
+      new Image(0,0).src = '../IMG/OneOf/OneOf-biz-mock.jpg';
+      new Image(0,0).src = '../IMG/OneOf/OneOf-sitemap.png';
+      new Image(0,0).src = '../IMG/OneOf/detail-page.jpg';
+      new Image(0,0).src = '../IMG/OneOf/oneof-homepage.jpg';
+
+    //SLINGSHOT PROJECT IMAGES
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-overview.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/bottles.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/bottles2.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/califia-cold-brew.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/califia-farms.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/mm-candy.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/shot-redesign-before.png';
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-50-cent-coupon-export-01.png';
+      new Image(0,0).src = '../IMG/Slingshot/parks-inspiration.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-circle.png';
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise.png';
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-circle-color.png';
+      new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise-color.png';
+      new Image(0,0).src = '../IMG/Slingshot/sling-t-shirt.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/lasercut-sign.jpg';
+      new Image(0,0).src = '../IMG/Slingshot/sling-booth.jpg';
+
+    //SAFE HARBOR PROJECT IMAGES
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-iPhone-mock2.jpg';
+      new Image(0,0).src = '../IMG/Icons/Overview.png';
+      new Image(0,0).src = '../IMG/Safe-Harbor/IMG_0284.JPG';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-team.png';
+      new Image(0,0).src = '../IMG/Icons/Research.png';
+      new Image(0,0).src = '../IMG/double-diamond.png';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-screens.jpg';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm1.jpeg';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm2b.jpeg';
+
+    //SHYFT PROJECT IMAGES
+      new Image(0,0).src = '../IMG/Shyft/shyft-business-model.jpg';
+      new Image(0,0).src = '../IMG/Shyft/shyft-criteria2.png';
+      new Image(0,0).src = '../IMG/Shyft/shyft-banner3.jpg';
+      new Image(0,0).src = '../IMG/Shyft/google-flights2.png';
+      new Image(0,0).src = '../IMG/Shyft/booking-status.png';
+      new Image(0,0).src = '../IMG/Shyft/book-hover.png';
+      new Image(0,0).src = '../IMG/Shyft/shyft-receipt2.png';
+      new Image(0,0).src = '../IMG/Shyft/natural-entry.png';
+      new Image(0,0).src = '../IMG/Shyft/booking.png';
+      new Image(0,0).src = '../IMG/Shyft/multiple-shifts2.png';
+      new Image(0,0).src = '../IMG/Shyft/hipmunk.png';
+      new Image(0,0).src = '../IMG/Shyft/detail-first-event.png';
+
+   });
