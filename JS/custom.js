@@ -170,7 +170,7 @@ function domLoad (){
       new Image(0,0).src = '../IMG/story/lying-down.jpg';
 
     // CV IMAGES
-      new Image(0,0).src = '../IMG/tools-gif-flattened.gif';
+      new Image(0,0).src = '../IMG/tools-gif-flattened2.gif';
       new Image(0,0).src = '../IMG/ana-test.jpg';
       new Image(0,0).src = '../IMG/shamrina-test.jpg';
       new Image(0,0).src = '../IMG/caitlyn-test2.jpg';
@@ -220,14 +220,14 @@ function domLoad (){
       new Image(0,0).src = '../IMG/Slingshot/sling-booth.jpg';
 
     //SAFE HARBOR PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-iPhone-mock2.jpg';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-iPhone-mock3.jpg';
       new Image(0,0).src = '../IMG/Icons/Overview.png';
       new Image(0,0).src = '../IMG/Safe-Harbor/IMG_0284.JPG';
       new Image(0,0).src = '../IMG/Safe-Harbor/sh-team.png';
       new Image(0,0).src = '../IMG/Icons/Research.png';
       new Image(0,0).src = '../IMG/double-diamond.png';
       new Image(0,0).src = '../IMG/Safe-Harbor/sh-screens.jpg';
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm1.jpeg';
+      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm1.jpg';
       new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm2b.jpeg';
 
     //SHYFT PROJECT IMAGES
