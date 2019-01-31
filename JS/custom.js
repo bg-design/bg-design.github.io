@@ -141,6 +141,8 @@ function domLoad (){
         },1100);
       },1100);
     });
+
+    imgLoad();
   }
 
   function imgLoad (){
@@ -158,6 +160,16 @@ function domLoad (){
       },2000);
     });
   }
+
+
+  // LOAD IMAGES BELOW THE FOLD
+  var lazyloadImages = document.querySelectorAll("img.lazy");    
+
+  lazyloadImages.forEach(function(img) {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+  });
+
 
   // LOAD PROJECT IMAGES IN THE BACKGROUND
 

@@ -122,85 +122,85 @@
 
     <p class="body">Shyft is a platform that helps connect temp. workers, most commonly Brand Ambassadors, to agencies looking to hire. Traditionally, the agency must individually find and vet each of these candidates through reaching to individuals on sites like Craigslist. Shyft aims to take on the heavy lifting and vetting and create a platform where agencies can easily find &amp; book candidates for events. In exchange, they take 5% of proceeds.</p>
 
-    <img class="img-invert projectImgFull shyft-model" src="IMG/Shyft/shyft-business-model.jpg" id=""/>
+    <img class="img-invert projectImgFull shyft-model lazy" data-src="IMG/Shyft/shyft-business-model.jpg" id=""/>
 
     <p class="body">To differentiate themselves from their competitors and deliver a quality experience, our client told us that they were focused on three core values: available, reliable, and local. <strong>Available</strong> is defined as having schedules that are open to the shifts needed. <strong>Reliable</strong> means that the ambassadors consistently show up and are professional. <strong>Local</strong> means they are within the local area and have the transportations means to get to their scheduled shifts.</p>
     
-    <img class="img-invert projectImgFull shyft-values" src="IMG/Shyft/shyft-criteria2.png" />
+    <img class="img-invert projectImgFull shyft-values lazy" data-src="IMG/Shyft/shyft-criteria2.png" />
 
     <p class="body">For each event, there can be multiple locations, multiple roles, multiple shifts, and multiple people. You might in some cases want the cheapest staffors, in others you might want the most reliable. The nature of this problem is like a 5-dimensional puzzle. This is a perfect interaction design challenge- to simplify the complex.</p>
 
 
-    <img class="img-invert projectImgFull shyft-dimensions" src="IMG/Shyft/booking-dimensions.png" />
+    <img class="img-invert projectImgFull shyft-dimensions lazy" data-src="IMG/Shyft/booking-dimensions.png" />
 
     <p class="body"><strong>Targeting</strong>: In order for this model to be successful, you need both the employers and the employees to be willing to use this service over their competitors. When speaking with the client, we found that there was no shortage of potential candidates looking for work, but was instead limited by the the agencies offering work. Therefore, we first focused on optimizing the experience for marketing agencies.</p>
 
   </section>
   <section>
     <div class="project-icons-wrapper">
-      <img class="project-icons" src="IMG/Icons/Research.png" />
+      <img class="project-icons lazy" data-src="IMG/Icons/Research.png" />
       <h2>Research</h2>
     </div>
 
     <p class="body">Given that we were trying to solve a problem with many dimensions, we researched other instances where a great amount of information needs to be sorted through to find an ideal choice in as few steps as possible. Booking airline flights is a great example of this. It's hard to display all the information that the users needs without making the interaction feel overwhelming. Many websites make use of hover states, dropdowns, and a lot of exposed buttons so the user can focus on one task at a time without feeling overwhelmed or confused.</p>
 
     <div class="projectImgHalf">
-      <img class="img-invert google-flights" src="IMG/Shyft/google-flights2.png"/>
+      <img class="img-invert google-flights lazy" data-src="IMG/Shyft/google-flights2.png"/>
     </div>
     <div class="projectImgHalf">
-      <img class="img-invert hipmunk" src="IMG/Shyft/hipmunk.png" />
+      <img class="img-invert hipmunk lazy" data-src="IMG/Shyft/hipmunk.png" />
     </div>
     <figcaption>Google Flights and Hipmunk make use of a lot of exposed controls, dropdowns, and hover modals to help organize the complexity.</figcaption>
 
     <p class="body">We interviewed agencies and brand ambassadors to understand some of their pain points, as well as what method they currently use to schedule and book staff. We found that agencies typically use <strong>pen and paper</strong> or simply an <strong>excel spreedsheet</strong>. This lead us to believe there is plenty of room for improvement, but also gave us the goal to ensure things no more complicated than the fairly simple current approach.</p>
 
-    <img class="img-invert shyft-components" src="IMG/Shyft/shyft-components.png"/>
+    <img class="img-invert shyft-components lazy" data-src="IMG/Shyft/shyft-components.png"/>
 
     <p class="body">We considered the relationships between Date, Time, Role, and Location. Surely time was within a day, but what if you had a shift that spanned midnight? Was it more common to have a single location that spanned multiple days or to have a single day that spanned multiple locations? Should a role be coupled with a shift, or should shifts exist inside roles? How common was it that you needed to add multiple roles? As we researched and explored each of these use cases, it helped narrow down how the core interaction would work.</p>
   </section>
 
   <section>
     <div class="project-icons-wrapper">
-      <img class="project-icons" src="IMG/Icons/Wires.png" />
+      <img class="project-icons lazy" data-src="IMG/Icons/Wires.png" />
       <h2>Possible Solutions</h2>
     </div>
     <h3>Solution 1: Detail First</h3>
     <div class="projectImgHalf">
-      <img class="img-invert" src="IMG/Shyft/detail-first-event.png" id=""/>
+      <img class="img-invert lazy" data-src="IMG/Shyft/detail-first-event.png" id=""/>
     </div>
     <div class="projectImgHalf">
-      <img class="img-invert" src="IMG/Shyft/detail-first-schedule.png" id=""/>
+      <img class="img-invert lazy" data-src="IMG/Shyft/detail-first-schedule.png" id=""/>
     </div>
     <p class="body clear">Our first approach to the problem was to have the agency first fill out the details of the event and the shifts they expected to fill. By telling the system all the information that is needed this dramatically simplifies the process once you get to the booking stage. We opted for simplicity, having the user fill out as few fields as possible, while still having the power to input a lot of information and have Shyft do the heavy lifting matching your event with potential candidates. We also separated the task into stages to help it feel more manageable.</p>
 
     <div class="projectImgHalf">
-      <img class="img-invert multiple-shifts" src="IMG/Shyft/multiple-shifts2.png" />
+      <img class="img-invert multiple-shifts lazy" data-src="IMG/Shyft/multiple-shifts2.png" />
       <figcaption>Batch entry allows quick and powerful entry for multiple shifts.</figcaption>
     </div>
     <div class="projectImgHalf">
-      <img class="img-invert natural-entry" src="IMG/Shyft/natural-entry.png" />
+      <img class="img-invert natural-entry lazy" data-src="IMG/Shyft/natural-entry.png" />
       <figcaption>Time entry uses natural language i.e. "4am-6pm" or "6a to 1:15p"</figcaption>
     </div>
 
     <p class="body">When the user starts searching for people to book, the system automatically organizes your results based on the candidates that are able to fill the most shifts. This allows them to find candidates quickly and minimize the total amount of people to manage.</p>
 
     <div class="projectImgHalf">
-      <img class="img-invert shyft-booking" src="IMG/Shyft/booking.png" />
+      <img class="img-invert shyft-booking lazy" data-src="IMG/Shyft/booking.png" />
       <figcaption>Schedule and available shifts update in realtime.</figcaption>
     </div>
     <div class="projectImgHalf">
-      <img class="img-invert book-hover" src="IMG/Shyft/book-hover.png" />
+      <img class="img-invert book-hover lazy" data-src="IMG/Shyft/book-hover.png" />
       <figcaption>When hovering book button, available shifts light up to indicate availability.</figcaption>
     </div>
 
     <p class="body">When all the available shifts are filled, the user is taken to a confirmation page that clearly lays out the line-item cost of people you have booked for each shift, any added tax or fees, and Shyft's fee. After they send out the requests to book, they can check in on the booking status to see who has accepted, who is pending, and who has declined the requests. After 24 hours, whoever hasn't accepted the job request loses the job and the agency can then continue to rebook to fill in the remaining shifts.</p>
 
     <div class="projectImgHalf">
-      <img class="img-invert shyft-receipt" src="IMG/Shyft/shyft-receipt2.png" />
+      <img class="img-invert shyft-receipt lazy" data-src="IMG/Shyft/shyft-receipt2.png" />
       <figcaption>Easily scan the line-item totals for who is booked.</figcaption>
     </div>
     <div class="projectImgHalf">
-      <img class="img-invert booking-status" src="IMG/Shyft/booking-status.png"  />
+      <img class="img-invert booking-status lazy" data-src="IMG/Shyft/booking-status.png"  />
       <figcaption>After the booking requests are sent out, the agency can <br>check-in to see the status of requests.</figcaption>
     </div>
     <br class="clear">
@@ -211,11 +211,11 @@
   </section>
   <section>
     <div class="project-icons-wrapper">
-      <img class="project-icons" src="IMG/Icons/Design.png" />
+      <img class="project-icons lazy" data-src="IMG/Icons/Design.png" />
       <h2>Final Design</h2>
     </div>
       <div class="banner">
-        <img src="IMG/Shyft/shyft-banner3.jpg" />
+        <img class="lazy" data-src="IMG/Shyft/shyft-banner3.jpg" />
       </div>
   </section>
 
