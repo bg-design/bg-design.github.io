@@ -122,6 +122,11 @@ function scrollBoth (){
     var scrollPercentage = 100*$( document ).scrollTop()/(($ ( document ).height())-1000);
     // console.log(scrollPercentage);
     $ (".scroll-progress").css("width", scrollPercentage+'%');
+
+    // BG IMG LOAD
+    if(lazyloadImages.length == 0) {
+      bgImgLoad ();
+    }
   });
 
 // Disable loading screen when ready
@@ -170,9 +175,6 @@ function domLoad (){
     lazyloadImages.forEach(function(img) {
           img.src = img.dataset.src;
           img.classList.remove('lazy');
-          if(lazyloadImages.length == 0) {
-            bgImgLoad ();
-          }
     });
   });
 
