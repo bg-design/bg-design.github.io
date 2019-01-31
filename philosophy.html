@@ -470,6 +470,12 @@
 	<div id="footer-import"></div>
 </footer>
 
+<!--   Keyboardable -->
+<div class="keyboardable" onclick="">
+	<img class="arrow-bg" src="IMG/Icons/keyboardable.png"/>
+	<h3>Keyboardable</h3>
+</div>
+
 <!--   Scroll down Button -->
 <div class="scroll" onclick="scrollBoth()">
 	<button class="floatingArrowIcon">
@@ -501,18 +507,18 @@ $( document ).ready(function() {
 
 <script>
 
-//	Listen for right/left keypress
-	// $( ".isArrowable" ).on( "keydown", function( event ) {
- //  if (event.which == 37 ){
- //    // alert('Left');
- //    window.location.href = "cv.html";
- //  }
- //  else if (event.which == 39 ){
- //    // alert('Right');
- //    window.location.href = "work.html";
- //  }
- //  else {};
- //  });
+    //  Listen for right/left keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "cv.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "index.html";
+  }
+  else {};
+  });
 
 // Reading Recommendations Selector
 function showThinkingList() {

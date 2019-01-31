@@ -1388,6 +1388,45 @@ cite p {color:white;}
 .hidden-md {
 	display: none;
 }
+
+.keyboardable {
+	position: fixed;
+	bottom: 40%;
+	left: 50%;
+	margin-left: -55px;
+	animation: 0.5s fade-out ease-out;
+	animation-fill-mode: forwards;
+	animation-delay: 4.5s;
+}
+
+.keyboardable h3 {
+	position: absolute;
+	color: white;
+	background: rgba(115,115,115,0.8);
+	margin: 15px 0 0 -15px;
+	border-radius: 15px;
+	padding: 10px;
+	font-size: 24px;
+}
+
+.arrow-bg {
+	width: 100px;
+	background:rgba(115,115,115,0.8);
+	border-radius: 50%;
+	padding:15px;
+}
+
+@keyframes fade-out {
+  from {
+  	opacity: 100%;
+  }
+
+  to {
+	opacity: 0;
+	}
+
+}
+
 /* MEDIA QUERIES */
 @media screen and (max-width : 730px)   {
 

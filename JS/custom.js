@@ -92,6 +92,14 @@ function scrollDown() {
     $("html, body").animate({ scrollTop: scrollTo }, "medium");
 }
 
+// Scroll up one page
+function scrollUp() {
+    var scrollPosition = window.pageYOffset
+    var winHeight = window.innerHeight;
+    var scrollTo = scrollPosition - winHeight + 50;
+    $("html, body").animate({ scrollTop: scrollTo }, "medium");
+}
+
 function scrollBoth (){
     // (200 is offset for footer)
   if ((window.innerHeight + window.pageYOffset) < (document.body.clientHeight - 200)) {
@@ -102,6 +110,25 @@ function scrollBoth (){
         $("html, body").animate({ scrollTop: 0 }, "medium");
       }
 }
+
+    //  Listen for down keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 40 ){
+    scrollDown();
+  }
+
+  // Listen for up keypress
+  else if ((event.which == 38) && ((window.innerHeight + window.pageYOffset) > (document.body.clientHeight - 200))) {
+    $(".floatingArrowIcon").css("transform", "rotate(180deg)");
+    $("html, body").animate({ scrollTop: 0 }, "medium");
+  }
+
+  else if (event.which == 38) {
+    scrollUp();
+  }
+
+  else {};
+  });
 
 
 // Read more 
@@ -165,18 +192,6 @@ function domLoad (){
           img.classList.remove('lazy');
     });
   });
-
-  // LOAD PROJECT IMAGES IN THE BACKGROUND
-
-// function bgImgLoad (){
-
-//   $(window).load(function(){
-
-    
-
-//    });
-
-// };
 
 // Page Scroll Progress bar
   $( window ).scroll(function() {

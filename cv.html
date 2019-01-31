@@ -905,6 +905,12 @@ margin: 0 0 0 20px;
 	<div id="footer-import"></div>
 </footer>
 
+<!--   Keyboardable -->
+<div class="keyboardable" onclick="">
+	<img class="arrow-bg" src="IMG/Icons/keyboardable.png"/>
+	<h3>Keyboardable</h3>
+</div>
+
 <!--   Scroll down Button -->
 <div class="scroll" onclick="scrollBoth()">
 	<button class="floatingArrowIcon">
@@ -957,18 +963,18 @@ function typing () {
 		})
 }
 
-	//	Listen for right/left keypress
-	// $( ".isArrowable" ).on( "keydown", function( event ) {
- //  if (event.which == 37 ){
- //    // alert('Left');
- //    window.location.href = "about.html";
- //  }
- //  else if (event.which == 39 ){
- //    // alert('Right');
- //    window.location.href = "philosophy.html";
- //  }
- //  else {};
- //  });
+    //  Listen for right/left keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "story.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "philosophy.html";
+  }
+  else {};
+  });
 
 // Persona expanding skill bars
 
