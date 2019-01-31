@@ -270,8 +270,10 @@ margin-right: 100px;
   }
 
   .chatIcon:not(#menu-icon) {
-        right: 50%;
+    right: 50%;
     margin-right: -20px;
     left: initial;
+    bottom:unset;
+    top:0;
   }
 }
