@@ -117,18 +117,6 @@ function scrollBoth (){
     //     $('.excerpt').html(txtContent);
     // });
 
-// Page Scroll Progress bar
-  $( window ).scroll(function() {
-    var scrollPercentage = 100*$( document ).scrollTop()/(($ ( document ).height())-1000);
-    // console.log(scrollPercentage);
-    $ (".scroll-progress").css("width", scrollPercentage+'%');
-
-    // BG IMG LOAD
-    if(lazyloadImages.length == 0) {
-      bgImgLoad ();
-    }
-  });
-
 // Disable loading screen when ready
 
     $('html').css("overflow", "hidden");
@@ -180,91 +168,107 @@ function domLoad (){
 
   // LOAD PROJECT IMAGES IN THE BACKGROUND
 
-  function bgImgLoad (){
+// function bgImgLoad (){
 
-  $(window).load(function(){
+//   $(window).load(function(){
 
-    // STORY IMAGES
-      new Image(0,0).src = '../IMG/when-slideshow/landscape-architecture-UCD3.jpg';
-      new Image(0,0).src = '../IMG/when-slideshow/ben-pi3.jpg';
-      new Image(0,0).src = '../IMG/story/whiteboard.jpg';
-      new Image(0,0).src = '../IMG/story/lying-down.jpg';
+    
 
-    // CV IMAGES
-      new Image(0,0).src = '../IMG/tools-gif-flattened2.gif';
-      new Image(0,0).src = '../IMG/ana-test.jpg';
-      new Image(0,0).src = '../IMG/shamrina-test.jpg';
-      new Image(0,0).src = '../IMG/caitlyn-test2.jpg';
-      new Image(0,0).src = '../IMG/thom.png';
-      new Image(0,0).src = '../IMG/marcus-kr.jpg';
+//    });
 
-    // PHILOSOPHY IMAGES
-      new Image(0,0).src = '../IMG/triple-venn.png';
-      new Image(0,0).src = '../IMG/my-values2.png';
-      new Image(0,0).src = '../IMG/circular-process9.png';
-      new Image(0,0).src = '../IMG/double-diamond.png';
-      new Image(0,0).src = '../IMG/abstraction-ladder3.png';
+// };
 
-    //AWA FIT PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Awa-Fit/zink-fitness-stage2.jpg';
-      new Image(0,0).src = '../IMG/Awa-Fit/zink3.jpg';
-      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-logo.png';
-      new Image(0,0).src = '../IMG/Awa-Fit/awa-process.jpg';
-      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-mock2.jpg';
-      new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-overview.jpg';
+// Page Scroll Progress bar
+  $( window ).scroll(function() {
+    var scrollPercentage = 100*$( document ).scrollTop()/(($ ( document ).height())-1000);
+    // console.log(scrollPercentage);
+    $ (".scroll-progress").css("width", scrollPercentage+'%');
 
-    //ONEOF PROJECT IMAGES
-      new Image(0,0).src = '../IMG/OneOf/watch-array.jpg';
-      new Image(0,0).src = '../IMG/OneOf/OneOf-featured3.jpg';
-      new Image(0,0).src = '../IMG/OneOf/OneOf_logo.png';
-      new Image(0,0).src = '../IMG/OneOf/OneOf-biz-mock.jpg';
-      new Image(0,0).src = '../IMG/OneOf/OneOf-sitemap.png';
-      new Image(0,0).src = '../IMG/OneOf/detail-page.jpg';
-      new Image(0,0).src = '../IMG/OneOf/oneof-homepage.jpg';
+    // BG IMG LOAD
 
-    //SLINGSHOT PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-overview.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/bottles.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/bottles2.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/califia-cold-brew.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/califia-farms.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/mm-candy.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/shot-redesign-before.png';
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-50-cent-coupon-export-01.png';
-      new Image(0,0).src = '../IMG/Slingshot/parks-inspiration.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-circle.png';
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise.png';
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-circle-color.png';
-      new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise-color.png';
-      new Image(0,0).src = '../IMG/Slingshot/sling-t-shirt.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/lasercut-sign.jpg';
-      new Image(0,0).src = '../IMG/Slingshot/sling-booth.jpg';
+    setTimeout(function() {
+      if(document.querySelectorAll("img.lazy").length == 0) {
 
-    //SAFE HARBOR PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Safe-Harbor/safe-harbor-mock3.jpg';
-      new Image(0,0).src = '../IMG/Icons/Overview.png';
-      new Image(0,0).src = '../IMG/Safe-Harbor/IMG_0284.JPG';
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-team.png';
-      new Image(0,0).src = '../IMG/Icons/Research.png';
-      new Image(0,0).src = '../IMG/double-diamond.png';
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-screens.jpg';
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm1.jpg';
-      new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm2b.jpeg';
+          // STORY IMAGES
+          new Image(0,0).src = '../IMG/when-slideshow/landscape-architecture-UCD3.jpg';
+          new Image(0,0).src = '../IMG/when-slideshow/ben-pi3.jpg';
+          new Image(0,0).src = '../IMG/story/whiteboard.jpg';
+          new Image(0,0).src = '../IMG/story/lying-down.jpg';
 
-    //SHYFT PROJECT IMAGES
-      new Image(0,0).src = '../IMG/Shyft/shyft-business-model.jpg';
-      new Image(0,0).src = '../IMG/Shyft/shyft-criteria2.png';
-      new Image(0,0).src = '../IMG/Shyft/shyft-banner3.jpg';
-      new Image(0,0).src = '../IMG/Shyft/google-flights2.png';
-      new Image(0,0).src = '../IMG/Shyft/booking-status.png';
-      new Image(0,0).src = '../IMG/Shyft/book-hover.png';
-      new Image(0,0).src = '../IMG/Shyft/shyft-receipt2.png';
-      new Image(0,0).src = '../IMG/Shyft/natural-entry.png';
-      new Image(0,0).src = '../IMG/Shyft/booking.png';
-      new Image(0,0).src = '../IMG/Shyft/multiple-shifts2.png';
-      new Image(0,0).src = '../IMG/Shyft/hipmunk.png';
-      new Image(0,0).src = '../IMG/Shyft/detail-first-event.png';
+        // CV IMAGES
+          new Image(0,0).src = '../IMG/tools-gif-flattened2.gif';
+          new Image(0,0).src = '../IMG/ana-test.jpg';
+          new Image(0,0).src = '../IMG/shamrina-test.jpg';
+          new Image(0,0).src = '../IMG/caitlyn-test2.jpg';
+          new Image(0,0).src = '../IMG/thom.png';
+          new Image(0,0).src = '../IMG/marcus-kr.jpg';
 
-   });
+        // PHILOSOPHY IMAGES
+          new Image(0,0).src = '../IMG/triple-venn.png';
+          new Image(0,0).src = '../IMG/my-values2.png';
+          new Image(0,0).src = '../IMG/circular-process9.png';
+          new Image(0,0).src = '../IMG/double-diamond.png';
+          new Image(0,0).src = '../IMG/abstraction-ladder3.png';
 
-};
+        //AWA FIT PROJECT IMAGES
+          new Image(0,0).src = '../IMG/Awa-Fit/zink-fitness-stage2.jpg';
+          new Image(0,0).src = '../IMG/Awa-Fit/zink3.jpg';
+          new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-logo.png';
+          new Image(0,0).src = '../IMG/Awa-Fit/awa-process.jpg';
+          new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-mock2.jpg';
+          new Image(0,0).src = '../IMG/Awa-Fit/awa-fit-overview.jpg';
+
+        //ONEOF PROJECT IMAGES
+          new Image(0,0).src = '../IMG/OneOf/watch-array.jpg';
+          new Image(0,0).src = '../IMG/OneOf/OneOf-featured3.jpg';
+          new Image(0,0).src = '../IMG/OneOf/OneOf_logo.png';
+          new Image(0,0).src = '../IMG/OneOf/OneOf-biz-mock.jpg';
+          new Image(0,0).src = '../IMG/OneOf/OneOf-sitemap.png';
+          new Image(0,0).src = '../IMG/OneOf/detail-page.jpg';
+          new Image(0,0).src = '../IMG/OneOf/oneof-homepage.jpg';
+
+        //SLINGSHOT PROJECT IMAGES
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-overview.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/bottles.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/bottles2.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/califia-cold-brew.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/califia-farms.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/mm-candy.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/shot-redesign-before.png';
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-50-cent-coupon-export-01.png';
+          new Image(0,0).src = '../IMG/Slingshot/parks-inspiration.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-circle.png';
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise.png';
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-circle-color.png';
+          new Image(0,0).src = '../IMG/Slingshot/slingshot-sunrise-color.png';
+          new Image(0,0).src = '../IMG/Slingshot/sling-t-shirt.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/lasercut-sign.jpg';
+          new Image(0,0).src = '../IMG/Slingshot/sling-booth.jpg';
+
+        //SAFE HARBOR PROJECT IMAGES
+          new Image(0,0).src = '../IMG/Safe-Harbor/safe-harbor-mock3.jpg';
+          new Image(0,0).src = '../IMG/Icons/Overview.png';
+          new Image(0,0).src = '../IMG/Safe-Harbor/IMG_0284.JPG';
+          new Image(0,0).src = '../IMG/Safe-Harbor/sh-team.png';
+          new Image(0,0).src = '../IMG/Icons/Research.png';
+          new Image(0,0).src = '../IMG/double-diamond.png';
+          new Image(0,0).src = '../IMG/Safe-Harbor/sh-screens.jpg';
+          new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm1.jpg';
+          new Image(0,0).src = '../IMG/Safe-Harbor/sh-brainstorm2b.jpeg';
+
+        //SHYFT PROJECT IMAGES
+          new Image(0,0).src = '../IMG/Shyft/shyft-business-model.jpg';
+          new Image(0,0).src = '../IMG/Shyft/shyft-criteria2.png';
+          new Image(0,0).src = '../IMG/Shyft/shyft-banner3.jpg';
+          new Image(0,0).src = '../IMG/Shyft/google-flights2.png';
+          new Image(0,0).src = '../IMG/Shyft/booking-status.png';
+          new Image(0,0).src = '../IMG/Shyft/book-hover.png';
+          new Image(0,0).src = '../IMG/Shyft/shyft-receipt2.png';
+          new Image(0,0).src = '../IMG/Shyft/natural-entry.png';
+          new Image(0,0).src = '../IMG/Shyft/booking.png';
+          new Image(0,0).src = '../IMG/Shyft/multiple-shifts2.png';
+          new Image(0,0).src = '../IMG/Shyft/hipmunk.png';
+          new Image(0,0).src = '../IMG/Shyft/detail-first-event.png';
+      };
+    },1000);
+});
