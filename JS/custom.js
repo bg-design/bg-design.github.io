@@ -171,7 +171,7 @@ function domLoad (){
           img.src = img.dataset.src;
           img.classList.remove('lazy');
     });
-  }
+  });
 
   // LOAD PROJECT IMAGES IN THE BACKGROUND
 
