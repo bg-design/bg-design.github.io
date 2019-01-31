@@ -163,13 +163,15 @@ function domLoad (){
 
 
   // LOAD IMAGES BELOW THE FOLD
-  var lazyloadImages = document.querySelectorAll("img.lazy");    
 
-  lazyloadImages.forEach(function(img) {
-        img.src = img.dataset.src;
-        img.classList.remove('lazy');
-  });
+  $(window).on("load", function() {
+    var lazyloadImages = document.querySelectorAll("img.lazy");    
 
+    lazyloadImages.forEach(function(img) {
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+    });
+  }
 
   // LOAD PROJECT IMAGES IN THE BACKGROUND
 
