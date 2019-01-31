@@ -1542,6 +1542,10 @@ cite p {color:white;}
   .floatingArrowIcon {
     display: none;
   }
+
+  .keyboardable {
+  	display: none;
+  }
 }
 
 /* Mobile (XS) */
