@@ -63,6 +63,7 @@ $(document).on('keydown', ':focusable', function (e) {
 // Wait until html has loaded
 $(window).load(function(){
 
+	// Timeout Function to ensure btn has loaded
 	setTimeout(function() {
 
 			// MODAL

@@ -264,9 +264,6 @@ margin-right: 100px;
     width: 100%;
   }
 
-}
-
-@media only screen and (max-width: 600px) {
   #menu-icon {
     top: 0;
     left: 60px;
@@ -276,5 +273,5 @@ margin-right: 100px;
         right: 50%;
     margin-right: -20px;
     left: initial;
-}
+  }
 }
