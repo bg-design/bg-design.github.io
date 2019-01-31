@@ -170,10 +170,15 @@ function domLoad (){
     lazyloadImages.forEach(function(img) {
           img.src = img.dataset.src;
           img.classList.remove('lazy');
+          if(lazyloadImages.length == 0) {
+            bgImgLoad ();
+          }
     });
   });
 
   // LOAD PROJECT IMAGES IN THE BACKGROUND
+
+  function bgImgLoad (){
 
   $(window).load(function(){
 
@@ -259,3 +264,5 @@ function domLoad (){
       new Image(0,0).src = '../IMG/Shyft/detail-first-event.png';
 
    });
+
+};
