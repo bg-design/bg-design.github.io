@@ -63,43 +63,46 @@ $(document).on('keydown', ':focusable', function (e) {
 // Wait until html has loaded
 $(window).load(function(){
 
-		// MODAL
-		// Get the modal
-	var modal = document.getElementById('myModal');
+	setTimeout(function() {
 
-	// Get the buttons that open the modal
-	var btn = document.getElementById("myBtn");
-	var btn2 = document.getElementById("rainbow-btn");
-	var btn3 = document.getElementById("email-btn");
+			// MODAL
+			// Get the modal
+		var modal = document.getElementById('myModal');
 
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+		// Get the buttons that open the modal
+		var btn = document.getElementById("myBtn");
+		var btn2 = document.getElementById("rainbow-btn");
+		var btn3 = document.getElementById("email-btn");
 
-	// When the user clicks on the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	    $('html').css("overflow", "hidden");
-	}
-	btn2.onclick = function() {
-	    modal.style.display = "block";
-	    $('html').css("overflow", "hidden");
-	}
-	btn3.onclick = function() {
-	    modal.style.display = "block";
-	    $('html').css("overflow", "hidden");
-	}
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
 
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	    modal.style.display = "none";
-	    $('html').css("overflow", "auto");
-	}
+		// When the user clicks on the button, open the modal 
+		btn.onclick = function() {
+		    modal.style.display = "block";
+		    $('html').css("overflow", "hidden");
+		}
+		btn2.onclick = function() {
+		    modal.style.display = "block";
+		    $('html').css("overflow", "hidden");
+		}
+		btn3.onclick = function() {
+		    modal.style.display = "block";
+		    $('html').css("overflow", "hidden");
+		}
 
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	        $('html').css("overflow", "auto");
-	    }
-	}
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		    $('html').css("overflow", "auto");
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		        $('html').css("overflow", "auto");
+		    }
+		}
+	}, 2000)
 });
