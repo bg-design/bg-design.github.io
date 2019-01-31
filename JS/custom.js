@@ -193,6 +193,8 @@ function domLoad (){
     });
   });
 
+var executedImgLoad = false;
+
 // Page Scroll Progress bar
   $( window ).scroll(function() {
     var scrollPercentage = 100*$( document ).scrollTop()/(($ ( document ).height())-1000);
@@ -200,9 +202,13 @@ function domLoad (){
     $ (".scroll-progress").css("width", scrollPercentage+'%');
 
     // BG IMG LOAD
+    setTimeout(function bgImgLoad() {
+      if (executedImgLoad) {
+        return;
+      }
+      else if (document.querySelectorAll("img.lazy").length == 0) {
 
-    setTimeout(function() {
-      if(document.querySelectorAll("img.lazy").length == 0) {
+        executedImgLoad = true;
 
           // STORY IMAGES
           new Image(0,0).src = '../IMG/when-slideshow/landscape-architecture-UCD3.jpg';
@@ -284,6 +290,7 @@ function domLoad (){
           new Image(0,0).src = '../IMG/Shyft/multiple-shifts2.png';
           new Image(0,0).src = '../IMG/Shyft/hipmunk.png';
           new Image(0,0).src = '../IMG/Shyft/detail-first-event.png';
+
       };
     },1000);
 });
