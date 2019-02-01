@@ -17,9 +17,15 @@
 	
 	<style>
 
-	body {background: rgb(221, 221, 221);}
+	body {
 
-	body.dark-mode {background: #101010;}
+/*		background: rgb(221, 221, 221);
+*/
+	}
+
+	body.dark-mode {
+/*		background: #101010;
+*/	}
 
 	h1 {
 		padding: 0px 0 10px 0;
@@ -28,9 +34,9 @@
 
 .dottedBox {
 	margin: 0 auto;
-	border: 1px dashed;
+/*	border: 1px dashed;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
-	padding: 15px;
+*/	padding: 15px;
 	background: white;
 	overflow: auto;
 	margin-bottom: 40px;
@@ -39,7 +45,7 @@
 .dottedBox.recommendations {margin: 0 auto;}
 
 .dark-mode .dottedBox {
-	background:rgb(45, 45, 45);
+	background:#1f1f20;
 }
 
 
@@ -957,7 +963,7 @@ function typing () {
 			// backspacing speed
 			backSpeed: 0,
 			// time before backspacing
-			backDelay: 1500,
+			backDelay: 800,
 			// infinite
 			loop:true,
 		})
