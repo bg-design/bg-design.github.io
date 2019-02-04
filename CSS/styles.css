@@ -60,6 +60,7 @@
   height: 100%;
   position: absolute;
   width: 100%;
+  transition: 0.5s;
 }
 .loader__ball:nth-of-type(2) {
   -webkit-animation-name: move2;
@@ -167,15 +168,19 @@
 	margin: 0;
 	padding: 0;
 }
+#what-loading, #who-loading, #how-loading, #when-loading, #why-loading {
+	background: black;
+}
 
 #home-loading {background: linear-gradient(270deg, #b20a2c, #fc00ff, #00dbde, #00C9FF, #ffff1c, #ff7e5f);}
-#what-loading {background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));}
+/*#what-loading {background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));}
 #who-loading {background: linear-gradient(45deg, #f7fcfd, #e8f6f9, #d5efed, #b7e4da, #8fd4c1, #69c2a3, #49b17f, #2f995a, #157f3c)}
 #how-loading {background: linear-gradient(140deg, rgb(244, 116, 223) 10.5%, rgb(39, 184, 255) 91.6%);}
 #when-loading {background: linear-gradient(140deg, rgb(208, 167, 244) 37.39%, rgb(120, 21, 255));}
 #why-loading {background: linear-gradient(90deg, #C6FFDD 0%, #FBD786 50%, #f7797d 100%);}
-/*#story-loading {background: linear-gradient(140deg, #e4c9e4 20.59%, rgb(147, 112, 222) 50.84%, rgb(43, 227, 215) 89.5%);}
+#story-loading {background: linear-gradient(140deg, #e4c9e4 20.59%, rgb(147, 112, 222) 50.84%, rgb(43, 227, 215) 89.5%);}
 */
+
 #rect-gradient {
 	width:300px;
 	height: 3px;
@@ -240,32 +245,33 @@
     width:50%;
     background-size:400% 400%;
     height: 100%;
+    background: black;
   }
 
   .leftCurtain {
   	left:0;
-  	background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-  }
+/*  	background: linear-gradient(270deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+*/  }
   .rightCurtain {
   	right:0;
-  	background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
-  }
+/*  	background: linear-gradient(90deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));
+*/  }
   .leftCurtain {
-    animation: openingLeft 2s ease-in-out;
+    animation: openingLeft 1s ease-in;
   }
   .rightCurtain {
-    animation: openingRight 2s ease-in-out;
+    animation: openingRight 1s ease-in;
   }
 
   .leftCurtain.close {
-    animation: closingLeft 2s ease-in-out;
+    animation: closingLeft 1s ease-in;
   }
   .rightCurtain.close {
-    animation: closingRight 2s ease-in-out;
+    animation: closingRight 1s ease-in;
   }
 
   .fullCurtain.close {
-  	animation: closingFull 2s ease-in-out;
+  	animation: closingFull 1s ease-in;
 
   }
 
@@ -273,9 +279,11 @@
   	position: fixed;
   	height: 0;
   	width: 0;
-  	background: #1f1f20;
-  	z-index: 9998;
-  	animation: openingFull 2s ease-in-out;
+  	background: black;
+/*  	background: #1f1f20;
+*/  
+	z-index: 9998;
+  	animation: openingFull 2s linear;
   }
 
 /*@keyframes openingLeft {
@@ -1254,9 +1262,9 @@ cite p {color:white;}
 }
 
 .fade-in.one {
-	-webkit-animation-delay: 1.6s;
-	-moz-animation-delay: 1.6s;
-	animation-delay: 1.6s;
+	-webkit-animation-delay: 1.5s;
+	-moz-animation-delay: 1.5s;
+	animation-delay: 1.5s;
 }
 
 .fade-in.two {
@@ -1276,20 +1284,20 @@ cite p {color:white;}
 	animation-delay: 2.4s;
 }
 .fade-in.five {
-	-webkit-animation-delay: 2.7s;
-	-moz-animation-delay: 2.7s;
-	animation-delay: 2.7s;
+	-webkit-animation-delay: 2.6s;
+	-moz-animation-delay: 2.6s;
+	animation-delay: 2.6s;
 }
 .fade-in.six {
-	-webkit-animation-delay: 2.9s;
-	-moz-animation-delay: 2.9s;
-	animation-delay: 2.9s;
+	-webkit-animation-delay: 2.8s;
+	-moz-animation-delay: 2.8s;
+	animation-delay: 2.8s;
 }
 
 .fade-in.seven {
-	-webkit-animation-delay: 3.1s;
-	-moz-animation-delay: 3.1s;
-	animation-delay: 3.1s;
+	-webkit-animation-delay: 3s;
+	-moz-animation-delay: 3s;
+	animation-delay: 3s;
 }
 
 /*Full-page projects */
@@ -1396,7 +1404,7 @@ cite p {color:white;}
 	margin-left: -55px;
 	animation: 0.5s fade-out ease-out;
 	animation-fill-mode: forwards;
-	animation-delay: 3.5s;
+	animation-delay: 3s;
 }
 
 .keyboardable h3 {

@@ -158,8 +158,8 @@ function domLoad (){
         setTimeout(function() {
           $('.loading-bg').css("display", "none");
           $('html').css("overflow", "auto");
-        },1100);
-      },1100);
+        },500);
+      },1000);
     });
 
     imgLoad();
@@ -170,14 +170,14 @@ function domLoad (){
       $('.rightCurtain').addClass('close');
       $('.leftCurtain').addClass('close');
       $('.fullCurtain').addClass('close');
+      $('html').css("overflow", "auto");
 
       setTimeout(function() {
-        $('.loading-bg').css("display", "none");
+        $('.loader__ball').css("opacity", "0");
         $('.rightCurtain').css("display", "none");
         $('.leftCurtain').css("display", "none");
         $('.fullCurtain').css("display", "none");
-        $('html').css("overflow", "auto");
-      },2000);
+      },1000);
     });
   }
 
