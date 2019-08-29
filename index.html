@@ -53,8 +53,9 @@
 }
 * --------------------------------------- */
 #section0 {
-	background-image: url(IMG/ben-coast.jpg);
+	background-image: url(IMG/ben-coast-flip.jpg);
 	padding: 0;
+	background-size:cover;
 }
 
 #section1 {
@@ -82,8 +83,19 @@
 
 .welcome {
 	position: relative;
-	top: 17%;
+	top: 10%;
 	left: 9%;
+	color: white;
+	background: rgba(66, 66, 66, 0.52);
+	width: 35%;
+	padding: 20px;
+	 -webkit-backdrop-filter: blur(10px);
+	 border-radius: 15px;
+	 min-width: 340px;
+}
+
+.welcome > *, .welcome-links > * {
+	color: white;
 }
 
 .project-info {
@@ -184,7 +196,7 @@
 	text-align:left;
 }
 #fullpage a {
-	color:#171717;
+	color:white;
 }
 
 .dark-mode #fullpage a {
@@ -263,8 +275,8 @@ header {
 #top-greeting {
 	font-size: 38px;
 	font-family: 'Oleo Script','Lora', serif;
-	color: rgb(24, 24, 24);
-/*	width: 500px;
+/*	color: rgb(24, 24, 24);
+	width: 500px;
 */	padding-left: 10px;
 }
 
@@ -320,7 +332,7 @@ header {
 }
 
 .arrows path {
-	stroke:rgba(0, 0, 0, 0.43);
+	stroke:rgba(255, 255, 255, 0.43);
 	fill: transparent;
 	stroke-width: 1px;	
 	animation: arrow 4s infinite;
@@ -382,9 +394,10 @@ header {
 
 #feat-work-arrow {
 	position: absolute;
-	bottom: 85px;
+	bottom: 75px;
 	left: 50%;
-	margin-left: -75px;
+	margin-left: -60px;
+	color: white;
 }
 
 .welcome-links .about-story {
@@ -451,7 +464,7 @@ header {
 	.section {
 		background-position: right top;
 		background-size:145%;
-		background-position-y: -90px;
+/*		background-position-y: -90px;*/
 	}
 
 	.projectCurtain {
@@ -675,8 +688,8 @@ header {
 <!-- 		<img src="IMG/splash-bust2.gif" id="full-body" class="fade-in-slow"/>
  -->
 		<!-- Down arrows signifier -->
-		<a href="#lilypad">
-		<h4 class="fade-in six" id="feat-work-arrow">Featured Work</h4>
+		<a href="#awa-fit">
+		<h5 class="fade-in six" id="feat-work-arrow">Featured Work</h5>
 			<svg class="arrows fade-in seven">
 				<path class="a1" d="M0 0 L30 32 L60 0"></path>
 				<path class="a2" d="M0 20 L30 52 L60 20"></path>
