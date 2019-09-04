@@ -1401,37 +1401,43 @@ cite p {color:white;}
 	position: fixed;
 	bottom: 40%;
 	left: 50%;
-	margin-left: -55px;
-	animation: 0.5s fade-out ease-out;
+	margin-left: -2055px;
+	animation: 4s fade-out ease-out;
 	animation-fill-mode: forwards;
-	animation-delay: 3s;
+	animation-delay: 1s;
 }
 
 .keyboardable h3 {
 	position: absolute;
 	color: white;
-	background: rgba(115,115,115,0.8);
-	margin: 15px 0 0 -15px;
+	background: rgba(115,115,115,1);
+	margin: 10px 10px 0 0;
 	border-radius: 15px;
 	padding: 10px;
-	font-size: 24px;
-	z-index: -9;
+	font-size: 20px;
 }
 
 .arrow-bg {
 	width: 100px;
-	background:rgba(115,115,115,0.8);
+	background:rgba(115,115,115,1);
 	border-radius: 50%;
 	padding:15px;
 }
 
 @keyframes fade-out {
-  from {
+  0% {
   	opacity: 100%;
+  	margin-left:-55px;
   }
 
-  to {
-	opacity: 0;
+  80% {
+  	z-index: 0;
+  	margin-left:-55px;
+  }
+
+  100% {
+  	z-index: -9999;
+  	margin-left:-2155px;
 	}
 
 }
