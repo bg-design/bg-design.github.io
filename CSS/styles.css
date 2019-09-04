@@ -1415,6 +1415,7 @@ cite p {color:white;}
 	border-radius: 15px;
 	padding: 10px;
 	font-size: 24px;
+	z-index: 0;
 }
 
 .arrow-bg {
