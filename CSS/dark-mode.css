@@ -306,7 +306,7 @@ animation: heart 9s ease-in-out 0s infinite;
 }
 
 .footer-middle-row {
-    position: absolute;
+    position: relative;
     bottom: 60px;
 }
 
