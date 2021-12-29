@@ -1387,6 +1387,7 @@ cite p {color:white;}
 	transition: 1s;
 	margin-right: 30px;
 	margin-bottom: 18px;
+    color: white;
 }
 
 .home-links a:hover {
