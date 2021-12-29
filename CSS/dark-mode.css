@@ -27,6 +27,10 @@ body {
   left: 20px;
 }
 
+.dark-mode-wrapper {
+    float:left;
+}
+
 
 /*Medium- phones and tablets*/
 @media screen and (max-width:770px) {
