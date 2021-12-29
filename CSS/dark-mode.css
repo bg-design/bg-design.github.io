@@ -9,7 +9,8 @@ body {
 
 
 .my-byline {
-  font-size:14pt;
+  font-size:16px;
+    padding: 0;
 }
 
 
@@ -301,7 +302,6 @@ animation: heart 9s ease-in-out 0s infinite;
 }
 
 .footer-middle-row {
-  padding: 25px 0;
 }
 
 #footer-left, #footer-right {
