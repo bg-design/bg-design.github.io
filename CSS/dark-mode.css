@@ -55,7 +55,7 @@ body {
 
 .dark-mode {
   background: #1f1f20;
-  color: white;
+/*  color: white;*/
   transition: 3s ease-in-out;
 }
 

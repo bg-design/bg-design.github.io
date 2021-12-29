@@ -130,7 +130,9 @@ html.fp-enabled,
 #fp-nav ul,
 .fp-slidesNav ul {
   margin: 0;
-  padding: 0;
+  padding: 3px;
+    background: rgba(237, 241, 244, 0.7);
+    border-radius: 10px;
 }
 #fp-nav ul li,
 .fp-slidesNav ul li {

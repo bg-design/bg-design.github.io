@@ -32,7 +32,7 @@ figure.testimonials figcaption {
   left: 0;
   width: 60%;
   position: absolute;
-  background-color: #ddd;
+  background-color: #4f4f4f;
   border-radius: 8px 0 0 8px;
   transition: 1s;
 }

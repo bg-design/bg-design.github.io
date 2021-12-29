@@ -1,4 +1,5 @@
-<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
+<!-- Designed and hand coded by Theo Grandy with love in California. -->
+
 
 <!DOCTYPE html>
 <html class="isArrowable" lang="en-us">
@@ -15,6 +16,11 @@
 	<link rel="stylesheet" type="text/css" href="CSS/fullpage.css"  media="screen"/>
     <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
+    
+    <link rel="stylesheet" href="CSS/swiper.css">
+	<link rel="stylesheet" href="CSS/owl.carousel.min.css">
+ 	<link rel="stylesheet" href="CSS/owl.theme.default.css">
+ 	<link rel="stylesheet" href="CSS/testimonials.css">
 
     <script>
     
@@ -28,7 +34,7 @@
 
 	h4 {
 		margin: 0 0 0 10px;
-    	padding: 20px 0 0px 0;
+    	padding: 13px 0 0px 0;
 	}
 
 
@@ -60,25 +66,23 @@
 }
 
 #section1 {
-	background-image: url(IMG/Awa-Fit/awa-fit-mock.jpg);
+	background-image: url(IMG/TrendGraphix-mock.jpg);
 	padding: 0;
 }
 
 #section2 {
-	background-image: url(IMG/OneOf/oneof-home-mock.jpg);
+	background-image: url(IMG/Gather-mock.jpg);
 	padding: 0;
 }
 
 #section3 {
-	background-image: url(IMG/Slingshot/slingshot-mock.jpg);
+	background-image: url(IMG/LilyPad-mock.jpg);
 	padding: 0;
 }
 #section4 {
-	background-image: url(IMG/Safe-Harbor/safe-harbor-mock5.jpg);
 	padding: 0;
 }
 #section5 {
-	background-image: url(IMG/Shyft/shyft-mock5.jpg);
 	padding: 0;
 }
 
@@ -118,15 +122,15 @@
 }
 
 #fullpage #section1 hr {
-	border-bottom:2px solid #4eefe5;
+	border-bottom:2px solid #04673C;
 }
 
 #fullpage #section2 hr {
-	border-bottom:2px solid #fec156;
+	border-bottom:2px solid #31A28B;
 }
 
 #fullpage #section3 hr {
-	border-bottom:2px solid #bbd85e;
+	border-bottom:2px solid #546831;
 }
 
 #fullpage #section4 hr {
@@ -142,15 +146,15 @@
 }
 
 #section1 .project-button, #section1 .project-button:hover {
-	background: #4eefe5;
+	background: #04673C;
 }
 
 #section2 .project-button, #section2 .project-button:hover {
-	background: #fec156;
+	background: #31A28B;
 }
 
 #section3 .project-button, #section3 .project-button:hover {
-	background: #bbd85e;
+	background: #546831;
 }
 
 #section4 .project-button, #section4 .project-button:hover {
@@ -177,7 +181,7 @@
 	padding:20px 0;
 }
 
-.dark-mode .fullpage-wrapper h1 {
+.dark-mode .project-info h1, .dark-mode h1 {
 	color: white;
 }
 
@@ -333,9 +337,9 @@ header {
 }
 
 .arrows path {
-	stroke:rgba(255, 255, 255, 0.43);
+	stroke:rgba(255, 255, 255, 0.83);
 	fill: transparent;
-	stroke-width: 1px;	
+	stroke-width: 3px;	
 	animation: arrow 4s infinite;
 	-webkit-animation: arrow 4s infinite; 
 }
@@ -417,12 +421,20 @@ header {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 500px;
+	width: 600px;
 	height: 120vh;
 }
 
 .dark-mode .projectCurtain {
 	background: rgba(31, 31, 35, 1);
+}
+        
+.dark-mode .section {
+    background: rgba(31, 31, 35, 1);
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-attachment: fixed;
 }
 
 #shyft-title {
@@ -430,6 +442,111 @@ header {
     margin: 0 auto;
 }
 
+.recommendations {
+    padding-top:12vw;
+}
+        
+
+
+/* Contact Form */
+form {
+    margin: 0;
+  padding: 30px 0 0 0;
+  position: relative;
+  box-sizing: border-box;
+  font: inherit;
+    background-color: #fefefe;
+    margin: 0 auto; /* 15% from the top and centered */
+    max-width: 500px;
+    top: 10%;
+    border-radius: 15px;
+}
+
+fieldset {
+	border:0;
+}
+select, textarea {
+    display: block;
+}
+        
+select {
+    width: 130px;
+    margin: 10px auto;
+}
+        
+textarea {
+    width: 370px;
+    margin: 10px auto;
+}
+        
+input {
+	padding: 10px 0;
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  font: inherit;
+  border: none;
+  outline: none;
+  resize: none;
+  color: black;
+  font-weight: 300;
+}
+
+form p, input, label, select {
+	font-family: Lato, sans-serif;
+	font-size:15pt;
+	letter-spacing: .7px;
+    font-weight: 300;
+    text-align: center;
+}
+
+form p {
+	color: #2b2b2b;
+    font-weight: 300;
+}
+        
+input#submit-contact {
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+        }
+
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder{ 
+ 	text-decoration: underline;
+ 	font-family: Lato, sans-serif;
+}
+
+#email {
+	max-width: 300px;
+}
+form p::selection {
+  	background: rgba(104, 254, 251, 0.44); 
+		}
+form p::-moz-selection {
+ 	background: rgba(104, 254, 251, 0.44); 
+			}
+form p::selection {
+  	color: red; /* WebKit/Blink Browsers */
+  	background: none;
+
+		}
+form p::-moz-selection {
+ 	color: red; /* Gecko Browsers */
+ 	background:none;
+			}
+        
+        #otherField {
+            display: none;
+        }
+
+@media screen and (max-width: 600px) {
+  .chatIcon {
+    bottom: unset;
+    left: unset;
+    top: 0;
+    right:0;
+  }
+}
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes body {
     from {opacity: 0}
@@ -676,20 +793,23 @@ header {
 			<div id="rect-gradient"></div>
 
 
-			<h4 class="fade-in two" id="top-title">UX Designer // Frontend Engineer</h4>
+			<h4 class="fade-in two" id="top-title">UX Designer &amp; Frontend Engineer</h4>
 			<h4 class="fade-in three">Let's collaborate &amp; make something wonderful.</h4>
 
 			<div class="welcome-links home-links">
-				<h4><a class="fade-in four about-story welcome-link" href="story.html" >My Story ></a></h4>
-				<h4><a class="fade-in five about-cv welcome-link" href="cv.html" >C.V. ></a></h4>
-				<h4><a class="fade-in six about-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
+				<h4><a class="fade-in four hp-story welcome-link" href="story.html" >My Story ></a></h4>
+				<h4><a class="fade-in five hp-cv welcome-link" href="cv.html" >Resumé ></a></h4>
+				<h4><a class="fade-in six hp-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
+                <h4><a class="fade-in six hp-portfolio welcome-link" href="#TrendGraphix">Portfolio ></a></h4>
+                <h4><a class="fade-in six hp-testimonials welcome-link" href="#Testimonials">Testimonials ></a></h4>
+                <h4><a class="fade-in six hp-contact welcome-link" href="#Contact">Contact ></a></h4>
 			</div> 
 		</div>
 <!-- 		<img src="IMG/splash-bust2.gif" id="full-body" class="fade-in-slow"/>
  -->
 		<!-- Down arrows signifier -->
 		<a href="#awa-fit">
-		<h5 class="fade-in six" id="feat-work-arrow">Featured Work</h5>
+		<div class="fade-in six" id="feat-work-arrow"></div>
 			<svg class="arrows fade-in seven">
 				<path class="a1" d="M0 0 L30 32 L60 0"></path>
 				<path class="a2" d="M0 20 L30 52 L60 20"></path>
@@ -700,147 +820,179 @@ header {
 			<span id="scroll-text">scroll</span>
 		</div> -->
 	</div>
-<!-- 	<div class="section" id="section1">
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>LilyPad</h1>
-			<hr>
-			<br>
-			<p>Let's build great homes.</p>
-			<a href="http://lilypad.house/home.html" target="_new"><button class="project-button center">View Site</button></a>
-			<p class="made-in">Made in Jan. 2019</p>
-		</div>
-	</div> -->
+
 	<div class="section" id="section1">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
-			<h1>AWA Fit</h1>
+			<h1>TrendGraphix</h1>
 			<hr>
 			<br>
-			<p>Let's stay fit.</p>
-			<a href="awa-fit.html"><button class="project-button center">Learn More</button></a>
-			<p class="made-in">Made in Oct. 2017</p>
+			<p>Full site redesign. TrendGraphix provides real estate data insights to help people find a home and provide insights for agents.</p>
+			<a href="https://trendgraphix.com" target="_blank"><button class="project-button center">Visit Site</button></a>
+			<p class="made-in">Designed, Built and Launched in August 2021</p>
 		</div>
 	</div>
 	<div class="section" id="section2">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
-			<h1>OneOf</h1>
+			<h1>Gather Facilitation</h1>
 			<hr>
 			<br>
-			<p>Let's make beautiful things.</p>
-			<a href="oneof.html"><button class="project-button center">Learn More</button></a>			
-			<p class="made-in">Made in Sep. 2017</p>
-		</div>
-	</div>
-	<div class="section" id="section3" >
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>Slingshot Foods</h1>
-			<hr>
-			<br>
-			<p>Let's rethink food.</p>
-			<a href="slingshot.html"><button class="project-button center">Learn More</button></a>
-			<p class="made-in">Made in June 2017</p>
-		</div>
-	</div>
-	<div class="section" id="section4">
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>Safe Harbor</h1>
-			<hr>
-			<br>
-<!-- 			<img src="IMG/GES2016Logo.png" id="GES2016Logo"/>
- -->			<p>Let's solve wicked problems.</p>
-			<a href="safe-harbor.html"><button class="project-button center">Learn More</button></a>
-			<p class="made-in">Made in June 2016</p>
+			<p>Designed and built from scratch, all custom coded. Facilitation for conflict transformation, community building &amp; creative group processes.</p>
+			<a href="https://gatherfacilitation.com" target="_blank"><button class="project-button center">Visit Site</button></a>
+			<p class="made-in">Designed, Built and Launched in April 2020</p>
 		</div>
 	</div> 
-	<div class="section" id="section5">
+ 	<div class="section" id="section3">
 		<div class="projectCurtain"></div>
 		<div class="project-info">
-			<h1 id="shyft-title">Shyft Event Planning</h1>
+			<h1>LilyPad</h1>
 			<hr>
 			<br>
-			<p>Let's simplify complexity.</p>
-			<br>
-			<a href="shyft.html" ><button class="project-button center">Learn More</button></a>
-			<p class="made-in">Made in Feb. 2016</p>
+			<p>Designed and built from scratch. LilyPad provides educational resources to help homeowners build great, high quality, highly efficient and sustainable homes.</p>
+			<a href="http://lilypad.house/home.html" target="_new"><button class="project-button center">View Site</button></a>
+			<p class="made-in">Designed, Built and Launched Jan. 2019</p>
+		</div>
+	</div> 
+    <div class="section" id="section4">
+			<div class="recommendations">
+		<h1 id="clients-talking">Testimonials</h1>
+		<section class="fade-in six container">
+		<div class="row">
+            <div class="large-12 columns">
+              <div class="owl-carousel owl-theme">
+                <div class="item">
+                  <figure class="testimonials">
+                    <figcaption id="fig1">
+                      <blockquote>Theo has both conceptual creativity for new ideas and the skills to craft fine details. He definitely went above and beyond what was asked of him and clearly takes great pride in his craftsmanship and work. I was happily surprised with the level of polish on the finished prototype and found him easy to work with... I'll keep him in mind for future projects.</blockquote>
+                      <div class="arrow" style="top: 170px;"></div>
+                       <div class="author">
+                      <h5><span><strong>Ana Sol Ordo&#xf1;ez</strong> -- CEO &amp; Founder at Zink</span></h5>
+                    </div>
+                    </figcaption>
+                    <img class="lazy" data-src="IMG/ana-test.jpg" id="ana-test"/>
+
+                  </figure>
+                </div>
+                <div class="item">
+                  <figure class="testimonials">
+                    <figcaption id="fig2">
+                      <blockquote>Theo is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
+                      <div class="arrow" style="top: 110px;"></div>
+                       <div class="author">
+                      <h5><span><strong>Shamrina Oshana</strong> -- Brand Manager at Slingshot Foods</span></h5>
+                    </div>
+                    </figcaption>
+                    <img class="lazy" data-src="IMG/shamrina-test.jpg"/>
+
+                  </figure>
+                </div>
+                <div class="item">
+                  <figure class="testimonials hover">
+                    <figcaption id="fig3">
+                      <blockquote>Theo does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Theo for your webpage projects!</blockquote>
+                      <div class="arrow" style="top: 175px;"></div>
+                      <div class="author">
+                      <h5><span><strong>Caitlin Thompson</strong> -- CEO &amp; Owner at EntheoZen</span></h5>
+                    </div>
+                    </figcaption>
+                    <img class="lazy" id="caitlyn-test" data-src="IMG/caitlyn-test2.jpg" />
+                  </figure>
+                </div>
+                <div class="item">
+                  <figure class="testimonials">
+                    <figcaption id="fig4">
+                      <blockquote>Theo is an incredibly creative guy, often coming up with solutions to problems we didn't even think of. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Any company looking for a creative thinker, problem solver, and a cheerleader should be happy to have Theo on their team.</blockquote>
+                      <div class="arrow" style="top: 185px;"></div>
+                      <div class="author">
+                      <h5><span><strong>Thom Matli</strong> -- Data Analyst at City CarShare</span></h5>
+                    </div>
+                    </figcaption>
+                    <img class="lazy" id="test-headshot" data-src="IMG/thom.png">
+                  </figure>
+                </div>
+                <div class="item">
+                  <figure class="testimonials hover">
+                    <figcaption id="fig5">
+                      <blockquote>Theo is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made Theo absolutely indispensable. Theo's multitasking abilities made it possible to operate with fewer staff, minimizing the company's burn-rate while simultaneously extending our operational capabilities... I wish Theo would let me hire him again!</blockquote>
+                      <div class="arrow"></div>
+                      <div class="author">
+                      <h5><span><strong>Marcus Hays</strong> -- CEO &amp; Founder at PiMobility</span></h5>
+                    </div>
+                    </figcaption>
+                    <img class="lazy" data-src="IMG/marcus-kr.jpg" id="marcus-kr">
+                  </figure>
+                </div>
+              </div>
+              <a href="http://www.linkedin.com/in/bengrandy" target="_blank" id="view-recs">View full recommendations on LinkedIn ></a>
+            </div>
+	       </div>
+        </section>
+        </div>
+    </div>
+    <div class="section" id="section5">
+        
+                        <h1 style="padding-top:100px">Let's make something wonderful.</h1>
+
+        <form id="fs-frm" name="complaint-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
+  <fieldset id="fs-frm-inputs">
+    <label for="full-name">Hello, I'm</label>
+    <input type="text" name="name" id="full-name" placeholder="&#9997; your full name" required="">
+    
+  <label for="company">from (optional)</label>
+  <input type="text" name="company" id="company" maxlength="30" placeholder="your company" >
+      
+    <label for="email-address">You can reach me at</label>
+    <input type="email" name="_replyto" id="email-address" placeholder="&#9993; your e-mail" required="">
+    <label for="telephone">or call (optional)</label>
+    <input type="telephone" name="telephone" id="telephone" placeholder="&#9743; (555) 555-5555">
+      
+    <label for="department">How'd you find me?</label>
+    <select name="department" id="department" required="" onchange="if (this.selectedIndex==4) {otherOption()} else {deleteOther()};">
+      <option value="" selected="" disabled="">Select</option>
+      <option value="Friend Referral">Friend Referral</option>
+      <option value="Social Media">Social Media</option>
+      <option value="Linked-In">Linked-In</option>
+      <option value="Other">Other</option>
+    </select>
+      <input type="text" name="other" maxlength="30" placeholder="Lorem ipsum" id="otherField" >
+    <label for="message">How can we work together?</label>
+    <textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
+  </fieldset>
+  <input type="submit" value="Send Message" id="submit-contact">
+            
+</form>
+        
+    <footer>
+	<div class="container">
+		<div class="footer-top-row">
+			<span class="dark-mode-wrapper">
+  				<p class="dark-mode-switch-text">Dark mode:</p>
+  				  <label class="switch" for="checkbox">
+  				    <input type="checkbox" id="checkbox" />
+  				    <div class="slider round"></div>
+	  			</label>
+	  			<img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
+	        </span>
+				<div class="social-icons float-right">
+					<span id="email-btn"><img src="IMG/footer/email-icon.png" class="social-icon"></span>
+					<span><a href="https://www.linkedin.com/in/bengrandy" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></a></span>
+					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></a></span>
+					<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></a></span>
+					<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></a></span>
+					<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></a></span>
+				</div>
 		</div>
 	</div>
-</div>
+
+	<div id="footer-import"></div>
+</footer>
+
+	</div>
 
 <div id="menu-import"></div>
 
-<!-- <div id="contact-import"></div> -->
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" class="chatIcon fade-in"><img src="https://nuanced.design/IMG/chat-icon-filled.png"/></button> 
-
-<!-- The Modal -->
-<div id="myModal" class="modal" >
-
-	  	<!-- Modal content -->
-	<div class="modal-content">
-	<div class="modal-body">
-	    <span class="close">&times;</span>
-	    <form method="post" id="FSForm" action="https://fs8.formsite.com/res/submit" enctype="application/x-www-form-urlencoded" onsubmit="return Vromansys.Form.processSubmit(this);">
-
-		<!-- BEGIN_ITEMS -->
-		<div class="form_table">
-
-		<div id="q0" class="q required">
-
-		  	<p class="non-editable">Hello, I'm </p>
-		  	
-		    <input rows="1" maxlength="20" placeholder="your name &#9997;" autofocus type="text" name="RESULT_TextField-0" class="text_field notepad" id="RESULT_TextField-0" value="" required oninput="submitPadding()"/>
-
-		</div>
-		<div id="q1" class="q required">
-		    <p class="non-editable">from</p>
-
-		    <input type="text" name="RESULT_TextField-1" class="text_field notepad" id="RESULT_TextField-1" required maxlength="30" value="" placeholder="your company" oninput="submitPadding()"/>
-
-		 </div>
-		 <div id="q2" class="q required">
-		    <p class="non-editable">where I am a</p>
-
-		    <input type="text" name="RESULT_TextField-2" class="text_field notepad" id="RESULT_TextField-2" maxlength="30" value="" placeholder="your role" required oninput="submitPadding()"/>
-
-		  </div>
-		  <div id="q3" class="q required">
-			<input type="email" name="RESULT_TextField-3" class="text_field notepad" id="RESULT_TextField-3" value="" required placeholder="e-mail" oninput="submitPadding()"/>
-			</div>
-	 	<div id="q4" class="q">
-		     <p class="non-editable" id="nda-text">Request NDA</p><input type="checkbox" name="RESULT_CheckBox-4" class="multiple_choice notepad" id="RESULT_CheckBox-4_0" value="CheckBox-0" oninput="submitPadding()"/>
-		 </div>
-		 <div id="q5" class="q required">	
-		     <textarea name="RESULT_TextArea-5" class="text_field count_chars notepad" id="RESULT_TextArea-5" rows="8" minlength="50" required placeholder="message" oninput="submitPadding()"></textarea>
-
- 		</div>
-
- 		<div style="display:none;">
-			<input type="hidden" name="locid" value="zye2aA/bg-design" />
-			<input type="hidden" name="EParam" value="AT1kKIiyxDy5sh2ZEey7OYnjqh0+izcTjAIzAAWZiU8KAOPcK2xMIOf/hTQkuNPr" />
-			<input type="hidden" name="ElapsedTime" id="ElapsedTime" value="0" />
-			<input type="hidden" name="Referrer" id="Referrer" value="" />
-			<input type="text" name="subject_line" id="subject_line" autocomplete="off" /><label for="subject_line">subject_line</label>
-		</div>
-
- 	</div>
-<!-- END_ITEMS -->
-<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
-
-<div class="outside_container">
-	<div class="buttons_reverse">
-		<input type="submit" name="Submit" value="->" class="submit_button submit" id="FSsubmit" />
-	</div>
-</div>
-</form>
-
- 	</div>
-	</div>
-</div>
+    </div>
 
 
  <script>
@@ -861,11 +1013,11 @@ header {
 // Full Page
 
     var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['welcome','awa-fit','oneof','slingshot','safe-harbor','shyft'],
+    	anchors: ['Welcome','TrendGraphix','Gather','LilyPad','Testimonials','Contact'],
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['Welcome','AWA Fit','OneOf','Slingshot Foods','Safe Harbor','Shyft Event Planning'],
+		navigationTooltips: ['Welcome','Trend Graphix','Gather Facilitation','LilyPad', 'Testimonials', 'Contact'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
@@ -880,7 +1032,17 @@ header {
 <!-- Bunch of scripts-->
  <script src="JS/custom.js"></script>
 
-<script> 
+<script>
+    
+
+$( document ).ready(function() {
+	// Load footer
+	$("#footer-import").load("footer-dark-mode.html"); 
+
+	// Load main menu
+	$("#menu-import").load("menu.html");
+
+});
 
 $( document ).ready(function() {
 	// Load main menu
@@ -960,6 +1122,63 @@ console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling e
 domLoad ();
 
 
+</script>
+    
+    <script src="JS/owl.carousel.min.js"></script>
+
+<script>
+
+// testimonial carousel
+$(document).ready(function() {
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+    items:1,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:6000,
+    autoplayHoverPause:true,
+    autoPlay: 4000,
+    slideSpeed: 4500,
+    navigation: true,
+    pagination: true,
+    singleItem: true,
+});
+})
+
+domLoad ();
+
+</script>
+    
+<script>
+    
+    function otherOption() {
+        document.getElementById("otherField").style.display = "block";
+    }
+    
+    function deleteOther() {
+        document.getElementById("otherField").style.display = "none";
+    }
+    
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
 </script>
 
 </body>
