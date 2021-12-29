@@ -42,6 +42,7 @@
 * --------------------------------------- */
 .section {
 	text-align:center;
+    transition: 1s;
 }
 
 /* Backgrounds will cover all the section
@@ -185,7 +186,7 @@
 	color: white;
 }
 
-#fullpage p {
+#fullpage .project-info p {
     font-family: 'Lora', sans-serif;
 	font-size: 20px;
 	line-height: 1.3em;
@@ -193,7 +194,7 @@
 	color: #5a5a5a;
 	text-align:center;
 }
-.dark-mode #fullpage p {
+.dark-mode #fullpage .project-info p {
 	color: white;
 }
 
@@ -215,12 +216,13 @@
 
 #fullpage .copyright {
 	position: relative;
-    bottom: 5px;
+    bottom: 55px;
     color: rgb(151, 151, 151);
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 14px;
     padding: 0;
+    color: grey !important;
 }
 
 #what-nav {
@@ -433,6 +435,7 @@ header {
     background-repeat: no-repeat;
     background-position: right;
     background-attachment: fixed;
+    transition:1s;
 }
 
 #shyft-title {
@@ -599,7 +602,7 @@ form p::-moz-selection {
 		font-size:34px;
 	}
 
-	#fullpage p {
+	#fullpage .project-info p {
 		font-size:18px;
 	}
 
@@ -670,7 +673,7 @@ form p::-moz-selection {
 		font-size:30px;
 	}
 
-	#fullpage p {
+	#fullpage .project-info p {
 		font-size:18px;
 	}
 }
