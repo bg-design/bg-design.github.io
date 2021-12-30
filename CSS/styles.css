@@ -713,6 +713,10 @@ footer {
     height: 110px;
 }
 
+#footer-import, footer .container {
+    background: #21262d;
+}
+
 ::selection {
   	background: rgba(255, 250, 116, 0.55); /* WebKit/Blink Browsers */
   	color:rgba(100,100,100,1);
