@@ -64,7 +64,7 @@ body {
   transition: 1s;
 }
 
-.dark-mode a, .dark-mode p, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode ul {
+.dark-mode a, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode ul {
   color: white;
   transition: 1s;
 }

@@ -499,9 +499,14 @@ form p {
     font-weight: 300;
 }
         
-input#submit-contact {
+#submit-contact {
     border-radius: 0 0 12px 12px;
     width: 100%;
+    color: black;
+    border: 0;
+    background: rgb(133, 204, 255);
+    margin: 0;
+    padding: 10px;
         }
 
 
@@ -960,8 +965,9 @@ form p::-moz-selection {
     <label for="message">How can we work together?</label>
     <textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
   </fieldset>
+        <p id="my-form-status"></p>            
+
     <button id="submit-contact">Send Message</button>
-    <p id="my-form-status"></p>            
 </form>
         
     <footer>
