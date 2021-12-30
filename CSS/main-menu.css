@@ -63,7 +63,7 @@
   z-index: 9;
 }
 
-.dark-mode #overlay-nav .home-link {
+.dark-mode #overlay-nav a {
   color: white;
 }
 

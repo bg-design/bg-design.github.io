@@ -1469,6 +1469,10 @@ cite p {color:white;}
 	background:#1f1f20;
 }
 
+.dark-mode .dottedBox p, .dark-mode .text-wrapper p {
+    color: white;
+}
+
 
 #exEdBox {
 	padding: 30px;
