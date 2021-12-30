@@ -429,24 +429,18 @@ header {
 }
         
 .dark-mode .section {
-    background: rgba(31, 31, 35, 1);
-    background-size: 100vw;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-attachment: fixed;
     transition:1s;
+}
+        
+.dark-mode .recommendations {
+        background: rgba(31, 31, 35, 1);
+
 }
 
 #shyft-title {
 	width: 350px;
     margin: 0 auto;
 }
-
-.recommendations {
-    padding-top:10vh;
-}
-        
-
 
 /* Contact Form */
 form {
@@ -569,6 +563,12 @@ form p::-moz-selection {
 		background-size: 85vw;
 	}
 }
+        
+@media screen and (min-width: 1050px) {
+            .recommendations {
+    padding-top:10vh;
+}
+        }
 
 @media screen and (max-width: 1050px) {
 
@@ -757,7 +757,8 @@ form p::-moz-selection {
 
 /*Override Defaults */
 	.dark-mode {
-		background: #edf1f4;
+		background: rgba(31, 31, 35, 1);
+;
 	}
 
 /*@media screen and (max-width: 415px){
@@ -934,7 +935,7 @@ form p::-moz-selection {
         
                         <h1 style="padding-top:10vh">Let's make something wonderful.</h1>
 
-        <form id="fs-frm" name="complaint-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
+<form id="fs-frm" name="complaint-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
   <fieldset id="fs-frm-inputs">
     <label for="full-name">Hello, I'm</label>
     <input type="text" name="name" id="full-name" placeholder="&#9997; your full name" required="">
@@ -1017,7 +1018,7 @@ form p::-moz-selection {
 		sectionsColor: [],
 		navigation: true,
 		navigationPosition: 'left',
-		navigationTooltips: ['Welcome','Trend Graphix','Gather Facilitation','LilyPad', 'Testimonials', 'Contact'],
+		navigationTooltips: ['Welcome','TrendGraphix','Gather Facilitation','LilyPad', 'Testimonials', 'Contact'],
         verticalCentered: false,
 
         //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
