@@ -935,7 +935,7 @@ form p::-moz-selection {
         
                         <h1 style="padding-top:10vh">Let's make something wonderful.</h1>
 
-<form id="fs-frm" name="complaint-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
+<form id="my-form" name="contact-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
   <fieldset id="fs-frm-inputs">
     <label for="full-name">Hello, I'm</label>
     <input type="text" name="name" id="full-name" placeholder="&#9997; your full name" required="">
@@ -944,7 +944,7 @@ form p::-moz-selection {
   <input type="text" name="company" id="company" maxlength="30" placeholder="your company" >
       
     <label for="email-address">You can reach me at</label>
-    <input type="email" name="_replyto" id="email-address" placeholder="&#9993; your e-mail" required="">
+    <input type="email" name="email" id="email-address" placeholder="&#9993; your e-mail" required="">
     <label for="telephone">or call (optional)</label>
     <input type="telephone" name="telephone" id="telephone" placeholder="&#9743; (555) 555-5555">
       
@@ -960,8 +960,8 @@ form p::-moz-selection {
     <label for="message">How can we work together?</label>
     <textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
   </fieldset>
-  <input type="submit" value="Send Message" id="submit-contact">
-            
+    <button id="submit-contact">Send Message</button>
+    <p id="my-form-status"></p>            
 </form>
         
     <footer>
