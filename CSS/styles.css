@@ -1448,8 +1448,8 @@ cite p {color:white;}
 	}
 
 	body.dark-mode {
-/*		background: #101010;
-*/	}
+		background: rgba(31, 31, 35, 1);
+	}
 
 	h1 {
 		padding: 0px 0 10px 0;

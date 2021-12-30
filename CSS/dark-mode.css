@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  transition: 3s ease-in-out;
+  transition: 1s;
 }
 
 .social-icons {margin: 10px 20px;}
@@ -61,27 +61,27 @@ body {
 .dark-mode {
   background: #1f1f20;
 /*  color: white;*/
-  transition: 3s ease-in-out;
+  transition: 1s;
 }
 
 .dark-mode a, .dark-mode p, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode ul {
   color: white;
-  transition: 3s ease-in-out;
+  transition: 1s;
 }
 
 .img-invert {
-  transition: 3s;
+  transition: 1s;
   filter:invert(0%);
 }
 
 .dark-mode .img-invert {
   filter: invert(87.8%);
-  transition: 3s;
+  transition: 1s;
 }
 -
 .dark-mode .img-invert-full {
   filter: invert(100%);
-  transition: 3s;
+  transition: 1s;
 }
 
 .dark-mode .navbar {background: rgba(88, 88, 88, 0.57);}

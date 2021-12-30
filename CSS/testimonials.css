@@ -50,7 +50,7 @@ figure.testimonials .arrow {
   height: 0;
   border-left: 0 solid transparent;
   border-right: 25px solid transparent;
-  border-top: 25px solid #ddd;
+  border-top: 25px solid #4f4f4f;
   margin: 0;
   position: absolute;
   transition: 1s;
