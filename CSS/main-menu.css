@@ -146,6 +146,10 @@ p.overlay-copyright {
 }
 
 @media screen and (max-width:600px) {
+    
+    #overlay-nav a {
+        left: 0;
+    }
 
   #menu-icon {
     width: 50px;
