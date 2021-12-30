@@ -107,6 +107,10 @@
 	 border-radius: 15px;
 	 min-width: 340px;
 }
+        
+        .top-title {
+            font-family: 'Lato', sans-serif;
+        }
 
 .welcome > *, .welcome-links > * {
 	color: white;
@@ -708,9 +712,12 @@ form p::-moz-selection {
 
 @media screen and (max-width: 600px) {
     
+    #fp-nav {
+        display: none;
+    }
+    
     #section0 {
-        background-size: 440%;
-    background-position: -1150px, -200px;
+        background:#cfcfcf;
     }
 	.copyright {
 		position: relative;
@@ -722,12 +729,31 @@ form p::-moz-selection {
 	}
 
 	.welcome {
-		top: 28%;
     	left: 0;
     	width: 100%;
     	border-radius: 0;
-    	padding-left: 50px;
 	}
+    
+    .welcome h2 {
+        margin-top:0;
+    }
+    
+    .welcome-links {
+        margin-top: 20px;
+    }
+    
+    #fullpage .project-info p {
+        font-size: 14px;
+    }
+    
+    #fullpage .project-info .made-in {
+        font-size:revert;
+    }
+    
+    figure.testimonials blockquote {
+        padding: 35px 15px 15px 20px;
+        font-size: 14px;
+    }
 
 }
 
@@ -831,8 +857,8 @@ form p::-moz-selection {
 			<div id="rect-gradient"></div>
 
 
-			<h4 class="fade-in two" id="top-title">UX Designer &amp; Frontend Engineer</h4>
-			<h4 class="fade-in three">Let's collaborate &amp; make something wonderful.</h4>
+			<p class="fade-in two top-title">UX Designer &amp; Frontend Engineer</p>
+			<p class="fade-in three top-title">Let's collaborate &amp; make something wonderful.</p>
 
 			<div class="welcome-links home-links">
 				<h4><a class="fade-in four hp-story welcome-link" href="story.html" >My Story ></a></h4>
@@ -962,7 +988,7 @@ form p::-moz-selection {
                   </figure>
                 </div>
               </div>
-              <a href="https://www.linkedin.com/in/nuanced-design/" target="_blank" id="view-recs">View full recommendations on LinkedIn ></a>
+              <a href="https://www.linkedin.com/in/nuanced-design/" target="_blank" id="view-recs">View all recommendations on LinkedIn ></a>
             </div>
 	       </div>
         </section>
