@@ -785,7 +785,7 @@ form p::-moz-selection {
 
 	</style>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
-
+    
 	<script type="text/javascript" src="JS/fullpage.js"></script>
 
 </head>
@@ -1135,11 +1135,8 @@ document.getElementById("greeting").innerHTML = greeting;
 <script src="JS/contact-modal-onebtn.js"></script>
 
 <script type="text/javascript">
-console.log('%cCredits', 'background: #fff;color: #000;font-family:serif;font-size:14px;font-weight:bolder;');
-console.log('%cA big shout-out to AlvaroTrigo.com for this full page scrolling effect, and big thanks to Jan Sorgalla (sorgalla.com/lity/) for this lightbox script.', 'background: #fff;color: #000;font-family:serif;font-size:14px;');
 
 domLoad ();
-
 
 </script>
     
@@ -1191,10 +1188,10 @@ domLoad ();
             'Accept': 'application/json'
         }
       }).then(response => {
-        status.innerHTML = "Thanks for your submission!";
+        status.innerHTML = "Thank you, I'll be in touch!";
         form.reset()
       }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
+        status.innerHTML = "Oops! You forgot something."
       });
     }
     form.addEventListener("submit", handleSubmit)
