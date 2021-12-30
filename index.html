@@ -493,7 +493,7 @@ textarea {
 input {
 	padding: 10px 0;
   display: block;
-  width: 400px;
+  max-width: 400px;
   margin: 0 auto;
   font: inherit;
   border: none;
@@ -786,8 +786,12 @@ form p::-moz-selection {
 		left: 0;
 	}
 
-	#fullpage h1 {
-		font-size:30px;
+	#fullpage h3 {
+		font-size:17px;
+        width:200px;
+        margin: 10px auto;
+        padding-bottom: 0;
+        padding-top: 20px;
 	}
 
 	#fullpage p {
@@ -801,7 +805,14 @@ form p::-moz-selection {
 	#fullpage .project-button {
 		font-size:14px;
 	}
+    
 }
+        
+        @media screen and (max-height: 600px) {
+            footer, .footer-import {
+        display: none;
+    }
+        }
 
 @media screen and (max-width: 350px) {
 
@@ -996,7 +1007,7 @@ form p::-moz-selection {
     </div>
     <div class="section" id="section5">
         
-                        <h1>Let's make something wonderful.</h1>
+                        <h3>Let's make something wonderful.</h3>
 
 <form id="my-form" name="contact-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
   <fieldset id="fs-frm-inputs">
