@@ -1874,8 +1874,10 @@ cite p {color:white;}
 	}
 
 	#fig1, #fig2, #fig3, #fig4, #fig5 {
-		width: 100%;
+		width: 90%;
+        max-width: 400px;
 		border-radius: 8px;
+        margin: 12px;
 	}
 
 	.owl-carousel .owl-item img, .arrow {opacity: 0;}
@@ -1907,6 +1909,10 @@ cite p {color:white;}
 	.author span {
 		font-size:19px;
 	}
+    
+    #client-talking {
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width : 600px)   {
@@ -1980,7 +1986,7 @@ cite p {color:white;}
 }
 @media screen and (max-width: 490px) {
 	.owl-carousel .owl-stage-outer {
-		height: 365px;
+		height: 400px;
 	}
 }
 
@@ -2007,7 +2013,7 @@ cite p {color:white;}
 	}
 
 	figure.testimonials .author {
-		padding: 0;
+		padding: 0 !important;
 	}
 
 	figure.testimonials .author span {
@@ -2018,6 +2024,7 @@ cite p {color:white;}
 	    font-weight: 500;
 	    color: #585858;
 	}
+    
 }
 
 @media screen and (max-width: 372px){
