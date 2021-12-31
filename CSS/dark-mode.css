@@ -29,6 +29,7 @@ body {
 
 .dark-mode-wrapper {
     float:left;
+    margin-top: 8px;
 }
 
 
@@ -40,11 +41,7 @@ body {
     clear: both;
   }
   .social-icons {
-      margin: 0 auto;
-      width: 230px;
-      float: none;
-      clear: both;
-      margin-top: 15px;
+
   }
   .footer-middle-row {
       margin: 0 auto;

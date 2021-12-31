@@ -415,7 +415,18 @@ header {
 	margin-left: -60px;
 	color: white;
 }
+        .welcome-links {
+		position: relative;
+		right: 0;
+		margin-top:40px;
+	}
 
+	.welcome-links a {
+		position: relative;
+		top: unset !important;
+	}
+    
+        
 .welcome-links .about-story {
 	top:25px;
 	}
@@ -448,15 +459,11 @@ header {
         background: rgba(31, 31, 35, 1);
 
 }
-
-#shyft-title {
-	width: 350px;
-    margin: 0 auto;
+     
+#fullpage h3 {
+    max-width: 300px;
+    margin: 30px auto;
 }
-
-        #section5 h1 {
-            padding-top:10vh;
-        }      
         
 /* Contact Form */
 form {
@@ -486,8 +493,9 @@ select {
 }
         
 textarea {
-    width: 370px;
+    width: 80%;
     margin: 10px auto;
+    height: 40px;
 }
         
 input {
@@ -508,6 +516,7 @@ form p, input, label, select {
 	letter-spacing: .7px;
     font-weight: 300;
     text-align: center;
+    font-size: 18px;
 }
 
 form p {
@@ -523,6 +532,7 @@ form p {
     background: rgb(133, 204, 255);
     margin: 0;
     padding: 10px;
+    font-weight: 500;
         }
 
 
@@ -604,7 +614,6 @@ form p::-moz-selection {
         
 @media screen and (min-width: 1050px) {
             .recommendations {
-    padding-top:10vh;
 }
         }
 
@@ -673,21 +682,26 @@ form p::-moz-selection {
 	.welcome {
 		top: 8%;
     	left: 105px;
+	}
+
 }
-	}
-
-	.welcome-links {
-		position: relative;
-		right: 0;
-		margin-top:40px;
-	}
-
-	.welcome-links a {
-		position: relative;
-		top: unset !important;
-	}
-}
-
+        @media screen and (min-width: 769px) {
+            #fullpage h3 {
+                margin-left: 80px;
+            }
+            
+            
+            
+            #section5 {
+                display: flex;
+                align-items: center;
+            }
+            
+            form {
+                height: 450px;
+                width: 450px;
+            }
+        }
 @media screen and (max-width: 730px) {
 	.what-box h1 {
 		font-weight: 300;
@@ -761,6 +775,11 @@ form p::-moz-selection {
 	.what-box {border-radius: 0;}
 }
 
+@media screen and (min-width: 431px) {
+    #section4 {
+    padding-top:calc(1vw + 15vh);
+    }
+}
 @media screen and (max-width: 430px) {
 
 	#fp-nav.fp-left {
@@ -792,6 +811,7 @@ form p::-moz-selection {
         margin: 10px auto;
         padding-bottom: 0;
         padding-top: 20px;
+        font-weight: 500;
 	}
 
 	#fullpage p {
@@ -1032,7 +1052,7 @@ form p::-moz-selection {
     </select>
       <input type="text" name="other" maxlength="30" placeholder="Lorem ipsum" id="otherField" >
     <label for="message">How can we work together?</label>
-    <textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
+    <textarea rows="5" name="message" id="message" placeholder="I have a great idea for a new website..." required=""></textarea>
   </fieldset>
         <p id="my-form-status"></p>            
 
@@ -1061,7 +1081,6 @@ form p::-moz-selection {
 		</div>
 	</div>
 
-	<div id="footer-import"></div>
 </footer>
 
 	</div>
