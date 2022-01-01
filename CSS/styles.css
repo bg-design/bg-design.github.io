@@ -1389,6 +1389,11 @@ cite p {color:white;}
 	transition: 1s;
 	margin-right: 30px;
 	margin-bottom: 18px;
+    margin-left: 10px;
+}
+
+.welcome-links a {
+    margin-left:0;
 }
 
 .home-links a:hover {
