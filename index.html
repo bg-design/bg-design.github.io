@@ -777,7 +777,7 @@ form p::-moz-selection {
 
 @media screen and (min-width: 431px) {
     #section4 {
-    padding-top:calc(1vw + 10vh);
+/*    padding-top:calc(1vw + 10vh);*/
     }
 }
 @media screen and (max-width: 430px) {
@@ -954,80 +954,7 @@ display: none;
 		</div>
 	</div> 
     <div class="section" id="section4">
-			<div class="recommendations">
-		<h1 id="clients-talking">Testimonials</h1>
-		<section class="fade-in six container">
-		<div class="row">
-            <div class="large-12 columns">
-              <div class="owl-carousel owl-theme">
-                <div class="item">
-                  <figure class="testimonials">
-                    <figcaption id="fig1">
-                      <blockquote>Theo has both conceptual creativity for new ideas and the skills to craft fine details. He definitely went above and beyond what was asked of him and clearly takes great pride in his craftsmanship and work. I was happily surprised with the level of polish on the finished prototype and found him easy to work with... I'll keep him in mind for future projects.</blockquote>
-                      <div class="arrow" style="top: 170px;"></div>
-                       <div class="author">
-                      <h5><span><strong>Ana Sol Ordo&#xf1;ez</strong> -- CEO &amp; Founder at Zink</span></h5>
-                    </div>
-                    </figcaption>
-                    <img class="lazy" data-src="IMG/ana-test.jpg" id="ana-test"/>
-
-                  </figure>
-                </div>
-                <div class="item">
-                  <figure class="testimonials">
-                    <figcaption id="fig2">
-                      <blockquote>Theo is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work.</blockquote>
-                      <div class="arrow" style="top: 110px;"></div>
-                       <div class="author">
-                      <h5><span><strong>Shamrina Oshana</strong> -- Brand Manager at Slingshot Foods</span></h5>
-                    </div>
-                    </figcaption>
-                    <img class="lazy" data-src="IMG/shamrina-test.jpg"/>
-
-                  </figure>
-                </div>
-                <div class="item">
-                  <figure class="testimonials hover">
-                    <figcaption id="fig3">
-                      <blockquote>Theo does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Theo for your webpage projects!</blockquote>
-                      <div class="arrow" style="top: 175px;"></div>
-                      <div class="author">
-                      <h5><span><strong>Caitlin Thompson</strong> -- CEO &amp; Owner at EntheoZen</span></h5>
-                    </div>
-                    </figcaption>
-                    <img class="lazy" id="caitlyn-test" data-src="IMG/caitlyn-test2.jpg" />
-                  </figure>
-                </div>
-                <div class="item">
-                  <figure class="testimonials">
-                    <figcaption id="fig4">
-                      <blockquote>Theo is an incredibly creative guy, often coming up with solutions to problems we didn't even think of. His eye for photography, design, and user experience were of great help to us as we developed our mobile app. His presence in the office was generally accompanied by an aura of enthusiasm, boisterous laughter, and a can-do attitude. Any company looking for a creative thinker, problem solver, and a cheerleader should be happy to have Theo on their team.</blockquote>
-                      <div class="arrow" style="top: 185px;"></div>
-                      <div class="author">
-                      <h5><span><strong>Thom Matli</strong> -- Data Analyst at City CarShare</span></h5>
-                    </div>
-                    </figcaption>
-                    <img class="lazy" id="test-headshot" data-src="IMG/thom.png">
-                  </figure>
-                </div>
-                <div class="item">
-                  <figure class="testimonials hover">
-                    <figcaption id="fig5">
-                      <blockquote>Theo is a standout talent who expertly filled a multiplicity of roles that in the context of our start up - or any start up for that matter - made Theo absolutely indispensable. Theo's multitasking abilities made it possible to operate with fewer staff, minimizing the company's burn-rate while simultaneously extending our operational capabilities... I wish Theo would let me hire him again!</blockquote>
-                      <div class="arrow"></div>
-                      <div class="author">
-                      <h5><span><strong>Marcus Hays</strong> -- CEO &amp; Founder at PiMobility</span></h5>
-                    </div>
-                    </figcaption>
-                    <img class="lazy" data-src="IMG/marcus-kr.jpg" id="marcus-kr">
-                  </figure>
-                </div>
-              </div>
-              <a href="https://www.linkedin.com/in/nuanced-design/" target="_blank" id="view-recs">View all recommendations on LinkedIn ></a>
-            </div>
-	       </div>
-        </section>
-        </div>
+        <div id="testimonial-import"></div>
     </div>
     <div class="section" id="section5">
         <div class="flex">
@@ -1137,7 +1064,10 @@ display: none;
     
 
 $( document ).ready(function() {
-	// Load footer
+	// Load testimonials
+	$("#testimonial-import").load("testimonials.html");
+    
+    // Load footer
 	$("#footer-import").load("footer-dark-mode.html"); 
 
 	// Load main menu
@@ -1145,27 +1075,14 @@ $( document ).ready(function() {
 
 });
 
-$( document ).ready(function() {
-	// Load main menu
-	$("#menu-import").load("menu.html");
-
-	// Load Contact Modal
-	// $("#contact-import").load("contact-modal.html");
-
-});
-
 // Cycle through different greetings
 var divs = $('span[id^="greeting-"]').hide(),
     i = 0;
-
 (function cycle() { 
-
     divs.eq(i).fadeIn(500)
               .delay(3000)
               .fadeOut(700, cycle);
-
     i = ++i % divs.length;
-
 })();
 
 // Cycle through different titles
@@ -1173,11 +1090,9 @@ var divs2 = $('span[id^="title-"]').hide(),
     j = 0;
 
 (function cycle2() { 
-
     divs2.eq(j).fadeIn(500)
               .delay(3000)
               .fadeOut(700, cycle2);
-
     j = ++j % divs2.length;
 
 })();
@@ -1217,31 +1132,6 @@ document.getElementById("greeting").innerHTML = greeting;
 <script src="JS/contact-modal-onebtn.js"></script>
 
 <script type="text/javascript">
-
-domLoad ();
-
-</script>
-    
-    <script src="JS/owl.carousel.min.js"></script>
-
-<script>
-
-// testimonial carousel
-$(document).ready(function() {
-  var owl = $('.owl-carousel');
-  owl.owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:6000,
-    autoplayHoverPause:true,
-    autoPlay: 4000,
-    slideSpeed: 4500,
-    navigation: true,
-    pagination: true,
-    singleItem: true,
-});
-})
 
 domLoad ();
 
