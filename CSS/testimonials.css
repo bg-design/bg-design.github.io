@@ -25,7 +25,7 @@ figure.testimonials img {
   float: right;
   max-width: 40%;
   vertical-align: middle;
-  border-radius: 0 8px 8px 8px;
+  border-radius: 8px;
 }
 figure.testimonials figcaption {
   top: 0;
@@ -33,7 +33,7 @@ figure.testimonials figcaption {
   width: 60%;
   position: absolute;
   background-color: #4f4f4f;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   transition: 1s;
 }
 
@@ -116,8 +116,19 @@ figure.testimonials .author h5 {
 	border:1px solid black;
 }
 
+
+
+#figA {width: 80%}
+#figC {width: 76%}
+#figD {width: 75%}
+#figE {width: 75%}
+#fig1 {width: 70%}
+#fig3 {width: 77%}
+#fig4 {width: 80%;}
+#fig5 {width: 65%}
+
 #test-headshot {
-  width: 250px;
+  width: 180px;
 }
 
 #marcus-kr {

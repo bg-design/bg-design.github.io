@@ -1464,10 +1464,7 @@ cite p {color:white;}
 
 .dottedBox {
 	margin: 0 auto;
-/*	border: 1px dashed;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.05);
-*/	padding: 15px;
-	background: white;
+padding: 15px;
 	overflow: auto;
 }
 
@@ -1829,15 +1826,6 @@ cite p {color:white;}
 	color: black;
 	transition: 0.2s;
 }
-
-#figA {width: 80%}
-#figC {width: 75%}
-#figD {width: 75%}
-#figE {width: 70%}
-#fig1 {width:66.4%}
-#fig3 {width:74.1%}
-#fig4 {width: 70%;border-radius: 8px;}
-#fig5 {width: 65%}
 
 /* MEDIA QUERIES */
 @media screen and (max-width : 1024px)   {
