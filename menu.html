@@ -25,10 +25,15 @@
   
 </div>
     
-<p class="overlay-copyright">Copyright &copy; <i>Nuanced Design</i> 2010-2021 All Rights Reserved.</p>
+<p class="overlay-copyright">Copyright &copy; <i>Nuanced Design</i> 2010-<span id="current-year"></span> All Rights Reserved.</p>
   
 </div>
 
 <!--   -->
 <!-- Trigger/Open The Main Nav Overlay -->
   <button class="chatIcon fade-in" onclick="openNav()" id="menu-icon"><img src="IMG/Icons/menu-icon.png"/></button>
+
+<script>
+// // Current year for copyright (future-proof)
+ document.getElementById("current-year").innerHTML = (new Date().getFullYear());
+</script>

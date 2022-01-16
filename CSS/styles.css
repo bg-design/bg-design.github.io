@@ -895,6 +895,11 @@ p a::selection {
 	background: #f79f5a;
 }
 
+.bottom-links-wrapper {
+    display: flex;
+    width: max-content;
+    margin: 30px auto;
+}
 .bottom-nav {
 	width: 100%;
 	display: flex;
@@ -1888,6 +1893,11 @@ padding: 15px;
 }
 
 @media screen and (max-width: 680px) {
+    
+    .bottom-links-wrapper, .bottom-links-wrapper a {
+        display: block;
+        margin: 20px auto;
+    }
 	.when-titles {
 		height: 45px;
 	}

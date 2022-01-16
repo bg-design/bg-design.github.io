@@ -438,13 +438,19 @@
 			</div>
 	</section>
 -->
+    <hr>
  	<section>
-		<div class="bottom-nav container">
-            <button class="float-left hvr-sweep-to-left when-button" onClick="parent.location='cv.html'">< My Background</button>
-            <button class="float-right hvr-sweep-to-right what-button" onClick="parent.location='index.html'">Featured Work ></button>
+        <div class="home-links" id="bottom-links">
+            
+        <div class="bottom-links-wrapper">
+            <a class="hp-story" href="story.html" onclick="closeNav()">My Story</a>
+            <a class="hp-cv" href="cv.html" onclick="closeNav()">Résumé</a>
+            <a class="hp-portfolio" href="index.html#TrendGraphix" onclick="closeNav()">Portfolio</a>
+            <a class="hp-testimonials" href="index.html#Testimonials" onclick="closeNav()">Testimonials</a>
+            <a class="hp-contact" href="index.html#Contact" onclick="closeNav()">Contact</a>
         </div>
+      </div> 
 	</section>
-	<hr style="border-bottom: 1px solid #5e5e5e;">
 </div>
 <footer>
 	<div class="container">
@@ -522,70 +528,70 @@ $( document ).ready(function() {
   });
 
 // Reading Recommendations Selector
-function showThinkingList() {
-  $('#design-list').css("transform", "translateX(0px)");
-  $('.reading-nav-item').removeClass("shift");
-  $('.reading-nav-item').removeClass("active");
-  $('#design-list').css("background", "black");
-  $('.reading-nav-wrapper.lg #thinking-list').addClass("active");
-  $('.reading-nav-wrapper.md #thinking-list').addClass("active");
-  $('.books').removeClass("isVisible");
-  $('.design-thinking').addClass("isVisible");
-}
-function showProductList() {
-  $('.reading-nav-item').removeClass("shift");
-  $('.reading-nav-item').removeClass("active");
-  $('#design-list').css("background", "red");
-  $('#design-list').css("transform", "translateX(270px)");
-  $('#thinking-list').addClass("shift");
-  $('#product-list').addClass("shift");
-  $('.reading-nav-wrapper.lg #product-list').addClass("active");
-  $('.reading-nav-wrapper.md #product-list').addClass("active");
-  $('.books').removeClass("isVisible");
-  $('.product-design').addClass("isVisible");
-}
-function showUXList() {
-  $('.reading-nav-item').removeClass("shift");
-  $('.reading-nav-item').removeClass("active");
-  $('#design-list').css("background", "#FA6900");
-  $('#design-list').css("transform", "translateX(328px)");
-  $('#thinking-list').addClass("shift");
-  $('#product-list').addClass("shift"); 
-  $('#ux-list').addClass("shift"); 
-  $('.reading-nav-wrapper.lg #ux-list').addClass("active");
-  $('.reading-nav-wrapper.md #ux-list').addClass("active");
-  $('.books').removeClass("isVisible");
-  $('.ux-design').addClass("isVisible");
-}
-function showVisualList() {
-  $('.reading-nav-item').removeClass("shift");
-  $('.reading-nav-item').removeClass("active");
-  $('#design-list').css("background", "#3af3ab");
-  $('#design-list').css("transform", "translateX(430px)");
-  $('#thinking-list').addClass("shift");
-  $('#product-list').addClass("shift"); 
-  $('#ux-list').addClass("shift");
-  $('#visual-list').addClass("shift");
-  $('.reading-nav-wrapper.lg #visual-list').addClass("active");
-  $('.reading-nav-wrapper.md #visual-list').addClass("active");
-  $('.books').removeClass("isVisible");
-  $('.visual-design').addClass("isVisible");
-}
-function showResearchList() {
-  $('.reading-nav-item').removeClass("shift");
-  $('.reading-nav-item').removeClass("active");
-  $('#design-list').css("background", "violet");
-  $('#design-list').css("transform", "translateX(438px)");
-  $('#thinking-list').addClass("shift");
-  $('#product-list').addClass("shift"); 
-  $('#ux-list').addClass("shift");
-  $('#visual-list').addClass("shift");
-  $('.reading-nav-wrapper.lg #research-list').addClass("active");
-  $('.reading-nav-wrapper.md #research-list').addClass("active");
-  $('.books').removeClass("isVisible");
-  $('.design-research').addClass("isVisible");
-}
-showThinkingList();
+//function showThinkingList() {
+//  $('#design-list').css("transform", "translateX(0px)");
+//  $('.reading-nav-item').removeClass("shift");
+//  $('.reading-nav-item').removeClass("active");
+//  $('#design-list').css("background", "black");
+//  $('.reading-nav-wrapper.lg #thinking-list').addClass("active");
+//  $('.reading-nav-wrapper.md #thinking-list').addClass("active");
+//  $('.books').removeClass("isVisible");
+//  $('.design-thinking').addClass("isVisible");
+//}
+//function showProductList() {
+//  $('.reading-nav-item').removeClass("shift");
+//  $('.reading-nav-item').removeClass("active");
+//  $('#design-list').css("background", "red");
+//  $('#design-list').css("transform", "translateX(270px)");
+//  $('#thinking-list').addClass("shift");
+//  $('#product-list').addClass("shift");
+//  $('.reading-nav-wrapper.lg #product-list').addClass("active");
+//  $('.reading-nav-wrapper.md #product-list').addClass("active");
+//  $('.books').removeClass("isVisible");
+//  $('.product-design').addClass("isVisible");
+//}
+//function showUXList() {
+//  $('.reading-nav-item').removeClass("shift");
+//  $('.reading-nav-item').removeClass("active");
+//  $('#design-list').css("background", "#FA6900");
+//  $('#design-list').css("transform", "translateX(328px)");
+//  $('#thinking-list').addClass("shift");
+//  $('#product-list').addClass("shift"); 
+//  $('#ux-list').addClass("shift"); 
+//  $('.reading-nav-wrapper.lg #ux-list').addClass("active");
+//  $('.reading-nav-wrapper.md #ux-list').addClass("active");
+//  $('.books').removeClass("isVisible");
+//  $('.ux-design').addClass("isVisible");
+//}
+//function showVisualList() {
+//  $('.reading-nav-item').removeClass("shift");
+//  $('.reading-nav-item').removeClass("active");
+//  $('#design-list').css("background", "#3af3ab");
+//  $('#design-list').css("transform", "translateX(430px)");
+//  $('#thinking-list').addClass("shift");
+//  $('#product-list').addClass("shift"); 
+//  $('#ux-list').addClass("shift");
+//  $('#visual-list').addClass("shift");
+//  $('.reading-nav-wrapper.lg #visual-list').addClass("active");
+//  $('.reading-nav-wrapper.md #visual-list').addClass("active");
+//  $('.books').removeClass("isVisible");
+//  $('.visual-design').addClass("isVisible");
+//}
+//function showResearchList() {
+//  $('.reading-nav-item').removeClass("shift");
+//  $('.reading-nav-item').removeClass("active");
+//  $('#design-list').css("background", "violet");
+//  $('#design-list').css("transform", "translateX(438px)");
+//  $('#thinking-list').addClass("shift");
+//  $('#product-list').addClass("shift"); 
+//  $('#ux-list').addClass("shift");
+//  $('#visual-list').addClass("shift");
+//  $('.reading-nav-wrapper.lg #research-list').addClass("active");
+//  $('.reading-nav-wrapper.md #research-list').addClass("active");
+//  $('.books').removeClass("isVisible");
+//  $('.design-research').addClass("isVisible");
+//}
+//showThinkingList();
 
 domLoad ();
 
