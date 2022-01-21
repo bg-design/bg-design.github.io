@@ -90,6 +90,7 @@ p.overlay-copyright {
   font-family:'Lato',sans-serif;
   bottom: 0;
   font-size: 14px;
+text-align: center
 }
 
 .dark-mode p.overlay-copyright {
@@ -116,6 +117,9 @@ p.overlay-copyright {
   color: #777;
   transition: 0.5s;
   z-index: 99999;
+    font-family: 'Lato';
+    color: #a5283fb5;
+    font-weight: 200;
 }
 
 .closebtn:hover {
@@ -150,7 +154,9 @@ p.overlay-copyright {
 @media screen and (max-width:600px) {
     
     #overlay-nav a {
-        left: 0;
+            position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     }
 
   #menu-icon {
@@ -158,23 +164,13 @@ p.overlay-copyright {
     left:0;
   }
 
-  p.overlay-copyright 
-  {
-    left:0;
-    margin-left: 7%;
-    font-size:14px;
-  }
   .overlayBG {
     background-position: right top;
   }
-}
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
+    
+    .overlay .closebtn {
+    font-size: 50px;
+    top: 0;
+    right: 20px;
   }
 }
