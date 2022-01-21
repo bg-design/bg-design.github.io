@@ -16,7 +16,11 @@
  	<link rel="stylesheet" href="CSS/testimonials.css">
 	
 	<style>
-
+        .resume-date {
+            color: grey;
+            font-size: 12px;
+            line-height: 1.5;
+        }
 </style>
 
 </head>
@@ -160,7 +164,7 @@
 
 		<h1 class="clear">Experience</h1>
 
-		<p class="when-titles"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right when-time">Dec. '17 — <strong>present</strong> &#160;&#160;<span class="position-length"></span></span></p>
+		<p class="when-titles"><strong>Principal</strong>: Nuanced Design (Freelance)<span class="float-right when-time">Dec. '17 — <strong>present</strong> &#160;&#160;<span class="position-length">(<span id="ND-year"></span> yrs. <span id="ND-month"></span> )</span></span></p>
 
 		<div class="">
 			<p class="body">I&#39;m here to tell your story. I&#39;m here to work out usability bugs. I&#39;m here to rebrand your idea. I&#39;m here to find all the ways that your product can be better, more beautiful, simpler, generate more business, and improve peoples' lives. Whether it's just an idea in your head or fully developed, I'm here to help.</p>
@@ -234,7 +238,7 @@
 
 	<div id="testimonial-import"></div>
 	<div class="flexbox clear">
-				<a href="Resume/Ben-Grandy-Resume-2.6.2019.pdf" target="_blank" class="button" id="download-resume">Download Résumé</a>
+				<a href="Resume/Theo-Resume-2022.pdf" target="_blank" class="button" id="download-resume">Download Résumé<br/><span class="resume-date">(updated Jan. 2022)</span></a>
 	</div>
 <!-- 	<div class="bottom-nav">
 		<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='about.html'">< Who I am</button>
@@ -415,6 +419,19 @@ for (i = 0; i < coll.length; i++) {
     } 
   });
 };
+    
+    
+// ND Total time
+ document.getElementById("ND-year").innerHTML = (new Date().getFullYear())-2018;
+  let mos = new Date().getMonth()+1;
+    if (mos == 1) {
+        mos = '1 mo.'
+    }
+    else {
+        mos = mos + ' mos.'
+    }
+ document.getElementById("ND-month").innerHTML = mos;
+    
 
 </script>
 
