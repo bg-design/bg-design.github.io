@@ -1017,10 +1017,6 @@ section {
 			z-index: 2;
 		}
 
-.dark-mode .scroll-progress {
-	border-top:1px solid black;
-}
-
 .what-bg {
 /*	background: linear-gradient(140deg, rgb(43, 227, 215) 28.99%, rgb(79, 154, 255));*/
 /*	background-color: rgba(50, 120, 245, 0.15 );*/
@@ -1450,16 +1446,6 @@ cite p {color:white;}
 	padding:15px;
 }
 
-	body {
-
-/*		background: rgb(221, 221, 221);
-*/
-	}
-
-	body.dark-mode {
-		background: rgba(31, 31, 35, 1);
-	}
-
 	h1 {
 		padding: 0px 0 10px 0;
 		margin-top:20px;
@@ -1472,10 +1458,6 @@ padding: 15px;
 }
 
 .dottedBox.recommendations {margin: 0 auto;}
-
-.dark-mode .dottedBox {
-	background:#1f1f20;
-}
 
 .dark-mode .dottedBox p, .dark-mode .text-wrapper p {
     color: white;

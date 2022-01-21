@@ -32,13 +32,13 @@ figure.testimonials figcaption {
   left: 0;
   width: 60%;
   position: absolute;
-  background-color: #4f4f4f;
+  background-color: #484848;
   border-radius: 8px;
   transition: 1s;
 }
 
 .dark-mode figure.testimonials figcaption {
-	background: rgb(78, 78, 78);
+	background: rgb(32 32 32);
 	transition: 1s;
 	color: white;
 }
