@@ -1853,11 +1853,6 @@ padding: 15px;
 		margin-top:10px;
 	}
 
-	figure.testimonials blockquote {
-		font-size:18px;
-		padding: 20px 15px 10px 25px;
-	}
-
 	#exEdBox {
     padding: 10px;
 	}
@@ -1874,9 +1869,8 @@ padding: 15px;
 		font-size: 12px;
 	}
 
-	#fig1, #fig2, #fig3, #fig4, #fig5 {
-		width: 90%;
-        max-width: 400px;
+	.testimonials figcaption {
+		width: 95% !important;
 		border-radius: 8px;
         margin: 12px;
 	}
@@ -1911,10 +1905,6 @@ padding: 15px;
 	.collapsible:before {
 		font-size:40px;
 	}
-
-	.author span {
-		font-size:19px;
-	}
     
     #client-talking {
         padding: 10px;
@@ -1936,10 +1926,6 @@ padding: 15px;
 	}
 	.number {
 		font-size:50px;
-	}
-
-	figure.testimonials blockquote {
-		font-size:16px;
 	}
 
 	#skills-wrapper h4 {

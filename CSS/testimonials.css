@@ -169,4 +169,23 @@ margin-bottom: 20px;
 	border-bottom: 1px solid white;
 }
 
+@media screen and (max-width : 950px)   {
+
+	figure.testimonials blockquote {
+		font-size:18px;
+		padding: 20px 15px 10px 25px;
+	}
+}
+
+@media screen and (max-width : 600px)   {
+
+	figure.testimonials blockquote {
+		font-size:16px;
+	}
+    
+    .author span {
+		font-size:19px;
+	}
+
+}
 /*  END Recommendations  */
