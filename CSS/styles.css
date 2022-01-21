@@ -1015,7 +1015,6 @@ section {
 			position: fixed;
 			bottom: 0;
 			z-index: 2;
-			border-top:1px solid white;
 		}
 
 .dark-mode .scroll-progress {
@@ -1061,7 +1060,6 @@ section {
    0% { width: 0; }
    100% { width: inherit; }
 }
-
 
 .pop {
 	opacity: 0;

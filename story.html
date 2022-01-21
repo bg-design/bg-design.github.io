@@ -1,4 +1,4 @@
-<!-- Written by hand, from scratch, designed and coded by Ben Grandy with love in San Francisco. -->
+<!-- Designed and coded with love by Theo. -->
 
 <!DOCTYPE html>
 <html class="isArrowable" lang="en-us">
@@ -6,17 +6,14 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>My Story</title>
-	
+	<title>My Story</title>	
     <link rel="stylesheet" href="CSS/global.css" media="screen">
 	<link rel="icon" type="image/png" href="IMG/favicon.png">
-
 	<style>
-
-
-/*#story-loading {
-	background: #e4c9e4;
-}*/
+        
+        .scroll-progress {
+            background: #e34664;
+        }
 
 .dark-mode html {
 	background: #21262d;
@@ -26,12 +23,7 @@
 	width: 50%;
 	padding: 20px;
 	float:right;
-
 }
-
-/*		.dark-mode .story-text {
-	background: rgba(255,255,255,.7);
-}*/
 
 #story-chat {
 	text-decoration: underline;
@@ -45,7 +37,6 @@
 	transition: 1s;
 }
 
-
 .cd-fixed-bg {
   position: relative;
   min-height: 70vh;
@@ -55,7 +46,6 @@
   background-position: left;
   width: 50%;
 }
-
 
 .cd-fixed-bg.cd-fixed-bg--1 {
   background-image: url("IMG/when-slideshow/landscape-architecture-UCD3.jpg");
@@ -71,10 +61,6 @@
 
 .cd-fixed-bg.cd-fixed-bg--4 {
   background-image: url("IMG/story/lying-down.jpg");
-}
-
-.story-text .home-links {
-
 }
 
 .story-text p {
@@ -181,7 +167,6 @@
 			}
 }
 
-
 	</style>
 </head>
 <body>
@@ -196,6 +181,7 @@
         <div class="loader__ball"></div>
       </div>
 </div>
+<div class="scroll-progress"></div>
 
 	<main>
 		<div class="story-text">
@@ -217,13 +203,6 @@
 			 
 			<p>My current freelance work offers a breath of opportunity to solve many different problems, whereas working internally for a company allows a great depth of experience with a single product. I decided to freelance so I could gain this breath of experience. I have now designed countless logos, desktop experiences, mobile experiences, websites, and worked with over a dozen happy clients. </p>
             <br/>
-
-			<div class="home-links">
-                <a class="float-left clear hp-contact" href="index.html#Contact" id="">Let's Chat</a>
-				<a class="float-right clear hp-cv" href="cv.html" id="">Résumé ></a>
-				<a class="float-right clear hp-philosophy" href="philosophy.html" id="">Design Philosophy ></a>
-			</div>
-
 		</div>
 
 		<div class="cd-fixed-bg cd-fixed-bg--1">
@@ -239,6 +218,17 @@
 		</div> <!-- cd-fixed-bg -->
 
 		<div class="clear"></div>
+        
+        <div class="home-links" id="bottom-links">
+            
+        <div class="bottom-links-wrapper">
+            <a class="hp-cv" href="cv.html">Résumé</a>
+            <a class="hp-philosophy" href="philosophy.html">Design Philosophy</a>
+            <a class="hp-portfolio" href="index.html#TrendGraphix">Portfolio</a>
+            <a class="hp-testimonials" href="index.html#Testimonials">Testimonials</a>
+            <a class="hp-contact" href="index.html#Contact">Contact</a>
+        </div>
+      </div> 
 
 		<!--   Keyboardable -->
 <div class="keyboardable" onclick="">
@@ -263,11 +253,6 @@
 					<span id="email-btn"><a href="index.html#Contact"><img src="IMG/footer/email-icon.png" class="social-icon"></a></span>
 					<span><a href="https://www.linkedin.com/in/nuanced-design/" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></a></span>
 					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></a></span>
-<!--
-					<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></a></span>
-					<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></a></span>
-					<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></a></span>
--->
 				</div>
 		</div>
 	</div>
@@ -275,14 +260,7 @@
 	<div id="footer-import"></div>
 </footer>
 
-
 <div id="menu-import"></div>
-
-<!-- Trigger/Open The Modal -->
-<!--<button id="myBtn" class="chatIcon"><img src="https://nuanced.design/IMG/chat-icon-filled.png"/></button> -->
-
-
-<!-- <div id="contact-import"></div> -->
 
 <script src="JS/global.js"></script>
 
@@ -316,9 +294,7 @@ $( document ).ready(function() {
 
 domLoad ();
 
-
 </script>
-
 <script src="JS/contact-modal-story.js"></script>
 </body>
 </html>

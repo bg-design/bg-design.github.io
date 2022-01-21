@@ -98,7 +98,6 @@
 	top: 10%;
 	left: 9%;
 	color: white;
-	background: rgb(31 31 35 / 91%);
 	width: 35%;
 	padding: 20px;
 	 -webkit-backdrop-filter: blur(10px);
@@ -113,7 +112,9 @@
 .welcome > *, .welcome-links > * {
 	color: white;
 }
-
+        .dark-mode .welcome {
+            	background: rgb(31 31 35 / 91%);
+        }
 .project-info {
 	position: relative;
 	top:25%;
@@ -461,6 +462,7 @@ header {
 #fullpage h3 {
     max-width: 300px;
     margin: 30px auto;
+    color: #828ef6;
 }
         
 /* Contact Form */
@@ -527,7 +529,7 @@ form p {
     width: 100%;
     color: black;
     border: 0;
-    background: rgb(133, 204, 255);
+    background: #828ef6;
     margin: 0;
     padding: 10px;
     font-weight: 500;
@@ -843,11 +845,6 @@ display: none;
 		background: rgba(31, 31, 35, 1);
 ;
 	}
-
-/*@media screen and (max-width: 415px){
-
-#fp-nav {opacity: 0}
-}*/
 
 	</style>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>

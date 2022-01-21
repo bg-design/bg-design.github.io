@@ -1,4 +1,4 @@
-<!-- Designed and hand coded by Theo Grandy with love in California. -->
+<!-- Designed and hand coded by Theo Grandy with love. -->
 
 <!DOCTYPE html>
 <html class="isArrowable" lang="en-us">
@@ -25,6 +25,10 @@
         #ND-experience {
             background: #555;
         }
+        
+        .scroll-progress {
+            background: #f79f5a;
+        }
 </style>
 
 </head>
@@ -35,21 +39,9 @@
 			<div class="loader__ball"></div>
 			<div class="loader__ball"></div>
 		</div>
-	</div>
-<!-- 	<nav class="navbar" id="mainNav">
-  		<div class="container nav-wrapper">
-  		  	<div class="hamburger" onclick="showNav()"><img src="IMG/menu.png"/ class="ham-menu"></div>
-			<img class="logo" src="IMG/ben-grandy-sig.png">
-			<ul class="nav-menu">
-				<li><a href="index.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="cv.html" id="active">CV</a></li><li><a href="philosophy.html">Philosophy</a></li>
-			</ul>
-		</div>
-		<hr>
-	</nav> -->
- 
+	</div> 
 	<div class="scroll-progress"></div>
-<!-- 	<div class="nav-spacer"></div>
- -->
+
 <div class="container first-copy">
 
   	<section class="skills clear when">
@@ -64,47 +56,7 @@
 						<p><strong> Frontend Dev. / </strong></p>
 						<p>n <strong> Interaction</strong></p>
 					</span>
-				</div>
-<!-- <div class="dottedBox">
-	<h1 class="fade-in four clear">Accomplishments</h1>
-	<div class="circles">
-		<div class="circle-bg" id="design-yrs">
-			<div class="circle">
-			<p><span class="number">10</span> yrs.<br/><span class="circle-copy">of design<br/>experience</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="web-yrs">
-			<div class="circle">
-			<p><span class="number">8</span> yrs.<br/><span class="circle-copy">building<br/>websites</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="ux-yrs">
-			<div class="circle">
-			<p><span class="number">3</span> yrs.<br/><span class="circle-copy">as a UX<br/>practitioner</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="web-dev-projects">
-			<div class="circle">
-			<p><span class="number">15</span><br/><span class="circle-copy">desktop<br/>experiences</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="mobile-apps">
-			<div class="circle">
-			<p><span class="number">7</span><br/><span class="circle-copy">mobile<br/>experiences</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="logos">
-			<div class="circle">
-			<p><span class="number">21</span><br/><span class="circle-copy">logos<br/>designed</span></p>
-			</div>
-		</div>
-		<div class="circle-bg" id="clients">
-			<div class="circle">
-			<p><span class="number">10</span><br/><span class="circle-copy">happy<br/>clients</span></p>
-			</div>
-		</div>
-	</div>
-</div> -->		
+				</div>	
 
 <div class="dottedBox">
 
@@ -239,17 +191,21 @@
 		<li>I'm not afraid to be wrong.</li>
 	</ul>
 </div>
-
 	<div id="testimonial-import"></div>
 	<div class="flexbox clear">
 				<a href="Resume/Theo-Resume-2022.pdf" target="_blank" class="button" id="download-resume">Download Résumé<br/><span class="resume-date">(updated Jan. 2022)</span></a>
 	</div>
-<!-- 	<div class="bottom-nav">
-		<button class="float-left hvr-sweep-to-left who-button" onClick="parent.location='about.html'">< Who I am</button>
-		<button class="float-right hvr-sweep-to-right why-button" onClick="parent.location='philosophy.html'">My Philosophy ></button>
-	</div> -->
-
 </div>
+<div class="home-links" id="bottom-links">
+            
+        <div class="bottom-links-wrapper">
+            <a class="hp-story" href="story.html" onclick="closeNav()">My Story</a>
+            <a class="hp-philosophy" href="philosophy.html">Design Philosophy</a>
+            <a class="hp-portfolio" href="index.html#TrendGraphix" onclick="closeNav()">Portfolio</a>
+            <a class="hp-testimonials" href="index.html#Testimonials" onclick="closeNav()">Testimonials</a>
+            <a class="hp-contact" href="index.html#Contact" onclick="closeNav()">Contact</a>
+        </div>
+      </div> 
 
 <footer>
 	<div class="container">
@@ -262,21 +218,11 @@
 	  				</label>
 	  				<img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
 	        </span>
-<!--
-	        <div class="lets-talk">
-	          <h3 class="linear-wipe" id="rainbow-btn">Let's chat</h3>
-	          <div class="talk-gradient" id="rect-gradient"></div>
-	        </div>
--->
+
 				<div class="social-icons float-right">
 					<span id="email-btn"><a href="index.html#Contact"><img src="IMG/footer/email-icon.png" class="social-icon"></a></span>
 					<span><a href="https://www.linkedin.com/in/nuanced-design/" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></a></span>
 					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></a></span>
-<!--
-					<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></a></span>
-					<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></a></span>
-					<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></a></span>
--->
 				</div>
 		</div>
 	</div>
@@ -298,7 +244,6 @@
 </div>
 
 <div id="menu-import"></div>
-<div id="contact-import"></div>
 
 <script src="JS/global.js"></script>
 
@@ -310,9 +255,6 @@ $( document ).ready(function() {
     
 	// Load footer
 	$("#footer-import").load("footer-dark-mode.html"); 
-
-	// Load Chat Icon
-//	$("#contact-import").load("contact-modal.html");
 
 	// Load main menu
 	$("#menu-import").load("menu.html");
@@ -424,7 +366,6 @@ for (i = 0; i < coll.length; i++) {
   });
 };
     
-    
 // ND Total time
  document.getElementById("ND-year").innerHTML = (new Date().getFullYear())-2018;
   let mos = new Date().getMonth()+1;
@@ -436,8 +377,6 @@ for (i = 0; i < coll.length; i++) {
     }
  document.getElementById("ND-month").innerHTML = mos;
     
-
 </script>
-
 </body>
 </html>
