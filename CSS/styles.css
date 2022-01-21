@@ -580,7 +580,7 @@ h5 {
 }
 p  {
 	font-family: 'Cardo', serif;
-	font-size: 18px;
+	font-size: 20px;
     line-height: 1.5em;
 	color: rgb(47, 47, 47);
 	letter-spacing: .5px;
@@ -834,7 +834,7 @@ p a::selection {
 	text-align: center;
     clear: both;
     color: rgb(185, 185, 185);
-    font-size: 13pt;
+    font-size: 14px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -1680,6 +1680,7 @@ padding: 15px;
 .when-titles {
 	font-family: 'Lato', sans-serif;
 	font-weight: 500;
+    color: white;
 }
 .when p{
 	line-height: 1.7em;

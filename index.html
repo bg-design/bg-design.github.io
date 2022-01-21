@@ -103,6 +103,7 @@
 	 -webkit-backdrop-filter: blur(10px);
 	 border-radius: 15px;
 	 min-width: 340px;
+    background: rgba(128, 128, 128, 0.68);
 }
         
         .top-title {
@@ -113,7 +114,7 @@
 	color: white;
 }
         .dark-mode .welcome {
-            	background: rgb(31 31 35 / 91%);
+            	background: rgb(31 31 35 / 74%);
         }
 .project-info {
 	position: relative;
@@ -222,17 +223,6 @@
 /* Default set to none so doesn't display on loading screen */
 #fp-nav {
 	transition: 0.5s;
-}
-
-#fullpage .copyright {
-	position: relative;
-    bottom: 55px;
-    color: rgb(151, 151, 151);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    padding: 0;
-    color: grey !important;
 }
 
 #what-nav {
@@ -527,7 +517,7 @@ form p {
 #submit-contact {
     border-radius: 0 0 12px 12px;
     width: 100%;
-    color: black;
+    color: white;
     border: 0;
     background: #828ef6;
     margin: 0;
@@ -562,12 +552,6 @@ form p::-moz-selection {
         
         #otherField {
             display: none;
-        }
-
-        
-        #fullpage footer p {
-            font-family: Lato, sans-serif;
-            color: white;
         }
         
         footer {
@@ -989,11 +973,9 @@ display: none;
 					<span id="email-btn"><a href="index.html#Contact"><img src="IMG/footer/email-icon.png" class="social-icon"></a></span>
 					<span><a href="https://www.linkedin.com/in/nuanced-design/" target="_blank"><img src="IMG/footer/linked-in-icon.png" class="social-icon"></a></span>
 					<span><a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" class="social-icon"></a></span>
-<!--					<span><a href="https://dribbble.com/bpgrandy" target="_blank"><img src="IMG/footer/dribbble-icon.png" class="social-icon"></a></span>-->
-<!--					<span><a href="https://medium.com/@bpgrandy" target="_blank"><img src="IMG/footer/medium-icon.png" class="social-icon"></a></span>-->
-<!--					<span><a href="https://www.instagram.com/nuanced.design/" target="_blank"><img src="IMG/footer/instagram-icon.png" class="social-icon"></a></span>-->
 				</div>
 		</div>
+        <p class="copyright">&copy; 2010-<span id="current-year"></span> All Rights Reserved.</p>
 	</div>
 
 </footer>
