@@ -41,6 +41,11 @@
   background: black;
 }
 
+#overlay-nav {
+    opacity: 0;
+    transition: 0.2s;
+}
+
 #overlay-nav ul {
   padding: 0 0 20px 20px;
   display: table;

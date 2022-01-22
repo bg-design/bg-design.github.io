@@ -3,7 +3,7 @@
 
 #clients-talking {
 	padding: 30px 0 25px 0;
-	color: black;
+	color: #40c9f1;
 }
 
 .dark-mode #clients-talking {
@@ -45,12 +45,12 @@ figure.testimonials figcaption {
 
 figure.testimonials .arrow {
   top: 45px;
-  left: 100%;
+  left: 99.9%;
   width: 0;
   height: 0;
   border-left: 0 solid transparent;
   border-right: 25px solid transparent;
-  border-top: 25px solid #4f4f4f;
+  border-top: 25px solid #484848;
   margin: 0;
   position: absolute;
   transition: 1s;
@@ -116,8 +116,6 @@ figure.testimonials .author h5 {
 	border:1px solid black;
 }
 
-
-
 #figA {width: 80%}
 #figC {width: 76%}
 #figD {width: 75%}
@@ -159,7 +157,7 @@ figure.testimonials .author h5 {
 font-family: 'Lato', sans-serif;
 float: right;
 font-weight: 300;
-border-bottom: 1px solid black;
+border-bottom: 1px solid #40c9f1;
 padding: 10px;
 margin-bottom: 20px;
 }

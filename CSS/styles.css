@@ -533,8 +533,8 @@ nav li {
 }
 
 .hp-testimonials {
-	background-image: linear-gradient(to bottom, transparent 65%, #5ad3f7 10%);
-	border-bottom: 4px solid #5ad3f7;
+	background-image: linear-gradient(to bottom, transparent 65%, ##40c9f1 10%);
+	border-bottom: 4px solid #40c9f1;
 }
 
 .hp-contact {
@@ -613,18 +613,11 @@ a {text-decoration: none;
 
 p a  {
 	color: black;
-    border-bottom: 1px solid #08c7ff;
+    border-bottom: 1px solid #40c9f1;
     transition:.5s ease-out .5s, 1s;
-/*    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(rgb(8, 199, 255), rgb(8, 199, 255));
-*/    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-repeat: no-repeat, no-repeat, repeat-x;
     cursor: pointer;
-/*    text-shadow: -2px 0 0 #fff, 0 2px 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
-*/
-/*    background-position: 0% 94%, 100% 94%, 0% 94%;
-*/    text-decoration: none;
-/*    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;*/
+    text-decoration: none;
 }
 
 a:link {
@@ -637,13 +630,11 @@ a:link {
 }
 
 p a:hover {
-    color: #08c7ff;
+    color: #40c9f1;
     transition:.2s ease-in .2s, .3s;
-/*	border-bottom: 1px solid rgba(23, 23, 23,0);
-*/    padding-bottom: 3px;
+  padding-bottom: 3px;
     text-shadow: unset;
     background: none;
-/*     border-bottom: 5px solid rgba(8, 199, 255,.4); */
 	border-bottom-style: dashed;
 }
 

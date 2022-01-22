@@ -61,12 +61,14 @@ $(function(){
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
   $('html').css("overflow", "hidden");
+    document.getElementById("overlay-nav").style.opacity = "1";
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
   $('html').css("overflow", "auto");
+    document.getElementById("overlay-nav").style.opacity = "0";
 }
 
   // Scroll listener
