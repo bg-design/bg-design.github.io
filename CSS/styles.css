@@ -813,6 +813,12 @@ p a::selection {
 	height: 35px;
 	background-size: 100% auto;
 	filter:invert(3%);
+    margin-left: 3px;
+}
+
+.social-icon::before {
+    background: white;
+    border-radius: 100%;
 }
 
 .social-icon:hover {
