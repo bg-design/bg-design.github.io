@@ -57,7 +57,7 @@ figure.testimonials .arrow {
 }
 
 .dark-mode figure.testimonials .arrow {
-	 border-top: 25px solid rgb(78, 78, 78);
+	 border-top: 25px solid #202020;
 	 transition: 1s;
 }
 
