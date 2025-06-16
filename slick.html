@@ -1,0 +1,210 @@
+<!-- Designed and hand coded by Theo Grandy with love. -->
+<!DOCTYPE html>
+<html class="isArrowable" lang="en-us">
+<head>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Porfolio</title>
+    <link rel="stylesheet" href="CSS/global.css" media="screen">
+	<link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png">
+    
+    <link rel="stylesheet" type="text/css" href="CSS/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/slick-theme.css"/>
+    
+    <style>
+        
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .projectTile {
+            background: white;
+            border: solid black 0px; 
+	       box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+            -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); 
+            -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        
+        .projectTile img {
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .projectInfo {
+            padding: 10px;
+        }
+        
+        .featuredProjects h3 {
+            font-size:1.5rem;
+            margin-top:0;
+            padding-top:0;
+            height: 50px;
+        }
+        
+        .featuredProjects p {
+            padding: 10px 5px;
+            height: 140px;
+            font-size: 1.1rem;
+        }
+    
+    </style>
+  </head>
+  <body> 
+<div class="container">
+    <h2>Featured Projects</h2>
+  <div class="featuredProjects">
+    <div class="projectTile">
+        <img src="IMG/blacktie-brothers-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Blacktie Brothers</h3>
+            <p>Wedding photography business launched in October, 2022.</p>
+            <button><a href="https://blacktiebrothers.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/theos-savory-sauces-bbq-artisan-sauces-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Theo's Savory Sauces</h3>
+            <p>Full site design and build from scratch. Launched in November, 2022.</p>
+            <button><a href="https://theossavorysauces.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/slaughterland-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Slaughterland</h3>
+            <p>Optimized the website increasing speed 4x and designed many new assets for the redesign.</p>
+            <button><a href="https://slaughterland.com/" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/hidden-lake-resort-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Hidden Lake Resort</h3>
+            <p>Designed and custom built website, integrated with iGMS booking to be on all major rental platforms.</p>
+            <button><a href="https://hiddenlakeresortpa.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/blackfern-media-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Blackfern Media</h3>
+            <p>Nuanced Design is partnered with Blackfern Media. Designed and built the site, launched May, 2022.</p>
+            <button><a href="https://blackfernmedia.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/trendgraphix-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Trendgraphix</h3>
+            <p>Worked with a marketing professional to do a full redesign of Trendgraphix marketing website and custom-coded it.</p>
+            <button><a href="https://trendgraphix.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+    <div class="projectTile">
+        <img src="IMG/lilypad-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Lilypad</h3>
+            <p>Created a 3D scan, produced videos, created infographics, and a website to explain why people should build high-performance homes.</p>
+            <button><a href="https://lilypad.house" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+      <div class="projectTile">
+        <img src="IMG/gather-facilitation-thumbnail.jpg" />
+        <div class="projectInfo">
+            <h3>Gather Facilitation</h3>
+            <p>Designed and custom coded from scratch. Launched in March, 2020.</p>
+          <button><a href="https://gatherfacilitation.com" target="_blank">Visit Site</a></button>
+        </div>
+    </div>
+  </div>  
+</div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.featuredProjects').slick({
+          dots: true,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrows: false
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false
+              }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+      ]});  
+      });
+
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    // because unescape has been deprecated, replaced with decodeURI
+    //return unescape(dc.substring(begin + prefix.length, end));
+    return decodeURI(dc.substring(begin + prefix.length, end));
+}
+      
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function doSomething() {
+    var myCookie = getCookie("visitedBTB");
+    if (myCookie == null) {
+        // do cookie doesn't exist stuff;
+        setCookie("visitedBTB", name, 1);
+    }
+    else {
+        // do cookie exists stuff
+    window.location.replace('https://blacktiebrothers.com/home');
+    }
+}
+doSomething();
+  </script>
+  </body>
+</html>

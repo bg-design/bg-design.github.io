@@ -1,0 +1,1217 @@
+<!-- Designed and hand coded by Theo Grandy with love in California. -->
+<!DOCTYPE html>
+<html class="isArrowable" lang="en-us">
+<head>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Nuanced Design</title>
+
+	<link rel="stylesheet" href="CSS/global.css" media="screen">
+	<link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png">
+	
+	<!-- 	3rd Party -->
+	<link rel="stylesheet" type="text/css" href="CSS/fullpage.css"  media="screen"/>
+    <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
+    
+    <link rel="stylesheet" href="CSS/swiper.css">
+	<link rel="stylesheet" href="CSS/owl.carousel.min.css">
+ 	<link rel="stylesheet" href="CSS/owl.theme.default.css">
+ 	<link rel="stylesheet" href="CSS/testimonials.css">
+
+    <script>
+    
+    //PRELOAD HIGH-PRIORITY IMAGES
+    	new Image(0,0).src = '../IMG/splash-bust2.gif';
+      	new Image(0,0).src = '../IMG/Icons/menu-icon.png';
+      	new Image(0,0).src = '../IMG/chat-icon-filled.png';
+    </script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+	<style>
+        
+        .swiper {
+  width: 300px;
+  height: 600px;
+}
+        
+        .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .swiper-slide:nth-child(1n) {
+        background-color: rgb(206, 17, 17);
+      }
+
+      .swiper-slide:nth-child(2n) {
+        background-color: rgb(0, 140, 255);
+      }
+
+      .swiper-slide:nth-child(3n) {
+        background-color: rgb(10, 184, 111);
+      }
+
+      .swiper-slide:nth-child(4n) {
+        background-color: rgb(211, 122, 7);
+      }
+
+      .swiper-slide:nth-child(5n) {
+        background-color: rgb(118, 163, 12);
+      }
+
+      .swiper-slide:nth-child(6n) {
+        background-color: rgb(180, 10, 47);
+      }
+
+      .swiper-slide:nth-child(7n) {
+        background-color: rgb(35, 99, 19);
+      }
+
+      .swiper-slide:nth-child(8n) {
+        background-color: rgb(0, 68, 255);
+      }
+
+      .swiper-slide:nth-child(9n) {
+        background-color: rgb(218, 12, 218);
+      }
+
+      .swiper-slide:nth-child(10n) {
+        background-color: rgb(54, 94, 77);
+      }
+    
+        body.dark-mode {
+            background: #343434;
+        }
+        .home-links a {
+                color: white;
+        }
+
+	h4 {
+		margin: 0 0 0 10px;
+    	padding: 13px 0 0px 0;
+	}
+
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section {
+	text-align:center;
+    transition: 0.5s;
+}
+
+/* Backgrounds will cover all the section
+* --------------------------------------- */
+.section, .slide {
+	background-size: contain;
+	background-attachment: fixed;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+        
+.portfolio {
+        background-position-x: 60px;
+}
+	/* Defining each section background and styles
+}
+* --------------------------------------- */
+#section0 {
+	background-image: url(IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg);
+	padding: 0;
+	background-size:contain;
+	z-index: 99;
+}
+
+#section1 {
+	background-image: url(IMG/BlackfernMedia-mock.jpg);
+	padding: 0;
+}        
+        
+#section2 {
+	background-image: url(IMG/Home-Portfolio/Trendgraphix-mock.png);
+	padding: 0;
+}
+
+#section3 {
+	background-image: url(IMG/Home-Portfolio/Gather-mock.png);
+	padding: 0;
+}
+
+#section4 {
+	padding: 0;
+}
+#section5 {
+	padding: 0;
+}
+
+.welcome {
+	position: relative;
+	top: 10%;
+	left: 9%;
+	color: white;
+	width: 35%;
+	padding: 20px;
+	 -webkit-backdrop-filter: blur(10px);
+	 border-radius: 15px;
+	 min-width: 340px;
+    background: rgba(128, 128, 128, 0.68);
+}
+        
+        .top-title {
+            font-family: 'Lato', sans-serif;
+        }
+
+.welcome > *, .welcome-links > * {
+	color: white;
+}
+        .dark-mode .welcome {
+            	background: rgb(31 31 35 / 74%);
+        }
+.project-info {
+	position: relative;
+	top:25%;
+	left: 10%;
+	width: 400px;
+    z-index: 9;
+}
+        
+#fullpage {
+    background-image:linear-gradient(rgb(4, 5, 6) 0%, rgb(4, 5, 6) 50%, black 80%)
+}
+
+#fullpage hr {
+	border-bottom: 2px solid grey;
+	height: 0;
+	width: 100px;
+	margin: 0 auto;
+}
+
+#fullpage #section0 hr {
+	border-bottom:2px solid #30f2bc;
+}
+
+#fullpage #section1 hr {
+	border-bottom:2px solid #A2E189;
+}
+
+#fullpage #section2 hr {
+	border-bottom:2px solid #04673C;
+}
+
+#fullpage #section3 hr {
+	border-bottom:2px solid #31A28B;
+}
+
+#fullpage #section4 hr {
+	border-bottom:2px solid #7fbce2;
+}
+
+#fullpage #section5 hr {
+	border-bottom:2px solid #f79f5a;
+}
+
+#section0 .project-button, #section0 .project-button:hover {
+	background: #30f2bc;
+}
+
+#section1 .project-button, #section1 .project-button:hover {
+	background: #A2E189;
+}
+
+#section2 .project-button, #section2 .project-button:hover {
+	background: #04673C;
+}
+
+#section3 .project-button, #section3 .project-button:hover {
+	background: #31A28B;
+}
+
+#section4 .project-button, #section4 .project-button:hover {
+	background: #7fbce2;
+}
+
+#section5 .project-button, #section5 .project-button:hover {
+	background: #f79f5a;
+}
+
+#fullpage .project-info .made-in {
+	text-align: center;
+	font-weight: 300;
+	color: rgb(130, 130, 130);
+	font-family: 'Lato', sans-serif;
+	font-size:16px;
+}
+
+.fullpage-wrapper h1 {
+    font-family: 'Lato', Helvetica, sans-serif;
+	color: #333333;
+	font-weight: 700;
+	font-size:40px;
+	padding:20px 0;
+}
+
+.dark-mode .project-info h1, .dark-mode h1 {
+	color: white;
+}
+
+#fullpage .project-info p {
+    font-family: 'Lora', sans-serif;
+	line-height: 1.3em;
+	font-weight: 500;
+	color: #5a5a5a;
+	text-align:center;
+}
+.dark-mode #fullpage .project-info p {
+	color: white;
+}
+
+#fullpage #body-copy {
+	text-align:left;
+}
+.homelinks a {
+	color:white;
+}
+
+.dark-mode #fullpage a {
+	color: white;
+}
+
+/* Default set to none so doesn't display on loading screen */
+#fp-nav {
+	transition: 0.5s;
+}
+
+#what-nav {
+/*	position: absolute;
+*/	background: rgba(255, 255, 255, 0.9);
+	display: initial;
+}
+
+.dark-mode #what-nav {
+	background: rgba(50, 50, 50, 0.9);
+}
+
+.nav-links {
+	height: 60px;
+}
+
+.nav-links a {
+	font-family: 'Lato', sans-serif;
+	font-size: 18pt;
+	letter-spacing: .5px;
+	font-weight: 300;
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+	padding: 15px 0 5px 0;
+	margin:0 15px 15px 15px ;
+}
+
+.nav-links a:hover {
+    transition:.4s ease-in .4s, .4s;
+	border:0;
+	background-size:100% 100%;
+	cursor: pointer;
+}
+
+body {
+  background: #edf1f4;;
+  margin: 0;
+  padding: 0;
+  transition: 1s;
+}
+
+blockquote {
+	color: white;
+	text-align: center;
+}
+
+header {
+	background: rgba(49, 57, 67, .85);
+}
+#top-greeting {
+	font-size: 38px;
+	font-family: 'Lora', serif;
+/*	color: rgb(24, 24, 24);
+	width: 500px;
+*/	padding-left: 10px;
+}
+
+.dark-mode #top-greeting {
+	color: white;
+}
+
+#top-greeting, #text-overlay p {
+	text-align: left;
+}
+#text-overlay {
+	max-width: 500px;
+	display: block;
+}
+
+#full-body {
+	opacity: 0;
+	width: 35%;
+	max-width: 500px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+#body-copy {
+	width: 80%;
+	max-width: 470px;
+}
+
+#brighter-future {
+	font-size: 20px;
+}
+
+#full-body {
+    -webkit-animation-name: body; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: body;
+    animation-duration: 2s;
+    animation-delay: 2.0s;
+    -webkit-animation: body 2s ease-in;
+	-moz-animation: body 2s ease-in;
+	animation: body 2s ease-in;
+	opacity: 1;
+}
+
+.arrows {
+	width: 60px;
+	height: 72px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	bottom: 10px;
+}
+
+.arrows path {
+	stroke:rgba(255, 255, 255, 0.83);
+	fill: transparent;
+	stroke-width: 3px;	
+	animation: arrow 4s infinite;
+	-webkit-animation: arrow 4s infinite; 
+}
+
+.dark-mode .arrows path {
+	stroke: white;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-2.5s;
+	-webkit-animation-delay:-2.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-1.5s;
+	-webkit-animation-delay:-1.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {	
+	animation-delay:-.5s;
+	-webkit-animation-delay:-.5s; /* Safari 和 Chrome */
+}
+
+#scroll-text {
+	transform: rotate(270deg);
+	position: absolute;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	left: 0;
+	bottom: 30px;
+}
+
+#scroll-line {
+	width: 1px;
+	height: 120px;
+	position: absolute;
+	bottom: 0;
+	left: 35px;
+	background: grey;
+}
+
+#feat-work-arrow {
+	position: absolute;
+	bottom: 75px;
+	left: 50%;
+	margin-left: -60px;
+	color: white;
+}
+        .welcome-links {
+		position: relative;
+		right: 0;
+		margin-top:40px;
+	}
+
+	.welcome-links a {
+		position: relative;
+		top: unset !important;
+	}
+    
+        
+.welcome-links .about-story {
+	top:25px;
+	}
+
+.welcome-links .about-cv {
+	top:75px;
+}
+
+.welcome-links .about-philosophy {
+	top:125px;
+}
+
+.projectCurtain {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: calc(15vw + 350px);
+	height: 100vh;
+}
+
+.dark-mode .projectCurtain {
+	background: rgba(31, 31, 35, 1);
+}
+        
+.dark-mode .section {
+    transition:0.5s;
+}
+     
+#fullpage h3 {
+    max-width: 300px;
+    margin: 30px auto;
+    color: #828ef6;
+}
+        
+.owl-carousel .owl-stage-outer {
+    height: 50vh;
+}
+        
+.owl-carousel .owl-item {
+    height: 10vh;
+}
+        
+/* Contact Form */
+form {
+    margin: 0;
+  padding: 30px 0 0 0;
+  position: relative;
+  box-sizing: border-box;
+  font: inherit;
+    background-color: #fefefe;
+    margin: 0 auto; /* 15% from the top and centered */
+    max-width: 500px;
+    top: 10px;
+    border-radius: 15px;
+    z-index: 9;
+}
+
+fieldset {
+	border:0;
+}
+select, textarea {
+    display: block;
+}
+        
+select {
+    width: 130px;
+    margin: 10px auto;
+}
+        
+textarea {
+    width: 80%;
+    margin: 10px auto;
+    height: 40px;
+}
+        
+input {
+	padding: 10px 0;
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+  font: inherit;
+  border: none;
+  outline: none;
+  resize: none;
+  color: black;
+  font-weight: 300;
+}
+
+form p, input, label, select {
+	font-family: Lato, sans-serif;
+	letter-spacing: .7px;
+    font-weight: 300;
+    text-align: center;
+    font-size: 18px;
+}
+
+form p {
+	color: #2b2b2b;
+    font-weight: 300;
+}
+        
+#submit-contact {
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+    color: white;
+    border: 0;
+    background: #828ef6;
+    margin: 0;
+    padding: 10px;
+    font-weight: 500;
+        }
+
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder{ 
+ 	text-decoration: underline;
+ 	font-family: Lato, sans-serif;
+}
+
+#email {
+	max-width: 300px;
+}
+form p::selection {
+  	background: rgba(104, 254, 251, 0.44); 
+		}
+form p::-moz-selection {
+ 	background: rgba(104, 254, 251, 0.44); 
+			}
+form p::selection {
+  	color: red; /* WebKit/Blink Browsers */
+  	background: none;
+
+		}
+form p::-moz-selection {
+ 	color: red; /* Gecko Browsers */
+ 	background:none;
+			}
+        
+        #otherField {
+            display: none;
+        }
+        
+        footer {
+            position: absolute;
+        }
+@media screen and (max-width: 600px) {
+    
+#section5 h1 {
+            padding-top:60px;
+        }
+    
+    textarea {
+        width: 88%;
+    margin: 10px 0 0 9px;
+    }
+  .chatIcon {
+    bottom: unset;
+    left: unset;
+    top: 0;
+    right:0;
+  }
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes body {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@media screen and (max-width: 1350px) {
+	.section {
+		background-size: 85vw;
+	}
+    .portfolio {
+        background-position: 190px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+	.project-info {
+	    top: 45%;
+	    left: 50%;
+	    margin-left: -200px;
+	    background: #fffffff2;
+		border-radius: 20px;
+	}
+	.dark-mode .project-info {
+		background:rgba(31, 31, 32, 1);
+	}
+	.section {
+		background-position: right top;
+		background-size:145%;
+}
+	.projectCurtain {
+		display: none;
+	}
+
+	#fullpage h1 {
+		font-size:34px;
+	}
+
+	#fullpage .project-info p {
+		font-size:18px;
+	}
+
+	#fullpage .project-button {
+		font-size:15px;
+	}
+
+	#fullpage .made-in {
+		font-size:15px;
+	}
+}
+@media screen and (max-width: 1050px) {
+
+	#feat-work-arrow {
+		margin-left: -65px;
+	}
+
+	#top-greeting {
+		font-size:28px;
+	}
+
+	a.welcome-link{
+		font-size:21px;
+	}
+
+	.section {
+		background-position-y: 0;
+	}
+
+	.welcome {
+		top: 8%;
+    	left: 105px;
+	}
+
+}
+        @media screen and (min-width: 769px) {
+            #fullpage h3 {
+            }
+            
+            #section5 .flex {
+                display: flex;
+                align-items: center;
+                padding-top:15%;
+            }
+            
+            form {
+                width: 450px;
+                margin: 0 auto 0 0;
+            }
+        }
+@media screen and (max-width: 730px) {
+	.what-box h1 {
+		font-weight: 300;
+		font-size: 35px;
+	}
+
+	.project-info {
+		top: 45%;
+	}
+	#fp-nav.fp-left {
+		top: 45%;
+	}
+
+		#fullpage h1 {
+		font-size:30px;
+	}
+
+	#fullpage .project-info p {
+		font-size:18px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+    
+    #fp-nav {
+        display: none;
+    }
+    
+    #section0 {
+        background:#cfcfcf;
+    }
+	.copyright {
+		position: relative;
+	    bottom: 5px;
+	    left: 50%;
+	    color: rgb(64, 64, 64);
+	    width: 250px;
+	    margin-left: -125px;
+	}
+
+	.welcome {
+    	left: 0;
+    	width: 100%;
+    	border-radius: 0;
+	}
+    
+    .welcome h2 {
+        margin-top:0;
+    }
+    
+    .welcome-links {
+        margin-top: 20px;
+    }
+    
+    #fullpage .project-info p {
+        font-size: 14px;
+    }
+    
+    #fullpage .project-info .made-in {
+        font-size:revert;
+    }
+    
+    figure.testimonials blockquote {
+        padding: 35px 15px 35px 20px;
+        font-size: 14px;
+    }
+    
+    #view-recs {
+        float: none;
+    }
+
+}
+
+@media screen and (max-width: 542px) {
+	.what-box {border-radius: 0;}
+}
+
+@media screen and (min-width: 431px) {
+    #section4 {
+/*    padding-top:calc(1vw + 10vh);*/
+    }
+}
+@media screen and (max-width: 430px) {
+
+	#fp-nav.fp-left {
+
+	}
+
+	h4 {
+		margin: 0 10px;
+	}
+	blockquote {
+	    	padding: 10px 4px;
+	    	text-align: left;
+	    	line-height: 1.4em;
+	}
+	#body-copy {
+		width: initial;
+	}
+
+	.project-info {
+		border-radius: 0;
+		width: 100%;
+		margin: 0;
+		left: 0;
+	}
+
+	#fullpage h3 {
+		font-size:18px;
+        width:200px;
+        margin: 10px auto;
+        padding-bottom: 0;
+        padding-top: 20px;
+        font-weight: 500;
+	}
+
+	#fullpage .made-in {
+		font-size:10pt;
+	}
+
+	#fullpage .project-button {
+		font-size:14px;
+	}
+    
+    form, #submit-contact {
+        border-radius: 0;
+    }
+}
+        
+@media screen and (max-height: 600px) {
+    footer, .footer-import {
+display: none;
+    }
+        }
+
+@media screen and (max-width: 350px) {
+
+	#top-greeting {
+		font-size:24px;
+	}
+
+	h4, a.welcome-link {
+		font-size:16px;
+	}
+
+	#feat-work-arrow {
+    margin-left: -50px;
+	}
+}
+
+	</style>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+    
+	<script type="text/javascript" src="JS/fullpage.js"></script>
+
+</head>
+<body>
+
+<div class="loading-bg" id="home-loading">
+	<div class="loading-wrapper loader">
+		<div class="loader__ball"></div>
+		<div class="loader__ball"></div>
+		<div class="loader__ball"></div>
+	</div>
+</div>
+
+<div id="fullpage">
+	<div class="section" id="section0">
+		<div class="welcome">
+			 <h2 class="fade-in one" id="top-greeting"><span id="greeting"></span>
+				<!-- <span id="greeting-1">Hello,</span>
+				<span id="greeting-2">Hey,</span>
+				<span id="greeting-3">Greetings,</span>
+				<span id="greeting-5">Howdy,</span>
+				<span id="greeting-6">Hi there,</span> --><br/> I’m Theo.</h2>
+			<div id="rect-gradient"></div>
+
+
+			<p class="fade-in two top-title">UX &amp; Web Designer/Developer</p>
+			<p class="fade-in three top-title">Let's collaborate &amp; make something wonderful.</p>
+
+			<div class="welcome-links home-links">
+				<h4><a class="fade-in four hp-story welcome-link" href="story.html" >My Story ></a></h4>
+				<h4><a class="fade-in five hp-cv welcome-link" href="cv.html" >Résumé ></a></h4>
+				<h4><a class="fade-in six hp-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
+                <h4><a class="fade-in six hp-portfolio welcome-link" href="#TrendGraphix">Portfolio ></a></h4>
+                <h4><a class="fade-in six hp-testimonials welcome-link" href="#Testimonials">Testimonials ></a></h4>
+                <h4><a class="fade-in six hp-contact welcome-link" href="#Contact">Contact ></a></h4>
+			</div> 
+		</div>
+<!-- 		<img src="IMG/splash-bust2.gif" id="full-body" class="fade-in-slow"/>
+ -->
+		<!-- Down arrows signifier -->
+		<a href="#TrendGraphix">
+		<div class="fade-in six" id="feat-work-arrow"></div>
+			<svg class="arrows fade-in seven">
+				<path class="a1" d="M0 0 L30 32 L60 0"></path>
+				<path class="a2" d="M0 20 L30 52 L60 20"></path>
+				<path class="a3" d="M0 40 L30 72 L60 40"></path>
+			</svg>
+		</a>
+		<!-- <div id="scroll-line">
+			<span id="scroll-text">scroll</span>
+		</div> -->
+	</div>
+    <div class="section portfolio" id="section1">
+		<!-- Slider main container -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">Growth Clinic</div>
+            <div class="swiper-slide">Yohance Bailey Photography</div>
+            <div class="swiper-slide">GoodLeap</div>
+            <div class="swiper-slide">Eva Orbuch</div>
+            <div class="swiper-slide">Jordan Kersten</div>
+            <div class="swiper-slide">Robin Applewood</div>
+            <div class="swiper-slide">Origin Materials</div>
+            <div class="swiper-slide">Siempo</div>
+            <div class="swiper-slide">AWA Fit</div>
+            <div class="swiper-slide">Slingshot Foods</div>
+            <div class="swiper-slide">Calm</div>
+            <div class="swiper-slide">CostPlus World Market</div>
+          </div>
+        </div>
+    </div> 
+	<div class="section portfolio" id="section2">
+		<div class="projectCurtain"></div>
+		<div class="project-info">
+			<h1>TrendGraphix</h1>
+			<hr>
+			<br>
+			<p>Full site redesign. TrendGraphix provides real estate data insights to help people find a home and provide insights for agents.</p>
+			<a href="https://trendgraphix.com" target="_blank"><button class="project-button center">Visit Site</button></a>
+			<p class="made-in">Designed, Built and Launched in August 2021</p>
+		</div>
+	</div>
+	<div class="section portfolio" id="section3">
+		<div class="projectCurtain"></div>
+		<div class="project-info">
+			<h1>Gather Facilitation</h1>
+			<hr>
+			<br>
+			<p>Designed and built from scratch, all custom coded. Facilitation for conflict transformation, community building &amp; creative group processes.</p>
+			<a href="https://gatherfacilitation.com" target="_blank"><button class="project-button center">Visit Site</button></a>
+			<p class="made-in">Designed, Built and Launched in April 2020</p>
+		</div>
+	</div> 
+    <div class="section" id="section4">
+        <div id="testimonial-import"></div>
+    </div>
+    <div class="section" id="section5">
+        <div class="flex">
+                        <h3>Let's make something wonderful.</h3>
+
+<form id="my-form" name="contact-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
+  <fieldset id="fs-frm-inputs">
+    <label for="full-name">Hello, I'm</label>
+    <input type="text" name="name" id="full-name" placeholder="&#9997; your full name" required="">
+    
+<!--
+  <label for="company">from (optional)</label>
+  <input type="text" name="company" id="company" maxlength="30" placeholder="your company" >
+      
+-->
+    <label for="email-address">You can reach me at</label>
+    <input type="email" name="email" id="email-address" placeholder="&#9993; your e-mail" required="">
+<!--
+    <label for="telephone">or call (optional)</label>
+    <input type="telephone" name="telephone" id="telephone" placeholder="&#9743; (555) 555-5555">
+      
+-->
+    <label for="department">How'd you find me?</label>
+    <select name="department" id="department" required="" onchange="if (this.selectedIndex==4) {otherOption()} else {deleteOther()};">
+      <option value="" selected="" disabled="">Select</option>
+      <option value="Friend Referral">Search Engine</option>
+      <option value="Friend Referral">Friend Referral</option>
+      <option value="Social Media">Social Media</option>
+      <option value="Linked-In">Linked-In</option>
+      <option value="Linked-In">Ad</option>
+      <option value="Other">Other</option>
+    </select>
+      <input type="text" name="other" maxlength="30" placeholder="Lorem ipsum" id="otherField" >
+    <label for="message">How can we work together?</label>
+    <textarea rows="5" name="message" id="message" placeholder="I have a great idea for a new website..." required=""></textarea>
+  </fieldset>
+        <p id="my-form-status"></p>            
+
+    <button id="submit-contact">Send Message</button>
+</form>
+            
+            </div>
+        
+    <footer>
+	<div class="container">
+		<div class="footer-top-row">
+			<span class="dark-mode-wrapper">
+  				<p class="dark-mode-switch-text">Dark mode:</p>
+  				  <label class="switch" for="checkbox">
+  				    <input type="checkbox" id="checkbox" />
+  				    <div class="slider round"></div>
+	  			</label>
+	  			<img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
+	        </span>
+				<div class="social-icons float-right">
+					<a href="mailto:bpgrandy@gmail.com"><img src="IMG/footer/email-icon2.png" class="social-icon" alt="E-mail Me"></a>
+                    <a href="https://www.linkedin.com/in/nuanced-design/" target="_blank"><img src="IMG/footer/linked-in-icon.png" alt="Linked-In" class="social-icon"></a>
+                    <a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" alt="Github" class="social-icon"></a>
+                    <a href="https://www.facebook.com/theo.grandy.web.designer/" target="_blank"><img src="IMG/footer/facebook-icon.png" alt="Facebook" class="social-icon" /></a>
+                    <a href="http://instagram.com/professor.goo/" target="_blank"><img src="IMG/footer/instagram-icon.png" alt="Instagram" class="social-icon" /></a>
+                    <a href="https://twitter.com/professor_goo" target="_blank"><img src="IMG/footer/twitter-icon.png" alt="Twitter" class="social-icon" /></a>
+				</div>
+		</div>
+        <p class="copyright">&copy; 2010-<span id="current-year"></span> All Rights Reserved.</p>
+	</div>
+
+</footer>
+
+	</div>
+
+<div id="menu-import"></div>
+
+    </div>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+ <script>
+     
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        effect: "cards",
+        grabCursor: true,
+      });
+
+    //  Listen for right/left keypress
+  $( ".isArrowable" ).on( "keydown", function( event ) {
+  if (event.which == 37 ){
+    // alert('Left');
+    window.location.href = "philosophy.html";
+  }
+  else if (event.which == 39 ){
+    // alert('Right');
+    window.location.href = "story.html";
+  }
+  else {};
+  });
+
+// Full Page
+
+    var myFullpage = new fullpage('#fullpage', {
+    	anchors: ['Welcome','BlackfernMedia','TrendGraphix','Gather','Testimonials','Contact'],
+		sectionsColor: [],
+		navigation: true,
+		navigationPosition: 'left',
+		navigationTooltips: ['Welcome','Blackfern Media','TrendGraphix','Gather Facilitation', 'Testimonials', 'Contact'],
+        verticalCentered: false,
+
+        //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+        css3:false
+    });
+
+</script>
+
+<!-- Lity -->
+<script src="JS/lity.js"></script>
+	
+<!-- Bunch of scripts-->
+ <script src="JS/global.js"></script>
+
+<script>
+    
+
+$( document ).ready(function() {
+	// Load testimonials
+	$("#testimonial-import").load("testimonials.html");
+    
+    // Load footer
+	$("#footer-import").load("footer-dark-mode.html"); 
+
+	// Load main menu
+	$("#menu-import").load("menu.html");
+
+});
+
+// Cycle through different greetings
+var divs = $('span[id^="greeting-"]').hide(),
+    i = 0;
+(function cycle() { 
+    divs.eq(i).fadeIn(500)
+              .delay(3000)
+              .fadeOut(700, cycle);
+    i = ++i % divs.length;
+})();
+
+// Cycle through different titles
+var divs2 = $('span[id^="title-"]').hide(),
+    j = 0;
+
+(function cycle2() { 
+    divs2.eq(j).fadeIn(500)
+              .delay(3000)
+              .fadeOut(700, cycle2);
+    j = ++j % divs2.length;
+
+})();
+
+ // Time of Day Greeting
+
+datetoday = new Date();
+timenow=datetoday.getTime();
+datetoday.setTime(timenow);
+thehour = datetoday.getHours();
+// if (thehour > 21 || thehour < 4) display = "Burning the midnight oil?";
+if (thehour > 16 || thehour < 5) display = "Good evening.";
+else if (thehour > 11) display = "Good afternoon.";
+else if (thehour > 3) display = "Good morning.";
+// else display = "Top of the mornin'!";
+var greeting = (display);
+
+document.getElementById("greeting").innerHTML = greeting;
+
+	// // Dark Mode detector
+	var time = new Date();
+	var hour = time.getHours();
+	if ( sessionStorage.getItem('setDarkMode') === 'true') {
+	      document.body.classList.add("dark-mode");
+	    }
+	else if ( sessionStorage.getItem('setDarkMode') === 'false') {
+	    document.body.classList.remove("dark-mode");
+	}
+	else if ((hour <= 5) || (hour >= 19)) {
+	    document.body.classList.add("dark-mode");
+	}
+	else {
+	  document.body.classList.remove("dark-mode");
+	}
+</script>
+
+<script src="JS/contact-modal-onebtn.js"></script>
+
+<script type="text/javascript">
+
+domLoad ();
+
+</script>
+    
+<script>
+    
+    function otherOption() {
+        document.getElementById("otherField").style.display = "block";
+    }
+    
+    function deleteOther() {
+        document.getElementById("otherField").style.display = "none";
+    }
+    
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Thank you, I'll be in touch!";
+        form.reset()
+      }).catch(error => {
+        status.innerHTML = "Oops! You forgot something."
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+    
+<script src="https://kit.fontawesome.com/d47a072f95.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
