@@ -239,25 +239,6 @@
       sign.style.opacity = 1;
     }
 
-    function startHum() {
-      const A = new (window.AudioContext || window.webkitAudioContext)();
-      osc = A.createOscillator();
-      const g = A.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.value = 60;
-      g.gain.value = 0.02;
-      osc.connect(g).connect(A.destination);
-      osc.start();
-      (function df() {
-        osc.frequency.value += (Math.random() - 0.5)*0.2;
-        driftId = requestAnimationFrame(df);
-      })();
-    }
-    function stopHum() {
-      if (osc) osc.stop();
-      cancelAnimationFrame(driftId);
-    }
-
     function pull() {
       chain.classList.add('pull-down');
       chain.style.transform = 'translateX(-50%) translateY(80px)';
@@ -283,7 +264,7 @@
           if (!isOn) {
             sign.classList.remove('off');
             crackle.currentTime = 0; crackle.play();
-            addSparks(); startFlicker(); startHum();
+            addSparks(); startFlicker();
             isOn = true;
           }
         } else {
@@ -302,15 +283,15 @@
             sign.classList.remove('party');
             sign.classList.add('off');
             sign.style.filter = 'none';
-            stopFlicker(); stopHum(); isOn = false;
+            stopFlicker(); isOn = false;
           } else {
             chainSound.currentTime = 0; chainSound.play();
             if (isOn) {
-              sign.classList.add('off'); stopFlicker(); stopHum();
+              sign.classList.add('off'); stopFlicker(); 
             } else {
               sign.classList.remove('off');
               crackle.currentTime = 0; crackle.play();
-              addSparks(); startFlicker(); startHum();
+              addSparks(); startFlicker();
             }
             isOn = !isOn;
           }
