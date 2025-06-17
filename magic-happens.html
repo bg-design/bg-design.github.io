@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neon Sign — Party Mode + Vibration</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: filter 1s linear;
+    }
+
+    .sign {
+      font-family: 'Dancing Script', cursive;
+      font-size: 5vw;
+      color: #fff;
+      text-align: center;
+      line-height: 1.2em;
+      text-shadow:
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        0 0 20px #ff69b4,
+        0 0 40px #ff69b4;
+      transition: opacity 0.3s ease, text-shadow 0.3s ease, filter 1s linear, transform 0.3s ease;
+    }
+
+    .sign.off {
+      opacity: 0.05;
+      text-shadow: none;
+    }
+
+    .button-switch {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin-top: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #666, #222);
+      border: 4px solid #aaa;
+      box-shadow: inset -3px -3px 8px #000, inset 3px 3px 8px #555;
+      cursor: pointer;
+      transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.3s ease;
+    }
+
+    .button-switch::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #888, #333);
+      box-shadow: inset -3px -3px 8px #000, inset 3px 3px 8px #444;
+      transition: transform 0.1s ease, background 0.2s ease;
+    }
+
+    .button-switch.on {
+      border-color: #ff69b4;
+      box-shadow: 0 0 20px #ff69b4, inset -3px -3px 8px #000, inset 3px 3px 8px #555;
+    }
+
+    .button-switch.on::after {
+      background: radial-gradient(circle at 30% 30%, #ff69b4, #444);
+    }
+
+    .button-switch:active::after {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    body.flicker .sign {
+      animation: flicker 0.1s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from {
+        opacity: 1;
+        text-shadow: 0 0 5px #ff69b4,
+                     0 0 10px #ff69b4,
+                     0 0 20px #ff69b4,
+                     0 0 40px #ff69b4;
+      }
+      to {
+        opacity: 0.8;
+        text-shadow: 0 0 2px #ff69b4,
+                     0 0 5px #ff69b4,
+                     0 0 10px #ff69b4,
+                     0 0 20px #ff69b4;
+      }
+    }
+
+    body.party {
+      animation: hueRotateBG 15s linear infinite;
+    }
+
+    .sign.party {
+      animation: hueRotateText 15s linear infinite, pulse 2s ease-in-out infinite;
+    }
+
+    .button-switch.party {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes hueRotateBG {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    @keyframes hueRotateText {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="sign" id="sign">
+    this is<br>
+    where the<br>
+    magic happens
+  </div>
+  <div class="button-switch on" id="button"></div>
+
+  <audio id="toggleSound" src="https://freesound.org/data/previews/341/341695_3248244-lq.mp3"></audio>
+  <audio id="buzzSound" src="https://freesound.org/data/previews/243/243020_4168340-lq.mp3" loop></audio>
+
+  <script>
+    const button = document.getElementById('button');
+    const sign = document.getElementById('sign');
+    const toggleSound = document.getElementById('toggleSound');
+    const buzzSound = document.getElementById('buzzSound');
+
+    buzzSound.volume = 0.2;
+
+    let isOn = true;
+    let isParty = false;
+    buzzSound.play();
+
+    function vibrate(pattern) {
+      if (navigator.vibrate) {
+        navigator.vibrate(pattern);
+      }
+    }
+
+    button.addEventListener('click', () => {
+      toggleSound.currentTime = 0;
+      toggleSound.play();
+
+      if (isParty) {
+        // Exiting party mode: stop all animations, turn off sign
+        document.body.classList.remove('party');
+        sign.classList.remove('party');
+        button.classList.remove('party');
+        sign.classList.add('off');
+        button.classList.remove('on');
+        buzzSound.pause();
+        vibrate([200, 100, 200]); // longer pattern
+        isParty = false;
+        isOn = false;
+      } else {
+        // Normal toggle
+        if (isOn) {
+          sign.classList.add('off');
+          button.classList.remove('on');
+          buzzSound.pause();
+          vibrate(100);
+        } else {
+          document.body.classList.add('flicker');
+          setTimeout(() => {
+            document.body.classList.remove('flicker');
+            sign.classList.remove('off');
+            button.classList.add('on');
+            buzzSound.play();
+          }, 400);
+          vibrate(100);
+        }
+        isOn = !isOn;
+      }
+    });
+
+    button.addEventListener('dblclick', () => {
+      toggleSound.currentTime = 0;
+      toggleSound.play();
+
+      if (!isParty) {
+        // Enter Party Mode: sign ON, party animations, vibration
+        sign.classList.remove('off');
+        sign.classList.add('party');
+        button.classList.add('on');
+        button.classList.add('party');
+        document.body.classList.add('party');
+        buzzSound.play();
+        vibrate([100, 50, 100, 50, 100]); // fun vibration
+        isParty = true;
+        isOn = true;
+      }
+    });
+  </script>
+</body>
+</html>
