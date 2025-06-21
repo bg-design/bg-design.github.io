@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balloon Tab Bar - Dynamic Body Color</title>
+  <style>
+    body {
+      margin: 0;
+      background: var(--bg);
+      height: 200vh;
+      font-family: Helvetica, Arial, sans-serif;
+      color: #00AEEF;
+      padding: 20px;
+    }
+    .content p {
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    :root {
+      --bg: #fff;
+      --bar-bg: #fff;
+      --text: #000;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000;
+        --bar-bg: #222;
+        --text: #fff;
+      }
+    }
+    .tab-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bar-bg);
+      border-radius: 50px;
+      padding: 20px 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3), 0 15px 40px rgba(0,0,0,0.2);
+      display: flex;
+      gap: 40px;
+      transition: transform 0.3s ease;
+      z-index: 10;
+    }
+    .tab-bar::before, .tab-bar::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      background: var(--text);
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+    .tab-bar::before {
+      top: -80px;
+      height: 80px;
+    }
+    .tab-bar::after {
+      bottom: -60px;
+      height: 60px;
+    }
+    .tab-bar.hidden {
+      transform: translate(-50%, 150%);
+    }
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .tab-item img {
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    .process { color: #00AEEF; }
+    .about { color: #EC008C; }
+    .portfolio { color: #39B54A; }
+    .pricing { color: #FFCB05; }
+    .balloon {
+      position: absolute;
+      top: -140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: auto;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+    <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+    <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+  </div>
+
+  <div class="tab-bar" id="tabBar">
+    <img src="/IMG/Icons/balloon-book-a-call2.png" alt="Book a Call" class="balloon" />
+
+    <div class="tab-item process" onclick="setColor('#00AEEF')">
+      <img src="/IMG/Icons/process-icon.png" alt="Process">
+      Process
+    </div>
+
+    <div class="tab-item about" onclick="setColor('#EC008C')">
+      <img src="/IMG/Icons/about-icon.png" alt="About">
+      About
+    </div>
+
+    <div class="tab-item portfolio" onclick="setColor('#39B54A')">
+      <img src="/IMG/Icons/portfolio-icon.png" alt="Portfolio">
+      Portfolio
+    </div>
+
+    <div class="tab-item pricing" onclick="setColor('#FFCB05')">
+      <img src="/IMG/Icons/pricing-icon.png" alt="Pricing">
+      Pricing
+    </div>
+  </div>
+
+  <script>
+    let lastScroll = 0;
+    const bar = document.getElementById('tabBar');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) {
+        bar.classList.remove('hidden');
+        return;
+      }
+      if (currentScroll > lastScroll) {
+        bar.classList.add('hidden');
+      } else {
+        bar.classList.remove('hidden');
+      }
+      lastScroll = currentScroll;
+    });
+
+    function setColor(color) {
+      document.body.style.color = color;
+    }
+  </script>
+
+</body>
+</html>
