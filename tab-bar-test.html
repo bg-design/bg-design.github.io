@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balloon Tab Bar with Animated Dock</title>
   <style>
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 95%;
+      background: var(--bar-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 2.5%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+      z-index: 50;
+    }
+
+    header.visible {
+      transform: translateY(0);
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    #hamburger {
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+    }
     body {
       margin: 0;
       background: var(--bg);
@@ -21,6 +53,7 @@
       --bg: #fff;
       --bar-bg: #fff;
       --text: #000;
+      margin-top: 50px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -29,6 +62,71 @@
         --text: #fff;
       }
     }
+
+    .side-menu {
+      position: fixed;
+      top: 100px;
+      right: -350px; /* hidden */
+      width: 250px;
+      height: 100%;
+      background: var(--bar-bg);
+      box-shadow: -2px 0 20px rgba(0,0,0,0.2);
+      padding: 80px 30px;
+      transition: right 0.4s ease;
+      z-index: 100;
+    }
+
+    .side-menu.open {
+      right: 0;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 90;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    #hamburger svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .line {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      transform-origin: center;
+    }
+
+    #hamburger.open .line1 {
+      transform: translateY(8px) rotate(-45deg);
+    }
+
+    #hamburger.open .line2 {
+      opacity: 0;
+    }
+
+    #hamburger.open .line3 {
+      transform: translateY(-4px) rotate(45deg);
+    }
+
     .tab-bar-wrapper {
       position: fixed;
       left: 0;
@@ -169,7 +267,27 @@
 </head>
 <body>
 
-  <div class="content">
+  <header id="topNav" class="visible">
+  <div class="logo">
+    <a href=""><img src="IMG/Icons/favicon-logo.png" alt="Home Logo"></a>
+  </div>
+  <button id="hamburger" onclick="toggleMenu()">
+  <svg width="30" height="30" viewBox="0 0 30 30">
+    <path class="line line1" d="M5 7 H25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path class="line line2" d="M5 15 H25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path class="line line3" d="M5 23 H25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+    <div id="sideMenu" class="side-menu"> 
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+    <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+</header>
+
+  <div class="content" id="mainContent">
+     <h1>Default home content here...</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
     <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
@@ -197,22 +315,22 @@
     <div class="tab-bar" id="tabBar">
       <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
 
-      <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking();">
+      <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking();setContent('process');">
         <img src="IMG/Icons/process-icon.png" alt="Process">
         Process
       </div>
 
-      <div class="tab-item about" onclick="activateTab(this); setColor('#EC008C'); closeBooking();">
+      <div class="tab-item about" onclick="activateTab(this); setColor('#EC008C'); closeBooking();setContent('about');">
         <img src="IMG/Icons/about-icon.png" alt="About">
         About
       </div>
 
-      <div class="tab-item portfolio" onclick="activateTab(this); setColor('#39B54A'); closeBooking();">
+      <div class="tab-item portfolio" onclick="activateTab(this); setColor('#39B54A'); closeBooking();setContent('portfolio');">
         <img src="IMG/Icons/portfolio-icon.png" alt="Portfolio">
         Portfolio
       </div>
 
-      <div class="tab-item pricing" onclick="activateTab(this); setColor('#FFCB05'); closeBooking();">
+      <div class="tab-item pricing" onclick="activateTab(this); setColor('#FFCB05'); closeBooking();setContent('pricing');">
         <img src="IMG/Icons/pricing-icon.png" alt="Pricing">
         Pricing
       </div>
@@ -225,27 +343,32 @@
   const barWrapper = document.getElementById('tabBarWrapper');
   const bookingPage = document.getElementById('bookingPage');
   const bookingOverlay = document.getElementById('bookingOverlay');
+  const topNav = document.getElementById('topNav');
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
 
-    // ✅ If booking page is open, never hide the tab bar
-    if (bookingPage.classList.contains('open')) {
-      bar.classList.remove('hidden');
-      return;
-    }
+  // Otherwise: show/hide based on scroll direction
+  if (currentScroll <= 0) {
+    topNav.classList.add('visible');
+    bar.classList.remove('hidden');
+    return;
+  }
+  if (currentScroll > lastScroll) {
+    topNav.classList.remove('visible');
+    bar.classList.add('hidden');
+  } else {
+    topNav.classList.add('visible');
+    bar.classList.remove('hidden');
+  }
+  lastScroll = currentScroll;
+});
 
-    if (currentScroll <= 0) {
-      bar.classList.remove('hidden');
-      return;
-    }
-    if (currentScroll > lastScroll) {
-      bar.classList.add('hidden');
-    } else {
-      bar.classList.remove('hidden');
-    }
-    lastScroll = currentScroll;
-  });
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('sideMenu').classList.toggle('open');
+  document.getElementById('menuOverlay').classList.toggle('open');
+}
 
     function setColor(color) {
       document.body.style.color = color;
@@ -283,6 +406,27 @@
     document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
     el.classList.add('active');
   }
+
+  function setContent(section) {
+  const content = document.getElementById('mainContent');
+  let html = '';
+  switch(section) {
+    case 'process':
+      html = '<h2>Our Process</h2><p>Here is our step-by-step process...</p>';
+      break;
+    case 'about':
+      html = '<h2>About Us</h2><p>Meet our team...</p>';
+      break;
+    case 'portfolio':
+      html = '<h2>Portfolio</h2><p>See our work...</p>';
+      break;
+    case 'pricing':
+      html = '<h2>Pricing</h2><p>Check our rates...</p>';
+      break;
+  }
+  content.innerHTML = html;
+  closeBooking();
+}
 </script>
 
 </body>
