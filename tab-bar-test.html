@@ -137,7 +137,7 @@
       transition: bottom 0.8s ease;
     }
     .tab-bar-wrapper.active {
-      bottom: 80%;
+      bottom: 96%;
     }
     .tab-bar {
       position: absolute;
@@ -220,7 +220,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 70%;
+      height: 85%;
       background: #fff;
       transform: translateY(100%);
       transition: transform 0.7s ease-in;
@@ -339,6 +339,7 @@
 
   <script>
   let lastScroll = 0;
+  let scrollEnabled = true;
   const bar = document.getElementById('tabBar');
   const barWrapper = document.getElementById('tabBarWrapper');
   const bookingPage = document.getElementById('bookingPage');
@@ -346,14 +347,16 @@
   const topNav = document.getElementById('topNav');
 
 window.addEventListener('scroll', () => {
+  if (!scrollEnabled) return; // ✅ Stop if booking is open
+
   const currentScroll = window.pageYOffset;
 
-  // Otherwise: show/hide based on scroll direction
   if (currentScroll <= 0) {
     topNav.classList.add('visible');
     bar.classList.remove('hidden');
     return;
   }
+
   if (currentScroll > lastScroll) {
     topNav.classList.remove('visible');
     bar.classList.add('hidden');
@@ -361,6 +364,7 @@ window.addEventListener('scroll', () => {
     topNav.classList.add('visible');
     bar.classList.remove('hidden');
   }
+
   lastScroll = currentScroll;
 });
 
@@ -386,18 +390,31 @@ function toggleMenu() {
     }
   }
 
-  function openBooking() {
-    bookingPage.classList.add('open');
-    bookingOverlay.style.display = 'block';
-    barWrapper.classList.add('active');
-    bar.classList.remove('hidden'); // ✅ Keep bar visible when booking is open
-  }
+function openBooking() {
+  bookingPage.classList.add('open');
+  bookingOverlay.style.display = 'block';
+  barWrapper.classList.add('active');
 
-  function closeBooking() {
-    bookingPage.classList.remove('open');
-    bookingOverlay.style.display = 'none';
-    barWrapper.classList.remove('active');
-  }
+  // ✅ Hide nav & tab bar
+  topNav.classList.remove('visible');
+  bar.classList.add('hidden');
+
+  // ✅ Disable scroll-based toggling
+  scrollEnabled = false;
+}
+
+function closeBooking() {
+  bookingPage.classList.remove('open');
+  bookingOverlay.style.display = 'none';
+  barWrapper.classList.remove('active');
+
+  // ✅ Show nav & tab bar back
+  topNav.classList.add('visible');
+  bar.classList.remove('hidden');
+
+  // ✅ Re-enable scroll-based toggling
+  scrollEnabled = true;
+}
 
   // Hide overlay by default
   bookingOverlay.style.display = 'none';
