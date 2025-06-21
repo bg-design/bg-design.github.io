@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Balloon Tab Bar - Dynamic Body Color</title>
+  <title>Balloon Tab Bar with Animated Dock</title>
   <style>
     body {
       margin: 0;
@@ -30,10 +30,22 @@
         --text: #fff;
       }
     }
-    .tab-bar {
+    .tab-bar-wrapper {
       position: fixed;
-      bottom: 20px;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 30;
+      bottom: 0;
+      transition: bottom 0.8s ease;
+    }
+    .tab-bar-wrapper.active {
+      bottom: 80%;
+    }
+    .tab-bar {
+      position: absolute;
       left: 50%;
+      bottom: 20px;
       transform: translateX(-50%);
       background: var(--bar-bg);
       border-radius: 50px;
@@ -41,8 +53,8 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.3), 0 15px 40px rgba(0,0,0,0.2);
       display: flex;
       gap: 40px;
-      transition: transform 0.3s ease;
-      z-index: 10;
+      pointer-events: auto;
+      transition: 0.5s;
     }
     .tab-bar::before, .tab-bar::after {
       content: '';
@@ -63,6 +75,7 @@
     }
     .tab-bar.hidden {
       transform: translate(-50%, 150%);
+      transition: 0.5s;
     }
     .tab-item {
       display: flex;
@@ -88,7 +101,33 @@
       transform: translateX(-50%);
       width: 80px;
       height: auto;
-      z-index: 5;
+      z-index: 35;
+      cursor: pointer;
+    }
+    .booking-page {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background: #fff;
+      transform: translateY(100%);
+      transition: transform 0.9s ease;
+      z-index: 10;
+      padding: 40px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+      overflow-y: auto;
+    }
+    .booking-page.open {
+      transform: translateY(0);
+    }
+    .booking-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      z-index: 25;
     }
   </style>
 </head>
@@ -102,52 +141,96 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
   </div>
 
-  <div class="tab-bar" id="tabBar">
-    <img src="/IMG/Icons/balloon-book-a-call2.png" alt="Book a Call" class="balloon" />
+  <div class="booking-page" id="bookingPage">
+    <h2>Book a Call</h2>
+    <p>This is where your booking form or iframe would go.</p>
+  </div>
 
-    <div class="tab-item process" onclick="setColor('#00AEEF')">
-      <img src="/IMG/Icons/process-icon.png" alt="Process">
-      Process
-    </div>
+  <div class="booking-overlay" id="bookingOverlay" onclick="closeBooking()"></div>
 
-    <div class="tab-item about" onclick="setColor('#EC008C')">
-      <img src="/IMG/Icons/about-icon.png" alt="About">
-      About
-    </div>
+  <div class="tab-bar-wrapper" id="tabBarWrapper">
+    <div class="tab-bar" id="tabBar">
+      <img src="IMG/Icons/balloon-book-a-call2.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
 
-    <div class="tab-item portfolio" onclick="setColor('#39B54A')">
-      <img src="/IMG/Icons/portfolio-icon.png" alt="Portfolio">
-      Portfolio
-    </div>
+      <div class="tab-item process" onclick="setColor('#00AEEF'); closeBooking();">
+        <img src="IMG/Icons/process-icon.png" alt="Process">
+        Process
+      </div>
 
-    <div class="tab-item pricing" onclick="setColor('#FFCB05')">
-      <img src="/IMG/Icons/pricing-icon.png" alt="Pricing">
-      Pricing
+      <div class="tab-item about" onclick="setColor('#EC008C'); closeBooking();">
+        <img src="IMG/Icons/about-icon.png" alt="About">
+        About
+      </div>
+
+      <div class="tab-item portfolio" onclick="setColor('#39B54A'); closeBooking();">
+        <img src="pIMG/Icons/ortfolio-icon.png" alt="Portfolio">
+        Portfolio
+      </div>
+
+      <div class="tab-item pricing" onclick="setColor('#FFCB05'); closeBooking();">
+        <img src="IMG/Icons/pricing-icon.png" alt="Pricing">
+        Pricing
+      </div>
     </div>
   </div>
 
   <script>
-    let lastScroll = 0;
-    const bar = document.getElementById('tabBar');
+  let lastScroll = 0;
+  const bar = document.getElementById('tabBar');
+  const barWrapper = document.getElementById('tabBarWrapper');
+  const bookingPage = document.getElementById('bookingPage');
+  const bookingOverlay = document.getElementById('bookingOverlay');
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        bar.classList.remove('hidden');
-        return;
-      }
-      if (currentScroll > lastScroll) {
-        bar.classList.add('hidden');
-      } else {
-        bar.classList.remove('hidden');
-      }
-      lastScroll = currentScroll;
-    });
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
 
-    function setColor(color) {
-      document.body.style.color = color;
+    // ✅ If booking page is open, never hide the tab bar
+    if (bookingPage.classList.contains('open')) {
+      bar.classList.remove('hidden');
+      return;
     }
-  </script>
+
+    if (currentScroll <= 0) {
+      bar.classList.remove('hidden');
+      return;
+    }
+    if (currentScroll > lastScroll) {
+      bar.classList.add('hidden');
+    } else {
+      bar.classList.remove('hidden');
+    }
+    lastScroll = currentScroll;
+  });
+
+  function setColor(color) {
+    document.body.style.color = color;
+  }
+
+  function toggleBooking() {
+    const isOpen = bookingPage.classList.contains('open');
+    if (isOpen) {
+      closeBooking();
+    } else {
+      openBooking();
+    }
+  }
+
+  function openBooking() {
+    bookingPage.classList.add('open');
+    bookingOverlay.style.display = 'block';
+    barWrapper.classList.add('active');
+    bar.classList.remove('hidden'); // ✅ Keep bar visible when booking is open
+  }
+
+  function closeBooking() {
+    bookingPage.classList.remove('open');
+    bookingOverlay.style.display = 'none';
+    barWrapper.classList.remove('active');
+  }
+
+  // Hide overlay by default
+  bookingOverlay.style.display = 'none';
+</script>
 
 </body>
 </html>
