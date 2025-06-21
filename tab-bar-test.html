@@ -8,7 +8,6 @@
     body {
       margin: 0;
       background: var(--bg);
-      height: 200vh;
       font-family: Helvetica, Arial, sans-serif;
       color: #00AEEF;
       padding: 20px;
@@ -61,7 +60,7 @@
       position: absolute;
       left: 50%;
       width: 2px;
-      background: var(--text);
+      background: #d7d7d7;
       transform: translateX(-50%);
       z-index: -1;
     }
@@ -70,8 +69,8 @@
       height: 80px;
     }
     .tab-bar::after {
-      bottom: -60px;
-      height: 60px;
+      bottom: -300px;
+      height: 300px;
     }
     .tab-bar.hidden {
       transform: translate(-50%, 150%);
@@ -96,7 +95,7 @@
     .pricing { color: #FFCB05; }
     .balloon {
       position: absolute;
-      top: -140px;
+      top: -120px;
       left: 50%;
       transform: translateX(-50%);
       width: 80px;
@@ -112,8 +111,8 @@
       height: 70%;
       background: #fff;
       transform: translateY(100%);
-      transition: transform 0.9s ease;
-      z-index: 10;
+      transition: transform 0.7s ease-in;
+      z-index: 50;
       padding: 40px;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
       overflow-y: auto;
@@ -129,6 +128,29 @@
       height: 20%;
       z-index: 25;
     }
+
+    .bookingContent {
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+      padding-right: 80px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .close-btn:hover {
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
@@ -142,15 +164,19 @@
   </div>
 
   <div class="booking-page" id="bookingPage">
-    <h2>Book a Call</h2>
-    <p>This is where your booking form or iframe would go.</p>
+  <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
+
+    <div class="bookingContent">
+      <h2>Book a Call</h2>
+      <p>This is where your booking form or iframe would go.</p>
+    </div>
   </div>
 
   <div class="booking-overlay" id="bookingOverlay" onclick="closeBooking()"></div>
 
   <div class="tab-bar-wrapper" id="tabBarWrapper">
     <div class="tab-bar" id="tabBar">
-      <img src="IMG/Icons/balloon-book-a-call2.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
+      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
 
       <div class="tab-item process" onclick="setColor('#00AEEF'); closeBooking();">
         <img src="IMG/Icons/process-icon.png" alt="Process">
