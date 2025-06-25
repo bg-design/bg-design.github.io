@@ -102,29 +102,21 @@
 
 /* Stagger each link */
 .top-menu.open a:nth-child(1) {
-  transition-delay: 0.2s;
-}
-.top-menu.open a:nth-child(2) {
   transition-delay: 0.3s;
 }
+.top-menu.open a:nth-child(2) {
+  transition-delay: 0.45s;
+}
 .top-menu.open a:nth-child(3) {
-  transition-delay: 0.4s;
-}
-.top-menu.open a:nth-child(4) {
-  transition-delay: 0.48s;
-}
-.top-menu.open a:nth-child(5) {
   transition-delay: 0.55s;
 }
-.top-menu.open a:nth-child(6) {
-  transition-delay: 0.61s;
+.top-menu.open a:nth-child(4) {
+  transition-delay: 0.63s;
 }
-.top-menu.open a:nth-child(7) {
-  transition-delay: 0.66s;
-}
-.top-menu.open a:nth-child(8) {
+.top-menu.open a:nth-child(5) {
   transition-delay: 0.7s;
 }
+
     .menu-overlay {
       position: fixed;
       top: 0; left: 0;
@@ -509,7 +501,7 @@ function closeBooking() {
   let html = '';
   switch(section) {
     case 'process':
-      html = '<h2>Our Process</h2><p>Here is our step-by-step process...</p>';
+      html = '<section id="process"><h2>Our Process</h2><p>We follow a proven Double Diamond human-centered design approach, combined with Agile and Lean sprints, to deliver solutions that truly work — on time and on budget.</p><h3>Discover</h3><ul><li><strong>Research:</strong> Stakeholder interviews, user surveys, market and competitor analysis.</li><li><strong>Insights:</strong> Analyze data, identify key pain points, create personas and journey maps.</li></ul><h3>Define & Ideate</h3><ul><li><strong>Ideation Workshops:</strong> Brainstorm and prioritize creative solutions.</li><li><strong>Concept Development:</strong> Sketches, wireframes, and early prototypes.</li></ul><h3>Design & Test (Iterate)</h3><ul><li><strong>Design:</strong> High-fidelity UI/UX design and interactive prototypes.</li><li><strong>Feedback & Testing:</strong> Usability testing, A/B testing, gather insights and iterate rapidly.</li><li><strong>Agile/Lean Sprints:</strong> Weekly or bi-weekly sprint cycles, with regular demos and reviews.</li></ul><h3>Build & Deploy</h3><ul><li><strong>Build:</strong> Front-end and back-end development, performance optimization, QA testing.</li><li><strong>Deploy:</strong> Staging environment checks, smooth launch, monitoring, and post-launch support.</li></ul><h3>Contracts & Timeline</h3><ul><li><strong>Proposal & Contract:</strong> Transparent scope, deliverables, and payment milestones.</li><li><strong>Timeline:</strong> Average duration: X–Y weeks, with weekly updates and built-in flexibility.</li></ul><h3>What You Get</h3><ul><li>User-validated solutions that solve real problems.</li><li>A flexible, collaborative team that adapts quickly.</li><li>A clear, structured process — no surprises.</li></ul><p><strong>Ready to start?</strong> Contact us today to book a free consultation.</p></section>';
       break;
     case 'about':
       html = '<h2>About Us</h2><p>Meet our team...</p>';
