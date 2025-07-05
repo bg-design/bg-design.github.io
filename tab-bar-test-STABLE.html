@@ -69,7 +69,7 @@
       z-index: -1;
     }
     .tab-bar::before {
-      top: -120px;
+      top: -100px;
       height: 100vh;
     }
     .tab-bar::after {
@@ -147,6 +147,131 @@
       overflow-y: auto;
       box-sizing: border-box;
     }
+    
+    /* Floating background balloons */
+    .bg-balloon {
+      position: absolute;
+      width: 40px;
+      height: 50px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.15;
+      z-index: 1;
+      pointer-events: none;
+      bottom: -60px;
+      animation: float-up 8s linear infinite;
+    }
+    
+    .bg-balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 25px;
+      background: rgba(255,255,255,0.3);
+      animation: sway-string 3s ease-in-out infinite;
+      transform-origin: top center;
+    }
+    
+    .bg-balloon:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .bg-balloon:nth-child(2) {
+      left: 25%;
+      animation-delay: 2s;
+    }
+    
+    .bg-balloon:nth-child(3) {
+      left: 40%;
+      animation-delay: 4s;
+    }
+    
+    .bg-balloon:nth-child(4) {
+      left: 60%;
+      animation-delay: 6s;
+    }
+    
+    .bg-balloon:nth-child(5) {
+      left: 80%;
+      animation-delay: 1s;
+    }
+    
+    .bg-balloon:nth-child(6) {
+      left: 15%;
+      animation-delay: 3s;
+    }
+    
+    .bg-balloon:nth-child(7) {
+      left: 70%;
+      animation-delay: 5s;
+    }
+    
+    .bg-balloon:nth-child(8) {
+      left: 90%;
+      animation-delay: 7s;
+    }
+    
+    /* Color variations */
+    .bg-balloon.color-1 {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.3));
+    }
+    
+    .bg-balloon.color-2 {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.3));
+    }
+    
+    .bg-balloon.color-3 {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 0, 0.8), rgba(255, 255, 0, 0.3));
+    }
+    
+    .bg-balloon.color-4 {
+      background: radial-gradient(circle at 30% 30%, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0.3));
+    }
+    
+    .bg-balloon.color-5 {
+      background: radial-gradient(circle at 30% 30%, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0.3));
+    }
+    
+    .bg-balloon.color-6 {
+      background: radial-gradient(circle at 30% 30%, rgba(128, 0, 128, 0.8), rgba(128, 0, 128, 0.3));
+    }
+    
+    .bg-balloon.color-7 {
+      background: radial-gradient(circle at 30% 30%, rgba(255, 20, 147, 0.8), rgba(255, 20, 147, 0.3));
+    }
+    
+    .bg-balloon.color-8 {
+      background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.8), rgba(0, 255, 255, 0.3));
+    }
+    
+    @keyframes float-up {
+      0% {
+        transform: translateY(0px);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.15;
+      }
+      90% {
+        opacity: 0.15;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes sway-string {
+      0%, 100% {
+        transform: translateX(-50%) rotate(-5deg);
+      }
+      50% {
+        transform: translateX(-50%) rotate(5deg);
+      }
+    }
     .booking-page.open {
       transform: translateY(0);
     }
@@ -177,6 +302,7 @@
       border-image: linear-gradient(135deg, #00AEEF, #EC008C, #39B54A, #FFCB05) 1;
       border-radius: 0px;
       animation: float 3s ease-in-out infinite;
+      z-index: 10;
     }
     
     .bookingContent h2 {
@@ -467,6 +593,16 @@
   <div class="booking-page" id="bookingPage">
   <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
 
+    <!-- Background floating balloons -->
+    <div class="bg-balloon color-1"></div>
+    <div class="bg-balloon color-2"></div>
+    <div class="bg-balloon color-3"></div>
+    <div class="bg-balloon color-4"></div>
+    <div class="bg-balloon color-5"></div>
+    <div class="bg-balloon color-1"></div>
+    <div class="bg-balloon color-2"></div>
+    <div class="bg-balloon color-3"></div>
+
     <div class="bookingContent">
       <h2>📅 Book a Call</h2>
       
@@ -576,6 +712,20 @@
 
   // Hide overlay by default
   bookingOverlay.style.display = 'none';
+  
+  // Assign random colors to balloons on page load
+  function assignRandomColors() {
+    const balloons = document.querySelectorAll('.bg-balloon');
+    const colors = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6', 'color-7', 'color-8'];
+    
+    balloons.forEach(balloon => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.className = `bg-balloon ${randomColor}`;
+    });
+  }
+  
+  // Assign colors when page loads
+  assignRandomColors();
 
   function activateTab(el) {
     document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
