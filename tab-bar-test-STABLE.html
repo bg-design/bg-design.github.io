@@ -127,7 +127,7 @@
       left: 0;
       width: 100%;
       height: 70%;
-      background: #fff;
+      background: #333;
       transform: translateY(100%);
       transition: transform 0.7s ease-in;
       z-index: 50;
@@ -152,22 +152,117 @@
       text-align: center;
       margin: 0 auto;
       padding-right: 80px;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+    }
+    
+    .bookingContent::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(135deg, #00AEEF, #EC008C, #39B54A, #FFCB05);
+      border-radius: 20px;
+      z-index: -1;
+    }
+    
+    .bookingContent h2 {
+      color: #00AEEF;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    
+    .phone-section {
+      background: #00AEEF;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 8px 25px rgba(0,174,239,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .phone-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0,174,239,0.3);
+    }
+    
+    .phone-number {
+      display: inline-block;
+      background: #FFCB05;
+      color: #333;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 0 6px 20px rgba(255,203,5,0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .phone-number:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(255,203,5,0.4);
+    }
+    
+    .email-section {
+      background: #EC008C;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 8px 25px rgba(236,0,140,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .email-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(236,0,140,0.3);
+    }
+    
+    .email-link {
+      display: inline-block;
+      background: #39B54A;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 6px 20px rgba(57,181,74,0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .email-link:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(57,181,74,0.4);
     }
 
     .close-btn {
-      background: none;
-      border: none;
-      color: #333;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: #fff;
       font-size: 18px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       margin-bottom: 20px;
       font-family: Helvetica, Arial, sans-serif;
+      padding: 12px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
     }
 
     .close-btn:hover {
-      opacity: 0.7;
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
     }
 
      /* Add styles for markdown content */
@@ -234,8 +329,18 @@
   <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
 
     <div class="bookingContent">
-      <h2>Book a Call</h2>
-      <p>This is where your booking form or iframe would go.</p>
+      <h2>📞 Book a Call</h2>
+      
+      <div class="phone-section">
+        <p style="color: white; font-size: 18px; margin-bottom: 15px;">📱 Ready to discuss your project? Give us a call:</p>
+        <a href="tel:6074445455" class="phone-number">📞 (607) 444-5455</a>
+      </div>
+      
+      <div class="email-section">
+        <p style="color: white; font-size: 16px; margin-bottom: 15px;">😅 Phone shy?</p>
+        <p style="color: white; font-size: 16px; margin-bottom: 20px;">✉️ Shoot us an e-mail</p>
+        <a href="mailto:hello@nuanceddesign.com" class="email-link">📧 hello@nuanceddesign.com</a>
+      </div>
     </div>
   </div>
 
