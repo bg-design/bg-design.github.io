@@ -191,7 +191,7 @@
     <div class="tab-bar" id="tabBar">
       <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
 
-      <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking();">
+      <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking(); openProcess();">
         <img src="IMG/Icons/process-icon.png" alt="Process">
         Process
       </div>
@@ -276,6 +276,10 @@
   function activateTab(el) {
     document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
     el.classList.add('active');
+  }
+
+  function openProcess() {
+    window.open('process.md', '_blank');
   }
 </script>
 
