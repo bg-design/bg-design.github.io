@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balloon Tab Bar with Animated Dock</title>
+
+    <!-- Add markdown parser library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     body {
       margin: 0;
@@ -164,11 +169,60 @@
     .close-btn:hover {
       opacity: 0.7;
     }
+
+     /* Add styles for markdown content */
+     .markdown-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    
+    .markdown-content h1 {
+      color: #00AEEF;
+      border-bottom: 3px solid #00AEEF;
+      padding-bottom: 10px;
+    }
+    
+    .markdown-content h2 {
+      color: #00AEEF;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .markdown-content h3 {
+      color: #555;
+      margin-top: 30px;
+    }
+    
+    .markdown-content ul {
+      margin-bottom: 20px;
+    }
+    
+    .markdown-content li {
+      margin-bottom: 8px;
+    }
+    
+    .markdown-content strong {
+      color: #00AEEF;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #00AEEF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-  <div class="content">
+  <div class="content" id="mainContent">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
     <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
@@ -279,8 +333,44 @@
   }
 
   function openProcess() {
-    window.open('process.md', '_blank');
-  }
+      // Load markdown content
+      fetch('process.md')
+        .then(response => response.text())
+        .then(markdown => {
+          // Remove Jekyll front matter (lines between ---)
+          const content = markdown.replace(/^---[\s\S]*?---\s*/, '');
+          
+          // Convert markdown to HTML
+          const html = marked.parse(content);
+          
+          // Update the main content area
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+            <div class="markdown-content">
+              <a href="#" class="back-link" onclick="loadDefaultContent()">← Back to Default Content</a>
+              ${html}
+            </div>
+          `;
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+        })
+        .catch(error => {
+          console.error('Error loading process content:', error);
+          alert('Error loading process content. Please try again.');
+        });
+    }
+    
+    function loadDefaultContent() {
+      const mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML = `
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+        <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+        <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
+      `;
+    }
 </script>
 
 </body>
