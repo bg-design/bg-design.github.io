@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - Nuanced Design</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fff;
+        }
+        h1 {
+            color: #00AEEF;
+            border-bottom: 3px solid #00AEEF;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00AEEF;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 30px;
+        }
+        ul {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #00AEEF;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #00AEEF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #000;
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="tab-bar-test-STABLE.html" class="back-link">← Back to Main Page</a>
+    
+    {{ content }}
+</body>
+</html>

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Our Process
+---
+
 # Our Process
 
 We follow a proven Double Diamond human-centered design approach, combined with Agile and Lean sprints, to deliver solutions that truly work — on time and on budget.
