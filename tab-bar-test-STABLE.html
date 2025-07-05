@@ -402,9 +402,15 @@
 
     function setColor(color) {
       document.body.style.color = color;
-      // Also change the booking page background and force text black
-      bookingPage.style.background = color;
-      bookingPage.style.color = '#000';
+      // Use darker, more muted colors for the booking page background
+      const mutedColors = {
+        '#00AEEF': '#1a4a5a', // Darker cyan
+        '#EC008C': '#4a1a3a', // Darker magenta  
+        '#39B54A': '#1a4a1a', // Darker green
+        '#FFCB05': '#4a3a1a'  // Darker yellow
+      };
+      bookingPage.style.background = mutedColors[color] || color;
+      bookingPage.style.color = '#fff'; // Keep text white for better contrast
     }
 
   function toggleBooking() {
