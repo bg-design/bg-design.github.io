@@ -714,6 +714,10 @@
             resize: vertical;
         }
 
+        .no-scroll, .no-scroll .container {
+            overflow: hidden !important;
+        }
+
     </style>
 </head>
 <body>
@@ -975,6 +979,12 @@
             currentStep = stepNum;
             updateProgress();
             updateQuestionProgress();
+            // Lock scroll on step 2 only
+            if (stepNum === 2) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
         }
 
         function previousStep() {
