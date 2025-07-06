@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nuanced Design - Interactive Intake</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-gradient {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00AEEF, #EC008C, #39B54A, #FFCB05);
+            z-index: 1;
+        }
+        .progress-mask {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            z-index: 2;
+            transition: width 0.5s ease;
+        }
+
+        .step { display: none; }
+        .step.active { display: block; }
+
+        .step {
+            padding: 40px 30px;
+            min-height: 400px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            margin-top: 56px;
+        }
+
+        /* Step 1: Checkboxes */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkbox-item:hover {
+            border-color: #00AEEF;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,174,239,0.2);
+        }
+
+        .checkbox-item.selected {
+            border-color: #39B54A;
+            background: linear-gradient(135deg, #39B54A, #2d8a3a);
+            color: white;
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            margin-right: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item.selected .checkbox-custom {
+            border-color: white;
+            background: white;
+        }
+
+        .checkbox-item.selected .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #39B54A;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Step 2: Swipe Cards */
+        .swipe-container {
+            position: relative;
+            height: 300px;
+            margin-bottom: 30px;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swipe-targets {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .swipe-target {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0.3;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .swipe-target.yes {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #39B54A, #2d8a3a);
+            color: white;
+        }
+
+        .swipe-target.no {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #EC008C, #b3006b);
+            color: white;
+        }
+
+        .swipe-target.complicated.swipe-target-bottom {
+            left: 50%;
+            bottom: 10px;
+            top: auto;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FFCB05, #e6b800);
+            color: #333;
+            width: 180px;
+            height: 80px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swipe-target.active {
+            opacity: 0;
+            transform: scale(1);
+        }
+        
+        .swipe-target.yes.active {
+            opacity: 0;
+            transform: translateY(-70px) scale(1);
+        }
+        
+        .swipe-target.no.active {
+            opacity: 0;
+            transform: translateY(30px) scale(1);
+        }
+
+        .swipe-card {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 220px;
+            height: 120px;
+            border-radius: 18px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.15),
+                0 8px 16px rgba(0,0,0,0.1),
+                0 4px 8px rgba(0,0,0,0.05),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            cursor: grab;
+            transition: all 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 10;
+            margin-left: -110px;
+            margin-top: -60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .swipe-card:active {
+            cursor: grabbing;
+            transform: scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.2),
+                0 12px 24px rgba(0,0,0,0.15),
+                0 6px 12px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+        }
+
+        .swipe-card.swiping {
+            transition: none;
+        }
+
+        .swipe-card.swiped-right {
+            transform: translate(300px, 0) rotate(20deg);
+            opacity: 0;
+        }
+
+        .swipe-card.swiped-left {
+            transform: translate(-300px, 0) rotate(-20deg);
+            opacity: 0;
+        }
+
+        .swipe-card.swiped-up {
+            transform: translate(0, -200px) rotate(-10deg);
+            opacity: 0;
+        }
+
+        .swipe-card.swiped-down {
+            transform: translate(0, 200px) rotate(10deg);
+            opacity: 0;
+        }
+
+        .swipe-card.bg-yes {
+            background: linear-gradient(135deg, #39B54A 60%, #b6e7c9 100%);
+            color: #fff;
+        }
+
+        .swipe-card.bg-no {
+            background: linear-gradient(135deg, #EC008C 60%, #f7b6d2 100%);
+            color: #fff;
+        }
+
+        .swipe-card.bg-complicated {
+            background: linear-gradient(135deg, #FFCB05 60%, #fff6b6 100%);
+            color: #333;
+        }
+
+        .swipe-hint {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+
+        /* Step 3: Timeline Slider */
+        .slider-container {
+            margin-bottom: 40px;
+        }
+        .slider {
+            width: 280px;
+            height: 1px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            position: relative;
+            z-index: 1;
+
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: -7px;
+        }
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: -7px;
+        }
+        .slider-labels.timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+        }
+        .slider-labels.timeline-labels span {
+            width: 25%;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            left: -12.5%;
+            transform: translateX(50%);
+        }
+        .slider-labels.timeline-labels span:first-child {
+            left: 0;
+            transform: none;
+            text-align: left;
+        }
+        .slider-labels.timeline-labels span:last-child {
+            left: 0;
+            transform: none;
+            text-align: right;
+        }
+        .slider-icon {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        /* Step 4: Involvement Scale */
+        .slider-container {
+            margin-top: 60px;
+            position: relative;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: -7px;
+        }
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: -7px;
+        }
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            margin-left:10px;
+        }
+        .slider-icon {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        #involvementLiveLabel {
+            min-height: 100px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 32px auto 0 auto;
+            width: 100%;
+            max-width: 340px;
+        }
+        .btn {
+            padding: 16px 36px;
+            min-width: 120px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            border: 1.5px solid transparent;
+        }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #666;
+            border: 1.5px solid #bbb;
+        }
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            color: white;
+            border: 1.5px solid #00AEEF;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,174,239,0.3);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Step 5: Summary */
+        .summary-container {
+            text-align: center;
+        }
+
+        .journey-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 30px 0;
+            align-items: center;
+        }
+
+        .journey-item {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #00AEEF;
+            width: 100%;
+            max-width: 400px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .journey-item:nth-child(2) { border-left-color: #EC008C; }
+        .journey-item:nth-child(3) { border-left-color: #39B54A; }
+        .journey-item:nth-child(4) { border-left-color: #FFCB05; }
+
+        .summary-text {
+            margin: 30px 0;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .step {
+                padding: 30px 20px;
+            }
+
+            .question {
+                font-size: 20px;
+            }
+
+            .swipe-card {
+                height: 150px;
+                font-size: 18px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #swipeCard {
+                margin-top: 0;
+            }
+            .swipe-targets {
+                margin-top: 40px;
+            }
+        }
+
+        /* Touch feedback */
+        .checkbox-item:active,
+        .swipe-card:active,
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .swipe-label {
+            font-size: 1.3em;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .swipe-summary-buttons {
+            margin-top: 40px;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        /* Confetti effect for summary page */
+        .confetti {
+            pointer-events: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 3.6px;
+            height: 5.4px;
+            border-radius: 0.9px;
+            opacity: 0.85;
+            will-change: transform;
+        }
+
+        .question-progress {
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+            margin-bottom: 10px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .involvement-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .slider-ticks {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 8px;
+            height: 32px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 0;
+            padding-left: 14px;
+            padding-right: 6px;
+        }
+        .slider-ticks span {
+            display: block;
+            width: 1px;
+            height: 15px;
+            background: #ccc;
+            border-radius: 1px;
+            z-index: 0;
+        }
+
+        #timeline1 {
+            top:64px;
+        }
+
+        #timeline2 {
+            top: 8px;
+        }
+        .slider-container input.slider {
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-text {
+            font-size: 0.8em;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 1.08em;
+            color: #888;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            font-weight: 500;
+            padding: 0;
+            border-bottom: 2px solid #bbb;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .back-link:hover, .back-link:focus {
+            color: #00AEEF;
+            border-bottom: 2px solid #00AEEF;
+            outline: none;
+        }
+        .back-link .arrow {
+            font-size: 1.2em;
+            margin-right: 6px;
+            line-height: 1;
+        }
+        .page-indicator {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 1.08em;
+            color: #888;
+            font-weight: 500;
+            z-index: 10;
+        }
+        .step {
+            position: relative;
+            min-height: 550px;
+        }
+        #step0 {
+            min-height: unset;
+        }
+
+        /* Madlib underline style for inputs and textarea */
+        .madlib-input {
+            border: none !important;
+            border-bottom: 2px solid #bbb !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+            font-size: 1em;
+            padding: 8px 4px 4px 4px !important;
+            margin: 0 4px;
+            width: 60%;
+            transition: border-color 0.2s;
+        }
+        .madlib-input:focus {
+            border-bottom: 2px solid #00AEEF !important;
+        }
+        .madlib-input::placeholder {
+            color: #bbb;
+            opacity: 1;
+        }
+        textarea.madlib-input {
+            width: 100%;
+            min-height: 48px;
+            resize: vertical;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-gradient"></div>
+            <div class="progress-mask" id="progressMask"></div>
+        </div>
+
+        <!-- Step 0: Intro Screen -->
+        <div class="step active" id="step0">
+            <div style="font-size:2.5em; text-align:center; margin-bottom: 10px;">👋</div>
+            <div class="question">Welcome!</div>
+            <div style="text-align:center; margin: 24px 0 18px 0; font-size: 1em; color: #333;">
+                We're excited to get to know you!<br>
+                This quick survey will only take one minute.
+            </div>
+            <div style="text-align:center; margin: 0 0 32px 0; font-size: 0.95em; color: #666;">
+                We'll use your answers to discover how we can help, and whether we're a good fit to work together.
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="startSurveyBtn">Start</button>
+            </div>
+        </div>
+
+        <!-- Step 1: Checkbox Selection -->
+        <div class="step" id="step1">
+            <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
+            <div class="page-indicator" id="questionProgress1"></div>
+            <div class="question">How can we help you?</div>
+            <div class="checkbox-group">
+                <div class="checkbox-item" data-value="web-design">
+                    <div class="checkbox-custom"></div>
+                    <input type="checkbox" value="web-design">
+                    <span>Web Design</span>
+                </div>
+                <div class="checkbox-item" data-value="branding">
+                    <div class="checkbox-custom"></div>
+                    <input type="checkbox" value="branding">
+                    <span>Branding / Identity</span>
+                </div>
+                <div class="checkbox-item" data-value="marketing">
+                    <div class="checkbox-custom"></div>
+                    <input type="checkbox" value="marketing">
+                    <span>Marketing / SEO</span>
+                </div>
+                <div class="checkbox-item" data-value="something-else">
+                    <div class="checkbox-custom"></div>
+                    <input type="checkbox" value="something-else">
+                    <span>Something else</span>
+                </div>
+                <div class="checkbox-item" data-value="not-sure">
+                    <div class="checkbox-custom"></div>
+                    <input type="checkbox" value="not-sure">
+                    <span>Not sure yet</span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="next1" disabled>Next</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Swipe Cards -->
+        <div class="step" id="step2">
+            <button class="back-link" id="swipeTopBackBtn"><span class="arrow">&#8592;</span>Back</button>
+            <div class="page-indicator" id="questionProgress2"></div>
+            <div class="question">Do you already have a website?</div>
+            <div class="swipe-hint">Swipe right for Yes, left for No,<br/>down for It's complicated.</div>
+            <div class="swipe-container" id="swipeContainer">
+                <div class="swipe-targets">
+                    <div class="swipe-target yes"><span class="swipe-label">Yes</span></div>
+                    <div class="swipe-target no"><span class="swipe-label">No</span></div>
+                </div>
+                <div class="swipe-card" id="swipeCard">Drag the card<br/>to your answer</div>
+                <div class="swipe-target complicated swipe-target-bottom"><span class="swipe-label">It's complicated</span></div>
+            </div>
+            <div class="swipe-summary" id="swipeSummary" style="display:none; text-align:center; position: relative; min-height: 320px;">
+                <div class="swipe-summary-text" id="swipeSummaryText" style="font-size:1.2em; margin-bottom:20px;"></div>
+                <div class="button-group swipe-summary-buttons" style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0 auto;">
+                    <button class="btn btn-primary" id="swipeContinueBtn">Continue</button>
+                    <button class="btn btn-secondary" id="swipeBackBtn">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Timeline Slider -->
+        <div class="step" id="step3">
+            <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
+            <div class="page-indicator" id="questionProgress3"></div>
+            <div class="question">What's your timeline like?</div>
+            <div class="slider-container">
+                <div class="slider-icon" id="timelineIcon">📅</div>
+                <input type="range" class="slider" id="timelineSlider" min="0" max="3" step="1" value="2">
+                
+                <div class="slider-labels timeline-labels" style="margin-left:-10px;margin-right:-5px;">
+                    <span>ASAP</span>
+                    <span>1–3 weeks</span>
+                    <span>1–3 months</span>
+                    <span>Just exploring</span>
+                </div>
+                <div class="slider-ticks" id="timeline1">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Involvement Scale -->
+        <div class="step" id="step4">
+            <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
+            <div class="page-indicator" id="questionProgress4"></div>
+            <div class="question">How involved do you want to be?</div>
+            <div id="balanceBeamContainer" style="width:100%;display:flex;justify-content:center;margin:32px 0 24px 0;">
+                <svg id="balanceBeamSVG" width="220" height="50" viewBox="0 0 220 50" style="overflow:visible;">
+                    <!-- Fulcrum triangle -->
+                    <polygon id="beamFulcrum" points="110,38 120,48 100,48" fill="#b6c6d6" />
+                    <g id="beamGroup">
+                        <rect x="30" y="30" width="160" height="4" rx="2" fill="#e0e0e0" />
+                    </g>
+                </svg>
+            </div>
+            <div class="slider-container involvement-slider-container" style="margin-top: 0; position:relative;">
+                <input type="range" class="slider" id="involvementSlider" min="1" max="10" step="1" value="5">
+                <div class="slider-ticks" id="timeline2">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="slider-labels" style="justify-content: space-between;">
+                    <span>1</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <div id="involvementLiveLabel" style="text-align:center; margin: 32px 0 0 0; font-weight:500; color:#00AEEF; font-size:1.15em;">Somewhere in between</div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="nextStep()">See My Plan</button>
+            </div>
+        </div>
+
+        <!-- Step 5: Summary -->
+        <div class="step" id="step5">
+            <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
+            <div class="confetti" id="confettiContainer" style="display:none;"></div>
+            <div class="question">Your Custom Plan</div>
+            <div class="summary-container">
+                <div class="journey-stack" id="journeyStack">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="summary-text" id="summaryText">
+                    Based on your answers, we'd likely start with a discovery sprint focused on your specific goals.
+                </div>
+                <div class="button-group">
+                    <a href="#" class="btn btn-primary" id="letsTalkBtn">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6: Contact Info -->
+        <div class="step" id="step6">
+            <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
+            <div class="question">Let's connect!</div>
+            <form id="contactForm" style="max-width: 400px; margin: 0 auto; font-size:1.08em;">
+                <div style="margin-bottom:18px;">
+                    Hello, I'm <input type="text" id="contactName" name="contactName" required placeholder="your name" class="madlib-input">.
+                </div>
+                <div style="margin-bottom:18px;">
+                    I can be reached at <input type="email" id="contactEmail" name="contactEmail" required placeholder="your email" class="madlib-input">.
+                </div>
+                <div style="margin-bottom:18px;">
+                    or call or text <input type="tel" id="contactPhone" name="contactPhone" placeholder="your phone" class="madlib-input">.
+                </div>
+                <div style="margin-bottom:18px;">
+                    I also wanted to mention...<br>
+                    <textarea id="contactNotes" name="contactNotes" rows="4" placeholder="some additional project notes." class="madlib-input"></textarea>
+                </div>
+                <div style="margin-bottom:24px;text-align:right;font-size:1.1em;color:#666;">
+                    Sincerely, <span id="sincerelyName">________</span>
+                </div>
+                <div style="margin-bottom:18px;display:flex;align-items:center;">
+                    <input type="checkbox" id="notRobot" required style="margin-right:10px;">
+                    <label for="notRobot" style="font-size:1em;">I swear I'm not a robot <span aria-label="wink" role="img">😉</span></label>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="submitContactBtn" type="submit" disabled>Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        let totalSteps = 6;
+        let userAnswers = {
+            services: [],
+            hasWebsite: null,
+            timeline: 0,
+            involvement: 1
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            updateQuestionProgress();
+            const startBtn = document.getElementById('startSurveyBtn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function() {
+                    document.getElementById('step0').classList.remove('active');
+                    currentStep = 1;
+                    document.getElementById('step1').classList.add('active');
+                    updateProgress();
+                    updateQuestionProgress();
+                });
+            }
+            // Back to welcome button
+            const backToWelcomeBtn = document.getElementById('backToWelcomeBtn');
+            if (backToWelcomeBtn) {
+                backToWelcomeBtn.addEventListener('click', function() {
+                    document.getElementById('step1').classList.remove('active');
+                    currentStep = 0;
+                    document.getElementById('step0').classList.add('active');
+                    updateProgress();
+                    updateQuestionProgress();
+                });
+            }
+            initializeSwipeCards();
+            initializeSliders();
+        });
+
+        // Progress bar
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressMask').style.width = (100 - progress) + '%';
+        }
+
+        // Show question number (e.g., 1/5) on each step except intro and summary
+        function updateQuestionProgress() {
+            const totalQuestions = 5;
+            for (let i = 1; i <= totalQuestions; i++) {
+                const el = document.getElementById(`questionProgress${i}`);
+                if (el) {
+                    if (currentStep === i) {
+                        el.textContent = `${i}/${totalQuestions}`;
+                        el.style.display = '';
+                    } else {
+                        el.textContent = '';
+                        el.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Utility to show a specific step
+        function showStep(stepNum) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            // Show the requested step
+            const stepEl = document.getElementById(`step${stepNum}`);
+            if (stepEl) stepEl.classList.add('active');
+            currentStep = stepNum;
+            updateProgress();
+            updateQuestionProgress();
+        }
+
+        function previousStep() {
+            if (currentStep === 1) {
+                showStep(0); // Go to welcome/intro
+            } else if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        // Step 1: Checkbox functionality
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const checkbox = this.querySelector('input');
+                const value = checkbox.value;
+                
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                    this.classList.remove('selected');
+                    userAnswers.services = userAnswers.services.filter(s => s !== value);
+                } else {
+                    checkbox.checked = true;
+                    this.classList.add('selected');
+                    userAnswers.services.push(value);
+                }
+                
+                updateNextButton();
+            });
+        });
+
+        function updateNextButton() {
+            const nextBtn = document.getElementById('next1');
+            nextBtn.disabled = userAnswers.services.length === 0;
+        }
+
+        document.getElementById('next1').addEventListener('click', nextStep);
+
+        // Step 2: Swipe cards (with summary/continue)
+        function initializeSwipeCards() {
+            const card = document.getElementById('swipeCard');
+            const targets = document.querySelectorAll('.swipe-target');
+            const swipeSummary = document.getElementById('swipeSummary');
+            const swipeSummaryText = document.getElementById('swipeSummaryText');
+            const swipeBackBtn = document.getElementById('swipeBackBtn');
+            const swipeContinueBtn = document.getElementById('swipeContinueBtn');
+            const swipeContainer = document.getElementById('swipeContainer');
+            let startX, startY, currentX, currentY;
+            let isDragging = false;
+            let hasSwiped = false;
+            let lastSwipeValue = null;
+            let lastDirection = 'center';
+
+            function updateCardContent(direction) {
+                const contents = {
+                    'right': 'Yes',
+                    'left': 'No',
+                    'down': "It's complicated",
+                    'center': 'Drag the card<br/>to your answer'
+                };
+                card.innerHTML = contents[direction] || contents['center'];
+                // Set background color
+                card.classList.remove('bg-yes', 'bg-no', 'bg-complicated');
+                if (direction === 'right') {
+                    card.classList.add('bg-yes');
+                } else if (direction === 'left') {
+                    card.classList.add('bg-no');
+                } else if (direction === 'down') {
+                    card.classList.add('bg-complicated');
+                }
+            }
+
+            function updateTargets(direction) {
+                targets.forEach(target => target.classList.remove('active'));
+                if (direction === 'right') {
+                    document.querySelector('.swipe-target.yes').classList.add('active');
+                } else if (direction === 'left') {
+                    document.querySelector('.swipe-target.no').classList.add('active');
+                } else if (direction === 'down') {
+                    document.querySelector('.swipe-target.complicated').classList.add('active');
+                }
+            }
+
+            function resetCard() {
+                card.style.transform = '';
+                card.classList.remove('swiping', 'swiped-right', 'swiped-left', 'swiped-up', 'swiped-down');
+                updateCardContent('center');
+                updateTargets('center');
+                hasSwiped = false;
+                lastSwipeValue = null;
+                lastDirection = 'center';
+                swipeSummary.style.display = 'none';
+                swipeContainer.style.display = '';
+                // Show the default button group and hint again
+                document.querySelectorAll('#step2 > .button-group, #step2 > .swipe-hint').forEach(el => el.style.display = '');
+            }
+
+            function showSummary(value) {
+                const labelMap = { yes: 'Yes', no: 'No', complicated: "It's complicated" };
+                swipeSummaryText.textContent = `You selected: ${labelMap[value]}`;
+                swipeSummary.style.display = 'block';
+                swipeContainer.style.display = 'none';
+                // Hide the default button group and hint when summary is shown
+                document.querySelectorAll('#step2 > .button-group, #step2 > .swipe-hint').forEach(el => el.style.display = 'none');
+            }
+
+            function handleSwipe(direction) {
+                if (hasSwiped) return;
+                hasSwiped = true;
+                const value = direction === 'right' ? 'yes' : direction === 'left' ? 'no' : 'complicated';
+                lastSwipeValue = value;
+                card.classList.add(`swiped-${direction}`);
+                setTimeout(() => {
+                    userAnswers.hasWebsite = value;
+                    showSummary(value);
+                }, 500);
+            }
+
+            function getDirection(deltaX, deltaY, threshold = 30) {
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    if (deltaX > threshold) return 'right';
+                    if (deltaX < -threshold) return 'left';
+                } else {
+                    if (deltaY > threshold) {
+                        return 'down';
+                    }
+                }
+                return 'center';
+            }
+
+            function handleStart(e) {
+                if (hasSwiped) return;
+                startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                startY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+                isDragging = true;
+                card.classList.add('swiping');
+            }
+
+            function handleMove(e) {
+                if (!isDragging || hasSwiped) return;
+                currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                currentY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+                const deltaX = currentX - startX;
+                const deltaY = currentY - startY;
+                const maxDistance = 100;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const scale = Math.min(distance / maxDistance, 1);
+                card.style.transform = `translate(${deltaX * scale}px, ${deltaY * scale}px) rotate(${deltaX * 0.1 * scale}deg)`;
+                const direction = getDirection(deltaX, deltaY);
+                updateCardContent(direction);
+                updateTargets(direction);
+                lastDirection = direction;
+            }
+
+            function handleEnd(e) {
+                if (!isDragging || hasSwiped) return;
+                isDragging = false;
+                card.classList.remove('swiping');
+                if (lastDirection !== 'center') {
+                    handleSwipe(lastDirection);
+                } else {
+                    resetCard();
+                }
+            }
+
+            // Touch events
+            card.addEventListener('touchstart', handleStart, { passive: false });
+            card.addEventListener('touchmove', handleMove, { passive: false });
+            card.addEventListener('touchend', handleEnd);
+            // Mouse events for desktop
+            card.addEventListener('mousedown', handleStart);
+            card.addEventListener('mousemove', handleMove);
+            card.addEventListener('mouseup', handleEnd);
+            card.addEventListener('mouseleave', handleEnd);
+            card.addEventListener('selectstart', function(e) { if (isDragging) e.preventDefault(); });
+            // Summary buttons
+            swipeBackBtn.addEventListener('click', function() {
+                resetCard();
+            });
+            swipeContinueBtn.addEventListener('click', function() {
+                nextStep();
+            });
+            // Patch: On swipe summary, top back link should resetCard instead of previousStep
+            const swipeTopBackBtn = document.getElementById('swipeTopBackBtn');
+            if (swipeTopBackBtn) {
+                swipeTopBackBtn.onclick = function(e) {
+                    if (swipeSummary.style.display === 'block') {
+                        e.preventDefault();
+                        resetCard();
+                    } else {
+                        previousStep();
+                    }
+                };
+            }
+            // Initialize card content
+            resetCard();
+        }
+
+        // Step 3: Timeline slider (emoji, 4 options, ASAP first, default middle)
+        function initializeSliders() {
+            const timelineSlider = document.getElementById('timelineSlider');
+            const timelineIcon = document.getElementById('timelineIcon');
+            timelineSlider.addEventListener('input', function() {
+                userAnswers.timeline = parseInt(this.value);
+                updateTimelineIcon();
+            });
+            function updateTimelineIcon() {
+                const icons = ['🏃', '⏳', '📅', '🔍'];
+                timelineIcon.textContent = icons[timelineSlider.value];
+            }
+            updateTimelineIcon();
+            // Involvement 1-10 slider
+            const involvementSlider = document.getElementById('involvementSlider');
+            const involvementLiveLabel = document.getElementById('involvementLiveLabel');
+            involvementSlider.addEventListener('input', function() {
+                userAnswers.involvement = parseInt(this.value);
+                updateInvolvementLabel();
+            });
+            function updateInvolvementLabel() {
+                const v = parseInt(involvementSlider.value);
+                let desc = '';
+                switch (v) {
+                    case 1: desc = "You handle everything, I'll celebrate!"; break;
+                    case 2: desc = "I want to be hands-off, but in the loop."; break;
+                    case 3: desc = "Mostly you, occasional input from me."; break;
+                    case 4: desc = "You take the lead, I'll review milestones."; break;
+                    case 5: desc = "Let's collaborate equally."; break;
+                    case 6: desc = "I'll handle most, but want expert input."; break;
+                    case 7: desc = "I want to drive, but with your support."; break;
+                    case 8: desc = "I'll take the lead, just need a nudge."; break;
+                    case 9: desc = "I want to do everything myself, but open to advice."; break;
+                    case 10: desc = "I want to do everything myself."; break;
+                    default: desc = "Somewhere in between.";
+                }
+                involvementLiveLabel.textContent = desc;
+            }
+            updateInvolvementLabel();
+            // --- Balance Beam Logic ---
+            const beamSVG = document.getElementById('balanceBeamSVG');
+            const beamGroup = document.getElementById('beamGroup');
+            // Fulcrum is at (110, 48)
+            function updateBalanceBeam() {
+                const v = parseInt(involvementSlider.value);
+                // Map 1-10 to -18deg (left) to +18deg (right)
+                const angle = ((v-1)/9)*36 - 18;
+                beamGroup.setAttribute('transform', `rotate(${angle} 110 32)`);
+            }
+            involvementSlider.addEventListener('input', updateBalanceBeam);
+            updateBalanceBeam();
+        }
+
+        // Step 5: Generate summary (update for new timeline/involvement logic)
+        function generateSummary() {
+            const journeyStack = document.getElementById('journeyStack');
+            const summaryText = document.getElementById('summaryText');
+            const services = userAnswers.services.map(s => {
+                const labels = {
+                    'web-design': 'Web Design',
+                    'branding': 'Branding / Identity',
+                    'marketing': 'Marketing / SEO',
+                    'something-else': 'Something else',
+                    'not-sure': 'Not sure yet'
+                };
+                return labels[s];
+            }).join(', ');
+            const websiteStatus = {
+                'yes': 'You have an existing website',
+                'no': 'You need a new website',
+                'complicated': 'Your website situation is complex'
+            }[userAnswers.hasWebsite];
+            const timeline = ['ASAP', '1–3 weeks', '1–3 months', 'Just exploring'][userAnswers.timeline];
+            let involvement = '';
+            const v = userAnswers.involvement || 5;
+            if (v <= 2) involvement = "Hands-off";
+            else if (v <= 4) involvement = "Mostly you";
+            else if (v <= 6) involvement = "Balanced approach";
+            else if (v <= 8) involvement = "Mostly me";
+            else involvement = "Very hands-on";
+            journeyStack.innerHTML = `
+                <div class="journey-item">Services: ${services}</div>
+                <div class="journey-item">${websiteStatus}</div>
+                <div class="journey-item">Timeline: ${timeline}</div>
+                <div class="journey-item">Involvement: ${involvement}</div>
+            `;
+            // Generate contextual summary
+            let summary = "Based on your answers, we'd likely start with a discovery sprint focused on your specific goals. ";
+            if (userAnswers.services && userAnswers.services.includes('web-design')) {
+                summary += "For your web design needs, we'll create a comprehensive strategy that aligns with your timeline and involvement preferences. ";
+            }
+            if (userAnswers.hasWebsite === 'no') {
+                summary += "Since you're starting fresh, we'll guide you through the entire process from concept to launch. ";
+            } else if (userAnswers.hasWebsite === 'complicated') {
+                summary += "We'll help you navigate the complexities of your current setup and find the best path forward. ";
+            }
+            if (userAnswers.timeline === 2) {
+                summary += "Given your ASAP timeline, we'll prioritize rapid prototyping and iterative development. ";
+            }
+            summaryText.textContent = summary;
+        }
+
+        // Confetti celebration effect for summary page
+        function launchConfetti() {
+            const confettiColors = [
+                '#00AEEF', '#EC008C', '#39B54A', '#FFCB05', '#fff', '#222', '#FFD700', '#FF69B4'
+            ];
+            const confettiContainer = document.getElementById('confettiContainer');
+            confettiContainer.innerHTML = '';
+            confettiContainer.style.display = 'block';
+            const numConfetti = 180;
+            for (let i = 0; i < numConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-30px';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.animation = `confetti-fall-${i} 3s ${Math.random() * 0.9 + 0.1}s cubic-bezier(.62,.04,.36,1) forwards`;
+                confettiContainer.appendChild(confetti);
+                // Add keyframes dynamically for each piece
+                const endX = (Math.random() - 0.5) * 200;
+                const endY = window.innerHeight + 60;
+                const rotate = Math.random() * 720 + 360;
+                const styleSheet = document.styleSheets[0];
+                const keyframes = `@keyframes confetti-fall-${i} { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translate(${endX}px, ${endY}px) rotate(${rotate}deg); } }`;
+                styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+            }
+            // Remove confetti after animation
+            setTimeout(() => {
+                confettiContainer.style.display = 'none';
+                confettiContainer.innerHTML = '';
+            }, 3500);
+        }
+        // Override nextStep for involvement to generate summary and confetti
+        function nextStep() {
+            if (currentStep === 4) {
+                generateSummary();
+                setTimeout(launchConfetti, 350);
+            }
+            if (currentStep < totalSteps) {
+                showStep(currentStep + 1);
+            }
+        }
+
+        // In JS, update navigation so the summary page's 'Let's Talk' button goes to step 6, and enable the submit button only if required fields and anti-robot are filled.
+        document.getElementById('letsTalkBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            showStep(6);
+            document.getElementById('progressMaskFinal').style.width = '0%';
+        });
+        const contactForm = document.getElementById('contactForm');
+        const submitContactBtn = document.getElementById('submitContactBtn');
+        function validateContactForm() {
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const notRobot = document.getElementById('notRobot').checked;
+            submitContactBtn.disabled = !(name && email && notRobot);
+        }
+        ['contactName','contactEmail','notRobot'].forEach(id => {
+            document.getElementById(id)?.addEventListener('input', validateContactForm);
+            document.getElementById(id)?.addEventListener('change', validateContactForm);
+        });
+        validateContactForm();
+        contactForm?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitContactBtn.disabled = true;
+            submitContactBtn.textContent = 'Submitted!';
+            // You can add your own submission logic here
+        });
+
+        // In JS, auto-fill the Sincerely name as the user types their name
+        const sincerelyName = document.getElementById('sincerelyName');
+        document.getElementById('contactName')?.addEventListener('input', function() {
+            sincerelyName.textContent = this.value.trim() ? this.value : '________';
+        });
+    </script>
+</body>
+</html>
