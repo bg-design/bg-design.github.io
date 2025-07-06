@@ -39,6 +39,11 @@
             height: 100vh !important;
             max-height: 100vh !important;
         }
+        
+        .container.no-scroll {
+            overflow: hidden !important;
+            overflow-y: hidden !important;
+        }
 
         .container {
             background: white;
@@ -999,9 +1004,11 @@
             if (stepNum === 0 || stepNum === 2) {
                 document.body.classList.add('no-scroll');
                 document.documentElement.classList.add('no-scroll');
+                document.querySelector('.container').classList.add('no-scroll');
             } else {
                 document.body.classList.remove('no-scroll');
                 document.documentElement.classList.remove('no-scroll');
+                document.querySelector('.container').classList.remove('no-scroll');
             }
         }
 
