@@ -738,8 +738,11 @@
             <div style="text-align:center; margin: 0 0 32px 0; font-size: 0.95em; color: #666;">
                 We'll use your answers to discover how we can help, and whether we're a good fit to work together.
             </div>
-            <div class="button-group">
+            <div class="button-group" style="flex-direction:column;align-items:center;">
                 <button class="btn btn-primary" id="startSurveyBtn">Start</button>
+            </div>
+            <div style="text-align:center; margin-top:12px;">
+                <a href="#" id="skipToContactLink" style="color:#888;text-decoration:underline;font-size:1em;">Skip survey &rarr;</a>
             </div>
         </div>
 
@@ -987,8 +990,28 @@
             }
         }
 
+        function isIntakeComplete() {
+            // Check if all required intake questions are answered
+            // Step 1: At least one service selected
+            if (!userAnswers.services || userAnswers.services.length === 0) return false;
+            // Step 2: Website question answered
+            if (!userAnswers.hasWebsite) return false;
+            // Step 3: Timeline selected (should always have a value, but check)
+            if (typeof userAnswers.timeline !== 'number') return false;
+            // Step 4: Involvement selected (should always have a value, but check)
+            if (typeof userAnswers.involvement !== 'number') return false;
+            // Step 5: Summary is just a display, not a question
+            return true;
+        }
+
         function previousStep() {
-            if (currentStep === 1) {
+            if (currentStep === 6) {
+                if (!isIntakeComplete()) {
+                    showStep(0); // Go to welcome/intro if intake not complete
+                } else {
+                    showStep(5); // Otherwise, go to summary
+                }
+            } else if (currentStep === 1) {
                 showStep(0); // Go to welcome/intro
             } else if (currentStep > 1) {
                 showStep(currentStep - 1);
@@ -1357,6 +1380,12 @@
         const sincerelyName = document.getElementById('sincerelyName');
         document.getElementById('contactName')?.addEventListener('input', function() {
             sincerelyName.textContent = this.value.trim() ? this.value : '________';
+        });
+
+        // Add JS to handle Skip to Contact link
+        document.getElementById('skipToContactLink')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            showStep(6);
         });
     </script>
 </body>
