@@ -31,6 +31,18 @@
 
         body.no-scroll {
             overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        html.no-scroll, body.no-scroll {
+            overflow: hidden !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+        }
+        
+        .container.no-scroll {
+            overflow: hidden !important;
+            overflow-y: hidden !important;
         }
 
         .container {
@@ -718,6 +730,12 @@
             resize: vertical;
         }
 
+        html.no-scroll, body.no-scroll {
+            overflow: hidden !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+        }
+
     </style>
 </head>
 <body>
@@ -982,11 +1000,15 @@
             currentStep = stepNum;
             updateProgress();
             updateQuestionProgress();
-            // Disable vertical scrolling on welcome and step 2 only
+            // Robustly disable vertical scrolling on welcome and step 2 only
             if (stepNum === 0 || stepNum === 2) {
                 document.body.classList.add('no-scroll');
+                document.documentElement.classList.add('no-scroll');
+                document.querySelector('.container').classList.add('no-scroll');
             } else {
                 document.body.classList.remove('no-scroll');
+                document.documentElement.classList.remove('no-scroll');
+                document.querySelector('.container').classList.remove('no-scroll');
             }
         }
 
