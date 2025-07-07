@@ -1085,6 +1085,8 @@
                 document.documentElement.style.height = '';
                 document.documentElement.style.overflow = '';
                 document.documentElement.style.background = '';
+                // Force enable scrolling for container
+                document.querySelector('.container').style.overflowY = 'auto';
             }
         }
 
