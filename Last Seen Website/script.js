@@ -260,4 +260,12 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(playCurrentRoomAudio, 200);
 
   // Parallax effect for backgrounds has been fully removed.
+
+  // Set --vh custom property for mobile viewport height fix
+  function setPanelHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  window.addEventListener('resize', setPanelHeight);
+  setPanelHeight();
 }); 
