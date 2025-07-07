@@ -37,6 +37,8 @@
             left: 0;
             right: 0;
             bottom: 0;
+            -webkit-overflow-scrolling: auto;
+            touch-action: none;
         }
 
         body.no-scroll {
@@ -571,12 +573,21 @@
                 width: 100%;
                 height: 100%;
                 overflow: hidden;
-                -webkit-overflow-scrolling: touch;
+                -webkit-overflow-scrolling: auto;
+                touch-action: none;
             }
             
             body.step2-active .container {
                 max-height: 100vh;
                 overflow: hidden;
+                -webkit-overflow-scrolling: auto;
+                touch-action: none;
+            }
+            
+            body.step2-active * {
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;
+                -webkit-tap-highlight-color: transparent;
             }
         }
 
@@ -991,6 +1002,13 @@
             }
             initializeSwipeCards();
             initializeSliders();
+            
+            // Prevent iOS Safari from scrolling on touch events
+            document.addEventListener('touchmove', function(e) {
+                if (currentStep === 2) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
         });
 
         // Progress bar
@@ -1034,14 +1052,27 @@
                 // Special handling for step 2 to lock scrolling on iPhone
                 if (stepNum === 2) {
                     document.body.classList.add('step2-active');
+                    // Additional iOS-specific fixes
+                    document.documentElement.style.position = 'fixed';
+                    document.documentElement.style.width = '100%';
+                    document.documentElement.style.height = '100%';
+                    document.documentElement.style.overflow = 'hidden';
                 } else {
                     document.body.classList.remove('step2-active');
+                    document.documentElement.style.position = '';
+                    document.documentElement.style.width = '';
+                    document.documentElement.style.height = '';
+                    document.documentElement.style.overflow = '';
                 }
             } else {
                 document.body.classList.remove('no-scroll');
                 document.documentElement.classList.remove('no-scroll');
                 document.querySelector('.container').classList.remove('no-scroll');
                 document.body.classList.remove('step2-active');
+                document.documentElement.style.position = '';
+                document.documentElement.style.width = '';
+                document.documentElement.style.height = '';
+                document.documentElement.style.overflow = '';
             }
         }
 
