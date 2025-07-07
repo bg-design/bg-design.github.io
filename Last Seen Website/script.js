@@ -97,47 +97,154 @@ window.addEventListener('DOMContentLoaded', () => {
     flickerSequence();
   }
 
-  // Ambient sound design
+  // Ambient sound design (robust per-section logic)
   const muteBtn = document.getElementById('mute-toggle');
-  const audios = Array.from(document.querySelectorAll('.room-audio'));
+  const panels = Array.from(document.querySelectorAll('.panel'));
+  const audios = panels.map(panel => panel.querySelector('.room-audio'));
   let isMuted = true;
   let currentAudio = null;
+  let currentSectionIdx = 0;
 
-  // Start all audio muted
-  audios.forEach(a => { a.muted = true; a.volume = 0.7; });
+  audios.forEach(a => { if (a) { a.muted = true; a.volume = 0.7; } });
   muteBtn.textContent = '🔇';
 
   function setMute(state) {
     isMuted = state;
-    audios.forEach(a => a.muted = isMuted);
+    audios.forEach(a => { if (a) a.muted = isMuted; });
     muteBtn.textContent = isMuted ? '🔇' : '🔊';
+    playCurrentRoomAudio(); // Always update playback on mute toggle
   }
 
-  muteBtn.addEventListener('click', () => {
-    setMute(!isMuted);
-  });
+  // Intersection Observer for section detection
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.51 // More than half visible
+  };
 
-  // Helper: find the currently visible section
-  function getCurrentSectionIndex() {
-    const panels = Array.from(document.querySelectorAll('.panel'));
-    const scrollY = window.scrollY + window.innerHeight / 2;
-    return panels.findIndex(panel => {
-      const rect = panel.getBoundingClientRect();
-      const top = rect.top + window.scrollY;
-      const bottom = rect.bottom + window.scrollY;
-      return scrollY >= top && scrollY < bottom;
+  const panelVisibility = new Array(panels.length).fill(false);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = panels.indexOf(entry.target);
+      panelVisibility[idx] = entry.isIntersecting;
     });
+    // Find the topmost visible panel (or the one with the largest intersection ratio)
+    let maxRatio = 0;
+    let maxIdx = 0;
+    entries.forEach(entry => {
+      const idx = panels.indexOf(entry.target);
+      if (entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio;
+        maxIdx = idx;
+      }
+    });
+    if (currentSectionIdx !== maxIdx) {
+      currentSectionIdx = maxIdx;
+      playCurrentRoomAudio();
+    }
+  }, observerOptions);
+
+  panels.forEach(panel => observer.observe(panel));
+
+  function typewriterEffect(label) {
+    if (!label) return;
+    const text = label.getAttribute('data-fulltext') || label.innerText;
+    label.setAttribute('data-fulltext', text);
+    label.innerText = '';
+    label.classList.add('typewriter');
+    let i = 0;
+    function type() {
+      label.innerText = text.slice(0, i);
+      i++;
+      if (i <= text.length) {
+        setTimeout(type, 28 + Math.random() * 32);
+      } else {
+        label.innerText = text;
+        label.classList.remove('typewriter');
+      }
+    }
+    type();
   }
+
+  // Randomized labels for demo
+  const labelOptions = {
+    kitchen: [
+      "A faint smell of something burnt lingers here.",
+      "The fridge hums, but nothing inside is fresh.",
+      "You hear a clock ticking, but see no clock.",
+      "The kitchen is colder than it should be."
+    ],
+    bathroom: [
+      "The mirror is fogged, but you see no reflection.",
+      "A single drip echoes in the silence.",
+      "The tiles are cold, and the air is damp.",
+      "You sense someone was just here."
+    ],
+    basement: [
+      "Something moves in the shadows below.",
+      "The air is thick with dust and secrets.",
+      "A chill runs down your spine.",
+      "You hear a faint whisper, but see no one."
+    ]
+  };
+
+  function getRandomLabel(section) {
+    const opts = labelOptions[section];
+    if (!opts) return null;
+    return opts[Math.floor(Math.random() * opts.length)];
+  }
+
+  let lastTypewriterIdx = -1;
+  let lastRandomLabel = {};
 
   function playCurrentRoomAudio() {
-    const idx = getCurrentSectionIndex();
+    const idx = currentSectionIdx;
+    // Debug: log current section index and class
+    if (idx !== -1) {
+      const panel = panels[idx];
+      console.log('Current section index:', idx, 'Class:', panel.className);
+      // Typewriter effect for label (only when section changes)
+      panels.forEach((p, i) => {
+        const label = p.querySelector('.section-label');
+        if (i === idx && label) {
+          // Randomize label for kitchen, bathroom, basement
+          if (i !== 0) { // skip attic
+            const section = p.classList.contains('kitchen') ? 'kitchen' : p.classList.contains('bathroom') ? 'bathroom' : p.classList.contains('basement') ? 'basement' : null;
+            if (section) {
+              let randomLabel = getRandomLabel(section);
+              // Avoid repeating the same label consecutively
+              while (lastRandomLabel[section] === randomLabel && labelOptions[section].length > 1) {
+                randomLabel = getRandomLabel(section);
+              }
+              lastRandomLabel[section] = randomLabel;
+              label.setAttribute('data-fulltext', randomLabel);
+            }
+          }
+          if (lastTypewriterIdx !== idx) {
+            typewriterEffect(label);
+            lastTypewriterIdx = idx;
+          }
+        } else if (label) {
+          // Reset label to full text if not active
+          const full = label.getAttribute('data-fulltext');
+          if (full) label.innerText = full;
+          label.classList.remove('typewriter');
+        }
+      });
+    } else {
+      console.log('No section in view');
+    }
     audios.forEach((audio, i) => {
-      if (i === idx) {
+      if (!audio) return;
+      if (i === idx && !isMuted) {
         if (audio !== currentAudio) {
           if (currentAudio) currentAudio.pause();
           audio.currentTime = 0;
           audio.play().catch(()=>{});
           currentAudio = audio;
+        } else if (audio.paused) {
+          audio.play().catch(()=>{});
         }
       } else {
         audio.pause();
@@ -145,8 +252,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Play correct audio on scroll and on load
-  window.addEventListener('scroll', playCurrentRoomAudio);
-  window.addEventListener('resize', playCurrentRoomAudio);
+  muteBtn.addEventListener('click', () => {
+    setMute(!isMuted);
+  });
+
+  // Initial call
   setTimeout(playCurrentRoomAudio, 200);
+
+  // Parallax effect for backgrounds has been fully removed.
 }); 
