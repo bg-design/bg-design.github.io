@@ -10,6 +10,13 @@
 
 
   <style>
+    html {
+      /* Prevent iOS Safari bouncing */
+      -webkit-overflow-scrolling: auto;
+      overscroll-behavior: none;
+      overflow-x: hidden;
+    }
+    
     body {
       margin: 0;
       background: var(--bg);
@@ -17,6 +24,10 @@
       color: #00AEEF;
       padding: 20px;
       padding-bottom: 120px;
+      /* Prevent iOS Safari bouncing */
+      -webkit-overflow-scrolling: auto;
+      overscroll-behavior: none;
+      overflow-x: hidden;
     }
     .content p {
       max-width: 600px;
@@ -683,10 +694,19 @@
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const maxScroll = documentHeight - windowHeight;
 
     // ✅ If booking page is open, never hide the tab bar
     if (bookingPage.classList.contains('open')) {
       bar.classList.remove('hidden');
+      return;
+    }
+
+    // Prevent showing tab bar when at the very bottom (within 10px)
+    if (currentScroll >= maxScroll - 10) {
+      bar.classList.add('hidden');
       return;
     }
 
