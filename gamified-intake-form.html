@@ -606,6 +606,28 @@
                 -webkit-touch-callout: none;
                 -webkit-tap-highlight-color: transparent;
             }
+            
+            /* Allow touch interactions for interactive elements */
+            body.step0-active input[type="range"],
+            body.step1-active input[type="range"],
+            body.step2-active input[type="range"],
+            body.step3-active input[type="range"],
+            body.step4-active input[type="range"],
+            body.step0-active .checkbox-item,
+            body.step1-active .checkbox-item,
+            body.step2-active .checkbox-item,
+            body.step3-active .checkbox-item,
+            body.step4-active .checkbox-item,
+            body.step0-active .swipe-card,
+            body.step1-active .swipe-card,
+            body.step2-active .swipe-card,
+            body.step3-active .swipe-card,
+            body.step4-active .swipe-card {
+                -webkit-user-select: auto;
+                -webkit-touch-callout: auto;
+                -webkit-tap-highlight-color: auto;
+                touch-action: manipulation;
+            }
         }
 
         @media (max-width: 600px) {
@@ -1023,6 +1045,14 @@
             // Prevent iOS Safari from scrolling on touch events
             document.addEventListener('touchmove', function(e) {
                 if (currentStep >= 0 && currentStep <= 4) {
+                    // Allow touch events for interactive elements like sliders
+                    if (e.target.tagName === 'INPUT' || 
+                        e.target.type === 'range' || 
+                        e.target.closest('.slider-container') ||
+                        e.target.closest('.checkbox-item') ||
+                        e.target.closest('.swipe-card')) {
+                        return; // Don't prevent default for interactive elements
+                    }
                     e.preventDefault();
                 }
             }, { passive: false });
