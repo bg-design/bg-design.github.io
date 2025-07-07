@@ -39,6 +39,7 @@
             bottom: 0;
             -webkit-overflow-scrolling: auto;
             touch-action: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body.no-scroll {
@@ -1052,17 +1053,19 @@
                 // Special handling for step 2 to lock scrolling on iPhone
                 if (stepNum === 2) {
                     document.body.classList.add('step2-active');
-                    // Additional iOS-specific fixes
+                    // Additional iOS-specific fixes - but preserve background
                     document.documentElement.style.position = 'fixed';
                     document.documentElement.style.width = '100%';
                     document.documentElement.style.height = '100%';
                     document.documentElement.style.overflow = 'hidden';
+                    document.documentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
                 } else {
                     document.body.classList.remove('step2-active');
                     document.documentElement.style.position = '';
                     document.documentElement.style.width = '';
                     document.documentElement.style.height = '';
                     document.documentElement.style.overflow = '';
+                    document.documentElement.style.background = '';
                 }
             } else {
                 document.body.classList.remove('no-scroll');
@@ -1073,6 +1076,7 @@
                 document.documentElement.style.width = '';
                 document.documentElement.style.height = '';
                 document.documentElement.style.overflow = '';
+                document.documentElement.style.background = '';
             }
         }
 
