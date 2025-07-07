@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Last Seen in the Twilight Zone</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button id="mute-toggle" aria-label="Toggle sound">🔇</button>
+  <section class="panel attic">
+    <video class="bg-video" src="./attic.mp4" autoplay loop muted playsinline></video>
+    <canvas class="dust-overlay"></canvas>
+    <div class="tv-static"></div>
+    <div class="section-label title">Last Seen<br/>in the Twilight Zone</div>
+    <audio class="room-audio" src="soft-rain-on-a-tile-roof-14515.mp3" loop preload="auto"></audio>
+  </section>
+
+  <div class="floor-cross-section"></div>
+
+  <section class="panel kitchen">
+    <div class="section-label">A faint smell of something burnt lingers here.</div>
+    <audio class="room-audio" src="rain-from-inside-house-57501.mp3" loop preload="auto"></audio>
+  </section>
+
+  <div class="floor-cross-section"></div>
+
+  <section class="panel bathroom">
+    <video class="bg-video" src="./bathroom.mp4" autoplay loop muted playsinline></video>
+    <div class="section-label">The mirror is fogged, but you see no reflection.</div>
+    <audio class="room-audio" src="dripping-water-tap-30556.mp3" loop preload="auto"></audio>
+  </section>
+
+  <div class="floor-cross-section"></div>
+
+  <section class="panel basement">
+    <div class="basement-darken"></div>
+    <div class="flicker-glow"></div>
+    <div class="section-label">Something moves in the shadows below.</div>
+    <audio class="room-audio" src="wind-basement-dripping-water-14721.mp3" loop preload="auto"></audio>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html> 

@@ -631,6 +631,77 @@
     .back-link:hover {
       text-decoration: underline;
     }
+
+    /* Accordion styles for process page */
+    .accordion { max-width: 600px; margin: 2em auto; }
+    .accordion-item { border-bottom: 1px solid #eee; }
+    .accordion-header {
+      background: #f7f7f7;
+      color: #00AEEF;
+      font-weight: bold;
+      width: 100%;
+      text-align: left;
+      padding: 1em;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 1.1em;
+    }
+    .accordion-header.active, .accordion-header:hover {
+      background: #e0f7fa;
+    }
+    .accordion-content {
+      display: none;
+      padding: 1em;
+      background: #fafbfc;
+      animation: fadeIn 0.3s;
+    }
+    .accordion-content.open {
+      display: block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .accordion {
+        background: none;
+      }
+      .accordion-item {
+        border-bottom: 1px solid #333;
+      }
+      .accordion-header {
+        background: #181c20;
+        color: #00AEEF;
+      }
+      .accordion-header.active, .accordion-header:hover {
+        background: #23272b;
+        color: #fff;
+      }
+      .accordion-content {
+        background: #222;
+        color: #eee;
+      }
+      .accordion-content ul, .accordion-content p, .accordion-content li, .accordion-content figcaption {
+        color: #eee;
+      }
+      .accordion-content figcaption {
+        color: #aaa;
+      }
+    }
+
+    /* Accordion icon styles */
+    .accordion-icon {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-left: 0.5em;
+      vertical-align: middle;
+      transition: color 0.2s;
+      color: #00AEEF;
+    }
+    @media (prefers-color-scheme: dark) {
+      .accordion-icon {
+        color: #fff;
+      }
+    }
   </style>
 </head>
 <body>
@@ -809,13 +880,30 @@
           const mainContent = document.getElementById('mainContent');
           mainContent.innerHTML = `
             <div class="markdown-content">
-              <a href="#" class="back-link" onclick="loadDefaultContent()">← Back to Default Content</a>
+              <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
               ${html}
             </div>
           `;
           
           // Scroll to top
           window.scrollTo(0, 0);
+          // Accordion JS
+          setTimeout(() => {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+              header.onclick = function() {
+                const content = this.nextElementSibling;
+                this.classList.toggle('active');
+                content.classList.toggle('open');
+                // Toggle plus/minus icon
+                const icon = this.querySelector('.accordion-icon');
+                if (this.classList.contains('active')) {
+                  icon.textContent = '−';
+                } else {
+                  icon.textContent = '+';
+                }
+              };
+            });
+          }, 0);
         })
         .catch(error => {
           console.error('Error loading process content:', error);
