@@ -169,11 +169,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Randomized labels for demo
   const labelOptions = {
-    kitchen: [
-      "A faint smell of something burnt lingers here.",
-      "The fridge hums, but nothing inside is fresh.",
-      "You hear a clock ticking, but see no clock.",
-      "The kitchen is colder than it should be."
+    'living-room': [
+      "The TV is on, but only static fills the screen.",
+      "The couch is empty, but you sense someone was just here.",
+      "A faint glow flickers from the television.",
+      "The remote is missing, and the static never ends."
     ],
     bathroom: [
       "The mirror is fogged, but you see no reflection.",
@@ -208,9 +208,9 @@ window.addEventListener('DOMContentLoaded', () => {
       panels.forEach((p, i) => {
         const label = p.querySelector('.section-label');
         if (i === idx && label) {
-          // Randomize label for kitchen, bathroom, basement
+          // Randomize label for living-room, bathroom, basement
           if (i !== 0) { // skip attic
-            const section = p.classList.contains('kitchen') ? 'kitchen' : p.classList.contains('bathroom') ? 'bathroom' : p.classList.contains('basement') ? 'basement' : null;
+            const section = p.classList.contains('living-room') ? 'living-room' : p.classList.contains('bathroom') ? 'bathroom' : p.classList.contains('basement') ? 'basement' : null;
             if (section) {
               let randomLabel = getRandomLabel(section);
               // Avoid repeating the same label consecutively
@@ -268,4 +268,60 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('resize', setPanelHeight);
   setPanelHeight();
+
+  // Living room dust motes effect
+  const livingRoom = document.querySelector('.panel.living-room');
+  const livingCanvas = livingRoom ? livingRoom.querySelector('.living-dust') : null;
+  if (livingCanvas) {
+    const ctx = livingCanvas.getContext('2d');
+    function resizeLivingCanvas() {
+      livingCanvas.width = livingRoom.offsetWidth;
+      livingCanvas.height = livingRoom.offsetHeight;
+    }
+    resizeLivingCanvas();
+    window.addEventListener('resize', resizeLivingCanvas);
+    // Force resize when living room becomes visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) resizeLivingCanvas();
+      });
+    }, { threshold: 0.1 });
+    observer.observe(livingRoom);
+    const NUM_MOTES = 18;
+    const motes = [];
+    for (let i = 0; i < NUM_MOTES; i++) {
+      motes.push({
+        x: Math.random() * livingCanvas.width,
+        y: Math.random() * livingCanvas.height,
+        r: 1.2 + Math.random() * 1.6,
+        alpha: 0.07 + Math.random() * 0.09,
+        speed: 0.04 + Math.random() * 0.09,
+        drift: (Math.random() - 0.5) * 0.12
+      });
+    }
+    function animateLivingDust() {
+      ctx.clearRect(0, 0, livingCanvas.width, livingCanvas.height);
+      for (const m of motes) {
+        ctx.save();
+        ctx.globalAlpha = m.alpha;
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, m.r, 0, 2 * Math.PI);
+        ctx.fillStyle = '#fff7c2';
+        ctx.shadowColor = '#fff7c2';
+        ctx.shadowBlur = 16;
+        ctx.fill();
+        ctx.restore();
+        m.x += m.drift;
+        m.y -= m.speed;
+        if (m.y + m.r < 0) {
+          m.x = Math.random() * livingCanvas.width;
+          m.y = livingCanvas.height + m.r;
+        }
+        if (m.x < 0) m.x = livingCanvas.width;
+        if (m.x > livingCanvas.width) m.x = 0;
+      }
+      requestAnimationFrame(animateLivingDust);
+    }
+    animateLivingDust();
+  }
 }); 
