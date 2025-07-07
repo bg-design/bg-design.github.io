@@ -325,6 +325,21 @@
       font-weight: bold;
     }
     
+    /* Override tab color changes for booking content */
+    .bookingContent,
+    .bookingContent * {
+      color: inherit;
+    }
+    
+    .bookingContent h2,
+    .bookingContent p:not([style*="color"]) {
+      color: #00AEEF;
+    }
+    
+    .bookingContent p[style*="color:#666"] {
+      color: #666;
+    }
+    
     .phone-section {
       background: #00AEEF;
       border-radius: 15px;
@@ -650,7 +665,7 @@
         <div style="margin-bottom:8px; font-weight:500;">Or just call or email:</div>
         <div>
           <a href="tel:6074445455" style="color:#39B54A;text-decoration:underline;">(607) 444-5455</a>
-          &nbsp;|&nbsp;
+          <span style="color:#39B54A;">&nbsp;|&nbsp;</span>
           <a href="mailto:hello@nuanceddesign.com" style="color:#39B54A;text-decoration:underline;">hello@nuanceddesign.com</a>
         </div>
       </div>
