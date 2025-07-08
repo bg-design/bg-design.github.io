@@ -470,4 +470,137 @@ body, html {
   .footer-info {
     font-size: 0.8rem;
   }
+}
+
+.about-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.about-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  visibility: hidden;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+}
+
+.modal-content {
+  background: rgba(20,20,20,0.95);
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  transform: scale(0.8) translateY(20px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ffd700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.modal-close:hover {
+  color: #ffffff;
+  transform: rotate(0deg) scale(1.1);
+}
+
+.modal-content h2 {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.modal-content p:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.modal-content p:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.modal-content p:nth-child(4) {
+  transition-delay: 0.5s;
+}
+
+.modal-content strong {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modal-overlay.active .modal-close {
+  opacity: 1;
+  transform: rotate(0deg);
+  transition-delay: 0.3s;
+}
+
+.modal-overlay.active .modal-content h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-overlay.active .modal-content p {
+  opacity: 0.9;
+  transform: translateY(0);
 } 

@@ -358,4 +358,100 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     animateLivingDust();
   }
+});
+
+// Modal functionality - moved outside main event listener
+document.addEventListener('DOMContentLoaded', function() {
+  const modalOverlay = document.getElementById('modal-overlay');
+  const modalBody = document.getElementById('modal-body');
+  const modalClose = document.querySelector('.modal-close');
+
+  console.log('Modal elements found:', { modalOverlay, modalBody, modalClose });
+
+  // Bio content
+  const bios = {
+    quinn: {
+      title: 'About Quinn',
+      content: `
+        <h2>Quinn</h2>
+        <p><strong>Lead Investigator & Host</strong></p>
+        <p>Quinn has been investigating mysterious disappearances for over a decade. A former investigative journalist, they turned to podcasting after discovering a pattern of unexplained vanishings in abandoned locations throughout the country.</p>
+        <p>Known for their methodical approach and ability to find connections others miss, Quinn brings a unique perspective to each case. Their background in journalism provides the foundation for thorough research and compelling storytelling.</p>
+        <p>When not investigating disappearances, Quinn can be found exploring forgotten places, documenting their findings, and piecing together the stories of those who never returned from the Twilight Zone.</p>
+      `
+    },
+    allie: {
+      title: 'About Allie',
+      content: `
+        <h2>Allie</h2>
+        <p><strong>Technical Producer & Researcher</strong></p>
+        <p>Allie handles the technical aspects of the podcast, from audio production to digital research. With a background in sound engineering and a fascination with the unexplained, they bring both technical expertise and creative vision to each episode.</p>
+        <p>Their work includes field recording in abandoned locations, audio restoration of found recordings, and deep-dive research into historical cases. Allie's attention to detail has uncovered crucial evidence in several investigations.</p>
+        <p>Allie believes that every sound, every detail, and every piece of evidence tells a story. Their technical skills help bring those stories to life for listeners, creating an immersive experience that draws audiences deeper into each mystery.</p>
+      `
+    }
+  };
+
+  // Check if modal elements exist
+  if (!modalOverlay || !modalBody || !modalClose) {
+    console.error('Modal elements not found:', { modalOverlay, modalBody, modalClose });
+    return;
+  }
+
+  // About link clicks
+  document.addEventListener('click', function(e) {
+    console.log('Click detected on:', e.target);
+    if (e.target.classList.contains('about-link')) {
+      e.preventDefault();
+      const modalType = e.target.getAttribute('data-modal');
+      console.log('About link clicked:', modalType);
+      openModal(modalType);
+    }
+  });
+
+  // Close modal
+  modalClose.addEventListener('click', function() {
+    console.log('Close button clicked');
+    closeModal();
+  });
+  
+  modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+      console.log('Overlay clicked');
+      closeModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      console.log('Escape key pressed');
+      closeModal();
+    }
+  });
+
+  function openModal(type) {
+    console.log('Opening modal for:', type);
+    const bio = bios[type];
+    if (bio) {
+      modalBody.innerHTML = bio.content;
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      console.log('Modal opened:', type);
+    } else {
+      console.error('Bio not found for type:', type);
+    }
+  }
+
+  function closeModal() {
+    console.log('Closing modal');
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+
+  // Test modal function (for debugging)
+  window.testModal = function() {
+    console.log('Testing modal...');
+    openModal('quinn');
+  };
 }); 
