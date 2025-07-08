@@ -457,6 +457,17 @@ body, html {
   margin-bottom: 0.5rem;
 }
 
+.footer-info a {
+  color: #ffd700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-info a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .footer-content {
     padding: 1.5rem;
