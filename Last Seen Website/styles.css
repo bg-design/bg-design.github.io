@@ -4,6 +4,7 @@ body, html {
   height: 100%;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  background: black;
 }
 
 .panel {
@@ -408,5 +409,65 @@ body, html {
   
   .about-minimal p {
     font-size: 1rem;
+  }
+}
+
+.footer-section {
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.footer-content {
+  text-align: center;
+  color: #ffffff;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.footer-links {
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffd700;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  background: #ffd700;
+  color: #000000;
+}
+
+.footer-info {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-info p {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 1.5rem;
+  }
+  
+  .footer-links a {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .footer-info {
+    font-size: 0.8rem;
   }
 } 
