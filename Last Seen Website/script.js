@@ -54,56 +54,91 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   animate();
 
-  // Basement flicker effect: cinematic sequence
+  // Basement flickering light effect
   const basement = document.querySelector('.panel.basement');
-  const glow = basement.querySelector('.flicker-glow');
-  const darken = basement.querySelector('.basement-darken');
-  if (glow && darken) {
-    function flickerSequence() {
-      // Start mostly dark
-      glow.style.opacity = 0;
-      darken.style.opacity = 1;
-      // Flicker a few times
-      let flickers = 2 + Math.floor(Math.random() * 2); // 2-3 flickers
-      function doFlicker() {
-        if (flickers-- > 0) {
-          setTimeout(() => {
-            glow.style.opacity = 0.7 + Math.random() * 0.3;
-            glow.style.filter = `blur(${2.2 + Math.random() * 1.2}px) brightness(${0.8 + Math.random() * 0.5})`;
-            darken.style.opacity = 0;
-            setTimeout(() => {
-              glow.style.opacity = 0;
-              darken.style.opacity = 1;
-              doFlicker();
-            }, 80 + Math.random() * 120);
-          }, 120 + Math.random() * 180);
-        } else {
-          // Stay on for a couple seconds
-          setTimeout(() => {
-            glow.style.opacity = 0.8;
-            glow.style.filter = `blur(2.5px) brightness(1.1)`;
-            darken.style.opacity = 0;
-            setTimeout(() => {
-              // Back to dark, repeat
-              glow.style.opacity = 0;
-              darken.style.opacity = 1;
-              setTimeout(flickerSequence, 1200 + Math.random() * 1800);
-            }, 1800 + Math.random() * 1200); // on for 1.8-3s
-          }, 120 + Math.random() * 180);
-        }
+  const flickerGlow = basement ? basement.querySelector('.flicker-glow') : null;
+  const basementDarken = basement ? basement.querySelector('.basement-darken') : null;
+  const flickerAudio = basement ? basement.querySelector('.flicker-audio') : null;
+
+  if (flickerGlow && basementDarken) {
+    let flickerTimeout;
+    let isFlickering = false;
+
+    function startFlickerSequence() {
+      if (isFlickering) return;
+      isFlickering = true;
+      
+      // Play buzzing sound when light comes on (only if in basement)
+      if (flickerAudio && currentSectionIndex === 4) {
+        flickerAudio.volume = 1.0;
+        flickerAudio.currentTime = 0;
+        flickerAudio.play().catch(()=>{});
       }
-      doFlicker();
+
+      function flickerSequence() {
+        const sequence = [
+          { opacity: 0.85, darken: 0, duration: 200 },
+          { opacity: 0.7, darken: 0, duration: 150 },
+          { opacity: 0.95, darken: 0, duration: 300 },
+          { opacity: 0.6, darken: 0, duration: 100 },
+          { opacity: 0.9, darken: 0, duration: 250 },
+          { opacity: 0.8, darken: 0, duration: 200 },
+          { opacity: 0.95, darken: 0, duration: 400 },
+          { opacity: 0.7, darken: 0, duration: 150 },
+          { opacity: 0.9, darken: 0, duration: 300 },
+          { opacity: 0.85, darken: 0, duration: 200 }
+        ];
+
+        let currentStep = 0;
+
+        function doFlicker() {
+          if (currentStep >= sequence.length) {
+            // End sequence - turn off light
+            flickerGlow.style.animation = 'none';
+            basementDarken.style.opacity = '0.92';
+            isFlickering = false;
+            
+            // Stop buzzing sound
+            if (flickerAudio) {
+              flickerAudio.pause();
+              flickerAudio.currentTime = 0;
+            }
+            return;
+          }
+
+          const step = sequence[currentStep];
+          flickerGlow.style.opacity = step.opacity;
+          basementDarken.style.opacity = step.darken;
+          
+          currentStep++;
+          setTimeout(doFlicker, step.duration);
+        }
+
+        doFlicker();
+      }
+
+      flickerSequence();
     }
-    flickerSequence();
+
+    // Start flicker sequence every 8-15 seconds
+    function scheduleNextFlicker() {
+      const delay = 8000 + Math.random() * 7000; // 8-15 seconds
+      flickerTimeout = setTimeout(() => {
+        startFlickerSequence();
+        scheduleNextFlicker();
+      }, delay);
+    }
+
+    scheduleNextFlicker();
   }
 
   // Ambient sound design (robust per-section logic)
   const muteBtn = document.getElementById('mute-toggle');
   const panels = Array.from(document.querySelectorAll('.panel'));
   const audios = panels.map(panel => panel.querySelector('.room-audio'));
-  let isMuted = true;
   let currentAudio = null;
-  let currentSectionIdx = 0;
+  let isMuted = false;
+  let currentSectionIndex = 0; // Track current section globally
 
   audios.forEach(a => { if (a) { a.muted = true; a.volume = 0.7; } });
   muteBtn.textContent = '🔇';
@@ -139,8 +174,8 @@ window.addEventListener('DOMContentLoaded', () => {
         maxIdx = idx;
       }
     });
-    if (currentSectionIdx !== maxIdx) {
-      currentSectionIdx = maxIdx;
+    if (currentSectionIndex !== maxIdx) {
+      currentSectionIndex = maxIdx;
       playCurrentRoomAudio();
     }
   }, observerOptions);
@@ -205,7 +240,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let lastRandomLabel = {};
 
   function playCurrentRoomAudio() {
-    const idx = currentSectionIdx;
+    const idx = currentSectionIndex;
     // Debug: log current section index and class
     if (idx !== -1) {
       const panel = panels[idx];
@@ -276,14 +311,66 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Set the contact page audio volume to normal
+    // Set specific audio volumes
     panels.forEach((panel, i) => {
       const audio = audios[i];
       if (!audio) return;
       if (panel.classList.contains('contact')) {
         audio.volume = 1.0;
+      } else if (panel.classList.contains('living-room')) {
+        audio.volume = 0.2; // 20% volume for cassette tape sound
+      } else {
+        audio.volume = 1.0; // Default volume for other sections
       }
     });
+
+    // Handle static audio separately
+    const livingRoomPanel = document.querySelector('.panel.living-room');
+    if (livingRoomPanel) {
+      const staticAudio = livingRoomPanel.querySelector('.static-audio');
+      if (staticAudio) {
+        if (currentSectionIndex === 1 && !isMuted) { // Living room is index 1
+          if (staticAudio.paused) {
+            staticAudio.volume = 0.05; // 5% volume for static noise
+            staticAudio.play().catch(()=>{});
+          }
+        } else {
+          staticAudio.pause();
+        }
+      }
+    }
+
+    // Handle flicker audio separately
+    const basementPanel = document.querySelector('.panel.basement');
+    if (basementPanel) {
+      const flickerAudio = basementPanel.querySelector('.flicker-audio');
+      if (flickerAudio) {
+        // Only manage flicker audio, don't let main audio system control it
+        if (currentSectionIndex !== 4) { // Not in basement (index 4)
+          flickerAudio.pause();
+          flickerAudio.currentTime = 0;
+        } else {
+          // In basement - let the flicker sequence control the audio
+          // Don't pause it here, let it play during flicker sequences
+        }
+      }
+    }
+
+    // Handle whisper audio separately
+    const contactPanel = document.querySelector('.panel.contact');
+    if (contactPanel) {
+      const whisperAudio = contactPanel.querySelector('.whisper-audio');
+      if (whisperAudio) {
+        if (currentSectionIndex === 3 && !isMuted) { // Contact is index 3
+          if (whisperAudio.paused) {
+            whisperAudio.volume = 0.03; // 3% volume for whisper
+            whisperAudio.play().catch(()=>{});
+          }
+        } else {
+          whisperAudio.pause();
+        }
+      }
+    }
   }
 
   muteBtn.addEventListener('click', () => {
