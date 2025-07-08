@@ -186,6 +186,12 @@ window.addEventListener('DOMContentLoaded', () => {
       "The air is thick with dust and secrets.",
       "A chill runs down your spine.",
       "You hear a faint whisper, but see no one."
+    ],
+    contact: [
+      "Leave a message after the static…",
+      "Sometimes, the only way out is to call for help.",
+      "The clock ticks, but no one answers.",
+      "Your words may echo in the void."
     ]
   };
 
@@ -207,10 +213,14 @@ window.addEventListener('DOMContentLoaded', () => {
       // Typewriter effect for label (only when section changes)
       panels.forEach((p, i) => {
         const label = p.querySelector('.section-label');
+        const contactPhrases = p.querySelector('.contact-phrases');
         if (i === idx && label) {
-          // Randomize label for living-room, bathroom, basement
+          // Randomize label for living-room, bathroom, basement, contact
           if (i !== 0) { // skip attic
-            const section = p.classList.contains('living-room') ? 'living-room' : p.classList.contains('bathroom') ? 'bathroom' : p.classList.contains('basement') ? 'basement' : null;
+            const section = p.classList.contains('living-room') ? 'living-room' :
+                            p.classList.contains('bathroom') ? 'bathroom' :
+                            p.classList.contains('basement') ? 'basement' :
+                            p.classList.contains('contact') ? 'contact' : null;
             if (section) {
               let randomLabel = getRandomLabel(section);
               // Avoid repeating the same label consecutively
@@ -218,18 +228,33 @@ window.addEventListener('DOMContentLoaded', () => {
                 randomLabel = getRandomLabel(section);
               }
               lastRandomLabel[section] = randomLabel;
-              label.setAttribute('data-fulltext', randomLabel);
+              if (section === 'contact' && contactPhrases) {
+                contactPhrases.setAttribute('data-fulltext', randomLabel);
+              } else {
+                label.setAttribute('data-fulltext', randomLabel);
+              }
             }
           }
           if (lastTypewriterIdx !== idx) {
-            typewriterEffect(label);
+            if (panel.classList.contains('contact') && contactPhrases) {
+              typewriterEffect(contactPhrases);
+            } else {
+              typewriterEffect(label);
+            }
             lastTypewriterIdx = idx;
           }
-        } else if (label) {
+        } else {
           // Reset label to full text if not active
-          const full = label.getAttribute('data-fulltext');
-          if (full) label.innerText = full;
-          label.classList.remove('typewriter');
+          if (contactPhrases) {
+            const full = contactPhrases.getAttribute('data-fulltext');
+            if (full) contactPhrases.innerText = full;
+            contactPhrases.classList.remove('typewriter');
+          }
+          if (label) {
+            const full = label.getAttribute('data-fulltext');
+            if (full) label.innerText = full;
+            label.classList.remove('typewriter');
+          }
         }
       });
     } else {
@@ -248,6 +273,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       } else {
         audio.pause();
+      }
+    });
+
+    // Set the contact page audio volume to normal
+    panels.forEach((panel, i) => {
+      const audio = audios[i];
+      if (!audio) return;
+      if (panel.classList.contains('contact')) {
+        audio.volume = 1.0;
       }
     });
   }
