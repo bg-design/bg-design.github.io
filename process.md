@@ -62,4 +62,6 @@ We follow a proven, human-centered design approach, structured around four key p
 - A flexible, collaborative team that adapts quickly.
 - A clear, structured process — no surprises.
 
-*Ready to start? Contact us today to book a free consultation.* 
+*Ready to start? Contact us today to book a free consultation.*
+
+<p style="text-align:center; margin-top:2em;"><a href="#" class="get-in-touch-link process-blue" onclick="toggleBooking(); return false;">Get in touch</a><span class="get-in-touch-rest"> to start the conversation.</span></p> 

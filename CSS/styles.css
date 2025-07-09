@@ -2194,3 +2194,26 @@ padding: 15px;
 	footer {width: 100%;}
 
 }
+
+.get-in-touch-link {
+  color: #FFCB05;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.get-in-touch-link:hover, .get-in-touch-link:focus {
+  color: #FFD700;
+  text-decoration: underline;
+}
+.get-in-touch-rest {
+  color: #222;
+}
+[data-theme="dark"] .get-in-touch-rest {
+  color: #fff;
+}
+.process-blue {
+  color: #00AEEF;
+}
+.process-blue:hover, .process-blue:focus {
+  color: #40c9f1;
+}

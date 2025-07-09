@@ -10,24 +10,351 @@
 
 
   <style>
-    html {
-      /* Prevent iOS Safari bouncing */
-      -webkit-overflow-scrolling: auto;
-      overscroll-behavior: none;
-      overflow-x: hidden;
+    html, body {
+      height: 100%;
     }
-    
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        repeating-linear-gradient(135deg, #f7f7f7 0px, #f7f7f7 8px, #ededed 8px, #ededed 16px),
+        linear-gradient(120deg, #f7f7f7 0%, #ededed 100%);
       font-family: Helvetica, Arial, sans-serif;
-      color: #00AEEF;
+      color: #222;
       padding: 20px;
       padding-bottom: 120px;
       /* Prevent iOS Safari bouncing */
       -webkit-overflow-scrolling: auto;
       overscroll-behavior: none;
       overflow-x: hidden;
+    }
+   
+   [data-theme="dark"] body {
+      background:
+        repeating-linear-gradient(135deg, #23272b 0px, #23272b 8px, #262a2e 8px, #262a2e 16px),
+        linear-gradient(120deg, #23272b 0%, #23272b 100%);
+      color: #00AEEF;
+   }
+   [data-theme="dark"] .content, [data-theme="dark"] .markdown-content {
+  color: #eee;
+}
+[data-theme="dark"] .markdown-content p {
+  color: #eee;
+}
+[data-theme="dark"] .markdown-content li {
+  color: #eee;
+}
+[data-theme="dark"] .markdown-content h3 {
+  color: #eee;
+}
+   [data-theme="dark"] .portfolio-page {
+      color: #39B54A;
+   }
+   [data-theme="dark"] .about-page {
+      color: #EC008C;
+   }
+   [data-theme="dark"] .pricing-page {
+      color: #FFCB05;
+   }
+   [data-theme="dark"] .projectTile {
+      background: #23272b;
+      color: #eee;
+   }
+   [data-theme="dark"] .projectInfo h3 {
+      color: #39B54A;
+   }
+   [data-theme="dark"] .projectInfo p {
+      color: #eee;
+   }
+   [data-theme="dark"] .projectInfo button {
+      color: #39B54A;
+      border-color: #39B54A;
+      background: none;
+   }
+   [data-theme="dark"] .projectInfo button:hover {
+      background: #39B54A;
+      color: #23272b;
+   }
+   [data-theme="dark"] .tab-bar {
+      background: linear-gradient(120deg, #23272b 80%, #262a2e 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.44), 0 2px 8px rgba(0,0,0,0.18);
+      border: none;
+   }
+   [data-theme="dark"] .tab-bar:hover, [data-theme="dark"] .tab-bar:focus-within {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.38), 0 4px 16px rgba(57,181,74,0.18), 0 0 0 2px #fff;
+      background: linear-gradient(120deg, #262a2e 60%, #23272b 100%);
+      border: none;
+   }
+   [data-theme="dark"] #modeSwitch {
+      background: #23272b;
+      color: #fff;
+   }
+   [data-theme="light"] body {
+      background:
+        repeating-linear-gradient(135deg, #f7f7f7 0px, #f7f7f7 8px, #ededed 8px, #ededed 16px),
+        linear-gradient(120deg, #f7f7f7 0%, #ededed 100%);
+      color: #222;
+   }
+   [data-theme="light"] .content, [data-theme="light"] .markdown-content {
+      color: #222;
+   }
+   [data-theme="light"] .markdown-content h1 {
+      color: #00AEEF;
+      border-bottom: 3px solid #00AEEF;
+   }
+   [data-theme="light"] .markdown-content h2 {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .markdown-content h3 {
+      color: #555;
+   }
+   [data-theme="light"] .markdown-content strong {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .markdown-content p {
+      color: #222;
+   }
+   [data-theme="light"] .markdown-content li {
+      color: #222;
+   }
+   [data-theme="light"] .accordion-header {
+      background: #f7f7f7;
+      color: #00AEEF;
+   }
+   [data-theme="light"] .accordion-header.active, [data-theme="light"] .accordion-header:hover {
+      background: #e0f7fa;
+      color: #00AEEF;
+   }
+   [data-theme="light"] .accordion-content {
+      background: #fafbfc;
+      color: #222;
+   }
+   [data-theme="light"] .accordion-content ul, [data-theme="light"] .accordion-content p, [data-theme="light"] .accordion-content li {
+      color: #222;
+   }
+   [data-theme="light"] .accordion-icon {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .projectTile {
+      background: #f7f7f7;
+      color: #222;
+   }
+   [data-theme="light"] .projectInfo h3 {
+      color: #39B54A;
+   }
+   [data-theme="light"] .projectInfo p {
+      color: #333;
+   }
+   [data-theme="light"] .projectInfo button {
+      color: #39B54A;
+      border-color: #39B54A;
+      background: none;
+   }
+   [data-theme="light"] .projectInfo button:hover {
+      background: #39B54A;
+      color: #fff;
+   }
+   [data-theme="light"] .tab-bar {
+      background: linear-gradient(120deg, #fff 80%, #f7f7f7 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.10);
+      border: none;
+   }
+   [data-theme="light"] .tab-bar:hover, [data-theme="light"] .tab-bar:focus-within {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.10), 0 0 0 2px #fff;
+      background: linear-gradient(120deg, #f7f7f7 60%, #fff 100%);
+      border: none;
+   }
+   [data-theme="light"] #modeSwitch {
+  background: #eee;
+  color: #222;
+}
+
+/* Override light mode colors for page-specific themes */
+[data-theme="light"] .about-page h1, [data-theme="light"] .about-page h2, [data-theme="light"] .about-page h3, [data-theme="light"] .about-page h4, [data-theme="light"] .about-page h5, [data-theme="light"] .about-page h6 {
+  color: #EC008C !important;
+}
+[data-theme="light"] .about-page h1 {
+  border-bottom: 3px solid #EC008C !important;
+}
+[data-theme="light"] .about-page strong {
+  color: #EC008C !important;
+}
+[data-theme="light"] .pricing-page h1, [data-theme="light"] .pricing-page h2, [data-theme="light"] .pricing-page h3, [data-theme="light"] .pricing-page h4, [data-theme="light"] .pricing-page h5, [data-theme="light"] .pricing-page h6 {
+  color: #FFCB05 !important;
+}
+[data-theme="light"] .pricing-page h1 {
+  border-bottom: 3px solid #FFCB05 !important;
+}
+[data-theme="light"] .pricing-page strong {
+  color: #FFCB05 !important;
+}
+[data-theme="light"] .portfolio-page h1, [data-theme="light"] .portfolio-page h2, [data-theme="light"] .portfolio-page h3, [data-theme="light"] .portfolio-page h4, [data-theme="light"] .portfolio-page h5, [data-theme="light"] .portfolio-page h6 {
+  color: #39B54A !important;
+}
+[data-theme="light"] .portfolio-page h1 {
+  border-bottom: 3px solid #39B54A !important;
+}
+[data-theme="light"] .portfolio-page strong {
+  color: #39B54A !important;
+}
+
+/* Pricing Package Styles */
+.pricing-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.pricing-package {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 0 0 32px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.pricing-package:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.pricing-package h3 {
+  color: #FFCB05;
+  font-size: 1.5rem;
+  margin: 0 0 4px 0;
+  text-align: center;
+}
+
+.pricing-package .price {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #FFCB05;
+  margin: 0 0 16px 0;
+}
+
+.pricing-package .subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.pricing-package ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.pricing-package li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+.pricing-package li:last-child {
+  border-bottom: none;
+}
+
+
+
+[data-theme="dark"] .pricing-package {
+  background: #23272b;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.24), 0 2px 8px rgba(0,0,0,0.16);
+}
+
+[data-theme="dark"] .pricing-package:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.24);
+}
+
+[data-theme="dark"] .pricing-package .subtitle {
+  color: #aaa;
+}
+
+[data-theme="dark"] .pricing-package li {
+  color: #eee;
+  border-bottom-color: #333;
+}
+
+@media (min-width: 1200px) {
+  .pricing-packages {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .pricing-packages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+    @media (max-width: 767px) {
+      .pricing-packages {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Intake Modal Styles */
+    .intake-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .intake-modal.active {
+      display: flex;
+    }
+
+    .intake-modal-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .intake-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .intake-close-btn:hover {
+      background: white;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .intake-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     .content p {
       max-width: 600px;
@@ -66,11 +393,17 @@
       background: var(--bar-bg);
       border-radius: 20px;
       padding: 15px 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3), 0 15px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.10);
       display: flex;
       gap: 40px;
       pointer-events: auto;
-      transition: transform 0.5s ease;
+      transition: transform 0.5s ease, box-shadow 0.3s, background 0.3s;
+      border: none;
+    }
+    .tab-bar:hover, .tab-bar:focus-within {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.10), 0 0 0 2px #fff;
+      background: linear-gradient(120deg, #f7f7f7 60%, #fff 100%);
+      border: none;
     }
     .tab-bar::before, .tab-bar::after {
       content: '';
@@ -121,6 +454,8 @@
       margin-bottom: 5px;
     }
     .process { color: #00AEEF; }
+
+    .process-blue {color:rgb(0, 174, 239)}
     .about { color: #EC008C; }
     .portfolio { color: #39B54A; }
     .pricing { color: #FFCB05; }
@@ -588,7 +923,13 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
+      padding-bottom: 120px;
       line-height: 1.6;
+    }
+    
+    /* Portfolio page specific container */
+    .portfolio-page {
+      max-width: 1400px !important;
     }
     
     .markdown-content h1 {
@@ -623,13 +964,106 @@
     .back-link {
       display: inline-block;
       margin-bottom: 30px;
-      color: #00AEEF;
+      color: #888;
       text-decoration: none;
       font-weight: bold;
     }
     
     .back-link:hover {
       text-decoration: underline;
+      color: #888;
+    }
+    
+    /* Ensure back-link stays grey even in colored pages */
+    .about-page .back-link,
+    .pricing-page .back-link,
+    .portfolio-page .back-link {
+      color: #888;
+    }
+    
+    .about-page .back-link:hover,
+    .pricing-page .back-link:hover,
+    .portfolio-page .back-link:hover {
+      color: #888;
+    }
+
+    /* Page-specific color themes */
+    .about-page {
+      color: #EC008C;
+    }
+    
+    .about-page h1, .about-page h2, .about-page h3, .about-page h4, .about-page h5, .about-page h6 {
+      color: #EC008C;
+    }
+    
+    .about-page h1 {
+      border-bottom: 3px solid #EC008C;
+    }
+    
+    .about-page strong {
+      color: #EC008C;
+    }
+    
+    .about-page a {
+      color: #EC008C;
+    }
+    
+    .about-page hr {
+      border: none;
+      border-top: 1px solid #EC008C;
+      margin: 20px 0;
+    }
+    
+    .pricing-page {
+      color: #FFCB05;
+    }
+    
+    .pricing-page h1, .pricing-page h2, .pricing-page h3, .pricing-page h4, .pricing-page h5, .pricing-page h6 {
+      color: #FFCB05;
+    }
+    
+    .pricing-page h1 {
+      border-bottom: 3px solid #FFCB05;
+    }
+    
+    .pricing-page strong {
+      color: #FFCB05;
+    }
+    
+    .pricing-page a {
+      color: #FFCB05;
+    }
+    
+    .pricing-page hr {
+      border: none;
+      border-top: 1px solid #FFCB05;
+      margin: 20px 0;
+    }
+    
+    .portfolio-page {
+      color: #39B54A;
+    }
+    
+    .portfolio-page h1, .portfolio-page h2, .portfolio-page h3, .portfolio-page h4, .portfolio-page h5, .portfolio-page h6 {
+      color: #39B54A;
+    }
+    
+    .portfolio-page h1 {
+      border-bottom: 3px solid #39B54A;
+    }
+    
+    .portfolio-page strong {
+      color: #39B54A;
+    }
+    
+    .portfolio-page a {
+      color: #39B54A;
+    }
+    
+    .portfolio-page hr {
+      border: none;
+      border-top: 1px solid #39B54A;
+      margin: 20px 0;
     }
 
     /* Accordion styles for process page */
@@ -702,9 +1136,307 @@
         color: #fff;
       }
     }
+    /* --- Portfolio Card Styles (from slick.html) --- */
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0 20px 0;
+      flex-wrap: wrap;
+    }
+    .portfolio-filter-btn {
+      background: none;
+      color: #888;
+      border: none;
+      border-radius: 0;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: color 0.2s, border-bottom 0.2s;
+      box-shadow: none;
+      position: relative;
+      outline: none;
+    }
+    .portfolio-filter-btn.active {
+      color: #39B54A;
+      border-bottom: 3px solid #39B54A;
+      background: none;
+      text-decoration: none;
+    }
+    .portfolio-filter-btn:not(.active):hover {
+      color: #222;
+      text-decoration: underline;
+    }
+    .portfolio-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px 40px;
+      justify-content: center;
+      margin-bottom: 60px;
+      align-items: stretch;
+    }
+    .projectTile {
+      background: #f7f7f7;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      border-radius: 16px;
+      width: 300px;
+      flex: 0 0 300px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+      margin-top: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .projectTile:hover {
+      transform: translateY(-10px) scale(1.035);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .projectTile img {
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .projectInfo {
+      padding: 18px 16px 16px 16px;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .projectInfo h3 {
+      font-size: 1.25rem;
+      margin: 0 0 8px 0;
+      color: #39B54A;
+      text-align: center;
+    }
+    .projectInfo p {
+      font-size: 1rem;
+      color: #333;
+      margin: 0 0 16px 0;
+      flex: 1 1 auto;
+    }
+    .projectInfo button {
+      background: none;
+      color: #39B54A;
+      border: 2px solid #39B54A;
+      border-radius: 0;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 0 auto;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .projectInfo button:hover {
+      background: #39B54A;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .projectInfo a {
+      color: inherit;
+      text-decoration: none;
+    }
+    /* Responsive portfolio layout */
+    @media (min-width: 1400px) {
+      .portfolio-cards {
+        justify-content: center;
+        gap: 48px 40px;
+      }
+      .projectTile {
+        width: 320px;
+        flex: 0 0 320px;
+      }
+    }
+    
+    @media (max-width: 1399px) and (min-width: 1100px) {
+      .portfolio-cards {
+        justify-content: center;
+        gap: 44px 36px;
+      }
+      .projectTile {
+        width: 300px;
+        flex: 0 0 300px;
+      }
+    }
+    
+    @media (max-width: 1099px) and (min-width: 800px) {
+      .portfolio-cards {
+        justify-content: center;
+        gap: 36px 28px;
+      }
+      .projectTile {
+        width: 280px;
+        flex: 0 0 280px;
+      }
+    }
+    
+    @media (max-width: 799px) and (min-width: 600px) {
+      .portfolio-cards {
+        justify-content: center;
+        gap: 28px 18px;
+      }
+      .projectTile {
+        width: 260px;
+        flex: 0 0 260px;
+      }
+    }
+    
+    @media (max-width: 599px) {
+      .portfolio-cards {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 24px 0 !important;
+        justify-content: flex-start !important;
+        padding: 0 8px 16px 8px !important;
+        padding-right: 40vw !important; /* allow last card to not be flush */
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: thin !important;
+      }
+      /* Remove display: none for ::-webkit-scrollbar so native scrollbar is visible */
+      .projectTile {
+        width: 80vw !important;
+        max-width: 320px !important;
+        flex: 0 0 80vw !important;
+        margin: 0 8px 24px 0 !important;
+        border-radius: 18px !important;
+        scroll-snap-align: start !important;
+      }
+      .portfolio-scrollbar {
+        width: 90vw !important;
+        max-width: 320px !important;
+        margin: 0 auto 12px auto !important;
+        display: block !important;
+        height: 6px !important;
+        background: #b0b0b0 !important;
+        border-radius: 4px !important;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .portfolio-scrollbar::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 60px;
+        height: 12px;
+        background: #39B54A;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        cursor: pointer;
+        border: none;
+        margin-top: -3px;
+        transition: background 0.2s;
+      }
+      .portfolio-scrollbar::-moz-range-thumb {
+        width: 60px;
+        height: 12px;
+        background: #39B54A;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        cursor: pointer;
+        border: none;
+        transition: background 0.2s;
+      }
+      .portfolio-scrollbar::-ms-thumb {
+        width: 60px;
+        height: 12px;
+        background: #39B54A;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        cursor: pointer;
+        border: none;
+        transition: background 0.2s;
+      }
+      .portfolio-scrollbar:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #39B54A44;
+      }
+      .portfolio-scrollbar::-webkit-slider-runnable-track {
+        height: 6px;
+        background: #b0b0b0;
+        border-radius: 4px;
+      }
+      .portfolio-scrollbar::-ms-fill-lower {
+        background: #b0b0b0;
+        border-radius: 4px;
+      }
+      .portfolio-scrollbar::-ms-fill-upper {
+        background: #b0b0b0;
+        border-radius: 4px;
+      }
+      .portfolio-scrollbar::-moz-range-track {
+        height: 6px;
+        background: #b0b0b0;
+        border-radius: 4px;
+      }
+      .projectInfo h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 6px !important;
+      }
+      .project-category {
+        font-size: 0.85rem !important;
+        color: #888 !important;
+        margin: 6px 0 0 0 !important;
+        padding: 2px 0 8px 0 !important;
+        text-align: center !important;
+        display: block !important;
+      }
+      .projectInfo {
+        padding: 14px 10px 14px 10px !important;
+      }
+      /* ...existing mobile slider styles... */
+      .portfolio-slider-wrapper {
+        border-radius: 12px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 24px !important;
+      }
+    }
+    /* --- End Portfolio Card Styles --- */
+
+    [data-theme="light"] .pricing-package h3 {
+      background: #23272b;
+      color: #FFCB05;
+      padding: 12px 0 8px 0;
+      border-radius: 12px 12px 0 0;
+      margin: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    [data-theme="light"] .pricing-package .price {
+      background: #23272b;
+      color: #FFCB05;
+      padding: 12px 0 8px 0;
+      border-radius: 0;
+      margin: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .pricing-package-content {
+      padding: 0 24px;
+    }
+    [data-theme="light"] .tab-bar::before, [data-theme="light"] .tab-bar::after {
+      background: #bbb;
+    }
   </style>
 </head>
 <body>
+
+  <div style="width:100%; display:flex; justify-content:flex-end; align-items:center; margin-bottom:12px;">
+    <button id="modeSwitch" style="padding:8px 18px; border-radius:20px; border:none; background:#eee; color:#222; font-weight:600; font-size:1em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s, color 0.2s;">🌙 Dark Mode</button>
+  </div>
 
   <div class="content" id="mainContent">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
@@ -730,7 +1462,7 @@
     <div class="bookingContent">
       <h2>Let's Get Started</h2>
       <p style="margin-bottom:24px;">Would you like to tell us about your project or just get in touch?</p>
-      <a href="/gamified-intake-form.html" class="phone-number">🧭 Start Project Intake</a><br/>
+      <a href="#" onclick="openIntakeModal(); return false;" class="phone-number">🧭 Start Project Intake</a><br/>
       <p style="margin:8px 0 16px 0; font-size:0.9em; color:#666;">The survey is only four questions and will just take a minute.</p>
       <div style="margin-top:10px;">
         <div style="margin-bottom:8px; font-weight:500;">Or just call or email:</div>
@@ -745,6 +1477,14 @@
 
   <div class="booking-overlay" id="bookingOverlay" onclick="closeBooking()"></div>
 
+  <!-- Intake Form Modal -->
+  <div class="intake-modal" id="intakeModal">
+    <div class="intake-modal-content">
+      <button class="intake-close-btn" onclick="closeIntakeModal()">✕</button>
+      <iframe src="gamified-intake-form.html" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+
   <div class="tab-bar-wrapper" id="tabBarWrapper">
     <div class="tab-bar" id="tabBar">
       <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
@@ -754,17 +1494,17 @@
         Process
       </div>
 
-      <div class="tab-item about" onclick="activateTab(this); setColor('#EC008C'); closeBooking();">
+      <div class="tab-item about" onclick="activateTab(this); setColor('#EC008C'); closeBooking(); openAbout();">
         <img src="IMG/Icons/about-icon.png" alt="About">
         About
       </div>
 
-      <div class="tab-item portfolio" onclick="activateTab(this); setColor('#39B54A'); closeBooking();">
+      <div class="tab-item portfolio" onclick="activateTab(this); setColor('#39B54A'); closeBooking(); loadPortfolioSection();">
         <img src="IMG/Icons/portfolio-icon.png" alt="Portfolio">
         Portfolio
       </div>
 
-      <div class="tab-item pricing" onclick="activateTab(this); setColor('#FFCB05'); closeBooking();">
+      <div class="tab-item pricing" onclick="activateTab(this); setColor('#FFCB05'); closeBooking(); openPricing();">
         <img src="IMG/Icons/pricing-icon.png" alt="Pricing">
         Pricing
       </div>
@@ -882,6 +1622,7 @@
             <div class="markdown-content">
               <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
               ${html}
+              <p style="text-align:center; margin-top:2em;"><a href="#" class="get-in-touch-link process-blue" onclick="toggleBooking(); return false;">Get in touch</a><span class="get-in-touch-rest"> to start the conversation.</span></p>
             </div>
           `;
           
@@ -910,6 +1651,163 @@
           alert('Error loading process content. Please try again.');
         });
     }
+
+    function openAbout() {
+      // Load markdown content
+      fetch('about.md')
+        .then(response => response.text())
+        .then(markdown => {
+          // Remove Jekyll front matter (lines between ---)
+          const content = markdown.replace(/^---[\s\S]*?---\s*/, '');
+          
+          // Convert markdown to HTML
+          const html = marked.parse(content);
+          
+          // Update the main content area
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+            <div class="markdown-content about-page">
+              <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+              ${html}
+            </div>
+          `;
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+        })
+        .catch(error => {
+          console.error('Error loading about content:', error);
+          alert('Error loading about content. Please try again.');
+        });
+    }
+
+    function openPricing() {
+      // Create pricing content with HTML structure
+      const pricingContent = `
+        <h1>Pricing & Packages</h1>
+        
+        <h2>Our Pricing Philosophy</h2>
+        <p>We believe in transparent, value-based pricing that gives you exactly what you need without unnecessary extras. Every project is unique, so we offer flexible packages that can be customized to fit your specific requirements and budget.</p>
+        
+        <h2>Website Design Packages</h2>
+        
+        <div class="pricing-packages">
+        
+        <div class="pricing-package">
+        <h3>Starter Package</h3>
+        <div class="price">Starting at $2,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">Perfect for small businesses and startups</div>
+        <ul>
+        <li>Custom website design (up to 5 pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Basic SEO optimization</li>
+        <li>Contact form integration</li>
+        <li>2 rounds of revisions</li>
+        <li>Launch support</li>
+        </ul>
+        </div>
+        </div>
+        
+        <div class="pricing-package">
+        <h3>Professional Package</h3>
+        <div class="price">Starting at $4,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">Ideal for growing businesses</div>
+        <ul>
+        <li>Custom website design (up to 10 pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Advanced SEO optimization</li>
+        <li>Contact form and newsletter integration</li>
+        <li>Blog setup</li>
+        <li>Social media integration</li>
+        <li>3 rounds of revisions</li>
+        <li>Launch support and training</li>
+        </ul>
+        </div>
+        </div>
+        
+        <div class="pricing-package">
+        <h3>Enterprise Package</h3>
+        <div class="price">Starting at $8,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">For established businesses and organizations</div>
+        <ul>
+        <li>Custom website design (unlimited pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Comprehensive SEO strategy</li>
+        <li>Advanced functionality (e-commerce, booking systems, etc.)</li>
+        <li>Content management system</li>
+        <li>Analytics and reporting setup</li>
+        <li>Ongoing support and maintenance</li>
+        <li>Unlimited revisions during development</li>
+        </ul>
+        </div>
+        </div>
+        
+        </div>
+        
+        <h2>Additional Services</h2>
+        
+        <h3>Content Creation</h3>
+        <ul>
+        <li>Copywriting and editing</li>
+        <li>Photography and image optimization</li>
+        <li>Video production and editing</li>
+        <li>Custom graphics and illustrations</li>
+        </ul>
+        
+        <h3>Ongoing Support</h3>
+        <ul>
+        <li>Website maintenance and updates</li>
+        <li>Content updates and management</li>
+        <li>Performance monitoring and optimization</li>
+        <li>Security updates and backups</li>
+        </ul>
+        
+        <h3>Consultation Services</h3>
+        <ul>
+        <li>Digital strategy planning</li>
+        <li>User experience audits</li>
+        <li>Conversion optimization</li>
+        <li>Brand development and positioning</li>
+        </ul>
+        
+        <h2>Getting Started</h2>
+        <p>Not sure which package is right for you? We offer a free consultation to discuss your project and recommend the best approach for your needs and budget.</p>
+        <p><strong>Ready to get started?</strong> <a href="javascript:void(0);" onclick="openBookingModal(); return false;">Schedule a consultation</a> or <a href="javascript:void(0);" onclick="openIntakeModal(); return false;">fill out our project intake form</a> to tell us about your project.</p>
+        
+        <h2>Payment Terms</h2>
+        <ul>
+        <li>50% deposit required to begin work</li>
+        <li>Remaining balance due upon project completion</li>
+        <li>Payment plans available for larger projects</li>
+        <li>All prices in USD</li>
+        </ul>
+        
+        <h3>Accepted Payment Methods</h3>
+        <ul>
+        <li><strong>Digital Payments:</strong> Venmo, Cash App, Zelle</li>
+        <li><strong>Traditional Payments:</strong> Cash or Check</li>
+        <li><strong>Credit Card:</strong> Through Square (3.5% processing fee)</li>
+        </ul>
+        
+        <p><em>Pricing is subject to change. Custom quotes available for projects with specific requirements.</em></p>
+        <p style="text-align:center; margin-top:2em;"><a href="#" class="get-in-touch-link" onclick="toggleBooking(); return false;">Get in touch</a><span class="get-in-touch-rest"> to start the conversation.</span></p>
+      `;
+      
+      // Update the main content area
+      const mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML = `
+        <div class="markdown-content pricing-page">
+          <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          ${pricingContent}
+        </div>
+      `;
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
     
     function loadDefaultContent() {
       const mainContent = document.getElementById('mainContent');
@@ -920,7 +1818,320 @@
         <p>Fusce vulputate nisi ut dolor posuere, vel sollicitudin elit fermentum. Praesent luctus orci a lorem volutpat, nec ultrices sapien tincidunt. Etiam eget ipsum at ex pulvinar lacinia.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis quam sed sapien blandit, eu porttitor lectus sagittis. Sed ac eros id magna fermentum volutpat. Suspendisse potenti.</p>
       `;
+      
+      // Reset tab colors and icons to default grey state
+      setColor('#222');
+      document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
     }
+  // --- Portfolio Card System ---
+  const portfolioProjects = [
+    {
+      title: "Last Seen in the Twilight Zone",
+      image: "IMG/last-seen-thumbnail.png",
+      description: "A podcast about missing people from the real-life 'Twilight Zone'—Binghamton, NY, hometown of Rod Serling. Explore mysteries and stories from the place that inspired the legendary TV series.",
+      link: "https://lastseenpodcast.com",
+      category: "Artist"
+    },
+    {
+      title: "Rancho Bombero",
+      image: "IMG/rancho-bombero-thumbnail.png",
+      description: "Rancho Bombero is an all-in-one body oil for men—crafted for skin, beard, and hair. Experience natural hydration, subtle scent, and rugged simplicity in one bottle.",
+      link: "https://ranchobombero.com",
+      category: "Products"
+    },
+    {
+      title: "Hidden Hollows Sporting Clays",
+      image: "IMG/hidden-hollows-thumbnail.jpg", // Use actual image if available
+      description: "Ecommerce site for Hidden Hollows Sporting Clays, offering clay shooting experiences and online booking.",
+      link: "https://hiddenhollowsportingclays.com", // Use actual link if available
+      category: "Services"
+    },
+    {
+      title: "Hidden Lake Resort",
+      image: "IMG/hidden-lake-resort-thumbnail.jpg",
+      description: "Designed and custom built website, integrated with iGMS booking to be on all major rental platforms.",
+      link: "https://hiddenlakeresortpa.com",
+      category: "Services"
+    },
+    {
+      title: "Blacktie Brothers",
+      image: "IMG/blacktie-brothers-thumbnail.jpg",
+      description: "Wedding photography business launched in October, 2022.",
+      link: "https://blacktiebrothers.com",
+      category: "Services"
+    },
+    {
+      title: "Theo's Savory Sauces",
+      image: "IMG/theos-savory-sauces-bbq-artisan-sauces-thumbnail.jpg",
+      description: "Full site design and build from scratch. Launched in November, 2022.",
+      link: "https://theossavorysauces.com",
+      category: "Products"
+    },
+    {
+      title: "Slaughterland",
+      image: "IMG/slaughterland-thumbnail.jpg",
+      description: "Optimized the website increasing speed 4x and designed many new assets for the redesign.",
+      link: "https://slaughterland.com/",
+      category: "Services"
+    },
+    {
+      title: "Christine De Grazia",
+      image: "IMG/christine-degrazia-thumbnail.jpg", // Use actual image if available
+      description: "Personal site for Christine De Grazia, writer and educator.",
+      link: "https://christinedegrazia.com",
+      category: "Individual"
+    },
+    {
+      title: "Tri-Cities Opera",
+      image: "IMG/tricities-opera-thumbnail.jpg", // Use actual image if available
+      description: "Website for Tri-Cities Opera, a non-profit opera company.",
+      link: "https://tricitiesopera.org",
+      category: "Non-Profit"
+    },
+    {
+      title: "Blackfern Media",
+      image: "IMG/blackfern-media-thumbnail.jpg",
+      description: "Nuanced Design is partnered with Blackfern Media. Designed and built the site, launched May, 2022.",
+      link: "https://blackfernmedia.com",
+      category: "Enterprise"
+    },
+    {
+      title: "Trendgraphix",
+      image: "IMG/trendgraphix-thumbnail.jpg",
+      description: "Worked with a marketing professional to do a full redesign of Trendgraphix marketing website and custom-coded it.",
+      link: "https://trendgraphix.com",
+      category: "Enterprise"
+    },
+    {
+      title: "Eva Orbuch",
+      image: "IMG/eva-orbuch-thumbnail.jpg", // Use actual image if available
+      description: "Website for Eva Orbuch, coach, facilitator, and author.",
+      link: "https://evaorbuch.com",
+      category: "Individual"
+    },
+    {
+      title: "Gather Facilitation",
+      image: "IMG/gather-facilitation-thumbnail.jpg",
+      description: "Designed and custom coded from scratch. Launched in March, 2020.",
+      link: "https://gatherfacilitation.com",
+      category: "Non-Profit"
+    },
+    {
+      title: "Lilypad",
+      image: "IMG/lilypad-thumbnail.jpg",
+      description: "Created a 3D scan, produced videos, created infographics, and a website to explain why people should build high-performance homes.",
+      link: "https://lilypad.house",
+      category: "Non-Profit"
+    },
+    {
+      title: "Jordan Kersten Studio",
+      image: "IMG/jordan-kersten-thumbnail.jpg", // Use actual image if available
+      description: "Health, wellness, yoga, and voice lessons by Jordan Kersten.",
+      link: "https://jordankersten.com",
+      category: "Individual"
+    },
+    {
+      title: "Robin Applewood",
+      image: "IMG/robin-applewood-thumbnail.jpg", // Use actual image if available
+      description: "Official website for Robin Applewood, musician and producer.",
+      link: "https://robinapplewood.com",
+      category: "Artist"
+    },
+    {
+      title: "Origin Materials",
+      image: "IMG/origin-materials-thumbnail.jpg", // Use actual image if available
+      description: "Corporate website for Origin Materials, a leader in sustainable materials innovation.",
+      link: "https://originmaterials.com",
+      category: "Enterprise"
+    },
+    {
+      title: "Siempo",
+      image: "IMG/siempo-thumbnail.jpg",
+      description: "Website for Siempo, a non-profit focused on digital wellness and mindful technology.",
+      link: "https://www.siempo.com/",
+      category: "Non-Profit"
+    },
+    {
+      title: "OneOf",
+      image: "IMG/OneOf/OneOf_logo.png",
+      description: "Brand and packaging design for OneOf, a unique product line.",
+      link: "https://oneof.co/",
+      category: "Products"
+    },
+    {
+      title: "Safe Harbor",
+      image: "IMG/Safe-Harbor/safe-harbor-mock2.jpg",
+      description: "Website for Safe Harbor, a non-profit organization providing support and resources to those in need.",
+      link: "https://safeharbor.org/",
+      category: "Non-Profit"
+    }
+  ];
+
+  const portfolioCategories = [
+    "All",
+    "Enterprise",
+    "Non-Profit",
+    "Individual",
+    "Artist",
+    "Products",
+    "Services"
+  ];
+
+  function renderPortfolioCards(category = "All") {
+    let filtered =
+      category === "All"
+        ? portfolioProjects
+        : portfolioProjects.filter(p => p.category === category);
+    if (filtered.length === 0) {
+      return `<div style='text-align:center; margin:40px 0;'>No projects in this category yet.</div>`;
+    }
+    // Mobile slider logic
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile) {
+      setTimeout(() => {
+        const slider = document.querySelector('.portfolio-cards');
+        const scrollbar = document.querySelector('.portfolio-scrollbar');
+        if (!slider || !scrollbar) return;
+        // Sync scrollbar with slider
+        function updateScrollbar() {
+          const maxScroll = slider.scrollWidth - slider.clientWidth;
+          const percent = maxScroll > 0 ? slider.scrollLeft / maxScroll : 0;
+          scrollbar.value = percent * 100;
+        }
+        function updateSlider() {
+          const maxScroll = slider.scrollWidth - slider.clientWidth;
+          slider.scrollLeft = (scrollbar.value / 100) * maxScroll;
+        }
+        slider.onscroll = updateScrollbar;
+        scrollbar.oninput = updateSlider;
+        // Set initial position
+        updateScrollbar();
+      }, 0);
+      // Show custom scrollbar above cards
+      return `
+        <div class='portfolio-slider-wrapper'>
+          <input type='range' min='0' max='100' value='0' class='portfolio-scrollbar' aria-label='Scroll portfolio' />
+          <div class='portfolio-cards'>
+            ${filtered.map(project => `
+              <div class='projectTile'>
+                <img src='${project.image}' alt='${project.title}'>
+                <div class='projectInfo'>
+                  <h3>${project.title}</h3>
+                  <p>${project.description}</p>
+                  <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+    // Desktop/tablet: grid/flex as before
+    return `<div class='portfolio-cards'>` +
+      filtered.map(project => `
+        <div class='projectTile'>
+          <img src='${project.image}' alt='${project.title}'>
+          <div class='projectInfo'>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+          </div>
+        </div>
+      `).join('') +
+      `</div>`;
+  }
+
+  function renderPortfolioFilters(activeCategory = "All") {
+    // Count projects in each category
+    const categoryCounts = {};
+    portfolioCategories.forEach(cat => {
+      if (cat === "All") {
+        categoryCounts[cat] = portfolioProjects.length;
+      } else {
+        categoryCounts[cat] = portfolioProjects.filter(p => p.category === cat).length;
+      }
+    });
+    
+    return `<div class='portfolio-filters'>` +
+      portfolioCategories.map(cat => `
+        <button class='portfolio-filter-btn${cat === activeCategory ? " active" : ""}' data-category='${cat}'>${cat} (${categoryCounts[cat]})</button>
+      `).join('') +
+      `</div>`;
+  }
+
+  let currentPortfolioCategory = "All";
+
+  function loadPortfolioSection(category = "All") {
+    currentPortfolioCategory = category;
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML =
+      `<div class="markdown-content portfolio-page">
+        <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+        <h1>Portfolio</h1>
+        ${renderPortfolioFilters(category)}
+        ${renderPortfolioCards(category)}
+      </div>`;
+    // Add event listeners for filter buttons
+    document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+      btn.onclick = function() {
+        loadPortfolioSection(this.getAttribute('data-category'));
+      };
+    });
+  }
+
+  // Listen for resize and re-render if crossing the mobile/desktop threshold
+  let lastIsMobile = window.innerWidth <= 599;
+  window.addEventListener('resize', () => {
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile !== lastIsMobile) {
+      loadPortfolioSection(currentPortfolioCategory);
+      lastIsMobile = isMobile;
+    }
+  });
+  // --- End Portfolio Card System ---
+
+  // Light/Dark mode switch
+  const modeSwitch = document.getElementById('modeSwitch');
+  function setMode(mode) {
+    if(mode === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      modeSwitch.textContent = '🌙 Dark Mode';
+      modeSwitch.style.background = '#23272b';
+      modeSwitch.style.color = '#fff';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      modeSwitch.textContent = '☀️ Light Mode';
+      modeSwitch.style.background = '#eee';
+      modeSwitch.style.color = '#222';
+    }
+  }
+  // Detect system preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setMode(prefersDark ? 'dark' : 'light');
+  modeSwitch.onclick = function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    setMode(current === 'dark' ? 'light' : 'dark');
+  };
+
+  // Intake Modal Functions
+  function openIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal when clicking outside the content
+  document.getElementById('intakeModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeIntakeModal();
+    }
+  });
   </script>
   
   </body>
