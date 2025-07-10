@@ -27,6 +27,10 @@
       overscroll-behavior: none;
       overflow-x: hidden;
     }
+
+    .content {
+      padding-bottom: 120px; /* Padding for space for balloon */
+    }
    
    [data-theme="dark"] body {
       background:
@@ -36,6 +40,15 @@
    }
    [data-theme="dark"] .content, [data-theme="dark"] .markdown-content {
   color: #eee;
+}
+
+[data-theme="dark"] .content p {
+  background: initial;
+}
+
+[data-theme="dark"] .markdown-content {
+  background: rgb(42 43 50);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
 }
 [data-theme="dark"] .markdown-content p {
   color: #eee;
@@ -56,8 +69,8 @@
       color: #FFCB05;
    }
    [data-theme="dark"] .projectTile {
-      background: #23272b;
-      color: #eee;
+      color: #222;
+      background: #3d444e;
    }
    [data-theme="dark"] .projectInfo h3 {
       color: #39B54A;
@@ -87,6 +100,20 @@
    [data-theme="dark"] #modeSwitch {
       background: #23272b;
       color: #fff;
+   }
+   
+   [data-theme="dark"] .header-logo {
+      color: #00AEEF !important;
+   }
+   
+   [data-theme="dark"] .header-logo img {
+      content: url('IMG/nd-logo-v2c-invert.png');
+      opacity: 0.8;
+      border-radius: 50%;
+   }
+   
+   .header-logo:hover {
+      opacity: 0.8;
    }
    [data-theme="light"] body {
       background:
@@ -135,7 +162,6 @@
       color: #00AEEF;
    }
    [data-theme="light"] .projectTile {
-      background: #f7f7f7;
       color: #222;
    }
    [data-theme="light"] .projectInfo h3 {
@@ -227,11 +253,13 @@
 }
 
 .pricing-package .price {
+  font-family: 'Courier Prime', Courier, monospace;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #888;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0;
   text-align: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #FFCB05;
-  margin: 0 0 16px 0;
 }
 
 .pricing-package .subtitle {
@@ -248,10 +276,22 @@
   margin: 0 0 24px 0;
 }
 
-.pricing-package li {
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
-  color: #333;
+.pricing-package ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.6em;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pricing-package ul li::before {
+  content: '\2713';
+  color: #FFCB05;
+  position: absolute;
+  left: 0;
+  font-size: 1.1em;
+  line-height: 1;
+  top: 0.3em;
 }
 
 .pricing-package li:last-child {
@@ -360,6 +400,10 @@
       max-width: 600px;
       margin: 20px auto;
       line-height: 1.6;
+      padding: 20px;
+      border-radius: 12px;
+      background: white;
+      backdrop-filter: blur(10px);
     }
     :root {
       --bg: #fff;
@@ -417,10 +461,6 @@
     .tab-bar::before {
       top: -100px;
       height: 100vh;
-    }
-    .tab-bar::after {
-      bottom: -300px;
-      height: 300px;
     }
     .tab-bar.hidden {
       transform: translate(-50%, 150%);
@@ -923,8 +963,12 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
-      padding-bottom: 120px;
       line-height: 1.6;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+      margin-top: 20px;
     }
     
     /* Portfolio page specific container */
@@ -1143,6 +1187,7 @@
       gap: 12px;
       margin: 30px 0 20px 0;
       flex-wrap: wrap;
+      align-items: center;
     }
     .portfolio-filter-btn {
       background: none;
@@ -1170,6 +1215,104 @@
       color: #222;
       text-decoration: underline;
     }
+    
+    /* Advanced Filter Styles */
+    .advanced-filters {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 20px 0 30px 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .filter-dropdown {
+      position: relative;
+      min-width: 140px;
+    }
+    
+    .filter-dropdown select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: 100%;
+      outline: none;
+    }
+    
+    .filter-dropdown select:hover {
+      border-color: #39B54A;
+      box-shadow: 0 4px 12px rgba(57,181,74,0.15);
+    }
+    
+    .filter-dropdown select:focus {
+      border-color: #39B54A;
+      box-shadow: 0 0 0 3px rgba(57,181,74,0.1);
+    }
+    
+    .filter-dropdown::after {
+      content: '▼';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+      font-size: 0.8rem;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+    
+    .filter-dropdown:hover::after {
+      color: #39B54A;
+    }
+    
+    .filter-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    [data-theme="dark"] .filter-dropdown select {
+      background: #23272b;
+      border-color: #3d444e;
+      color: #eee;
+    }
+    
+    [data-theme="dark"] .filter-dropdown select:hover {
+      border-color: #39B54A;
+    }
+    
+    [data-theme="dark"] .filter-dropdown select:focus {
+      border-color: #39B54A;
+    }
+    
+    [data-theme="dark"] .filter-label {
+      color: #aaa;
+    }
+    
+    @media (max-width: 768px) {
+      .advanced-filters {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .filter-dropdown {
+        min-width: 200px;
+      }
+    }
     .portfolio-cards {
       display: flex;
       flex-wrap: wrap;
@@ -1179,8 +1322,7 @@
       align-items: stretch;
     }
     .projectTile {
-      background: #f7f7f7;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      background: white;
       border-radius: 16px;
       width: 300px;
       flex: 0 0 300px;
@@ -1189,6 +1331,7 @@
       margin-bottom: 24px;
       margin-top: 8px;
       transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.12);
     }
     .projectTile:hover {
       transform: translateY(-10px) scale(1.035);
@@ -1296,7 +1439,7 @@
         flex-wrap: nowrap !important;
         gap: 24px 0 !important;
         justify-content: flex-start !important;
-        padding: 0 8px 16px 8px !important;
+        padding: 0 8px 0 8px !important;
         padding-right: 40vw !important; /* allow last card to not be flush */
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
@@ -1307,7 +1450,7 @@
         width: 80vw !important;
         max-width: 320px !important;
         flex: 0 0 80vw !important;
-        margin: 0 8px 24px 0 !important;
+        margin: 0 8px 0 0 !important;
         border-radius: 18px !important;
         scroll-snap-align: start !important;
       }
@@ -1385,14 +1528,7 @@
         font-size: 1.1rem !important;
         margin-bottom: 6px !important;
       }
-      .project-category {
-        font-size: 0.85rem !important;
-        color: #888 !important;
-        margin: 6px 0 0 0 !important;
-        padding: 2px 0 8px 0 !important;
-        text-align: center !important;
-        display: block !important;
-      }
+
       .projectInfo {
         padding: 14px 10px 14px 10px !important;
       }
@@ -1416,8 +1552,7 @@
       box-sizing: border-box;
     }
     [data-theme="light"] .pricing-package .price {
-      background: #23272b;
-      color: #FFCB05;
+      color: black;
       padding: 12px 0 8px 0;
       border-radius: 0;
       margin: 0;
@@ -1430,11 +1565,98 @@
     [data-theme="light"] .tab-bar::before, [data-theme="light"] .tab-bar::after {
       background: #bbb;
     }
+
+    .portfolio-cards {
+      scrollbar-width: none !important; /* Firefox */
+      -ms-overflow-style: none !important; /* IE/Edge */
+    }
+    .portfolio-cards::-webkit-scrollbar {
+      display: none !important; /* Chrome/Safari */
+    }
+
+    [data-theme="dark"] .pricing-package h3 {
+      color: #FFCB05;
+    }
+
+    /* Add yellow checkmarks to Enterprise package bullet points */
+    .pricing-package h3 {
+      /* No change, just for context */
+    }
+    .pricing-package .price {
+      /* No change, just for context */
+    }
+    .pricing-package:has(h3:contains('Enterprise')) ul li {
+      list-style: none;
+      position: relative;
+      padding-left: 1.6em;
+    }
+    .pricing-package:has(h3:contains('Enterprise')) ul li::before {
+      content: '\2713'; /* Unicode checkmark */
+      color: #FFCB05;
+      position: absolute;
+      left: 0;
+      font-size: 1.1em;
+      line-height: 1;
+      top: 0.7em;
+    }
+    .enterprise-package ul li {
+      list-style: none;
+      position: relative;
+      padding-left: 1.6em;
+    }
+    .enterprise-package ul li::before {
+      content: '\2713';
+      color: #FFCB05;
+      position: absolute;
+      left: 0;
+      font-size: 1.1em;
+      line-height: 1;
+      top: 0.7em;
+    }
+
+    @media (max-width: 599px) {
+      .projectTile:hover {
+        transform: none !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10) !important;
+      }
+    }
+
+    .projectMeta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.75rem;
+      color: #888;
+      justify-content: center;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+    
+    .projectPlatform,
+    .projectDate,
+    .projectType {
+      background: #f5f5f5;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    [data-theme="dark"] .projectPlatform,
+    [data-theme="dark"] .projectDate,
+    [data-theme="dark"] .projectType {
+      background: #2a2a2a;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
 
-  <div style="width:100%; display:flex; justify-content:flex-end; align-items:center; margin-bottom:12px;">
+  <div style="width:100%; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; position:relative; z-index:10;">
+    <a href="#" onclick="loadDefaultContent(); return false;" class="header-logo" style="text-decoration:none; display:flex; align-items:center; transition:opacity 0.2s;">
+      <img src="IMG/nd-logo-v2c.png" alt="Nuanced Design Logo" style="width:60px; border-radius:50%;">
+    </a>
     <button id="modeSwitch" style="padding:8px 18px; border-radius:20px; border:none; background:#eee; color:#222; font-weight:600; font-size:1em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s, color 0.2s;">🌙 Dark Mode</button>
   </div>
 
@@ -1827,142 +2049,238 @@
     {
       title: "Last Seen in the Twilight Zone",
       image: "IMG/last-seen-thumbnail.png",
-      description: "A podcast about missing people from the real-life 'Twilight Zone'—Binghamton, NY, hometown of Rod Serling. Explore mysteries and stories from the place that inspired the legendary TV series.",
+      description: "A podcast about missing people from the real-life 'Twilight Zone'—Binghamton, NY, hometown of Rod Serling.",
       link: "https://lastseenpodcast.com",
-      category: "Artist"
+      category: "Creatives",
+      platform: "Custom",
+      date: "2025",
+      projectType: "Portfolio & Creative"
     },
     {
       title: "Rancho Bombero",
       image: "IMG/rancho-bombero-thumbnail.png",
       description: "Rancho Bombero is an all-in-one body oil for men—crafted for skin, beard, and hair. Experience natural hydration, subtle scent, and rugged simplicity in one bottle.",
       link: "https://ranchobombero.com",
-      category: "Products"
+      category: "Products",
+      platform: "Shopify",
+      date: "2024",
+      projectType: "E-commerce & Retail"
     },
     {
       title: "Hidden Hollows Sporting Clays",
-      image: "IMG/hidden-hollows-thumbnail.jpg", // Use actual image if available
+      image: "IMG/hidden-hallows-thumbnail.png",
       description: "Ecommerce site for Hidden Hollows Sporting Clays, offering clay shooting experiences and online booking.",
-      link: "https://hiddenhollowsportingclays.com", // Use actual link if available
-      category: "Services"
+      link: "https://hhhsc.net",
+      category: "Services",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "E-commerce & Retail"
     },
     {
       title: "Hidden Lake Resort",
       image: "IMG/hidden-lake-resort-thumbnail.jpg",
       description: "Designed and custom built website, integrated with iGMS booking to be on all major rental platforms.",
       link: "https://hiddenlakeresortpa.com",
-      category: "Services"
+      category: "Services",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Christine DeGrazia, RN",
+      image: "IMG/christine-degrazia-thumbnail.png",
+      description: "After dealing with burnout from the COVID pandemic, Christine DeGrazia, RN is on a mission to help other nurses and healthcare professionals find the tools for self-compassion and self-care.",
+      link: "https://christinedegrazia.com/self-compassion-fatigue-book/",
+      category: "Creatives",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "Educational Content"
+    },
+    {
+      title: "Tri-Cities Opera",
+      image: "IMG/tricities-syracuse-opera.png",
+      description: "Website for Tri-Cities Opera, a non-profit opera company. Also worked with Syracuse Opera.",
+      link: "https://www.tricitiesopera.com/",
+      category: "Non-Profit",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "Non-profit & Community"
+    },
+    {
+      title: "Robin Applewood",
+      image: "IMG/robinapplewood.jpg",
+      description: "Official website for Robin Applewood, musician and producer.",
+      link: "https://robinapplewood.com",
+      category: "Creatives",
+      platform: "Bandzoogle",
+      date: "2023",
+      projectType: "Portfolio & Creative"
     },
     {
       title: "Blacktie Brothers",
       image: "IMG/blacktie-brothers-thumbnail.jpg",
       description: "Wedding photography business launched in October, 2022.",
       link: "https://blacktiebrothers.com",
-      category: "Services"
+      category: "Services",
+      platform: "Squarespace",
+      date: "2022",
+      projectType: "Portfolio & Creative"
     },
     {
       title: "Theo's Savory Sauces",
       image: "IMG/theos-savory-sauces-bbq-artisan-sauces-thumbnail.jpg",
       description: "Full site design and build from scratch. Launched in November, 2022.",
       link: "https://theossavorysauces.com",
-      category: "Products"
+      category: "Products",
+      platform: "Custom",
+      date: "2022",
+      projectType: "E-commerce & Retail"
     },
     {
       title: "Slaughterland",
       image: "IMG/slaughterland-thumbnail.jpg",
       description: "Optimized the website increasing speed 4x and designed many new assets for the redesign.",
       link: "https://slaughterland.com/",
-      category: "Services"
-    },
-    {
-      title: "Christine De Grazia",
-      image: "IMG/christine-degrazia-thumbnail.jpg", // Use actual image if available
-      description: "Personal site for Christine De Grazia, writer and educator.",
-      link: "https://christinedegrazia.com",
-      category: "Individual"
-    },
-    {
-      title: "Tri-Cities Opera",
-      image: "IMG/tricities-opera-thumbnail.jpg", // Use actual image if available
-      description: "Website for Tri-Cities Opera, a non-profit opera company.",
-      link: "https://tricitiesopera.org",
-      category: "Non-Profit"
+      category: "Services",
+      platform: "WordPress",
+      date: "2022",
+      projectType: "E-commerce & Retail"
     },
     {
       title: "Blackfern Media",
       image: "IMG/blackfern-media-thumbnail.jpg",
       description: "Nuanced Design is partnered with Blackfern Media. Designed and built the site, launched May, 2022.",
       link: "https://blackfernmedia.com",
-      category: "Enterprise"
+      category: "Enterprise",
+      platform: "WordPress",
+      date: "2022",
+      projectType: "Business Website"
+    },
+    {
+      title: "Eva Orbuch",
+      image: "IMG/eva-orbuch-thumbnail.png",
+      description: "Website for Eva Orbuch, coach, facilitator, and author.",
+      link: "https://evaorbuch.com",
+      category: "Individual",
+      platform: "Wix",
+      date: "2021",
+      projectType: "Non-profit & Community"
     },
     {
       title: "Trendgraphix",
       image: "IMG/trendgraphix-thumbnail.jpg",
       description: "Worked with a marketing professional to do a full redesign of Trendgraphix marketing website and custom-coded it.",
       link: "https://trendgraphix.com",
-      category: "Enterprise"
+      category: "Enterprise",
+      platform: "Custom",
+      date: "2021",
+      projectType: "Business Website"
     },
     {
-      title: "Eva Orbuch",
-      image: "IMG/eva-orbuch-thumbnail.jpg", // Use actual image if available
-      description: "Website for Eva Orbuch, coach, facilitator, and author.",
-      link: "https://evaorbuch.com",
-      category: "Individual"
+      title: "Jordan Kersten Studio",
+      image: "IMG/jordan-kersten-thumbnail.png",
+      description: "Health, wellness, yoga, and voice lessons by Jordan Kersten.",
+      link: "https://jordankersten.com",
+      category: "Individual",
+      platform: "Squarespace",
+      date: "2021",
+      projectType: "Facelift"
     },
     {
       title: "Gather Facilitation",
       image: "IMG/gather-facilitation-thumbnail.jpg",
       description: "Designed and custom coded from scratch. Launched in March, 2020.",
       link: "https://gatherfacilitation.com",
-      category: "Non-Profit"
+      category: "Individual",
+      platform: "Custom",
+      date: "2020",
+      projectType: "Non-profit & Community"
     },
     {
       title: "Lilypad",
       image: "IMG/lilypad-thumbnail.jpg",
       description: "Created a 3D scan, produced videos, created infographics, and a website to explain why people should build high-performance homes.",
       link: "https://lilypad.house",
-      category: "Non-Profit"
-    },
-    {
-      title: "Jordan Kersten Studio",
-      image: "IMG/jordan-kersten-thumbnail.jpg", // Use actual image if available
-      description: "Health, wellness, yoga, and voice lessons by Jordan Kersten.",
-      link: "https://jordankersten.com",
-      category: "Individual"
-    },
-    {
-      title: "Robin Applewood",
-      image: "IMG/robin-applewood-thumbnail.jpg", // Use actual image if available
-      description: "Official website for Robin Applewood, musician and producer.",
-      link: "https://robinapplewood.com",
-      category: "Artist"
+      category: "Non-Profit",
+      platform: "Custom",
+      date: "2020",
+      projectType: "Educational Content"
     },
     {
       title: "Origin Materials",
-      image: "IMG/origin-materials-thumbnail.jpg", // Use actual image if available
+      image: "IMG/origin-materials-thumbnail.png",
       description: "Corporate website for Origin Materials, a leader in sustainable materials innovation.",
       link: "https://originmaterials.com",
-      category: "Enterprise"
+      category: "Enterprise",
+      platform: "CraftCMS",
+      date: "2020",
+      projectType: "Business Website"
     },
     {
       title: "Siempo",
-      image: "IMG/siempo-thumbnail.jpg",
+      image: "IMG/Siempo/Mindful-Morning-mock.png",
       description: "Website for Siempo, a non-profit focused on digital wellness and mindful technology.",
       link: "https://www.siempo.com/",
-      category: "Non-Profit"
+      category: "Non-Profit",
+      date: "2019",
+      projectType: "Mobile App"
     },
     {
       title: "OneOf",
-      image: "IMG/OneOf/OneOf_logo.png",
-      description: "Brand and packaging design for OneOf, a unique product line.",
-      link: "https://oneof.co/",
-      category: "Products"
+      image: "IMG/OneOf/OneOf-packaging.jpg",
+      description: "Bespoke handmade leather watch bands crafted from the finest leather and techniques in San Francisco.",
+      link: "http://www.oneof.craftedium.xyz/",
+      category: "Products",
+      platform: "Custom",
+      date: "2018",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "AWA Fit",
+      image: "IMG/awa-fit-mock2.jpg",
+      description: "Fitness and wellness platform for AWA Fit.",
+      link: "https://awa-fit.com",
+      category: "Products",
+      date: "2018",
+      projectType: "Mobile App"
+    },
+    {
+      title: "Slingshot Foods",
+      image: "IMG/Slingshot/sling-booth.jpg",
+      description: "Food and beverage company website for Slingshot Foods.",
+      link: "https://slingshotfoods.com",
+      category: "Products",
+      date: "2017",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "Calm",
+      image: "IMG/calm-thumbnail.jpg",
+      description: "Fabrication and signage work for Calm.",
+      link: "https://calm.com",
+      category: "Products",
+      date: "2017",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "EntheoZen",
+      image: "IMG/entheozen-thumbnail.jpg",
+      description: "Website facelift for EntheoZen.",
+      link: "https://entheozen.com",
+      category: "Products",
+      platform: "WordPress",
+      date: "2016",
+      projectType: "Facelift"
     },
     {
       title: "Safe Harbor",
       image: "IMG/Safe-Harbor/safe-harbor-mock2.jpg",
       description: "Website for Safe Harbor, a non-profit organization providing support and resources to those in need.",
       link: "https://safeharbor.org/",
-      category: "Non-Profit"
+      category: "Non-Profit",
+      platform: "Hackathon",
+      date: "2015",
+      projectType: "Mobile App"
     }
   ];
 
@@ -1971,18 +2289,39 @@
     "Enterprise",
     "Non-Profit",
     "Individual",
-    "Artist",
+    "Creatives",
     "Products",
     "Services"
   ];
 
-  function renderPortfolioCards(category = "All") {
-    let filtered =
-      category === "All"
-        ? portfolioProjects
-        : portfolioProjects.filter(p => p.category === category);
+  function renderPortfolioCards(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All") {
+    let filtered = portfolioProjects;
+    
+    // Apply category filter
+    if (category !== "All") {
+      filtered = filtered.filter(p => p.category === category);
+    }
+    
+    // Apply year filter
+    if (yearFilter !== "All") {
+      filtered = filtered.filter(p => p.date === yearFilter);
+    }
+    
+    // Apply project type filter
+    if (typeFilter !== "All") {
+      filtered = filtered.filter(p => p.projectType === typeFilter);
+    }
+    
+    // Apply platform filter
+    if (platformFilter !== "All") {
+      filtered = filtered.filter(p => p.platform === platformFilter);
+    }
+    
     if (filtered.length === 0) {
-      return `<div style='text-align:center; margin:40px 0;'>No projects in this category yet.</div>`;
+      return `<div style='text-align:center; margin:40px 0; padding: 40px; background: #f8f9fa; border-radius: 12px;'>
+        <h3 style='color: #666; margin-bottom: 16px;'>🤷‍♂️ Well, this is awkward...</h3>
+        <p style='color: #888; font-size: 1.1em;'>No projects match your super specific filter combo. Maybe try being less picky? 😉</p>
+      </div>`;
     }
     // Mobile slider logic
     const isMobile = window.innerWidth <= 599;
@@ -2017,6 +2356,11 @@
                 <div class='projectInfo'>
                   <h3>${project.title}</h3>
                   <p>${project.description}</p>
+                  <div class='projectMeta'>
+                    ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+                    <span class='projectDate'>${project.date}</span>
+                    <span class='projectType'>${project.projectType}</span>
+                  </div>
                   <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
                 </div>
               </div>
@@ -2033,6 +2377,11 @@
           <div class='projectInfo'>
             <h3>${project.title}</h3>
             <p>${project.description}</p>
+            <div class='projectMeta'>
+              ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+              <span class='projectDate'>${project.date}</span>
+              <span class='projectType'>${project.projectType}</span>
+            </div>
             <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
           </div>
         </div>
@@ -2051,87 +2400,151 @@
       }
     });
     
+    // Get unique years, project types, and platforms
+    const years = [...new Set(portfolioProjects.map(p => p.date))].sort((a, b) => b - a);
+    const projectTypes = [...new Set(portfolioProjects.map(p => p.projectType))].sort();
+    const platforms = [...new Set(portfolioProjects.map(p => p.platform).filter(p => p))].sort();
+    
     return `<div class='portfolio-filters'>` +
       portfolioCategories.map(cat => `
-        <button class='portfolio-filter-btn${cat === activeCategory ? " active" : ""}' data-category='${cat}'>${cat} (${categoryCounts[cat]})</button>
-      `).join('') +
-      `</div>`;
-  }
+          <button class='portfolio-filter-btn${cat === activeCategory ? " active" : ""}' data-category='${cat}'>${cat} (${categoryCounts[cat]})</button>
+        `).join('') +
+        `</div>
+        <div class='advanced-filters'>
+          <div class='filter-dropdown'>
+            <div class='filter-label'>Year</div>
+            <select id='yearFilter'>
+              <option value='All'>All Years</option>
+              ${years.map(year => `<option value='${year}'>${year}</option>`).join('')}
+            </select>
+          </div>
+          <div class='filter-dropdown'>
+            <div class='filter-label'>Project Type</div>
+            <select id='typeFilter'>
+              <option value='All'>All Types</option>
+              ${projectTypes.map(type => `<option value='${type}'>${type}</option>`).join('')}
+            </select>
+          </div>
+          <div class='filter-dropdown'>
+            <div class='filter-label'>Platform</div>
+            <select id='platformFilter'>
+              <option value='All'>All Platforms</option>
+              ${platforms.map(platform => `<option value='${platform}'>${platform}</option>`).join('')}
+            </select>
+          </div>
+        </div>`;
+    }
 
-  let currentPortfolioCategory = "All";
+    let currentPortfolioCategory = "All";
+    let currentYearFilter = "All";
+    let currentTypeFilter = "All";
+    let currentPlatformFilter = "All";
 
-  function loadPortfolioSection(category = "All") {
-    currentPortfolioCategory = category;
-    const mainContent = document.getElementById('mainContent');
-    mainContent.innerHTML =
-      `<div class="markdown-content portfolio-page">
-        <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-        <h1>Portfolio</h1>
-        ${renderPortfolioFilters(category)}
-        ${renderPortfolioCards(category)}
-      </div>`;
-    // Add event listeners for filter buttons
-    document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
-      btn.onclick = function() {
-        loadPortfolioSection(this.getAttribute('data-category'));
-      };
+    function loadPortfolioSection(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All") {
+      currentPortfolioCategory = category;
+      currentYearFilter = yearFilter;
+      currentTypeFilter = typeFilter;
+      currentPlatformFilter = platformFilter;
+      
+      const mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML =
+        `<div class="markdown-content portfolio-page">
+          <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          <h1>Portfolio</h1>
+          ${renderPortfolioFilters(category)}
+          ${renderPortfolioCards(category, yearFilter, typeFilter, platformFilter)}
+        </div>`;
+      
+      // Add event listeners for filter buttons
+      document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+        btn.onclick = function() {
+          loadPortfolioSection(this.getAttribute('data-category'), currentYearFilter, currentTypeFilter, currentPlatformFilter);
+        };
+      });
+      
+      // Add event listeners for dropdown filters
+      setTimeout(() => {
+        const yearSelect = document.getElementById('yearFilter');
+        const typeSelect = document.getElementById('typeFilter');
+        const platformSelect = document.getElementById('platformFilter');
+        
+        if (yearSelect) {
+          yearSelect.value = yearFilter;
+          yearSelect.onchange = function() {
+            loadPortfolioSection(currentPortfolioCategory, this.value, currentTypeFilter, currentPlatformFilter);
+          };
+        }
+        
+        if (typeSelect) {
+          typeSelect.value = typeFilter;
+          typeSelect.onchange = function() {
+            loadPortfolioSection(currentPortfolioCategory, currentYearFilter, this.value, currentPlatformFilter);
+          };
+        }
+        
+        if (platformSelect) {
+          platformSelect.value = platformFilter;
+          platformSelect.onchange = function() {
+            loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, this.value);
+          };
+        }
+      }, 0);
+    }
+
+    // Listen for resize and re-render if crossing the mobile/desktop threshold
+    let lastIsMobile = window.innerWidth <= 599;
+    window.addEventListener('resize', () => {
+      const isMobile = window.innerWidth <= 599;
+      if (isMobile !== lastIsMobile) {
+        loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter);
+        lastIsMobile = isMobile;
+      }
     });
-  }
+    // --- End Portfolio Card System ---
 
-  // Listen for resize and re-render if crossing the mobile/desktop threshold
-  let lastIsMobile = window.innerWidth <= 599;
-  window.addEventListener('resize', () => {
-    const isMobile = window.innerWidth <= 599;
-    if (isMobile !== lastIsMobile) {
-      loadPortfolioSection(currentPortfolioCategory);
-      lastIsMobile = isMobile;
+    // Light/Dark mode switch
+    const modeSwitch = document.getElementById('modeSwitch');
+    function setMode(mode) {
+      if(mode === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        modeSwitch.textContent = '🌙 Dark Mode';
+        modeSwitch.style.background = '#23272b';
+        modeSwitch.style.color = '#fff';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        modeSwitch.textContent = '☀️ Light Mode';
+        modeSwitch.style.background = '#eee';
+        modeSwitch.style.color = '#222';
+      }
     }
-  });
-  // --- End Portfolio Card System ---
+    // Detect system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setMode(prefersDark ? 'dark' : 'light');
+    modeSwitch.onclick = function() {
+      const current = document.documentElement.getAttribute('data-theme');
+      setMode(current === 'dark' ? 'light' : 'dark');
+    };
 
-  // Light/Dark mode switch
-  const modeSwitch = document.getElementById('modeSwitch');
-  function setMode(mode) {
-    if(mode === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      modeSwitch.textContent = '🌙 Dark Mode';
-      modeSwitch.style.background = '#23272b';
-      modeSwitch.style.color = '#fff';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      modeSwitch.textContent = '☀️ Light Mode';
-      modeSwitch.style.background = '#eee';
-      modeSwitch.style.color = '#222';
+    // Intake Modal Functions
+    function openIntakeModal() {
+      const modal = document.getElementById('intakeModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
-  }
-  // Detect system preference
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setMode(prefersDark ? 'dark' : 'light');
-  modeSwitch.onclick = function() {
-    const current = document.documentElement.getAttribute('data-theme');
-    setMode(current === 'dark' ? 'light' : 'dark');
-  };
 
-  // Intake Modal Functions
-  function openIntakeModal() {
-    const modal = document.getElementById('intakeModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeIntakeModal() {
-    const modal = document.getElementById('intakeModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  // Close modal when clicking outside the content
-  document.getElementById('intakeModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeIntakeModal();
+    function closeIntakeModal() {
+      const modal = document.getElementById('intakeModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
     }
-  });
-  </script>
-  
-  </body>
-  </html>
+
+    // Close modal when clicking outside the content
+    document.getElementById('intakeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeIntakeModal();
+      }
+    });
+    </script>
+    
+    </body>
+    </html>
