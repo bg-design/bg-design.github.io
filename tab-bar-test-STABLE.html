@@ -1649,6 +1649,82 @@
       background: #2a2a2a;
       color: #ccc;
     }
+
+    /* Hide category buttons and show dropdown on mobile */
+    @media (max-width: 599px) {
+      .portfolio-filters {
+        display: none !important;
+      }
+      .portfolio-category-mobile-dropdown {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 12px auto;
+        max-width: 320px;
+        width: 100%;
+      }
+    }
+    @media (min-width: 600px) {
+      .portfolio-category-mobile-dropdown {
+        display: none !important;
+      }
+    }
+
+    /* Style for mobile category dropdown */
+    .portfolio-category-mobile-dropdown {
+      display: none;
+    }
+    .portfolio-category-mobile-dropdown .filter-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+    .portfolio-category-mobile-dropdown select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: 100%;
+      outline: none;
+    }
+    .portfolio-category-mobile-dropdown select:hover {
+      border-color: #39B54A;
+      box-shadow: 0 4px 12px rgba(57,181,74,0.15);
+    }
+    .portfolio-category-mobile-dropdown select:focus {
+      border-color: #39B54A;
+      box-shadow: 0 0 0 3px rgba(57,181,74,0.1);
+    }
+    [data-theme="dark"] .portfolio-category-mobile-dropdown select {
+      background: #23272b;
+      border-color: #3d444e;
+      color: #eee;
+    }
+    [data-theme="dark"] .portfolio-category-mobile-dropdown select:hover {
+      border-color: #39B54A;
+    }
+    [data-theme="dark"] .portfolio-category-mobile-dropdown select:focus {
+      border-color: #39B54A;
+    }
+
+    /* 1. Add this to <style> for label color fix: */
+    [data-theme="dark"] .portfolio-category-mobile-dropdown .filter-label {
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
@@ -2399,152 +2475,166 @@
         categoryCounts[cat] = portfolioProjects.filter(p => p.category === cat).length;
       }
     });
-    
     // Get unique years, project types, and platforms
     const years = [...new Set(portfolioProjects.map(p => p.date))].sort((a, b) => b - a);
     const projectTypes = [...new Set(portfolioProjects.map(p => p.projectType))].sort();
     const platforms = [...new Set(portfolioProjects.map(p => p.platform).filter(p => p))].sort();
-    
-    return `<div class='portfolio-filters'>` +
+    // Mobile dropdown for categories with label
+    const mobileDropdown = `<div class='portfolio-category-mobile-dropdown'><div class='filter-dropdown'><div class='filter-label'>Category</div><select id='categoryMobileFilter'>${portfolioCategories.map(cat => `<option value='${cat}'${cat === activeCategory ? " selected" : ""}>${cat} (${categoryCounts[cat]})</option>`).join('')}</select></div></div>`;
+    // Desktop button row
+    const desktopButtons = `<div class='portfolio-filters'>` +
       portfolioCategories.map(cat => `
           <button class='portfolio-filter-btn${cat === activeCategory ? " active" : ""}' data-category='${cat}'>${cat} (${categoryCounts[cat]})</button>
         `).join('') +
-        `</div>
-        <div class='advanced-filters'>
-          <div class='filter-dropdown'>
-            <div class='filter-label'>Year</div>
-            <select id='yearFilter'>
-              <option value='All'>All Years</option>
-              ${years.map(year => `<option value='${year}'>${year}</option>`).join('')}
-            </select>
-          </div>
-          <div class='filter-dropdown'>
-            <div class='filter-label'>Project Type</div>
-            <select id='typeFilter'>
-              <option value='All'>All Types</option>
-              ${projectTypes.map(type => `<option value='${type}'>${type}</option>`).join('')}
-            </select>
-          </div>
-          <div class='filter-dropdown'>
-            <div class='filter-label'>Platform</div>
-            <select id='platformFilter'>
-              <option value='All'>All Platforms</option>
-              ${platforms.map(platform => `<option value='${platform}'>${platform}</option>`).join('')}
-            </select>
-          </div>
-        </div>`;
-    }
+        `</div>`;
+    // Advanced filters
+    const advanced = `<div class='advanced-filters'>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Year</div>
+        <select id='yearFilter'>
+          <option value='All'>All Years</option>
+          ${years.map(year => `<option value='${year}'>${year}</option>`).join('')}
+        </select>
+      </div>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Project Type</div>
+        <select id='typeFilter'>
+          <option value='All'>All Types</option>
+          ${projectTypes.map(type => `<option value='${type}'>${type}</option>`).join('')}
+        </select>
+      </div>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Platform</div>
+        <select id='platformFilter'>
+          <option value='All'>All Platforms</option>
+          ${platforms.map(platform => `<option value='${platform}'>${platform}</option>`).join('')}
+        </select>
+      </div>
+    </div>`;
+    // Combine for output
+    return mobileDropdown + desktopButtons + advanced;
+  }
 
-    let currentPortfolioCategory = "All";
-    let currentYearFilter = "All";
-    let currentTypeFilter = "All";
-    let currentPlatformFilter = "All";
+  let currentPortfolioCategory = "All";
+  let currentYearFilter = "All";
+  let currentTypeFilter = "All";
+  let currentPlatformFilter = "All";
 
-    function loadPortfolioSection(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All") {
-      currentPortfolioCategory = category;
-      currentYearFilter = yearFilter;
-      currentTypeFilter = typeFilter;
-      currentPlatformFilter = platformFilter;
+  function loadPortfolioSection(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All") {
+    currentPortfolioCategory = category;
+    currentYearFilter = yearFilter;
+    currentTypeFilter = typeFilter;
+    currentPlatformFilter = platformFilter;
+    
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML =
+      `<div class="markdown-content portfolio-page">
+        <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+        <h1>Portfolio</h1>
+        ${renderPortfolioFilters(category)}
+        ${renderPortfolioCards(category, yearFilter, typeFilter, platformFilter)}
+      </div>`;
+    
+    // Add event listeners for filter buttons
+    document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+      btn.onclick = function() {
+        loadPortfolioSection(this.getAttribute('data-category'), currentYearFilter, currentTypeFilter, currentPlatformFilter);
+      };
+    });
+    
+    // Add event listeners for dropdown filters
+    setTimeout(() => {
+      const yearSelect = document.getElementById('yearFilter');
+      const typeSelect = document.getElementById('typeFilter');
+      const platformSelect = document.getElementById('platformFilter');
+      const catSelect = document.getElementById('categoryMobileFilter');
       
-      const mainContent = document.getElementById('mainContent');
-      mainContent.innerHTML =
-        `<div class="markdown-content portfolio-page">
-          <a href="#" class="back-link" style="font-size:1.1em;" onclick="loadDefaultContent(); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-          <h1>Portfolio</h1>
-          ${renderPortfolioFilters(category)}
-          ${renderPortfolioCards(category, yearFilter, typeFilter, platformFilter)}
-        </div>`;
-      
-      // Add event listeners for filter buttons
-      document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
-        btn.onclick = function() {
-          loadPortfolioSection(this.getAttribute('data-category'), currentYearFilter, currentTypeFilter, currentPlatformFilter);
+      if (yearSelect) {
+        yearSelect.value = yearFilter;
+        yearSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, this.value, currentTypeFilter, currentPlatformFilter);
         };
-      });
+      }
       
-      // Add event listeners for dropdown filters
-      setTimeout(() => {
-        const yearSelect = document.getElementById('yearFilter');
-        const typeSelect = document.getElementById('typeFilter');
-        const platformSelect = document.getElementById('platformFilter');
-        
-        if (yearSelect) {
-          yearSelect.value = yearFilter;
-          yearSelect.onchange = function() {
-            loadPortfolioSection(currentPortfolioCategory, this.value, currentTypeFilter, currentPlatformFilter);
-          };
-        }
-        
-        if (typeSelect) {
-          typeSelect.value = typeFilter;
-          typeSelect.onchange = function() {
-            loadPortfolioSection(currentPortfolioCategory, currentYearFilter, this.value, currentPlatformFilter);
-          };
-        }
-        
-        if (platformSelect) {
-          platformSelect.value = platformFilter;
-          platformSelect.onchange = function() {
-            loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, this.value);
-          };
-        }
-      }, 0);
-    }
-
-    // Listen for resize and re-render if crossing the mobile/desktop threshold
-    let lastIsMobile = window.innerWidth <= 599;
-    window.addEventListener('resize', () => {
-      const isMobile = window.innerWidth <= 599;
-      if (isMobile !== lastIsMobile) {
-        loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter);
-        lastIsMobile = isMobile;
+      if (typeSelect) {
+        typeSelect.value = typeFilter;
+        typeSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, currentYearFilter, this.value, currentPlatformFilter);
+        };
       }
-    });
-    // --- End Portfolio Card System ---
-
-    // Light/Dark mode switch
-    const modeSwitch = document.getElementById('modeSwitch');
-    function setMode(mode) {
-      if(mode === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        modeSwitch.textContent = '🌙 Dark Mode';
-        modeSwitch.style.background = '#23272b';
-        modeSwitch.style.color = '#fff';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        modeSwitch.textContent = '☀️ Light Mode';
-        modeSwitch.style.background = '#eee';
-        modeSwitch.style.color = '#222';
+      
+      if (platformSelect) {
+        platformSelect.value = platformFilter;
+        platformSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, this.value);
+        };
       }
-    }
-    // Detect system preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setMode(prefersDark ? 'dark' : 'light');
-    modeSwitch.onclick = function() {
-      const current = document.documentElement.getAttribute('data-theme');
-      setMode(current === 'dark' ? 'light' : 'dark');
-    };
-
-    // Intake Modal Functions
-    function openIntakeModal() {
-      const modal = document.getElementById('intakeModal');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeIntakeModal() {
-      const modal = document.getElementById('intakeModal');
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    // Close modal when clicking outside the content
-    document.getElementById('intakeModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeIntakeModal();
+      
+      if (catSelect) {
+        catSelect.value = category;
+        catSelect.onchange = function() {
+          loadPortfolioSection(this.value, currentYearFilter, currentTypeFilter, currentPlatformFilter);
+        };
       }
-    });
-    </script>
+    }, 0);
+  }
+
+  // Listen for resize and re-render if crossing the mobile/desktop threshold
+  let lastIsMobile = window.innerWidth <= 599;
+  window.addEventListener('resize', () => {
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile !== lastIsMobile) {
+      loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter);
+      lastIsMobile = isMobile;
+    }
+  });
+  // --- End Portfolio Card System ---
+
+  // Light/Dark mode switch
+  const modeSwitch = document.getElementById('modeSwitch');
+  function setMode(mode) {
+    if(mode === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      modeSwitch.textContent = '🌙 Dark Mode';
+      modeSwitch.style.background = '#23272b';
+      modeSwitch.style.color = '#fff';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      modeSwitch.textContent = '☀️ Light Mode';
+      modeSwitch.style.background = '#eee';
+      modeSwitch.style.color = '#222';
+    }
+  }
+  // Detect system preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setMode(prefersDark ? 'dark' : 'light');
+  modeSwitch.onclick = function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    setMode(current === 'dark' ? 'light' : 'dark');
+  };
+
+  // Intake Modal Functions
+  function openIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal when clicking outside the content
+  document.getElementById('intakeModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeIntakeModal();
+    }
+  });
+
+
+  </script>
     
     </body>
     </html>
