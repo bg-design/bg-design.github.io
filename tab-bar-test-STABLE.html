@@ -313,9 +313,27 @@
   color: #aaa;
 }
 
-[data-theme="dark"] .pricing-package li {
-  color: #eee;
-  border-bottom-color: #333;
+    [data-theme="dark"] .pricing-package li {
+      color: #eee;
+      border-bottom-color: #333;
+    }
+
+    /* Dark mode styling for the pricing banner */
+    [data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] h2 {
+      color: #FFCB05 !important;
+    }
+
+    [data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] p {
+      color: #eee !important;
+    }
+
+/* Dark mode styling for the pricing banner */
+[data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] h2 {
+  color: #FFCB05 !important;
+}
+
+[data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] p {
+  color: #eee !important;
 }
 
 @media (min-width: 1200px) {
@@ -2061,6 +2079,15 @@
       // Create pricing content with HTML structure
       const pricingContent = `
         <h1>Pricing & Packages</h1>
+        
+        <div style="padding: 16px; border-radius: 12px; margin: 20px 0; text-align: center; box-shadow: 0 4px 16px rgba(255,203,5,0.2); border: 2px solid #FFCB05;">
+          <h2 style="color: #FFCB05; margin-bottom: 12px; font-size: 1.2em;">💡 Flexible Pricing for Every Budget</h2>
+          <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;">
+            <strong>Prices listed are estimates only.</strong> Project scope can vary significantly, and we're committed to working with your budget. 
+            Whether you're a startup with limited resources or an established business, we can tailor our services to fit your needs. 
+            <strong>Please call us for a personalized quote!</strong>
+          </p>
+        </div>
         
         <h2>Our Pricing Philosophy</h2>
         <p>We believe in transparent, value-based pricing that gives you exactly what you need without unnecessary extras. Every project is unique, so we offer flexible packages that can be customized to fit your specific requirements and budget.</p>
