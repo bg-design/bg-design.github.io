@@ -3155,6 +3155,8 @@
       .platforms-title, .clients-title {
         font-size: 1.3rem;
         margin-bottom: 20px;
+        padding: 0 10px;
+        line-height: 1.2;
       }
 
       .urgency-title {
@@ -3183,6 +3185,17 @@
       .platform-item {
         padding: 10px 6px;
         font-size: 0.8rem;
+        white-space: nowrap;
+        min-width: 80px;
+      }
+      
+      .clients-grid, .platforms-grid {
+        max-width: 90vw;
+        gap: 15px;
+      }
+      
+      .clients-scroll, .platforms-scroll {
+        gap: 15px;
       }
 
       .balloon-instruction h2 {
@@ -3206,6 +3219,31 @@
         grid-template-columns: repeat(2, 1fr);
         max-width: 600px;
         gap: 15px;
+      }
+    }
+    
+    @media (max-width: 375px) {
+      .platforms-title, .clients-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        padding: 0 20px;
+        line-height: 1.1;
+      }
+      
+      .platform-item {
+        padding: 6px 3px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        min-width: 60px;
+      }
+      
+      .clients-grid, .platforms-grid {
+        max-width: 85vw;
+        gap: 10px;
+      }
+      
+      .clients-scroll, .platforms-scroll {
+        gap: 10px;
       }
     }
 
