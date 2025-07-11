@@ -3307,6 +3307,47 @@
     .hidden-checklist { opacity: 0; pointer-events: none; transition: opacity 0.3s; }
     .selling-checklist li { opacity: 0; transition: opacity 0.7s; }
     .selling-checklist li.fade-in-check { opacity: 1 !important; }
+
+    .platforms-title, .clients-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: inherit;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+      white-space: normal !important;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 480px) {
+      .platforms-title, .clients-title {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+        padding: 0 8px;
+        line-height: 1.15;
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .platforms-title, .clients-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        padding: 0 4px;
+        line-height: 1.1;
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4152,7 +4193,7 @@
           items.forEach((li, idx) => {
             setTimeout(() => {
               li.classList.add('fade-in-check');
-            }, idx * 400);
+            }, idx * 300); // was 400, now 300ms between each checkmark for faster animation
           });
         }
       }, 2100); // was 1800, now 1800+300=2100ms
