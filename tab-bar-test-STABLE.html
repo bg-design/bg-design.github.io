@@ -3956,6 +3956,46 @@
         height: 44px;
       }
     }
+
+    /* Robust scrolling row fix for clients and platforms */
+    .scrolling-row-outer {
+      overflow: hidden;
+      width: 100%;
+      height: 48px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .scrolling-row-inner {
+      display: flex;
+      min-width: max-content;
+      white-space: nowrap;
+      align-items: center;
+      animation: scroll-left 24s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .platform-item {
+      white-space: nowrap;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding: 6px 18px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-right: 18px;
+    }
+    @media (max-width: 700px) {
+      .scrolling-row-outer {
+        height: 36px;
+      }
+      .platform-item {
+        font-size: 0.95em;
+        padding: 4px 10px;
+        margin-right: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4478,90 +4518,98 @@
                 <div class="clients-section">
                   <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
                   <div class="clients-grid-2rows">
-                    <div class="clients-scroll-row">
-                      <div class="platform-item">Hidden Lake Resort</div>
-                      <div class="platform-item">Rancho Bombero</div>
-                      <div class="platform-item">Blackfern Media</div>
-                      <div class="platform-item">Trendgraphix</div>
-                      <div class="platform-item">Origin Materials</div>
-                      <div class="platform-item">Siempo</div>
-                      <div class="platform-item">Calm</div>
-                      <div class="platform-item">CostPlus World Market</div>
-                      <div class="platform-item">Syracuse Opera</div>
-                      <!-- Duplicated for seamless scroll -->
-                      <div class="platform-item">Hidden Lake Resort</div>
-                      <div class="platform-item">Rancho Bombero</div>
-                      <div class="platform-item">Blackfern Media</div>
-                      <div class="platform-item">Trendgraphix</div>
-                      <div class="platform-item">Origin Materials</div>
-                      <div class="platform-item">Siempo</div>
-                      <div class="platform-item">Calm</div>
-                      <div class="platform-item">CostPlus World Market</div>
-                      <div class="platform-item">Syracuse Opera</div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <div class="platform-item">Siempo</div>
+                        <div class="platform-item">Calm</div>
+                        <div class="platform-item">CostPlus World Market</div>
+                        <div class="platform-item">Syracuse Opera</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <div class="platform-item">Siempo</div>
+                        <div class="platform-item">Calm</div>
+                        <div class="platform-item">CostPlus World Market</div>
+                        <div class="platform-item">Syracuse Opera</div>
+                      </div>
                     </div>
-                    <div class="clients-scroll-row">
-                      <div class="platform-item">TriCities Opera</div>
-                      <div class="platform-item">Blacktie Brothers</div>
-                      <div class="platform-item">Slaughterland</div>
-                      <div class="platform-item">Hidden Hollows Sporting Clays</div>
-                      <div class="platform-item">Hidden Lake Resort</div>
-                      <div class="platform-item">Rancho Bombero</div>
-                      <div class="platform-item">Blackfern Media</div>
-                      <div class="platform-item">Trendgraphix</div>
-                      <div class="platform-item">Origin Materials</div>
-                      <!-- Duplicated for seamless scroll -->
-                      <div class="platform-item">TriCities Opera</div>
-                      <div class="platform-item">Blacktie Brothers</div>
-                      <div class="platform-item">Slaughterland</div>
-                      <div class="platform-item">Hidden Hollows Sporting Clays</div>
-                      <div class="platform-item">Hidden Lake Resort</div>
-                      <div class="platform-item">Rancho Bombero</div>
-                      <div class="platform-item">Blackfern Media</div>
-                      <div class="platform-item">Trendgraphix</div>
-                      <div class="platform-item">Origin Materials</div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">TriCities Opera</div>
+                        <div class="platform-item">Blacktie Brothers</div>
+                        <div class="platform-item">Slaughterland</div>
+                        <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">TriCities Opera</div>
+                        <div class="platform-item">Blacktie Brothers</div>
+                        <div class="platform-item">Slaughterland</div>
+                        <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="platforms-section">
                   <h2 class="platforms-title" id="platformsTitle">We work across all major platforms</h2>
                   <div class="platforms-grid-2rows">
-                    <div class="platforms-scroll-row">
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
-                      <div class="platform-item">Custom</div>
-                      <div class="platform-item">Bandzoogle</div>
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
-                      <!-- Duplicated for seamless scroll -->
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
-                      <div class="platform-item">Custom</div>
-                      <div class="platform-item">Bandzoogle</div>
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                      </div>
                     </div>
-                    <div class="platforms-scroll-row">
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
-                      <div class="platform-item">Custom</div>
-                      <div class="platform-item">Bandzoogle</div>
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
-                      <!-- Duplicated for seamless scroll -->
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
-                      <div class="platform-item">Custom</div>
-                      <div class="platform-item">Bandzoogle</div>
-                      <div class="platform-item">WordPress</div>
-                      <div class="platform-item">Shopify</div>
-                      <div class="platform-item">Squarespace</div>
-                      <div class="platform-item">Wix</div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                      </div>
                     </div>
                   </div>
                 </div>
