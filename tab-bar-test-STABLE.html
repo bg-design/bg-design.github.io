@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 
-
   <style>
     html, body {
       height: 100%;
@@ -423,7 +422,6 @@
       max-width: 600px;
       margin: 20px auto;
       line-height: 1.6;
-      padding: 20px;
       border-radius: 12px;
       background: white;
       backdrop-filter: blur(10px);
@@ -2360,149 +2358,6 @@
       50% { background-position: 100% 50%; }
     }
 
-    /* Slide 5: Selling Points */
-    .slide-5 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-    }
-
-    .selling-points-section {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .selling-points-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #00AEEF;
-      margin-bottom: 30px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .selling-points-title.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin: 40px 0;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .stat-item {
-      background: white;
-      border-radius: 16px;
-      padding: 25px 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-      border: 3px solid transparent;
-    }
-
-    .stat-item.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Dark mode styling for stat items */
-    [data-theme="dark"] .stat-item {
-      background: #23272b;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    [data-theme="dark"] .stat-label {
-      color: #bbb;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #00AEEF;
-      margin-bottom: 8px;
-    }
-
-    /* Color-coded stat items */
-    .stat-item:nth-child(1) {
-      border-color: #00AEEF;
-    }
-    .stat-item:nth-child(1) .stat-number {
-      color: #00AEEF;
-    }
-
-    .stat-item:nth-child(2) {
-      border-color: #EC008C;
-    }
-    .stat-item:nth-child(2) .stat-number {
-      color: #EC008C;
-    }
-
-    .stat-item:nth-child(3) {
-      border-color: #39B54A;
-    }
-    .stat-item:nth-child(3) .stat-number {
-      color: #39B54A;
-    }
-
-    .stat-item:nth-child(4) {
-      border-color: #FFCB05;
-    }
-    .stat-item:nth-child(4) .stat-number {
-      color: #FFCB05;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      color: #666;
-      font-weight: 500;
-    }
-
-    .selling-points {
-      margin-top: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-
-    .selling-points.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .selling-point {
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      border-left: 4px solid #00AEEF;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      text-align: left;
-    }
-
-    .selling-point h3 {
-      color: #00AEEF;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .selling-point p {
-      color: #666;
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 0;
-    }
-
     /* Slide 6: Urgency */
     .slide-6 {
       display: flex;
@@ -3271,6 +3126,8 @@
       display: block;
       margin-right: 0;
       color: #39B54A;
+      opacity: 0;
+      transition: opacity 0.7s;
     }
     .selling-checklist li::before {
       content: '\2714';
@@ -3287,6 +3144,15 @@
     [data-theme="dark"] .selling-checklist,
     [data-theme="dark"] .selling-checklist li {
       color: #39B54A;
+    }
+    .selling-checklist li.fade-in-check { opacity: 1 !important; }
+    @media (max-width: 600px) {
+      .selling-points-static { padding: 18px 8px 16px 8px; }
+      .stats-grid { gap: 15px; margin: 20px auto; }
+      .stat-item { padding: 15px 8px; }
+      .stat-number { font-size: 1.3rem; }
+      .selling-points-title { font-size: 1.2rem; margin-bottom: 18px; }
+      .selling-checklist { font-size: 0.9rem; }
     }
 
     /* Balloon instruction text color fix */
@@ -3348,6 +3214,463 @@
         text-align: center;
       }
     }
+
+    /* --- Testimonial Avatars Redesign --- */
+    .testimonial-avatars {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin: 32px 0 24px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13), 0 1.5px 6px rgba(0,0,0,0.10);
+      border: 3px solid #fff;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      outline: none;
+      position: relative;
+    }
+    .testimonial-avatar:hover,
+    .testimonial-avatar:focus {
+      transform: scale(1.08) translateY(-6px);
+      box-shadow: 0 8px 32px rgba(0,174,239,0.18), 0 2px 8px rgba(0,0,0,0.12);
+      border-color: #00AEEF;
+      z-index: 2;
+    }
+    .testimonial-avatar.selected {
+      border-color: #39B54A;
+      box-shadow: 0 8px 32px rgba(57,181,74,0.18), 0 2px 8px rgba(0,0,0,0.12);
+      transform: scale(1.12) translateY(-10px);
+      z-index: 3;
+    }
+    .testimonial-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 36px 28px 28px 28px;
+      text-align: center;
+      position: relative;
+      min-height: 160px;
+      font-family: 'Lora', serif;
+      transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+      opacity: 1;
+    }
+    .testimonial-content.fading {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .testimonial-quote {
+      font-size: 1.18rem;
+      color: #222;
+      margin-bottom: 22px;
+      line-height: 1.6;
+      position: relative;
+    }
+    .testimonial-quote:before {
+      content: "\201C";
+      font-size: 3.2rem;
+      color: #00AEEF;
+      opacity: 0.18;
+      position: absolute;
+      left: -18px;
+      top: -18px;
+      font-family: serif;
+    }
+    .testimonial-author {
+      font-size: 1.05rem;
+      color: #666;
+      font-weight: 500;
+    }
+    .testimonial-author strong {
+      color: #39B54A;
+      font-size: 1.13rem;
+      font-weight: 700;
+    }
+    .testimonial-author span {
+      display: block;
+      font-size: 0.98rem;
+      color: #888;
+      margin-top: 2px;
+    }
+    /* Responsive for mobile */
+    @media (max-width: 600px) {
+      .testimonial-avatars {
+        gap: 14px;
+        margin: 18px 0 14px 0;
+      }
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+      }
+      .testimonial-content {
+        padding: 18px 8px 16px 8px;
+        min-height: 120px;
+      }
+      .testimonial-quote {
+        font-size: 1rem;
+      }
+      .testimonial-author {
+        font-size: 0.95rem;
+      }
+    }
+    /* Dark mode for testimonials */
+    [data-theme="dark"] .testimonial-content {
+      background: #23272b;
+      color: #eee;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.24);
+    }
+    [data-theme="dark"] .testimonial-quote {
+      color: #eee;
+    }
+    [data-theme="dark"] .testimonial-author {
+      color: #bbb;
+    }
+    [data-theme="dark"] .testimonial-author strong {
+      color: #39B54A;
+    }
+    [data-theme="dark"] .testimonial-author span {
+      color: #aaa;
+    }
+    [data-theme="dark"] .testimonial-avatar {
+      background: #23272b;
+      border-color: #23272b;
+    }
+    [data-theme="dark"] .testimonial-avatar.selected {
+      border-color: #39B54A;
+    }
+    [data-theme="dark"] .testimonial-avatar:hover,
+    [data-theme="dark"] .testimonial-avatar:focus {
+      border-color: #00AEEF;
+    }
+
+    /* --- Testimonial Section Essentials --- */
+    #clients-talking {
+      padding: 30px 0 25px 0;
+      color: #40c9f1;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .dottedBox.recommendations {
+      background: #f8f9fa;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 32px 16px 32px 16px;
+      margin: 0 auto 32px auto;
+      max-width: 800px;
+      border: 2px dotted #40c9f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    [data-theme="dark"] .dottedBox.recommendations {
+      background: #23272b;
+      border-color: #00AEEF;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    /* Restore platform/client heading colors at the end to override inherit */
+    .platforms-title {
+      color: #FFCB05 !important;
+    }
+    .clients-title {
+      color: #39B54A !important;
+    }
+
+    /* Selling Points/Checklist Static Block Styles */
+    .selling-points-static {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 36px 28px 28px 28px;
+      text-align: center;
+      max-width: 800px;
+      margin: 32px auto 0 auto;
+    }
+    [data-theme="dark"] .selling-points-static {
+      background: #23272b;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.24);
+    }
+    .selling-points-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00AEEF;
+      margin-bottom: 30px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 600px;
+    }
+    .stat-item {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 3px solid transparent;
+      transition: box-shadow 0.3s;
+    }
+    [data-theme="dark"] .stat-item {
+      background: #23272b;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    .stat-item:nth-child(1) { border-color: #00AEEF; }
+    .stat-item:nth-child(1) .stat-number { color: #00AEEF; }
+    .stat-item:nth-child(2) { border-color: #EC008C; }
+    .stat-item:nth-child(2) .stat-number { color: #EC008C; }
+    .stat-item:nth-child(3) { border-color: #39B54A; }
+    .stat-item:nth-child(3) .stat-number { color: #39B54A; }
+    .stat-item:nth-child(4) { border-color: #FFCB05; }
+    .stat-item:nth-child(4) .stat-number { color: #FFCB05; }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+      font-weight: 500;
+    }
+    [data-theme="dark"] .stat-label { color: #bbb; }
+    .selling-checklist {
+      margin: 30px auto 0 auto;
+      padding: 0;
+      max-width: 600px;
+      text-align: center;
+      color: #39B54A;
+      font-size: 1rem;
+      line-height: 1.5;
+      list-style: none;
+    }
+    .selling-checklist li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 0;
+      display: block;
+      margin-right: 0;
+      color: #39B54A;
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+    .selling-checklist li::before {
+      content: '\2714';
+      color: #39B54A;
+      margin-right: 6px;
+      font-size: 1em;
+      vertical-align: middle;
+      position: static;
+    }
+    [data-theme="light"] .selling-checklist,
+    [data-theme="light"] .selling-checklist li {
+      color: #39B54A;
+    }
+    [data-theme="dark"] .selling-checklist,
+    [data-theme="dark"] .selling-checklist li {
+      color: #39B54A;
+    }
+    .selling-checklist li.fade-in-check { opacity: 1 !important; }
+    @media (max-width: 600px) {
+      .selling-points-static { padding: 18px 8px 16px 8px; }
+      .stats-grid { gap: 15px; margin: 20px auto; }
+      .stat-item { padding: 15px 8px; }
+      .stat-number { font-size: 1.3rem; }
+      .selling-points-title { font-size: 1.2rem; margin-bottom: 18px; }
+      .selling-checklist { font-size: 0.9rem; }
+    }
+
+    /* Not Ready to Book Yet Section */
+    .not-ready-section {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 36px 28px 28px 28px;
+      text-align: center;
+      max-width: 800px;
+      margin: 48px auto 32px auto;
+    }
+    [data-theme="dark"] .not-ready-section {
+      background: #23272b;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.24);
+    }
+    .not-ready-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 30px;
+    }
+    [data-theme="dark"] .not-ready-title { color: #fff; }
+    .not-ready-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+    .not-ready-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f7f7f7;
+      border-radius: 16px;
+      padding: 28px 18px 22px 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      border: 3px solid transparent;
+      text-decoration: none;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+      min-height: 170px;
+    }
+    .not-ready-box:hover {
+      box-shadow: 0 8px 32px rgba(0,174,239,0.13);
+      transform: translateY(-4px) scale(1.03);
+      border-color: #00AEEF;
+    }
+    .not-ready-box.process { border-color: #00AEEF; }
+    .not-ready-box.about { border-color: #EC008C; }
+    .not-ready-box.portfolio { border-color: #39B54A; }
+    .not-ready-box.pricing { border-color: #FFCB05; }
+    .not-ready-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .not-ready-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .not-ready-desc {
+      font-size: 0.98rem;
+      color: #666;
+    }
+    [data-theme="dark"] .not-ready-box {
+      background: #23272b;
+      color: #fff;
+    }
+    [data-theme="dark"] .not-ready-desc {
+      color: #bbb;
+    }
+    @media (max-width: 600px) {
+      .not-ready-grid { grid-template-columns: 1fr; gap: 18px; }
+      .not-ready-section { padding: 18px 8px 16px 8px; }
+      .not-ready-title { font-size: 1.2rem; margin-bottom: 18px; }
+      .not-ready-box { padding: 18px 8px 14px 8px; min-height: 120px; }
+      .not-ready-icon { font-size: 1.5rem; }
+    }
+    
+    /* Trust & Credibility Section */
+    .trust-section {
+      padding: 24px;
+      text-align: center;
+      background: #f8f9fa;
+      border: 2px dashed #39B54A;
+      border-radius: 12px;
+      margin: 50px 0;
+    }
+    
+    .trust-title {
+      color: #39B54A;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+      .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .trust-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+    
+    .trust-logo {
+      height: 80px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      filter: grayscale(20%);
+      transition: all 0.3s ease;
+    }
+    
+    .trust-logo:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+    
+    .trust-text {
+      font-size: 0.9em;
+      color: #666;
+      font-weight: 500;
+      margin: 0;
+    }
+    
+    /* Dark mode styles for trust section */
+    [data-theme="dark"] .trust-section {
+      background: #2a2b32;
+      border-color: #39B54A;
+    }
+    
+    [data-theme="dark"] .trust-title {
+      color: #39B54A;
+    }
+    
+    [data-theme="dark"] .trust-text {
+      color: #ccc;
+    }
+    
+    [data-theme="dark"] .trust-logo {
+      filter: brightness(0.9) grayscale(20%);
+    }
+    
+    [data-theme="dark"] .trust-logo:hover {
+      filter: brightness(1) grayscale(0%);
+    }
+    
+    /* Mobile responsive for trust section */
+    @media (max-width: 768px) {
+      .trust-logos {
+        gap: 20px;
+      }
+    
+      
+      .trust-title {
+        font-size: 1.3em;
+      }
+      
+      .trust-text {
+        font-size: 0.8em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3362,8 +3685,8 @@
 
 
   <div class="content" id="mainContent">
+    <!-- Content will be dynamically loaded here -->
   </div>
-
   <div class="booking-page" id="bookingPage">
   <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
 
@@ -3800,168 +4123,225 @@
     function loadDefaultContent() {
       const mainContent = document.getElementById('mainContent');
       mainContent.innerHTML = `
-        <div class="homepage-hero">
-          <div class="hero-content">
-            <!-- Slide 1: First Impression -->
-            <div class="slide slide-1 active" id="slide1">
-              <div class="typewriter-container">
-                <h1 class="typewriter-text" id="firstImpression">
-                  <span class="typing-cursor">|</span>
-                </h1>
-              </div>
-              <div class="subtitle-container">
-                <p class="subtitle-text" id="makeItCount">
-                  <span class="typing-cursor">|</span>
-                </p>
-              </div>
-            </div>
-            
-                        <!-- Slide 2: About Us -->
-            <div class="slide slide-2" id="slide2">
-              <div class="about-us-section">
-                <h2 class="about-us-title" id="aboutUsTitle">Meet Design Daddy & Media Mommy</h2>
-                <h3 class="about-us-subtitle" id="aboutUsSubtitle">Your Brand's Digital Parents</h3>
-                <div class="services-list" id="servicesList">
-                  <div class="service-item service-web">
-                    <h3>Web Design</h3>
-                    <p style="display:none">Custom, responsive websites that convert visitors into customers</p>
-                  </div>
-                  <div class="service-item service-social">
-                    <h3>Social Media</h3>
-                    <p style="display:none">Engaging content and strategic campaigns that build your community</p>
-                  </div>
-                  <div class="service-item service-print">
-                    <h3>Print Marketing</h3>
-                    <p style="display:none">Professional print materials that make lasting impressions</p>
-                  </div>
-                  <div class="service-item service-brand">
-                    <h3>Brand & Identity</h3>
-                    <p style="display:none">Complete brand packages including logos, colors, and messaging</p>
-                  </div>
+        <div id="AnimationPitch">
+          <div class="homepage-hero">
+            <div class="hero-content">
+              <!-- Slide 1: First Impression -->
+              <div class="slide slide-1 active" id="slide1">
+                <div class="typewriter-container">
+                  <h1 class="typewriter-text" id="firstImpression">
+                    <span class="typing-cursor">|</span>
+                  </h1>
+                </div>
+                <div class="subtitle-container">
+                  <p class="subtitle-text" id="makeItCount">
+                    <span class="typing-cursor">|</span>
+                  </p>
                 </div>
               </div>
-            </div>
-            
-            <!-- Slide 3: Services -->
-            <div class="slide slide-3" id="slide3">
-              <div class="service-line" id="service1">
-                <span class="service-text">We make your brand <span class="highlight-word" id="lookLegit">look legit</span>,</span>
-              </div>
-              <div class="service-line" id="service2">
-                <span class="service-text">your website <span class="highlight-word" id="feelAlive">feel alive</span>,</span>
-              </div>
-              <div class="service-line" id="service3">
-                <span class="service-text">and your digital presence</span>
-              </div>
-              <div class="impact-line" id="impact">
-                <span class="impact-text">IMPOSSIBLE TO IGNORE</span>
-              </div>
-            </div>
-            
-            <!-- Slide 4: Platforms -->
-            <div class="slide slide-4" id="slide4">
-              <div class="clients-section">
-                <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
-                <div class="clients-grid">
-                  <div class="clients-scroll">
-                    <div class="platform-item">Hidden Lake Resort</div>
-                    <div class="platform-item">Rancho Bombero</div>
-                    <div class="platform-item">Blackfern Media</div>
-                    <div class="platform-item">Trendgraphix</div>
-                    <div class="platform-item">Origin Materials</div>
-                    <div class="platform-item">Siempo</div>
-                    <div class="platform-item">Hidden Lake Resort</div>
-                    <div class="platform-item">Rancho Bombero</div>
-                    <div class="platform-item">Blackfern Media</div>
-                    <div class="platform-item">Trendgraphix</div>
-                    <div class="platform-item">Origin Materials</div>
-                    <div class="platform-item">Siempo</div>
+              
+              <!-- Slide 2: About Us -->
+              <div class="slide slide-2" id="slide2">
+                <div class="about-us-section">
+                  <h2 class="about-us-title" id="aboutUsTitle">Meet Design Daddy & Media Mommy</h2>
+                  <h3 class="about-us-subtitle" id="aboutUsSubtitle">Your Brand's Digital Parents</h3>
+                  <div class="services-list" id="servicesList">
+                    <div class="service-item service-web">
+                      <h3>Web Design</h3>
+                      <p style="display:none">Custom, responsive websites that convert visitors into customers</p>
+                    </div>
+                    <div class="service-item service-social">
+                      <h3>Social Media</h3>
+                      <p style="display:none">Engaging content and strategic campaigns that build your community</p>
+                    </div>
+                    <div class="service-item service-print">
+                      <h3>Print Marketing</h3>
+                      <p style="display:none">Professional print materials that make lasting impressions</p>
+                    </div>
+                    <div class="service-item service-brand">
+                      <h3>Brand & Identity</h3>
+                      <p style="display:none">Complete brand packages including logos, colors, and messaging</p>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              <div class="platforms-section">
-                <h2 class="platforms-title" id="platformsTitle">We work across all major platforms</h2>
-                <div class="platforms-grid">
-                  <div class="platforms-scroll">
-                    <div class="platform-item">WordPress</div>
-                    <div class="platform-item">Shopify</div>
-                    <div class="platform-item">Squarespace</div>
-                    <div class="platform-item">Wix</div>
-                    <div class="platform-item">Custom</div>
-                    <div class="platform-item">Bandzoogle</div>
-                    <div class="platform-item">WordPress</div>
-                    <div class="platform-item">Shopify</div>
-                    <div class="platform-item">Squarespace</div>
-                    <div class="platform-item">Wix</div>
-                    <div class="platform-item">Custom</div>
-                    <div class="platform-item">Bandzoogle</div>
-                  </div>
+              <!-- Slide 3: Services -->
+              <div class="slide slide-3" id="slide3">
+                <div class="service-line" id="service1">
+                  <span class="service-text">We make your brand <span class="highlight-word" id="lookLegit">look legit</span>,</span>
+                </div>
+                <div class="service-line" id="service2">
+                  <span class="service-text">your website <span class="highlight-word" id="feelAlive">feel alive</span>,</span>
+                </div>
+                <div class="service-line" id="service3">
+                  <span class="service-text">and your digital presence</span>
+                </div>
+                <div class="impact-line" id="impact">
+                  <span class="impact-text">IMPOSSIBLE TO IGNORE</span>
                 </div>
               </div>
-            </div>
-            
-            <!-- Slide 5: Selling Points -->
-            <div class="slide slide-5" id="slide5">
-              <div class="selling-points-section">
-                <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Media Mommy?</h2>
-                
-                <div class="stats-grid" id="statsGrid">
-                  <div class="stat-item">
-                    <div class="stat-number">94%</div>
-                    <div class="stat-label">Faster Page Load</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">3.2x</div>
-                    <div class="stat-label">More Engagement</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">67%</div>
-                    <div class="stat-label">Higher Conversion</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Projects Completed</div>
+              
+              <!-- Slide 4: Platforms -->
+              <div class="slide slide-4" id="slide4">
+                <div class="clients-section">
+                  <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
+                  <div class="clients-grid">
+                    <div class="clients-scroll">
+                      <div class="platform-item">Hidden Lake Resort</div>
+                      <div class="platform-item">Rancho Bombero</div>
+                      <div class="platform-item">Blackfern Media</div>
+                      <div class="platform-item">Trendgraphix</div>
+                      <div class="platform-item">Origin Materials</div>
+                      <div class="platform-item">Siempo</div>
+                      <div class="platform-item">Hidden Lake Resort</div>
+                      <div class="platform-item">Rancho Bombero</div>
+                      <div class="platform-item">Blackfern Media</div>
+                      <div class="platform-item">Trendgraphix</div>
+                      <div class="platform-item">Origin Materials</div>
+                      <div class="platform-item">Siempo</div>
+                    </div>
                   </div>
                 </div>
                 
-                <ul class="selling-checklist hidden-checklist">
-                  <li>Award-winning design & branding</li>
-                  <li>Proven results for real businesses</li>
-                  <li>Fast, responsive communication</li>
-                  <li>Honest, transparent pricing</li>
-                  <li>One-stop shop: web, print, social, brand</li>
-                </ul>
-              </div>
-            </div>
-            
-            <!-- Slide 6: Urgency -->
-            <div class="slide slide-6" id="slide6">
-              <div class="urgency-section">
-                <h2 class="urgency-title" id="urgencyTitle">Since you started reading this...</h2>
-                <div class="urgency-stats">
-                  <div class="urgency-stat">
-                    <div class="urgency-number" id="websiteCount">0</div>
-                    <div class="urgency-label">websites were updated</div>
-                  </div>
-                  <div class="urgency-stat">
-                    <div class="urgency-number" id="socialCount">0</div>
-                    <div class="urgency-label">social campaigns launched</div>
+                <div class="platforms-section">
+                  <h2 class="platforms-title" id="platformsTitle">We work across all major platforms</h2>
+                  <div class="platforms-grid">
+                    <div class="platforms-scroll">
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
+                      <div class="platform-item">Custom</div>
+                      <div class="platform-item">Bandzoogle</div>
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
+                      <div class="platform-item">Custom</div>
+                      <div class="platform-item">Bandzoogle</div>
+                    </div>
                   </div>
                 </div>
-                <p class="urgency-message">Your competitors aren't waiting. Don't let them get further ahead.</p>
+              </div>
+              
+              <!-- Slide 6: Urgency -->
+              <div class="slide slide-6" id="slide6">
+                <div class="urgency-section">
+                  <h2 class="urgency-title" id="urgencyTitle">Since you started reading this...</h2>
+                  <div class="urgency-stats">
+                    <div class="urgency-stat">
+                      <div class="urgency-number" id="websiteCount">0</div>
+                      <div class="urgency-label">websites were updated</div>
+                    </div>
+                    <div class="urgency-stat">
+                      <div class="urgency-number" id="socialCount">0</div>
+                      <div class="urgency-label">social campaigns launched</div>
+                    </div>
+                  </div>
+                  <p class="urgency-message">Your competitors aren't waiting. Don't let them get further ahead.</p>
+                </div>
+              </div>
+              
+              <!-- Slide 7: Balloon Instruction -->
+              <div class="slide slide-7" id="slide7">
+                <div class="balloon-instruction">
+                  <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
+                  <h2>Ready to get started?</h2>
+                  <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
+                  <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
+                </div>
               </div>
             </div>
-            
-            <!-- Slide 7: Balloon Instruction -->
-            <div class="slide slide-7" id="slide7">
-              <div class="balloon-instruction">
-                <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
-                <h2>Ready to get started?</h2>
-                <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
-                <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
+          </div>
+        </div>
+        
+        <!-- Testimonials Block: Floating Avatars -->
+        <div class="dottedBox recommendations" id="testimonialsBlock" style="margin-top: 0;">
+          <h1 id="clients-talking">Testimonials</h1>
+          <div class="testimonial-avatars" id="testimonialAvatars">
+            <!-- Avatars will be injected here by JS -->
+          </div>
+          <div class="testimonial-content" id="testimonialContent">
+            <!-- Selected testimonial will appear here -->
+          </div>
+        </div>
+        
+        <!-- Trust & Credibility Section -->
+        <div class="dottedBox trust-section" id="trustSection">
+          <h2 class="trust-title">Trust & Credibility</h2>
+          <div class="trust-logos">
+            <div class="trust-item">
+              <a href="https://www.kauffman.org/entrepreneurship/incubators" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/Koffman-color-white-H@1000x-8-1.png" alt="Kauffman Incubator" class="trust-logo kauffman-logo">
+                <p class="trust-text">Proud member of the Kauffman Incubator<br><span style="font-size: 0.8em; color: #888;">Binghamton, NY</span></p>
+              </a>
+            </div>
+            <div class="trust-item">
+              <a href="https://www.greaterbinghamtonchamber.com" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/Chamber_Featured-1.jpg" alt="Chamber of Commerce" class="trust-logo chamber-logo">
+                <p class="trust-text">Chamber of Commerce Member<br><span style="font-size: 0.8em; color: #888;">Binghamton, NY</span></p>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Selling Points/Checklist Block (static, below testimonials) -->
+        <div class="dottedBox selling-points-static" id="sellingPointsStatic" style="margin-top: 0;">
+          <div class="selling-points-section">
+            <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Media Mommy?</h2>
+            <div class="stats-grid" id="statsGrid">
+              <div class="stat-item">
+                <div class="stat-number">94%</div>
+                <div class="stat-label">Faster Page Load</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3.2x</div>
+                <div class="stat-label">More Engagement</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">67%</div>
+                <div class="stat-label">Higher Conversion</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Projects Completed</div>
               </div>
             </div>
+            <ul class="selling-checklist">
+              <li>Award-winning design & branding</li>
+              <li>Proven results for real businesses</li>
+              <li>Fast, responsive communication</li>
+              <li>Honest, transparent pricing</li>
+              <li>One-stop shop: web, print, social, brand</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Not Ready to Book Yet Section -->
+        <div class="dottedBox not-ready-section" id="notReadySection">
+          <h2 class="not-ready-title">Not Ready to Book Yet?</h2>
+          <div class="not-ready-grid">
+            <a class="not-ready-box process" href="#process">
+              <div class="not-ready-icon" style="color:#00AEEF;">🔎</div>
+              <div class="not-ready-heading">See Our Process</div>
+              <div class="not-ready-desc">Learn how we work, step by step, to deliver results.</div>
+            </a>
+            <a class="not-ready-box about" href="#about">
+              <div class="not-ready-icon" style="color:#EC008C;">👋</div>
+              <div class="not-ready-heading">Meet the Team</div>
+              <div class="not-ready-desc">Get to know Design Daddy & Media Mommy.</div>
+            </a>
+            <a class="not-ready-box portfolio" href="#portfolio">
+              <div class="not-ready-icon" style="color:#39B54A;">🖼️</div>
+              <div class="not-ready-heading">View Our Work</div>
+              <div class="not-ready-desc">See real projects and results for our clients.</div>
+            </a>
+            <a class="not-ready-box pricing" href="#pricing">
+              <div class="not-ready-icon" style="color:#FFCB05;">💸</div>
+              <div class="not-ready-heading">Explore Pricing</div>
+              <div class="not-ready-desc">Find a package or service that fits your needs.</div>
+            </a>
           </div>
         </div>
       `;
@@ -3969,6 +4349,24 @@
       // Reset tab colors and icons to default grey state
       setColor('#222');
       document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+      
+      // Initialize testimonials with longer delay to ensure functions are available
+      setTimeout(() => {
+        initializeHomepageTestimonials();
+      }, 1000);
+      
+      // Animate checklist checkmarks for static block
+      setTimeout(() => {
+        const checklist = document.querySelector('.selling-points-static .selling-checklist');
+        if (checklist) {
+          const items = checklist.querySelectorAll('li');
+          items.forEach((li, idx) => {
+            setTimeout(() => {
+              li.classList.add('fade-in-check');
+            }, idx * 400);
+          });
+        }
+      }, 200);
       
       // Start animations after a brief delay
       setTimeout(() => {
@@ -4048,10 +4446,6 @@
         } else if (slideNumber === 4) {
           setTimeout(() => {
             animatePlatforms();
-          }, 500);
-        } else if (slideNumber === 5) {
-          setTimeout(() => {
-            animateSellingPoints();
           }, 500);
         } else if (slideNumber === 6) {
           setTimeout(() => {
@@ -4193,15 +4587,15 @@
           items.forEach((li, idx) => {
             setTimeout(() => {
               li.classList.add('fade-in-check');
-            }, idx * 300); // was 400, now 300ms between each checkmark for faster animation
+            }, idx * 400); // 400ms between each checkmark for natural timing
           });
         }
-      }, 2100); // was 1800, now 1800+300=2100ms
+      }, 2100);
       
       // Move to slide 6 after selling points complete
       setTimeout(() => {
         transitionToSlide(6);
-      }, 5600); // was 5300, now 5300+300=5600ms to account for the 300ms delay added to checklist
+      }, 4100 + (5 * 400)); // 5 checkmarks × 400ms + 4100ms buffer
     }
     
     function animateUrgency() {
@@ -4290,11 +4684,11 @@
         }, 1800 + (index * 100));
       });
       
-      // Move to slide 5 after platforms complete
+      // Move to slide 6 (urgency) after platforms complete
       setTimeout(() => {
-        transitionToSlide(5);
+        transitionToSlide(6);
       }, 9000);
-        }
+    }
     
     function animateBalloonInstruction() {
       // Animate balloon instruction
@@ -5126,7 +5520,149 @@
     }
   });
 
+  // Testimonial data
+  const testimonials = [
+    {
+      name: "Kristian Parker",
+      role: "Principal Product Operations at Juul Labs, April 2022",
+      img: "IMG/kristianparker.jpeg",
+      text: "I've used Theo on multiple projects where I've needed a top notch UX designer and or branding and marketing research to keep us ahead of the competition. Without fail, he's delivered every time, and most importantly, on time! My team has always enjoyed working with Theo because he challenges the group to think differently and inevitably, we uncover those hidden gems. Would recommend Theo for work on any project, no matter the complexity!"
+    },
+    {
+      name: "Yohance Bailey",
+      role: "Photographer at Yohance Bailey Photography, March 2022",
+      img: "IMG/yohancebailey.jpeg",
+      text: "What a talented and professional website designer. He took my amateur website I had created and turned it into his own piece of art while also improving my SEO. I have seen photography bookings increase by 400% since his work has been completed!"
+    },
+    {
+      name: "Wedyawati Wuri",
+      role: "VP, Product Development & Operations at TrendGraphix, August 2021",
+      img: "IMG/wuri.png",
+      text: "It has been wonderful working with Theo to redesign our company website. Theo is a fast learner. He is willing to take time to learn new things and implement them. He is a fighter! Theo is also very helpful in recommending images and cookie policy to us. He worked hard to make sure that our website is responsive design and compatible with all different devices. Theo has delivered the website per our expectation. We are so happy with the fresh and clean look of the website."
+    },
+    {
+      name: "Robin Applewood",
+      role: "DJ & Music Producer, December 2020",
+      img: "IMG/robinapplewood.jpg",
+      text: "Theo was a dream to work with. He really saw my vision and executed it with the ease and skill of a true professional. Im very pleased with the website we built and have already started recommending him to my peers. Go with Theo, youll be glad you did."
+    },
+    {
+      name: "Evan Winchester",
+      role: "Director of Marketing at Origin Materials, July 2020",
+      img: "IMG/evanwinchester.jpeg",
+      text: "I had the pleasure of working with Theo on a Craft CMS website development and front end design project. Theo learned Craft for the assignment and was a generous teacher, as well, bringing me into the process of discovering how Craft works, exploring different solutions and possibilities, and just generally helping me get better at my job managing the site. At the end of the day, he nailed the project and we had fun working together. I'm looking forward to next time."
+    },
+    {
+      name: "Elena Pinsky",
+      role: "Counseling, Group Facilitation & Conflict Transformation, May 2020",
+      img: "IMG/elenapinsky.jpeg",
+      text: "Theo is a true designer, through and through. Starting from scratch, I worked with him on building a website for my personal facilitation business. The result is simply gorgeous - it is both professional and also reflects my artistic spirit. He also helped me to think through how I wanted to represent my brand - he really is the whole package! Theo is so dedicated, excited about figuring out how to give a website fun and interesting extras, always maintaining the vision of a keen and clean aesthetic."
+    },
+    {
+      name: "Andrew Murray Dunn",
+      role: "Founder at Siempo, November 2019",
+      img: "IMG/andrewdunn.jpeg",
+      text: "Theo was professional and delivered on-time for work with Siempo. I'd recommend him for any project related to web design, UX, or Wordpress. He implemented a style guide to give our web site a clean and consistent look. He also mocked-up a beautiful concept app that we were developing. Theo has an eye for detail that was helpful to get things nice and polished. A pleasure to work with!"
+    },
+    {
+      name: "Ana Sol Ordoñez",
+      role: "CEO & Founder at Zink, January 2019",
+      img: "IMG/ana-test.jpg",
+      text: "Theo has both conceptual creativity for new ideas and the skills to craft fine details. He definitely went above and beyond what was asked of him and clearly takes great pride in his craftsmanship and work. I was happily surprised with the level of polish on the finished prototype and found him easy to work with... I'll keep him in mind for future projects."
+    },
+    {
+      name: "Shamrina Oshana",
+      role: "Brand Manager at Slingshot Foods, August 2017",
+      img: "IMG/shamrina-test.jpg",
+      text: "Theo is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work."
+    },
+    {
+      name: "Caitlin Thompson",
+      role: "CEO & Owner at EntheoZen, August 2016",
+      img: "IMG/caitlyn-test2.jpg",
+      text: "Theo does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Theo for your webpage projects!"
+    }
+  ];
 
+  // Render avatars
+  function renderAvatars(selectedIdx = 0) {
+    const avatarsContainer = document.getElementById('testimonialAvatars');
+    const contentContainer = document.getElementById('testimonialContent');
+    
+    if (!avatarsContainer || !contentContainer) {
+      console.log('Testimonial containers not found, retrying...');
+      setTimeout(() => renderAvatars(selectedIdx), 100);
+      return;
+    }
+    
+    avatarsContainer.innerHTML = testimonials.map((t, idx) => `
+      <img src="${t.img}" alt="${t.name}" class="testimonial-avatar${idx === selectedIdx ? ' selected' : ''}" data-idx="${idx}" tabindex="0" aria-label="${t.name}" />
+    `).join('');
+    fadeToTestimonial(selectedIdx);
+  }
+
+  function fadeToTestimonial(idx) {
+    const contentContainer = document.getElementById('testimonialContent');
+    if (!contentContainer) return;
+    contentContainer.classList.add('fading');
+    setTimeout(() => {
+      renderTestimonial(idx);
+      contentContainer.classList.remove('fading');
+    }, 350);
+  }
+
+  function renderTestimonial(idx) {
+    const contentContainer = document.getElementById('testimonialContent');
+    const t = testimonials[idx];
+    contentContainer.innerHTML = `
+      <div class="testimonial-quote">${t.text}</div>
+      <div class="testimonial-author"><strong>${t.name}</strong><br><span>${t.role}</span></div>
+    `;
+  }
+
+  // Add event listeners for testimonials
+  function addTestimonialEventListeners() {
+    const avatarsContainer = document.getElementById('testimonialAvatars');
+    if (!avatarsContainer) return;
+    
+    avatarsContainer.addEventListener('click', function(e) {
+      if (e.target.classList.contains('testimonial-avatar')) {
+        const idx = parseInt(e.target.getAttribute('data-idx'));
+        renderAvatars(idx);
+      }
+    });
+    
+    avatarsContainer.addEventListener('keydown', function(e) {
+      if (e.target.classList.contains('testimonial-avatar') && (e.key === 'Enter' || e.key === ' ')) {
+        const idx = parseInt(e.target.getAttribute('data-idx'));
+        renderAvatars(idx);
+      }
+    });
+  }
+
+  // Initial render
+  renderAvatars(0);
+
+  // Animate checklist checkmarks on page load for static block
+  window.addEventListener('DOMContentLoaded', () => {
+    const checklist = document.querySelector('.selling-points-static .selling-checklist');
+    if (checklist) {
+      const items = checklist.querySelectorAll('li');
+      items.forEach((li, idx) => {
+        setTimeout(() => {
+          li.classList.add('fade-in-check');
+        }, idx * 400);
+      });
+    }
+  });
+
+  // Initialize testimonials when homepage loads
+  function initializeHomepageTestimonials() {
+    if (typeof renderAvatars === 'function') {
+      renderAvatars(0);
+      addTestimonialEventListeners();
+    }
+  }
   </script>
     
     </body>
