@@ -548,7 +548,7 @@
       bottom: 0;
       left: 0;
       width: 100vw;
-      height: 80%;
+      height: min(80%, 100vh);
       background: #333;
       transform: translateY(100%);
       transition: transform 0.7s ease-in;
@@ -557,6 +557,32 @@
       box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
       overflow-y: auto;
       box-sizing: border-box;
+    }
+    @media (max-width: 700px) {
+      .booking-page {
+        height: 100vh;
+        padding: 10px 0 0 0;
+        min-height: 0;
+      }
+      .bookingContent {
+        position: static !important;
+        width: 95vw;
+        max-width: 500px;
+        margin: 100px auto 0 auto;
+        padding: 10px 6px 16px 6px;
+        border-radius: 16px;
+        bottom: auto;
+        left: auto;
+        transform: none;
+      }
+      .bookingContent h2 {
+        font-size: 1.3em;
+        margin-bottom: 16px;
+      }
+      .bookingContent p, .bookingContent .phone-number {
+        font-size: 1em;
+        padding: 10px 12px;
+      }
     }
     
     /* Floating background balloons */
@@ -1966,6 +1992,10 @@
       box-sizing: border-box;
       overflow: visible;
     }
+    .slide-2,
+    .slide-2 * {
+      color: #EC008C !important;
+    }
 
     .about-us-section {
       display: flex;
@@ -2006,6 +2036,99 @@
     .about-us-subtitle.animate-in {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Team Photos Section */
+    .team-photos-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.6s;
+      flex-wrap: wrap;
+    }
+
+    .team-photos-section.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-photo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .team-photo {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    .team-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-photo-caption {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .team-role {
+      font-size: 0.8rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Dark mode styling for team photos */
+    [data-theme="dark"] .team-photo {
+      border-color: #3d444e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .team-photo:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .team-photo-caption {
+      color: #fff;
+    }
+
+    [data-theme="dark"] .team-role {
+      color: #bbb;
+    }
+
+    /* Mobile responsive for team photos */
+    @media (max-width: 768px) {
+      .team-photos-section {
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .team-photo {
+        width: 160px;
+        height: auto;
+      }
+
+      .team-photo-caption {
+        font-size: 0.8rem;
+      }
+
+      .team-role {
+        font-size: 0.7rem;
+      }
     }
 
     .about-us-description {
@@ -3678,6 +3801,161 @@
         font-size: 0.8em;
       }
     }
+
+    /* Slide 3: Our Services */
+    .slide-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      padding-bottom: 40px;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+
+    .services-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .services-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #EC008C;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .services-title.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-photo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .team-photo-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #EC008C;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .team-photo-title.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-photo-large {
+      width: 320px;
+      max-width: 90vw;
+      height: auto;
+      border-radius: 16px;
+      object-fit: contain;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .team-photo-large:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    }
+
+    .team-photo-caption-large {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .team-role-large {
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .team-photo-large {
+      border-color: #3d444e;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.32);
+    }
+    [data-theme="dark"] .team-photo-caption-large {
+      color: #fff;
+    }
+    [data-theme="dark"] .team-role-large {
+      color: #bbb;
+    }
+    @media (max-width: 768px) {
+      .team-photo-large {
+        width: 90vw;
+        max-width: 95vw;
+      }
+      .team-photo-title {
+        font-size: 1.3rem;
+      }
+      .team-photo-caption-large {
+        font-size: 0.9rem;
+      }
+      .team-role-large {
+        font-size: 0.8rem;
+      }
+    }
+
+    .clients-grid-2rows, .platforms-grid-2rows {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      height: 60px;
+    }
+    .clients-scroll-row, .platforms-scroll-row {
+      display: inline-flex;
+      min-width: max-content;
+      white-space: nowrap;
+      gap: 32px;
+      animation: scroll-medium 24s linear infinite;
+    }
+    @keyframes scroll-medium {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .platform-item {
+      white-space: nowrap;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding: 6px 18px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 700px) {
+      .clients-scroll-row, .platforms-scroll-row {
+        gap: 18px;
+        font-size: 0.95em;
+      }
+      .clients-grid-2rows, .platforms-grid-2rows {
+        height: 44px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -4147,34 +4425,40 @@
                 </div>
               </div>
               
-              <!-- Slide 2: About Us -->
+              <!-- Slide 2: Team Photo -->
               <div class="slide slide-2" id="slide2">
-                <div class="about-us-section">
-                  <h2 class="about-us-title" id="aboutUsTitle">Meet Design Daddy & Media Mommy</h2>
-                  <h3 class="about-us-subtitle" id="aboutUsSubtitle">Your Brand's Digital Parents</h3>
+                <div class="team-photo-section">
+                  <h2 class="team-photo-title" id="teamPhotoTitle">Meet Your Team</h2>
+                  <div class="team-photo-container">
+                    <img src="IMG/married.jpg" alt="Design Daddy & Media Mommy Team" class="team-photo-large">
+                    <div class="team-photo-caption-large">Theo & Quinn<br><span class="team-role-large">Your Digital Parents</span></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 3: Our Services -->
+              <div class="slide slide-3" id="slide3">
+                <div class="services-section">
+                  <h2 class="services-title" id="servicesTitle">Our Services</h2>
                   <div class="services-list" id="servicesList">
                     <div class="service-item service-web">
                       <h3>Web Design</h3>
-                      <p style="display:none">Custom, responsive websites that convert visitors into customers</p>
                     </div>
                     <div class="service-item service-social">
                       <h3>Social Media</h3>
-                      <p style="display:none">Engaging content and strategic campaigns that build your community</p>
                     </div>
                     <div class="service-item service-print">
                       <h3>Print Marketing</h3>
-                      <p style="display:none">Professional print materials that make lasting impressions</p>
                     </div>
                     <div class="service-item service-brand">
                       <h3>Brand & Identity</h3>
-                      <p style="display:none">Complete brand packages including logos, colors, and messaging</p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <!-- Slide 3: Services -->
-              <div class="slide slide-3" id="slide3">
+              <!-- Slide 4: Services -->
+              <div class="slide slide-4" id="slide4">
                 <div class="service-line" id="service1">
                   <span class="service-text">We make your brand <span class="highlight-word" id="lookLegit">look legit</span>,</span>
                 </div>
@@ -4189,32 +4473,59 @@
                 </div>
               </div>
               
-              <!-- Slide 4: Platforms -->
-              <div class="slide slide-4" id="slide4">
+              <!-- Slide 5: Platforms -->
+              <div class="slide slide-5" id="slide5">
                 <div class="clients-section">
                   <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
-                  <div class="clients-grid">
-                    <div class="clients-scroll">
+                  <div class="clients-grid-2rows">
+                    <div class="clients-scroll-row">
                       <div class="platform-item">Hidden Lake Resort</div>
                       <div class="platform-item">Rancho Bombero</div>
                       <div class="platform-item">Blackfern Media</div>
                       <div class="platform-item">Trendgraphix</div>
                       <div class="platform-item">Origin Materials</div>
                       <div class="platform-item">Siempo</div>
+                      <div class="platform-item">Calm</div>
+                      <div class="platform-item">CostPlus World Market</div>
+                      <div class="platform-item">Syracuse Opera</div>
+                      <!-- Duplicated for seamless scroll -->
                       <div class="platform-item">Hidden Lake Resort</div>
                       <div class="platform-item">Rancho Bombero</div>
                       <div class="platform-item">Blackfern Media</div>
                       <div class="platform-item">Trendgraphix</div>
                       <div class="platform-item">Origin Materials</div>
                       <div class="platform-item">Siempo</div>
+                      <div class="platform-item">Calm</div>
+                      <div class="platform-item">CostPlus World Market</div>
+                      <div class="platform-item">Syracuse Opera</div>
+                    </div>
+                    <div class="clients-scroll-row">
+                      <div class="platform-item">TriCities Opera</div>
+                      <div class="platform-item">Blacktie Brothers</div>
+                      <div class="platform-item">Slaughterland</div>
+                      <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                      <div class="platform-item">Hidden Lake Resort</div>
+                      <div class="platform-item">Rancho Bombero</div>
+                      <div class="platform-item">Blackfern Media</div>
+                      <div class="platform-item">Trendgraphix</div>
+                      <div class="platform-item">Origin Materials</div>
+                      <!-- Duplicated for seamless scroll -->
+                      <div class="platform-item">TriCities Opera</div>
+                      <div class="platform-item">Blacktie Brothers</div>
+                      <div class="platform-item">Slaughterland</div>
+                      <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                      <div class="platform-item">Hidden Lake Resort</div>
+                      <div class="platform-item">Rancho Bombero</div>
+                      <div class="platform-item">Blackfern Media</div>
+                      <div class="platform-item">Trendgraphix</div>
+                      <div class="platform-item">Origin Materials</div>
                     </div>
                   </div>
                 </div>
-                
                 <div class="platforms-section">
                   <h2 class="platforms-title" id="platformsTitle">We work across all major platforms</h2>
-                  <div class="platforms-grid">
-                    <div class="platforms-scroll">
+                  <div class="platforms-grid-2rows">
+                    <div class="platforms-scroll-row">
                       <div class="platform-item">WordPress</div>
                       <div class="platform-item">Shopify</div>
                       <div class="platform-item">Squarespace</div>
@@ -4223,10 +4534,34 @@
                       <div class="platform-item">Bandzoogle</div>
                       <div class="platform-item">WordPress</div>
                       <div class="platform-item">Shopify</div>
+                      <!-- Duplicated for seamless scroll -->
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
                       <div class="platform-item">Squarespace</div>
                       <div class="platform-item">Wix</div>
                       <div class="platform-item">Custom</div>
                       <div class="platform-item">Bandzoogle</div>
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
+                    </div>
+                    <div class="platforms-scroll-row">
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
+                      <div class="platform-item">Custom</div>
+                      <div class="platform-item">Bandzoogle</div>
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
+                      <!-- Duplicated for seamless scroll -->
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
+                      <div class="platform-item">Custom</div>
+                      <div class="platform-item">Bandzoogle</div>
+                      <div class="platform-item">WordPress</div>
+                      <div class="platform-item">Shopify</div>
+                      <div class="platform-item">Squarespace</div>
+                      <div class="platform-item">Wix</div>
                     </div>
                   </div>
                 </div>
@@ -4428,42 +4763,18 @@
     }
     
     function transitionToSlide(slideNumber) {
-      // Hide current slide
-      const currentSlide = document.querySelector('.slide.active');
-      if (currentSlide) {
-        currentSlide.classList.remove('active');
-        currentSlide.classList.add('prev');
+      // Remove 'active' from all slides
+      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active', 'prev'));
+      // Set 'prev' on previous slide if needed
+      if (slideNumber > 1) {
+        const prevSlide = document.getElementById('slide' + (slideNumber - 1));
+        if (prevSlide) prevSlide.classList.add('prev');
       }
-      
-      // Show new slide
-      const newSlide = document.getElementById(`slide${slideNumber}`);
-      if (newSlide) {
-        newSlide.classList.add('active');
-        newSlide.classList.remove('prev');
-        
-        // Start slide-specific animations
-        if (slideNumber === 2) {
-          setTimeout(() => {
-            animateAboutUs();
-          }, 500);
-        } else if (slideNumber === 3) {
-          setTimeout(() => {
-            animateServices();
-          }, 500);
-        } else if (slideNumber === 4) {
-          setTimeout(() => {
-            animatePlatforms();
-          }, 500);
-        } else if (slideNumber === 6) {
-          setTimeout(() => {
-            animateUrgency();
-          }, 500);
-        } else if (slideNumber === 7) {
-          setTimeout(() => {
-            animateBalloonInstruction();
-          }, 500);
-        }
-      }
+      // Set 'active' on current slide
+      const currentSlide = document.getElementById('slide' + slideNumber);
+      if (currentSlide) currentSlide.classList.add('active');
+      // Run the animation for the current slide
+      runSlideAnimation(slideNumber);
     }
     
     function startColorCycle() {
@@ -4500,38 +4811,51 @@
       typeChar();
     }
     
-    function animateAboutUs() {
-      // Animate about us title
+        function animateTeamPhoto() {
+      // Animate team photo title
       setTimeout(() => {
-        const title = document.getElementById('aboutUsTitle');
-        title.classList.add('animate-in');
-      }, 300);
-      
-      // Animate subtitle
+        const teamPhotoTitle = document.getElementById('teamPhotoTitle');
+        if (teamPhotoTitle) teamPhotoTitle.classList.add('animate-in');
+      }, 400);
+
+      // Animate team photo image and caption
       setTimeout(() => {
-        const subtitle = document.getElementById('aboutUsSubtitle');
-        subtitle.classList.add('animate-in');
-      }, 600);
-      
-      // Animate description
-      setTimeout(() => {
-        const description = document.getElementById('aboutUsDescription');
-        description.classList.add('animate-in');
+        const teamPhoto = document.querySelector('.team-photo-large');
+        const teamCaption = document.querySelector('.team-photo-caption-large');
+        if (teamPhoto) teamPhoto.classList.add('animate-in');
+        if (teamCaption) teamCaption.classList.add('animate-in');
       }, 900);
-      
-      // Animate services list
-      setTimeout(() => {
-        const servicesList = document.getElementById('servicesList');
-        servicesList.classList.add('animate-in');
-      }, 1200);
-      
-      // Move to slide 3 after about us completes
+
+      // Move to slide 3 (services) after team photo completes
       setTimeout(() => {
         transitionToSlide(3);
-      }, 5700);
+      }, 5000);
+      
+
+    }
+
+    function animateServices() {
+      // Animate services title
+      setTimeout(() => {
+        const servicesTitle = document.getElementById('servicesTitle');
+        if (servicesTitle) servicesTitle.classList.add('animate-in');
+      }, 400);
+
+      // Animate services list (faster)
+      setTimeout(() => {
+        const servicesList = document.getElementById('servicesList');
+        if (servicesList) servicesList.classList.add('animate-in');
+      }, 200);
+
+      // Move to slide 4 after services complete (longer stay)
+      setTimeout(() => {
+        transitionToSlide(4);
+      }, 7000);
     }
     
-    function animateServices() {
+
+    
+        function animateServiceLines() {
       // Service 1: "Look legit" - transforms to serif font with dramatic effect
       setTimeout(() => {
         const element = document.getElementById('service1');
@@ -4541,7 +4865,7 @@
           lookLegitElement.classList.add('animate-legit');
         }, 600);
       }, 800);
-      
+
       // Service 2: "Feel alive" - grows, shakes, turns green with pulse
       setTimeout(() => {
         const element = document.getElementById('service2');
@@ -4551,22 +4875,22 @@
           feelAliveElement.classList.add('animate-alive');
         }, 1000);
       }, 2800);
-      
+
       // Service 3: "Digital presence" - dramatic slide in
       setTimeout(() => {
         const element = document.getElementById('service3');
         element.classList.add('animate-in');
       }, 4800);
-      
+
       // Animate the impact line with dramatic entrance
       setTimeout(() => {
         const impactElement = document.getElementById('impact');
         impactElement.classList.add('animate-impact');
       }, 5800);
-      
-      // Move to slide 4 after services complete
+
+      // Move to slide 5 after services complete
       setTimeout(() => {
-        transitionToSlide(4);
+        transitionToSlide(5);
       }, 9500);
     }
     
@@ -5668,6 +5992,32 @@
     if (typeof renderAvatars === 'function') {
       renderAvatars(0);
       addTestimonialEventListeners();
+    }
+  }
+
+  // Slide animation routing (example, update as needed)
+  function runSlideAnimation(slideNumber) {
+    switch (slideNumber) {
+      case 2:
+        animateTeamPhoto();
+        break;
+      case 3:
+        animateServices();
+        break;
+      case 4:
+        animateServiceLines();
+        break;
+      case 5:
+        animatePlatforms();
+        break;
+      case 6:
+        animateUrgency();
+        break;
+      case 7:
+        animateBalloonInstruction();
+        break;
+      default:
+        break;
     }
   }
   </script>
