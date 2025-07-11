@@ -7,7 +7,7 @@
 
     <!-- Add markdown parser library -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
+
     <!-- Add luxury serif font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2077,6 +2077,21 @@
       line-height: 1.4;
     }
 
+    /* Dark mode styling for service items */
+    [data-theme="dark"] .service-item {
+      background: #23272b;
+      border-color: #3d444e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .service-item:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .service-item p {
+      color: #bbb;
+    }
+
     /* Color-coded service blocks */
     .service-web {
       border-color: #00AEEF;
@@ -2124,6 +2139,15 @@
 
     /* Slide 3: Services */
     .slide-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+    }
+
+    /* Slide 4: Platforms */
+    .slide-4 {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2336,8 +2360,8 @@
       50% { background-position: 100% 50%; }
     }
 
-    /* Slide 4: Selling Points */
-    .slide-4 {
+    /* Slide 5: Selling Points */
+    .slide-5 {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2390,6 +2414,16 @@
     .stat-item.animate-in {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Dark mode styling for stat items */
+    [data-theme="dark"] .stat-item {
+      background: #23272b;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .stat-label {
+      color: #bbb;
     }
 
     .stat-number {
@@ -2469,8 +2503,8 @@
       margin: 0;
     }
 
-    /* Slide 5: Platforms */
-    .slide-5 {
+    /* Slide 6: Urgency */
+    .slide-6 {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2478,8 +2512,103 @@
       min-height: 50vh;
     }
 
-    /* Slide 6: Balloon Instruction */
+    .urgency-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .urgency-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #EC008C;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .urgency-title.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .urgency-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin: 40px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .urgency-stats.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .urgency-stat {
+      text-align: center;
+    }
+
+    .urgency-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #EC008C;
+      margin-bottom: 10px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .urgency-label {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .urgency-message {
+      font-size: 1.3rem;
+      color: #333;
+      font-weight: 600;
+      margin-top: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    /* Dark mode styles for urgency slide */
+    [data-theme="dark"] .urgency-title {
+      color: #EC008C;
+    }
+
+    [data-theme="dark"] .urgency-number {
+      color: #EC008C;
+    }
+
+    [data-theme="dark"] .urgency-label {
+      color: #bbb;
+    }
+
+    [data-theme="dark"] .urgency-message {
+      color: #eee;
+    }
+
+    .urgency-message.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Slide 6: Platforms */
     .slide-6 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+    }
+
+    /* Slide 7: Balloon Instruction */
+    .slide-7 {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2889,6 +3018,29 @@
         margin-bottom: 25px;
       }
 
+      .urgency-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+      }
+
+      .urgency-stats {
+        gap: 40px;
+        margin: 30px 0;
+      }
+
+      .urgency-number {
+        font-size: 2.5rem;
+      }
+
+      .urgency-label {
+        font-size: 1rem;
+      }
+
+      .urgency-message {
+        font-size: 1.1rem;
+        margin-top: 25px;
+      }
+
       .platform-item {
         padding: 12px 8px;
         font-size: 0.9rem;
@@ -3003,6 +3155,29 @@
       .platforms-title, .clients-title {
         font-size: 1.3rem;
         margin-bottom: 20px;
+      }
+
+      .urgency-title {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+      }
+
+      .urgency-stats {
+        gap: 30px;
+        margin: 25px 0;
+      }
+
+      .urgency-number {
+        font-size: 2rem;
+      }
+
+      .urgency-label {
+        font-size: 0.9rem;
+      }
+
+      .urgency-message {
+        font-size: 1rem;
+        margin-top: 20px;
       }
 
       .platform-item {
@@ -3604,42 +3779,8 @@
               </div>
             </div>
             
-            <!-- Slide 4: Selling Points -->
+            <!-- Slide 4: Platforms -->
             <div class="slide slide-4" id="slide4">
-              <div class="selling-points-section">
-                <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Media Mommy?</h2>
-                
-                <div class="stats-grid" id="statsGrid">
-                  <div class="stat-item">
-                    <div class="stat-number">94%</div>
-                    <div class="stat-label">Faster Page Load</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">3.2x</div>
-                    <div class="stat-label">More Engagement</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">67%</div>
-                    <div class="stat-label">Higher Conversion</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Projects Completed</div>
-                  </div>
-                </div>
-                
-                <ul class="selling-checklist hidden-checklist">
-                  <li>Award-winning design & branding</li>
-                  <li>Proven results for real businesses</li>
-                  <li>Fast, responsive communication</li>
-                  <li>Honest, transparent pricing</li>
-                  <li>One-stop shop: web, print, social, brand</li>
-                </ul>
-              </div>
-            </div>
-            
-            <!-- Slide 5: Platforms -->
-            <div class="slide slide-5" id="slide5">
               <div class="clients-section">
                 <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
                 <div class="clients-grid">
@@ -3681,12 +3822,64 @@
               </div>
             </div>
             
-            <!-- Slide 6: Balloon Instruction -->
+            <!-- Slide 5: Selling Points -->
+            <div class="slide slide-5" id="slide5">
+              <div class="selling-points-section">
+                <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Media Mommy?</h2>
+                
+                <div class="stats-grid" id="statsGrid">
+                  <div class="stat-item">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Faster Page Load</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">3.2x</div>
+                    <div class="stat-label">More Engagement</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">67%</div>
+                    <div class="stat-label">Higher Conversion</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
+                </div>
+                
+                <ul class="selling-checklist hidden-checklist">
+                  <li>Award-winning design & branding</li>
+                  <li>Proven results for real businesses</li>
+                  <li>Fast, responsive communication</li>
+                  <li>Honest, transparent pricing</li>
+                  <li>One-stop shop: web, print, social, brand</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Slide 6: Urgency -->
             <div class="slide slide-6" id="slide6">
+              <div class="urgency-section">
+                <h2 class="urgency-title" id="urgencyTitle">Since you started reading this...</h2>
+                <div class="urgency-stats">
+                  <div class="urgency-stat">
+                    <div class="urgency-number" id="websiteCount">0</div>
+                    <div class="urgency-label">websites were updated</div>
+                  </div>
+                  <div class="urgency-stat">
+                    <div class="urgency-number" id="socialCount">0</div>
+                    <div class="urgency-label">social campaigns launched</div>
+                  </div>
+                </div>
+                <p class="urgency-message">Your competitors aren't waiting. Don't let them get further ahead.</p>
+              </div>
+            </div>
+            
+            <!-- Slide 7: Balloon Instruction -->
+            <div class="slide slide-7" id="slide7">
               <div class="balloon-instruction">
-                <div class="balloon-icon">🎈</div>
+                <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
                 <h2>Ready to get started?</h2>
-                <p>Click on the balloon below to start our quick intake process and begin your project journey.</p>
+                <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
                 <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
               </div>
             </div>
@@ -3775,13 +3968,17 @@
           }, 500);
         } else if (slideNumber === 4) {
           setTimeout(() => {
-            animateSellingPoints();
+            animatePlatforms();
           }, 500);
         } else if (slideNumber === 5) {
           setTimeout(() => {
-            animatePlatforms();
+            animateSellingPoints();
           }, 500);
         } else if (slideNumber === 6) {
+          setTimeout(() => {
+            animateUrgency();
+          }, 500);
+        } else if (slideNumber === 7) {
           setTimeout(() => {
             animateBalloonInstruction();
           }, 500);
@@ -3917,15 +4114,72 @@
           items.forEach((li, idx) => {
             setTimeout(() => {
               li.classList.add('fade-in-check');
-            }, idx * 350);
+            }, idx * 400);
           });
         }
-      }, 2800);
+      }, 2100); // was 1800, now 1800+300=2100ms
       
-      // Move to slide 5 after selling points complete
+      // Move to slide 6 after selling points complete
       setTimeout(() => {
-        transitionToSlide(5);
-      }, 8400);
+        transitionToSlide(6);
+      }, 5600); // was 5300, now 5300+300=5600ms to account for the 300ms delay added to checklist
+    }
+    
+    function animateUrgency() {
+      // Animate urgency title
+      setTimeout(() => {
+        const urgencyTitle = document.getElementById('urgencyTitle');
+        urgencyTitle.classList.add('animate-in');
+      }, 1300); // was 300, now 300+1000=1300ms
+      
+      // Animate urgency stats
+      setTimeout(() => {
+        const urgencyStats = document.querySelector('.urgency-stats');
+        urgencyStats.classList.add('animate-in');
+        startUrgencyCounters();
+      }, 1600); // was 600, now 600+1000=1600ms
+      
+      // Animate urgency message
+      setTimeout(() => {
+        const urgencyMessage = document.querySelector('.urgency-message');
+        urgencyMessage.classList.add('animate-in');
+      }, 1900); // was 900, now 900+1000=1900ms
+      
+      // Move to slide 7 after urgency complete
+      setTimeout(() => {
+        transitionToSlide(7);
+      }, 9000);
+    }
+    
+    function startUrgencyCounters() {
+      // Calculate time since animation started (approximately when user started reading)
+      const startTime = Date.now() - (8400 + 2600); // Time from slide 1 to urgency slide
+      const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+      
+      // Estimate realistic numbers based on elapsed time
+      let websiteCount = Math.floor(elapsedSeconds * 0.8); // ~0.8 websites per second
+      let socialCount = Math.floor(elapsedSeconds * 0.4);  // ~0.4 campaigns per second
+      
+      const websiteElement = document.getElementById('websiteCount');
+      const socialElement = document.getElementById('socialCount');
+      
+      // Set initial values
+      websiteElement.textContent = websiteCount;
+      socialElement.textContent = socialCount;
+      
+      // Update every 400ms with accurate increments
+      const interval = setInterval(() => {
+        websiteCount += 1; // Exact increment of 1
+        socialCount += 1;  // Exact increment of 1
+        
+        websiteElement.textContent = websiteCount;
+        socialElement.textContent = socialCount;
+      }, 400);
+      
+      // Stop after 8 seconds (when slide transitions)
+      setTimeout(() => {
+        clearInterval(interval);
+      }, 8000);
     }
     
     function animatePlatforms() {
@@ -3957,10 +4211,10 @@
         }, 1800 + (index * 100));
       });
       
-      // Move to slide 6 after platforms complete
+      // Move to slide 5 after platforms complete
       setTimeout(() => {
-        transitionToSlide(6);
-      }, 6200);
+        transitionToSlide(5);
+      }, 9000);
         }
     
     function animateBalloonInstruction() {
@@ -4011,7 +4265,7 @@
         startHomepageAnimations();
       }, 800);
     }
-    // --- Portfolio Card System ---
+  // --- Portfolio Card System ---
   const portfolioProjects = [
     {
       title: "Last Seen in the Twilight Zone",
