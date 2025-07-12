@@ -4131,6 +4131,13 @@
       padding: 5px;
       background: white;
       object-fit: contain;
+      filter: grayscale(1);
+      transition: 0.2s;
+    }
+
+    .client-logo:hover, .platform-logo:hover {
+      filter: grayscale(0);
+      transition: 0.2s;
     }
 
     @keyframes scroll-left {
@@ -4738,7 +4745,7 @@
                       <div class="urgency-label">social campaigns launched</div>
                     </div>
                   </div>
-                  <p class="urgency-message">Your competitors aren't waiting. Don't let them get further ahead.</p>
+                  <p class="urgency-message">Your competitors aren't waiting.<br>Don't let them get further ahead.</p>
                 </div>
               </div>
               
