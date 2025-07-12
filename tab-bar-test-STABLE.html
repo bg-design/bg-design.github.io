@@ -507,14 +507,35 @@
     .tab-item:not(.active) {
       filter: grayscale(100%);
       opacity: 0.6;
-      transition: filter 0.3s, opacity 0.3s;
-      color:grey;
+      transition: filter 0.3s, opacity 0.3s, color 0.3s;
+      color: grey;
+    }
+
+    .tab-item:not(.active):hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .tab-item.process:not(.active):hover {
+      color: #00AEEF;
+    }
+
+    .tab-item.about:not(.active):hover {
+      color: #EC008C;
+    }
+
+    .tab-item.portfolio:not(.active):hover {
+      color: #39B54A;
+    }
+
+    .tab-item.pricing:not(.active):hover {
+      color: #FFCB05;
     }
 
     .tab-item.active {
       filter: grayscale(0%);
       opacity: 1;
-      color:inherit;
+      color: inherit;
     }
 
     .tab-item img {
@@ -731,7 +752,6 @@
     .bookingContent {
       max-width: 500px;
       text-align: center;
-      margin: 0 auto;
       background: white;
       border-radius: 20px;
       padding: 20px;
@@ -739,9 +759,6 @@
       position: absolute;
       bottom: 80px;
       left: 50%;
-      transform: translateX(-50%);
-      margin-left: 0;
-      margin-right: 0;
       border: 3px solid;
       border-image: linear-gradient(135deg, #00AEEF, #EC008C, #39B54A, #FFCB05) 1;
       border-radius: 0px;
@@ -985,6 +1002,12 @@
 
       .booking-page {
         height: 82%;
+      }
+    }
+
+     @media (min-width: 700px) {
+      .bookingContent {
+        margin-left:-250px;
       }
     }
 
@@ -3669,12 +3692,14 @@
     
     /* Trust & Credibility Section */
     .trust-section {
-      padding: 24px;
+      padding: 32px 16px 32px 16px;
       text-align: center;
       background: #f8f9fa;
-      border: 2px dashed #39B54A;
-      border-radius: 12px;
-      margin: 50px 0;
+      border: 2px dotted #39B54A;
+      border-radius: 18px;
+      margin: 32px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
     }
     
     .trust-title {
@@ -3731,8 +3756,9 @@
     
     /* Dark mode styles for trust section */
     [data-theme="dark"] .trust-section {
-      background: #2a2b32;
+      background: #23272b;
       border-color: #39B54A;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     }
     
     [data-theme="dark"] .trust-title {
