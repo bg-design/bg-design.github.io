@@ -12,12 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Add Bebas Neue font for headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-    <!-- In <head>, ensure Oleo Script is imported -->
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
 
   <style>
     html, body {
@@ -25,8 +19,10 @@
     }
     body {
       margin: 0;
-      background: #f6f6f6 !important;
-      font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      background:
+        repeating-linear-gradient(135deg, #f7f7f7 0px, #f7f7f7 8px, #ededed 8px, #ededed 16px),
+        linear-gradient(120deg, #f7f7f7 0%, #ededed 100%);
+      font-family: Helvetica, Arial, sans-serif;
       color: #222;
       padding: 20px;
       padding-bottom: 120px;
@@ -39,13 +35,11 @@
     .content {
       padding-bottom: 120px; /* Padding for space for balloon */
     }
-
-    #makeItCount {
-      padding: 10px;
-    }
    
    [data-theme="dark"] body {
-      background: #23242a !important;
+      background:
+        repeating-linear-gradient(135deg, #23272b 0px, #23272b 8px, #262a2e 8px, #262a2e 16px),
+        linear-gradient(120deg, #23272b 0%, #23272b 100%);
       color: #00AEEF;
    }
    [data-theme="dark"] .content, [data-theme="dark"] .markdown-content {
@@ -224,7 +218,7 @@
   color: #FFCB05 !important;
 }
 [data-theme="light"] .portfolio-page h1, [data-theme="light"] .portfolio-page h2, [data-theme="light"] .portfolio-page h3, [data-theme="light"] .portfolio-page h4, [data-theme="light"] .portfolio-page h5, [data-theme="light"] .portfolio-page h6 {
-  color: #39B54A;
+  color: #39B54A !important;
 }
 [data-theme="light"] .portfolio-page h1 {
   border-bottom: 3px solid #39B54A !important;
@@ -431,7 +425,6 @@
       border-radius: 12px;
       background: white;
       backdrop-filter: blur(10px);
-      padding: 10px;
     }
     :root {
       --bg: #fff;
@@ -2194,6 +2187,7 @@
     }
 
     .service-item h3 {
+      font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 8px;
     }
@@ -2270,7 +2264,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 70vh;
+      min-height: 50vh;
     }
 
     /* Slide 4: Platforms */
@@ -2468,46 +2462,23 @@
     }
 
     .impact-text {
-      font-family: 'Bebas Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 2.5rem;
-      font-weight: 400;
-      color: #222;
-      line-height: 0.8;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #00AEEF;
+      line-height: 1.2;
       text-transform: uppercase;
-      letter-spacing: 6px;
-      transform-origin: center;
-    }
-    
-    [data-theme="dark"] .impact-text {
-      color: #fff;
-    }
-
-    .impact-line {
-      opacity: 0;
-      transform: scale(0.8) translateY(20px);
-      transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      margin-top: 30px;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #00AEEF, #EC008C, #39B54A, #FFCB05);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 2s ease-in-out infinite;
     }
 
-    .impact-line.animate-impact {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-      animation: impactEntrance 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    @keyframes impactEntrance {
-      0% {
-        opacity: 0;
-        transform: scale(0.5) translateY(20px);
-      }
-      50% {
-        opacity: 0.9;
-        transform: scale(1.1) translateY(-3px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     /* Slide 6: Urgency */
@@ -2647,7 +2618,6 @@
       color: #666;
       line-height: 1.5;
       margin-bottom: 30px;
-      padding: 10px 20px;
     }
 
     .balloon-icon {
@@ -2718,7 +2688,7 @@
     }
 
     .clients-title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 600;
       color: #39B54A;
       margin-bottom: 30px;
@@ -2952,6 +2922,12 @@
         line-height: 1.4;
       }
 
+      .impact-text {
+        font-size: 1.6rem;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+      }
+
       .cta-button {
         padding: 16px 32px;
         font-size: 1.1rem;
@@ -2966,6 +2942,11 @@
       .service-item {
         padding: 15px;
         min-height: 120px;
+      }
+
+      .service-item h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
       }
 
       .stats-grid {
@@ -3007,6 +2988,11 @@
 
       .selling-points-title {
         font-size: 1.6rem;
+        margin-bottom: 25px;
+      }
+
+      .platforms-title, .clients-title {
+        font-size: 1.5rem;
         margin-bottom: 25px;
       }
 
@@ -3077,6 +3063,12 @@
         line-height: 1.3;
       }
 
+      .impact-text {
+        font-size: 1.4rem;
+        letter-spacing: 0.3px;
+        line-height: 1.1;
+      }
+
       .cta-button {
         padding: 14px 28px;
         font-size: 1rem;
@@ -3090,6 +3082,11 @@
       .service-item {
         padding: 12px;
         min-height: 100px;
+      }
+
+      .service-item h3 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
       }
 
       .stats-grid {
@@ -3134,7 +3131,7 @@
       }
 
       .platforms-title, .clients-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-bottom: 20px;
         padding: 0 10px;
         line-height: 1.2;
@@ -3204,6 +3201,12 @@
     }
     
     @media (max-width: 375px) {
+      .platforms-title, .clients-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        padding: 0 20px;
+        line-height: 1.1;
+      }
       
       .platform-item {
         padding: 6px 3px;
@@ -3295,7 +3298,7 @@
     .selling-checklist li.fade-in-check { opacity: 1 !important; }
 
     .platforms-title, .clients-title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 600;
       color: inherit;
       margin-bottom: 30px;
@@ -3307,6 +3310,32 @@
       overflow-wrap: break-word;
       text-align: center;
       padding: 0 10px;
+    }
+
+    @media (max-width: 480px) {
+      .platforms-title, .clients-title {
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+        padding: 0 8px;
+        line-height: 1.15;
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .platforms-title, .clients-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        padding: 0 4px;
+        line-height: 1.1;
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
     }
 
     /* --- Testimonial Avatars Redesign --- */
@@ -3816,17 +3845,14 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
       width: 100%;
-      overflow: visible;
     }
 
     .team-photo-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
       color: #EC008C;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease;
@@ -3838,14 +3864,14 @@
     }
 
     .team-photo-large {
-      width: 400px;
+      width: 320px;
       max-width: 90vw;
       height: auto;
       border-radius: 16px;
       object-fit: contain;
       border: 4px solid #fff;
       box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       transition: all 0.3s ease;
     }
 
@@ -3855,14 +3881,14 @@
     }
 
     .team-photo-caption-large {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: #333;
       line-height: 1.4;
     }
 
     .team-role-large {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: #666;
       font-weight: 500;
     }
@@ -3882,7 +3908,9 @@
         width: 90vw;
         max-width: 95vw;
       }
-
+      .team-photo-title {
+        font-size: 1.3rem;
+      }
       .team-photo-caption-large {
         font-size: 0.9rem;
       }
@@ -3968,205 +3996,6 @@
         margin-right: 10px;
       }
     }
-
-    .services-list .service-item {
-      color: #111 !important;
-      border-width: 2px;
-      border-style: solid;
-    }
-    .services-list .service-web {
-      border-color: #00AEEF !important;
-    }
-    .services-list .service-social {
-      border-color: #EC008C !important;
-    }
-    .services-list .service-print {
-      border-color: #39B54A !important;
-    }
-    .services-list .service-brand {
-      border-color: #FFCB05 !important;
-    }
-    .services-list .service-item h3 {
-      /* Keep colored heading */
-    }
-    .services-list .service-item p, .services-list .service-item ul, .services-list .service-item li, .services-list .service-item span {
-      color: #111 !important;
-    }
-    [data-theme="dark"] .services-list .service-item {
-      color: #fff !important;
-    }
-    [data-theme="dark"] .services-list .service-item p, [data-theme="dark"] .services-list .service-item ul, [data-theme="dark"] .services-list .service-item li, [data-theme="dark"] .services-list .service-item span {
-      color: #fff !important;
-    }
-
-    /* 1. Remove green color from 'feel alive' */
-    #feelAlive, .highlight-word.animate-alive {
-      color: inherit !important;
-      background: none !important;
-      text-shadow: none !important;
-      /* animation: none !important; -- REMOVE THIS LINE */
-    }
-
-    /* 2. Remove gradient from 'IMPOSSIBLE TO IGNORE' */
-    .impact-text {
-      background: none !important;
-      -webkit-background-clip: initial !important;
-      -webkit-text-fill-color: initial !important;
-      color: #222 !important;
-    }
-    [data-theme="dark"] .impact-text {
-      color: #fff !important;
-    }
-    .impact-text {
-      animation: none !important;
-    }
-
-    .team-photo-caption-large, .team-role-large {
-      color: #111 !important;
-    }
-    [data-theme="dark"] .team-photo-caption-large, [data-theme="dark"] .team-role-large {
-      color: #fff !important;
-    }
-
-    .services-list .service-item h3 {
-      color: #111 !important;
-    }
-    [data-theme="dark"] .services-list .service-item h3 {
-      color: #fff !important;
-    }
-    /* Remove color overrides for .service-web h3, .service-social h3, etc. */
-
-    h1, h2, h3,
-    .about-us-title, .about-us-subtitle, .services-title, .platforms-title, .clients-title, .selling-points-title, .urgency-title, .team-photo-title {
-      font-family: 'Bebas Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-      letter-spacing: 0.01em;
-    }
-
-    .highlight-word.animate-alive {
-      animation: feelAliveBreathing 1.8s ease-in-out infinite;
-    }
-    @keyframes feelAliveBreathing {
-      0% { transform: scale(1); }
-      30% { transform: scale(1.12); }
-      60% { transform: scale(0.97); }
-      100% { transform: scale(1); }
-    }
-
-    .script-heading {
-      font-family: 'Oleo Script', cursive !important;
-      font-size: 2.3rem;
-      color: #00AEEF;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      margin-bottom: 20px;
-    }
-
-    /* Clients and Platforms Styles */
-    .clients-platforms-section {
-      margin: 40px 0;
-      padding: 40px 20px;
-    }
-
-    .clients-section, .platforms-section {
-      margin-bottom: 40px;
-    }
-
-    .clients-section:last-child, .platforms-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .clients-section h2, .platforms-section h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .scrolling-clients, .scrolling-platforms {
-      overflow: hidden;
-      position: relative;
-      height: 60px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-    }
-
-    .client-row, .platform-row {
-      display: flex;
-      white-space: nowrap;
-      animation: scroll-left 8s linear infinite;
-      padding: 15px 0;
-    }
-
-    .client-logo, .platform-logo {
-      height: 40px;
-      width: auto;
-      margin: 0 25px;
-      padding: 5px;
-      background: white;
-      object-fit: contain;
-    }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-66.66%);
-      }
-    }
-
-      @media screen and (max-width: 768px) {
-    .clients-platforms-section {
-      padding: 30px 15px;
-      margin: 30px 0;
-    }
-    
-    .clients-section h2, .platforms-section h2 {
-      font-size: 2rem;
-    }
-    
-    .client-logo, .platform-logo {
-      height: 30px;
-      margin: 0 10px;
-      padding: 5px;
-      background: white;
-      filter: grayscale(1);
-    }
-    
-    .scrolling-clients, .scrolling-platforms {
-      height: 50px;
-    }
-  }
-
-  /* Add/replace this CSS in the <style> section */
-  .scrolling-clients, .scrolling-platforms {
-    overflow: hidden;
-    width: 100%;
-    border-radius: 0;
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-    .scrolling-clients, .scrolling-platforms {
-      width: 100vw;
-      max-width: 100vw;
-      margin-left: -55px; /* adjust if your body has padding */
-      overflow-x: hidden;
-    }
-  }
-  .scrolling-track {
-    display: flex;
-    width: max-content;
-  }
-  .client-row, .platform-row {
-    display: flex;
-    width: max-content;
-    animation: scroll-marquee 15s linear infinite;
-  }
-  @keyframes scroll-marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
   </style>
 </head>
 <body>
@@ -4178,12 +4007,7 @@
     <button id="modeSwitch" style="padding:8px 18px; border-radius:20px; border:none; background:#eee; color:#222; font-weight:600; font-size:1em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s, color 0.2s;">🌙 Dark Mode</button>
   </div>
 
-          <div id="pauseOverlay" style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(0,0,0,0.3);z-index:1000;display:none;align-items:center;justify-content:center;cursor:pointer;border-radius:8px;">
-    <svg width="30" height="30" viewBox="0 0 120 120" style="fill:#fff;">
-      <rect x="35" y="25" width="15" height="70" rx="3"/>
-      <rect x="70" y="25" width="15" height="70" rx="3"/>
-    </svg>
-  </div>
+
 
   <div class="content" id="mainContent">
     <!-- Content will be dynamically loaded here -->
@@ -4626,13 +4450,7 @@
       mainContent.innerHTML = `
         <div id="AnimationPitch">
           <div class="homepage-hero">
-                        <div class="hero-content">
-              <div id="pauseOverlay" style="display:none;width:60px;height:60px;background:rgba(0,0,0,0.3);align-items:center;justify-content:center;cursor:pointer;border-radius:8px;margin:0 auto;position:relative;z-index:1000;">
-                <svg width="30" height="30" viewBox="0 0 120 120" style="fill:#fff;">
-                  <rect x="35" y="25" width="15" height="70" rx="3"/>
-                  <rect x="70" y="25" width="15" height="70" rx="3"/>
-                </svg>
-              </div>
+            <div class="hero-content">
               <!-- Slide 1: First Impression -->
               <div class="slide slide-1 active" id="slide1">
                 <div class="typewriter-container">
@@ -4695,10 +4513,110 @@
                 </div>
               </div>
               
-
-              
-              <!-- Slide 5: Urgency -->
+              <!-- Slide 5: Platforms -->
               <div class="slide slide-5" id="slide5">
+                <div class="clients-section">
+                  <h2 class="clients-title" id="clientsTitle">Great clients we've worked with</h2>
+                  <div class="clients-grid-2rows">
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <div class="platform-item">Siempo</div>
+                        <div class="platform-item">Calm</div>
+                        <div class="platform-item">CostPlus World Market</div>
+                        <div class="platform-item">Syracuse Opera</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <div class="platform-item">Siempo</div>
+                        <div class="platform-item">Calm</div>
+                        <div class="platform-item">CostPlus World Market</div>
+                        <div class="platform-item">Syracuse Opera</div>
+                      </div>
+                    </div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">TriCities Opera</div>
+                        <div class="platform-item">Blacktie Brothers</div>
+                        <div class="platform-item">Slaughterland</div>
+                        <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">TriCities Opera</div>
+                        <div class="platform-item">Blacktie Brothers</div>
+                        <div class="platform-item">Slaughterland</div>
+                        <div class="platform-item">Hidden Hollows Sporting Clays</div>
+                        <div class="platform-item">Hidden Lake Resort</div>
+                        <div class="platform-item">Rancho Bombero</div>
+                        <div class="platform-item">Blackfern Media</div>
+                        <div class="platform-item">Trendgraphix</div>
+                        <div class="platform-item">Origin Materials</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="platforms-section">
+                  <h2 class="platforms-title" id="platformsTitle">We work across all major platforms</h2>
+                  <div class="platforms-grid-2rows">
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                      </div>
+                    </div>
+                    <div class="scrolling-row-outer">
+                      <div class="scrolling-row-inner">
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <!-- Duplicated for seamless scroll -->
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                        <div class="platform-item">Custom</div>
+                        <div class="platform-item">Bandzoogle</div>
+                        <div class="platform-item">WordPress</div>
+                        <div class="platform-item">Shopify</div>
+                        <div class="platform-item">Squarespace</div>
+                        <div class="platform-item">Wix</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 6: Urgency -->
+              <div class="slide slide-6" id="slide6">
                 <div class="urgency-section">
                   <h2 class="urgency-title" id="urgencyTitle">Since you started reading this...</h2>
                   <div class="urgency-stats">
@@ -4715,11 +4633,11 @@
                 </div>
               </div>
               
-              <!-- Slide 6: Balloon Instruction -->
-              <div class="slide slide-6" id="slide6">
+              <!-- Slide 7: Balloon Instruction -->
+              <div class="slide slide-7" id="slide7">
                 <div class="balloon-instruction">
                   <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
-                  <h2 class="script-heading">Ready to get started?</h2>
+                  <h2>Ready to get started?</h2>
                   <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
                   <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
                 </div>
@@ -4739,9 +4657,9 @@
           </div>
         </div>
         
-        <!-- Trusted Partners Section -->
+        <!-- Trust & Credibility Section -->
         <div class="dottedBox trust-section" id="trustSection">
-          <h2 class="trust-title">Trusted Partners</h2>
+          <h2 class="trust-title">Trust & Credibility</h2>
           <div class="trust-logos">
             <div class="trust-item">
               <a href="https://www.kauffman.org/entrepreneurship/incubators" target="_blank" rel="noopener noreferrer">
@@ -4866,7 +4784,7 @@
     
     function startSlide1() {
       // First impression typewriter effect
-      const firstImpressionText = "You only get one shot at a great first impression.";
+      const firstImpressionText = "You only get one shot at a first impression.";
       typewriterEffect('firstImpression', firstImpressionText, 45, () => {
         // Add emphasis effect after typing completes
         const firstImpressionElement = document.getElementById('firstImpression');
@@ -4874,17 +4792,17 @@
         
         // Dramatic pause after first line
         setTimeout(() => {
-          const makeItCountText = "So let's make yours unforgettable.";
+          const makeItCountText = "Let's make yours count.";
           typewriterEffect('makeItCount', makeItCountText, 55, () => {
             // Remove the cursor and set the correct HTML for color cycling
             const makeItCountElement = document.getElementById('makeItCount');
-            makeItCountElement.innerHTML = "So let's make yours&nbsp;<span class=\"color-cycle-text\">unforgettable.</span>";
+            makeItCountElement.innerHTML = "Let's make yours&nbsp;<span class=\"color-cycle-text\">count.</span>";
             setTimeout(() => {
               startColorCycle();
             }, 500);
             
             // Move to slide 2 after color cycling
-            pauseableTimeout(() => {
+            setTimeout(() => {
               transitionToSlide(2);
             }, 3500);
           });
@@ -4915,7 +4833,7 @@
       function cycleColor() {
         colorCycleText.style.color = colors[colorIndex];
         colorIndex = (colorIndex + 1) % colors.length;
-        setTimeout(cycleColor, 400); // was 800, now 400ms
+        setTimeout(cycleColor, 800);
       }
 
       cycleColor();
@@ -4957,9 +4875,9 @@
       }, 900);
 
       // Move to slide 3 (services) after team photo completes
-      pauseableTimeout(() => {
+      setTimeout(() => {
         transitionToSlide(3);
-      }, 4000);
+      }, 5000);
       
 
     }
@@ -4978,9 +4896,9 @@
       }, 200);
 
       // Move to slide 4 after services complete (longer stay)
-      pauseableTimeout(() => {
+      setTimeout(() => {
         transitionToSlide(4);
-      }, 6700);
+      }, 7000);
     }
     
 
@@ -5016,12 +4934,12 @@
       setTimeout(() => {
         const impactElement = document.getElementById('impact');
         impactElement.classList.add('animate-impact');
-        
-        // Transition to next slide after the animation completes
-        pauseableTimeout(() => {
-          transitionToSlide(5);
-        }, 1800); // Wait 1.8 seconds for the animation to complete
-      }, 6000);
+      }, 5800);
+
+      // Move to slide 5 after services complete
+      setTimeout(() => {
+        transitionToSlide(5);
+      }, 9500);
     }
     
     function animateSellingPoints() {
@@ -5054,7 +4972,7 @@
       }, 2100);
       
       // Move to slide 6 after selling points complete
-      pauseableTimeout(() => {
+      setTimeout(() => {
         transitionToSlide(6);
       }, 4100 + (5 * 400)); // 5 checkmarks × 400ms + 4100ms buffer
     }
@@ -5079,10 +4997,10 @@
         urgencyMessage.classList.add('animate-in');
       }, 1900); // was 900, now 900+1000=1900ms
       
-      // Move to slide 6 after urgency complete
-      pauseableTimeout(() => {
-        transitionToSlide(6);
-      }, 8700);
+      // Move to slide 7 after urgency complete
+      setTimeout(() => {
+        transitionToSlide(7);
+      }, 9000);
     }
     
     function startUrgencyCounters() {
@@ -5145,9 +5063,9 @@
         }, 1800 + (index * 100));
       });
       
-      // Move to slide 5 (urgency) after services complete
-      pauseableTimeout(() => {
-        transitionToSlide(5);
+      // Move to slide 6 (urgency) after platforms complete
+      setTimeout(() => {
+        transitionToSlide(6);
       }, 9000);
     }
     
@@ -5786,72 +5704,6 @@
     mainContent.innerHTML =
       `<div class="markdown-content portfolio-page">
         <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-        
-        <!-- Clients and Platforms Section -->
-        <div class="clients-platforms-section">
-          <div class="clients-section">
-            <h2>We have worked<br>with great clients</h2>
-            <div class="scrolling-clients">
-              <div class="scrolling-track">
-                <div class="client-row">
-                  <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
-                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
-                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
-                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
-                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
-                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
-                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
-      <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
-                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
-                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
-                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
-                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
-                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
-                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
-      <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
-                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
-                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
-                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
-                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
-                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
-                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="platforms-section">
-            <h2 style="color: #FFCB05;">We work on all platforms<br>and can custom code.</h2>
-            <div class="scrolling-platforms">
-              <div class="scrolling-track">
-                <div class="platform-row">
-                  <img src="IMG/Platforms/squarespace-logo.png" alt="Squarespace" class="platform-logo">
-                  <img src="IMG/Platforms/craftcms-logo.png" alt="Craft CMS" class="platform-logo">
-                  <img src="IMG/Platforms/bandzoogle-logo.png" alt="Bandzoogle" class="platform-logo">
-                  <img src="IMG/Platforms/wordpress-logo-0.png" alt="WordPress" class="platform-logo">
-                  <img src="IMG/Platforms/html.jpg" alt="HTML" class="platform-logo">
-                  <img src="IMG/Platforms/Shopify_logo_2018.svg.png" alt="Shopify" class="platform-logo">
-                  <img src="IMG/Platforms/css.jpg" alt="CSS" class="platform-logo">
-                  <img src="IMG/Platforms/Wix.com-Logo.wine.svg" alt="Wix" class="platform-logo">
-                  <img src="IMG/Platforms/js.jpg" alt="JavaScript" class="platform-logo">
-                  <img src="IMG/Platforms/squarespace-logo.png" alt="Squarespace" class="platform-logo">
-                  <img src="IMG/Platforms/craftcms-logo.png" alt="Craft CMS" class="platform-logo">
-                  <img src="IMG/Platforms/bandzoogle-logo.png" alt="Bandzoogle" class="platform-logo">
-                  <img src="IMG/Platforms/wordpress-logo-0.png" alt="WordPress" class="platform-logo">
-                  <img src="IMG/Platforms/html.jpg" alt="HTML" class="platform-logo">
-                  <img src="IMG/Platforms/Shopify_logo_2018.svg.png" alt="Shopify" class="platform-logo">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         <h1>Portfolio</h1>
         ${renderPortfolioFilters(category)}
         ${renderPortfolioCardsOnly(category, yearFilter, typeFilter, platformFilter, currentPortfolioPage)}
@@ -6204,144 +6056,18 @@
         animateServiceLines();
         break;
       case 5:
-        animateUrgency();
+        animatePlatforms();
         break;
       case 6:
+        animateUrgency();
+        break;
+      case 7:
         animateBalloonInstruction();
         break;
       default:
         break;
     }
   }
-
-  let isPaused = false;
-  const pauseOverlay = document.getElementById('pauseOverlay');
-  
-  // Click on slide to pause
-  document.addEventListener('click', function(e) {
-    // Don't trigger if clicking on overlay itself
-    if (e.target === pauseOverlay || pauseOverlay.contains(e.target)) {
-      return;
-    }
-    
-    // Don't trigger if clicking on interactive elements
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('[onclick]')) {
-      return;
-    }
-    
-    // Only pause if not already paused, clicking on slide content, and NOT on the last slide
-    const activeSlide = document.querySelector('.slide.active');
-    const isLastSlide = activeSlide && activeSlide.id === 'slide6';
-    if (!isPaused && e.target.closest('.slide') && !isLastSlide) {
-      isPaused = true;
-      pauseOverlay.style.display = 'flex';
-    }
-  });
-  
-  // Click overlay to resume
-  pauseOverlay.addEventListener('click', function() {
-    console.log('Resuming slideshow'); // Debug
-    isPaused = false;
-    pauseOverlay.style.display = 'none';
-  });
-  
-  // Test function to manually show pause overlay
-  window.testPause = function() {
-    console.log('Testing pause overlay');
-    isPaused = true;
-    pauseOverlay.style.display = 'flex';
-  };
-  
-  // Add click handlers directly to slide elements for better reliability
-  function addSlideClickHandlers() {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((slide, index) => {
-      slide.addEventListener('click', function(e) {
-        // Don't trigger if clicking on interactive elements
-        if (e.target.closest('button') || e.target.closest('a') || e.target.closest('[onclick]')) {
-          return;
-        }
-        // Only pause if not already paused and NOT on the last slide
-        const isLastSlide = slide.id === 'slide6';
-        if (!isPaused && !isLastSlide) {
-          isPaused = true;
-          pauseOverlay.style.display = 'flex';
-        }
-      });
-    });
-  }
-  
-  // Initialize slide click handlers when DOM is ready
-  document.addEventListener('DOMContentLoaded', function() {
-    addSlideClickHandlers();
-  });
-  
-  // Also add handlers when slides are dynamically created
-  setTimeout(addSlideClickHandlers, 1000);
-  
-  // Add handlers after loadDefaultContent runs
-  const originalLoadDefaultContent = loadDefaultContent;
-  loadDefaultContent = function() {
-    originalLoadDefaultContent();
-    // Add a small delay to ensure slides are fully rendered
-    setTimeout(addSlideClickHandlers, 100);
-  };
-
-  // Patch all setTimeouts for slide transitions to respect pause
-  function pauseableTimeout(fn, delay) {
-    let timer, start = Date.now(), remaining = delay;
-    function run() {
-      if (!isPaused) {
-        fn();
-      } else {
-        timer = setTimeout(run, 100); // check every 100ms
-      }
-    }
-    timer = setTimeout(run, remaining);
-    return {
-      clear: () => clearTimeout(timer)
-    };
-  }
-
-  // Example: Replace setTimeout(() => { ... }, 5000) with pauseableTimeout(() => { ... }, 5000)
-  // Patch slide transition code:
-  // In all slide transition/animation functions, replace setTimeout with pauseableTimeout
-
-  // Infinite scroll for client and platform logos
-  function setupInfiniteScroll(selector, speed = 1) {
-    const container = document.querySelector(selector);
-    if (!container) return;
-    const track = container.querySelector('.scrolling-track');
-    const row = track.querySelector('div');
-    // Duplicate the row
-    track.appendChild(row.cloneNode(true));
-    let scrollPos = 0;
-    let rowWidth = row.offsetWidth;
-
-    function updateWidth() {
-      rowWidth = row.offsetWidth;
-    }
-    window.addEventListener('resize', updateWidth);
-
-    function step() {
-      scrollPos += speed;
-      const maxScroll = track.scrollWidth - container.offsetWidth;
-      if (scrollPos >= maxScroll) {
-        scrollPos = 0;
-      }
-      container.scrollLeft = scrollPos;
-      requestAnimationFrame(step);
-    }
-    container.style.overflow = 'hidden';
-    track.style.display = 'flex';
-    track.style.width = 'max-content';
-    requestAnimationFrame(step);
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    setupInfiniteScroll('.scrolling-clients', 1.2); // speed in px/frame
-    setupInfiniteScroll('.scrolling-platforms', 1.2);
-  });
-
   </script>
     
     </body>
