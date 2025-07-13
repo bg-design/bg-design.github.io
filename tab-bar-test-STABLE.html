@@ -426,7 +426,6 @@
       margin: 20px auto;
       line-height: 1.6;
       border-radius: 12px;
-      background: white;
       backdrop-filter: blur(10px);
       padding: 10px;
     }
@@ -3884,10 +3883,6 @@
       color: #555;
     }
 
-    [data-theme="dark"] .about-page p {
-      color: white;
-    }
-
     .story-intro {
       font-size: 1.4rem !important;
       font-weight: 600;
@@ -4160,6 +4155,162 @@
       animation: expandShrink 2s ease-in-out infinite;
     }
 
+    /* Conversation Container Styling */
+    .conversation-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .conversation-container {
+      background: #1a1a1a;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .conversation-header {
+      background: #EC008C;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+
+    .contact-details h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .contact-details p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .conversation-thread {
+      padding: 1rem;
+      background: #f8f9fa;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    [data-theme="dark"] .conversation-thread {
+      background: #2a2a2a;
+    }
+
+    /* Text Thread Styling */
+    .text-thread {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      max-width: 80%;
+    }
+
+    .message.received {
+      align-self: flex-start;
+    }
+
+    .message.sent {
+      align-self: flex-end;
+    }
+
+    .message-bubble {
+      padding: 0.8rem 1rem;
+      border-radius: 18px;
+      position: relative;
+      word-wrap: break-word;
+    }
+
+    .message.received .message-bubble {
+      background: #f0f0f0;
+      color: #333;
+      border-bottom-left-radius: 4px;
+    }
+
+    [data-theme="dark"] .message.received .message-bubble {
+      background: #404040;
+      color: #fff;
+    }
+
+    .message.sent .message-bubble {
+      background: #EC008C;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-bubble p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .message.sent .message-bubble p {
+      font-size: 2rem;
+    }
+
+    .cta-bubble {
+      background: transparent !important;
+      padding: 0 !important;
+    }
+
+    .cta-bubble .cta-button {
+      background: #EC008C;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(236,0,140,0.3);
+      width: 100%;
+    }
+
+    .cta-bubble .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(236,0,140,0.4);
+    }
+
+    .message-time {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.25rem;
+      padding: 0 0.5rem;
+    }
+
+    [data-theme="dark"] .message-time {
+      color: #ccc;
+    }
+
+    .message.received .message-time {
+      text-align: left;
+    }
+
+    .message.sent .message-time {
+      text-align: right;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
@@ -4334,18 +4485,49 @@
         padding: 2rem 1rem;
       }
 
-      /* Show mobile emojis and hide desktop floating elements on mobile */
-      .mobile-emoji {
-        display: block;
+      /* Show conversation format on mobile */
+      .conversation-container {
+        border-radius: 8px;
       }
 
-      .personal-visual {
+      .conversation-header {
+        padding: 0.8rem;
+      }
+
+      .contact-avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      .conversation-thread {
+        padding: 0.8rem;
+        min-height: 50vh;
+      }
+
+      .message-bubble {
+        padding: 0.6rem 0.8rem;
+      }
+
+      .message-bubble p {
+        font-size: 0.95rem;
+      }
+
+      .message.sent .message-bubble p {
+        font-size: 1rem;
+      }
+
+      .cta-bubble .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+      }
+
+      /* Hide old desktop elements */
+      .about-hero,
+      .story-section,
+      .how-we-work-section,
+      .personal-section,
+      .about-cta {
         display: none;
-      }
-
-      .personal-text p {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
       }
     }
 
@@ -5042,104 +5224,130 @@
           const mainContent = document.getElementById('mainContent');
           mainContent.innerHTML = `
         <div class="about-page">
-              <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
           
-          <!-- Hero Section -->
-          <div class="about-hero">
-            <div class="hero-background"></div>
-            <div class="hero-content">
-              <h1 class="hero-title">Our Story</h1>
-              <p class="hero-subtitle">Theo & Quinn</p>
-            </div>
-          </div>
-
-          <!-- Main Story Section -->
-          <div class="story-section">
-            <div class="story-container">
-              <div class="story-content">
-                <div class="story-text">
-                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel human.</p>
-                  
-                  <p>It all started when we realized that most websites felt cold and corporate. We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
-                  
-                  <p>So we started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend? What if we actually listened to what people needed instead of just selling them what we wanted to build?</p>
-                  
-                  <p>That's how we became "Design Daddy & Media Mommy." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't.</p>
-                </div>
-                                  <div class="story-visual">
-                    <div class="team-photo-story">
-                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo">
-                      <div class="photo-caption">That's us! 👋</div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- How We Work Section -->
-          <div class="how-we-work-section">
-            <h2 class="section-title">How We Actually Work</h2>
-            <div class="work-steps">
-              <div class="work-step step-1">
-                <div class="step-number">1</div>
-                <h3>We Listen</h3>
-                <p>No templates, no assumptions. We start by understanding your real needs and goals.</p>
-              </div>
-              <div class="work-step step-2">
-                <div class="step-number">2</div>
-                <h3>We Think</h3>
-                <p>We take time to figure out the best approach, not just the fastest one.</p>
-              </div>
-              <div class="work-step step-3">
-                <div class="step-number">3</div>
-                <h3>We Build</h3>
-                <p>We create something that actually works for your business and your customers.</p>
-              </div>
-              <div class="work-step step-4">
-                <div class="step-number">4</div>
-                <h3>We Support</h3>
-                <p>We're here after launch to help you succeed, not just disappear.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Personal Touch Section -->
-          <div class="personal-section">
-            <div class="personal-container">
-              <h2 class="section-title">Why We're Different</h2>
-              <div class="personal-content">
-                <div class="personal-text">
-                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project.</p>
-                  
-                  <div class="mobile-emoji">💬</div>
-                  
-                  <p>We're also not a freelancer who might disappear halfway through. We're a committed team with a proven track record and a real business to protect.</p>
-                  
-                  <div class="mobile-emoji">🏃</div>
-                  
-                  <p>Most importantly, we're real people who care about real results. We want your project to succeed because your success is our success.</p>
-                  
-                  <div class="mobile-emoji">🏆</div>
-                </div>
-                <div class="personal-visual">
-                  <div class="floating-elements">
-                    <div class="floating-icon">💬</div>
-                    <div class="floating-icon">🏃</div>
-                    <div class="floating-icon">🏆</div>
-                  </div>
+          <!-- Text Conversation Container -->
+          <div class="conversation-container">
+            <div class="conversation-header">
+              <div class="contact-info">
+                <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="contact-avatar">
+                <div class="contact-details">
+                  <h3>Theo & Quinn</h3>
+                  <p>Nuanced Design</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Simple CTA -->
-          <div class="about-cta">
-            <h2>Want to know more?</h2>
-            <p>We'd love to hear your story too.</p>
-            <button class="cta-button" onclick="toggleBooking(); return false;">Tell us about your project</button>
-          </div>
+            <div class="conversation-thread">
+              <!-- Initial Greeting -->
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>Hey! 👋 Thanks for reaching out about your project. We're Theo and Quinn, and we'd love to help you bring your vision to life.</p>
+                </div>
+                <div class="message-time">10:00 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>Hi! I've been looking for a design team that actually gets what I'm trying to do. Most agencies seem so corporate and impersonal.</p>
+                </div>
+                <div class="message-time">10:01 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>We totally get that! That's exactly why we started Nuanced Design. We wanted to create digital experiences that feel human—like you're talking to real people who actually care about your success.</p>
+                </div>
+                <div class="message-time">10:02 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>That sounds perfect! But how do I know you're reliable? I've heard horror stories about designers disappearing mid-project.</p>
+                </div>
+                <div class="message-time">10:03 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>Totally valid concern! We're a committed husband-and-wife team with a real business to protect. We're "Design Daddy & Media Mommy" and we treat every project like it's our own.</p>
+                </div>
+                <div class="message-time">10:04 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>Haha, I love that! But seriously, what's your process like? I've worked with designers before who just throw something together without really understanding my business.</p>
+                </div>
+                <div class="message-time">10:05 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>👂We start by really listening to you—no templates, no assumptions. We want to understand your actual needs and goals, not just what we think you need.</p>
+                </div>
+                <div class="message-time">10:06 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>🤔 Then we take time to think through the best approach, not just the fastest one. We want to get it right for your business and your customers.</p>
+                </div>
+                <div class="message-time">10:08 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>🔨 We build something that actually works for you, and we're here after launch to help you succeed. We don't just disappear once the project is done.💪</p>
+                </div>
+                <div class="message-time">10:10 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>🥂 That sounds amazing! But what makes you different from the big agencies? I'm worried about getting lost in the shuffle.</p>
+                </div>
+                <div class="message-time">10:13 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>💬 We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project.</p>
+                </div>
+                <div class="message-time">10:14 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>🤝 We're a committed team with a proven track record and a real business to protect. We're here for the long haul! 🏃</p>
+                </div>
+                <div class="message-time">10:16 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>Most importantly, we're real people who care about real results. We want your project to succeed because your success is our success. 🏆</p>
+                </div>
+                <div class="message-time">10:18 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>I love this approach! You guys seem like exactly what I've been looking for. How do we get started?</p>
+                </div>
+                <div class="message-time">10:20 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>We'd love to hear more about your project! Let's <span onclick="toggleBooking(); return false;" style="text-decoration:underline;">set up a call</span> to chat about your vision and see how we can help bring it to life. 🎉</p>
+                </div>
+                <div class="message-time">10:21 AM</div>
+              </div>
             </div>
-          `;
+          </div>
+        </div>
+      `;
       
       // Initialize animations after content loads
       setTimeout(() => {
