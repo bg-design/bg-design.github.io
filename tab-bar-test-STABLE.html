@@ -4521,23 +4521,290 @@
       visibility: visible;
     }
 
-    .fortune-cookie {
-      background: #f4f4f4;
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
+    .fortune-cookie-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: all 0.8s ease;
-      position: relative;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      transform: scale(0.8);
     }
 
-    .fortune-cookie.spinning {
-      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Detailed Fortune Cookie Animation */
+    .fc {
+      background: transparent;
+      display: block;
+      position: relative;
+      width: 20em;
+      height: 17em;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .fc:focus {
+      outline: transparent;
+    }
+
+    .fc-part, .fc-crumbs, .fc-crumb, .fc-fortune {
+      position: absolute;
+      top: 0;
+    }
+
+    .fc-part, .fc-crumb {
+      background: currentColor;
+      color: #efaa5d;
+    }
+
+    .fc-part {
+      width: 8em;
+      height: 18em;
+      z-index: 2;
+    }
+
+    .left {
+      border-radius: 7em 1em 1em 7em / 50%;
+      box-shadow:
+        0.5em 0 0 inset,
+        0.5em 0.2em 0 inset,
+        1em 0.2em 0 #fff6 inset,
+        -0.75em 0 0 #0002 inset;
+      clip-path: polygon(0% 0%, 68% 0%, 100% 30%, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0% 0%, 68% 0%, 100% 30%, 100% 100%, 0% 100%);
+      left: calc(50% - 5.4em);
+      transform: rotate(25deg);
+      transform-origin: 68% 0;
+    }
+
+    .right {
+      border-radius: 1em 7em 7em 1em / 50%;
+      box-shadow:
+        -0.5em 0 0 inset,
+        -0.5em 0.2em 0 inset,
+        -1em 0.2em 0 #fff6 inset,
+        0.75em 0 0 #0002 inset;
+      clip-path: polygon(0% 30%, 32% 0%, 100% 0, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0% 30%, 32% 0%, 100% 0, 100% 100%, 0% 100%);
+      right: calc(50% - 5.4em);
+      transform: rotate(-25deg);
+      transform-origin: 32% 0;
+    }
+
+    .fc-crumbs {
+      left: calc(50% - 0.4em);
+      width: 0.8em;
+      height: 6em;
+      z-index: 1;
+    }
+
+    .fc-crumb {
+      border-radius: 50%;
+      width: 0.5em;
+      height: 0.5em;
+    }
+
+    .fc-crumb:nth-child(1) {
+      top: 4%;
+      left: 15%;
+    }
+
+    .fc-crumb:nth-child(2) {
+      top: 20%;
+      right: 15%;
+    }
+
+    .fc-crumb:nth-child(3) {
+      top: 30%;
+      left: 25%;
+    }
+
+    .fc-crumb:nth-child(4) {
+      top: 45%;
+      right: 25%;
+    }
+
+    .fc-crumb:nth-child(5) {
+      top: 55%;
+      left: 5%;
+    }
+
+    .fc-crumb:nth-child(6) {
+      top: 65%;
+      right: 5%;
+    }
+
+    .fc-crumb:nth-child(7) {
+      top: 75%;
+      left: 30%;
+    }
+
+    .fc-crumb:nth-child(8) {
+      top: 90%;
+      right: 35%;
+    }
+
+    /* Fortune */
+    .fc-fortune {
+      background: #fff;
+      color: #00c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.75em 1.5em;
+      text-align: center;
+      width: 26em;
+      height: 6em;
+      left: 0;
+      transform: scale(0,1);
+      transform-origin: 50% 32%;
+    }
+
+    .fc-fortune-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .fc-fortune::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2em;
+      height: 2em;
+      background: #00AEEF;
+    }
+
+    .fc-fortune::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2em;
+      height: 2em;
+      background: #EC008C;
+    }
+
+    .fc-fortune .corner-bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 2em;
+      height: 2em;
+      background: #39B54A;
+    }
+
+    .fc-fortune .corner-br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 2em;
+      height: 2em;
+      background: #FFCB05;
+    }
+
+    /* Animation States */
+    .spawned {
+      animation: popIn 0.3s linear;
+    }
+
+    .opened {
+      width: 26em;
+      height: 6em;
+    }
+
+    .opened .left {
+      animation: breakLeft 0.7s ease-in forwards;
+    }
+
+    .opened .right {
+      animation: breakRight 0.7s ease-in forwards;
+    }
+
+    .opened .fc-crumbs {
+      animation: fallOut 0.7s ease-in forwards;
+    }
+
+    .opened .fc-fortune {
+      animation: foldOut 0.7s ease-in forwards;
+    }
+
+    /* Animations */
+    @keyframes popIn {
+      from {
+        transform: scale(0);
+      }
+      75% {
+        transform: scale(1.1);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes breakLeft {
+      from {
+        transform: translateX(0) rotate(25deg);
+      }
+      30%, 40% {
+        transform: translateX(0) rotate(55deg);
+      }
+      70%, 80% {
+        opacity: 1;
+        transform: translateX(-14em) rotate(50deg);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-14em) rotate(50deg);
+      }
+    }
+
+    @keyframes breakRight {
+      from {
+        transform: translateX(0) rotate(-25deg);
+      }
+      30%, 40% {
+        transform: translateX(0) rotate(-55deg);
+      }
+      70%, 80% {
+        opacity: 1;
+        transform: translateX(14em) rotate(-50deg);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(14em) rotate(-50deg);
+      }
+    }
+
+    @keyframes fallOut {
+      from {
+        left: calc(50% - 0.4em);
+        width: 0.8em;
+        transform: translateY(0);
+      }
+      30% {
+        opacity: 1;
+      }
+      60%, to {
+        opacity: 0;
+        left: calc(50% - 3em);
+        width: 6em;
+        transform: translateY(24em);
+      }
+    }
+
+    @keyframes foldOut {
+      from {
+        transform: scale(0.23,0.7);
+      }
+      30%, 40% {
+        transform: scale(0.5,0.7);
+      }
+      69% {
+        transform: scale(1,0.7);
+      }
+      74%, to {
+        transform: scale(1,1);
+      }
     }
 
     .fortune-cookie.active {
@@ -7568,7 +7835,27 @@
   const fortuneOverlay = document.createElement('div');
   fortuneOverlay.className = 'fortune-cookie-overlay';
   fortuneOverlay.innerHTML = `
-    <div class="fortune-cookie"></div>
+    <div class="fortune-cookie-container">
+      <button class="fc spawned" type="button">
+        <div class="fc-part left"></div>
+        <div class="fc-part right"></div>
+        <div class="fc-crumbs">
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+        </div>
+        <div class="fc-fortune">
+          <p class="fc-fortune-text">No fortune</p>
+          <div class="corner-bl"></div>
+          <div class="corner-br"></div>
+        </div>
+      </button>
+    </div>
     <div class="fortune-content">
       <button class="fortune-close" onclick="closeFortune()">×</button>
       <div class="fortune-principle"></div>
@@ -7579,28 +7866,26 @@
 
   function showFortune() {
     const overlay = document.querySelector('.fortune-cookie-overlay');
-    const cookie = document.querySelector('.fortune-cookie');
+    const fcButton = document.querySelector('.fc');
+    const fortuneText = document.querySelector('.fc-fortune-text');
     const content = document.querySelector('.fortune-content');
     const principle = document.querySelector('.fortune-principle');
     const explanation = document.querySelector('.fortune-explanation');
     
-    // Show overlay and cookie
+    // Show overlay
     overlay.classList.add('active');
-    setTimeout(() => {
-      cookie.classList.add('active');
-    }, 100);
     
-    // After cookie appears, start the spin and fade animation
+    // Set the fortune text in the cookie
+    const fortune = fortunes[currentFortuneIndex];
+    fortuneText.textContent = fortune.principle;
+    
+    // After a short delay, trigger the opening animation
     setTimeout(() => {
-      cookie.classList.add('spinning');
-      cookie.style.transform = 'scale(1.5) rotate(360deg)';
-      cookie.style.opacity = '0';
+      fcButton.classList.remove('spawned');
+      fcButton.classList.add('opened');
       
-      // After spin animation, show the fortune content
+      // After the cookie opens and shows the fortune, show our modal
       setTimeout(() => {
-        cookie.style.visibility = 'hidden';
-        
-        const fortune = fortunes[currentFortuneIndex];
         principle.textContent = fortune.principle;
         
         let bulletsHTML = '';
@@ -7615,13 +7900,13 @@
         `;
         
         content.classList.add('active');
-      }, 800); // Wait for spin animation to complete
-    }, 500); // Wait for cookie to appear
+      }, 1400); // Wait for cookie opening animation to complete
+    }, 500); // Wait for overlay to appear
   }
 
   function nextFortune() {
     const overlay = document.querySelector('.fortune-cookie-overlay');
-    const cookie = document.querySelector('.fortune-cookie');
+    const fcButton = document.querySelector('.fc');
     const content = document.querySelector('.fortune-content');
     
     // Hide current content
@@ -7629,10 +7914,8 @@
     
     // Reset cookie for next animation
     setTimeout(() => {
-      cookie.style.visibility = 'visible';
-      cookie.style.transform = 'scale(0.8) rotate(0deg)';
-      cookie.style.opacity = '1';
-      cookie.classList.remove('spinning');
+      fcButton.classList.remove('opened');
+      fcButton.classList.add('spawned');
       
       // Move to next fortune
       currentFortuneIndex = (currentFortuneIndex + 1) % fortunes.length;
@@ -7644,16 +7927,14 @@
 
   function closeFortune() {
     const overlay = document.querySelector('.fortune-cookie-overlay');
-    const cookie = document.querySelector('.fortune-cookie');
+    const fcButton = document.querySelector('.fc');
     const content = document.querySelector('.fortune-content');
     
     content.classList.remove('active');
     
     setTimeout(() => {
-      cookie.style.visibility = 'visible';
-      cookie.style.transform = 'scale(0.8) rotate(0deg)';
-      cookie.style.opacity = '1';
-      cookie.classList.remove('spinning', 'active');
+      fcButton.classList.remove('opened');
+      fcButton.classList.add('spawned');
       overlay.classList.remove('active');
     }, 300);
   }
