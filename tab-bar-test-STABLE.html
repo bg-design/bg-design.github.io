@@ -426,7 +426,6 @@
       margin: 20px auto;
       line-height: 1.6;
       border-radius: 12px;
-      background: white;
       backdrop-filter: blur(10px);
       padding: 10px;
     }
@@ -5675,6 +5674,7 @@
                   <h2 class="script-heading">Ready to get started?</h2>
                   <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
                   <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
+                  <button class="test-services-button" onclick="testServicesSlide()" style="margin-left: 10px; padding: 8px 16px; background: #EC008C; color: white; border: none; border-radius: 6px; cursor: pointer;">Test Services Slide</button>
                 </div>
               </div>
             </div>
@@ -7204,6 +7204,12 @@
     console.log('Testing pause overlay');
     isPaused = true;
     pauseOverlay.style.display = 'flex';
+  };
+  
+  // Test function to manually go to services slide
+  window.testServicesSlide = function() {
+    console.log('Testing services slide');
+    transitionToSlide(3);
   };
   
   // Add click handlers directly to slide elements for better reliability
