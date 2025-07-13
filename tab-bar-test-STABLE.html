@@ -4499,6 +4499,243 @@
       overflow: visible;
     }
 
+    /* Fortune Cookie Styles */
+    .fortune-cookie-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+      }
+
+    .fortune-cookie-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fortune-cookie {
+      background: #f4f4f4;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.8s ease;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8);
+    }
+
+    .fortune-cookie.spinning {
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fortune-cookie.active {
+      transform: scale(1);
+    }
+
+    .fortune-cookie:hover {
+      transform: scale(1.05);
+    }
+
+    .fortune-cookie::before {
+      content: '🥠';
+      font-size: 4rem;
+      transition: all 0.3s ease;
+      }
+
+    .fortune-cookie.cracked::before {
+      content: '🍪';
+      transform: rotate(180deg);
+    }
+
+    .fortune-content {
+      position: absolute;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .fortune-content.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fortune-principle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #EC008C;
+      margin-bottom: 1rem;
+    }
+
+    .fortune-explanation {
+        font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      }
+
+    .fortune-explanation ul {
+      text-align: left;
+      margin-top: 1rem;
+      }
+
+    .fortune-explanation li {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    .fortune-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+    }
+
+    .fortune-close:hover {
+      color: #EC008C;
+    }
+
+    .next-fortune-btn {
+      background: #EC008C;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(236, 0, 140, 0.3);
+    }
+
+    .next-fortune-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(236, 0, 140, 0.4);
+      background: #d1007a;
+    }
+
+    [data-theme="dark"] .fortune-cookie {
+      background: #2a2a2a;
+    }
+
+    [data-theme="dark"] .fortune-content {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    [data-theme="dark"] .fortune-explanation {
+      color: #ccc;
+    }
+
+    [data-theme="dark"] .fortune-explanation li {
+      color: #bbb;
+    }
+
+    /* Homepage Fortune Cookie Section */
+    .fortune-section {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .fortune-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: #EC008C;
+      margin-bottom: 1rem;
+    }
+
+    .fortune-section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .fortune-cookie-homepage {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 2rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border: 2px solid #dee2e6;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .fortune-cookie-homepage:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      border-color: #EC008C;
+    }
+
+    .fortune-cookie-emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .fortune-cookie-homepage:hover .fortune-cookie-emoji {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .fortune-cookie-text {
+      font-size: 1rem;
+      color: #666;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] .fortune-section-title {
+      color: #EC008C;
+    }
+
+    [data-theme="dark"] .fortune-section-subtitle {
+      color: #ccc;
+    }
+
+    [data-theme="dark"] .fortune-cookie-homepage {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      border-color: #3d444e;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .fortune-section-subtitle {
+      color: #ccc;
+    }
+
+    [data-theme="dark"] .fortune-cookie-homepage:hover {
+      border-color: #EC008C;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .fortune-cookie-text {
+      color: #ccc;
+    }
+
     .services-section {
       display: flex;
       flex-direction: column;
@@ -5180,8 +5417,8 @@
           const mainContent = document.getElementById('mainContent');
           mainContent.innerHTML = `
         <div class="about-page">
-              <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-
+          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          
           <!-- Main Story Section -->
           <div class="story-section">
             <div class="story-container">
@@ -5201,9 +5438,9 @@
                       <div class="photo-caption">That's us! 👋</div>
                     </div>
                   </div>
+                </div>
               </div>
             </div>
-          </div>
 
           <!-- How We Work Section -->
           <div class="how-we-work-section">
@@ -5213,7 +5450,7 @@
                 <div class="step-number">1</div>
                 <h3>We Listen</h3>
                 <p>No templates, no assumptions. We start by understanding your real needs and goals.</p>
-              </div>
+                </div>
               <div class="work-step step-2">
                 <div class="step-number">2</div>
                 <h3>We Think</h3>
@@ -5230,7 +5467,7 @@
                 <p>We're here after launch to help you succeed, not just disappear.</p>
               </div>
             </div>
-          </div>
+              </div>
 
           <!-- Why We're Different Section -->
           <div class="personal-section">
@@ -5272,103 +5509,103 @@
               
               <div class="conversation-thread">
                 <div class="text-thread">
-                  <div class="message sent">
-                    <div class="message-bubble">
+              <div class="message sent">
+                <div class="message-bubble">
                       <p>Hi! I'm looking for help with my website. I want something that actually feels like my business, not just a generic template.</p>
-                    </div>
+                </div>
                     <div class="message-time">10:02 AM</div>
-                  </div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
-                      <p>We totally get that! That's exactly why we started Nuanced Design. We wanted to create digital experiences that feel human—like you're talking to real people who actually care about your success.</p>
-                    </div>
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>We totally get that! That's exactly why we started Nuanced Design. We wanted to create digital experiences that feel human—like you're talking to real people who actually care about your success.</p>
+                </div>
                     <div class="message-time">10:03 AM</div>
-                  </div>
+              </div>
 
-                  <div class="message sent">
-                    <div class="message-bubble">
+              <div class="message sent">
+                <div class="message-bubble">
                       <p>That sounds perfect! But how do I know you're reliable? I've heard horror stories about designers disappearing mid-project.</p>
-                    </div>
-                    <div class="message-time">10:03 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:03 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>Totally valid concern! We're a committed husband-and-wife team with a real business to protect. We're "Design Daddy & Media Mommy" and we treat every project like it's our own.</p>
-                    </div>
-                    <div class="message-time">10:04 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:04 AM</div>
+              </div>
 
-                  <div class="message sent">
-                    <div class="message-bubble">
-                      <p>Haha, I love that! But seriously, what's your process like? I've worked with designers before who just throw something together without really understanding my business.</p>
-                    </div>
-                    <div class="message-time">10:05 AM</div>
-                  </div>
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>Haha, I love that! But seriously, what's your process like? I've worked with designers before who just throw something together without really understanding my business.</p>
+                </div>
+                <div class="message-time">10:05 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>We follow our 4 D's: Discover, Design, Develop, Deliver. No templates, no assumptions—just real understanding of your needs.</p>
-                    </div>
-                    <div class="message-time">10:06 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:06 AM</div>
+              </div>
 
                   <div class="message sent">
-                    <div class="message-bubble">
+                <div class="message-bubble">
                       <p>That sounds great! But what about pricing? I'm worried about hidden costs or getting locked into something I can't afford.</p>
-                    </div>
-                    <div class="message-time">10:08 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:08 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>💰 We're completely transparent about pricing. No hidden fees, no surprises. We work with your budget and give you exactly what you need—nothing more, nothing less.</p>
-                    </div>
-                    <div class="message-time">10:10 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:10 AM</div>
+              </div>
 
-                  <div class="message sent">
-                    <div class="message-bubble">
+              <div class="message sent">
+                <div class="message-bubble">
                       <p>Perfect! But how long does a typical project take? I need something that actually gets done on time.</p>
-                    </div>
-                    <div class="message-time">10:13 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:13 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>⏰ We're realistic about timelines and keep you updated every step of the way. Most projects take 4-8 weeks, but we'll give you a specific timeline based on your needs.</p>
-                    </div>
-                    <div class="message-time">10:14 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:14 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>And we don't just disappear after launch—we're here to help you succeed long-term! 🚀</p>
-                    </div>
-                    <div class="message-time">10:16 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:16 AM</div>
+              </div>
 
-                  <div class="message sent">
-                    <div class="message-bubble">
-                      <p>I love this approach! You guys seem like exactly what I've been looking for. How do we get started?</p>
-                    </div>
-                    <div class="message-time">10:20 AM</div>
-                  </div>
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>I love this approach! You guys seem like exactly what I've been looking for. How do we get started?</p>
+                </div>
+                <div class="message-time">10:20 AM</div>
+              </div>
 
-                  <div class="message received">
-                    <div class="message-bubble">
+              <div class="message received">
+                <div class="message-bubble">
                       <p>We'd love to hear more about your project! Let's <span onclick="toggleBooking(); return false;" style="text-decoration:underline;">set up a call</span> to chat about your vision and see how we can help bring it to life. 🎉</p>
-                    </div>
-                    <div class="message-time">10:21 AM</div>
-                  </div>
+                </div>
+                <div class="message-time">10:21 AM</div>
+              </div>
                 </div>
               </div>
             </div>
           </div>
 
-            </div>
-          `;
+        </div>
+      `;
       
       // Initialize animations after content loads
       setTimeout(() => {
@@ -5646,6 +5883,16 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        
+        <!-- Fortune Cookie Section -->
+        <div class="dottedBox fortune-section" id="fortuneSection" style="margin-top: 0;">
+          <h2 class="fortune-section-title">A Fortune for Your Journey</h2>
+          <p class="fortune-section-subtitle">Click the cookie to discover one of our guiding principles</p>
+          <div class="fortune-cookie-homepage" onclick="showFortune()">
+            <div class="fortune-cookie-emoji">🥠</div>
+            <p class="fortune-cookie-text">Click for wisdom</p>
           </div>
         </div>
         
@@ -6734,15 +6981,6 @@
                   <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
                   <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
                   <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
-      <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
-                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
-                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
-                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
-                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
-                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
-                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
-                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
                 </div>
               </div>
             </div>
@@ -7011,7 +7249,7 @@
       name: "Andrew Murray Dunn",
       role: "Founder at Siempo, November 2019",
       img: "IMG/andrewdunn.jpeg",
-      text: "Theo was professional and delivered on-time for work with Siempo. I'd recommend him for any project related to web design, UX, or Wordpress. He implemented a style guide to give our web site a clean and consistent look. He also mocked-up a beautiful concept app that we were developing. Theo has an eye for detail that was helpful to get things nice and polished. A pleasure to work with!"
+      text: "Theo was professional and delivered on-time for work with Siempo. Id recommend him for any project related to web design, UX, or Wordpress. He implemented a style guide to give our web site a clean and consistent look. He also mocked-up a beautiful concept app that we were developing. Theo has an eye for detail that was helpful to get things nice and polished. A pleasure to work with!"
     },
     {
       name: "Ana Sol Ordoñez",
@@ -7264,6 +7502,173 @@
     setupInfiniteScroll('.scrolling-clients', 1.2); // speed in px/frame
     setupInfiniteScroll('.scrolling-platforms', 1.2);
   });
+
+  // Fortune Cookie System
+  const fortunes = [
+    {
+      principle: "Less is more.",
+      explanation: "We believe in clean, focused design that communicates clearly without clutter.",
+      bullets: [
+        "Remove unnecessary elements that don't serve the user",
+        "Focus on what truly matters to your audience",
+        "Clean design builds trust and clarity"
+      ]
+    },
+    {
+      principle: "Simplicity is the ultimate sophistication.",
+      explanation: "Complex problems require elegant, simple solutions.",
+      bullets: [
+        "Break down complex challenges into simple steps",
+        "Create intuitive user experiences",
+        "Sophisticated design feels effortless to use"
+      ]
+    },
+    {
+      principle: "Porque no los dos?",
+      explanation: "Why choose when you can have both? We believe in creating win-win solutions that benefit everyone.",
+      bullets: [
+        "Beautiful AND functional design",
+        "Creative AND strategic thinking", 
+        "Fast AND thorough execution",
+        "Your success IS our success"
+      ]
+    },
+    {
+      principle: "Creativity loves constraints.",
+      explanation: "Limitations spark innovation and lead to better solutions.",
+      bullets: [
+        "Budget constraints drive creative problem-solving",
+        "Technical limitations inspire new approaches",
+        "Deadlines focus creative energy"
+      ]
+    },
+    {
+      principle: "Test early and often.",
+      explanation: "Real user feedback is the best way to improve your design.",
+      bullets: [
+        "Validate ideas with actual users",
+        "Iterate based on real feedback",
+        "Fail fast, learn faster"
+      ]
+    },
+    {
+      principle: "Keep calm and iterate on.",
+      explanation: "Design is a process, not a one-time event.",
+      bullets: [
+        "Stay focused during challenges",
+        "Continuous improvement over perfection",
+        "Every iteration brings you closer to success"
+      ]
+    }
+  ];
+
+  let currentFortuneIndex = 0;
+
+  // Create fortune cookie overlay
+  const fortuneOverlay = document.createElement('div');
+  fortuneOverlay.className = 'fortune-cookie-overlay';
+  fortuneOverlay.innerHTML = `
+    <div class="fortune-cookie"></div>
+    <div class="fortune-content">
+      <button class="fortune-close" onclick="closeFortune()">×</button>
+      <div class="fortune-principle"></div>
+      <div class="fortune-explanation"></div>
+    </div>
+  `;
+  document.body.appendChild(fortuneOverlay);
+
+  function showFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const cookie = document.querySelector('.fortune-cookie');
+    const content = document.querySelector('.fortune-content');
+    const principle = document.querySelector('.fortune-principle');
+    const explanation = document.querySelector('.fortune-explanation');
+    
+    // Show overlay and cookie
+    overlay.classList.add('active');
+    setTimeout(() => {
+      cookie.classList.add('active');
+    }, 100);
+    
+    // After cookie appears, start the spin and fade animation
+    setTimeout(() => {
+      cookie.classList.add('spinning');
+      cookie.style.transform = 'scale(1.5) rotate(360deg)';
+      cookie.style.opacity = '0';
+      
+      // After spin animation, show the fortune content
+      setTimeout(() => {
+        cookie.style.visibility = 'hidden';
+        
+        const fortune = fortunes[currentFortuneIndex];
+        principle.textContent = fortune.principle;
+        
+        let bulletsHTML = '';
+        fortune.bullets.forEach(bullet => {
+          bulletsHTML += `<li>${bullet}</li>`;
+        });
+        
+        explanation.innerHTML = `
+          <p>${fortune.explanation}</p>
+          <ul>${bulletsHTML}</ul>
+          <button class="next-fortune-btn" onclick="nextFortune()">🥠 Get Another Fortune</button>
+        `;
+        
+        content.classList.add('active');
+      }, 800); // Wait for spin animation to complete
+    }, 500); // Wait for cookie to appear
+  }
+
+  function nextFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const cookie = document.querySelector('.fortune-cookie');
+    const content = document.querySelector('.fortune-content');
+    
+    // Hide current content
+    content.classList.remove('active');
+    
+    // Reset cookie for next animation
+    setTimeout(() => {
+      cookie.style.visibility = 'visible';
+      cookie.style.transform = 'scale(0.8) rotate(0deg)';
+      cookie.style.opacity = '1';
+      cookie.classList.remove('spinning');
+      
+      // Move to next fortune
+      currentFortuneIndex = (currentFortuneIndex + 1) % fortunes.length;
+      
+      // Show new fortune
+      showFortune();
+    }, 300);
+  }
+
+  function closeFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const cookie = document.querySelector('.fortune-cookie');
+    const content = document.querySelector('.fortune-content');
+    
+    content.classList.remove('active');
+    
+    setTimeout(() => {
+      cookie.style.visibility = 'visible';
+      cookie.style.transform = 'scale(0.8) rotate(0deg)';
+      cookie.style.opacity = '1';
+      cookie.classList.remove('spinning', 'active');
+      overlay.classList.remove('active');
+    }, 300);
+  }
+
+  // Add fortune cookie trigger to animation sequence
+  function triggerFortuneCookie() {
+    setTimeout(() => {
+      showFortune();
+    }, 2000); // Show after 2 seconds
+  }
+
+  // Add to global scope for onclick handlers
+  window.closeFortune = closeFortune;
+  window.triggerFortuneCookie = triggerFortuneCookie;
+  window.nextFortune = nextFortune;
 
   </script>
     
