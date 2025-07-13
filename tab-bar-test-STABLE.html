@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Add Bebas Neue font for headings -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
@@ -205,9 +205,6 @@
 }
 
 /* Override light mode colors for page-specific themes */
-[data-theme="light"] .about-page h1, [data-theme="light"] .about-page h2, [data-theme="light"] .about-page h3, [data-theme="light"] .about-page h4, [data-theme="light"] .about-page h5, [data-theme="light"] .about-page h6 {
-  color: #EC008C !important;
-}
 [data-theme="light"] .about-page h1 {
   border-bottom: 3px solid #EC008C !important;
 }
@@ -2112,7 +2109,6 @@
     .team-photo-caption {
       font-size: 0.9rem;
       font-weight: 600;
-      color: #333;
       line-height: 1.3;
     }
 
@@ -3800,6 +3796,559 @@
       }
     }
 
+    /* About Page Styles */
+    .about-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .about-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #EC008C, #00AEEF);
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .content p.hero-subtitle, .content .about-cta p {
+      background: none;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem 0 2rem 0;
+      color: #333;
+    }
+
+    .story-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    [data-theme="dark"] .story-section {
+      background: #2a2b32;
+    }
+
+    .story-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .story-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    [data-theme="dark"] .about-page p {
+      color: white;
+    }
+
+    .story-intro {
+      font-size: 1.4rem !important;
+      font-weight: 600;
+      color: #EC008C !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .team-photo-story {
+      text-align: center;
+    }
+
+    .story-photo {
+      width: 300px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+    }
+
+    .photo-caption {
+      font-size: 1.1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    [data-theme="dark"] .photo-caption {
+      color: #ccc;
+    }
+
+    .floating-elements {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .floating-icon {
+      font-size: 3rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-of-type(2) {
+      animation: runLeftRight 2s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-of-type(3) {
+      animation: expandShrink 2s ease-in-out infinite;
+    }
+
+    .values-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      border: 2px solid transparent;
+    }
+
+    .value-card.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .value-card:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+      border-color: #EC008C;
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    [data-theme="dark"] .value-card h3 {
+      color: #fff;
+    }
+
+    .value-description {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    [data-theme="dark"] .value-description {
+      color: #ccc;
+    }
+
+    .how-we-work-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    [data-theme="dark"] .how-we-work-section {
+      background: #23272b;
+    }
+
+    .work-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .work-step {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: white;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border: 3px solid transparent;
+    }
+
+    [data-theme="dark"] .work-step {
+      background: #23272b;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .work-step.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-step:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    }
+
+    /* Color coding for each step */
+    .step-1 {
+      border-color: #00AEEF;
+    }
+    .step-1 .step-number {
+      background: #00AEEF;
+    }
+    .step-1 h3 {
+      color: #00AEEF;
+    }
+
+    .step-2 {
+      border-color: #EC008C;
+    }
+    .step-2 .step-number {
+      background: #EC008C;
+    }
+    .step-2 h3 {
+      color: #EC008C;
+    }
+
+    .step-3 {
+      border-color: #39B54A;
+    }
+    .step-3 .step-number {
+      background: #39B54A;
+    }
+    .step-3 h3 {
+      color: #39B54A;
+    }
+
+    .step-4 {
+      border-color: #FFCB05;
+    }
+    .step-4 .step-number {
+      background: #FFCB05;
+    }
+    .step-4 h3 {
+      color: #FFCB05;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1rem auto;
+    }
+
+    .work-step h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    [data-theme="dark"] .work-step h3 {
+      color: #fff;
+    }
+
+    .work-step p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    [data-theme="dark"] .work-step p {
+      color: #ccc;
+    }
+
+    .personal-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    [data-theme="dark"] .personal-section {
+      background: #2a2b32;
+    }
+
+    .personal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .personal-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .personal-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .mobile-emoji {
+      display: none;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .mobile-emoji:nth-of-type(2) {
+      animation: runLeftRight 2s ease-in-out infinite;
+    }
+
+    .mobile-emoji:nth-of-type(3) {
+      animation: expandShrink 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes runLeftRight {
+      0%, 100% { transform: translateX(0px); }
+      25% { transform: translateX(-15px); }
+      75% { transform: translateX(15px); }
+    }
+
+    @keyframes expandShrink {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .services-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .service-item.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-item h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    [data-theme="dark"] .service-item h3 {
+      color: #fff;
+    }
+
+    .service-item p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    [data-theme="dark"] .service-item p {
+      color: #ccc;
+    }
+
+    .about-cta {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #39B54A, #00AEEF);
+      color: white;
+      text-align: center;
+    }
+
+    .about-cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      background: white;
+      color: #39B54A;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile responsive for about page */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .story-photo {
+        width: 250px;
+      }
+
+      .work-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .work-step {
+        padding: 2rem 1.5rem;
+      }
+
+      .personal-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .story-section,
+      .how-we-work-section,
+      .personal-section {
+        padding: 2rem 1rem;
+      }
+
+      /* Show mobile emojis and hide desktop floating elements on mobile */
+      .mobile-emoji {
+        display: block;
+      }
+
+      .personal-visual {
+        display: none;
+      }
+
+      .personal-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
     /* Slide 3: Our Services */
     .slide-3 {
       display: flex;
@@ -4200,7 +4749,7 @@
   @keyframes scroll-marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-  }
+    }
   </style>
 </head>
 <body>
@@ -4490,31 +5039,140 @@
     }
 
     function openAbout() {
-      // Load markdown content
-      fetch('about.md')
-        .then(response => response.text())
-        .then(markdown => {
-          // Remove Jekyll front matter (lines between ---)
-          const content = markdown.replace(/^---[\s\S]*?---\s*/, '');
-          
-          // Convert markdown to HTML
-          const html = marked.parse(content);
-          
-          // Update the main content area
           const mainContent = document.getElementById('mainContent');
           mainContent.innerHTML = `
-            <div class="markdown-content about-page">
+        <div class="about-page">
               <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-              ${html}
+          
+          <!-- Hero Section -->
+          <div class="about-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+              <h1 class="hero-title">Our Story</h1>
+              <p class="hero-subtitle">Theo & Quinn</p>
+            </div>
+          </div>
+
+          <!-- Main Story Section -->
+          <div class="story-section">
+            <div class="story-container">
+              <div class="story-content">
+                <div class="story-text">
+                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel human.</p>
+                  
+                  <p>It all started when we realized that most websites felt cold and corporate. We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
+                  
+                  <p>So we started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend? What if we actually listened to what people needed instead of just selling them what we wanted to build?</p>
+                  
+                  <p>That's how we became "Design Daddy & Media Mommy." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't.</p>
+                </div>
+                                  <div class="story-visual">
+                    <div class="team-photo-story">
+                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo">
+                      <div class="photo-caption">That's us! 👋</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How We Work Section -->
+          <div class="how-we-work-section">
+            <h2 class="section-title">How We Actually Work</h2>
+            <div class="work-steps">
+              <div class="work-step step-1">
+                <div class="step-number">1</div>
+                <h3>We Listen</h3>
+                <p>No templates, no assumptions. We start by understanding your real needs and goals.</p>
+              </div>
+              <div class="work-step step-2">
+                <div class="step-number">2</div>
+                <h3>We Think</h3>
+                <p>We take time to figure out the best approach, not just the fastest one.</p>
+              </div>
+              <div class="work-step step-3">
+                <div class="step-number">3</div>
+                <h3>We Build</h3>
+                <p>We create something that actually works for your business and your customers.</p>
+              </div>
+              <div class="work-step step-4">
+                <div class="step-number">4</div>
+                <h3>We Support</h3>
+                <p>We're here after launch to help you succeed, not just disappear.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Touch Section -->
+          <div class="personal-section">
+            <div class="personal-container">
+              <h2 class="section-title">Why We're Different</h2>
+              <div class="personal-content">
+                <div class="personal-text">
+                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project.</p>
+                  
+                  <div class="mobile-emoji">💬</div>
+                  
+                  <p>We're also not a freelancer who might disappear halfway through. We're a committed team with a proven track record and a real business to protect.</p>
+                  
+                  <div class="mobile-emoji">🏃</div>
+                  
+                  <p>Most importantly, we're real people who care about real results. We want your project to succeed because your success is our success.</p>
+                  
+                  <div class="mobile-emoji">🏆</div>
+                </div>
+                <div class="personal-visual">
+                  <div class="floating-elements">
+                    <div class="floating-icon">💬</div>
+                    <div class="floating-icon">🏃</div>
+                    <div class="floating-icon">🏆</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple CTA -->
+          <div class="about-cta">
+            <h2>Want to know more?</h2>
+            <p>We'd love to hear your story too.</p>
+            <button class="cta-button" onclick="toggleBooking(); return false;">Tell us about your project</button>
+          </div>
             </div>
           `;
+      
+      // Initialize animations after content loads
+      setTimeout(() => {
+        initializeAboutAnimations();
+      }, 100);
           
           // Scroll to top
           window.scrollTo(0, 0);
-        })
-        .catch(error => {
-          console.error('Error loading about content:', error);
-          alert('Error loading about content. Please try again.');
+    }
+
+    function initializeAboutAnimations() {
+      // Animate value cards on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.value-card, .service-item, .work-step').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Add hover effects to value cards
+      document.querySelectorAll('.value-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
         });
     }
 
@@ -4660,7 +5318,7 @@
       mainContent.innerHTML = `
         <div id="AnimationPitch">
           <div class="homepage-hero">
-                        <div class="hero-content">
+            <div class="hero-content">
               <div id="pauseOverlay" style="display:none;width:60px;height:60px;background:rgba(0,0,0,0.3);align-items:center;justify-content:center;cursor:pointer;border-radius:8px;margin:0 auto;position:relative;z-index:1000;">
                 <svg width="30" height="30" viewBox="0 0 120 120" style="fill:#fff;">
                   <rect x="35" y="25" width="15" height="70" rx="3"/>
@@ -4686,7 +5344,7 @@
                 <div class="team-photo-section">
                   <h2 class="team-photo-title" id="teamPhotoTitle">Meet Your Team</h2>
                   <div class="team-photo-container">
-                    <img src="IMG/ferris-wheel-team.jpeg" alt="Design Daddy & Media Mommy Team" class="team-photo-large">
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy Team" class="team-photo-large">
                     <div class="team-photo-caption-large">Theo & Quinn<br><span class="team-role-large">Your Digital Parents</span></div>
                   </div>
                 </div>
@@ -5030,7 +5688,7 @@
           lookLegitElement.classList.add('animate-legit');
         }, 600);
       }, 800);
-
+      
       // Service 2: "Feel alive" - grows, shakes, turns green with pulse
       setTimeout(() => {
         const element = document.getElementById('service2');
@@ -5040,13 +5698,13 @@
           feelAliveElement.classList.add('animate-alive');
         }, 1000);
       }, 2800);
-
+      
       // Service 3: "Digital presence" - dramatic slide in
       setTimeout(() => {
         const element = document.getElementById('service3');
         element.classList.add('animate-in');
       }, 4800);
-
+      
       // Animate the impact line with dramatic entrance
       setTimeout(() => {
         const impactElement = document.getElementById('impact');

@@ -199,6 +199,378 @@
       transform: translateX(-50%);
       z-index: -1;
     }
+
+    /* About Page Styles */
+    .about-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 20px 0;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #333;
+    }
+
+    .about-hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #EC008C, #00AEEF);
+      border-radius: 20px;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('IMG/your-team-studio-wine.jpg') center/cover;
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .story-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .story-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .story-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .story-intro {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .story-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .team-photo-story {
+      text-align: center;
+    }
+
+    .story-photo {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+    }
+
+    .photo-caption {
+      font-size: 1.1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .floating-elements {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .floating-icon {
+      font-size: 3rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .floating-icon:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .mobile-emoji {
+      display: none;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #333;
+    }
+
+    .how-we-work-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .work-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .work-step {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: white;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border: 3px solid transparent;
+    }
+
+    .work-step.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-step:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+    }
+
+    /* Color coding for each step */
+    .step-1 {
+      border-color: #00AEEF;
+    }
+    .step-1 .step-number {
+      background: #00AEEF;
+    }
+    .step-1 h3 {
+      color: #00AEEF;
+    }
+
+    .step-2 {
+      border-color: #EC008C;
+    }
+    .step-2 .step-number {
+      background: #EC008C;
+    }
+    .step-2 h3 {
+      color: #EC008C;
+    }
+
+    .step-3 {
+      border-color: #39B54A;
+    }
+    .step-3 .step-number {
+      background: #39B54A;
+    }
+    .step-3 h3 {
+      color: #39B54A;
+    }
+
+    .step-4 {
+      border-color: #FFCB05;
+    }
+    .step-4 .step-number {
+      background: #FFCB05;
+    }
+    .step-4 h3 {
+      color: #FFCB05;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1rem auto;
+    }
+
+    .work-step h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .work-step p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .personal-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .personal-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .personal-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .personal-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .about-cta {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #39B54A, #00AEEF);
+      color: white;
+      text-align: center;
+    }
+
+    .about-cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      background: white;
+      color: #39B54A;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Mobile responsive for about page */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .story-photo {
+        width: 250px;
+      }
+
+      .work-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .work-step {
+        padding: 2rem 1.5rem;
+      }
+
+      .personal-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .story-section,
+      .how-we-work-section,
+      .personal-section {
+        padding: 2rem 1rem;
+      }
+
+      /* Show mobile emojis and hide desktop floating elements on mobile */
+      .mobile-emoji {
+        display: block;
+      }
+
+      .personal-visual {
+        display: none;
+      }
+
+             .personal-text p {
+         font-size: 1.1rem;
+         margin-bottom: 1rem;
+       }
+     }
     .tab-bar::before {
       top: -80px;
       height: 80px;
@@ -496,6 +868,42 @@ function closeBooking() {
     el.classList.add('active');
   }
 
+  function navigateToPage(page) {
+    // Update URL without triggering the hashchange event
+    const currentHash = window.location.hash;
+    const newHash = page === 'home' ? '#home' : `#${page}`;
+    
+    if (currentHash !== newHash) {
+      window.location.hash = newHash;
+    }
+  }
+
+  function initializeAboutAnimations() {
+    // Animate value cards on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.value-card, .service-item, .work-step').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add hover effects to value cards
+    document.querySelectorAll('.value-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.05)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  }
+
   function setContent(section) {
   const content = document.getElementById('mainContent');
   let html = '';
@@ -504,7 +912,111 @@ function closeBooking() {
       html = '<section id="process"><h2>Our Process</h2><p>We follow a proven Double Diamond human-centered design approach, combined with Agile and Lean sprints, to deliver solutions that truly work — on time and on budget.</p><h3>Discover</h3><ul><li><strong>Research:</strong> Stakeholder interviews, user surveys, market and competitor analysis.</li><li><strong>Insights:</strong> Analyze data, identify key pain points, create personas and journey maps.</li></ul><h3>Define & Ideate</h3><ul><li><strong>Ideation Workshops:</strong> Brainstorm and prioritize creative solutions.</li><li><strong>Concept Development:</strong> Sketches, wireframes, and early prototypes.</li></ul><h3>Design & Test (Iterate)</h3><ul><li><strong>Design:</strong> High-fidelity UI/UX design and interactive prototypes.</li><li><strong>Feedback & Testing:</strong> Usability testing, A/B testing, gather insights and iterate rapidly.</li><li><strong>Agile/Lean Sprints:</strong> Weekly or bi-weekly sprint cycles, with regular demos and reviews.</li></ul><h3>Build & Deploy</h3><ul><li><strong>Build:</strong> Front-end and back-end development, performance optimization, QA testing.</li><li><strong>Deploy:</strong> Staging environment checks, smooth launch, monitoring, and post-launch support.</li></ul><h3>Contracts & Timeline</h3><ul><li><strong>Proposal & Contract:</strong> Transparent scope, deliverables, and payment milestones.</li><li><strong>Timeline:</strong> Average duration: X–Y weeks, with weekly updates and built-in flexibility.</li></ul><h3>What You Get</h3><ul><li>User-validated solutions that solve real problems.</li><li>A flexible, collaborative team that adapts quickly.</li><li>A clear, structured process — no surprises.</li></ul><p><strong>Ready to start?</strong> Contact us today to book a free consultation.</p></section>';
       break;
     case 'about':
-      html = '<h2>About Us</h2><p>Meet our team...</p>';
+      html = `
+        <div class="about-page">
+          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          
+          <!-- Hero Section -->
+          <div class="about-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+              <h1 class="hero-title">Our Story</h1>
+              <p class="hero-subtitle">Theo & Quinn</p>
+            </div>
+          </div>
+
+          <!-- Main Story Section -->
+          <div class="story-section">
+            <div class="story-container">
+              <div class="story-content">
+                <div class="story-text">
+                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel human.</p>
+                  
+                  <p>It all started when we realized that most websites felt cold and corporate. We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
+                  
+                  <p>So we started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend? What if we actually listened to what people needed instead of just selling them what we wanted to build?</p>
+                  
+                  <p>That's how we became "Design Daddy & Media Mommy." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't.</p>
+                </div>
+                <div class="story-visual">
+                  <div class="team-photo-story">
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo">
+                    <div class="photo-caption">That's us! 👋</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How We Work Section -->
+          <div class="how-we-work-section">
+            <h2 class="section-title">How We Actually Work</h2>
+            <div class="work-steps">
+              <div class="work-step step-1">
+                <div class="step-number">1</div>
+                <h3>We Listen</h3>
+                <p>No templates, no assumptions. We start by understanding your real needs and goals.</p>
+              </div>
+              <div class="work-step step-2">
+                <div class="step-number">2</div>
+                <h3>We Think</h3>
+                <p>We take time to figure out the best approach, not just the fastest one.</p>
+              </div>
+              <div class="work-step step-3">
+                <div class="step-number">3</div>
+                <h3>We Build</h3>
+                <p>We create something that actually works for your business and your customers.</p>
+              </div>
+              <div class="work-step step-4">
+                <div class="step-number">4</div>
+                <h3>We Support</h3>
+                <p>We're here after launch to help you succeed, not just disappear.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Touch Section -->
+          <div class="personal-section">
+            <div class="personal-container">
+              <h2 class="section-title">Why We're Different</h2>
+              <div class="personal-content">
+                <div class="personal-text">
+                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project.</p>
+                  
+                  <div class="mobile-emoji">💬</div>
+                  
+                  <p>We're also not a freelancer who might disappear halfway through. We're a committed team with a proven track record and a real business to protect.</p>
+                  
+                  <div class="mobile-emoji">🤔</div>
+                  
+                  <p>Most importantly, we're real people who care about real results. We want your project to succeed because your success is our success.</p>
+                  
+                  <div class="mobile-emoji">✨</div>
+                </div>
+                <div class="personal-visual">
+                  <div class="floating-elements">
+                    <div class="floating-icon">💬</div>
+                    <div class="floating-icon">🤔</div>
+                    <div class="floating-icon">✨</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple CTA -->
+          <div class="about-cta">
+            <h2>Want to know more?</h2>
+            <p>We'd love to hear your story too.</p>
+            <button class="cta-button" onclick="toggleBooking(); return false;">Tell us about your project</button>
+          </div>
+        </div>
+      `;
+      
+      // Initialize animations after content loads
+      setTimeout(() => {
+        initializeAboutAnimations();
+      }, 100);
       break;
     case 'portfolio':
       html = '<h2>Portfolio</h2><p>See our work...</p>';
