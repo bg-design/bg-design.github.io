@@ -355,6 +355,363 @@
   }
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balloon Tab Bar with Animated Dock</title>
+
+    <!-- Add markdown parser library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Add luxury serif font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Add Bebas Neue font for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!-- In <head>, ensure Oleo Script is imported -->
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      background: #f6f6f6 !important;
+      font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      color: #222;
+      padding: 20px;
+      padding-bottom: 120px;
+      /* Prevent iOS Safari bouncing */
+      -webkit-overflow-scrolling: auto;
+      overscroll-behavior: none;
+      overflow-x: hidden;
+    }
+
+    .content {
+      padding-bottom: 120px; /* Padding for space for balloon */
+    }
+
+    #makeItCount {
+      padding: 10px;
+    }
+   
+   [data-theme="dark"] body {
+      background: #23242a !important;
+      color: #00AEEF;
+   }
+   [data-theme="dark"] .content, [data-theme="dark"] .markdown-content {
+  color: #eee;
+}
+
+[data-theme="dark"] .content p {
+  background: initial;
+}
+
+[data-theme="dark"] .markdown-content {
+  background: rgb(42 43 50);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+}
+[data-theme="dark"] .markdown-content p {
+  color: #eee;
+}
+[data-theme="dark"] .markdown-content li {
+  color: #eee;
+}
+[data-theme="dark"] .markdown-content h3 {
+  color: #eee;
+}
+   [data-theme="dark"] .portfolio-page {
+      color: #39B54A;
+   }
+   [data-theme="dark"] .about-page {
+      color: #EC008C;
+   }
+   [data-theme="dark"] .pricing-page {
+      color: #FFCB05;
+   }
+   [data-theme="dark"] .projectTile {
+      color: #222;
+      background: #3d444e;
+   }
+   [data-theme="dark"] .projectInfo h3 {
+      color: #39B54A;
+   }
+   [data-theme="dark"] .projectInfo p {
+      color: #eee;
+   }
+   [data-theme="dark"] .projectInfo button {
+      color: #39B54A;
+      border-color: #39B54A;
+      background: none;
+   }
+   [data-theme="dark"] .projectInfo button:hover {
+      background: #39B54A;
+      color: #23272b;
+   }
+   [data-theme="dark"] .tab-bar {
+      background: linear-gradient(120deg, #23272b 80%, #262a2e 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.44), 0 2px 8px rgba(0,0,0,0.18);
+      border: none;
+   }
+   [data-theme="dark"] .tab-bar:hover, [data-theme="dark"] .tab-bar:focus-within {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.38), 0 4px 16px rgba(57,181,74,0.18), 0 0 0 2px #fff;
+      background: linear-gradient(120deg, #262a2e 60%, #23272b 100%);
+      border: none;
+   }
+   [data-theme="dark"] #modeSwitch {
+      background: #23272b;
+      color: #fff;
+   }
+   
+   [data-theme="dark"] .header-logo {
+      color: #00AEEF !important;
+   }
+   
+   [data-theme="dark"] .header-logo img {
+      content: url('IMG/nd-logo-v2c-invert.png');
+      opacity: 0.8;
+      border-radius: 50%;
+   }
+   
+   .header-logo:hover {
+      opacity: 0.8;
+   }
+   [data-theme="light"] body {
+      background:
+        repeating-linear-gradient(135deg, #f7f7f7 0px, #f7f7f7 8px, #ededed 8px, #ededed 16px),
+        linear-gradient(120deg, #f7f7f7 0%, #ededed 100%);
+      color: #222;
+   }
+   [data-theme="light"] .content, [data-theme="light"] .markdown-content {
+      color: #222;
+   }
+   [data-theme="light"] .markdown-content h1 {
+      color: #00AEEF;
+      border-bottom: 3px solid #00AEEF;
+   }
+   [data-theme="light"] .markdown-content h2 {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .markdown-content h3 {
+      color: #555;
+   }
+   [data-theme="light"] .markdown-content strong {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .markdown-content p {
+      color: #222;
+   }
+   [data-theme="light"] .markdown-content li {
+      color: #222;
+   }
+   [data-theme="light"] .accordion-header {
+      background: #f7f7f7;
+      color: #00AEEF;
+   }
+   [data-theme="light"] .accordion-header.active, [data-theme="light"] .accordion-header:hover {
+      background: #e0f7fa;
+      color: #00AEEF;
+   }
+   [data-theme="light"] .accordion-content {
+      background: #fafbfc;
+      color: #222;
+   }
+   [data-theme="light"] .accordion-content ul, [data-theme="light"] .accordion-content p, [data-theme="light"] .accordion-content li {
+      color: #222;
+   }
+   [data-theme="light"] .accordion-icon {
+      color: #00AEEF;
+   }
+   [data-theme="light"] .projectTile {
+      color: #222;
+   }
+   [data-theme="light"] .projectInfo h3 {
+      color: #39B54A;
+   }
+   [data-theme="light"] .projectInfo p {
+      color: #333;
+   }
+   [data-theme="light"] .projectInfo button {
+      color: #39B54A;
+      border-color: #39B54A;
+      background: none;
+   }
+   [data-theme="light"] .projectInfo button:hover {
+      background: #39B54A;
+      color: #fff;
+   }
+   [data-theme="light"] .tab-bar {
+      background: linear-gradient(120deg, #fff 80%, #f7f7f7 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.10);
+      border: none;
+   }
+   [data-theme="light"] .tab-bar:hover, [data-theme="light"] .tab-bar:focus-within {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.10), 0 0 0 2px #fff;
+      background: linear-gradient(120deg, #f7f7f7 60%, #fff 100%);
+      border: none;
+   }
+   [data-theme="light"] #modeSwitch {
+  background: #eee;
+  color: #222;
+}
+
+/* Override light mode colors for page-specific themes */
+[data-theme="light"] .about-page h1 {
+  border-bottom: 3px solid #EC008C !important;
+}
+[data-theme="light"] .about-page strong {
+  color: #EC008C !important;
+}
+[data-theme="light"] .pricing-page h1, [data-theme="light"] .pricing-page h2, [data-theme="light"] .pricing-page h3, [data-theme="light"] .pricing-page h4, [data-theme="light"] .pricing-page h5, [data-theme="light"] .pricing-page h6 {
+  color: #FFCB05 !important;
+}
+[data-theme="light"] .pricing-page h1 {
+  border-bottom: 3px solid #FFCB05 !important;
+}
+[data-theme="light"] .pricing-page strong {
+  color: #FFCB05 !important;
+}
+[data-theme="light"] .portfolio-page h1, [data-theme="light"] .portfolio-page h2, [data-theme="light"] .portfolio-page h3, [data-theme="light"] .portfolio-page h4, [data-theme="light"] .portfolio-page h5, [data-theme="light"] .portfolio-page h6 {
+  color: #39B54A;
+}
+[data-theme="light"] .portfolio-page h1 {
+  border-bottom: 3px solid #39B54A !important;
+}
+[data-theme="light"] .portfolio-page strong {
+  color: #39B54A !important;
+}
+
+/* Pricing Package Styles */
+.pricing-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.pricing-package {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 0 0 32px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.pricing-package:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.pricing-package h3 {
+  color: #FFCB05;
+  font-size: 1.5rem;
+  margin: 0 0 4px 0;
+  text-align: center;
+}
+
+.pricing-package .price {
+  font-family: 'Courier Prime', Courier, monospace;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #888;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.pricing-package .subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.pricing-package ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.pricing-package ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.6em;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pricing-package ul li::before {
+  content: '\2713';
+  color: #FFCB05;
+  position: absolute;
+  left: 0;
+  font-size: 1.1em;
+  line-height: 1;
+  top: 0.3em;
+}
+
+.pricing-package li:last-child {
+  border-bottom: none;
+}
+
+
+
+[data-theme="dark"] .pricing-package {
+  background: #23272b;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.24), 0 2px 8px rgba(0,0,0,0.16);
+}
+
+[data-theme="dark"] .pricing-package:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.24);
+}
+
+[data-theme="dark"] .pricing-package .subtitle {
+  color: #aaa;
+}
+
+    [data-theme="dark"] .pricing-package li {
+      color: #eee;
+      border-bottom-color: #333;
+    }
+
+    /* Dark mode styling for the pricing banner */
+    [data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] h2 {
+      color: #FFCB05 !important;
+    }
+
+    [data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] p {
+      color: #eee !important;
+    }
+
+/* Dark mode styling for the pricing banner */
+[data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] h2 {
+  color: #FFCB05 !important;
+}
+
+[data-theme="dark"] .pricing-page div[style*="border: 2px solid #FFCB05"] p {
+  color: #eee !important;
+}
+
+@media (min-width: 1200px) {
+  .pricing-packages {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .pricing-packages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
     @media (max-width: 767px) {
       .pricing-packages {
         grid-template-columns: 1fr;
@@ -4096,6 +4453,355 @@
       color: #ccc;
     }
 
+    .who-we-are-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    [data-theme="dark"] .who-we-are-section {
+      background: linear-gradient(135deg, #2a2b32 0%, #1a1a1a 100%);
+    }
+
+    .theo-bio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .theo-photo {
+      text-align: center;
+    }
+
+    .theo-portrait {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .theo-portrait:hover {
+      transform: scale(1.02);
+    }
+
+    .theo-bio-content h3 {
+      font-size: 2.5rem;
+      color: #00AEEF;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .theo-bio-content h3 {
+      color: #00AEEF;
+    }
+
+    .theo-title {
+      font-size: 1.2rem;
+      color: #EC008C;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    [data-theme="dark"] .theo-title {
+      color: #EC008C;
+    }
+
+    .theo-bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    [data-theme="dark"] .theo-bio {
+      color: #eee;
+    }
+
+    .theo-expertise h4 {
+      font-size: 1.3rem;
+      color: #39B54A;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .theo-expertise h4 {
+      color: #39B54A;
+    }
+
+    .theo-expertise ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .theo-expertise li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e9ecef;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    [data-theme="dark"] .theo-expertise li {
+      color: #ccc;
+      border-bottom-color: #444;
+    }
+
+    .theo-expertise li:last-child {
+      border-bottom: none;
+    }
+
+    .theo-expertise strong {
+      color: #00AEEF;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .theo-expertise strong {
+      color: #00AEEF;
+    }
+
+    .theo-philosophy {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      font-style: italic;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      border-left: 4px solid #FFCB05;
+      border-radius: 0 8px 8px 0;
+      margin-top: 2rem;
+    }
+
+    [data-theme="dark"] .theo-philosophy {
+      color: #eee;
+      background: linear-gradient(135deg, #2a2b32 0%, #1a1a1a 100%);
+    }
+
+    .quinn-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #fff5f8 0%, #ffeef5 100%);
+    }
+
+    [data-theme="dark"] .quinn-section {
+      background: linear-gradient(135deg, #2a2b32 0%, #1a1a1a 100%);
+    }
+
+    .quinn-bio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .quinn-photo {
+      text-align: center;
+    }
+
+    .quinn-portrait {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .quinn-portrait:hover {
+      transform: scale(1.02);
+    }
+
+    .quinn-bio-content h3 {
+      font-size: 2.5rem;
+      color: #EC008C;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .quinn-bio-content h3 {
+      color: #EC008C;
+    }
+
+    .quinn-title {
+      font-size: 1.2rem;
+      color: #00AEEF;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    [data-theme="dark"] .quinn-title {
+      color: #00AEEF;
+    }
+
+    .quinn-bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    [data-theme="dark"] .quinn-bio {
+      color: #eee;
+    }
+
+    .quinn-expertise h4 {
+      font-size: 1.3rem;
+      color: #39B54A;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .quinn-expertise h4 {
+      color: #39B54A;
+    }
+
+    .quinn-expertise ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .quinn-expertise li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e9ecef;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    [data-theme="dark"] .quinn-expertise li {
+      color: #ccc;
+      border-bottom-color: #444;
+    }
+
+    .quinn-expertise li:last-child {
+      border-bottom: none;
+    }
+
+    .quinn-expertise strong {
+      color: #EC008C;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .quinn-expertise strong {
+      color: #EC008C;
+    }
+
+    .quinn-philosophy {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      font-style: italic;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+      border-left: 4px solid #FFCB05;
+      border-radius: 0 8px 8px 0;
+      margin-top: 2rem;
+    }
+
+    [data-theme="dark"] .quinn-philosophy {
+      color: #eee;
+      background: linear-gradient(135deg, #2a2b32 0%, #1a1a1a 100%);
+    }
+
+    .quinn-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #fff5f8 0%, #ffeef5 100%);
+    }
+
+    .quinn-bio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .quinn-bio-content h3 {
+      font-size: 2.5rem;
+      color: #EC008C;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .quinn-title {
+      font-size: 1.2rem;
+      color: #00AEEF;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .quinn-bio {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .quinn-expertise h4 {
+      font-size: 1.3rem;
+      color: #39B54A;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .quinn-expertise ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .quinn-expertise li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e9ecef;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .quinn-expertise li:last-child {
+      border-bottom: none;
+    }
+
+    .quinn-expertise strong {
+      color: #EC008C;
+      font-weight: 600;
+    }
+
+    .quinn-philosophy {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      font-style: italic;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+      border-left: 4px solid #FFCB05;
+      border-radius: 0 8px 8px 0;
+      margin-top: 2rem;
+    }
+
+    .quinn-portrait {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .quinn-portrait:hover {
+      transform: scale(1.02);
+    }
+
     .personal-section {
       padding: 4rem 2rem;
       background: #f8f9fa;
@@ -5378,6 +6084,48 @@
       margin-left: -55px; /* adjust if your body has padding */
       overflow-x: hidden;
     }
+
+    .theo-bio-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .theo-bio-content h3 {
+      font-size: 2rem;
+    }
+
+    .theo-expertise {
+      text-align: left;
+    }
+
+    .quinn-bio-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .quinn-bio-content h3 {
+      font-size: 2rem;
+    }
+
+    .quinn-expertise {
+      text-align: left;
+    }
+
+    .quinn-bio-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .quinn-bio-content h3 {
+      font-size: 2rem;
+    }
+
+    .quinn-expertise {
+      text-align: left;
+    }
   }
   .scrolling-track {
     display: flex;
@@ -5709,6 +6457,34 @@
               </div>
             </div>
 
+          <!-- Who We Are Section -->
+          <div class="who-we-are-section">
+            <h2 class="section-title">Meet Theo</h2>
+            <div class="theo-bio-container">
+              <div class="theo-photo">
+                <img src="IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg" alt="Theo Grandy" class="theo-portrait">
+              </div>
+              <div class="theo-bio-content">
+                <h3>Theo Grandy</h3>
+                <p class="theo-title">Founder & Lead Designer</p>
+                <p class="theo-bio">With over a decade of experience in web design and user experience, Theo brings a unique blend of technical expertise and creative vision to every project. He has an eye for simplicity but a love for UX extras that delight and engage people and give them warm feelings.</p>
+                
+                <div class="theo-expertise">
+                  <h4>What Theo brings to your project:</h4>
+                  <ul>
+                    <li><strong>User-Centered Design:</strong> Every decision is backed by research and real user behavior</li>
+                    <li><strong>Technical Excellence:</strong> Clean, efficient code that performs beautifully</li>
+                    <li><strong>Strategic Thinking:</strong> Design that serves your business goals, not just aesthetics</li>
+                    <li><strong>Clear Communication:</strong> You'll always know what's happening and why</li>
+            <li><strong>A Collaborative Mindset:</strong> We don't try to fit you into a box. We explore your vision together.</li>
+                  </ul>
+                </div>
+                
+                <p class="theo-philosophy">"I believe great design should feel invisible—it should guide users naturally toward their goals without them even realizing it. It should know their context and feel like it's reading their mind. It should tell a story and have a soul. That's what makes the difference between a website that just looks good and one that makes you smile."</p>
+              </div>
+            </div>
+          </div>
+
           <!-- How We Work Section -->
           <div class="how-we-work-section">
             <h2 class="section-title">How We Actually Work</h2>
@@ -5735,6 +6511,33 @@
               </div>
             </div>
               </div>
+
+          <!-- Meet Quinn Section -->
+          <div class="quinn-section">
+            <h2 class="section-title">Meet Quinn</h2>
+            <div class="quinn-bio-container">
+              <div class="quinn-photo">
+                <img src="IMG/quinn-balcony.jpg" alt="Quinn Grandy" class="quinn-portrait">
+              </div>
+              <div class="quinn-bio-content">
+                <h3>Quinn Grandy</h3>
+                <p class="quinn-title">Creative Director</p>
+                <p class="quinn-bio">Quinn brings a fresh perspective to every project with her background in media and creative storytelling. She has a natural talent for understanding what makes brands memorable and how to communicate complex ideas in simple, engaging ways.</p>
+                
+                <div class="quinn-expertise">
+                  <h4>What Quinn brings to your project:</h4>
+                  <ul>
+                    <li><strong>Creative Storytelling:</strong> Turns your brand story into compelling visual narratives</li>
+                    <li><strong>Brand Strategy:</strong> Helps you communicate your values and personality clearly</li>
+                    <li><strong>Content Creation:</strong> Creates engaging content that connects with your audience</li>
+                    <li><strong>Client Relations:</strong> Makes sure you feel heard and supported throughout the process</li>
+                  </ul>
+                </div>
+                
+                <p class="quinn-philosophy">"I believe every business has a unique story to tell. My job is to help you tell that story in a way that resonates with the people who matter most—your customers."</p>
+              </div>
+            </div>
+          </div>
 
           <!-- Why We're Different Section -->
           <div class="personal-section">
