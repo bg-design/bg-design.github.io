@@ -8607,7 +8607,7 @@
       principle: "Creativity loves constraints.",
       explanation: "Limitations spark innovation and lead to better solutions.",
       bullets: [
-        "Budget constraints drive creative problem-solving",
+        "Existing branding can drive direction",
         "Technical limitations inspire new approaches",
         "Deadlines focus creative energy"
       ]
@@ -8623,16 +8623,45 @@
     },
     {
       principle: "Keep calm and iterate on.",
-      explanation: "Design is a process, not a one-time event.",
+      explanation: "Design is a continous process, not a one-time event.",
       bullets: [
-        "Stay focused during challenges",
-        "Continuous improvement over perfection",
-        "Every iteration brings you closer to success"
+        "Be open &amp; solicit honest feedback",
+        "Continuous improvement over first sketch perfection",
+        "Every iteration, sketch, mock-up or version brings you closer to success"
+      ]
+    },
+    {
+      principle: "Don't make me think.",
+      explanation: "If users have to think about how to use your design, you've failed.",
+      bullets: [
+        "Make interactions intuitive and obvious",
+        "Reduce cognitive load at every step",
+        "Good design feels effortless to use"
+      ]
+    },
+    {
+      principle: "Form follows function.",
+      explanation: "Beauty emerges naturally from solving real problems well.",
+      bullets: [
+        "The function should be as easy as possible &amp; the design disappears",
+        "Every visual element should serve a purpose",
+        "Functionality &amp; simplicity creates its own aesthetic"
+      ]
+    },
+    {
+      principle: "Content is king.",
+      explanation: "Great design amplifies great content, it doesn't replace it.",
+      bullets: [
+        "Start with compelling, clear content",
+        "Design should enhance, not overshadow",
+        "The message matters more than the medium"
       ]
     }
   ];
 
   let currentFortuneIndex = 0;
+  let shuffledFortunes = [];
+  let currentShuffleIndex = 0;
 
   // Create fortune cookie overlay
   const fortuneOverlay = document.createElement('div');
@@ -8678,9 +8707,18 @@
     // Show overlay
     overlay.classList.add('active');
     
-    // Set the fortune text in the cookie
-    const fortune = fortunes[currentFortuneIndex];
+    // Initialize or reset shuffled fortunes if needed
+    if (!window.shuffledFortunes || window.shuffledFortunes.length === 0) {
+      window.shuffledFortunes = [...fortunes].sort(() => Math.random() - 0.5);
+      window.currentShuffleIndex = 0;
+    }
+    
+    // Get the next fortune from shuffled array
+    const fortune = window.shuffledFortunes[window.currentShuffleIndex];
     fortuneText.textContent = fortune.principle;
+    
+    // Advance to next fortune for next time
+    window.currentShuffleIndex = (window.currentShuffleIndex + 1) % window.shuffledFortunes.length;
     
     // After a short delay, trigger the opening animation
     setTimeout(() => {
@@ -8719,9 +8757,6 @@
     setTimeout(() => {
       fcButton.classList.remove('opened');
       fcButton.classList.add('spawned');
-      
-      // Move to next fortune
-      currentFortuneIndex = (currentFortuneIndex + 1) % fortunes.length;
       
       // Show new fortune
       showFortune();
