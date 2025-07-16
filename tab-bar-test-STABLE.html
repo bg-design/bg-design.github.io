@@ -436,20 +436,14 @@
               <h2 class="section-title">Why We're Different</h2>
               <div class="personal-content">
                 <div class="personal-text">
-                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project.</p>
-                  
-                  <div class="mobile-emoji" style="animation: none;">💬</div>
-                  
-                  <p>We ground our choices in user behavior, psychology, and UX research—not fuzzy feelings and egos. Every decision is backed by data and best practices.</p>
-                  
-                  <div class="mobile-emoji" style="animation: none;">🧠</div>
-                  
-                  <p>We're a committed team with a proven track record and a real business to protect. Your success is our success.</p>
-                  
-                  <div class="mobile-emoji">🏆</div>
+                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project. <span class="personal-emoji">💬</span></p>
+                  <p>We ground our choices in user behavior, psychology, and UX research—not fuzzy feelings and egos. Every decision is backed by data and best practices. <span class="personal-emoji">🧠</span></p>
+                  <p>We're a committed team with a proven track record and a real business to protect. Your success is our success. <span class="personal-emoji">🏆</span></p>
                 </div>
                 <div class="personal-visual">
                   <div class="floating-elements">
+                    <div class="floating-icon">💬</div>
+                    <div class="floating-icon">🧠</div>
                     <div class="floating-icon">🏆</div>
                   </div>
                 </div>
@@ -610,7 +604,7 @@
         
         <div style="padding: 16px; border-radius: 12px; margin: 20px 0; text-align: center; box-shadow: 0 4px 16px rgba(255,203,5,0.2); border: 2px solid #FFCB05;">
           <h2 style="color: #FFCB05; margin-bottom: 12px; font-size: 1.2em;">💡 Flexible Pricing for Every Budget</h2>
-          <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;">
+          <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;margin:0 auto;">
             <strong>Prices listed are estimates only.</strong> Project scope can vary significantly, and we're committed to working with your budget. 
             Whether you're a startup with limited resources or an established business, we can tailor our services to fit your needs. 
             <strong>Please call us for a personalized quote!</strong>
@@ -1920,7 +1914,7 @@
         <!-- Clients and Platforms Section -->
         <div class="clients-platforms-section">
           <div class="clients-section">
-            <h2>We have worked<br>with great clients</h2>
+            <h2>We have worked with great clients</h2>
             <div class="scrolling-clients">
               <div class="scrolling-track">
                 <div class="client-row">
@@ -1948,7 +1942,7 @@
           </div>
           
           <div class="platforms-section">
-            <h2 style="color: #FFCB05;">We work on all platforms<br>and can custom code.</h2>
+            <h2 style="color: #FFCB05;">We work on all platforms and can custom code.</h2>
             <div class="scrolling-platforms">
               <div class="scrolling-track">
                 <div class="platform-row">
@@ -1973,7 +1967,7 @@
           </div>
         </div>
         
-        <h1>Portfolio</h1>
+        <h1 style="text-align: center;font-size: 4em;">Our Work</h1>
         ${renderPortfolioFilters(category)}
         ${renderPortfolioCardsOnly(category, yearFilter, typeFilter, platformFilter, currentPortfolioPage)}
         ${renderPortfolioPagination(category, yearFilter, typeFilter, platformFilter, currentPortfolioPage)}
@@ -2118,10 +2112,11 @@
   let lastIsMobile = window.innerWidth <= 599;
   window.addEventListener('resize', () => {
     const isMobile = window.innerWidth <= 599;
-    if (isMobile !== lastIsMobile) {
+    // Only reload portfolio if currently on portfolio page
+    if (isMobile !== lastIsMobile && window.location.hash === '#portfolio') {
       loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter);
-      lastIsMobile = isMobile;
     }
+    lastIsMobile = isMobile;
   });
   // --- End Portfolio Card System ---
 

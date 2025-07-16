@@ -124,9 +124,7 @@ color: #eee;
 [data-theme="light"] .markdown-content h3 {
   color: #555;
 }
-[data-theme="light"] .markdown-content strong {
-  color: #00AEEF;
-}
+
 [data-theme="light"] .markdown-content p {
   color: #222;
 }
@@ -1060,6 +1058,10 @@ grid-template-columns: repeat(2, 1fr);
 }
 .accordion-header.active, .accordion-header:hover {
   background: #e0f7fa;
+}
+
+.process-blue {
+  color: #00AEEF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -3917,7 +3919,7 @@ gap: 8px;
 }
 
 .mobile-emoji {
-  display: none;
+  display: block;
   font-size: 2.5rem;
   text-align: center;
   margin: 1.5rem 0;
@@ -5097,17 +5099,7 @@ animation: scroll-marquee 15s linear infinite;
 }
 
 /* --- Added for process page markdown/accordion support --- */
-.markdown-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  line-height: 1.6;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(10px);
-  margin-top: 20px;
-}
+
 .markdown-content h1 {
   color: #00AEEF;
   border-bottom: 3px solid #00AEEF;
@@ -5128,9 +5120,7 @@ animation: scroll-marquee 15s linear infinite;
 .markdown-content li {
   margin-bottom: 8px;
 }
-.markdown-content strong {
-  color: #00AEEF;
-}
+
 .back-link {
   display: inline-block;
   margin: 20px 0;
@@ -5221,23 +5211,12 @@ body[data-theme="light"] .markdown-content {
   background: white;
   color: #222;
 }
-html[data-theme="light"] .markdown-content h1,
-body[data-theme="light"] .markdown-content h1 {
-  color: #00AEEF;
-  border-bottom: 3px solid #00AEEF;
-}
-html[data-theme="light"] .markdown-content h2,
-body[data-theme="light"] .markdown-content h2 {
-  color: #00AEEF;
-}
+
 html[data-theme="light"] .markdown-content h3,
 body[data-theme="light"] .markdown-content h3 {
   color: #555;
 }
-html[data-theme="light"] .markdown-content strong,
-body[data-theme="light"] .markdown-content strong {
-  color: #00AEEF;
-}
+
 html[data-theme="light"] .markdown-content p,
 body[data-theme="light"] .markdown-content p {
   color: #222;
@@ -5313,4 +5292,142 @@ body[data-theme="light"] .pricing-page strong {
 }
 [data-theme="dark"] .fortune-explanation li {
   color: #bbb;
+}
+
+/* --- Portfolio & Pricing Page Title Color Fix (high specificity) --- */
+html[data-theme="light"] .portfolio-page h1,
+html[data-theme="light"] .portfolio-page h2,
+html[data-theme="light"] .portfolio-page h3,
+html[data-theme="light"] .portfolio-page h4,
+body[data-theme="light"] .portfolio-page h1,
+body[data-theme="light"] .portfolio-page h2,
+body[data-theme="light"] .portfolio-page h3,
+body[data-theme="light"] .portfolio-page h4 {
+  color: #39B54A !important;
+  border-bottom: 3px solid #39B54A !important;
+}
+html[data-theme="light"] .pricing-page h1,
+html[data-theme="light"] .pricing-page h2,
+html[data-theme="light"] .pricing-page h3,
+html[data-theme="light"] .pricing-page h4,
+body[data-theme="light"] .pricing-page h1,
+body[data-theme="light"] .pricing-page h2,
+body[data-theme="light"] .pricing-page h3,
+body[data-theme="light"] .pricing-page h4 {
+  color: #FFCB05 !important;
+  border-bottom: 3px solid #FFCB05 !important;
+}
+html[data-theme="dark"] .portfolio-page h1,
+html[data-theme="dark"] .portfolio-page h2,
+html[data-theme="dark"] .portfolio-page h3,
+html[data-theme="dark"] .portfolio-page h4,
+body[data-theme="dark"] .portfolio-page h1,
+body[data-theme="dark"] .portfolio-page h2,
+body[data-theme="dark"] .portfolio-page h3,
+body[data-theme="dark"] .portfolio-page h4 {
+  color: #39B54A !important;
+  border-bottom: 3px solid #39B54A !important;
+}
+html[data-theme="dark"] .pricing-page h1,
+html[data-theme="dark"] .pricing-page h2,
+html[data-theme="dark"] .pricing-page h3,
+html[data-theme="dark"] .pricing-page h4,
+body[data-theme="dark"] .pricing-page h1,
+body[data-theme="dark"] .pricing-page h2,
+body[data-theme="dark"] .pricing-page h3,
+body[data-theme="dark"] .pricing-page h4 {
+  color: #FFCB05 !important;
+  border-bottom: 3px solid #FFCB05 !important;
+}
+
+@media (min-width: 769px) {
+  .quinn-bio-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+    direction: ltr;
+  }
+  .quinn-photo {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+  }
+  .quinn-bio-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.personal-emoji {
+  display: block;
+  font-size: 2.2rem;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+  text-align: center;
+  margin-top: 10px;
+}
+.personal-emoji:nth-of-type(2) { animation: runLeftRight 2s ease-in-out infinite; }
+.personal-emoji:nth-of-type(3) { animation: expandShrink 2s ease-in-out infinite; }
+
+/* Hide .mobile-emoji on desktop */
+@media (min-width: 768px) {
+  .personal-emoji {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Breathing animation for brain emoji (second .personal-emoji) */
+  .personal-emoji:nth-of-type(2) {
+    animation: brainBreath 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  .personal-emoji:nth-of-type(2)::after {
+    content: '⚡';
+    position: absolute;
+    left: 60%;
+    top: -0.7em;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: lightningStrike 3s infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+@keyframes brainBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes lightningStrike {
+  0%, 80%, 100% { opacity: 0; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(-0.2em) scale(1.2); }
+  90% { opacity: 0; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+  .floating-icon:nth-of-type(2) {
+    animation: brainBreath 3s ease-in-out infinite !important;
+    position: relative;
+    z-index: 1;
+  }
+  /* Remove the ::after lightning bolt */
+  .floating-icon:nth-of-type(2)::after {
+    content: none;
+    display: none;
+  }
+}
+
+@keyframes brainBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes lightningStrike {
+  0%, 80%, 100% { opacity: 0; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(-0.2em) scale(1.2); }
+  90% { opacity: 0; transform: translateY(0); }
 }
