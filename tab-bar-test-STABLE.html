@@ -30,7 +30,7 @@
 
     <!-- In <head>, ensure Oleo Script is imported -->
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/v2-styles.css">
+    <link rel="stylesheet" href="CSS/v2-styles-purged.css">
 
 </head>
 <body>
@@ -2679,6 +2679,14 @@
   window.closeFortune = closeFortune;
   window.triggerFortuneCookie = triggerFortuneCookie;
   window.nextFortune = nextFortune;
+
+  // Add click-to-close for fortune cookie modal when clicking outside content
+  const fortuneOverlayEl = document.querySelector('.fortune-cookie-overlay');
+  fortuneOverlayEl.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeFortune();
+    }
+  });
 
   </script>
     
