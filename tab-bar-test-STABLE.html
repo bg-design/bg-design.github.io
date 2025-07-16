@@ -18,20 +18,49 @@
   <meta name="twitter:image" content="IMG/your-team-studio-wine.jpg" />
   <link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png" />
 
-    <!-- Add markdown parser library -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Self-hosted fonts -->
+  <style>
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/playfair-display-400.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/playfair-display-700.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('fonts/playfair-display-900.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Bebas Neue';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/bebas-neue.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Oleo Script';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/oleo-script.ttf') format('truetype');
+    }
+  </style>
 
-    <!-- Add luxury serif font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Self-hosted marked.js library -->
+  <script src="fonts/marked.min.js" defer></script>
 
-    <!-- Add Bebas Neue font for headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-    <!-- In <head>, ensure Oleo Script is imported -->
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/v2-styles-purged.css">
+  <link rel="stylesheet" href="CSS/v2-styles-purged.css">
 
 </head>
 <body>
@@ -94,7 +123,7 @@
 
   <div class="tab-bar-wrapper" id="tabBarWrapper">
     <div class="tab-bar" id="tabBar">
-      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" onclick="toggleBooking()" />
+      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" fetchpriority="high" onclick="toggleBooking()" />
 
       <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking(); navigateToPage('process');">
         <img src="IMG/Icons/process-icon.png" alt="Process">
