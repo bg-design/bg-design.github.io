@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nuanced Design — Web Design & Marketing</title>
   <meta name="description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
+  
+  <!-- Resource hints for performance -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Nuanced Design — Web Design & Marketing" />
   <meta property="og:description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
@@ -18,6 +23,14 @@
   <meta name="twitter:image" content="IMG/your-team-studio-wine.jpg" />
   <link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png" />
 
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/bebas-neue.ttf" as="font" type="font/ttf" crossorigin>
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="CSS/v2-styles-purged.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="CSS/v2-styles-purged.css"></noscript>
+  
   <!-- Self-hosted fonts -->
   <style>
     @font-face {
@@ -59,8 +72,6 @@
 
   <!-- Self-hosted marked.js library -->
   <script src="fonts/marked.min.js" defer></script>
-
-  <link rel="stylesheet" href="CSS/v2-styles-purged.css">
 
 </head>
 <body>
@@ -123,7 +134,7 @@
 
   <div class="tab-bar-wrapper" id="tabBarWrapper">
     <div class="tab-bar" id="tabBar">
-      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" fetchpriority="high" onclick="toggleBooking()" />
+      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" fetchpriority="high" onclick="toggleBooking()" srcset="IMG/Icons/balloon-book-a-call3-mobile.png 768w, IMG/Icons/balloon-book-a-call3.png 1200w" sizes="(max-width: 768px) 100vw, 50vw" />
 
       <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking(); navigateToPage('process');">
         <img src="IMG/Icons/process-icon.png" alt="Process">
@@ -370,7 +381,7 @@
                 </div>
                                   <div class="story-visual">
                     <div class="team-photo-story">
-                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo">
+                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo" fetchpriority="high" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
                       <div class="photo-caption">That's us! 👋</div>
                     </div>
                   </div>
@@ -383,7 +394,7 @@
             <h2 class="section-title">Meet Theo</h2>
             <div class="theo-bio-container">
               <div class="theo-photo">
-                <img src="IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg" alt="Theo Grandy" class="theo-portrait">
+                <img src="IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg" alt="Theo Grandy" class="theo-portrait" fetchpriority="high">
               </div>
               <div class="theo-bio-content">
                 <h3>Theo Grandy</h3>
@@ -485,7 +496,7 @@
           <div class="conversation-section">
             <div class="conversation-container">
               <div class="conversation-header">
-                <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy" class="contact-avatar">
+                <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy" class="contact-avatar" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
                 <div class="contact-details">
                   <h3>Design Daddy & Media Mommy</h3>
                   <p>Online • Available now</p>
@@ -795,7 +806,7 @@
                 <div class="team-photo-section">
                   <h2 class="team-photo-title" id="teamPhotoTitle">Meet Your Team</h2>
                   <div class="team-photo-container">
-                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy Team" class="team-photo-large">
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy Team" class="team-photo-large" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
                     <div class="team-photo-caption-large">Theo & Quinn<br><span class="team-role-large">Your Digital Parents</span></div>
                   </div>
                 </div>
@@ -904,7 +915,7 @@
             </div>
             <div class="trust-item">
               <a href="https://www.greaterbinghamtonchamber.com" target="_blank" rel="noopener noreferrer">
-                <img src="IMG/Chamber_Featured-1.jpg" alt="Chamber of Commerce" class="trust-logo chamber-logo">
+                <img src="IMG/Chamber_Featured-1.jpg" alt="Chamber of Commerce" class="trust-logo chamber-logo" srcset="IMG/Chamber_Featured-1-mobile.jpg 768w, IMG/Chamber_Featured-1.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
                 <p class="trust-text">Chamber of Commerce Member<br><span style="font-size: 0.8em; color: #888;">Binghamton, NY</span></p>
               </a>
             </div>
@@ -2247,6 +2258,7 @@
       name: "Shamrina Oshana",
       role: "Brand Manager at Slingshot Foods, August 2017",
       img: "IMG/shamrina-test.jpg",
+      imgMobile: "IMG/shamrina-test-mobile.jpg",
       text: "Theo is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work."
     },
     {
@@ -2269,7 +2281,7 @@
     }
     
     avatarsContainer.innerHTML = testimonials.map((t, idx) => `
-      <img src="${t.img}" alt="${t.name}" class="testimonial-avatar${idx === selectedIdx ? ' selected' : ''}" data-idx="${idx}" tabindex="0" aria-label="${t.name}" />
+      <img src="${t.img}" alt="${t.name}" class="testimonial-avatar${idx === selectedIdx ? ' selected' : ''}" data-idx="${idx}" tabindex="0" aria-label="${t.name}" ${t.imgMobile ? `srcset="${t.imgMobile} 768w, ${t.img} 1200w" sizes="(max-width: 768px) 100vw, 50vw"` : ''} />
     `).join('');
     fadeToTestimonial(selectedIdx);
   }
