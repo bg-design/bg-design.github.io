@@ -976,7 +976,7 @@
         <div class="step" id="step6">
             <button class="back-link" onclick="previousStep()"><span class="arrow">&#8592;</span>Back</button>
             <div class="question">Let's connect!</div>
-            <form id="contactForm" style="max-width: 400px; margin: 0 auto; font-size:1.08em;">
+            <form id="contactForm" action="https://formspree.io/f/xpzbwpld" method="POST" style="max-width: 400px; margin: 0 auto; font-size:1.08em;">
                 <div style="margin-bottom:18px;">
                     Hello, I'm <input type="text" id="contactName" name="contactName" required placeholder="your name" class="madlib-input">.
                 </div>
@@ -992,10 +992,6 @@
                 </div>
                 <div style="margin-bottom:24px;text-align:right;font-size:1.1em;color:#666;">
                     Sincerely, <span id="sincerelyName">________</span>
-                </div>
-                <div style="margin-bottom:18px;display:flex;align-items:center;">
-                    <input type="checkbox" id="notRobot" required style="margin-right:10px;">
-                    <label for="notRobot" style="font-size:1em;">I swear I'm not a robot <span aria-label="wink" role="img">😉</span></label>
                 </div>
                 <div class="button-group">
                     <button class="btn btn-primary" id="submitContactBtn" type="submit" disabled>Submit</button>
