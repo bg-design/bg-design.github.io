@@ -239,10 +239,10 @@
     </svg>
   </div>
 
-  <div class="content" id="mainContent">
+  <div class="content" id="mainContent" style="opacity: 0; visibility: hidden;">
     <!-- Content will be dynamically loaded here -->
   </div>
-  <div class="booking-page" id="bookingPage">
+  <div class="booking-page" id="bookingPage" style="opacity: 0; visibility: hidden;">
   <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
 
     <!-- Background floating balloons -->
@@ -281,7 +281,7 @@
     </div>
   </div>
 
-  <div class="tab-bar-wrapper" id="tabBarWrapper">
+  <div class="tab-bar-wrapper" id="tabBarWrapper" style="opacity: 0; visibility: hidden;">
     <div class="tab-bar" id="tabBar">
       <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" fetchpriority="high" onclick="toggleBooking()" srcset="IMG/Icons/balloon-book-a-call3-mobile.png 768w, IMG/Icons/balloon-book-a-call3.png 1200w" sizes="(max-width: 768px) 100vw, 50vw" />
 
@@ -324,12 +324,36 @@
       // Hide curtain after sparkle effect starts
       setTimeout(() => {
         loadingCurtain.classList.add('hidden');
-        // Remove from DOM after animation completes
+        
+        // Show content only after curtain animation completes
         setTimeout(() => {
+          const mainContent = document.getElementById('mainContent');
+          const bookingPage = document.getElementById('bookingPage');
+          const tabBarWrapper = document.getElementById('tabBarWrapper');
+          
+          if (mainContent) {
+            mainContent.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            mainContent.style.opacity = '1';
+            mainContent.style.visibility = 'visible';
+          }
+          
+          if (bookingPage) {
+            bookingPage.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            bookingPage.style.opacity = '1';
+            bookingPage.style.visibility = 'visible';
+          }
+          
+          if (tabBarWrapper) {
+            tabBarWrapper.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            tabBarWrapper.style.opacity = '1';
+            tabBarWrapper.style.visibility = 'visible';
+          }
+          
+          // Remove curtain from DOM after content is shown
           if (loadingCurtain.parentNode) {
             loadingCurtain.parentNode.removeChild(loadingCurtain);
           }
-        }, 1200);
+        }, 1200); // Wait for curtain animation to complete
       }, 200);
     }
   }
@@ -623,13 +647,11 @@
             <div class="story-container">
               <div class="story-content">
                 <div class="story-text">
-                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel human.</p>
-                  
-                  <p>It all started when we realized that most websites felt cold and corporate. We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
-                  
-                  <p>So we started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend? What if we actually listened to what people needed instead of just selling them what we wanted to build?</p>
-                  
-                  <p>That's how we became "Design Daddy & Media Mommy." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't.</p>
+                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel delightful and intuitive.</p>
+                  <p>We realized that many of our favorite local spots—cafés, shops, and creative businesses—had websites that felt amateur, unfinished, unwelcoming, or sometimes just didn't work at all. This was especially true for brands that depend, at least in part, on e-commerce. We saw great businesses missing out on opportunities simply because their digital presence didn't reflect the care and quality they put into everything else.</p>
+                  <p>We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
+                  <p>Theo started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend and treat their business as if we were our own? What if we became your best customers—so we could tell you what your market actually needs, rather than just trying to sell you a service?</p>
+                  <p>That's how we became "Design Daddy & Marketing Mamacita." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't, and offer honest guidance—whether you need us cheering from the sidelines or stepping in to take the lead. We care about your project's success like one of our children.</p>
                 </div>
                                   <div class="story-visual">
                     <div class="team-photo-story">
@@ -664,7 +686,7 @@
                   </ul>
                 </div>
                 
-                <p class="theo-philosophy">"I believe great design should feel invisible—it should guide users naturally toward their goals without them even realizing it. It should know their context and feel like it's reading their mind. It should tell a story and have a soul. That's what makes the difference between a website that just looks good and one that makes you smile."</p>
+                <p class="theo-philosophy">"I believe great design should feel invisible—it should guide users naturally toward their goals without them even realizing it. It should know their context and feel like it's reading their mind. It should tell a story and have a soul. That's what makes the difference between an experience that just looks good and one that makes you smile."</p>
               </div>
             </div>
           </div>
@@ -705,8 +727,8 @@
               </div>
               <div class="quinn-bio-content">
                 <h3>Quinn Grandy</h3>
-                <p class="quinn-title">Creative Director</p>
-                <p class="quinn-bio">Quinn brings a fresh perspective to every project with her background in media and creative storytelling. She has a natural talent for understanding what makes brands memorable and how to communicate complex ideas in simple, engaging ways.</p>
+                <p class="quinn-title">Creative Director &amp; Marketing Lead</p>
+                <p class="quinn-bio">Quinn brings a fresh perspective to every project with her background in marketingand creative storytelling. She has a natural talent for understanding what makes brands memorable and how to communicate complex ideas in simple, engaging ways.</p>
                 
                 <div class="quinn-expertise">
                   <h4>What Quinn brings to your project:</h4>
@@ -718,7 +740,7 @@
                   </ul>
                 </div>
                 
-                <p class="quinn-philosophy">"I believe every business has a unique story to tell. My job is to help you tell that story in a way that resonates with the people who matter most—your customers."</p>
+                <p class="quinn-philosophy">"I believe that every brand has a unique story to tell. My favorite thing to do is to help you find ways to tell that story in ways that resonate with your audience. I pride myself on keeping my finger on the pulse of your business by staying in tune with trends, data & insights that will highlight where you can convert viewers into loyal customers."</p>
               </div>
             </div>
           </div>
@@ -748,9 +770,9 @@
           <div class="conversation-section">
             <div class="conversation-container">
               <div class="conversation-header">
-                <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy" class="contact-avatar" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Marketing Mamacita" class="contact-avatar" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
                 <div class="contact-details">
-                  <h3>Design Daddy & Media Mommy</h3>
+                  <h3>Design Daddy & Marketing Mamacita</h3>
                   <p>Online • Available now</p>
                 </div>
               </div>
@@ -780,7 +802,7 @@
 
               <div class="message received">
                 <div class="message-bubble">
-                      <p>Totally valid concern! We're a committed husband-and-wife team with a real business to protect. We're "Design Daddy & Media Mommy" and we treat every project like it's our own.</p>
+                      <p>Totally valid concern! We're a committed husband-and-wife team with a real business to protect. We're "Design Daddy & Marketing Mamacita" and we treat every project like it's our own.</p>
                 </div>
                 <div class="message-time">10:04 AM</div>
               </div>
@@ -964,11 +986,65 @@
         </div>
         
         </div>
+
+        <h2>Marketing Packages & Support</h2>
+<div class="pricing-packages">
+
+  <div class="pricing-package">
+    <h3>Lite</h3>
+    <div class="price">$500 one-time</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Strategy Refresh</div>
+      <ul>
+        <li>One-time overhaul of your digital presence, content, and marketing strategy</li>
+        <li>5-6 hours of consulting and implementation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Standard</h3>
+    <div class="price">$500/month</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Ongoing Content & Marketing</div>
+      <ul>
+        <li>Weekly content capture, posting, and engagement</li>
+        <li>10-15 hours per month</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Signature</h3>
+    <div class="price">$800/month</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Full Service + Add-ons</div>
+      <ul>
+        <li>All Standard services plus traditional marketing add-ons</li>
+        <li>20-25 hours per month</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Commission Hybrid</h3>
+    <div class="price">$500 one-time + commission</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Sell-Based Content</div>
+      <ul>
+        <li>Consulting and content creation</li>
+        <li>Only pay when a post sells (commission-based)</li>
+        <li>10-15 hours per month</li>
+      </ul>
+    </div>
+  </div>
+</div>
         
         <h2>Additional Services</h2>
         
         <h3>Content Creation</h3>
         <ul>
+        <li>Logo Design – $500</li>
         <li>Copywriting and editing</li>
         <li>Photography and image optimization</li>
         <li>Video production and editing</li>
@@ -985,6 +1061,7 @@
         
         <h3>Consultation Services</h3>
         <ul>
+         <li>Hourly Web Work – $75/hour</li>
         <li>Digital strategy planning</li>
         <li>User experience audits</li>
         <li>Conversion optimization</li>
@@ -1058,8 +1135,17 @@
                 <div class="team-photo-section">
                   <h2 class="team-photo-title" id="teamPhotoTitle">Meet Your Team</h2>
                   <div class="team-photo-container">
-                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Media Mommy Team" class="team-photo-large" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
-                    <div class="team-photo-caption-large">Theo & Quinn<br><span class="team-role-large">Your Digital Parents</span></div>
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Marketing Mamacita Team" class="team-photo-large" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                    <div class="team-photo-caption-large">
+                      <div class="team-member">
+                        <span class="team-name">Theo</span>
+                        <span class="team-title">UX Designer</span>
+                      </div>
+                      <div class="team-member">
+                        <span class="team-name">Quinn</span>
+                        <span class="team-title">Marketing & Creative Direction</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1073,13 +1159,13 @@
                       <h3>Web Design</h3>
                     </div>
                     <div class="service-item service-social">
-                      <h3>Social Media</h3>
+                      <h3>Marketing</h3>
                     </div>
                     <div class="service-item service-print">
-                      <h3>Print Marketing</h3>
+                      <h3>Consulting</h3>
                     </div>
                     <div class="service-item service-brand">
-                      <h3>Brand & Identity</h3>
+                      <h3>Strategic Planning</h3>
                     </div>
                   </div>
                 </div>
@@ -1126,7 +1212,7 @@
                 <div class="balloon-instruction">
                   <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
                   <h2 class="script-heading">Ready to get started?</h2>
-                  <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click on the balloon below</span> to start our quick intake process and begin your project journey.</p>
+                  <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click here</span> or the white balloon to Book a Call! You'll answer a couple questions about your project so we can hit the ground running!</p>
                   <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
                 </div>
               </div>
@@ -1137,10 +1223,9 @@
         <!-- Fortune Cookie Section -->
         <div class="dottedBox fortune-section" id="fortuneSection" style="margin-top: 0;">
           <h2 class="fortune-section-title">A Fortune for Your Journey</h2>
-          <p class="fortune-section-subtitle">Click the cookie to discover one of our guiding principles</p>
           <div class="fortune-cookie-homepage" onclick="showFortune()">
             <div class="fortune-cookie-emoji">🥠</div>
-            <p class="fortune-cookie-text">Click for wisdom</p>
+            <p class="fortune-cookie-text">Click the cookie to discover one of our guiding principles</p>
           </div>
         </div>
         
@@ -1177,7 +1262,7 @@
         <!-- Selling Points/Checklist Block (static, below testimonials) -->
         <div class="dottedBox selling-points-static" id="sellingPointsStatic" style="margin-top: 0;">
           <div class="selling-points-section">
-            <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Media Mommy?</h2>
+            <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Marketing Mamacita?</h2>
             <div class="stats-grid" id="statsGrid">
               <div class="stat-item">
                 <div class="stat-number">2x</div>
@@ -1218,7 +1303,7 @@
             <a class="not-ready-box about" href="#about">
               <div class="not-ready-icon" style="color:#EC008C;">👋</div>
               <div class="not-ready-heading">Meet the Team</div>
-              <div class="not-ready-desc">Get to know Design Daddy & Media Mommy.</div>
+              <div class="not-ready-desc">Get to know Design Daddy & Marketing Mamacita.</div>
             </a>
             <a class="not-ready-box portfolio" href="#portfolio">
               <div class="not-ready-icon" style="color:#39B54A;">🖼️</div>
@@ -2758,84 +2843,47 @@
     {
       principle: "Less is more.",
       explanation: "We believe in clean, focused design that communicates clearly without clutter.",
-      bullets: [
-        "Remove unnecessary elements that don't serve the user",
-        "Focus on what truly matters to your audience",
-        "Clean design builds trust and clarity"
-      ]
+
     },
     {
       principle: "Simplicity is the ultimate sophistication.",
       explanation: "Complex problems require elegant, simple solutions.",
-      bullets: [
-        "Break down complex challenges into simple steps",
-        "Create intuitive user experiences",
-        "Sophisticated design feels effortless to use"
-      ]
+
     },
     {
       principle: "Porque no los dos?",
       explanation: "Why choose when you can have both? We believe in creating win-win solutions that benefit everyone.",
-      bullets: [
-        "Beautiful AND functional design",
-        "Creative AND strategic thinking", 
-        "Fast AND thorough execution",
-        "Your success IS our success"
-      ]
+
     },
     {
       principle: "Creativity loves constraints.",
-      explanation: "Limitations spark innovation and lead to better solutions.",
-      bullets: [
-        "Existing branding can drive direction",
-        "Technical limitations inspire new approaches",
-        "Deadlines focus creative energy"
-      ]
+      explanation: "Limitations often spark innovation and can lead to more efficient solutions.",
+
     },
     {
       principle: "Test early and often.",
       explanation: "Real user feedback is the best way to improve your design.",
-      bullets: [
-        "Validate ideas with actual users",
-        "Iterate based on real feedback",
-        "Fail fast, learn faster"
-      ]
+
     },
     {
       principle: "Keep calm and iterate on.",
       explanation: "Design is a continous process, not a one-time event.",
-      bullets: [
-        "Be open &amp; solicit honest feedback",
-        "Continuous improvement over first sketch perfection",
-        "Every iteration, sketch, mock-up or version brings you closer to success"
-      ]
+
     },
     {
       principle: "Don't make me think.",
       explanation: "If users have to think about how to use your design, you've failed.",
-      bullets: [
-        "Make interactions intuitive and obvious",
-        "Reduce cognitive load at every step",
-        "Good design feels effortless to use"
-      ]
+
     },
     {
       principle: "Form follows function.",
-      explanation: "Beauty emerges naturally from solving real problems well.",
-      bullets: [
-        "The function should be as easy as possible &amp; the design disappears",
-        "Every visual element should serve a purpose",
-        "Functionality &amp; simplicity creates its own aesthetic"
-      ]
+      explanation: "Your site will feel beautiful when it's functional and intuitively creates a seamless user experience.",
+
     },
     {
       principle: "Content is king.",
       explanation: "Great design amplifies great content, it doesn't replace it.",
-      bullets: [
-        "Start with compelling, clear content",
-        "Design should enhance, not overshadow",
-        "The message matters more than the medium"
-      ]
+
     }
   ];
 
@@ -2867,12 +2915,9 @@
           <div class="corner-br"></div>
         </div>
       </button>
+      <div class="fortune-explanation-text" style="opacity:0; visibility: hidden; margin-top: 70px; text-align: center; color: white; font-size: 1.1rem; line-height: 1.5; max-width: 400px; margin-left: auto; margin-right: auto; transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;"></div>
     </div>
-    <div class="fortune-content">
-      <button class="fortune-close" onclick="closeFortune()">×</button>
-      <div class="fortune-principle"></div>
-      <div class="fortune-explanation"></div>
-    </div>
+          
   `;
   document.body.appendChild(fortuneOverlay);
 
@@ -2880,9 +2925,7 @@
     const overlay = document.querySelector('.fortune-cookie-overlay');
     const fcButton = document.querySelector('.fc');
     const fortuneText = document.querySelector('.fc-fortune-text');
-    const content = document.querySelector('.fortune-content');
-    const principle = document.querySelector('.fortune-principle');
-    const explanation = document.querySelector('.fortune-explanation');
+    const explanationText = document.querySelector('.fortune-explanation-text');
     
     // Show overlay
     overlay.classList.add('active');
@@ -2905,22 +2948,14 @@
       fcButton.classList.remove('spawned');
       fcButton.classList.add('opened');
       
-      // After the cookie opens and shows the fortune, show our modal
+      // After the cookie opens and shows the fortune, show the explanation below with fade-in
       setTimeout(() => {
-        principle.textContent = fortune.principle;
-        
-        let bulletsHTML = '';
-        fortune.bullets.forEach(bullet => {
-          bulletsHTML += `<li>${bullet}</li>`;
-        });
-        
-        explanation.innerHTML = `
-          <p>${fortune.explanation}</p>
-          <ul>${bulletsHTML}</ul>
-          <button class="next-fortune-btn" onclick="nextFortune()">🥠 Get Another Fortune</button>
-        `;
-        
-        content.classList.add('active');
+        explanationText.textContent = fortune.explanation;
+        explanationText.style.visibility = 'visible';
+        // Trigger fade-in effect
+        setTimeout(() => {
+          explanationText.style.opacity = '1';
+        }, 50);
       }, 1400); // Wait for cookie opening animation to complete
     }, 500); // Wait for overlay to appear
   }
@@ -2928,10 +2963,13 @@
   function nextFortune() {
     const overlay = document.querySelector('.fortune-cookie-overlay');
     const fcButton = document.querySelector('.fc');
-    const content = document.querySelector('.fortune-content');
+    const explanationText = document.querySelector('.fortune-explanation-text');
     
-    // Hide current content
-    content.classList.remove('active');
+    // Hide current explanation
+    explanationText.style.opacity = '0';
+    setTimeout(() => {
+      explanationText.style.visibility = 'hidden';
+    }, 800);
     
     // Reset cookie for next animation
     setTimeout(() => {
@@ -2946,15 +2984,22 @@
   function closeFortune() {
     const overlay = document.querySelector('.fortune-cookie-overlay');
     const fcButton = document.querySelector('.fc');
-    const content = document.querySelector('.fortune-content');
+    const explanationText = document.querySelector('.fortune-explanation-text');
     
-    content.classList.remove('active');
+    // Hide explanation with fade-out
+    explanationText.style.opacity = '0';
+    setTimeout(() => {
+      explanationText.style.visibility = 'hidden';
+    }, 800);
     
+    // Hide the overlay immediately
+    overlay.classList.remove('active');
+    
+    // Reset the cookie after the overlay transition completes
     setTimeout(() => {
       fcButton.classList.remove('opened');
       fcButton.classList.add('spawned');
-      overlay.classList.remove('active');
-    }, 300);
+    }, 500); // Wait for overlay transition to complete
   }
 
   // Add fortune cookie trigger to animation sequence

@@ -116,7 +116,6 @@ color: #eee;
 }
 [data-theme="light"] .markdown-content h1 {
   color: #00AEEF;
-  border-bottom: 3px solid #00AEEF;
 }
 [data-theme="light"] .markdown-content h2 {
   color: #00AEEF;
@@ -927,7 +926,6 @@ grid-template-columns: repeat(2, 1fr);
 
 .markdown-content h1 {
   color: #00AEEF;
-  border-bottom: 3px solid #00AEEF;
   padding-bottom: 10px;
 }
 
@@ -4250,12 +4248,6 @@ gap: 8px;
   visibility: visible;
 }
 
-.fortune-cookie-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Detailed Fortune Cookie Animation */
 .fc {
   background: transparent;
@@ -4637,16 +4629,11 @@ gap: 8px;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.5rem;
   color: #EC008C;
-  margin-bottom: 1rem;
-}
-
-.fortune-section-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .fortune-cookie-homepage {
+  max-width: 170px;;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -4686,18 +4673,11 @@ gap: 8px;
   color: #EC008C;
 }
 
-[data-theme="dark"] .fortune-section-subtitle {
-  color: #ccc;
-}
 
 [data-theme="dark"] .fortune-cookie-homepage {
   background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
   border-color: #3d444e;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .fortune-section-subtitle {
-  color: #ccc;
 }
 
 [data-theme="dark"] .fortune-cookie-homepage:hover {
@@ -4707,6 +4687,62 @@ gap: 8px;
 
 [data-theme="dark"] .fortune-cookie-text {
   color: #ccc;
+}
+
+/* Process Page Dark Mode Support */
+[data-theme="dark"] .process-step {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  border-color: #3d444e !important;
+}
+
+[data-theme="dark"] .content-card {
+  background: #2a2a2a !important;
+  color: #fff !important;
+  border: 1px solid #3d444e !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+[data-theme="dark"] .benefits-box {
+  background: #2a2a2a !important;
+  color: #fff !important;
+  border-color: #EC008C !important;
+}
+
+/* Goal quote styles for light and dark modes */
+.goal-quote {
+  background: #f8f9fa;
+  color: #333;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  position: relative;
+  border-left: 6px solid #FFCB05;
+}
+
+[data-theme="dark"] .goal-quote {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* What You Get section styles for light and dark modes */
+.what-you-get-box {
+  background: white;
+  color: #333;
+  border: 3px solid #00AEEF;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+[data-theme="dark"] .what-you-get-box {
+  background: #00AEEF;
+  color: white;
+  border: none;
+}
+
+[data-theme="dark"] .markdown-content .what-you-get-box p strong {
+  color: black
 }
 
 .services-section {
@@ -4783,6 +4819,32 @@ gap: 8px;
   font-weight: 600;
   color: #333;
   line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.team-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.team-title {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .team-role-large {
@@ -4798,6 +4860,12 @@ gap: 8px;
 [data-theme="dark"] .team-photo-caption-large {
   color: #fff;
 }
+[data-theme="dark"] .team-name {
+  color: #fff;
+}
+[data-theme="dark"] .team-title {
+  color: #bbb;
+}
 [data-theme="dark"] .team-role-large {
   color: #bbb;
 }
@@ -4809,7 +4877,21 @@ gap: 8px;
 
   .team-photo-caption-large {
     font-size: 0.9rem;
+    gap: 6px;
   }
+  
+  .team-member {
+    gap: 2px;
+  }
+  
+  .team-name {
+    font-size: 1.1rem;
+  }
+  
+  .team-title {
+    font-size: 0.85rem;
+  }
+  
   .team-role-large {
     font-size: 0.8rem;
   }
@@ -5100,11 +5182,6 @@ animation: scroll-marquee 15s linear infinite;
 
 /* --- Added for process page markdown/accordion support --- */
 
-.markdown-content h1 {
-  color: #00AEEF;
-  border-bottom: 3px solid #00AEEF;
-  padding-bottom: 10px;
-}
 .markdown-content h2 {
   color: #00AEEF;
   margin-top: 40px;
@@ -5430,4 +5507,43 @@ body[data-theme="dark"] .pricing-page h4 {
   0%, 80%, 100% { opacity: 0; transform: translateY(0); }
   85% { opacity: 1; transform: translateY(-0.2em) scale(1.2); }
   90% { opacity: 0; transform: translateY(0); }
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #111;
+  margin: 2.5rem 0;
+}
+[data-theme="light"] hr {
+  border-top: 2px solid #111;
+}
+[data-theme="dark"] hr {
+  border-top: 2px solid #fff;
+}
+
+.markdown-content h1 {
+  text-align: center;
+  font-size: 3em;
+}
+.markdown-content h2 {
+  text-align: center;
+  font-size: 2.4em;
+}
+.markdown-content h3 {
+  text-align: center;
+  font-size: 1.7em;
+}
+.markdown-content h4 {
+  text-align: center;
+  font-size: 1.3em;
+}
+@media (max-width: 600px) {
+  .markdown-content h1 { font-size: 2.1em; }
+  .markdown-content h2 { font-size: 1.6em; }
+  .markdown-content h3 { font-size: 1.2em; }
+  .markdown-content h4 { font-size: 1em; }
+}
+
+.markdown-content h1 {
+  margin-bottom: 0;
 }

@@ -62,6 +62,55 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 
 </div>
 
+## Marketing Packages & Support
+
+We offer flexible marketing support to help your business grow online and off. Choose the tier that fits your needs, or reach out for a custom plan.
+
+<div class="pricing-packages">
+
+<div class="pricing-package">
+<h3>Lite</h3>
+<div class="subtitle">Strategy Refresh</div>
+<ul>
+<li>One-time overhaul of your digital presence, content, and marketing strategy</li>
+<li>5-6 hours of consulting and implementation</li>
+</ul>
+<div class="price">$500 one-time</div>
+</div>
+
+<div class="pricing-package">
+<h3>Standard</h3>
+<div class="subtitle">Ongoing Content & Marketing</div>
+<ul>
+<li>Weekly content capture, posting, and engagement</li>
+<li>10-15 hours per month</li>
+</ul>
+<div class="price">$500/month</div>
+</div>
+
+<div class="pricing-package">
+<h3>Signature</h3>
+<div class="subtitle">Full Service + Add-ons</div>
+<ul>
+<li>All Standard services plus traditional marketing add-ons</li>
+<li>20-25 hours per month</li>
+</ul>
+<div class="price">$800/month</div>
+</div>
+
+<div class="pricing-package">
+<h3>Commission Hybrid</h3>
+<div class="subtitle">Sell-Based Content</div>
+<ul>
+<li>Consulting and content creation</li>
+<li>Only pay when a post sells (commission-based)</li>
+<li>10-15 hours per month</li>
+</ul>
+<div class="price">$500 one-time + commission</div>
+</div>
+
+</div>
+
 ## Additional Services
 
 ### Content Creation
@@ -69,12 +118,14 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 - Photography and image optimization
 - Video production and editing
 - Custom graphics and illustrations
+- Logo Design – $500
 
 ### Ongoing Support
 - Website maintenance and updates
 - Content updates and management
 - Performance monitoring and optimization
 - Security updates and backups
+- Hourly Web Work – $75/hour
 
 ### Consultation Services
 - Digital strategy planning
