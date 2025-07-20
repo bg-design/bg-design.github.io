@@ -8,6 +8,33 @@ export default function Navigation() {
   const { user, dbUser, signOut } = useAuth()
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [search, setSearch] = useState('');
+  const [suggestions, setSuggestions] = useState<any[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (search.length < 2) {
+      setSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+    const fetchSuggestions = async () => {
+      const res = await fetch(`/api/users?q=${encodeURIComponent(search)}`);
+      if (res.ok) {
+        const data = await res.json();
+        setSuggestions(data);
+        setShowSuggestions(true);
+      }
+    };
+    fetchSuggestions();
+  }, [search]);
+
+  const handleSuggestionClick = (userId: string) => {
+    setShowSuggestions(false);
+    setSearch('');
+    router.push(`/profile/${userId}`);
+  };
 
   const handleSignOut = async () => {
     await signOut()
@@ -39,6 +66,36 @@ export default function Navigation() {
             Tasteful
           </Link>
           <div className="flex items-center space-x-6">
+            {/* Search for Tastemakers */}
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+              </span>
+              <input
+                type="text"
+                placeholder="Find Tastemakers"
+                className="pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-gray-50"
+                style={{ width: 180 }}
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                ref={searchRef}
+              />
+             {showSuggestions && suggestions.length > 0 && (
+               <ul className="absolute left-0 mt-1 w-full bg-white border border-gray-200 rounded shadow-lg z-50 max-h-60 overflow-y-auto">
+                 {suggestions.map((s: any) => (
+                   <li
+                     key={s.id}
+                     className="px-4 py-2 hover:bg-blue-100 cursor-pointer"
+                     onMouseDown={() => handleSuggestionClick(s.id)}
+                   >
+                     <span className="font-medium">{s.name || 'Tastemaker'}</span>
+                   </li>
+                 ))}
+               </ul>
+             )}
+            </div>
             {/* Removed Home, Tasteboard, and Leaderboard links for single-page layout */}
             {user && dbUser ? (
               <div className="relative" ref={dropdownRef}>

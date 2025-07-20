@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Prisma } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -9,7 +9,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+    const { q } = req.query;
+    const where = q && typeof q === 'string' ? {
+      OR: [
+        { name: { contains: q, mode: Prisma.QueryMode.insensitive } },
+        { email: { contains: q, mode: Prisma.QueryMode.insensitive } },
+      ]
+    } : {};
     const users = await prisma.user.findMany({
+      where,
       include: {
         _count: {
           select: {

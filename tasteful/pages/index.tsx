@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Navigation from '../components/Navigation'
 import ProtectedRoute from '../components/ProtectedRoute'
@@ -31,6 +31,41 @@ interface TasteboardItemType {
     email: string
   }
   createdAt: string
+  author?: string
+  year?: string
+  snippet?: string
+  imageUrl?: string
+  reviewScore?: number
+  reviewText?: string
+}
+
+function RecentActivityItem({ user, item, category, imageUrl, reviewScore, reviewText }: { user: { id: string; name: string; email: string }, item: string, category: string, imageUrl?: string, reviewScore?: number, reviewText?: string }) {
+  return (
+    <div className="flex items-center space-x-3 py-2">
+      <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center overflow-hidden">
+        {imageUrl ? (
+          <img src={imageUrl} alt="thumb" className="w-8 h-8 object-cover" />
+        ) : (
+          <span className="text-xl">+</span>
+        )}
+      </div>
+      <div className="text-sm flex-1">
+        <div>
+          <span className="font-semibold">{user.name || user.email}</span> added <span className="font-medium">{item}</span> <span className="text-gray-500">({category.charAt(0) + category.slice(1).toLowerCase()})</span>
+        </div>
+        {(typeof reviewScore === 'number' || reviewText) && (
+          <div className="ml-1 mt-1 text-xs text-gray-700">
+            {typeof reviewScore === 'number' && (
+              <span className="font-bold text-blue-700">{reviewScore}/10</span>
+            )}
+            {reviewText && (
+              <span className="ml-2 italic text-gray-600">{reviewText}</span>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function Home() {
@@ -50,6 +85,8 @@ export default function Home() {
   // Recent Activity state
   const [recentActivity, setRecentActivity] = useState<TasteboardItemType[]>([]);
   const [loadingRecent, setLoadingRecent] = useState(true);
+  const [recentLimit, setRecentLimit] = useState(10);
+  const recentLoadingRef = useRef(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -72,13 +109,18 @@ export default function Home() {
   }, [user])
 
   useEffect(() => {
-    // Fetch recent activity (5 most recent tasteboard items)
+    // Fetch all recent activity once
     const fetchRecent = async () => {
       setLoadingRecent(true);
       try {
         const response = await fetch('/api/tasteboards');
         const data = await response.json();
-        setRecentActivity(data.slice(0, 5));
+        if (Array.isArray(data)) {
+          setRecentActivity(data);
+        } else {
+          console.error('Expected array for recent activity, got:', data);
+          setRecentActivity([]);
+        }
       } catch (error) {
         console.error('Failed to fetch recent activity:', error);
       } finally {
@@ -87,6 +129,25 @@ export default function Home() {
     };
     fetchRecent();
   }, []);
+
+  // Infinite scroll for recent activity
+  useEffect(() => {
+    const handleScroll = () => {
+      if (recentLoadingRef.current) return;
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
+        recentActivity.length > recentLimit
+      ) {
+        recentLoadingRef.current = true;
+        setTimeout(() => {
+          setRecentLimit((prev) => Math.min(prev + 10, recentActivity.length));
+          recentLoadingRef.current = false;
+        }, 100);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [recentActivity, recentLimit]);
 
   const fetchTasteboards = async () => {
     setLoadingTasteboards(true);
@@ -121,7 +182,7 @@ export default function Home() {
     }
   }
 
-  const handleAddTasteboard = async (data: { category: string; item: string }) => {
+  const handleAddTasteboard = async (data: any) => {
     if (!dbUser) return
     try {
       const response = await fetch('/api/tasteboards', {
@@ -130,14 +191,35 @@ export default function Home() {
         body: JSON.stringify({ ...data, userId: dbUser.id }),
       })
       if (response.ok) {
-        const newTasteboard = await response.json()
-        setTasteboards(prev => [newTasteboard, ...prev])
         setShowAddForm(false)
+        fetchTasteboards();
       }
     } catch (error) {
       console.error('Failed to add tasteboard:', error)
     }
   }
+
+  // Add a callback to always fetch after add (form)
+  const handleAddAndRefresh = async (data: any) => {
+    await handleAddTasteboard(data);
+  };
+
+  // Delete tasteboard item
+  const handleDeleteTasteboard = async (id: string) => {
+    try {
+      await fetch(`/api/tasteboards?id=${id}`, { method: 'DELETE' });
+      fetchTasteboards();
+    } catch (error) {
+      console.error('Failed to delete tasteboard item:', error);
+    }
+  };
+
+  // Compute set of item/category pairs the current user owns
+  const ownedPairs = new Set(
+    tasteboards
+      .filter(item => dbUser && item.user.id === dbUser.id)
+      .map(item => `${item.category}::${item.item.toLowerCase()}`)
+  );
 
   const formatTimeAgo = (dateString: string) => {
     const date = new Date(dateString)
@@ -156,7 +238,12 @@ export default function Home() {
       </div>
     )
   }
-  if (!user) return null
+  if (!user) {
+    if (typeof window !== 'undefined') {
+      window.location.href = '/signin';
+    }
+    return null;
+  }
 
   // Desktop sidebar (placeholder, not functional yet)
   // For now, just stack everything
@@ -215,7 +302,7 @@ export default function Home() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
               <div className="bg-white rounded-lg max-w-md w-full">
                 <AddTasteboardForm
-                  onSubmit={handleAddTasteboard}
+                  onSubmit={handleAddAndRefresh}
                   onCancel={() => setShowAddForm(false)}
                 />
               </div>
@@ -244,16 +331,41 @@ export default function Home() {
             ) : (
               tasteboards
                 .filter(item => selectedCategory === 'ALL' || item.category === selectedCategory)
-                .map((item) => (
-                  <TasteboardItem
-                    key={item.id}
-                    id={item.id}
-                    category={item.category}
-                    item={item.item}
-                    user={item.user}
-                    createdAt={item.createdAt}
-                  />
-                ))
+                .length === 0 ? (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500 text-lg">
+                      {selectedCategory === 'BOOK' && 'No books found in this view.'}
+                      {selectedCategory === 'MOVIE' && 'No movies found in this view.'}
+                      {selectedCategory === 'SHOW' && 'No shows found in this view.'}
+                      {selectedCategory === 'MUSIC' && 'No music found in this view.'}
+                      {selectedCategory === 'PODCAST' && 'No podcasts found in this view.'}
+                      {selectedCategory === 'ARTICLE' && 'No articles found in this view.'}
+                      {selectedCategory === 'APP' && 'No apps or websites found in this view.'}
+                    </p>
+                  </div>
+                ) : (
+                  tasteboards
+                    .filter(item => selectedCategory === 'ALL' || item.category === selectedCategory)
+                    .map((item) => (
+                      <TasteboardItem
+                        key={item.id}
+                        id={item.id}
+                        category={item.category}
+                        item={item.item}
+                        user={item.user}
+                        createdAt={item.createdAt}
+                        onDelete={handleDeleteTasteboard}
+                        alreadyOwned={ownedPairs.has(`${item.category}::${item.item.toLowerCase()}`)}
+                        onAdd={fetchTasteboards}
+                        author={item.author}
+                        year={item.year}
+                        snippet={item.snippet}
+                        imageUrl={item.imageUrl}
+                        reviewScore={item.reviewScore}
+                        reviewText={item.reviewText}
+                      />
+                    ))
+                )
             )}
           </div>
         </section>
@@ -336,17 +448,21 @@ export default function Home() {
               <p className="text-gray-500">No recent activity yet.</p>
             </div>
           ) : (
-            <div className="space-y-4">
-              {recentActivity.map((item) => (
-                <TasteboardItem
+            <div className="space-y-2">
+              {recentActivity.slice(0, recentLimit).map((item) => (
+                <RecentActivityItem
                   key={item.id}
-                  id={item.id}
-                  category={item.category}
-                  item={item.item}
                   user={item.user}
-                  createdAt={item.createdAt}
+                  item={item.item}
+                  category={item.category}
+                  imageUrl={item.imageUrl}
+                  reviewScore={item.reviewScore}
+                  reviewText={item.reviewText}
                 />
               ))}
+              {recentLimit < recentActivity.length && (
+                <div className="text-center py-4 text-gray-400 text-sm">Scroll down to load more…</div>
+              )}
             </div>
           )}
         </section>

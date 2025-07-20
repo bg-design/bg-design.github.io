@@ -36,6 +36,12 @@ model Tasteboard {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   createdAt DateTime @default(now())
+  author    String?
+  year      String?
+  snippet   String?
+  imageUrl  String?
+  reviewScore Int?
+  reviewText  String?
 }
 
 enum Category {
@@ -45,4 +51,5 @@ enum Category {
   MUSIC
   PODCAST
   ARTICLE
+  APP // new category for apps and websites
 }
