@@ -63,14 +63,37 @@ const fetchMicrolink = async (url: string) => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { category, query } = req.query;
-  if (!category || !query || typeof category !== 'string' || typeof query !== 'string') {
-    return res.status(400).json({ error: 'Missing category or query' });
+  const { category, query, type } = req.query;
+  if ((!category && !type) || !query || (category && typeof category !== 'string') || typeof query !== 'string') {
+    return res.status(400).json({ error: 'Missing category/type or query' });
   }
 
   try {
     let results: any[] = [];
-    if (category === 'BOOK') {
+    if (type === 'CONTENT') {
+      // Search all categories for content
+      const bookResults = await fetchOpenLibrary(query);
+      const movieResults = await fetchTMDB(query, 'movie');
+      const showResults = await fetchTMDB(query, 'tv');
+      const musicResults = await fetchITunes(query, 'music');
+      const podcastResults = await fetchITunes(query, 'podcast');
+      const articleResults = await fetchWikipedia(query);
+      // For apps, just use Microlink on the query if it looks like a URL
+      let appResults: any[] = [];
+      if (/^https?:\/\//.test(query)) {
+        appResults = await fetchMicrolink(query);
+      }
+      // Add a type and a unique id/slug for each
+      results = [
+        ...(bookResults.map((r: any) => ({ ...r, type: 'BOOK', id: r.cover_i ? `book-${r.cover_i}` : `book-${r.title.replace(/\s+/g, '-').toLowerCase()}` }))),
+        ...(movieResults.map((r: any) => ({ ...r, type: 'MOVIE', id: r.title ? `movie-${r.title.replace(/\s+/g, '-').toLowerCase()}` : undefined }))),
+        ...(showResults.map((r: any) => ({ ...r, type: 'SHOW', id: r.title ? `show-${r.title.replace(/\s+/g, '-').toLowerCase()}` : undefined }))),
+        ...(musicResults.map((r: any) => ({ ...r, type: 'MUSIC', id: r.title ? `music-${r.title.replace(/\s+/g, '-').toLowerCase()}` : undefined }))),
+        ...(podcastResults.map((r: any) => ({ ...r, type: 'PODCAST', id: r.title ? `podcast-${r.title.replace(/\s+/g, '-').toLowerCase()}` : undefined }))),
+        ...(articleResults.map((r: any) => ({ ...r, type: 'ARTICLE', id: r.title ? `article-${r.title.replace(/\s+/g, '-').toLowerCase()}` : undefined }))),
+        ...(appResults.map((r: any) => ({ ...r, type: 'APP', id: r.url ? `app-${encodeURIComponent(r.url)}` : undefined }))),
+      ].filter((r: any) => r.id);
+    } else if (category === 'BOOK') {
       results = await fetchOpenLibrary(query);
     } else if (category === 'MOVIE') {
       results = await fetchTMDB(query, 'movie');

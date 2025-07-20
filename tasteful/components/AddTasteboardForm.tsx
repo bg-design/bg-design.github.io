@@ -3,11 +3,15 @@ import React, { useState, useEffect, useRef } from 'react'
 interface AddTasteboardFormProps {
   onSubmit: (data: { category: string; item: string }) => void
   onCancel: () => void
+  initialCategory?: string;
+  initialItem?: string;
+  disableCategory?: boolean;
+  disableItem?: boolean;
 }
 
-export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardFormProps) {
-  const [category, setCategory] = useState('BOOK')
-  const [item, setItem] = useState('')
+export default function AddTasteboardForm({ onSubmit, onCancel, initialCategory, initialItem, disableCategory, disableItem }: AddTasteboardFormProps) {
+  const [category, setCategory] = useState(initialCategory || 'BOOK')
+  const [item, setItem] = useState(initialItem || '')
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [loadingSuggestions, setLoadingSuggestions] = useState(false);
@@ -95,17 +99,18 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Add to Your Tasteboard</h2>
+      <h2 className="text-xl font-semibold mb-4 text-gray-900">Add to Your Tasteboard</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="category" className="block text-sm font-medium text-gray-900 mb-1">
             Category
           </label>
           <select
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            disabled={!!disableCategory}
           >
             <option value="BOOK">📚 Book</option>
             <option value="MOVIE">🎬 Movie</option>
@@ -118,7 +123,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
         </div>
         
         <div>
-          <label htmlFor="item" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="item" className="block text-sm font-medium text-gray-900 mb-1">
             {category === 'ARTICLE' ? 'Link' : category === 'APP' ? 'App/Website Link' : 'Title'}
           </label>
           <input
@@ -131,7 +136,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
               setShowSuggestions(true);
             }}
             placeholder={category === 'ARTICLE' ? 'Paste the article URL...' : category === 'APP' ? 'Paste the app or website URL...' : 'Enter the title...'}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-700"
             required
             autoComplete="off"
             onFocus={() => {
@@ -139,7 +144,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
               if (!selectedSuggestion && suggestions.length > 0) setShowSuggestions(true);
             }}
             onBlur={() => setTimeout(() => { setInputFocused(false); setShowSuggestions(false); }, 150)}
-            disabled={false}
+            disabled={!!disableItem}
           />
           {showSuggestions && inputFocused && !selectedSuggestion && (
             <ul className="absolute z-10 bg-white border border-gray-200 rounded-md mt-1 w-full max-h-56 overflow-y-auto shadow-lg">
@@ -158,7 +163,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
                 return (
                   <li
                     key={s.title + idx}
-                    className="px-4 py-2 hover:bg-blue-100 cursor-pointer flex items-center"
+                    className="px-4 py-2 hover:bg-blue-100 cursor-pointer flex items-center text-gray-900"
                     onMouseDown={() => handleSuggestionClick(s)}
                   >
                     {/* Remove thumbnail from suggestions */}
@@ -181,11 +186,11 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
                 return thumb ? <img src={thumb} alt="cover" className="w-12 h-16 object-cover rounded shadow mr-3" /> : null;
               })()}
               <div>
-                <div className="font-semibold">{selectedSuggestion.title}</div>
-                {selectedSuggestion.author && <div className="text-sm text-gray-600">by {selectedSuggestion.author}</div>}
-                {selectedSuggestion.year && <div className="text-sm text-gray-400">Year: {selectedSuggestion.year}</div>}
-                {selectedSuggestion.snippet && <div className="text-xs text-gray-500 mt-1" dangerouslySetInnerHTML={{__html: selectedSuggestion.snippet}} />}
-                {selectedSuggestion.description && <div className="text-sm text-gray-600">{selectedSuggestion.description}</div>}
+                <div className="font-semibold text-gray-900">{selectedSuggestion.title}</div>
+                {selectedSuggestion.author && <div className="text-sm text-gray-800">by {selectedSuggestion.author}</div>}
+                {selectedSuggestion.year && <div className="text-sm text-gray-700">Year: {selectedSuggestion.year}</div>}
+                {selectedSuggestion.snippet && <div className="text-xs text-gray-700 mt-1" dangerouslySetInnerHTML={{__html: selectedSuggestion.snippet}} />}
+                {selectedSuggestion.description && <div className="text-sm text-gray-800">{selectedSuggestion.description}</div>}
                 {selectedSuggestion.url && (
                   <a href={selectedSuggestion.url} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 underline mt-1 block">{selectedSuggestion.url}</a>
                 )}
@@ -195,7 +200,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
         </div>
         {/* Review fields */}
         <div className="mt-4">
-          <label htmlFor="reviewScore" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="reviewScore" className="block text-sm font-medium text-gray-900 mb-1">
             Your Score (1-10)
           </label>
           <input
@@ -205,13 +210,13 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
             max={10}
             value={reviewScore}
             onChange={e => setReviewScore(e.target.value === '' ? '' : Math.max(1, Math.min(10, Number(e.target.value))))}
-            className="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-24 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
             required
             ref={reviewScoreRef}
           />
         </div>
         <div className="mt-2">
-          <label htmlFor="reviewText" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="reviewText" className="block text-sm font-medium text-gray-900 mb-1">
             Your Review (optional)
           </label>
           <textarea
@@ -219,7 +224,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
             value={reviewText}
             onChange={e => setReviewText(e.target.value)}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-700"
             placeholder="Write your thoughts..."
           />
         </div>
@@ -235,7 +240,7 @@ export default function AddTasteboardForm({ onSubmit, onCancel }: AddTasteboardF
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+            className="flex-1 bg-gray-300 text-gray-900 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
           >
             Cancel
           </button>

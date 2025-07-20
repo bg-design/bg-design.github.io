@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Navigation from '../../components/Navigation'
 import TasteboardItem from '../../components/TasteboardItem'
 import { useAuth } from '../../contexts/AuthContext'
+import AddTasteboardForm from '../../components/AddTasteboardForm';
 
 interface User {
   id: string
@@ -40,6 +41,7 @@ export default function UserProfile() {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL')
   const [showAddForm, setShowAddForm] = useState(false)
   const [newItem, setNewItem] = useState({ category: 'BOOK', item: '' })
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -126,44 +128,22 @@ export default function UserProfile() {
     }
   }
 
-  const handleAddItem = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!currentDbUser || !newItem.item.trim()) return
-
+  const handleAddTasteboard = async (data: any) => {
+    if (!currentDbUser) return;
     try {
       const response = await fetch('/api/tasteboards', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          category: newItem.category,
-          item: newItem.item.trim(),
-          userId: currentDbUser.id
-        }),
-      })
-
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, userId: currentDbUser.id }),
+      });
       if (response.ok) {
-        const newTasteboardItem = await response.json()
-        setTasteboards(prev => [newTasteboardItem, ...prev])
-        setNewItem({ category: 'BOOK', item: '' })
-        setShowAddForm(false)
-        
-        // Update the count
-        if (user) {
-          setUser(prev => prev ? {
-            ...prev,
-            _count: {
-              ...prev._count,
-              tasteboards: prev._count.tasteboards + 1
-            }
-          } : null)
-        }
+        setShowAddForm(false);
+        fetchUserTasteboards();
       }
     } catch (error) {
-      console.error('Failed to add item:', error)
+      console.error('Failed to add tasteboard:', error);
     }
-  }
+  };
 
   const filteredTasteboards = selectedCategory === 'ALL' 
     ? tasteboards 
@@ -241,124 +221,131 @@ export default function UserProfile() {
           <h2 className="text-2xl font-bold text-gray-900">
             {isOwnProfile ? 'Your Tasteboard' : `${user.name || user.email}'s Tasteboard`}
           </h2>
-          
           {isOwnProfile && (
-            <button
-              onClick={() => setShowAddForm(!showAddForm)}
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              {showAddForm ? 'Cancel' : 'Add Item'}
-            </button>
+            <div className="flex space-x-2">
+              <button
+                onClick={() => setEditMode(!editMode)}
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+              >
+                {editMode ? 'Done' : 'Edit'}
+              </button>
+              <button
+                onClick={() => setShowAddForm(!showAddForm)}
+                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors font-medium"
+              >
+                {showAddForm ? 'Cancel' : 'Add Item'}
+              </button>
+            </div>
           )}
         </div>
-
-        {/* Add Item Form */}
+        {/* Add Item Modal */}
         {showAddForm && isOwnProfile && (
-          <div className="bg-white rounded-lg p-6 mb-6 shadow-sm">
-            <h3 className="text-lg font-semibold mb-4">Add New Item</h3>
-            <form onSubmit={handleAddItem} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Category
-                </label>
-                <select
-                  value={newItem.category}
-                  onChange={(e) => setNewItem(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="BOOK">Book</option>
-                  <option value="MOVIE">Movie</option>
-                  <option value="SHOW">Show</option>
-                  <option value="MUSIC">Music</option>
-                  <option value="PODCAST">Podcast</option>
-                  <option value="ARTICLE">Article</option>
-                </select>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Item
-                </label>
-                <input
-                  type="text"
-                  value={newItem.item}
-                  onChange={(e) => setNewItem(prev => ({ ...prev, item: e.target.value }))}
-                  placeholder="Enter the title, artist, author, etc."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              
-              <div className="flex space-x-3">
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                >
-                  Add Item
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowAddForm(false)
-                    setNewItem({ category: 'BOOK', item: '' })
-                  }}
-                  className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg max-w-md w-full">
+              <AddTasteboardForm
+                onSubmit={handleAddTasteboard}
+                onCancel={() => setShowAddForm(false)}
+              />
+            </div>
           </div>
         )}
-
         {/* Category Filter */}
-        <div className="mb-6">
-          <div className="flex flex-wrap gap-2">
-            {['ALL', 'BOOK', 'MOVIE', 'SHOW', 'MUSIC', 'PODCAST', 'ARTICLE'].map((category) => (
+        <div className="mb-6 flex flex-wrap gap-2">
+          {[
+            { key: 'ALL', label: 'All' },
+            { key: 'BOOK', label: 'Books' },
+            { key: 'MOVIE', label: 'Movies' },
+            { key: 'SHOW', label: 'TV Shows' },
+            { key: 'MUSIC', label: 'Music' },
+            { key: 'PODCAST', label: 'Podcasts' },
+            { key: 'ARTICLE', label: 'Articles' },
+            { key: 'APP', label: 'Apps' },
+          ].map(({ key, label }) => {
+            const isEmpty =
+              key === 'ALL'
+                ? tasteboards.length === 0
+                : tasteboards.filter(item => item.category === key).length === 0;
+            return (
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-blue-500 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
-                }`}
+                key={key}
+                onClick={() => setSelectedCategory(key)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === key
+                  ? 'bg-blue-500 text-white'
+                  : isEmpty
+                    ? 'bg-gray-100 text-gray-400 hover:bg-gray-200'
+                    : 'bg-white text-gray-700 hover:bg-gray-50'}`}
+                style={{ cursor: 'pointer' }}
               >
-                {category === 'ALL' ? 'All' : category}
+                {label}
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
-
         {/* Tasteboard Items */}
         <div className="space-y-4">
-          {filteredTasteboards.length === 0 ? (
-            <div className="text-center py-12 bg-white rounded-lg">
+          {loading ? (
+            <div className="text-center py-8">
+              <div className="text-gray-500">Loading tasteboard...</div>
+            </div>
+          ) : filteredTasteboards.length === 0 ? (
+            <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                {isOwnProfile 
-                  ? "You haven't added any items to your tasteboard yet." 
-                  : `${user.name || user.email} hasn't added any items yet.`
-                }
+                {selectedCategory === 'ALL' && isOwnProfile ? (
+                  <>
+                    You haven't added any items to your tasteboard yet.
+                    <br />
+                    <button
+                      onClick={() => setShowAddForm(true)}
+                      className="mt-4 text-blue-500 hover:text-blue-600 underline text-base"
+                    >
+                      Add your first item
+                    </button>
+                  </>
+                ) : null}
+                {selectedCategory === 'ALL' && !isOwnProfile && "No items found."}
+                {selectedCategory === 'BOOK' && 'No books found in this tasteboard.'}
+                {selectedCategory === 'MOVIE' && 'No movies found in this tasteboard.'}
+                {selectedCategory === 'SHOW' && 'No shows found in this tasteboard.'}
+                {selectedCategory === 'MUSIC' && 'No music found in this tasteboard.'}
+                {selectedCategory === 'PODCAST' && 'No podcasts found in this tasteboard.'}
+                {selectedCategory === 'ARTICLE' && 'No articles found in this tasteboard.'}
+                {selectedCategory === 'APP' && 'No apps or websites found in this tasteboard.'}
               </p>
-              {isOwnProfile && !showAddForm && (
-                <button
-                  onClick={() => setShowAddForm(true)}
-                  className="mt-4 text-blue-500 hover:text-blue-600"
-                >
-                  Add your first item
-                </button>
-              )}
             </div>
           ) : (
             filteredTasteboards.map((item) => (
-              <TasteboardItem
-                key={item.id}
-                id={item.id}
-                category={item.category}
-                item={item.item}
-                user={item.user}
-                createdAt={item.createdAt}
-              />
+              <div key={item.id} className="relative group">
+                <TasteboardItem {...item} />
+                {isOwnProfile && editMode && (
+                  <div className="absolute top-2 right-2 flex space-x-2 z-10">
+                    <button
+                      onClick={() => {
+                        const event = new CustomEvent('edit-tasteboard-item', { detail: { id: item.id } });
+                        window.dispatchEvent(event);
+                      }}
+                      className="bg-white bg-opacity-80 rounded-full p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-100 transition-colors flex items-center"
+                      title="Edit"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-1">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487a2.25 2.25 0 1 1 3.182 3.182L7.5 20.213l-4.182.465a.75.75 0 0 1-.82-.82l.465-4.182 12.899-12.899z" />
+                      </svg>
+                      <span className="text-xs font-medium text-gray-900">Edit</span>
+                    </button>
+                    <button
+                      onClick={async () => {
+                        await fetch(`/api/tasteboards?id=${item.id}`, { method: 'DELETE' });
+                        fetchUserTasteboards();
+                      }}
+                      className="bg-white bg-opacity-80 rounded-full p-1 text-gray-400 hover:text-red-600 hover:bg-red-100 transition-colors"
+                      title="Delete"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+              </div>
             ))
           )}
         </div>

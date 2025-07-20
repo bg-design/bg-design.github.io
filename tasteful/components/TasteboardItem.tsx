@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useAuth } from '../contexts/AuthContext';
+import AddTasteboardForm from './AddTasteboardForm';
 
 interface TasteboardItemProps {
   id: string
@@ -41,19 +42,34 @@ const categoryIcons = {
   ARTICLE: '📄'
 }
 
-export default function TasteboardItem({ id, category, item, user, createdAt, onAdd, onDelete, alreadyOwned, author, year, snippet, imageUrl, reviewScore, reviewText }: TasteboardItemProps) {
+export default function TasteboardItem({ id, category, item, user, createdAt, onAdd, onDelete, alreadyOwned, author, year, snippet, imageUrl, reviewScore, reviewText, editing: editingProp }: TasteboardItemProps & { editing?: boolean }) {
   const { dbUser } = useAuth();
   const [adding, setAdding] = useState(false);
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(editingProp || false);
   const [editScore, setEditScore] = useState<number | ''>(reviewScore ?? '');
   const [editText, setEditText] = useState(reviewText ?? '');
   const [saving, setSaving] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
+  // Listen for edit-tasteboard-item event
+  useEffect(() => {
+    function handleEditEvent(e: any) {
+      if (e.detail && e.detail.id === id) setEditing(true);
+    }
+    window.addEventListener('edit-tasteboard-item', handleEditEvent);
+    return () => window.removeEventListener('edit-tasteboard-item', handleEditEvent);
+  }, [id]);
 
   // Check if this item is already on the user's tasteboard (by item name and category)
   // In a real app, you'd want to check by unique item id or a better deduplication method
   // For now, we assume the parent page prevents duplicates, so we just track local state
 
-  const handleAdd = async () => {
+  const handleAdd = () => {
+    setShowAddModal(true);
+  };
+
+  const handleAddTasteboard = async (data: any) => {
     if (!dbUser) return;
     setAdding(true);
     try {
@@ -61,12 +77,12 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          category,
-          item,
+          ...data,
           userId: dbUser.id
         })
       });
       if (res.ok) {
+        setShowAddModal(false);
         if (onAdd) onAdd();
       }
     } finally {
@@ -110,62 +126,59 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
 
   const isOwnItem = dbUser && dbUser.id === user.id;
 
+  useEffect(() => {
+    setImgError(false);
+  }, [imageUrl]);
+
+  // Debug: log image error and url
+  // Remove or comment out after debugging
+  // console.log('imgError:', imgError, 'imageUrl:', imageUrl);
+
   return (
     <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
       <div className="flex items-start justify-between items-start">
-        {/* Left: Larger Thumbnail */}
-        <div className="flex-shrink-0">
-          {isOwnItem && imageUrl ? (
-            <img src={imageUrl} alt="cover" className="w-20 h-28 object-cover rounded shadow" />
-          ) : (
-            <div className={`w-12 h-16 rounded flex items-center justify-center text-2xl font-medium ${categoryColors[category]} bg-white overflow-hidden`}>
-              {imageUrl ? (
-                <img src={imageUrl} alt="cover" className="w-12 h-16 object-cover rounded" />
-              ) : (
-                categoryIcons[category]
-              )}
-            </div>
+        {/* Left: Thumbnail (robust emoji fallback) */}
+        <div className="flex-shrink-0 w-16 h-24 relative">
+          {/* Emoji fallback always rendered underneath */}
+          <div className={`w-16 h-24 rounded flex items-center justify-center text-2xl font-medium ${categoryColors[category]} bg-white overflow-hidden absolute inset-0 z-0 border-2 border-dashed border-gray-300`}>
+            {categoryIcons[category]}
+          </div>
+          {/* Only render the image if there is a valid imageUrl and no error */}
+          {imageUrl && !imgError && (
+            <img
+              key={imageUrl}
+              src={imageUrl}
+              alt="cover"
+              className="w-16 h-24 object-cover rounded shadow absolute inset-0 z-10"
+              onError={() => { setImgError(true); console.log('Image failed to load:', imageUrl); }}
+            />
           )}
         </div>
         {/* Middle: Details, flex-grow to fill space */}
         <div className="flex flex-col flex-grow justify-between ml-6">
-          <div>
+          <div className="flex items-center space-x-2">
+            <span className="text-xl" title={category.toLowerCase()}>{categoryIcons[category]}</span>
             <h3 className="font-medium text-gray-900 text-lg">{item}</h3>
-            {!isOwnItem && (
-              <Link
-                href={`/profile/${user.id}`}
-                className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
-              >
-                by {user.name || user.email}
-              </Link>
-            )}
-            {isOwnItem && (
-              <div className="mt-1 text-sm text-gray-700">
-                {author && <div>by {author}</div>}
-                {year && <div>Year: {year}</div>}
-                {snippet && <div className="text-xs text-gray-500 mt-1" dangerouslySetInnerHTML={{__html: snippet}} />}
-              </div>
-            )}
           </div>
-          <span className="text-xs text-gray-400 mt-4 block">
-            Added on {new Date(createdAt).toLocaleDateString()}
-          </span>
+          {!isOwnItem && (
+            <Link
+              href={`/profile/${user.id}`}
+              className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              by {user.name || user.email}
+            </Link>
+          )}
+          {isOwnItem && (
+            <div className="mt-1 text-sm text-gray-700">
+              {author && <div>by {author}</div>}
+              {year && <div>Year: {year}</div>}
+              {snippet && <div className="text-xs text-gray-500 mt-1" dangerouslySetInnerHTML={{__html: snippet}} />}
+            </div>
+          )}
         </div>
         {/* Right: My Score and My Review for own items, always rendered with fixed width */}
         {isOwnItem && (
           <div className="ml-8 flex flex-col w-56 relative items-start">
-            {/* Edit pencil icon */}
-            {!editing && (
-              <button
-                className="absolute top-0 right-0 text-gray-400 hover:text-blue-600"
-                title="Edit"
-                onClick={handleEdit}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487a2.25 2.25 0 1 1 3.182 3.182L7.5 20.213l-4.182.465a.75.75 0 0 1-.82-.82l.465-4.182 12.899-12.899z" />
-                </svg>
-              </button>
-            )}
             {editing ? (
               <>
                 <div className="mb-2">
@@ -176,7 +189,7 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
                     max={10}
                     value={editScore}
                     onChange={e => setEditScore(e.target.value === '' ? '' : Math.max(1, Math.min(10, Number(e.target.value))))}
-                    className="w-16 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-16 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   />
                   <span className="ml-1 text-gray-500">/10</span>
                 </div>
@@ -186,7 +199,7 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
                     value={editText}
                     onChange={e => setEditText(e.target.value)}
                     rows={2}
-                    className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   />
                 </div>
                 <div className="flex space-x-2 mt-1">
@@ -229,20 +242,7 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
           </div>
         )}
         {/* End right column */}
-        <div className="flex items-center space-x-2">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryColors[category]}`}>{category}</span>
-          {isOwnItem && onDelete && (
-            <button
-              className="ml-2 text-gray-400 hover:text-red-600"
-              title="Delete"
-              onClick={() => onDelete(id)}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
+        {/* Remove the old category pill/tag */}
       </div>
       <div className="mt-3 flex items-center justify-between">
         {!isOwnItem && (
@@ -259,6 +259,20 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
           </div>
         )}
       </div>
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-md w-full">
+            <AddTasteboardForm
+              onSubmit={handleAddTasteboard}
+              onCancel={() => setShowAddModal(false)}
+              initialCategory={category}
+              initialItem={item}
+              disableCategory
+              disableItem
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 } 

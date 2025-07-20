@@ -39,7 +39,21 @@ interface TasteboardItemType {
   reviewText?: string
 }
 
-function RecentActivityItem({ user, item, category, imageUrl, reviewScore, reviewText }: { user: { id: string; name: string; email: string }, item: string, category: string, imageUrl?: string, reviewScore?: number, reviewText?: string }) {
+function RecentActivityItem({ user, item, category, imageUrl, reviewScore, reviewText, createdAt }: { user: { id: string; name: string; email: string }, item: string, category: string, imageUrl?: string, reviewScore?: number, reviewText?: string, createdAt: string }) {
+  const slug = item.replace(/\s+/g, '-').toLowerCase();
+  // Format time ago
+  const formatTimeAgo = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    if (diffInSeconds < 60) return 'just now';
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    if (diffInMinutes < 60) return `${diffInMinutes} min ago`;
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `${diffInHours} hr${diffInHours > 1 ? 's' : ''} ago`;
+    const diffInDays = Math.floor(diffInHours / 24);
+    return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+  };
   return (
     <div className="flex items-center space-x-3 py-2">
       <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center overflow-hidden">
@@ -51,7 +65,10 @@ function RecentActivityItem({ user, item, category, imageUrl, reviewScore, revie
       </div>
       <div className="text-sm flex-1">
         <div>
-          <span className="font-semibold">{user.name || user.email}</span> added <span className="font-medium">{item}</span> <span className="text-gray-500">({category.charAt(0) + category.slice(1).toLowerCase()})</span>
+          <Link href={`/profile/${user.id}`} className="font-semibold text-blue-700 hover:underline">{user.name || user.email}</Link> added{' '}
+          <Link href={`/content/${category.toLowerCase()}/${slug}`} className="font-medium text-blue-700 hover:underline">{item}</Link>{' '}
+          <span className="text-gray-500">({category.charAt(0) + category.slice(1).toLowerCase()})</span>
+          <span className="ml-2 text-xs text-gray-400">{formatTimeAgo(createdAt)}</span>
         </div>
         {(typeof reviewScore === 'number' || reviewText) && (
           <div className="ml-1 mt-1 text-xs text-gray-700">
@@ -87,6 +104,8 @@ export default function Home() {
   const [loadingRecent, setLoadingRecent] = useState(true);
   const [recentLimit, setRecentLimit] = useState(10);
   const recentLoadingRef = useRef(false);
+  // Leaderboard show more/less toggle (must be at top level)
+  const [showAllLeaderboard, setShowAllLeaderboard] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -248,6 +267,11 @@ export default function Home() {
   // Desktop sidebar (placeholder, not functional yet)
   // For now, just stack everything
 
+  // Leaderboard Section
+  // Only show users with at least 15 tasteboards
+  const leaderboardUsers = users.filter(u => u._count.tasteboards >= 15).sort((a, b) => b._count.tasteboards - a._count.tasteboards);
+  const displayedUsers = showAllLeaderboard ? leaderboardUsers : leaderboardUsers.slice(0, 5);
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       <Navigation />
@@ -256,118 +280,6 @@ export default function Home() {
         <section>
           <h1 className="text-4xl font-bold mb-4">Welcome to Tasteful</h1>
           <p className="text-lg mb-8">Share your favorite things and follow people who inspire your taste.</p>
-        </section>
-
-        {/* Tasteboard Section */}
-        <section className="bg-white p-6 rounded-lg shadow-md">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-semibold">Tasteboard</h2>
-            <button
-              onClick={() => setShowAddForm(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
-            >
-              Add Item
-            </button>
-          </div>
-          {/* View Mode Toggle */}
-          <div className="mb-4 flex items-center space-x-4">
-            <span className="text-sm font-medium text-gray-700">View:</span>
-            <button
-              onClick={() => setViewMode('my')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${viewMode === 'my' ? 'bg-blue-500 text-white' : 'text-gray-700 hover:text-gray-900'}`}
-            >
-              My Items
-            </button>
-            <button
-              onClick={() => setViewMode('all')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${viewMode === 'all' ? 'bg-blue-500 text-white' : 'text-gray-700 hover:text-gray-900'}`}
-            >
-              All Items
-            </button>
-          </div>
-          {/* Category Filter */}
-          <div className="mb-6 flex flex-wrap gap-2">
-            {['ALL', 'BOOK', 'MOVIE', 'SHOW', 'MUSIC', 'PODCAST', 'ARTICLE'].map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
-              >
-                {category === 'ALL' ? 'All' : category}
-              </button>
-            ))}
-          </div>
-          {/* Add Form Modal */}
-          {showAddForm && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-              <div className="bg-white rounded-lg max-w-md w-full">
-                <AddTasteboardForm
-                  onSubmit={handleAddAndRefresh}
-                  onCancel={() => setShowAddForm(false)}
-                />
-              </div>
-            </div>
-          )}
-          {/* Tasteboard Items */}
-          <div className="space-y-4">
-            {loadingTasteboards ? (
-              <div className="text-center py-8">
-                <div className="text-gray-500">Loading tasteboard...</div>
-              </div>
-            ) : tasteboards.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">
-                  {viewMode === 'my' ? "You haven't added any items to your tasteboard yet." : "No items found."}
-                </p>
-                {viewMode === 'my' && (
-                  <button
-                    onClick={() => setShowAddForm(true)}
-                    className="mt-4 text-blue-500 hover:text-blue-600"
-                  >
-                    Add your first item
-                  </button>
-                )}
-              </div>
-            ) : (
-              tasteboards
-                .filter(item => selectedCategory === 'ALL' || item.category === selectedCategory)
-                .length === 0 ? (
-                  <div className="text-center py-12">
-                    <p className="text-gray-500 text-lg">
-                      {selectedCategory === 'BOOK' && 'No books found in this view.'}
-                      {selectedCategory === 'MOVIE' && 'No movies found in this view.'}
-                      {selectedCategory === 'SHOW' && 'No shows found in this view.'}
-                      {selectedCategory === 'MUSIC' && 'No music found in this view.'}
-                      {selectedCategory === 'PODCAST' && 'No podcasts found in this view.'}
-                      {selectedCategory === 'ARTICLE' && 'No articles found in this view.'}
-                      {selectedCategory === 'APP' && 'No apps or websites found in this view.'}
-                    </p>
-                  </div>
-                ) : (
-                  tasteboards
-                    .filter(item => selectedCategory === 'ALL' || item.category === selectedCategory)
-                    .map((item) => (
-                      <TasteboardItem
-                        key={item.id}
-                        id={item.id}
-                        category={item.category}
-                        item={item.item}
-                        user={item.user}
-                        createdAt={item.createdAt}
-                        onDelete={handleDeleteTasteboard}
-                        alreadyOwned={ownedPairs.has(`${item.category}::${item.item.toLowerCase()}`)}
-                        onAdd={fetchTasteboards}
-                        author={item.author}
-                        year={item.year}
-                        snippet={item.snippet}
-                        imageUrl={item.imageUrl}
-                        reviewScore={item.reviewScore}
-                        reviewText={item.reviewText}
-                      />
-                    ))
-                )
-            )}
-          </div>
         </section>
 
         {/* Leaderboard Section */}
@@ -379,7 +291,7 @@ export default function Home() {
             </div>
           ) : (
             <div className="divide-y divide-gray-200">
-              {users.map((user, index) => (
+              {displayedUsers.map((user, index) => (
                 <div key={user.id} className="py-4 flex items-center space-x-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-sm font-bold text-gray-600">
@@ -390,9 +302,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <span className="text-lg font-medium text-gray-900">
+                    <Link href={`/profile/${user.id}`} className="text-lg font-medium text-blue-700 hover:underline">
                       {user.name || user.email}
-                    </span>
+                    </Link>
                     <div className="flex items-center space-x-4 mt-1">
                       <span className="text-sm text-gray-600">{user._count.tasteboards} items</span>
                       <span className="text-sm text-gray-600">{user._count.followers} followers</span>
@@ -404,64 +316,54 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              {users.length === 0 && (
+              {leaderboardUsers.length === 0 && (
                 <div className="py-12 text-center">
                   <p className="text-gray-500">No users found.</p>
                 </div>
               )}
             </div>
           )}
-        </section>
-
-        {/* Profile Section */}
-        {dbUser && (
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Your Profile</h2>
-            <div className="flex items-center space-x-6 mb-6">
-              <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                {dbUser.name ? dbUser.name[0].toUpperCase() : dbUser.email[0].toUpperCase()}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-900">{dbUser.name || dbUser.email}</h3>
-                <p className="text-gray-600 mt-1">Member since {dbUser.createdAt ? new Date(dbUser.createdAt).toLocaleDateString() : ''}</p>
-                <div className="flex items-center space-x-6 mt-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{tasteboards.filter(item => item.user.id === dbUser.id).length}</div>
-                    <div className="text-sm text-gray-600">Items</div>
-                  </div>
-                  {/* Follower/following counts would require more API calls or state */}
-                </div>
-              </div>
+          {leaderboardUsers.length > 5 && (
+            <div className="text-center mt-4">
+              <button
+                className="text-blue-600 hover:underline font-medium"
+                onClick={() => setShowAllLeaderboard(v => !v)}
+              >
+                {showAllLeaderboard ? 'Show Top 5' : `Show All (${leaderboardUsers.length})`}
+              </button>
             </div>
-          </section>
-        )}
+          )}
+        </section>
 
         {/* Recent Activity Section */}
         <section className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Recent Activity</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-semibold">Recent Activity</h2>
+            <div className="flex gap-2">
+              {["ALL", "BOOK", "MOVIE", "SHOW", "MUSIC", "PODCAST", "ARTICLE"].map((cat) => (
+                <button
+                  key={cat}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${selectedCategory === cat ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                  onClick={() => setSelectedCategory(cat)}
+                >
+                  {cat.charAt(0) + cat.slice(1).toLowerCase()}
+                </button>
+              ))}
+            </div>
+          </div>
           {loadingRecent ? (
             <div className="text-center py-8">
               <div className="text-gray-500">Loading recent activity...</div>
             </div>
-          ) : recentActivity.length === 0 ? (
-            <div className="text-center py-8">
-              <p className="text-gray-500">No recent activity yet.</p>
-            </div>
           ) : (
-            <div className="space-y-2">
-              {recentActivity.slice(0, recentLimit).map((item) => (
-                <RecentActivityItem
-                  key={item.id}
-                  user={item.user}
-                  item={item.item}
-                  category={item.category}
-                  imageUrl={item.imageUrl}
-                  reviewScore={item.reviewScore}
-                  reviewText={item.reviewText}
-                />
+            <div className="divide-y divide-gray-200">
+              {(selectedCategory === 'ALL' ? recentActivity : recentActivity.filter(a => a.category === selectedCategory)).slice(0, recentLimit).map((a, idx) => (
+                <RecentActivityItem key={a.id + idx} {...a} />
               ))}
-              {recentLimit < recentActivity.length && (
-                <div className="text-center py-4 text-gray-400 text-sm">Scroll down to load more…</div>
+              {recentActivity.length === 0 && (
+                <div className="py-12 text-center">
+                  <p className="text-gray-500">No recent activity found.</p>
+                </div>
               )}
             </div>
           )}
