@@ -1,0 +1,48 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+  tasteboards Tasteboard[]
+  followers   Follower[] @relation("Followees")
+  following   Follower[] @relation("Followers")
+}
+
+model Follower {
+  id         String   @id @default(uuid())
+  follower   User     @relation("Followers", fields: [followerId], references: [id])
+  followerId String
+  followee   User     @relation("Followees", fields: [followeeId], references: [id])
+  followeeId String
+  createdAt  DateTime @default(now())
+  @@unique([followerId, followeeId])
+}
+
+model Tasteboard {
+  id        String   @id @default(uuid())
+  category  Category
+  item      String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+}
+
+enum Category {
+  BOOK
+  MOVIE
+  SHOW
+  MUSIC
+  PODCAST
+  ARTICLE
+}
