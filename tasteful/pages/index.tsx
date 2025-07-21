@@ -23,7 +23,7 @@ interface LeaderboardUser {
 // Define TasteboardItem type locally to avoid linter error
 interface TasteboardItemType {
   id: string
-  category: 'BOOK' | 'MOVIE' | 'SHOW' | 'MUSIC' | 'PODCAST' | 'ARTICLE'
+  category: 'BOOK' | 'MOVIE' | 'SHOW' | 'MUSIC' | 'PODCAST' | 'ARTICLE' | 'APP'
   item: string
   user: {
     id: string
@@ -340,7 +340,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-semibold">Recent Activity</h2>
             <div className="flex gap-2">
-              {["ALL", "BOOK", "MOVIE", "SHOW", "MUSIC", "PODCAST", "ARTICLE"].map((cat) => (
+              {["ALL", "BOOK", "MOVIE", "SHOW", "MUSIC", "PODCAST", "ARTICLE", "APP"].map((cat) => (
                 <button
                   key={cat}
                   className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${selectedCategory === cat ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}

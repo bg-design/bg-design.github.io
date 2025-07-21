@@ -17,6 +17,8 @@ model User {
   tasteboards Tasteboard[]
   followers   Follower[] @relation("Followees")
   following   Follower[] @relation("Followers")
+  bio       String? // User bio
+  profilePhoto String? // Custom profile photo URL
 }
 
 model Follower {

@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation'
 import TasteboardItem from '../../components/TasteboardItem'
 import { useAuth } from '../../contexts/AuthContext'
 import AddTasteboardForm from '../../components/AddTasteboardForm';
+import { createClient } from '../../lib/supabase';
 
 interface User {
   id: string
@@ -16,6 +17,8 @@ interface User {
     followers: number
     following: number
   }
+  bio?: string;
+  profilePhoto?: string;
 }
 
 interface TasteboardItem {
@@ -42,6 +45,13 @@ export default function UserProfile() {
   const [showAddForm, setShowAddForm] = useState(false)
   const [newItem, setNewItem] = useState({ category: 'BOOK', item: '' })
   const [editMode, setEditMode] = useState(false);
+  // Add state for editing bio and profile photo
+  const [editingBio, setEditingBio] = useState(false);
+  const [bioInput, setBioInput] = useState(user?.bio || '');
+  const [editingPhoto, setEditingPhoto] = useState(false);
+  const [photoInput, setPhotoInput] = useState(user?.profilePhoto || '');
+  const [selectedFileName, setSelectedFileName] = useState<string>("");
+  const supabase = createClient();
 
   useEffect(() => {
     if (id) {
@@ -139,6 +149,7 @@ export default function UserProfile() {
       if (response.ok) {
         setShowAddForm(false);
         fetchUserTasteboards();
+        fetchUserProfile(); // Refresh profile to update item count
       }
     } catch (error) {
       console.error('Failed to add tasteboard:', error);
@@ -182,20 +193,109 @@ export default function UserProfile() {
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-gray-900">{user.name || user.email}</h1>
               <p className="text-gray-600 mt-1">Member since {new Date(user.createdAt).toLocaleDateString()}</p>
-              
-              <div className="flex items-center space-x-6 mt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">{user._count.tasteboards}</div>
-                  <div className="text-sm text-gray-600">Items</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">{user._count.followers}</div>
-                  <div className="text-sm text-gray-600">Followers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">{user._count.following}</div>
-                  <div className="text-sm text-gray-600">Following</div>
-                </div>
+              {/* Bio section */}
+              <div className="mt-2">
+                {isOwnProfile && editingBio ? (
+                  <div className="flex items-center gap-2">
+                    <textarea
+                      className="border rounded px-2 py-1 w-full text-gray-900 placeholder-gray-900"
+                      value={bioInput}
+                      onChange={e => setBioInput(e.target.value)}
+                      rows={2}
+                    />
+                    <button className="bg-blue-500 text-white px-3 py-1 rounded" onClick={async () => {
+                      await fetch(`/api/users/${user.id}`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ bio: bioInput })
+                      });
+                      setEditingBio(false);
+                      fetchUserProfile();
+                    }}>Save</button>
+                    <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded" onClick={() => { setEditingBio(false); setBioInput(user.bio || ''); }}>Cancel</button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-700 text-base whitespace-pre-line">{user.bio || (isOwnProfile ? 'Add a bio...' : '')}</span>
+                    {isOwnProfile && (
+                      <button className="text-xs text-blue-500 underline ml-2" onClick={() => setEditingBio(true)}>Edit Bio</button>
+                    )}
+                  </div>
+                )}
+              </div>
+              {/* Profile photo section */}
+              <div className="mt-2 flex items-center gap-2">
+                <img
+                  src={user.profilePhoto || user.avatarUrl || '/window.svg'}
+                  alt="Profile"
+                  className="w-16 h-16 rounded-full object-cover border"
+                />
+                {isOwnProfile && (editingPhoto ? (
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      id="profile-photo-upload"
+                      className="hidden"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          // Get Supabase Auth user ID
+                          const { data: { user: authUser } } = await supabase.auth.getUser();
+                          if (!authUser) {
+                            alert('You must be signed in to upload a photo.');
+                            return;
+                          }
+                          setSelectedFileName(file.name);
+                          // Upload to Supabase Storage using Supabase Auth user ID
+                          const filePath = `profile-photos/${authUser.id}/${Date.now()}-${file.name}`;
+                          const { data, error } = await supabase.storage.from('profile-photos').upload(filePath, file, { upsert: true });
+                          if (!error) {
+                            // Get public URL
+                            const { data: urlData } = supabase.storage.from('profile-photos').getPublicUrl(filePath);
+                            if (urlData?.publicUrl) {
+                              setPhotoInput(urlData.publicUrl);
+                            }
+                          } else {
+                            alert('Upload failed: ' + error.message);
+                          }
+                        } else {
+                          setSelectedFileName("");
+                        }
+                      }}
+                    />
+                    <label
+                      htmlFor="profile-photo-upload"
+                      className="bg-blue-500 text-white px-3 py-1 rounded cursor-pointer"
+                    >
+                      Choose File
+                    </label>
+                    <span className="text-gray-900">
+                      {selectedFileName || "No file chosen"}
+                    </span>
+                    <div className="text-xs text-gray-500 mt-1">Max file size: 2MB. Only images are allowed.</div>
+                    <input
+                      type="text"
+                      className="border rounded px-2 py-1 placeholder-black focus:placeholder-gray-400"
+                      value={photoInput}
+                      onChange={e => setPhotoInput(e.target.value)}
+                      placeholder="Paste image URL..."
+                    />
+                    <button className="bg-blue-500 text-white px-3 py-1 rounded" onClick={async () => {
+                      await fetch(`/api/users/${user.id}`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ profilePhoto: photoInput })
+                      });
+                      setEditingPhoto(false);
+                      fetchUserProfile();
+                      setSelectedFileName("");
+                    }}>Save</button>
+                    <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded" onClick={() => { setEditingPhoto(false); setPhotoInput(user.profilePhoto || ''); setSelectedFileName(""); }}>Cancel</button>
+                  </div>
+                ) : (
+                  <button className="text-xs text-blue-500 underline ml-2" onClick={() => setEditingPhoto(true)}>Edit Photo</button>
+                ))}
               </div>
             </div>
             

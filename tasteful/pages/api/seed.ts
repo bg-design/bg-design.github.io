@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -59,11 +58,8 @@ const fetchWikipedia = async (query: string) => {
   };
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
-
+// Main seeding logic as an async function
+async function seed() {
   try {
     // Clear existing followers and tasteboards to avoid unique constraint errors
     await prisma.follower.deleteMany({});
@@ -166,7 +162,47 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 7, text: 'Interesting ideas, but a bit speculative.' },
           { score: 8, text: 'A bold vision of the future.' },
           { score: 6, text: 'Not for everyone, but worth a look.' }
-        ]}
+        ]},
+        { item: 'Outlive: The Science and Art of Longevity', author: 'Peter Attia', year: '2023', reviews: [
+          { score: 9, text: 'A science-based, practical guide to living longer.' },
+          { score: 8, text: 'Insightful and actionable advice for healthspan.' },
+          { score: 7, text: 'Dense but rewarding for those interested in longevity.' }
+        ]},
+        { item: 'Excellent Advice for Living', author: 'Kevin Kelly', year: '2023', reviews: [
+          { score: 9, text: 'Packed with wisdom and practical life lessons.' },
+          { score: 8, text: 'A book to revisit again and again.' },
+          { score: 7, text: 'Short, punchy, and inspiring.' }
+        ]},
+        { item: 'The Fraud', author: 'Zadie Smith', year: '2023', reviews: [
+          { score: 9, text: 'A brilliant historical novel with sharp wit.' },
+          { score: 8, text: 'Smith’s prose is as dazzling as ever.' },
+          { score: 7, text: 'A complex, rewarding read.' }
+        ]},
+        { item: 'Wellness', author: 'Nathan Hill', year: '2023', reviews: [
+          { score: 9, text: 'A satirical look at modern life and relationships.' },
+          { score: 8, text: 'Funny, poignant, and thought-provoking.' },
+          { score: 7, text: 'A big, ambitious novel.' }
+        ]},
+        { item: 'The Bee Sting', author: 'Paul Murray', year: '2023', reviews: [
+          { score: 9, text: 'A darkly comic family saga.' },
+          { score: 8, text: 'Brilliantly written and deeply affecting.' },
+          { score: 7, text: 'A tragicomic masterpiece.' }
+        ]},
+        { item: 'The Vaster Wilds', author: 'Lauren Groff', year: '2023', reviews: [
+          { score: 9, text: 'A haunting survival story.' },
+          { score: 8, text: 'Groff’s writing is mesmerizing.' },
+          { score: 7, text: 'A powerful meditation on nature and humanity.' }
+        ]},
+        { item: 'The Last Devil to Die', author: 'Richard Osman', year: '2023', reviews: [
+          { score: 9, text: 'A clever, twisty mystery.' },
+          { score: 8, text: 'Osman’s best yet.' },
+          { score: 7, text: 'Funny and full of heart.' }
+        ]},
+        { item: 'Yellowface', author: 'R.F. Kuang', year: '2023', reviews: [
+          { score: 9, text: 'A razor-sharp satire of the publishing world.' },
+          { score: 8, text: 'Provocative and unputdownable.' },
+          { score: 7, text: 'A timely, thought-provoking read.' }
+        ]},
       ]},
       { category: 'MOVIE', items: [
         { item: 'Oppenheimer', year: '2023', reviews: [
@@ -218,7 +254,42 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 8, text: 'A moving portrait of Leonard Bernstein.' },
           { score: 7, text: 'Well-acted and stylish.' },
           { score: 9, text: 'Bradley Cooper impresses as director and star.' }
-        ]}
+        ]},
+        { item: 'The Zone of Interest', year: '2023', reviews: [
+          { score: 9, text: 'A chilling, unforgettable Holocaust drama.' },
+          { score: 8, text: 'Stark, powerful, and deeply affecting.' },
+          { score: 7, text: 'A unique cinematic experience.' }
+        ]},
+        { item: 'Anatomy of a Fall', year: '2023', reviews: [
+          { score: 9, text: 'A gripping courtroom thriller.' },
+          { score: 8, text: 'Brilliantly acted and written.' },
+          { score: 7, text: 'Keeps you guessing until the end.' }
+        ]},
+        { item: 'The Boy and the Heron', year: '2023', reviews: [
+          { score: 9, text: 'A stunning return from Studio Ghibli.' },
+          { score: 8, text: 'Visually breathtaking and emotionally rich.' },
+          { score: 7, text: 'A magical, moving film.' }
+        ]},
+        { item: 'American Fiction', year: '2023', reviews: [
+          { score: 9, text: 'A sharp, satirical comedy.' },
+          { score: 8, text: 'Smart, funny, and timely.' },
+          { score: 7, text: 'A clever take on race and publishing.' }
+        ]},
+        { item: 'The Marvels', year: '2023', reviews: [
+          { score: 8, text: 'A fun, action-packed superhero adventure.' },
+          { score: 7, text: 'Entertaining and energetic.' },
+          { score: 6, text: 'A solid addition to the MCU.' }
+        ]},
+        { item: 'Saltburn', year: '2023', reviews: [
+          { score: 9, text: 'A dark, twisted drama.' },
+          { score: 8, text: 'Stylish and provocative.' },
+          { score: 7, text: 'A wild ride.' }
+        ]},
+        { item: 'May December', year: '2023', reviews: [
+          { score: 9, text: 'A provocative, complex drama.' },
+          { score: 8, text: 'Brilliant performances.' },
+          { score: 7, text: 'Unsettling and fascinating.' }
+        ]},
       ]},
       { category: 'SHOW', items: [
         { item: 'Succession', year: '2018-2023', reviews: [
@@ -270,7 +341,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 8, text: 'A thought-provoking, well-executed experiment in identity.' },
           { score: 7, text: 'A bit too confusing for my taste.' },
           { score: 9, text: 'A fascinating look at the human condition.' }
-        ]}
+        ]},
+        { item: 'The Fall of the House of Usher', year: '2023', reviews: [
+          { score: 9, text: 'A gothic horror masterpiece.' },
+          { score: 8, text: 'Dark, stylish, and addictive.' },
+          { score: 7, text: 'A wild, spooky ride.' }
+        ]},
+        { item: 'Jury Duty', year: '2023', reviews: [
+          { score: 9, text: 'A hilarious, inventive reality show.' },
+          { score: 8, text: 'Surprisingly heartfelt and funny.' },
+          { score: 7, text: 'A clever twist on reality TV.' }
+        ]},
+        { item: 'Blue Eye Samurai', year: '2023', reviews: [
+          { score: 9, text: 'A visually stunning animated epic.' },
+          { score: 8, text: 'Action-packed and beautifully crafted.' },
+          { score: 7, text: 'A must-watch for animation fans.' }
+        ]},
+        { item: 'The Gilded Age', year: '2023', reviews: [
+          { score: 9, text: 'A lavish period drama.' },
+          { score: 8, text: 'Gorgeous costumes and sets.' },
+          { score: 7, text: 'A feast for the eyes.' }
+        ]},
       ]},
       { category: 'MUSIC', items: [
         { item: 'Flowers', author: 'Miley Cyrus', year: '2023', reviews: [
@@ -322,7 +413,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 9, text: 'A catchy, upbeat, and well-produced song.' },
           { score: 8, text: 'A great pop song with a strong message.' },
           { score: 7, text: 'A bit too similar to other pop songs.' }
-        ]}
+        ]},
+        { item: 'Snooze', author: 'SZA', year: '2023', reviews: [
+          { score: 9, text: 'A smooth, sultry R&B hit.' },
+          { score: 8, text: 'SZA’s vocals are mesmerizing.' },
+          { score: 7, text: 'A standout track from the album.' }
+        ]},
+        { item: 'Fast Car', author: 'Luke Combs', year: '2023', reviews: [
+          { score: 9, text: 'A heartfelt country cover.' },
+          { score: 8, text: 'A fresh take on a classic.' },
+          { score: 7, text: 'Luke Combs makes it his own.' }
+        ]},
+        { item: 'Cruel Summer', author: 'Taylor Swift', year: '2023', reviews: [
+          { score: 9, text: 'A pop anthem for the summer.' },
+          { score: 8, text: 'Catchy and energetic.' },
+          { score: 7, text: 'Swift at her best.' }
+        ]},
+        { item: 'What Was I Made For?', author: 'Billie Eilish', year: '2023', reviews: [
+          { score: 9, text: 'A haunting, emotional ballad.' },
+          { score: 8, text: 'Billie Eilish delivers again.' },
+          { score: 7, text: 'A beautiful, introspective song.' }
+        ]},
       ]},
       { category: 'PODCAST', items: [
         { item: 'The Daily', author: 'The New York Times', year: '2024', reviews: [
@@ -346,35 +457,97 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 7, text: 'A bit too technical for my taste.' }
         ]},
         { item: 'The Retrievals', author: 'Serial Productions', year: '2023', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great true crime podcast.' },
-          { score: 7, text: 'A bit too graphic for my taste.' }
+          { score: 9, text: 'A gripping, true story.' },
+          { score: 8, text: 'Well-produced and thought-provoking.' },
+          { score: 7, text: 'A must-listen for true crime fans.' }
         ]},
-        { item: 'The Rest Is History', author: 'Tom Holland & Dominic Sandbrook', year: '2024', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great history podcast.' },
-          { score: 7, text: 'A bit too dry for my taste.' }
-        ]},
-        { item: 'The Ezra Klein Show', author: 'Vox Media', year: '2024', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great political podcast.' },
-          { score: 7, text: 'A bit too political for my taste.' }
-        ]},
-        { item: 'The Daily Stoic', author: 'Ryan Holiday', year: '2024', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great philosophy podcast.' },
-          { score: 7, text: 'A bit too dry for my taste.' }
+        { item: 'The Rest Is Politics', author: 'Goalhanger Podcasts', year: '2023', reviews: [
+          { score: 9, text: 'Insightful and timely political analysis.' },
+          { score: 8, text: 'Engaging hosts and guests.' },
+          { score: 7, text: 'A must-listen for politics junkies.' }
         ]},
         { item: 'The Mel Robbins Podcast', author: 'Mel Robbins', year: '2024', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great self-help podcast.' },
-          { score: 7, text: 'A bit too self-promotional for my taste.' }
+          { score: 9, text: 'Motivational and practical advice.' },
+          { score: 8, text: 'Mel Robbins is inspiring.' },
+          { score: 7, text: 'A great listen for self-improvement.' }
         ]},
-        { item: 'On Purpose with Jay Shetty', author: 'Jay Shetty', year: '2024', reviews: [
-          { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
-          { score: 8, text: 'A great self-help podcast.' },
-          { score: 7, text: 'A bit too self-promotional for my taste.' }
-        ]}
+        { item: 'The Ezra Klein Show', author: 'Vox Media', year: '2024', reviews: [
+          { score: 9, text: 'Thoughtful interviews and analysis.' },
+          { score: 8, text: 'Always relevant and insightful.' },
+          { score: 7, text: 'A must-listen for news junkies.' }
+        ]},
+        { item: 'The Rest Is History', author: 'Tom Holland & Dominic Sandbrook', year: '2024', reviews: [
+          { score: 9, text: 'Fascinating and entertaining history.' },
+          { score: 8, text: 'Great chemistry between hosts.' },
+          { score: 7, text: 'History made fun.' }
+        ]},
+        { item: 'The Witch Trials of J.K. Rowling', author: 'The Free Press', year: '2023', reviews: [
+          { score: 9, text: 'A controversial, thought-provoking series.' },
+          { score: 8, text: 'Well-researched and balanced.' },
+          { score: 7, text: 'A fascinating look at cancel culture.' }
+        ]},
+        { item: 'Scamanda', author: 'Lionsgate Sound', year: '2023', reviews: [
+          { score: 9, text: 'A wild, unbelievable true story.' },
+          { score: 8, text: 'Addictive and shocking.' },
+          { score: 7, text: 'A must-listen for podcast fans.' }
+        ]},
+        { item: 'Normal Gossip', author: 'Defector Media', year: '2023', reviews: [
+          { score: 9, text: 'Funny, relatable, and addictive.' },
+          { score: 8, text: 'A unique take on gossip.' },
+          { score: 7, text: 'A fun, lighthearted listen.' }
+        ]},
+      ]},
+      { category: 'APP', items: [
+        { item: 'Notion', author: 'Notion Labs', year: '2023', reviews: [
+          { score: 9, text: 'The all-in-one workspace that keeps my life organized.' },
+          { score: 8, text: 'Flexible, powerful, and easy to use for teams and individuals.' },
+          { score: 7, text: 'A bit of a learning curve, but worth it.' }
+        ]},
+        { item: 'Spotify', author: 'Spotify AB', year: '2023', reviews: [
+          { score: 10, text: 'The best music streaming app with endless playlists.' },
+          { score: 9, text: 'Great recommendations and seamless experience.' },
+          { score: 8, text: 'Occasional ads, but the music library is unbeatable.' }
+        ]},
+        { item: 'Figma', author: 'Figma, Inc.', year: '2023', reviews: [
+          { score: 9, text: 'Collaboration on design projects has never been easier.' },
+          { score: 8, text: 'Intuitive interface and real-time editing.' },
+          { score: 7, text: 'A must-have for designers.' }
+        ]},
+        { item: 'ChatGPT', author: 'OpenAI', year: '2024', reviews: [
+          { score: 10, text: 'Incredible AI assistant for writing, coding, and more.' },
+          { score: 9, text: 'A game-changer for productivity and creativity.' },
+          { score: 8, text: 'Sometimes makes mistakes, but always helpful.' }
+        ]},
+        { item: 'Duolingo', author: 'Duolingo, Inc.', year: '2023', reviews: [
+          { score: 9, text: 'Learning languages is fun and addictive.' },
+          { score: 8, text: 'Great for daily practice and motivation.' },
+          { score: 7, text: 'Some lessons feel repetitive, but it works.' }
+        ]},
+        { item: 'TikTok', author: 'ByteDance', year: '2023', reviews: [
+          { score: 9, text: 'Endless entertainment and creativity in short videos.' },
+          { score: 8, text: 'The algorithm is scarily good at knowing what I like.' },
+          { score: 7, text: 'Can be a time sink, but so much fun.' }
+        ]},
+        { item: 'Discord', author: 'Discord Inc.', year: '2023', reviews: [
+          { score: 9, text: 'The best app for community and group chats.' },
+          { score: 8, text: 'Voice and video calls are smooth and reliable.' },
+          { score: 7, text: 'A little overwhelming for new users.' }
+        ]},
+        { item: 'Canva', author: 'Canva Pty Ltd', year: '2023', reviews: [
+          { score: 9, text: 'Designing graphics is easy and fun for everyone.' },
+          { score: 8, text: 'Huge template library and simple tools.' },
+          { score: 7, text: 'Some features are paywalled, but the free version is great.' }
+        ]},
+        { item: 'Obsidian', author: 'Obsidian.md', year: '2023', reviews: [
+          { score: 9, text: 'The best app for personal knowledge management.' },
+          { score: 8, text: 'Markdown support and linking notes is a game-changer.' },
+          { score: 7, text: 'Takes time to master, but worth it for power users.' }
+        ]},
+        { item: 'Arc Browser', author: 'The Browser Company', year: '2024', reviews: [
+          { score: 9, text: 'A fresh, innovative take on web browsing.' },
+          { score: 8, text: 'Beautiful UI and great productivity features.' },
+          { score: 7, text: 'Still missing some extensions, but improving fast.' }
+        ]},
       ]},
       { category: 'ARTICLE', items: [
         { item: 'AI 2027: The Scenario Everyone’s Talking About', snippet: 'A detailed scenario about the impact of superhuman AI, widely discussed in 2025.', reviews: [
@@ -426,119 +599,136 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           { score: 9, text: 'Intriguing, well-produced, and thought-provoking.' },
           { score: 8, text: 'A great non-fiction article.' },
           { score: 7, text: 'A bit too dry for my taste.' }
-        ]}
+        ]},
+        { item: 'Outlive: The Science and Art of Longevity', snippet: 'A 2023 bestseller by Peter Attia, exploring the science of living longer.', reviews: [
+          { score: 9, text: 'A fascinating look at longevity science.' },
+          { score: 8, text: 'Well-researched and practical.' },
+          { score: 7, text: 'A must-read for health enthusiasts.' }
+        ]},
+        { item: 'Excellent Advice for Living', snippet: 'Kevin Kelly’s 2023 book of practical wisdom and life lessons.', reviews: [
+          { score: 9, text: 'Packed with wisdom and practical advice.' },
+          { score: 8, text: 'A book to revisit again and again.' },
+          { score: 7, text: 'Short, punchy, and inspiring.' }
+        ]},
+        { item: 'The Last Invention', snippet: 'A 2025 essay on the impact of artificial general intelligence.', reviews: [
+          { score: 9, text: 'A thought-provoking look at the future of AI.' },
+          { score: 8, text: 'Balanced and insightful.' },
+          { score: 7, text: 'A must-read for tech enthusiasts.' }
+        ]},
+        { item: 'The Fraud', snippet: 'Zadie Smith’s acclaimed 2023 novel, reviewed and discussed widely.', reviews: [
+          { score: 9, text: 'A brilliant historical novel.' },
+          { score: 8, text: 'Smith’s prose is dazzling.' },
+          { score: 7, text: 'A complex, rewarding read.' }
+        ]},
+        { item: 'The Zone of Interest', snippet: 'A 2023 film reviewed for its chilling Holocaust drama.', reviews: [
+          { score: 9, text: 'A chilling, unforgettable film.' },
+          { score: 8, text: 'Stark, powerful, and deeply affecting.' },
+          { score: 7, text: 'A unique cinematic experience.' }
+        ]},
+        { item: 'The Bee Sting', snippet: 'Paul Murray’s 2023 novel, a darkly comic family saga.', reviews: [
+          { score: 9, text: 'A tragicomic masterpiece.' },
+          { score: 8, text: 'Brilliantly written and deeply affecting.' },
+          { score: 7, text: 'A darkly comic family saga.' }
+        ]},
+        { item: 'The Witch Trials of J.K. Rowling', snippet: 'A 2023 podcast series reviewed for its controversial exploration of cancel culture.', reviews: [
+          { score: 9, text: 'A fascinating look at cancel culture.' },
+          { score: 8, text: 'Well-researched and balanced.' },
+          { score: 7, text: 'A controversial, thought-provoking series.' }
+        ]},
+        { item: 'The Marvels', snippet: 'A 2023 Marvel film reviewed for its fun, action-packed adventure.', reviews: [
+          { score: 8, text: 'A fun superhero adventure.' },
+          { score: 7, text: 'Entertaining and energetic.' },
+          { score: 6, text: 'A solid addition to the MCU.' }
+        ]},
+        { item: 'Saltburn', snippet: 'A 2023 film reviewed for its dark, twisted drama.', reviews: [
+          { score: 9, text: 'A dark, twisted drama.' },
+          { score: 8, text: 'Stylish and provocative.' },
+          { score: 7, text: 'A wild ride.' }
+        ]},
+        { item: 'The Boy and the Heron', snippet: 'A 2023 Studio Ghibli film reviewed for its stunning animation.', reviews: [
+          { score: 9, text: 'A stunning animated film.' },
+          { score: 8, text: 'Visually breathtaking and emotionally rich.' },
+          { score: 7, text: 'A magical, moving film.' }
+        ]},
       ]}
     ];
-    // Expanded pool of unique review texts for variety
+    // Adjust reviewTexts: make 3/4 of the short ones medium-length, keep some short, and retain long reviews
     const reviewTexts = [
+      // Short (keep a few)
       'Absolutely loved it!',
       'A must-experience for everyone.',
-      'Didn’t quite live up to the hype.',
-      'Would recommend to friends.',
-      'Changed my perspective.',
-      'A bit overrated, but still good.',
-      'Masterpiece!',
       'Not my cup of tea.',
-      'Brilliant and engaging.',
-      'Couldn’t put it down.',
-      'A tour de force.',
-      'Left me speechless.',
-      'A rollercoaster of emotions.',
-      'A visual feast.',
-      'A literary gem.',
-      'A cinematic triumph.',
-      'A moving performance.',
-      'A story that stays with you.',
-      'A must-see for fans.',
-      'A fresh take on the genre.',
-      'A true classic.',
-      'A modern masterpiece.',
-      'A delightful surprise.',
-      'A bit too long, but worth it.',
-      'A new favorite.',
-      'A wild ride from start to finish.',
-      'A beautiful exploration of humanity.',
-      'A clever and witty script.',
-      'A heartwarming journey.',
-      'A powerful message.',
-      'A stunning achievement.',
-      'A fun and entertaining experience.',
-      'A deeply emotional story.',
-      'A bold and ambitious work.',
-      'A thought-provoking narrative.',
-      'A unique voice in the field.',
-      'A must-listen for everyone.',
-      'A fascinating look at the subject.',
-      'A gripping tale.',
-      'A charming and quirky adventure.',
-      'A bit predictable, but enjoyable.',
-      'A strong cast and direction.',
-      'A visually stunning production.',
-      'A story full of heart.',
-      'A compelling character study.',
-      'A rich and immersive world.',
-      'A satisfying conclusion.',
-      'A great addition to the series.',
-      'A fun twist on expectations.',
-      'A memorable soundtrack.',
-      'A must-read for fans.',
-      'A showstopper.',
-      'A page-turner.',
-      'A laugh-out-loud comedy.',
-      'A tearjerker.',
-      'A suspenseful thriller.',
-      'A feel-good story.',
-      'A dark and moody atmosphere.',
-      'A lighthearted romp.',
-      'A fascinating documentary.',
-      'A groundbreaking work.',
-      'A poetic and lyrical style.',
-      'A masterclass in storytelling.',
-      'A must-see event.',
-      'A cultural phenomenon.',
-      'A genre-defining piece.',
-      'A bold experiment.',
-      'A moving tribute.',
-      'A sharp social commentary.',
-      'A dazzling display of talent.',
-      'A fun family adventure.',
-      'A haunting and unforgettable tale.',
-      'A clever satire.',
-      'A riveting plot.',
-      'A beautiful score.',
-      'A must-have for collectors.',
-      'A show with real heart.',
-      'A podcast that inspires.',
-      'A song that gets stuck in your head.',
-      'A book that changed my life.',
-      'A movie I’ll never forget.',
-      'A show I binge-watched in one night.',
-      'A podcast I recommend to everyone.',
-      'A song I play on repeat.',
-      'A book I’ll read again.',
-      'A movie I’ll watch again and again.',
-      'A show I can’t stop thinking about.',
-      'A podcast that makes me think.',
-      'A song that lifts my spirits.',
-      'A book that made me cry.',
-      'A movie that made me laugh.',
-      'A show that made me feel seen.',
-      'A podcast that changed my mind.',
-      'A song that brings back memories.',
-      'A book that opened my eyes.',
-      'A movie that surprised me.',
-      'A show that broke new ground.',
-      'A podcast that’s always in my queue.',
-      'A song that defines a generation.',
-      'A book that’s a must-read.',
-      'A movie that’s a must-see.',
-      'A show that’s a must-watch.',
-      'A podcast that’s a must-listen.',
-      'A song that’s a must-hear.'
+      'Masterpiece!',
+      'A bit overrated, but still good.',
+      // Medium (expanded from short)
+      'A brilliant and engaging story that kept me hooked from start to finish. Highly recommended for anyone looking for something new.',
+      'A fun and entertaining experience with a strong cast and direction. I would definitely watch it again.',
+      'A clever and witty script with memorable characters. The pacing was just right and the ending was satisfying.',
+      'A deeply emotional story that explores important themes with nuance and care. The writing is sharp and the performances are top-notch.',
+      'A visually stunning production with a rich and immersive world. The soundtrack was a highlight for me.',
+      'A show with real heart and a compelling character study. I found myself invested in every episode.',
+      'A fascinating look at the subject, full of insight and thought-provoking moments. I learned a lot.',
+      'A must-listen for everyone interested in the topic. The host does a great job of keeping things engaging.',
+      'A book that changed my life. The author’s perspective is unique and the message is powerful.',
+      'A movie I’ll never forget. The story stayed with me long after the credits rolled.',
+      'A podcast I recommend to everyone. The guests are always interesting and the discussions are meaningful.',
+      'A song I play on repeat. The melody is catchy and the lyrics are relatable.',
+      'A show I binge-watched in one night. The plot twists kept me guessing.',
+      'A podcast that makes me think. The topics are always relevant and well-researched.',
+      'A book that made me cry. The emotional depth is incredible.',
+      'A movie that made me laugh. The humor is spot-on and never feels forced.',
+      'A show that made me feel seen. The representation is authentic and important.',
+      'A podcast that changed my mind. I appreciate the balanced perspectives.',
+      'A song that brings back memories. It’s nostalgic and uplifting.',
+      // Long (keep as before)
+      'This book completely changed the way I think about life and relationships. The author weaves together complex themes with such grace and insight that I found myself reflecting on the story long after I finished reading. Every character felt real, and the emotional journey was both challenging and rewarding. Highly recommended for anyone looking for a deep, thought-provoking read.',
+      'A stunning achievement in filmmaking. The director’s vision is clear in every frame, and the performances are nothing short of extraordinary. I was captivated from start to finish, and the story lingered with me for days. This is the kind of movie that reminds you why you love cinema in the first place.',
+      'As a long-time fan of the genre, I was blown away by the depth and nuance in this show. The writing is sharp, the characters are multi-dimensional, and the pacing keeps you hooked. There are moments of genuine surprise and emotional resonance that elevate it above most of its peers. I can’t wait to see where the story goes next season.',
+      'This podcast episode was a revelation. The host’s ability to draw out honest, vulnerable conversations from their guests is unmatched. I found myself pausing to take notes and reflect on my own experiences. It’s rare to find content that feels both entertaining and genuinely helpful, but this show manages to do both.',
+      'A powerful, moving article that sheds light on an important issue. The author’s research is thorough, and their storytelling is compelling. I learned so much and came away with a new perspective. This is journalism at its best—informative, empathetic, and deeply impactful.'
     ];
-    // Assign unique reviews to each item
+    // Helper to generate a unique, varied title
+    function generateUniqueTitle(baseTitle: string, usedTitles: Set<string>, category: string) {
+      let newTitle = baseTitle;
+      let suffixes = [
+        ' (Special Edition)',
+        ' - Remix',
+        ' [2024]',
+        ' (Collector’s Cut)',
+        ' - Extended',
+        ' (Fan Favorite)',
+        ' - Alt Version',
+        ' (Award Winner)',
+        ' - Trending',
+        ' (Editor’s Pick)',
+        ' - Deluxe',
+        ' (Spotlight)',
+        ' - Limited',
+        ' (Anniversary)',
+        ' - Encore',
+        ' (Revisited)',
+        ' - New Wave',
+        ' (Fresh Take)',
+        ' - Vol. 2',
+        ' (Unplugged)'
+      ];
+      let attempt = 0;
+      while (usedTitles.has(newTitle)) {
+        // Try appending a suffix or remixing
+        const suffix = suffixes[attempt % suffixes.length] || ` (Unique ${attempt})`;
+        newTitle = `${baseTitle}${suffix}`;
+        attempt++;
+      }
+      usedTitles.add(newTitle);
+      return newTitle;
+    }
+    // Assign unique reviews to each item and prepare unique titles
     let reviewIndex = 0;
+    const usedTitlesByCategory: Record<string, Set<string>> = {};
+    // Map to store unique titles for each item reference
+    const itemUniqueTitles = new Map<any, string>();
     for (const cat of categories) {
+      usedTitlesByCategory[cat.category] = new Set();
       for (const item of cat.items) {
         if (!item.reviews) item.reviews = [];
         item.reviews = [];
@@ -550,19 +740,46 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           });
           reviewIndex++;
         }
+        // Assign a unique, varied title for each item and store in the map
+        const uniqueTitle = generateUniqueTitle(item.item, usedTitlesByCategory[cat.category], cat.category);
+        itemUniqueTitles.set(item, uniqueTitle);
       }
     }
-    // Generate 700 fake tasteboard actions
-    const tasteboards = await Promise.all(Array.from({ length: 700 }).map(async () => {
+    // --- Assign tasteboards so every user has at least 3 and at most 25 ---
+    const minTasteboardsPerUser = 3;
+    const maxTasteboardsPerUser = 25;
+    const totalUsers = userRecords.length;
+    let tasteboardAssignments = Array(totalUsers).fill(minTasteboardsPerUser);
+    let totalTasteboards = 700;
+    // Calculate how many tasteboards remain to assign randomly
+    let remaining = totalTasteboards - (minTasteboardsPerUser * totalUsers);
+    // Distribute remaining tasteboards randomly, but cap at max per user
+    while (remaining > 0) {
+      const idx = Math.floor(Math.random() * totalUsers);
+      if (tasteboardAssignments[idx] < maxTasteboardsPerUser) {
+        tasteboardAssignments[idx]++;
+        remaining--;
+      }
+    }
+    // Build a flat array of user indices for tasteboard creation
+    const userAssignmentList = tasteboardAssignments.flatMap((count, idx) => Array(count).fill(idx));
+    // Shuffle the userAssignmentList to randomize order
+    for (let i = userAssignmentList.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [userAssignmentList[i], userAssignmentList[j]] = [userAssignmentList[j], userAssignmentList[i]];
+    }
+    // Generate tasteboards, using the API fetchers for thumbnails as before
+    const tasteboards = await Promise.all(userAssignmentList.map(async (userIdx) => {
       const cat = categories[Math.floor(Math.random() * categories.length)];
       const item = cat.items[Math.floor(Math.random() * cat.items.length)];
-      const user = userRecords[Math.floor(Math.random() * userRecords.length)];
+      const user = userRecords[userIdx];
       // Pick a review for this item
       const review = item.reviews ? item.reviews[Math.floor(Math.random() * item.reviews.length)] : { score: 8, text: 'Interesting.' };
-      // Type guards for optional fields
+      // Use the original item title only
+      const title = item.item;
       const data: any = {
         category: cat.category as any,
-        item: item.item,
+        item: title,
         userId: user.id,
         reviewScore: review.score,
         reviewText: review.text,
@@ -583,13 +800,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         fetchedMeta = await fetchITunes(item.item, 'music');
       } else if (cat.category === 'PODCAST') {
         fetchedMeta = await fetchITunes(item.item, 'podcast');
-      } // For ARTICLE, keep placeholder or use Microlink if you have a URL
+      } else if (cat.category === 'APP') {
+        data.imageUrl = '/window.svg';
+      }
       if (fetchedMeta && fetchedMeta.imageUrl) {
         data.imageUrl = fetchedMeta.imageUrl;
+      } else if ((cat.category === 'MOVIE' || cat.category === 'SHOW') && !data.imageUrl) {
+        data.imageUrl = '/file.svg';
       } else if ('imageUrl' in item && item.imageUrl) {
-        // fallback to any legacy imageUrl in item (should be rare)
         data.imageUrl = item.imageUrl;
-      } // else, no imageUrl, fallback to emoji/placeholder in UI
+      }
       return prisma.tasteboard.create({ data });
     }));
 
@@ -615,13 +835,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
     ])
 
-    res.status(200).json({ 
+    // At the end, print summary to console
+    console.log({
       message: 'Seeded with real content',
-      users: userRecords,
+      users: userRecords.length,
       tasteboards: tasteboards.length
-    })
+    });
+    process.exit(0);
   } catch (error) {
-    console.error('Seed error:', error)
-    res.status(500).json({ error: 'Failed to seed database' })
+    console.error('Seed error:', error);
+    process.exit(1);
   }
+}
+
+// Only run if executed directly (not imported)
+if (import.meta.url === `file://${process.argv[1]}`) {
+  seed();
 } 

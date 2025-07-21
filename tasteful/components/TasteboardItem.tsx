@@ -5,7 +5,7 @@ import AddTasteboardForm from './AddTasteboardForm';
 
 interface TasteboardItemProps {
   id: string
-  category: 'BOOK' | 'MOVIE' | 'SHOW' | 'MUSIC' | 'PODCAST' | 'ARTICLE'
+  category: 'BOOK' | 'MOVIE' | 'SHOW' | 'MUSIC' | 'PODCAST' | 'ARTICLE' | 'APP'
   item: string
   user: {
     id: string
@@ -22,6 +22,14 @@ interface TasteboardItemProps {
   imageUrl?: string
   reviewScore?: number
   reviewText?: string
+  articleUrl?: string
+  spotifyUrl?: string
+  youtubeUrl?: string
+  amazonUrl?: string
+  imdbUrl?: string
+  trailerUrl?: string
+  applePodcastsUrl?: string
+  appUrl?: string
 }
 
 const categoryColors = {
@@ -30,7 +38,8 @@ const categoryColors = {
   SHOW: 'bg-green-100 text-green-800',
   MUSIC: 'bg-yellow-100 text-yellow-800',
   PODCAST: 'bg-red-100 text-red-800',
-  ARTICLE: 'bg-gray-100 text-gray-800'
+  ARTICLE: 'bg-gray-100 text-gray-800',
+  APP: 'bg-indigo-100 text-indigo-800',
 }
 
 const categoryIcons = {
@@ -39,10 +48,15 @@ const categoryIcons = {
   SHOW: '📺',
   MUSIC: '🎵',
   PODCAST: '🎧',
-  ARTICLE: '📄'
+  ARTICLE: '��',
+  APP: '🖥️',
 }
 
-export default function TasteboardItem({ id, category, item, user, createdAt, onAdd, onDelete, alreadyOwned, author, year, snippet, imageUrl, reviewScore, reviewText, editing: editingProp }: TasteboardItemProps & { editing?: boolean }) {
+export default function TasteboardItem(props: TasteboardItemProps & { editing?: boolean }) {
+  const {
+    id, category, item, user, createdAt, onAdd, onDelete, alreadyOwned, author, year, snippet, imageUrl, reviewScore, reviewText, editing: editingProp,
+    articleUrl, spotifyUrl, youtubeUrl, amazonUrl, imdbUrl, trailerUrl, applePodcastsUrl, appUrl
+  } = props;
   const { dbUser } = useAuth();
   const [adding, setAdding] = useState(false);
   const [editing, setEditing] = useState(editingProp || false);
@@ -243,6 +257,35 @@ export default function TasteboardItem({ id, category, item, user, createdAt, on
         )}
         {/* End right column */}
         {/* Remove the old category pill/tag */}
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {category === 'ARTICLE' && articleUrl && (
+          <a href={articleUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-blue-700 transition">View Article</a>
+        )}
+        {category === 'MUSIC' && spotifyUrl && (
+          <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-green-700 transition">Play on Spotify</a>
+        )}
+        {category === 'MUSIC' && youtubeUrl && (
+          <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-red-700 transition">Play on YouTube</a>
+        )}
+        {category === 'BOOK' && amazonUrl && (
+          <a href={amazonUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-700 text-white px-4 py-2 rounded font-semibold shadow hover:bg-yellow-800 transition">View on Amazon</a>
+        )}
+        {(category === 'MOVIE' || category === 'SHOW') && imdbUrl && (
+          <a href={imdbUrl} target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white px-4 py-2 rounded font-semibold shadow hover:bg-gray-900 transition">View on IMDb</a>
+        )}
+        {(category === 'MOVIE' || category === 'SHOW') && trailerUrl && (
+          <a href={trailerUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-800 text-white px-4 py-2 rounded font-semibold shadow hover:bg-blue-900 transition">Watch Trailer</a>
+        )}
+        {category === 'PODCAST' && spotifyUrl && (
+          <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-green-700 transition">Listen on Spotify</a>
+        )}
+        {category === 'PODCAST' && applePodcastsUrl && (
+          <a href={applePodcastsUrl} target="_blank" rel="noopener noreferrer" className="bg-gray-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-gray-700 transition">Listen on Apple Podcasts</a>
+        )}
+        {category === 'APP' && appUrl && (
+          <a href={appUrl} target="_blank" rel="noopener noreferrer" className="bg-indigo-600 text-white px-4 py-2 rounded font-semibold shadow hover:bg-indigo-700 transition">Visit Website</a>
+        )}
       </div>
       <div className="mt-3 flex items-center justify-between">
         {!isOwnItem && (
