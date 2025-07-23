@@ -1851,7 +1851,7 @@
       title: "Jordan Kersten Studio",
       image: "IMG/jordan-kersten-thumbnail.jpg",
       description: "Health, wellness, yoga, and voice lessons by Jordan Kersten.",
-      link: "https://jordankersten.com",
+      link: "https://www.jordankersten.com/",
       category: "Individual",
       platform: "Squarespace",
       date: "2021",
@@ -1890,8 +1890,7 @@
     {
       title: "Siempo",
       image: "IMG/Siempo/Mindful-Morning-mock.png",
-      description: "Website for Siempo, a non-profit focused on digital wellness and mindful technology.",
-      link: "https://www.siempo.com/",
+      description: "App Concepts for Siempo, a non-profit focused on digital wellness and mindfulness technology, such as screentime monitoring and setting intentions.",
       category: "Non-Profit",
       date: "2019",
       projectType: "Mobile App"
@@ -1985,12 +1984,14 @@
   // Helper function to get button text only
   function getButtonText(project) {
     const caseStudyProjects = ["OneOf", "AWA Fit", "Slingshot Foods", "Safe Harbor"];
+    if (!project.link) return ''; // No button for projects without links
     return caseStudyProjects.includes(project.title) ? 'Case Study' : 'Visit Site';
   }
 
   // Helper function to get button attributes
   function getButtonAttributes(project) {
     const caseStudyProjects = ["OneOf", "AWA Fit", "Slingshot Foods", "Safe Harbor"];
+    if (!project.link) return ''; // No button for projects without links
     return caseStudyProjects.includes(project.title) ? '' : 'target="_blank" rel="noopener"';
   }
 
@@ -2077,7 +2078,7 @@
                     <span class='projectDate'>${project.date}</span>
                     <span class='projectType'>${project.projectType}</span>
                   </div>
-                  <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
+                  ${project.link ? `<button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>` : ''}
                 </div>
               </div>
             `).join('')}
@@ -2146,7 +2147,7 @@
               <span class='projectDate'>${project.date}</span>
               <span class='projectType'>${project.projectType}</span>
             </div>
-            <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
+            ${project.link ? `<button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>` : ''}
           </div>
         </div>
       `).join('') +
@@ -2261,7 +2262,7 @@
               <span class='projectDate'>${project.date}</span>
               <span class='projectType'>${project.projectType}</span>
             </div>
-            <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
+            ${project.link ? `<button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>` : ''}
           </div>
         </div>
       `).join('') +
