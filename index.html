@@ -1,1145 +1,3028 @@
-<!-- Designed and hand coded by Theo Grandy with love in California. -->
 <!DOCTYPE html>
-<html class="isArrowable" lang="en-us">
+<html lang="en">
 <head>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Nuanced Design</title>
-
-	<link rel="stylesheet" href="CSS/global.css" media="screen">
-	<link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png">
-	
-	<!-- 	3rd Party -->
-	<link rel="stylesheet" type="text/css" href="CSS/fullpage.css"  media="screen"/>
-    <link rel="stylesheet" type="text/css" href="CSS/lity.css"  media="screen"/>
-    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
-    
-    <link rel="stylesheet" href="CSS/swiper.css">
-	<link rel="stylesheet" href="CSS/owl.carousel.min.css">
- 	<link rel="stylesheet" href="CSS/owl.theme.default.css">
- 	<link rel="stylesheet" href="CSS/testimonials.css">
-
-    <script>
-    
-    //PRELOAD HIGH-PRIORITY IMAGES
-    	new Image(0,0).src = '../IMG/splash-bust2.gif';
-      	new Image(0,0).src = '../IMG/Icons/menu-icon.png';
-      	new Image(0,0).src = '../IMG/chat-icon-filled.png';
-    </script>
-
-	<style>
-    
-        body.dark-mode {
-            background: #343434;
-        }
-        .home-links a {
-                color: white;
-        }
-
-	h4 {
-		margin: 0 0 0 10px;
-    	padding: 13px 0 0px 0;
-	}
-
-
-/* Centered texts in each section
-* --------------------------------------- */
-.section {
-	text-align:center;
-    transition: 0.5s;
-}
-
-/* Backgrounds will cover all the section
-* --------------------------------------- */
-.section, .slide {
-	background-size: contain;
-	background-attachment: fixed;
-	background-position: right;
-	background-repeat: no-repeat;
-}
-        
-.portfolio {
-        background-position-x: 60px;
-}
-	/* Defining each section background and styles
-}
-* --------------------------------------- */
-#section0 {
-	background-image: url(IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg);
-	padding: 0;
-	background-size:contain;
-	z-index: 99;
-}
-
-#section1 {
-	background-image: url(IMG/BlackfernMedia-mock.jpg);
-	padding: 0;
-}        
-        
-#section2 {
-	background-image: url(IMG/Home-Portfolio/Trendgraphix-mock.png);
-	padding: 0;
-}
-
-#section3 {
-	background-image: url(IMG/Home-Portfolio/Gather-mock.png);
-	padding: 0;
-}
-
-#section4 {
-	padding: 0;
-}
-#section5 {
-	padding: 0;
-}
-
-.welcome {
-	position: relative;
-	top: 10%;
-	left: 9%;
-	color: white;
-	width: 35%;
-	padding: 20px;
-	 -webkit-backdrop-filter: blur(10px);
-	 border-radius: 15px;
-	 min-width: 340px;
-    background: rgba(128, 128, 128, 0.68);
-}
-        
-        .top-title {
-            font-family: 'Lato', sans-serif;
-        }
-
-.welcome > *, .welcome-links > * {
-	color: white;
-}
-        .dark-mode .welcome {
-            	background: rgb(31 31 35 / 74%);
-        }
-.project-info {
-	position: relative;
-	top:25%;
-	left: 10%;
-	width: 400px;
-    z-index: 9;
-}
-        
-#fullpage {
-    background-image:linear-gradient(rgb(4, 5, 6) 0%, rgb(4, 5, 6) 50%, black 80%)
-}
-
-#fullpage hr {
-	border-bottom: 2px solid grey;
-	height: 0;
-	width: 100px;
-	margin: 0 auto;
-}
-
-#fullpage #section0 hr {
-	border-bottom:2px solid #30f2bc;
-}
-
-#fullpage #section1 hr {
-	border-bottom:2px solid #A2E189;
-}
-
-#fullpage #section2 hr {
-	border-bottom:2px solid #04673C;
-}
-
-#fullpage #section3 hr {
-	border-bottom:2px solid #31A28B;
-}
-
-#fullpage #section4 hr {
-	border-bottom:2px solid #7fbce2;
-}
-
-#fullpage #section5 hr {
-	border-bottom:2px solid #f79f5a;
-}
-
-#section0 .project-button, #section0 .project-button:hover {
-	background: #30f2bc;
-}
-
-#section1 .project-button, #section1 .project-button:hover {
-	background: #A2E189;
-}
-
-#section2 .project-button, #section2 .project-button:hover {
-	background: #04673C;
-}
-
-#section3 .project-button, #section3 .project-button:hover {
-	background: #31A28B;
-}
-
-#section4 .project-button, #section4 .project-button:hover {
-	background: #7fbce2;
-}
-
-#section5 .project-button, #section5 .project-button:hover {
-	background: #f79f5a;
-}
-
-#fullpage .project-info .made-in {
-	text-align: center;
-	font-weight: 300;
-	color: rgb(130, 130, 130);
-	font-family: 'Lato', sans-serif;
-	font-size:16px;
-}
-
-.fullpage-wrapper h1 {
-    font-family: 'Lato', Helvetica, sans-serif;
-	color: #333333;
-	font-weight: 700;
-	font-size:40px;
-	padding:20px 0;
-}
-
-.dark-mode .project-info h1, .dark-mode h1 {
-	color: white;
-}
-
-#fullpage .project-info p {
-    font-family: 'Lora', sans-serif;
-	line-height: 1.3em;
-	font-weight: 500;
-	color: #5a5a5a;
-	text-align:center;
-}
-.dark-mode #fullpage .project-info p {
-	color: white;
-}
-
-#fullpage #body-copy {
-	text-align:left;
-}
-.homelinks a {
-	color:white;
-}
-
-.dark-mode #fullpage a {
-	color: white;
-}
-
-/* Default set to none so doesn't display on loading screen */
-#fp-nav {
-	transition: 0.5s;
-}
-
-#what-nav {
-/*	position: absolute;
-*/	background: rgba(255, 255, 255, 0.9);
-	display: initial;
-}
-
-.dark-mode #what-nav {
-	background: rgba(50, 50, 50, 0.9);
-}
-
-.nav-links {
-	height: 60px;
-}
-
-.nav-links a {
-	font-family: 'Lato', sans-serif;
-	font-size: 18pt;
-	letter-spacing: .5px;
-	font-weight: 300;
-	background-size: 0% 100%;
-	background-repeat: no-repeat;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	-ms-transition: 1s;
-	-o-transition: 1s;
-	transition: 1s;
-	padding: 15px 0 5px 0;
-	margin:0 15px 15px 15px ;
-}
-
-.nav-links a:hover {
-    transition:.4s ease-in .4s, .4s;
-	border:0;
-	background-size:100% 100%;
-	cursor: pointer;
-}
-
-body {
-  background: #edf1f4;;
-  margin: 0;
-  padding: 0;
-  transition: 1s;
-}
-
-blockquote {
-	color: white;
-	text-align: center;
-}
-
-header {
-	background: rgba(49, 57, 67, .85);
-}
-#top-greeting {
-	font-size: 38px;
-	font-family: 'Lora', serif;
-/*	color: rgb(24, 24, 24);
-	width: 500px;
-*/	padding-left: 10px;
-}
-
-.dark-mode #top-greeting {
-	color: white;
-}
-
-#top-greeting, #text-overlay p {
-	text-align: left;
-}
-#text-overlay {
-	max-width: 500px;
-	display: block;
-}
-
-#full-body {
-	opacity: 0;
-	width: 35%;
-	max-width: 500px;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
-
-#body-copy {
-	width: 80%;
-	max-width: 470px;
-}
-
-#brighter-future {
-	font-size: 20px;
-}
-
-#full-body {
-    -webkit-animation-name: body; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
-    animation-name: body;
-    animation-duration: 2s;
-    animation-delay: 2.0s;
-    -webkit-animation: body 2s ease-in;
-	-moz-animation: body 2s ease-in;
-	animation: body 2s ease-in;
-	opacity: 1;
-}
-
-.arrows {
-	width: 60px;
-	height: 72px;
-	position: absolute;
-	left: 50%;
-	margin-left: -30px;
-	bottom: 10px;
-}
-
-.arrows path {
-	stroke:rgba(255, 255, 255, 0.83);
-	fill: transparent;
-	stroke-width: 3px;	
-	animation: arrow 4s infinite;
-	-webkit-animation: arrow 4s infinite; 
-}
-
-.dark-mode .arrows path {
-	stroke: white;
-}
-
-@keyframes arrow
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
-}
-
-@-webkit-keyframes arrow /*Safari and Chrome*/
-{
-0% {opacity:0}
-40% {opacity:1}
-80% {opacity:0}
-100% {opacity:0}
-}
-
-.arrows path.a1 {
-	animation-delay:-2.5s;
-	-webkit-animation-delay:-2.5s; /* Safari 和 Chrome */
-}
-
-.arrows path.a2 {
-	animation-delay:-1.5s;
-	-webkit-animation-delay:-1.5s; /* Safari 和 Chrome */
-}
-
-.arrows path.a3 {	
-	animation-delay:-.5s;
-	-webkit-animation-delay:-.5s; /* Safari 和 Chrome */
-}
-
-#scroll-text {
-	transform: rotate(270deg);
-	position: absolute;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	left: 0;
-	bottom: 30px;
-}
-
-#scroll-line {
-	width: 1px;
-	height: 120px;
-	position: absolute;
-	bottom: 0;
-	left: 35px;
-	background: grey;
-}
-
-#feat-work-arrow {
-	position: absolute;
-	bottom: 75px;
-	left: 50%;
-	margin-left: -60px;
-	color: white;
-}
-        .welcome-links {
-		position: relative;
-		right: 0;
-		margin-top:40px;
-	}
-
-	.welcome-links a {
-		position: relative;
-		top: unset !important;
-	}
-    
-        
-.welcome-links .about-story {
-	top:25px;
-	}
-
-.welcome-links .about-cv {
-	top:75px;
-}
-
-.welcome-links .about-philosophy {
-	top:125px;
-}
-
-.projectCurtain {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: calc(15vw + 350px);
-	height: 100vh;
-}
-
-.dark-mode .projectCurtain {
-	background: rgba(31, 31, 35, 1);
-}
-        
-.dark-mode .section {
-    transition:0.5s;
-}
-     
-#fullpage h3 {
-    max-width: 300px;
-    margin: 30px auto;
-    color: #828ef6;
-}
-        
-.owl-carousel .owl-stage-outer {
-    height: 50vh;
-}
-        
-.owl-carousel .owl-item {
-    height: 10vh;
-}
-        
-/* Contact Form */
-form {
-    margin: 0;
-  padding: 30px 0 0 0;
-  position: relative;
-  box-sizing: border-box;
-  font: inherit;
-    background-color: #fefefe;
-    margin: 0 auto; /* 15% from the top and centered */
-    max-width: 500px;
-    top: 10px;
-    border-radius: 15px;
-    z-index: 9;
-}
-
-fieldset {
-	border:0;
-}
-select, textarea {
-    display: block;
-}
-        
-select {
-    width: 130px;
-    margin: 10px auto;
-}
-        
-textarea {
-    width: 80%;
-    margin: 10px auto;
-    height: 40px;
-}
-        
-input {
-	padding: 10px 0;
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-  font: inherit;
-  border: none;
-  outline: none;
-  resize: none;
-  color: black;
-  font-weight: 300;
-}
-
-form p, input, label, select {
-	font-family: Lato, sans-serif;
-	letter-spacing: .7px;
-    font-weight: 300;
-    text-align: center;
-    font-size: 18px;
-}
-
-form p {
-	color: #2b2b2b;
-    font-weight: 300;
-}
-        
-#submit-contact {
-    border-radius: 0 0 12px 12px;
-    width: 100%;
-    color: white;
-    border: 0;
-    background: #828ef6;
-    margin: 0;
-    padding: 10px;
-    font-weight: 500;
-        }
-
-
-::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder{ 
- 	text-decoration: underline;
- 	font-family: Lato, sans-serif;
-}
-
-#email {
-	max-width: 300px;
-}
-form p::selection {
-  	background: rgba(104, 254, 251, 0.44); 
-		}
-form p::-moz-selection {
- 	background: rgba(104, 254, 251, 0.44); 
-			}
-form p::selection {
-  	color: red; /* WebKit/Blink Browsers */
-  	background: none;
-
-		}
-form p::-moz-selection {
- 	color: red; /* Gecko Browsers */
- 	background:none;
-			}
-        
-        #otherField {
-            display: none;
-        }
-        
-        footer {
-            position: absolute;
-        }
-@media screen and (max-width: 600px) {
-    
-#section5 h1 {
-            padding-top:60px;
-        }
-    
-    textarea {
-        width: 88%;
-    margin: 10px 0 0 9px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuanced Design — Web Design & Marketing</title>
+  <meta name="description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
+  
+  <!-- Resource hints for performance -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Nuanced Design — Web Design & Marketing" />
+  <meta property="og:description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
+  <meta property="og:image" content="IMG/your-team-studio-wine.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bg-design.github.io/tab-bar-test-STABLE.html" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nuanced Design — Web Design & Marketing" />
+  <meta name="twitter:description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
+  <meta name="twitter:image" content="IMG/your-team-studio-wine.jpg" />
+  <link rel="icon" type="image/png" href="IMG/Icons/favicon-logo.png" />
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/bebas-neue.ttf" as="font" type="font/ttf" crossorigin>
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="CSS/v2-styles-purged.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="CSS/v2-styles-purged.css"></noscript>
+  
+  <!-- Self-hosted fonts -->
+  <style>
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/playfair-display-400.ttf') format('truetype');
     }
-  .chatIcon {
-    bottom: unset;
-    left: unset;
-    top: 0;
-    right:0;
-  }
-}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes body {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-/* Standard syntax */
-@keyframes body {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-@media screen and (max-width: 1350px) {
-	.section {
-		background-size: 85vw;
-	}
-    .portfolio {
-        background-position: 190px;
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/playfair-display-700.ttf') format('truetype');
     }
-}
-
-@media screen and (max-width: 1050px) {
-	.project-info {
-	    top: 45%;
-	    left: 50%;
-	    margin-left: -200px;
-	    background: #fffffff2;
-		border-radius: 20px;
-	}
-	.dark-mode .project-info {
-		background:rgba(31, 31, 32, 1);
-	}
-	.section {
-		background-position: right top;
-		background-size:145%;
-}
-	.projectCurtain {
-		display: none;
-	}
-
-	#fullpage h1 {
-		font-size:34px;
-	}
-
-	#fullpage .project-info p {
-		font-size:18px;
-	}
-
-	#fullpage .project-button {
-		font-size:15px;
-	}
-
-	#fullpage .made-in {
-		font-size:15px;
-	}
-}
-@media screen and (max-width: 1050px) {
-
-	#feat-work-arrow {
-		margin-left: -65px;
-	}
-
-	#top-greeting {
-		font-size:28px;
-	}
-
-	a.welcome-link{
-		font-size:21px;
-	}
-
-	.section {
-		background-position-y: 0;
-	}
-
-	.welcome {
-		top: 8%;
-    	left: 105px;
-	}
-
-}
-        @media screen and (min-width: 769px) {
-            #fullpage h3 {
-            }
-            
-            #section5 .flex {
-                display: flex;
-                align-items: center;
-                padding-top:15%;
-            }
-            
-            form {
-                width: 450px;
-                margin: 0 auto 0 0;
-            }
-        }
-@media screen and (max-width: 730px) {
-	.what-box h1 {
-		font-weight: 300;
-		font-size: 35px;
-	}
-
-	.project-info {
-		top: 45%;
-	}
-	#fp-nav.fp-left {
-		top: 45%;
-	}
-
-		#fullpage h1 {
-		font-size:30px;
-	}
-
-	#fullpage .project-info p {
-		font-size:18px;
-	}
-}
-
-@media screen and (max-width: 600px) {
-    
-    #fp-nav {
-        display: none;
+    @font-face {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('fonts/playfair-display-900.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Bebas Neue';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/bebas-neue.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Oleo Script';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/oleo-script.ttf') format('truetype');
     }
     
-    #section0 {
-        background:#cfcfcf;
-    }
-	.copyright {
-		position: relative;
-	    bottom: 5px;
-	    left: 50%;
-	    color: rgb(64, 64, 64);
-	    width: 250px;
-	    margin-left: -125px;
-	}
-
-	.welcome {
-    	left: 0;
-    	width: 100%;
-    	border-radius: 0;
-	}
-    
-    .welcome h2 {
-        margin-top:0;
+    /* Loading Curtain Styles */
+    .loading-curtain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      overflow: hidden;
     }
     
-    .welcome-links {
-        margin-top: 20px;
+    .curtain-left, .curtain-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, #222 0%, #444 100%);
+      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     
-    #fullpage .project-info p {
-        font-size: 14px;
+    .curtain-left {
+      left: 0;
+      transform: translateX(0);
     }
     
-    #fullpage .project-info .made-in {
-        font-size:revert;
+    .curtain-right {
+      right: 0;
+      transform: translateX(0);
     }
     
-    figure.testimonials blockquote {
-        padding: 35px 15px 35px 20px;
-        font-size: 14px;
+    .loading-curtain.hidden .curtain-left {
+      transform: translateX(-100%);
     }
     
-    #view-recs {
-        float: none;
+    .loading-curtain.hidden .curtain-right {
+      transform: translateX(100%);
     }
-
-}
-
-@media screen and (max-width: 542px) {
-	.what-box {border-radius: 0;}
-}
-
-@media screen and (min-width: 431px) {
-    #section4 {
-/*    padding-top:calc(1vw + 10vh);*/
-    }
-}
-@media screen and (max-width: 430px) {
-
-	#fp-nav.fp-left {
-
-	}
-
-	h4 {
-		margin: 0 10px;
-	}
-	blockquote {
-	    	padding: 10px 4px;
-	    	text-align: left;
-	    	line-height: 1.4em;
-	}
-	#body-copy {
-		width: initial;
-	}
-
-	.project-info {
-		border-radius: 0;
-		width: 100%;
-		margin: 0;
-		left: 0;
-	}
-
-	#fullpage h3 {
-		font-size:18px;
-        width:200px;
-        margin: 10px auto;
-        padding-bottom: 0;
-        padding-top: 20px;
-        font-weight: 500;
-	}
-
-	#fullpage .made-in {
-		font-size:10pt;
-	}
-
-	#fullpage .project-button {
-		font-size:14px;
-	}
     
-    form, #submit-contact {
-        border-radius: 0;
+    .curtain-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+      pointer-events: none;
     }
-}
-        
-@media screen and (max-height: 600px) {
-    footer, .footer-import {
-display: none;
-    }
-        }
-
-@media screen and (max-width: 350px) {
-
-	#top-greeting {
-		font-size:24px;
-	}
-
-	h4, a.welcome-link {
-		font-size:16px;
-	}
-
-	#feat-work-arrow {
-    margin-left: -50px;
-	}
-}
-
-	</style>
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
     
-	<script type="text/javascript" src="JS/fullpage.js"></script>
+    .loading-curtain.hidden {
+      pointer-events: none;
+    }
+    
+    .curtain-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+      position: relative;
+    }
+    
+    .curtain-content h1.sparkle {
+      animation: sparkleAndFade 1.2s ease-out forwards;
+    }
+    
+    .sparkle-particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkleFloat 1.2s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes sparkleAndFade {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      25% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      75% {
+        opacity: 0.8;
+        transform: scale(1.02);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+    }
+    
+
+    
+    @keyframes sparkleFloat {
+      0% {
+        opacity: 0;
+        transform: scale(0) translateY(0);
+      }
+      20% {
+        opacity: 1;
+        transform: scale(1) translateY(-10px);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0) translateY(-30px);
+      }
+    }
+    
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .curtain-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+
+  <!-- Self-hosted marked.js library -->
+  <script src="fonts/marked.min.js" defer></script>
 
 </head>
 <body>
 
-<div class="loading-bg" id="home-loading">
-	<div class="loading-wrapper loader">
-		<div class="loader__ball"></div>
-		<div class="loader__ball"></div>
-		<div class="loader__ball"></div>
-	</div>
-</div>
-
-<div id="fullpage">
-	<div class="section" id="section0">
-		<div class="welcome">
-			 <h2 class="fade-in one" id="top-greeting"><span id="greeting"></span>
-				<!-- <span id="greeting-1">Hello,</span>
-				<span id="greeting-2">Hey,</span>
-				<span id="greeting-3">Greetings,</span>
-				<span id="greeting-5">Howdy,</span>
-				<span id="greeting-6">Hi there,</span> --><br/> I’m Theo.</h2>
-			<div id="rect-gradient"></div>
-
-
-			<p class="fade-in two top-title">UX &amp; Web Designer/Developer</p>
-			<p class="fade-in three top-title">Let's collaborate &amp; make something wonderful.</p>
-
-			<div class="welcome-links home-links">
-				<h4><a class="fade-in four hp-story welcome-link" href="story.html" >My Story ></a></h4>
-				<h4><a class="fade-in five hp-cv welcome-link" href="cv.html" >Résumé ></a></h4>
-				<h4><a class="fade-in six hp-philosophy welcome-link" href="philosophy.html" >Design Philosophy ></a></h4>
-                <h4><a class="fade-in six hp-portfolio welcome-link" href="#TrendGraphix">Portfolio ></a></h4>
-                <h4><a class="fade-in six hp-testimonials welcome-link" href="#Testimonials">Testimonials ></a></h4>
-                <h4><a class="fade-in six hp-contact welcome-link" href="#Contact">Contact ></a></h4>
-			</div> 
-		</div>
-<!-- 		<img src="IMG/splash-bust2.gif" id="full-body" class="fade-in-slow"/>
- -->
-		<!-- Down arrows signifier -->
-		<a href="#TrendGraphix">
-		<div class="fade-in six" id="feat-work-arrow"></div>
-			<svg class="arrows fade-in seven">
-				<path class="a1" d="M0 0 L30 32 L60 0"></path>
-				<path class="a2" d="M0 20 L30 52 L60 20"></path>
-				<path class="a3" d="M0 40 L30 72 L60 40"></path>
-			</svg>
-		</a>
-		<!-- <div id="scroll-line">
-			<span id="scroll-text">scroll</span>
-		</div> -->
-	</div>
-    <div class="section portfolio" id="section1">
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>Blackfern Media</h1>
-			<hr>
-			<br>
-			<p>Designed and built from scratch. Blackfern Media provides stunning professional real estate photography, corporate photography and web services to help your business grow.</p>
-			<a href="https://blackfernmedia.com" target="_new"><button class="project-button center">View Site</button></a>
-			<p class="made-in">Designed, Built and Launched April 2022</p>
-		</div>
-	</div> 
-	<div class="section portfolio" id="section2">
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>TrendGraphix</h1>
-			<hr>
-			<br>
-			<p>Full site redesign. TrendGraphix provides real estate data insights to help people find a home and provide insights for agents.</p>
-			<a href="https://trendgraphix.com" target="_blank"><button class="project-button center">Visit Site</button></a>
-			<p class="made-in">Designed, Built and Launched in August 2021</p>
-		</div>
-	</div>
-	<div class="section portfolio" id="section3">
-		<div class="projectCurtain"></div>
-		<div class="project-info">
-			<h1>Gather Facilitation</h1>
-			<hr>
-			<br>
-			<p>Designed and built from scratch, all custom coded. Facilitation for conflict transformation, community building &amp; creative group processes.</p>
-			<a href="https://gatherfacilitation.com" target="_blank"><button class="project-button center">Visit Site</button></a>
-			<p class="made-in">Designed, Built and Launched in April 2020</p>
-		</div>
-	</div> 
-    <div class="section" id="section4">
-        <div id="testimonial-import"></div>
+  <div class="loading-curtain" id="loadingCurtain">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+    <div class="curtain-content">
+      <h1>Welcome to Nuanced Design</h1>
     </div>
-    <div class="section" id="section5">
-        <div class="flex">
-                        <h3>Let's make something wonderful.</h3>
+  </div>
 
-<form id="my-form" name="contact-form" accept-charset="utf-8" action="https://formspree.io/f/xpzbwpld" method="post">
-  <fieldset id="fs-frm-inputs">
-    <label for="full-name">Hello, I'm</label>
-    <input type="text" name="name" id="full-name" placeholder="&#9997; your full name" required="">
-    
-<!--
-  <label for="company">from (optional)</label>
-  <input type="text" name="company" id="company" maxlength="30" placeholder="your company" >
-      
--->
-    <label for="email-address">You can reach me at</label>
-    <input type="email" name="email" id="email-address" placeholder="&#9993; your e-mail" required="">
-<!--
-    <label for="telephone">or call (optional)</label>
-    <input type="telephone" name="telephone" id="telephone" placeholder="&#9743; (555) 555-5555">
-      
--->
-    <label for="department">How'd you find me?</label>
-    <select name="department" id="department" required="" onchange="if (this.selectedIndex==4) {otherOption()} else {deleteOther()};">
-      <option value="" selected="" disabled="">Select</option>
-      <option value="Friend Referral">Search Engine</option>
-      <option value="Friend Referral">Friend Referral</option>
-      <option value="Social Media">Social Media</option>
-      <option value="Linked-In">Linked-In</option>
-      <option value="Linked-In">Ad</option>
-      <option value="Other">Other</option>
-    </select>
-      <input type="text" name="other" maxlength="30" placeholder="Lorem ipsum" id="otherField" >
-    <label for="message">How can we work together?</label>
-    <textarea rows="5" name="message" id="message" placeholder="I have a great idea for a new website..." required=""></textarea>
-  </fieldset>
-        <p id="my-form-status"></p>            
+  <div style="width:100%; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; position:relative; z-index:10;">
+    <a href="#home" onclick="navigateToPage('home'); return false;" class="header-logo" style="text-decoration:none; display:flex; align-items:center; transition:opacity 0.2s;">
+      <img src="IMG/nd-logo-v2c.png" alt="Nuanced Design Logo" style="width:60px; border-radius:50%;">
+    </a>
+    <button id="modeSwitch" style="padding:8px 18px; border-radius:20px; border:none; background:#eee; color:#222; font-weight:600; font-size:1em; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.10); transition:background 0.2s, color 0.2s;">🌙 Dark Mode</button>
+  </div>
 
-    <button id="submit-contact">Send Message</button>
-</form>
-            
-            </div>
+          <div id="pauseOverlay" style="position:relative;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(0,0,0,0.3);z-index:1000;display:none;align-items:center;justify-content:center;cursor:pointer;border-radius:8px;backdrop-filter: blur(4px);">
+    <svg width="30" height="30" viewBox="0 0 120 120" style="fill:#fff;">
+      <rect x="35" y="25" width="15" height="70" rx="3"/>
+      <rect x="70" y="25" width="15" height="70" rx="3"/>
+    </svg>
+  </div>
+
+  <div class="content" id="mainContent" style="opacity: 0; visibility: hidden;">
+    <!-- Content will be dynamically loaded here -->
+  </div>
+  <div class="booking-page" id="bookingPage" style="opacity: 0; visibility: hidden;">
+  <button class="close-btn" onclick="closeBooking()">← 🤷 Nevermind</button>
+
+    <!-- Background floating balloons -->
+    <div class="bg-balloon color-1"></div>
+    <div class="bg-balloon color-2"></div>
+    <div class="bg-balloon color-3"></div>
+    <div class="bg-balloon color-4"></div>
+    <div class="bg-balloon color-5"></div>
+    <div class="bg-balloon color-1"></div>
+    <div class="bg-balloon color-2"></div>
+    <div class="bg-balloon color-3"></div>
+
+    <div class="bookingContent">
+      <h2>Let's Get Started</h2>
+      <p style="margin-bottom:24px;">Would you like to tell us about your project or just get in touch?</p>
+      <a href="#" onclick="openIntakeModal(); return false;" class="phone-number">🧭 Start Project Intake</a><br/>
+      <p style="margin:8px 0 16px 0; font-size:0.9em; color:#666;">The survey is only four questions and will just take a minute.</p>
+      <div style="margin-top:10px;">
+        <div style="margin-bottom:8px; font-weight:500;">Or just call or email:</div>
+        <div>
+          <a href="tel:6074445455" style="color:#39B54A;text-decoration:underline;">(607) 444-5455</a>
+          <span style="color:#39B54A;">&nbsp;|&nbsp;</span>
+          <a href="mailto:hello@nuanceddesign.com" style="color:#39B54A;text-decoration:underline;">hello@nuanceddesign.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-overlay" id="bookingOverlay" onclick="closeBooking()"></div>
+
+  <!-- Intake Form Modal -->
+  <div class="intake-modal" id="intakeModal">
+    <div class="intake-modal-content">
+      <button class="intake-close-btn" onclick="closeIntakeModal()">✕</button>
+      <iframe src="gamified-intake-form.html" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+
+  <div class="tab-bar-wrapper" id="tabBarWrapper" style="opacity: 0; visibility: hidden;">
+    <div class="tab-bar" id="tabBar">
+      <img src="IMG/Icons/balloon-book-a-call3.png" alt="Book a Call" class="balloon" fetchpriority="high" onclick="toggleBooking()" srcset="IMG/Icons/balloon-book-a-call3-mobile.png 768w, IMG/Icons/balloon-book-a-call3.png 1200w" sizes="(max-width: 768px) 100vw, 50vw" />
+
+      <div class="tab-item process" onclick="activateTab(this); setColor('#00AEEF'); closeBooking(); navigateToPage('process');">
+        <img src="IMG/Icons/process-icon.png" alt="Process">
+        Process
+      </div>
+
+      <div class="tab-item about" onclick="activateTab(this); setColor('#EC008C'); closeBooking(); navigateToPage('about');">
+        <img src="IMG/Icons/about-icon.png" alt="About">
+        About
+      </div>
+
+      <div class="tab-item portfolio" onclick="activateTab(this); setColor('#39B54A'); closeBooking(); navigateToPage('portfolio');">
+        <img src="IMG/Icons/portfolio-icon.png" alt="Portfolio">
+        Portfolio
+      </div>
+
+      <div class="tab-item pricing" onclick="activateTab(this); setColor('#FFCB05'); closeBooking(); navigateToPage('pricing');">
+        <img src="IMG/Icons/pricing-icon.png" alt="Pricing">
+        Pricing
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Loading curtain control
+  const loadingCurtain = document.getElementById('loadingCurtain');
+  
+  // Hide curtain immediately
+  function hideLoadingCurtain() {
+    if (loadingCurtain && !loadingCurtain.classList.contains('hidden')) {
+      // Trigger sparkle effect on the welcome text immediately
+      const welcomeText = loadingCurtain.querySelector('h1');
+      if (welcomeText) {
+        welcomeText.classList.add('sparkle');
+        createSparkleParticles(welcomeText);
+      }
+      
+      // Hide curtain after sparkle effect starts
+      setTimeout(() => {
+        loadingCurtain.classList.add('hidden');
         
-    <footer>
-	<div class="container">
-		<div class="footer-top-row">
-			<span class="dark-mode-wrapper">
-  				<p class="dark-mode-switch-text">Dark mode:</p>
-  				  <label class="switch" for="checkbox">
-  				    <input type="checkbox" id="checkbox" />
-  				    <div class="slider round"></div>
-	  			</label>
-	  			<img src="IMG/Icons/darkMoon.png" id="moonIcon"/>
-	        </span>
-				<div class="social-icons float-right">
-					<a href="mailto:bpgrandy@gmail.com"><img src="IMG/footer/email-icon2.png" class="social-icon" alt="E-mail Me"></a>
-                    <a href="https://www.linkedin.com/in/nuanced-design/" target="_blank"><img src="IMG/footer/linked-in-icon.png" alt="Linked-In" class="social-icon"></a>
-                    <a href="https://github.com/Webstir" target="_blank"><img src="IMG/footer/github-icon.png" alt="Github" class="social-icon"></a>
-                    <a href="https://www.facebook.com/theo.grandy.web.designer/" target="_blank"><img src="IMG/footer/facebook-icon.png" alt="Facebook" class="social-icon" /></a>
-                    <a href="http://instagram.com/professor.goo/" target="_blank"><img src="IMG/footer/instagram-icon.png" alt="Instagram" class="social-icon" /></a>
-                    <a href="https://twitter.com/professor_goo" target="_blank"><img src="IMG/footer/twitter-icon.png" alt="Twitter" class="social-icon" /></a>
-				</div>
-		</div>
-        <p class="copyright">&copy; 2010-<span id="current-year"></span> All Rights Reserved.</p>
-	</div>
-
-</footer>
-
-	</div>
-
-<div id="menu-import"></div>
-
-    </div>
-
-
- <script>
-
-    //  Listen for right/left keypress
-  $( ".isArrowable" ).on( "keydown", function( event ) {
-  if (event.which == 37 ){
-    // alert('Left');
-    window.location.href = "philosophy.html";
+        // Show content only after curtain animation completes
+        setTimeout(() => {
+          const mainContent = document.getElementById('mainContent');
+          const bookingPage = document.getElementById('bookingPage');
+          const tabBarWrapper = document.getElementById('tabBarWrapper');
+          
+          if (mainContent) {
+            mainContent.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            mainContent.style.opacity = '1';
+            mainContent.style.visibility = 'visible';
+          }
+          
+          if (bookingPage) {
+            bookingPage.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            bookingPage.style.opacity = '1';
+            bookingPage.style.visibility = 'visible';
+          }
+          
+          if (tabBarWrapper) {
+            tabBarWrapper.style.transition = 'opacity 0.5s ease-in-out, visibility 0.5s ease-in-out';
+            tabBarWrapper.style.opacity = '1';
+            tabBarWrapper.style.visibility = 'visible';
+          }
+          
+          // Remove curtain from DOM after content is shown
+          if (loadingCurtain.parentNode) {
+            loadingCurtain.parentNode.removeChild(loadingCurtain);
+          }
+        }, 1200); // Wait for curtain animation to complete
+      }, 200);
+    }
   }
-  else if (event.which == 39 ){
-    // alert('Right');
-    window.location.href = "story.html";
+  
+  // Create sparkle particles around the text
+  function createSparkleParticles(element) {
+    const text = element.textContent;
+    const rect = element.getBoundingClientRect();
+    
+    // Create particles that trace around each character (reduced to 1/3)
+    for (let charIndex = 0; charIndex < text.length; charIndex++) {
+      // Create only 1 particle per character (was 3)
+      const particle = document.createElement('div');
+      particle.className = 'sparkle-particle';
+      
+      // Calculate position around each character
+      const charWidth = rect.width / text.length;
+      const charX = (charIndex * charWidth) + (charWidth / 2);
+      const charY = rect.height / 2;
+      
+      // Random offset around the character
+      const offsetX = (Math.random() - 0.5) * 40;
+      const offsetY = (Math.random() - 0.5) * 40;
+      
+      // Position relative to the text element
+      const x = (charX / rect.width) * 100 + (offsetX / rect.width) * 100;
+      const y = 50 + (offsetY / rect.height) * 100;
+      
+      particle.style.left = `${x}%`;
+      particle.style.top = `${y}%`;
+      particle.style.animationDelay = `${Math.random() * 0.5}s`;
+      particle.style.animationDuration = `${0.8 + Math.random() * 0.4}s`;
+      
+      element.appendChild(particle);
+      
+      // Remove particle after animation
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 1200);
+    }
+    
+    // Add some random particles around the entire text (reduced to 1/3)
+    for (let i = 0; i < 3; i++) { // Was 8, now 3
+      const particle = document.createElement('div');
+      particle.className = 'sparkle-particle';
+      
+      // Random position around the entire text
+      const angle = (i / 3) * 2 * Math.PI; // Adjusted for new count
+      const radius = 60 + Math.random() * 40;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      
+      particle.style.left = `calc(50% + ${x}px)`;
+      particle.style.top = `calc(50% + ${y}px)`;
+      particle.style.animationDelay = `${0.3 + Math.random() * 0.4}s`;
+      particle.style.animationDuration = `${1 + Math.random() * 0.3}s`;
+      
+      element.appendChild(particle);
+      
+      // Remove particle after animation
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 1200);
+    }
   }
-  else {};
+  
+  // Trigger animation immediately
+  hideLoadingCurtain();
+  
+  // Also hide when page is fully loaded
+  window.addEventListener('load', hideLoadingCurtain);
+  
+  // Hide immediately if page is already loaded
+  if (document.readyState === 'complete') {
+    hideLoadingCurtain();
+  }
+  
+  let lastScroll = 0;
+  const bar = document.getElementById('tabBar');
+  const barWrapper = document.getElementById('tabBarWrapper');
+  const bookingPage = document.getElementById('bookingPage');
+  const bookingOverlay = document.getElementById('bookingOverlay');
+  
+  // URL routing system
+  const routes = {
+    '': loadDefaultContent,
+    '#': loadDefaultContent,
+    '#home': loadDefaultContent,
+    '#process': openProcess,
+    '#about': openAbout,
+    '#portfolio': loadPortfolioSection,
+    '#pricing': openPricing
+  };
+  
+  // Handle URL changes
+  function handleRoute() {
+    const hash = window.location.hash || '#';
+    const route = routes[hash];
+    
+    if (route) {
+      // Update active tab and color based on route
+      const tabMap = {
+        '#process': { selector: '.process', color: '#00AEEF' },
+        '#about': { selector: '.about', color: '#EC008C' },
+        '#portfolio': { selector: '.portfolio', color: '#39B54A' },
+        '#pricing': { selector: '.pricing', color: '#FFCB05' }
+      };
+      
+      if (tabMap[hash]) {
+        document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+        const activeTab = document.querySelector(tabMap[hash].selector);
+        if (activeTab) activeTab.classList.add('active');
+        
+        // Set the color for the page
+        setColor(tabMap[hash].color);
+      } else {
+        // Default color for home
+        setColor('#222');
+      }
+      
+      // Call the route function
+      route();
+    } else {
+      // Default to home if route not found
+      setColor('#222');
+      loadDefaultContent();
+    }
+  }
+  
+  // Listen for URL changes
+  window.addEventListener('hashchange', handleRoute);
+  
+  // Handle initial page load
+  window.addEventListener('load', handleRoute);
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    const documentHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const maxScroll = documentHeight - windowHeight;
+
+    // ✅ If booking page is open, never hide the tab bar
+    if (bookingPage.classList.contains('open')) {
+      bar.classList.remove('hidden');
+      return;
+    }
+
+    // Prevent showing tab bar when at the very bottom (within 10px)
+    if (currentScroll >= maxScroll - 10) {
+      bar.classList.add('hidden');
+      return;
+    }
+
+    if (currentScroll <= 0) {
+      bar.classList.remove('hidden');
+      return;
+    }
+    if (currentScroll > lastScroll) {
+      bar.classList.add('hidden');
+    } else {
+      bar.classList.remove('hidden');
+    }
+    lastScroll = currentScroll;
   });
 
-// Full Page
+    function setColor(color) {
+      document.body.style.color = color;
+      // Use darker, more muted colors for the booking page background
+      const mutedColors = {
+        '#00AEEF': '#1a4a5a', // Darker cyan
+        '#EC008C': '#4a1a3a', // Darker magenta  
+        '#39B54A': '#1a4a1a', // Darker green
+        '#FFCB05': '#4a3a1a'  // Darker yellow
+      };
+      bookingPage.style.background = mutedColors[color] || color;
+      bookingPage.style.color = '#fff'; // Keep text white for better contrast
+    }
 
-    var myFullpage = new fullpage('#fullpage', {
-    	anchors: ['Welcome','BlackfernMedia','TrendGraphix','Gather','Testimonials','Contact'],
-		sectionsColor: [],
-		navigation: true,
-		navigationPosition: 'left',
-		navigationTooltips: ['Welcome','Blackfern Media','TrendGraphix','Gather Facilitation', 'Testimonials', 'Contact'],
-        verticalCentered: false,
+  function toggleBooking() {
+    const isOpen = bookingPage.classList.contains('open');
+    if (isOpen) {
+      closeBooking();
+    } else {
+      openBooking();
+    }
+  }
 
-        //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
-        css3:false
+  function openBooking() {
+    bookingPage.classList.add('open');
+    bookingOverlay.style.display = 'block';
+    barWrapper.classList.add('active');
+    bar.classList.remove('hidden'); // ✅ Keep bar visible when booking is open
+  }
+
+  function closeBooking() {
+    bookingPage.classList.remove('open');
+    bookingOverlay.style.display = 'none';
+    barWrapper.classList.remove('active');
+  }
+
+  // Hide overlay by default
+  bookingOverlay.style.display = 'none';
+  
+  // Assign random colors to balloons on page load
+  function assignRandomColors() {
+    const balloons = document.querySelectorAll('.bg-balloon');
+    const colors = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6', 'color-7', 'color-8'];
+    
+    balloons.forEach(balloon => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.className = `bg-balloon ${randomColor}`;
     });
+  }
+  
+  // Assign colors when page loads
+  assignRandomColors();
 
-</script>
-
-<!-- Lity -->
-<script src="JS/lity.js"></script>
-	
-<!-- Bunch of scripts-->
- <script src="JS/global.js"></script>
-
-<script>
+  function activateTab(el) {
+    document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+    el.classList.add('active');
+  }
+  
+  function navigateToPage(page) {
+    // Update URL without triggering the hashchange event
+    const currentHash = window.location.hash;
+    const newHash = page === 'home' ? '#home' : `#${page}`;
     
+    if (currentHash !== newHash) {
+      window.location.hash = newHash;
+    }
+  }
 
-$( document ).ready(function() {
-	// Load testimonials
-	$("#testimonial-import").load("testimonials.html");
-    
-    // Load footer
-	$("#footer-import").load("footer-dark-mode.html"); 
+  function openProcess() {
+      // Load markdown content
+      fetch('process.md')
+        .then(response => response.text())
+        .then(markdown => {
+          // Remove Jekyll front matter (lines between ---)
+          const content = markdown.replace(/^---[\s\S]*?---\s*/, '');
+          
+          // Convert markdown to HTML
+          const html = marked.parse(content);
+          
+          // Update the main content area
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+            <div class="markdown-content">
+              <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+              ${html}
+            </div>
+          `;
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+          // Accordion JS
+          setTimeout(() => {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+              header.onclick = function() {
+                const content = this.nextElementSibling;
+                this.classList.toggle('active');
+                content.classList.toggle('open');
+                // Toggle plus/minus icon
+                const icon = this.querySelector('.accordion-icon');
+                if (this.classList.contains('active')) {
+                  icon.textContent = '−';
+                } else {
+                  icon.textContent = '+';
+                }
+              };
+            });
+          }, 0);
+        })
+        .catch(error => {
+          console.error('Error loading process content:', error);
+          alert('Error loading process content. Please try again.');
+        });
+    }
 
-	// Load main menu
-	$("#menu-import").load("menu.html");
+    function openAbout() {
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+        <div class="about-page">
+          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          
+          <!-- Main Story Section -->
+          <div class="story-section">
+            <div class="story-container">
+              <div class="story-content">
+                <div class="story-text">
+                  <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel delightful and intuitive.</p>
+                  <p>We realized that many of our favorite local spots—cafés, shops, and creative businesses—had websites that felt amateur, unfinished, unwelcoming, or sometimes just didn't work at all. This was especially true for brands that depend, at least in part, on e-commerce. We saw great businesses missing out on opportunities simply because their digital presence didn't reflect the care and quality they put into everything else.</p>
+                  <p>We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
+                  <p>Theo started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend and treat their business as if we were our own? What if we became your best customers—so we could tell you what your market actually needs, rather than just trying to sell you a service?</p>
+                  <p>That's how we became "Design Daddy & Marketing Mamacita." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't, and offer honest guidance—whether you need us cheering from the sidelines or stepping in to take the lead. We care about your project's success like one of our children.</p>
+                </div>
+                                  <div class="story-visual">
+                    <div class="team-photo-story">
+                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo" fetchpriority="high" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                      <div class="photo-caption">That's us! 👋</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-});
+          <!-- Who We Are Section -->
+          <div class="who-we-are-section">
+            <h2 class="section-title">Meet Theo</h2>
+            <div class="theo-bio-container">
+              <div class="theo-photo">
+                <img src="IMG/Home-Portfolio/Theo-Grandy-professional-portrait-web-designer2.jpg" alt="Theo Grandy" class="theo-portrait" fetchpriority="high">
+              </div>
+              <div class="theo-bio-content">
+                <h3>Theo Grandy</h3>
+                <p class="theo-title">Founder & Lead Designer</p>
+                <p class="theo-bio">With over a decade of experience in web design and user experience, Theo brings a unique blend of technical expertise and creative vision to every project. He has an eye for simplicity but a love for UX extras that delight and engage people and give them warm feelings.</p>
+                
+                <div class="theo-expertise">
+                  <h4>What Theo brings to your project:</h4>
+                  <ul>
+                    <li><strong>User-Centered Design:</strong> Every decision is backed by research and real user behavior</li>
+                    <li><strong>Technical Excellence:</strong> Clean, efficient code that performs beautifully</li>
+                    <li><strong>Strategic Thinking:</strong> Design that serves your business goals, not just aesthetics</li>
+                    <li><strong>Clear Communication:</strong> You'll always know what's happening and why</li>
+            <li><strong>A Collaborative Mindset:</strong> We don't try to fit you into a box. We explore your vision together.</li>
+                  </ul>
+                </div>
+                
+                <p class="theo-philosophy">"I believe great design should feel invisible—it should guide users naturally toward their goals without them even realizing it. It should know their context and feel like it's reading their mind. It should tell a story and have a soul. That's what makes the difference between an experience that just looks good and one that makes you smile."</p>
+              </div>
+            </div>
+          </div>
 
-// Cycle through different greetings
-var divs = $('span[id^="greeting-"]').hide(),
-    i = 0;
-(function cycle() { 
-    divs.eq(i).fadeIn(500)
-              .delay(3000)
-              .fadeOut(700, cycle);
-    i = ++i % divs.length;
-})();
+          <!-- How We Work Section -->
+          <div class="how-we-work-section">
+            <h2 class="section-title">How We Actually Work</h2>
+            <div class="work-steps">
+              <div class="work-step step-1">
+                <div class="step-number">1</div>
+                <h3>We Listen</h3>
+                <p>No templates, no assumptions. We start by understanding your real needs and goals.</p>
+                </div>
+              <div class="work-step step-2">
+                <div class="step-number">2</div>
+                <h3>We Think</h3>
+                <p>We take time to figure out the best approach, not just the fastest one.</p>
+              </div>
+              <div class="work-step step-3">
+                <div class="step-number">3</div>
+                <h3>We Build</h3>
+                <p>We create something that actually works for your business and your customers.</p>
+              </div>
+              <div class="work-step step-4">
+                <div class="step-number">4</div>
+                <h3>We Support</h3>
+                <p>We're here after launch to help you succeed, not just disappear.</p>
+              </div>
+            </div>
+              </div>
 
-// Cycle through different titles
-var divs2 = $('span[id^="title-"]').hide(),
-    j = 0;
+          <!-- Meet Quinn Section -->
+          <div class="quinn-section">
+            <h2 class="section-title">Meet Quinn</h2>
+            <div class="quinn-bio-container">
+              <div class="quinn-photo">
+                <img src="IMG/quinn-balcony.jpg" alt="Quinn Grandy" class="quinn-portrait">
+              </div>
+              <div class="quinn-bio-content">
+                <h3>Quinn Grandy</h3>
+                <p class="quinn-title">Creative Director &amp; Marketing Lead</p>
+                <p class="quinn-bio">Quinn brings a fresh perspective to every project with her background in marketingand creative storytelling. She has a natural talent for understanding what makes brands memorable and how to communicate complex ideas in simple, engaging ways.</p>
+                
+                <div class="quinn-expertise">
+                  <h4>What Quinn brings to your project:</h4>
+                  <ul>
+                    <li><strong>Creative Storytelling:</strong> Turns your brand story into compelling visual narratives</li>
+                    <li><strong>Brand Strategy:</strong> Helps you communicate your values and personality clearly</li>
+                    <li><strong>Content Creation:</strong> Creates engaging content that connects with your audience</li>
+                    <li><strong>Client Relations:</strong> Makes sure you feel heard and supported throughout the process</li>
+                  </ul>
+                </div>
+                
+                <p class="quinn-philosophy">"I believe that every brand has a unique story to tell. My favorite thing to do is to help you find ways to tell that story in ways that resonate with your audience. I pride myself on keeping my finger on the pulse of your business by staying in tune with trends, data & insights that will highlight where you can convert viewers into loyal customers."</p>
+              </div>
+            </div>
+          </div>
 
-(function cycle2() { 
-    divs2.eq(j).fadeIn(500)
-              .delay(3000)
-              .fadeOut(700, cycle2);
-    j = ++j % divs2.length;
+          <!-- Why We're Different Section -->
+          <div class="personal-section">
+            <div class="personal-container">
+              <h2 class="section-title">Why We're Different</h2>
+              <div class="personal-content">
+                <div class="personal-text">
+                  <p>We're not a big agency with layers of account managers and junior designers. When you work with us, you work directly with the people who will actually build your project. <span class="personal-emoji">💬</span></p>
+                  <p>We ground our choices in user behavior, psychology, and UX research—not fuzzy feelings and egos. Every decision is backed by data and best practices. <span class="personal-emoji">🧠</span></p>
+                  <p>We're a committed team with a proven track record and a real business to protect. Your success is our success. <span class="personal-emoji">🏆</span></p>
+                </div>
+                <div class="personal-visual">
+                  <div class="floating-elements">
+                    <div class="floating-icon">💬</div>
+                    <div class="floating-icon">🧠</div>
+                    <div class="floating-icon">🏆</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-})();
+          <!-- Conversation Section -->
+          <div class="conversation-section">
+            <div class="conversation-container">
+              <div class="conversation-header">
+                <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Marketing Mamacita" class="contact-avatar" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                <div class="contact-details">
+                  <h3>Design Daddy & Marketing Mamacita</h3>
+                  <p>Online • Available now</p>
+                </div>
+              </div>
+              
+              <div class="conversation-thread">
+                <div class="text-thread">
+              <div class="message sent">
+                <div class="message-bubble">
+                      <p>Hi! I'm looking for help with my website. I want something that actually feels like my business, not just a generic template.</p>
+                </div>
+                    <div class="message-time">10:02 AM</div>
+              </div>
 
- // Time of Day Greeting
+              <div class="message received">
+                <div class="message-bubble">
+                  <p>We totally get that! That's exactly why we started Nuanced Design. We wanted to create digital experiences that feel human—like you're talking to real people who actually care about your success.</p>
+                </div>
+                    <div class="message-time">10:03 AM</div>
+              </div>
 
-datetoday = new Date();
-timenow=datetoday.getTime();
-datetoday.setTime(timenow);
-thehour = datetoday.getHours();
-// if (thehour > 21 || thehour < 4) display = "Burning the midnight oil?";
-if (thehour > 16 || thehour < 5) display = "Good evening.";
-else if (thehour > 11) display = "Good afternoon.";
-else if (thehour > 3) display = "Good morning.";
-// else display = "Top of the mornin'!";
-var greeting = (display);
+              <div class="message sent">
+                <div class="message-bubble">
+                      <p>That sounds perfect! But how do I know you're reliable? I've heard horror stories about designers disappearing mid-project.</p>
+                </div>
+                <div class="message-time">10:03 AM</div>
+              </div>
 
-document.getElementById("greeting").innerHTML = greeting;
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>Totally valid concern! We're a committed husband-and-wife team with a real business to protect. We're "Design Daddy & Marketing Mamacita" and we treat every project like it's our own.</p>
+                </div>
+                <div class="message-time">10:04 AM</div>
+              </div>
 
-	// // Dark Mode detector
-	var time = new Date();
-	var hour = time.getHours();
-	if ( sessionStorage.getItem('setDarkMode') === 'true') {
-	      document.body.classList.add("dark-mode");
-	    }
-	else if ( sessionStorage.getItem('setDarkMode') === 'false') {
-	    document.body.classList.remove("dark-mode");
-	}
-	else if ((hour <= 5) || (hour >= 19)) {
-	    document.body.classList.add("dark-mode");
-	}
-	else {
-	  document.body.classList.remove("dark-mode");
-	}
-</script>
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>Haha, I love that! But seriously, what's your process like? I've worked with designers before who just throw something together without really understanding my business.</p>
+                </div>
+                <div class="message-time">10:05 AM</div>
+              </div>
 
-<script src="JS/contact-modal-onebtn.js"></script>
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>We follow our 4 D's: Discover, Design, Develop, Deliver. No templates, no assumptions—just real understanding of your needs.</p>
+                </div>
+                <div class="message-time">10:06 AM</div>
+              </div>
 
-<script type="text/javascript">
+                  <div class="message sent">
+                <div class="message-bubble">
+                      <p>That sounds great! But what about pricing? I'm worried about hidden costs or getting locked into something I can't afford.</p>
+                </div>
+                <div class="message-time">10:08 AM</div>
+              </div>
 
-domLoad ();
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>💰 We're completely transparent about pricing. No hidden fees, no surprises. We work with your budget and give you exactly what you need—nothing more, nothing less.</p>
+                </div>
+                <div class="message-time">10:10 AM</div>
+              </div>
 
-</script>
-    
-<script>
-    
-    function otherOption() {
-        document.getElementById("otherField").style.display = "block";
+              <div class="message sent">
+                <div class="message-bubble">
+                      <p>Perfect! But how long does a typical project take? I need something that actually gets done on time.</p>
+                </div>
+                <div class="message-time">10:13 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>⏰ We're realistic about timelines and keep you updated every step of the way. Most projects take 4-8 weeks, but we'll give you a specific timeline based on your needs.</p>
+                </div>
+                <div class="message-time">10:14 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>And we don't just disappear after launch—we're here to help you succeed long-term! 🚀</p>
+                </div>
+                <div class="message-time">10:16 AM</div>
+              </div>
+
+              <div class="message sent">
+                <div class="message-bubble">
+                  <p>I love this approach! You guys seem like exactly what I've been looking for. How do we get started?</p>
+                </div>
+                <div class="message-time">10:20 AM</div>
+              </div>
+
+              <div class="message received">
+                <div class="message-bubble">
+                      <p>We'd love to hear more about your project! Let's <span onclick="toggleBooking(); return false;" style="text-decoration:underline;">set up a call</span> to chat about your vision and see how we can help bring it to life. 🎉</p>
+                </div>
+                <div class="message-time">10:21 AM</div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+      
+      // Initialize animations after content loads
+      setTimeout(() => {
+        initializeAboutAnimations();
+      }, 100);
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+    }
+
+    function initializeAboutAnimations() {
+      // Animate value cards on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.value-card, .service-item, .work-step').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Add hover effects to value cards
+      document.querySelectorAll('.value-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+        });
+    }
+
+    function openPricing() {
+      // Create pricing content with HTML structure
+      const pricingContent = `
+        <h1>Pricing & Packages</h1>
+        
+        <div style="padding: 16px; border-radius: 12px; margin: 20px 0; text-align: center; box-shadow: 0 4px 16px rgba(255,203,5,0.2); border: 2px solid #FFCB05;">
+          <h2 style="color: #FFCB05; margin-bottom: 12px; font-size: 1.2em;">💡 Flexible Pricing for Every Budget</h2>
+          <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;margin:0 auto;">
+            <strong>Prices listed are estimates only.</strong> Project scope can vary significantly, and we're committed to working with your budget. 
+            Whether you're a startup with limited resources or an established business, we can tailor our services to fit your needs. 
+            <strong>Please call us for a personalized quote!</strong>
+          </p>
+        </div>
+        
+        <h2>Our Pricing Philosophy</h2>
+        <p>We believe in transparent, value-based pricing that gives you exactly what you need without unnecessary extras. Every project is unique, so we offer flexible packages that can be customized to fit your specific requirements and budget.</p>
+        
+        <h2>Website Design Packages</h2>
+        
+        <div class="pricing-packages">
+        
+        <div class="pricing-package">
+        <h3>Starter Package</h3>
+        <div class="price">Starting at $2,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">Perfect for small businesses and startups</div>
+        <ul>
+        <li>Custom website design (up to 5 pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Basic SEO optimization</li>
+        <li>Contact form integration</li>
+        <li>2 rounds of revisions</li>
+        <li>Launch support</li>
+        </ul>
+        </div>
+        </div>
+        
+        <div class="pricing-package">
+        <h3>Professional Package</h3>
+        <div class="price">Starting at $4,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">Ideal for growing businesses</div>
+        <ul>
+        <li>Custom website design (up to 10 pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Advanced SEO optimization</li>
+        <li>Contact form and newsletter integration</li>
+        <li>Blog setup</li>
+        <li>Social media integration</li>
+        <li>3 rounds of revisions</li>
+        <li>Launch support and training</li>
+        </ul>
+        </div>
+        </div>
+        
+        <div class="pricing-package">
+        <h3>Enterprise Package</h3>
+        <div class="price">Starting at $8,500</div>
+        <div class="pricing-package-content">
+        <div class="subtitle">For established businesses and organizations</div>
+        <ul>
+        <li>Custom website design (unlimited pages)</li>
+        <li>Mobile-responsive design</li>
+        <li>Comprehensive SEO strategy</li>
+        <li>Advanced functionality (e-commerce, booking systems, etc.)</li>
+        <li>Content management system</li>
+        <li>Analytics and reporting setup</li>
+        <li>Ongoing support and maintenance</li>
+        <li>Unlimited revisions during development</li>
+        </ul>
+        </div>
+        </div>
+        
+        </div>
+
+        <h2>Marketing Packages & Support</h2>
+<div class="pricing-packages">
+
+  <div class="pricing-package">
+    <h3>Lite</h3>
+    <div class="price">$500 one-time</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Strategy Refresh</div>
+      <ul>
+        <li>One-time overhaul of your digital presence, content, and marketing strategy</li>
+        <li>5-6 hours of consulting and implementation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Standard</h3>
+    <div class="price">$500/month</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Ongoing Content & Marketing</div>
+      <ul>
+        <li>Weekly content capture, posting, and engagement</li>
+        <li>10-15 hours per month</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Signature</h3>
+    <div class="price">$800/month</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Full Service + Add-ons</div>
+      <ul>
+        <li>All Standard services plus traditional marketing add-ons</li>
+        <li>20-25 hours per month</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pricing-package">
+    <h3>Commission Hybrid</h3>
+    <div class="price">$500 one-time + commission</div>
+    <div class="pricing-package-content">
+      <div class="subtitle">Sell-Based Content</div>
+      <ul>
+        <li>Consulting and content creation</li>
+        <li>Only pay when a post sells (commission-based)</li>
+        <li>10-15 hours per month</li>
+      </ul>
+    </div>
+  </div>
+</div>
+        
+        <h2>Additional Services</h2>
+        
+        <h3>Content Creation</h3>
+        <ul>
+        <li>Logo Design – $500</li>
+        <li>Copywriting and editing</li>
+        <li>Photography and image optimization</li>
+        <li>Video production and editing</li>
+        <li>Custom graphics and illustrations</li>
+        </ul>
+        
+        <h3>Ongoing Support</h3>
+        <ul>
+        <li>Website maintenance and updates</li>
+        <li>Content updates and management</li>
+        <li>Performance monitoring and optimization</li>
+        <li>Security updates and backups</li>
+        </ul>
+        
+        <h3>Consultation Services</h3>
+        <ul>
+         <li>Hourly Web Work – $75/hour</li>
+        <li>Digital strategy planning</li>
+        <li>User experience audits</li>
+        <li>Conversion optimization</li>
+        <li>Brand development and positioning</li>
+        </ul>
+        
+        <h2>Getting Started</h2>
+        <p>Not sure which package is right for you? We offer a free consultation to discuss your project and recommend the best approach for your needs and budget.</p>
+        <p><strong>Ready to get started?</strong> <a href="javascript:void(0);" onclick="openBookingModal(); return false;">Schedule a consultation</a> or <a href="javascript:void(0);" onclick="openIntakeModal(); return false;">fill out our project intake form</a> to tell us about your project.</p>
+        
+        <h2>Payment Terms</h2>
+        <ul>
+        <li>50% deposit required to begin work</li>
+        <li>Remaining balance due upon project completion</li>
+        <li>Payment plans available for larger projects</li>
+        <li>All prices in USD</li>
+        </ul>
+        
+        <h3>Accepted Payment Methods</h3>
+        <ul>
+        <li><strong>Digital Payments:</strong> Venmo, Cash App, Zelle</li>
+        <li><strong>Traditional Payments:</strong> Cash or Check</li>
+        <li><strong>Credit Card:</strong> Through Square (3.5% processing fee)</li>
+        </ul>
+        
+        <p><em>Pricing is subject to change. Custom quotes available for projects with specific requirements.</em></p>
+        <p style="text-align:center; margin-top:2em;"><a href="#" class="get-in-touch-link" onclick="toggleBooking(); return false;">Get in touch</a><span class="get-in-touch-rest"> to start the conversation.</span></p>
+      `;
+      
+      // Update the main content area
+      const mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML = `
+        <div class="markdown-content pricing-page">
+          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+          ${pricingContent}
+        </div>
+      `;
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
     }
     
-    function deleteOther() {
-        document.getElementById("otherField").style.display = "none";
-    }
-    
-    var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
+    function loadDefaultContent() {
+      const mainContent = document.getElementById('mainContent');
+      mainContent.innerHTML = `
+        <div id="AnimationPitch">
+          <div class="homepage-hero">
+            <div class="hero-content">
+              <div id="pauseOverlay" style="display:none;width:60px;height:60px;background:rgba(0,0,0,0.3);align-items:center;justify-content:center;cursor:pointer;border-radius:8px;margin:0 auto;position:relative;z-index:1000;">
+                <svg width="30" height="30" viewBox="0 0 120 120" style="fill:#fff;">
+                  <rect x="35" y="25" width="15" height="70" rx="3"/>
+                  <rect x="70" y="25" width="15" height="70" rx="3"/>
+                </svg>
+              </div>
+              <!-- Slide 1: First Impression -->
+              <div class="slide slide-1 active" id="slide1">
+                <div class="typewriter-container">
+                  <h1 class="typewriter-text" id="firstImpression">
+                    <span class="typing-cursor">|</span>
+                  </h1>
+                </div>
+                <div class="subtitle-container">
+                  <p class="subtitle-text" id="makeItCount">
+                    <span class="typing-cursor">|</span>
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Slide 2: Team Photo -->
+              <div class="slide slide-2" id="slide2">
+                <div class="team-photo-section">
+                  <h2 class="team-photo-title" id="teamPhotoTitle">Meet Your Team</h2>
+                  <div class="team-photo-container">
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Design Daddy & Marketing Mamacita Team" class="team-photo-large" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                    <div class="team-photo-caption-large">
+                      <div class="team-member">
+                        <span class="team-name">Theo</span>
+                        <span class="team-title">UX Designer</span>
+                      </div>
+                      <div class="team-member">
+                        <span class="team-name">Quinn</span>
+                        <span class="team-title">Marketing & Creative Direction</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 3: Our Services -->
+              <div class="slide slide-3" id="slide3">
+                <div class="services-section">
+                  <h2 class="services-title" id="servicesTitle">Our Services</h2>
+                  <div class="services-list" id="servicesList">
+                    <div class="service-item service-web">
+                      <h3>Web Design</h3>
+                    </div>
+                    <div class="service-item service-social">
+                      <h3>Marketing</h3>
+                    </div>
+                    <div class="service-item service-print">
+                      <h3>Consulting</h3>
+                    </div>
+                    <div class="service-item service-brand">
+                      <h3>Strategic Planning</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 4: Services -->
+              <div class="slide slide-4" id="slide4">
+                <div class="service-line" id="service1">
+                  <span class="service-text">We make your brand <span class="highlight-word" id="lookLegit">look legit</span>,</span>
+                </div>
+                <div class="service-line" id="service2">
+                  <span class="service-text">your website <span class="highlight-word" id="feelAlive">feel alive</span>,</span>
+                </div>
+                <div class="service-line" id="service3">
+                  <span class="service-text">and your digital presence</span>
+                </div>
+                <div class="impact-line" id="impact">
+                  <span class="impact-text">IMPOSSIBLE TO IGNORE</span>
+                </div>
+              </div>
+              
+
+              
+              <!-- Slide 5: Urgency -->
+              <div class="slide slide-5" id="slide5">
+                <div class="urgency-section">
+                  <h2 class="urgency-title" id="urgencyTitle">Since you started reading this...</h2>
+                  <div class="urgency-stats">
+                    <div class="urgency-stat">
+                      <div class="urgency-number" id="websiteCount">0</div>
+                      <div class="urgency-label">websites were updated</div>
+                    </div>
+                    <div class="urgency-stat">
+                      <div class="urgency-number" id="socialCount">0</div>
+                      <div class="urgency-label">social campaigns launched</div>
+                    </div>
+                  </div>
+                  <p class="urgency-message">Your competitors aren't waiting.<br>Don't let them get further ahead.</p>
+                </div>
+              </div>
+              
+              <!-- Slide 6: Balloon Instruction -->
+              <div class="slide slide-6" id="slide6">
+                <div class="balloon-instruction">
+                  <div class="balloon-icon" onclick="toggleBooking()" style="cursor: pointer;">🎈</div>
+                  <h2 class="script-heading">Ready to get started?</h2>
+                  <p><span style="color: #f2343d; text-decoration: underline; cursor: pointer;" onclick="toggleBooking()">Click here</span> or the white balloon to Book a Call! You'll answer a couple questions about your project so we can hit the ground running!</p>
+                  <button class="repeat-button" onclick="restartAnimation()" id="repeatButton">🔄 Replay Animation</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fortune Cookie Section -->
+        <div class="dottedBox fortune-section" id="fortuneSection" style="margin-top: 0;">
+          <h2 class="fortune-section-title">A Fortune for Your Journey</h2>
+          <div class="fortune-cookie-homepage" onclick="showFortune()">
+            <div class="fortune-cookie-emoji">🥠</div>
+            <p class="fortune-cookie-text">Click the cookie to discover one of our guiding principles</p>
+          </div>
+        </div>
+        
+        <!-- Testimonials Block: Floating Avatars -->
+        <div class="dottedBox recommendations" id="testimonialsBlock" style="margin-top: 0;">
+          <h1 id="clients-talking">Testimonials</h1>
+          <div class="testimonial-avatars" id="testimonialAvatars">
+            <!-- Avatars will be injected here by JS -->
+          </div>
+          <div class="testimonial-content" id="testimonialContent">
+            <!-- Selected testimonial will appear here -->
+          </div>
+        </div>
+        
+        <!-- Trusted Partners Section -->
+        <div class="dottedBox trust-section" id="trustSection">
+          <h2 class="trust-title">Trusted Partners</h2>
+          <div class="trust-logos">
+            <div class="trust-item">
+              <a href="https://www.koffman.org/entrepreneurship/incubators" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/Koffman-color-white-H@1000x-8-1.png" alt="koffman Incubator" class="trust-logo koffman-logo">
+                <p class="trust-text">Proud member of the Koffman Incubator<br><span style="font-size: 0.8em; color: #888;">Binghamton, NY</span></p>
+              </a>
+            </div>
+            <div class="trust-item">
+              <a href="https://www.greaterbinghamtonchamber.com" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/Chamber_Featured-1.jpg" alt="Chamber of Commerce" class="trust-logo chamber-logo" srcset="IMG/Chamber_Featured-1-mobile.jpg 768w, IMG/Chamber_Featured-1.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                <p class="trust-text">Chamber of Commerce Member<br><span style="font-size: 0.8em; color: #888;">Binghamton, NY</span></p>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Selling Points/Checklist Block (static, below testimonials) -->
+        <div class="dottedBox selling-points-static" id="sellingPointsStatic" style="margin-top: 0;">
+          <div class="selling-points-section">
+            <h2 class="selling-points-title" id="sellingPointsTitle">Why Choose Design Daddy & Marketing Mamacita?</h2>
+            <div class="stats-grid" id="statsGrid">
+              <div class="stat-item">
+                <div class="stat-number">2x</div>
+                <div class="stat-label">Faster Page Load</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3x</div>
+                <div class="stat-label">More Engagement</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">67%</div>
+                <div class="stat-label">Higher Conversion</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+            </div>
+            <ul class="selling-checklist">
+              <li>Award-winning design & branding</li>
+              <li>Proven results for real businesses</li>
+              <li>Fast, responsive communication</li>
+              <li>Honest, transparent pricing</li>
+              <li>One-stop shop: web, print, social, brand</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Not Ready to Book Yet Section -->
+        <div class="dottedBox not-ready-section" id="notReadySection">
+          <h2 class="not-ready-title">Not Ready to Book Yet?</h2>
+          <div class="not-ready-grid">
+            <a class="not-ready-box process" href="#process">
+              <div class="not-ready-icon" style="color:#00AEEF;">🔎</div>
+              <div class="not-ready-heading">See Our Process</div>
+              <div class="not-ready-desc">Learn how we work, step by step, to deliver results.</div>
+            </a>
+            <a class="not-ready-box about" href="#about">
+              <div class="not-ready-icon" style="color:#EC008C;">👋</div>
+              <div class="not-ready-heading">Meet the Team</div>
+              <div class="not-ready-desc">Get to know Design Daddy & Marketing Mamacita.</div>
+            </a>
+            <a class="not-ready-box portfolio" href="#portfolio">
+              <div class="not-ready-icon" style="color:#39B54A;">🖼️</div>
+              <div class="not-ready-heading">View Our Work</div>
+              <div class="not-ready-desc">See real projects and results for our clients.</div>
+            </a>
+            <a class="not-ready-box pricing" href="#pricing">
+              <div class="not-ready-icon" style="color:#FFCB05;">💸</div>
+              <div class="not-ready-heading">Explore Pricing</div>
+              <div class="not-ready-desc">Find a package or service that fits your needs.</div>
+            </a>
+          </div>
+        </div>
+      `;
+      
+      // Reset tab colors and icons to default grey state
+      setColor('#222');
+      document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+      
+      // Initialize testimonials with longer delay to ensure functions are available
+      setTimeout(() => {
+        initializeHomepageTestimonials();
+      }, 1000);
+      
+      // Animate checklist checkmarks for static block
+      setTimeout(() => {
+        const checklist = document.querySelector('.selling-points-static .selling-checklist');
+        if (checklist) {
+          const items = checklist.querySelectorAll('li');
+          items.forEach((li, idx) => {
+            setTimeout(() => {
+              li.classList.add('fade-in-check');
+            }, idx * 400);
+          });
         }
-      }).then(response => {
-        status.innerHTML = "Thank you, I'll be in touch!";
-        form.reset()
-      }).catch(error => {
-        status.innerHTML = "Oops! You forgot something."
+      }, 200);
+      
+      // Start animations after a brief delay
+      setTimeout(() => {
+        startHomepageAnimations();
+      }, 500);
+    }
+    
+    function startHomepageAnimations() {
+      // Add dramatic entrance for the entire hero section
+      const heroContent = document.querySelector('.hero-content');
+      heroContent.style.opacity = '0';
+      heroContent.style.transform = 'translateY(50px)';
+      
+      setTimeout(() => {
+        heroContent.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        heroContent.style.opacity = '1';
+        heroContent.style.transform = 'translateY(0)';
+      }, 300);
+      
+      // Start with slide 1 (add 0.5s delay after curtain closes)
+      setTimeout(() => {
+        startSlide1();
+      }, 2000);
+    }
+    
+    function startSlide1() {
+      // First impression typewriter effect
+      const firstImpressionText = "You only get one shot at a great first impression.";
+      typewriterEffect('firstImpression', firstImpressionText, 45, () => {
+        // Add emphasis effect after typing completes
+        const firstImpressionElement = document.getElementById('firstImpression');
+        // firstImpressionElement.classList.add('emphasis');
+        
+        // Dramatic pause after first line
+        setTimeout(() => {
+          const makeItCountText = "So let's make yours unforgettable.";
+          typewriterEffect('makeItCount', makeItCountText, 55, () => {
+            // Remove the cursor and set the correct HTML for color cycling
+            const makeItCountElement = document.getElementById('makeItCount');
+            makeItCountElement.innerHTML = "So let's make yours&nbsp;<span class=\"color-cycle-text\">unforgettable.</span>";
+            setTimeout(() => {
+              startColorCycle();
+            }, 500);
+            
+            // Move to slide 2 after color cycling
+            pauseableTimeout(() => {
+              transitionToSlide(2);
+            }, 3500);
+          });
+        }, 800);
       });
     }
-    form.addEventListener("submit", handleSubmit)
-</script>
     
-<script src="https://kit.fontawesome.com/d47a072f95.js" crossorigin="anonymous"></script>
+    function transitionToSlide(slideNumber) {
+      // Remove 'active' from all slides
+      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active', 'prev'));
+      // Set 'prev' on previous slide if needed
+      if (slideNumber > 1) {
+        const prevSlide = document.getElementById('slide' + (slideNumber - 1));
+        if (prevSlide) prevSlide.classList.add('prev');
+      }
+      // Set 'active' on current slide
+      const currentSlide = document.getElementById('slide' + slideNumber);
+      if (currentSlide) currentSlide.classList.add('active');
+      // Run the animation for the current slide
+      runSlideAnimation(slideNumber);
+    }
+    
+    function startColorCycle() {
+      const colorCycleText = document.querySelector('.color-cycle-text');
+      const colors = ['#00AEEF', '#EC008C', '#39B54A', '#FFCB05', '#666'];
+      let colorIndex = 0;
 
-</body>
-</html>
+      function cycleColor() {
+        colorCycleText.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+        setTimeout(cycleColor, 400); // was 800, now 400ms
+      }
+
+      cycleColor();
+    }
+    
+    function typewriterEffect(elementId, text, speed, callback) {
+      const element = document.getElementById(elementId);
+      const cursor = element.querySelector('.typing-cursor');
+      let i = 0;
+      
+      function typeChar() {
+        if (i < text.length) {
+          // Use innerHTML to process HTML tags like <br>
+          element.innerHTML = text.substring(0, i + 1);
+          i++;
+          setTimeout(typeChar, speed);
+        } else {
+          // Keep cursor blinking after typing is done
+          cursor.style.animation = 'blink 1s infinite';
+          if (callback) callback();
+        }
+      }
+      
+      typeChar();
+    }
+    
+        function animateTeamPhoto() {
+      // Animate team photo title
+      setTimeout(() => {
+        const teamPhotoTitle = document.getElementById('teamPhotoTitle');
+        if (teamPhotoTitle) teamPhotoTitle.classList.add('animate-in');
+      }, 400);
+
+      // Animate team photo image and caption
+      setTimeout(() => {
+        const teamPhoto = document.querySelector('.team-photo-large');
+        const teamCaption = document.querySelector('.team-photo-caption-large');
+        if (teamPhoto) teamPhoto.classList.add('animate-in');
+        if (teamCaption) teamCaption.classList.add('animate-in');
+      }, 900);
+
+      // Move to slide 3 (services) after team photo completes
+      pauseableTimeout(() => {
+        transitionToSlide(3);
+      }, 4000);
+      
+
+    }
+
+    function animateServices() {
+      // Animate services title
+      setTimeout(() => {
+        const servicesTitle = document.getElementById('servicesTitle');
+        if (servicesTitle) servicesTitle.classList.add('animate-in');
+      }, 400);
+
+      // Animate services list (faster)
+      setTimeout(() => {
+        const servicesList = document.getElementById('servicesList');
+        if (servicesList) servicesList.classList.add('animate-in');
+      }, 200);
+
+      // Move to slide 4 after services complete (longer stay)
+      pauseableTimeout(() => {
+        transitionToSlide(4);
+      }, 6700);
+    }
+    
+
+    
+        function animateServiceLines() {
+      // Service 1: "Look legit" - transforms to serif font with dramatic effect
+      setTimeout(() => {
+        const element = document.getElementById('service1');
+        element.classList.add('animate-in');
+        setTimeout(() => {
+          const lookLegitElement = document.getElementById('lookLegit');
+          lookLegitElement.classList.add('animate-legit');
+        }, 600);
+      }, 800);
+      
+      // Service 2: "Feel alive" - grows, shakes, turns green with pulse
+      setTimeout(() => {
+        const element = document.getElementById('service2');
+        element.classList.add('animate-in');
+        setTimeout(() => {
+          const feelAliveElement = document.getElementById('feelAlive');
+          feelAliveElement.classList.add('animate-alive');
+        }, 1000);
+      }, 2800);
+      
+      // Service 3: "Digital presence" - dramatic slide in
+      setTimeout(() => {
+        const element = document.getElementById('service3');
+        element.classList.add('animate-in');
+      }, 4800);
+      
+      // Animate the impact line with dramatic entrance
+      setTimeout(() => {
+        const impactElement = document.getElementById('impact');
+        impactElement.classList.add('animate-impact');
+        
+        // Transition to next slide after the animation completes
+        pauseableTimeout(() => {
+          transitionToSlide(5);
+        }, 1800); // Wait 1.8 seconds for the animation to complete
+      }, 6000);
+    }
+    
+    function animateSellingPoints() {
+      // Animate selling points title
+      setTimeout(() => {
+        const sellingPointsTitle = document.getElementById('sellingPointsTitle');
+        sellingPointsTitle.classList.add('animate-in');
+      }, 300);
+      
+      // Animate stats with stagger
+      const statItems = document.querySelectorAll('.stat-item');
+      statItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+        }, 800 + (index * 200));
+      });
+      
+      // Animate checklist items with stagger after stats
+      setTimeout(() => {
+        const checklist = document.querySelector('.selling-checklist');
+        if (checklist) {
+          checklist.classList.remove('hidden-checklist');
+          const items = checklist.querySelectorAll('li');
+          items.forEach((li, idx) => {
+            setTimeout(() => {
+              li.classList.add('fade-in-check');
+            }, idx * 400); // 400ms between each checkmark for natural timing
+          });
+        }
+      }, 2100);
+      
+      // Move to slide 6 after selling points complete
+      pauseableTimeout(() => {
+        transitionToSlide(6);
+      }, 4100 + (5 * 400)); // 5 checkmarks × 400ms + 4100ms buffer
+    }
+    
+    function animateUrgency() {
+      // Animate urgency title
+      setTimeout(() => {
+        const urgencyTitle = document.getElementById('urgencyTitle');
+        urgencyTitle.classList.add('animate-in');
+      }, 1300); // was 300, now 300+1000=1300ms
+      
+      // Animate urgency stats
+      setTimeout(() => {
+        const urgencyStats = document.querySelector('.urgency-stats');
+        urgencyStats.classList.add('animate-in');
+        startUrgencyCounters();
+      }, 1600); // was 600, now 600+1000=1600ms
+      
+      // Animate urgency message
+      setTimeout(() => {
+        const urgencyMessage = document.querySelector('.urgency-message');
+        urgencyMessage.classList.add('animate-in');
+      }, 1900); // was 900, now 900+1000=1900ms
+      
+      // Move to slide 6 after urgency complete
+      pauseableTimeout(() => {
+        transitionToSlide(6);
+      }, 8700);
+    }
+    
+    function startUrgencyCounters() {
+      // Calculate time since animation started (approximately when user started reading)
+      const startTime = Date.now() - (8400 + 2600); // Time from slide 1 to urgency slide
+      const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+      
+      // Estimate realistic numbers based on elapsed time
+      let websiteCount = Math.floor(elapsedSeconds * 0.8); // ~0.8 websites per second
+      let socialCount = Math.floor(elapsedSeconds * 0.4);  // ~0.4 campaigns per second
+      
+      const websiteElement = document.getElementById('websiteCount');
+      const socialElement = document.getElementById('socialCount');
+      
+      // Set initial values
+      websiteElement.textContent = websiteCount;
+      socialElement.textContent = socialCount;
+      
+      // Update every 400ms with accurate increments
+      const interval = setInterval(() => {
+        websiteCount += 1; // Exact increment of 1
+        socialCount += 1;  // Exact increment of 1
+        
+        websiteElement.textContent = websiteCount;
+        socialElement.textContent = socialCount;
+      }, 400);
+      
+      // Stop after 8 seconds (when slide transitions)
+      setTimeout(() => {
+        clearInterval(interval);
+      }, 8000);
+    }
+    
+    function animatePlatforms() {
+      // Animate clients title
+      setTimeout(() => {
+        const clientsTitle = document.getElementById('clientsTitle');
+        clientsTitle.classList.add('animate-in');
+      }, 300);
+      
+      // Animate client items with stagger
+      const clientItems = document.querySelectorAll('.clients-scroll .platform-item');
+      clientItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+        }, 600 + (index * 100));
+      });
+      
+      // Animate platforms title
+      setTimeout(() => {
+        const platformsTitle = document.getElementById('platformsTitle');
+        platformsTitle.classList.add('animate-in');
+      }, 1500);
+      
+      // Animate platform items with stagger
+      const platformItems = document.querySelectorAll('.platforms-scroll .platform-item');
+      platformItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+        }, 1800 + (index * 100));
+      });
+      
+      // Move to slide 5 (urgency) after services complete
+      pauseableTimeout(() => {
+        transitionToSlide(5);
+      }, 9000);
+    }
+    
+    function animateBalloonInstruction() {
+      // Animate balloon instruction
+      setTimeout(() => {
+        const balloonInstruction = document.querySelector('.balloon-instruction');
+        balloonInstruction.classList.add('animate-in');
+      }, 300);
+    }
+    
+    function restartAnimation() {
+      // Add upward animation to current slide before resetting
+      const currentSlide = document.querySelector('.slide.active');
+      if (currentSlide) {
+        currentSlide.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        currentSlide.style.transform = 'translateY(-100vh)';
+        currentSlide.style.opacity = '0';
+      }
+      
+      // Reset all slides after upward animation
+      setTimeout(() => {
+        document.querySelectorAll('.slide').forEach(slide => {
+          slide.classList.remove('active', 'prev');
+          slide.style.transform = '';
+          slide.style.opacity = '';
+          slide.style.transition = '';
+        });
+        
+        // Reset all animations
+        document.querySelectorAll('.animate-in, .emphasis, .animate-legit, .animate-alive, .animate-impact').forEach(element => {
+          element.classList.remove('animate-in', 'emphasis', 'animate-legit', 'animate-alive', 'animate-impact');
+        });
+        
+        // Reset typewriter elements
+        const firstImpression = document.getElementById('firstImpression');
+        const makeItCount = document.getElementById('makeItCount');
+        if (firstImpression) {
+          firstImpression.innerHTML = '<span class="typing-cursor">|</span>';
+          firstImpression.classList.remove('emphasis');
+        }
+        if (makeItCount) {
+          makeItCount.innerHTML = '<span class="typing-cursor">|</span>';
+        }
+        
+        // Start over with slide 1
+        const slide1 = document.getElementById('slide1');
+        slide1.classList.add('active');
+        startHomepageAnimations();
+      }, 800);
+    }
+  // --- Portfolio Card System ---
+  const portfolioProjects = [
+    {
+      title: "Last Seen in the Twilight Zone",
+      image: "IMG/last-seen-thumbnail.jpg",
+      description: "A podcast about missing people from the real-life 'Twilight Zone'—Binghamton, NY, hometown of Rod Serling.",
+      link: "https://lastseenpodcast.com",
+      category: "Creatives",
+      platform: "Custom",
+      date: "2025",
+      projectType: "Portfolio & Creative"
+    },
+    {
+      title: "Rancho Bombero",
+      image: "IMG/rancho-bombero-thumbnail.jpg",
+      description: "Rancho Bombero is an all-in-one body oil for men—crafted for skin, beard, and hair. Experience natural hydration, subtle scent, and rugged simplicity in one bottle.",
+      link: "https://ranchobombero.com",
+      category: "Products",
+      platform: "Shopify",
+      date: "2024",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Hidden Hollows Sporting Clays",
+      image: "IMG/hidden-hallows-thumbnail.jpg",
+      description: "Ecommerce site for Hidden Hollows Sporting Clays, offering clay shooting experiences and online booking.",
+      link: "https://hhhsc.net",
+      category: "Services",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Hidden Lake Resort",
+      image: "IMG/hidden-lake-resort-thumbnail.jpg",
+      description: "Designed and custom built website, integrated with iGMS booking to be on all major rental platforms.",
+      link: "https://hiddenlakeresortpa.com",
+      category: "Services",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Christine DeGrazia, RN",
+      image: "IMG/christine-degrazia-thumbnail.jpg",
+      description: "After dealing with burnout from the COVID pandemic, Christine DeGrazia, RN is on a mission to help other nurses and healthcare professionals find the tools for self-compassion and self-care.",
+      link: "https://christinedegrazia.com/self-compassion-fatigue-book/",
+      category: "Creatives",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "Educational Content"
+    },
+    {
+      title: "Tri-Cities Opera",
+      image: "IMG/tricities-syracuse-opera.jpg",
+      description: "Website for Tri-Cities Opera, a non-profit opera company. Also worked with Syracuse Opera.",
+      link: "https://www.tricitiesopera.com/",
+      category: "Non-Profit",
+      platform: "WordPress",
+      date: "2023",
+      projectType: "Non-profit & Community"
+    },
+    {
+      title: "Robin Applewood",
+      image: "IMG/robinapplewood.jpg",
+      description: "Official website for Robin Applewood, musician and producer.",
+      link: "https://robinapplewood.com",
+      category: "Creatives",
+      platform: "Bandzoogle",
+      date: "2023",
+      projectType: "Portfolio & Creative"
+    },
+    {
+      title: "Blacktie Brothers",
+      image: "IMG/blacktie-brothers-thumbnail.jpg",
+      description: "Wedding photography business launched in October, 2022.",
+      link: "https://blacktiebrothers.com",
+      category: "Services",
+      platform: "Squarespace",
+      date: "2022",
+      projectType: "Portfolio & Creative"
+    },
+    {
+      title: "Theo's Savory Sauces",
+      image: "IMG/theos-savory-sauces-bbq-artisan-sauces-thumbnail.jpg",
+      description: "Full site design and build from scratch. Launched in November, 2022.",
+      link: "https://theossavorysauces.com",
+      category: "Products",
+      platform: "Custom",
+      date: "2022",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Slaughterland",
+      image: "IMG/slaughterland-thumbnail.jpg",
+      description: "Optimized the website increasing speed 4x and designed many new assets for the redesign.",
+      link: "https://slaughterland.com/",
+      category: "Services",
+      platform: "WordPress",
+      date: "2022",
+      projectType: "E-commerce & Retail"
+    },
+    {
+      title: "Blackfern Media",
+      image: "IMG/blackfern-media-thumbnail.jpg",
+      description: "Nuanced Design is partnered with Blackfern Media. Designed and built the site, launched May, 2022.",
+      link: "https://blackfernmedia.com",
+      category: "Enterprise",
+      platform: "WordPress",
+      date: "2022",
+      projectType: "Business Website"
+    },
+    {
+      title: "Eva Orbuch",
+      image: "IMG/eva-orbuch-thumbnail.png",
+      description: "Website for Eva Orbuch, coach, facilitator, and author.",
+      link: "https://evaorbuch.com",
+      category: "Individual",
+      platform: "Wix",
+      date: "2021",
+      projectType: "Non-profit & Community"
+    },
+    {
+      title: "Trendgraphix",
+      image: "IMG/trendgraphix-thumbnail.jpg",
+      description: "Worked with a marketing professional to do a full redesign of Trendgraphix marketing website and custom-coded it.",
+      link: "https://trendgraphix.com",
+      category: "Enterprise",
+      platform: "Custom",
+      date: "2021",
+      projectType: "Business Website"
+    },
+    {
+      title: "Jordan Kersten Studio",
+      image: "IMG/jordan-kersten-thumbnail.png",
+      description: "Health, wellness, yoga, and voice lessons by Jordan Kersten.",
+      link: "https://jordankersten.com",
+      category: "Individual",
+      platform: "Squarespace",
+      date: "2021",
+      projectType: "Facelift"
+    },
+    {
+      title: "Gather Facilitation",
+      image: "IMG/gather-facilitation-thumbnail.jpg",
+      description: "Designed and custom coded from scratch. Launched in March, 2020.",
+      link: "https://gatherfacilitation.com",
+      category: "Individual",
+      platform: "Custom",
+      date: "2020",
+      projectType: "Non-profit & Community"
+    },
+    {
+      title: "Lilypad",
+      image: "IMG/lilypad-thumbnail.jpg",
+      description: "Created a 3D scan, produced videos, created infographics, and a website to explain why people should build high-performance homes.",
+      link: "https://lilypad.house",
+      category: "Non-Profit",
+      platform: "Custom",
+      date: "2020",
+      projectType: "Educational Content"
+    },
+    {
+      title: "Origin Materials",
+      image: "IMG/origin-materials-thumbnail.png",
+      description: "Corporate website for Origin Materials, a leader in sustainable materials innovation.",
+      link: "https://originmaterials.com",
+      category: "Enterprise",
+      platform: "CraftCMS",
+      date: "2020",
+      projectType: "Business Website"
+    },
+    {
+      title: "Siempo",
+      image: "IMG/Siempo/Mindful-Morning-mock.png",
+      description: "Website for Siempo, a non-profit focused on digital wellness and mindful technology.",
+      link: "https://www.siempo.com/",
+      category: "Non-Profit",
+      date: "2019",
+      projectType: "Mobile App"
+    },
+    {
+      title: "OneOf",
+      image: "IMG/OneOf/OneOf-packaging.jpg",
+      description: "Bespoke handmade leather watch bands crafted from the finest leather and techniques in San Francisco.",
+      link: "http://www.oneof.craftedium.xyz/",
+      category: "Products",
+      platform: "Custom",
+      date: "2018",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "AWA Fit",
+      image: "IMG/awa-fit-mock2.jpg",
+      description: "Fitness and wellness platform for AWA Fit.",
+      link: "https://awa-fit.com",
+      category: "Products",
+      date: "2018",
+      projectType: "Mobile App"
+    },
+    {
+      title: "Slingshot Foods",
+      image: "IMG/Slingshot/sling-booth.jpg",
+      description: "Food and beverage company website for Slingshot Foods.",
+      link: "https://slingshotfoods.com",
+      category: "Products",
+      date: "2017",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "Calm",
+      image: "IMG/calm-thumbnail.jpg",
+      description: "Fabrication and signage work for Calm.",
+      link: "https://calm.com",
+      category: "Products",
+      date: "2017",
+      projectType: "Fabrication & Signage"
+    },
+    {
+      title: "EntheoZen",
+      image: "IMG/entheozen-thumbnail.jpg",
+      description: "Website facelift for EntheoZen.",
+      link: "https://entheozen.com",
+      category: "Products",
+      platform: "WordPress",
+      date: "2016",
+      projectType: "Facelift"
+    },
+    {
+      title: "Safe Harbor",
+      image: "IMG/Safe-Harbor/safe-harbor-mock2.jpg",
+      description: "Website for Safe Harbor, a non-profit organization providing support and resources to those in need.",
+      link: "https://safeharbor.org/",
+      category: "Non-Profit",
+      platform: "Hackathon",
+      date: "2015",
+      projectType: "Mobile App"
+    }
+  ];
+
+  const portfolioCategories = [
+    "All",
+    "Enterprise",
+    "Non-Profit",
+    "Individual",
+    "Creatives",
+    "Products",
+    "Services"
+  ];
+
+  function renderPortfolioCards(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All", currentPage = 1) {
+    let filtered = portfolioProjects;
+    
+    // Apply category filter
+    if (category !== "All") {
+      filtered = filtered.filter(p => p.category === category);
+    }
+    
+    // Apply year filter
+    if (yearFilter !== "All") {
+      filtered = filtered.filter(p => p.date === yearFilter);
+    }
+    
+    // Apply project type filter
+    if (typeFilter !== "All") {
+      filtered = filtered.filter(p => p.projectType === typeFilter);
+    }
+    
+    // Apply platform filter
+    if (platformFilter !== "All") {
+      filtered = filtered.filter(p => p.platform === platformFilter);
+    }
+    
+    if (filtered.length === 0) {
+      return `<div style='text-align:center; margin:40px 0; padding: 40px; background: #f8f9fa; border-radius: 12px;'>
+        <h3 style='color: #666; margin-bottom: 16px;'>🤷‍♂️ Well, this is awkward...</h3>
+        <p style='color: #888; font-size: 1.1em;'>No projects match your super specific filter combo. Maybe try being less picky? 😉</p>
+      </div>`;
+    }
+    
+    // Mobile slider logic
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile) {
+      setTimeout(() => {
+        const slider = document.querySelector('.portfolio-cards');
+        const scrollbar = document.querySelector('.portfolio-scrollbar');
+        if (!slider || !scrollbar) return;
+        // Sync scrollbar with slider
+        function updateScrollbar() {
+          const maxScroll = slider.scrollWidth - slider.clientWidth;
+          const percent = maxScroll > 0 ? slider.scrollLeft / maxScroll : 0;
+          scrollbar.value = percent * 100;
+        }
+        function updateSlider() {
+          const maxScroll = slider.scrollWidth - slider.clientWidth;
+          slider.scrollLeft = (scrollbar.value / 100) * maxScroll;
+        }
+        slider.onscroll = updateScrollbar;
+        scrollbar.oninput = updateSlider;
+        // Set initial position
+        updateScrollbar();
+      }, 0);
+      // Show custom scrollbar above cards
+      return `
+        <div class='portfolio-slider-wrapper'>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px; justify-content: center;">
+            <input type='range' min='0' max='100' value='0' class='portfolio-scrollbar' aria-label='Scroll portfolio' />
+          </div>
+          <div class='swipe-helper-text'>← Swipe or drag to browse →</div>
+          <div class='portfolio-cards'>
+            ${filtered.map(project => `
+              <div class='projectTile'>
+                <img src='${project.image}' alt='${project.title}'>
+                <div class='projectInfo'>
+                  <h3>${project.title}</h3>
+                  <p>${project.description}</p>
+                  <div class='projectMeta'>
+                    ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+                    <span class='projectDate'>${project.date}</span>
+                    <span class='projectType'>${project.projectType}</span>
+                  </div>
+                  <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+    
+    // Desktop/tablet: pagination logic
+    let projectsPerPage;
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth >= 1400) {
+      projectsPerPage = 4; // 4 columns, 1 row
+    } else if (screenWidth >= 1100) {
+      projectsPerPage = 3; // 3 columns, 1 row
+    } else if (screenWidth >= 800) {
+      projectsPerPage = 4; // 2 columns, 2 rows
+    } else {
+      projectsPerPage = 4; // 2 columns, 2 rows or mobile
+    }
+    
+    const totalPages = Math.ceil(filtered.length / projectsPerPage);
+    const startIndex = (currentPage - 1) * projectsPerPage;
+    const endIndex = startIndex + projectsPerPage;
+    const currentProjects = filtered.slice(startIndex, endIndex);
+    
+    console.log('Pagination debug:', { filtered: filtered.length, totalPages, currentPage, projectsPerPage, screenWidth });
+    
+    const paginationHTML = totalPages > 1 ? `
+      <div class='portfolio-pagination'>
+        <button class='pagination-btn prev-btn' ${currentPage === 1 ? 'disabled' : ''}>
+          ← Previous
+        </button>
+        <div class='pagination-info'>
+          Page ${currentPage} of ${totalPages} (${filtered.length} projects)
+        </div>
+        <button class='pagination-btn next-btn' ${currentPage === totalPages ? 'disabled' : ''}>
+          Next →
+        </button>
+      </div>
+    ` : '';
+    
+    return `
+      <div class='portfolio-cards'>` +
+      currentProjects.map(project => `
+        <div class='projectTile'>
+          <img src='${project.image}' alt='${project.title}'>
+          <div class='projectInfo'>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class='projectMeta'>
+              ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+              <span class='projectDate'>${project.date}</span>
+              <span class='projectType'>${project.projectType}</span>
+            </div>
+            <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+          </div>
+        </div>
+      `).join('') +
+      `</div>
+      ${paginationHTML}
+    `;
+  }
+
+  function renderPortfolioCardsOnly(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All", currentPage = 1) {
+    let filtered = portfolioProjects;
+    
+    // Apply filters
+    if (category !== "All") filtered = filtered.filter(p => p.category === category);
+    if (yearFilter !== "All") filtered = filtered.filter(p => p.date === yearFilter);
+    if (typeFilter !== "All") filtered = filtered.filter(p => p.projectType === typeFilter);
+    if (platformFilter !== "All") filtered = filtered.filter(p => p.platform === platformFilter);
+    
+    if (filtered.length === 0) {
+      return `<div style='text-align:center; margin:40px 0; padding: 40px; background: #f8f9fa; border-radius: 12px;'>
+        <h3 style='color: #666; margin-bottom: 16px;'>🤷‍♂️ Well, this is awkward...</h3>
+        <p style='color: #888; font-size: 1.1em;'>No projects match your super specific filter combo. Maybe try being less picky? 😉</p>
+      </div>`;
+    }
+    
+    // Mobile slider logic - show ALL filtered projects
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile) {
+      return `
+        <div class='portfolio-slider-wrapper'>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px; justify-content: center;">
+            <input type='range' min='0' max='100' value='0' class='portfolio-scrollbar' aria-label='Scroll portfolio' />
+          </div>
+          <div class='swipe-helper-text'>← Swipe or drag to browse →</div>
+          <div class='portfolio-cards'>
+            ${filtered.map(project => `
+              <div class='projectTile'>
+                <img src='${project.image}' alt='${project.title}'>
+                <div class='projectInfo'>
+                  <h3>${project.title}</h3>
+                  <p>${project.description}</p>
+                  <div class='projectMeta'>
+                    ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+                    <span class='projectDate'>${project.date}</span>
+                    <span class='projectType'>${project.projectType}</span>
+                  </div>
+                  <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+    
+    // Desktop/tablet: pagination logic
+    let projectsPerPage;
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth >= 1400) {
+      projectsPerPage = 4; // 4 columns, 1 row
+    } else if (screenWidth >= 978) {
+      projectsPerPage = 3; // 3 columns, 1 row
+    } else if (screenWidth >= 800) {
+      projectsPerPage = 4; // 2 columns, 2 rows
+    } else {
+      projectsPerPage = 4; // 2 columns, 2 rows
+    }
+    
+    const startIndex = (currentPage - 1) * projectsPerPage;
+    const endIndex = startIndex + projectsPerPage;
+    const currentProjects = filtered.slice(startIndex, endIndex);
+    
+    return `
+      <div class='portfolio-cards'>` +
+      currentProjects.map(project => `
+        <div class='projectTile'>
+          <img src='${project.image}' alt='${project.title}'>
+          <div class='projectInfo'>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class='projectMeta'>
+              ${project.platform ? `<span class='projectPlatform'>${project.platform}</span>` : ''}
+              <span class='projectDate'>${project.date}</span>
+              <span class='projectType'>${project.projectType}</span>
+            </div>
+            <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+          </div>
+        </div>
+      `).join('') +
+      `</div>`;
+  }
+
+  function renderPortfolioPagination(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All", currentPage = 1) {
+    let filtered = portfolioProjects;
+    
+    // Apply filters
+    if (category !== "All") filtered = filtered.filter(p => p.category === category);
+    if (yearFilter !== "All") filtered = filtered.filter(p => p.date === yearFilter);
+    if (typeFilter !== "All") filtered = filtered.filter(p => p.projectType === typeFilter);
+    if (platformFilter !== "All") filtered = filtered.filter(p => p.platform === platformFilter);
+    
+    if (filtered.length === 0) return '';
+    
+    // Mobile doesn't need pagination
+    const isMobile = window.innerWidth <= 599;
+    if (isMobile) return '';
+    
+    // Desktop/tablet: pagination logic
+    let projectsPerPage;
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth >= 1400) {
+      projectsPerPage = 4; // 4 columns, 1 row
+    } else if (screenWidth >= 978) {
+      projectsPerPage = 3; // 3 columns, 1 row
+    } else if (screenWidth >= 800) {
+      projectsPerPage = 4; // 2 columns, 2 rows
+    } else {
+      projectsPerPage = 4; // 2 columns, 2 rows
+    }
+    
+    const totalPages = Math.ceil(filtered.length / projectsPerPage);
+    
+    if (totalPages <= 1) return '';
+    
+    return `
+      <div class='portfolio-pagination'>
+        <button class='pagination-btn prev-btn' ${currentPage === 1 ? 'disabled' : ''}>
+          ← Previous
+        </button>
+        <div class='pagination-info'>
+          Page ${currentPage} of ${totalPages} (${filtered.length} projects)
+        </div>
+        <button class='pagination-btn next-btn' ${currentPage === totalPages ? 'disabled' : ''}>
+          Next →
+        </button>
+      </div>
+    `;
+  }
+
+  function renderPortfolioFilters(activeCategory = "All") {
+    // Count projects in each category
+    const categoryCounts = {};
+    portfolioCategories.forEach(cat => {
+      if (cat === "All") {
+        categoryCounts[cat] = portfolioProjects.length;
+      } else {
+        categoryCounts[cat] = portfolioProjects.filter(p => p.category === cat).length;
+      }
+    });
+    // Get unique years, project types, and platforms
+    const years = [...new Set(portfolioProjects.map(p => p.date))].sort((a, b) => b - a);
+    const projectTypes = [...new Set(portfolioProjects.map(p => p.projectType))].sort();
+    const platforms = [...new Set(portfolioProjects.map(p => p.platform).filter(p => p))].sort();
+    // Mobile dropdown for categories with label
+    const mobileDropdown = `<div class='portfolio-category-mobile-dropdown'><div class='filter-dropdown'><div class='filter-label'>Category</div><select id='categoryMobileFilter'>${portfolioCategories.map(cat => `<option value='${cat}'${cat === activeCategory ? " selected" : ""}>${cat} (${categoryCounts[cat]})</option>`).join('')}</select></div></div>`;
+    // Desktop button row
+    const desktopButtons = `<div class='portfolio-filters'>` +
+      portfolioCategories.map(cat => `
+          <button class='portfolio-filter-btn${cat === activeCategory ? " active" : ""}' data-category='${cat}'>${cat} (${categoryCounts[cat]})</button>
+        `).join('') +
+        `</div>`;
+    // Advanced filters
+    const advanced = `<div class='advanced-filters'>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Year</div>
+        <select id='yearFilter'>
+          <option value='All'>All Years</option>
+          ${years.map(year => `<option value='${year}'>${year}</option>`).join('')}
+        </select>
+      </div>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Project Type</div>
+        <select id='typeFilter'>
+          <option value='All'>All Types</option>
+          ${projectTypes.map(type => `<option value='${type}'>${type}</option>`).join('')}
+        </select>
+      </div>
+      <div class='filter-dropdown'>
+        <div class='filter-label'>Platform</div>
+        <select id='platformFilter'>
+          <option value='All'>All Platforms</option>
+          ${platforms.map(platform => `<option value='${platform}'>${platform}</option>`).join('')}
+        </select>
+      </div>
+    </div>`;
+    // Combine for output
+    return mobileDropdown + desktopButtons + advanced;
+  }
+
+  let currentPortfolioCategory = "All";
+  let currentYearFilter = "All";
+  let currentTypeFilter = "All";
+  let currentPlatformFilter = "All";
+  let currentPortfolioPage = 1;
+
+  function loadPortfolioSection(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All") {
+    // Reset to page 1 when filters change
+    currentPortfolioPage = 1;
+    currentPortfolioCategory = category;
+    currentYearFilter = yearFilter;
+    currentTypeFilter = typeFilter;
+    currentPlatformFilter = platformFilter;
+    
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML =
+      `<div class="markdown-content portfolio-page">
+        <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+        
+        <!-- Clients and Platforms Section -->
+        <div class="clients-platforms-section">
+          <div class="clients-section">
+            <h2>We have worked with great clients</h2>
+            <div class="scrolling-clients">
+              <div class="scrolling-track">
+                <div class="client-row">
+                  <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
+                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
+                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
+                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
+                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
+                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
+                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
+                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
+                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
+      <img src="IMG/Client Logos/slaughterland-logo.jpg" alt="Slaughterland" class="client-logo">
+                  <img src="IMG/Client Logos/loanpal-logo.png" alt="LoanPal" class="client-logo">
+                  <img src="IMG/Client Logos/Hidden-Hollow-Sporting-Clays.jpg" alt="Hidden Hollow Sporting Clays" class="client-logo">
+                  <img src="IMG/Client Logos/Tricities-Opera-logo.png" alt="Tri-Cities Opera" class="client-logo">
+                  <img src="IMG/Client Logos/Syracuse-Opera.png" alt="Syracuse Opera" class="client-logo">
+                  <img src="IMG/Client Logos/Trendgraphix-logo.jpg" alt="TrendGraphix" class="client-logo">
+                  <img src="IMG/Client Logos/Origin-Materials-logo.png" alt="Origin Materials" class="client-logo">
+                  <img src="IMG/Client Logos/cost-plus-world-market-logo.png" alt="Cost Plus World Market" class="client-logo">
+                  <img src="IMG/Client Logos/Calm-logo.jpg" alt="Calm" class="client-logo">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="platforms-section">
+            <h2 style="color: #FFCB05;">We work on all platforms and can custom code.</h2>
+            <div class="scrolling-platforms">
+              <div class="scrolling-track">
+                <div class="platform-row">
+                  <img src="IMG/Platforms/squarespace-logo.png" alt="Squarespace" class="platform-logo">
+                  <img src="IMG/Platforms/craftcms-logo.png" alt="Craft CMS" class="platform-logo">
+                  <img src="IMG/Platforms/bandzoogle-logo.png" alt="Bandzoogle" class="platform-logo">
+                  <img src="IMG/Platforms/wordpress-logo-0.png" alt="WordPress" class="platform-logo">
+                  <img src="IMG/Platforms/html.jpg" alt="HTML" class="platform-logo">
+                  <img src="IMG/Platforms/Shopify_logo_2018.svg.png" alt="Shopify" class="platform-logo">
+                  <img src="IMG/Platforms/css.jpg" alt="CSS" class="platform-logo">
+                  <img src="IMG/Platforms/Wix.com-Logo.wine.svg" alt="Wix" class="platform-logo">
+                  <img src="IMG/Platforms/js.jpg" alt="JavaScript" class="platform-logo">
+                  <img src="IMG/Platforms/squarespace-logo.png" alt="Squarespace" class="platform-logo">
+                  <img src="IMG/Platforms/craftcms-logo.png" alt="Craft CMS" class="platform-logo">
+                  <img src="IMG/Platforms/bandzoogle-logo.png" alt="Bandzoogle" class="platform-logo">
+                  <img src="IMG/Platforms/wordpress-logo-0.png" alt="WordPress" class="platform-logo">
+                  <img src="IMG/Platforms/html.jpg" alt="HTML" class="platform-logo">
+                  <img src="IMG/Platforms/Shopify_logo_2018.svg.png" alt="Shopify" class="platform-logo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h1 style="text-align: center;font-size: 4em;">Our Work</h1>
+        ${renderPortfolioFilters(category)}
+        ${renderPortfolioCardsOnly(category, yearFilter, typeFilter, platformFilter, currentPortfolioPage)}
+        ${renderPortfolioPagination(category, yearFilter, typeFilter, platformFilter, currentPortfolioPage)}
+      </div>`;
+    
+    // Add event listeners for filter buttons
+    document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+      btn.onclick = function() {
+        loadPortfolioSection(this.getAttribute('data-category'), currentYearFilter, currentTypeFilter, currentPlatformFilter);
+      };
+    });
+    
+    // Add event listeners for dropdown filters and pagination
+    setTimeout(() => {
+      const yearSelect = document.getElementById('yearFilter');
+      const typeSelect = document.getElementById('typeFilter');
+      const platformSelect = document.getElementById('platformFilter');
+      const catSelect = document.getElementById('categoryMobileFilter');
+      
+      if (yearSelect) {
+        yearSelect.value = yearFilter;
+        yearSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, this.value, currentTypeFilter, currentPlatformFilter);
+        };
+      }
+      
+      if (typeSelect) {
+        typeSelect.value = typeFilter;
+        typeSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, currentYearFilter, this.value, currentPlatformFilter);
+        };
+      }
+      
+      if (platformSelect) {
+        platformSelect.value = platformFilter;
+        platformSelect.onchange = function() {
+          loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, this.value);
+        };
+      }
+      
+      if (catSelect) {
+        catSelect.value = category;
+        catSelect.onchange = function() {
+          loadPortfolioSection(this.value, currentYearFilter, currentTypeFilter, currentPlatformFilter);
+        };
+      }
+      
+      // Add initial pagination event listeners
+      const portfolioContent = document.querySelector('.portfolio-page');
+      const prevBtn = portfolioContent.querySelector('.prev-btn');
+      const nextBtn = portfolioContent.querySelector('.next-btn');
+      
+      if (prevBtn) {
+        prevBtn.onclick = function() {
+          changePortfolioPage(currentPortfolioPage - 1);
+        };
+      }
+      
+      if (nextBtn) {
+        nextBtn.onclick = function() {
+          changePortfolioPage(currentPortfolioPage + 1);
+        };
+      }
+      
+      // Mobile slider functionality
+      const isMobile = window.innerWidth <= 599;
+      if (isMobile) {
+        const slider = document.querySelector('.portfolio-cards');
+        const scrollbar = document.querySelector('.portfolio-scrollbar');
+        if (slider && scrollbar) {
+          // Sync scrollbar with slider
+          function updateScrollbar() {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            const percent = maxScroll > 0 ? slider.scrollLeft / maxScroll : 0;
+            scrollbar.value = percent * 100;
+          }
+          function updateSlider() {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            slider.scrollLeft = (scrollbar.value / 100) * maxScroll;
+          }
+          slider.onscroll = updateScrollbar;
+          scrollbar.oninput = updateSlider;
+          // Set initial position
+          updateScrollbar();
+        }
+      }
+    }, 0);
+  }
+
+  function changePortfolioPage(newPage) {
+    console.log('Changing to page:', newPage);
+    currentPortfolioPage = newPage;
+    const mainContent = document.getElementById('mainContent');
+    const portfolioContent = mainContent.querySelector('.portfolio-page');
+    if (portfolioContent) {
+      // Find the cards section and pagination section
+      const cardsSection = portfolioContent.querySelector('.portfolio-cards, .portfolio-slider-wrapper');
+      const paginationSection = portfolioContent.querySelector('.portfolio-pagination');
+      
+      if (cardsSection) {
+        // Update only the cards
+        const newCardsContent = renderPortfolioCardsOnly(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter, currentPortfolioPage);
+        cardsSection.outerHTML = newCardsContent;
+      }
+      
+      // Update pagination
+      const newPaginationContent = renderPortfolioPagination(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter, currentPortfolioPage);
+      
+      if (paginationSection) {
+        // Replace existing pagination
+        paginationSection.outerHTML = newPaginationContent;
+      } else if (newPaginationContent) {
+        // Add new pagination after cards
+        const cardsSection = portfolioContent.querySelector('.portfolio-cards, .portfolio-slider-wrapper');
+        if (cardsSection) {
+          cardsSection.insertAdjacentHTML('afterend', newPaginationContent);
+        }
+      }
+      
+      // Re-attach event listeners for the new pagination buttons
+      setTimeout(() => {
+        const newPortfolioContent = document.querySelector('.portfolio-page');
+        const prevBtn = newPortfolioContent.querySelector('.prev-btn');
+        const nextBtn = newPortfolioContent.querySelector('.next-btn');
+        
+        if (prevBtn) {
+          prevBtn.onclick = function() {
+            changePortfolioPage(currentPortfolioPage - 1);
+          };
+        }
+        
+        if (nextBtn) {
+          nextBtn.onclick = function() {
+            changePortfolioPage(currentPortfolioPage + 1);
+          };
+        }
+      }, 0);
+    }
+  }
+
+  // Listen for resize and re-render if crossing the mobile/desktop threshold
+  let lastIsMobile = window.innerWidth <= 599;
+  window.addEventListener('resize', () => {
+    const isMobile = window.innerWidth <= 599;
+    // Only reload portfolio if currently on portfolio page
+    if (isMobile !== lastIsMobile && window.location.hash === '#portfolio') {
+      loadPortfolioSection(currentPortfolioCategory, currentYearFilter, currentTypeFilter, currentPlatformFilter);
+    }
+    lastIsMobile = isMobile;
+  });
+  // --- End Portfolio Card System ---
+
+  // Light/Dark mode switch
+  const modeSwitch = document.getElementById('modeSwitch');
+  function setMode(mode) {
+    if(mode === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      modeSwitch.textContent = '🌙 Dark Mode';
+      modeSwitch.style.background = '#23272b';
+      modeSwitch.style.color = '#fff';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      modeSwitch.textContent = '☀️ Light Mode';
+      modeSwitch.style.background = '#eee';
+      modeSwitch.style.color = '#222';
+    }
+  }
+  // Detect system preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setMode(prefersDark ? 'dark' : 'light');
+  modeSwitch.onclick = function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    setMode(current === 'dark' ? 'light' : 'dark');
+  };
+
+  // Intake Modal Functions
+  function openIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeIntakeModal() {
+    const modal = document.getElementById('intakeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal when clicking outside the content
+  document.getElementById('intakeModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeIntakeModal();
+    }
+  });
+
+  // Testimonial data
+  const testimonials = [
+    {
+      name: "Kristian Parker",
+      role: "Principal Product Operations at Juul Labs, April 2022",
+      img: "IMG/kristianparker.jpeg",
+      text: "I've used Theo on multiple projects where I've needed a top notch UX designer and or branding and marketing research to keep us ahead of the competition. Without fail, he's delivered every time, and most importantly, on time! My team has always enjoyed working with Theo because he challenges the group to think differently and inevitably, we uncover those hidden gems. Would recommend Theo for work on any project, no matter the complexity!"
+    },
+    {
+      name: "Yohance Bailey",
+      role: "Photographer at Yohance Bailey Photography, March 2022",
+      img: "IMG/yohancebailey.jpeg",
+      text: "What a talented and professional website designer. He took my amateur website I had created and turned it into his own piece of art while also improving my SEO. I have seen photography bookings increase by 400% since his work has been completed!"
+    },
+    {
+      name: "Wedyawati Wuri",
+      role: "VP, Product Development & Operations at TrendGraphix, August 2021",
+      img: "IMG/wuri.png",
+      text: "It has been wonderful working with Theo to redesign our company website. Theo is a fast learner. He is willing to take time to learn new things and implement them. He is a fighter! Theo is also very helpful in recommending images and cookie policy to us. He worked hard to make sure that our website is responsive design and compatible with all different devices. Theo has delivered the website per our expectation. We are so happy with the fresh and clean look of the website."
+    },
+    {
+      name: "Robin Applewood",
+      role: "DJ & Music Producer, December 2020",
+      img: "IMG/robinapplewood.jpg",
+      text: "Theo was a dream to work with. He really saw my vision and executed it with the ease and skill of a true professional. Im very pleased with the website we built and have already started recommending him to my peers. Go with Theo, youll be glad you did."
+    },
+    {
+      name: "Evan Winchester",
+      role: "Director of Marketing at Origin Materials, July 2020",
+      img: "IMG/evanwinchester.jpeg",
+      text: "I had the pleasure of working with Theo on a Craft CMS website development and front end design project. Theo learned Craft for the assignment and was a generous teacher, as well, bringing me into the process of discovering how Craft works, exploring different solutions and possibilities, and just generally helping me get better at my job managing the site. At the end of the day, he nailed the project and we had fun working together. I'm looking forward to next time."
+    },
+    {
+      name: "Elena Pinsky",
+      role: "Counseling, Group Facilitation & Conflict Transformation, May 2020",
+      img: "IMG/elenapinsky.jpeg",
+      text: "Theo is a true designer, through and through. Starting from scratch, I worked with him on building a website for my personal facilitation business. The result is simply gorgeous - it is both professional and also reflects my artistic spirit. He also helped me to think through how I wanted to represent my brand - he really is the whole package! Theo is so dedicated, excited about figuring out how to give a website fun and interesting extras, always maintaining the vision of a keen and clean aesthetic."
+    },
+    {
+      name: "Andrew Murray Dunn",
+      role: "Founder at Siempo, November 2019",
+      img: "IMG/andrewdunn.jpeg",
+      text: "Theo was professional and delivered on-time for work with Siempo. Id recommend him for any project related to web design, UX, or Wordpress. He implemented a style guide to give our web site a clean and consistent look. He also mocked-up a beautiful concept app that we were developing. Theo has an eye for detail that was helpful to get things nice and polished. A pleasure to work with!"
+    },
+    {
+      name: "Ana Sol Ordoñez",
+      role: "CEO & Founder at Zink, January 2019",
+      img: "IMG/ana-test.jpg",
+      text: "Theo has both conceptual creativity for new ideas and the skills to craft fine details. He definitely went above and beyond what was asked of him and clearly takes great pride in his craftsmanship and work. I was happily surprised with the level of polish on the finished prototype and found him easy to work with... I'll keep him in mind for future projects."
+    },
+    {
+      name: "Shamrina Oshana",
+      role: "Brand Manager at Slingshot Foods, August 2017",
+      img: "IMG/shamrina-test.jpg",
+      imgMobile: "IMG/shamrina-test-mobile.jpg",
+      text: "Theo is a creative and imaginative designer. He lights up when presented with problems, talking through goals, and finding solutions. His is a visual story teller and produces wonderful work."
+    },
+    {
+      name: "Caitlin Thompson",
+      role: "CEO & Owner at EntheoZen, August 2016",
+      img: "IMG/caitlyn-test2.jpg",
+      text: "Theo does very good work creating clean-looking and aesthetic webpage design. He has an artistic eye, but also a talent for building sites that are meant to create sales and conversions. He also was very helpful at providing directions and guidance on specific tasks via printscreen images which helped tremendously. I would highly recommend Theo for your webpage projects!"
+    }
+  ];
+
+  // Render avatars
+  function renderAvatars(selectedIdx = 0) {
+    const avatarsContainer = document.getElementById('testimonialAvatars');
+    const contentContainer = document.getElementById('testimonialContent');
+    
+    if (!avatarsContainer || !contentContainer) {
+      console.log('Testimonial containers not found, retrying...');
+      setTimeout(() => renderAvatars(selectedIdx), 100);
+      return;
+    }
+    
+    avatarsContainer.innerHTML = testimonials.map((t, idx) => `
+      <img src="${t.img}" alt="${t.name}" class="testimonial-avatar${idx === selectedIdx ? ' selected' : ''}" data-idx="${idx}" tabindex="0" aria-label="${t.name}" ${t.imgMobile ? `srcset="${t.imgMobile} 768w, ${t.img} 1200w" sizes="(max-width: 768px) 100vw, 50vw"` : ''} />
+    `).join('');
+    fadeToTestimonial(selectedIdx);
+  }
+
+  function fadeToTestimonial(idx) {
+    const contentContainer = document.getElementById('testimonialContent');
+    if (!contentContainer) return;
+    contentContainer.classList.add('fading');
+    setTimeout(() => {
+      renderTestimonial(idx);
+      contentContainer.classList.remove('fading');
+    }, 350);
+  }
+
+  function renderTestimonial(idx) {
+    const contentContainer = document.getElementById('testimonialContent');
+    const t = testimonials[idx];
+    contentContainer.innerHTML = `
+      <div class="testimonial-quote">${t.text}</div>
+      <div class="testimonial-author"><strong>${t.name}</strong><br><span>${t.role}</span></div>
+    `;
+  }
+
+  // Add event listeners for testimonials
+  function addTestimonialEventListeners() {
+    const avatarsContainer = document.getElementById('testimonialAvatars');
+    if (!avatarsContainer) return;
+    
+    avatarsContainer.addEventListener('click', function(e) {
+      if (e.target.classList.contains('testimonial-avatar')) {
+        const idx = parseInt(e.target.getAttribute('data-idx'));
+        renderAvatars(idx);
+      }
+    });
+    
+    avatarsContainer.addEventListener('keydown', function(e) {
+      if (e.target.classList.contains('testimonial-avatar') && (e.key === 'Enter' || e.key === ' ')) {
+        const idx = parseInt(e.target.getAttribute('data-idx'));
+        renderAvatars(idx);
+      }
+    });
+  }
+
+  // Initial render
+  renderAvatars(0);
+
+  // Animate checklist checkmarks on page load for static block
+  window.addEventListener('DOMContentLoaded', () => {
+    const checklist = document.querySelector('.selling-points-static .selling-checklist');
+    if (checklist) {
+      const items = checklist.querySelectorAll('li');
+      items.forEach((li, idx) => {
+        setTimeout(() => {
+          li.classList.add('fade-in-check');
+        }, idx * 400);
+      });
+    }
+  });
+
+  // Initialize testimonials when homepage loads
+  function initializeHomepageTestimonials() {
+    if (typeof renderAvatars === 'function') {
+      renderAvatars(0);
+      addTestimonialEventListeners();
+    }
+  }
+
+  // Slide animation routing (example, update as needed)
+  function runSlideAnimation(slideNumber) {
+    switch (slideNumber) {
+      case 2:
+        animateTeamPhoto();
+        break;
+      case 3:
+        animateServices();
+        break;
+      case 4:
+        animateServiceLines();
+        break;
+      case 5:
+        animateUrgency();
+        break;
+      case 6:
+        animateBalloonInstruction();
+        break;
+      default:
+        break;
+    }
+  }
+
+  let isPaused = false;
+  const pauseOverlay = document.getElementById('pauseOverlay');
+  
+  // Click on slide to pause
+  document.addEventListener('click', function(e) {
+    // Don't trigger if clicking on overlay itself
+    if (e.target === pauseOverlay || pauseOverlay.contains(e.target)) {
+      return;
+    }
+    
+    // Don't trigger if clicking on interactive elements
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('[onclick]')) {
+      return;
+    }
+    
+    // Only pause if not already paused, clicking on slide content, and NOT on the last slide
+    const activeSlide = document.querySelector('.slide.active');
+    const isLastSlide = activeSlide && activeSlide.id === 'slide6';
+    if (!isPaused && e.target.closest('.slide') && !isLastSlide) {
+      isPaused = true;
+      pauseOverlay.style.display = 'flex';
+    }
+  });
+  
+  // Click overlay to resume
+  pauseOverlay.addEventListener('click', function() {
+    console.log('Resuming slideshow'); // Debug
+    isPaused = false;
+    pauseOverlay.style.display = 'none';
+  });
+  
+  // Test function to manually show pause overlay
+  window.testPause = function() {
+    console.log('Testing pause overlay');
+    isPaused = true;
+    pauseOverlay.style.display = 'flex';
+  };
+  
+  
+  // Add click handlers directly to slide elements for better reliability
+  function addSlideClickHandlers() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
+      slide.addEventListener('click', function(e) {
+        // Don't trigger if clicking on interactive elements
+        if (e.target.closest('button') || e.target.closest('a') || e.target.closest('[onclick]')) {
+          return;
+        }
+        // Only pause if not already paused and NOT on the last slide
+        const isLastSlide = slide.id === 'slide6';
+        if (!isPaused && !isLastSlide) {
+          isPaused = true;
+          pauseOverlay.style.display = 'flex';
+        }
+      });
+    });
+  }
+  
+  // Initialize slide click handlers when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    addSlideClickHandlers();
+  });
+  
+  // Also add handlers when slides are dynamically created
+  setTimeout(addSlideClickHandlers, 1000);
+  
+  // Add handlers after loadDefaultContent runs
+  const originalLoadDefaultContent = loadDefaultContent;
+  loadDefaultContent = function() {
+    originalLoadDefaultContent();
+    // Add a small delay to ensure slides are fully rendered
+    setTimeout(addSlideClickHandlers, 100);
+  };
+
+  // Patch all setTimeouts for slide transitions to respect pause
+  function pauseableTimeout(fn, delay) {
+    let timer, start = Date.now(), remaining = delay;
+    function run() {
+      if (!isPaused) {
+        fn();
+      } else {
+        timer = setTimeout(run, 100); // check every 100ms
+      }
+    }
+    timer = setTimeout(run, remaining);
+    return {
+      clear: () => clearTimeout(timer)
+    };
+  }
+
+  // Example: Replace setTimeout(() => { ... }, 5000) with pauseableTimeout(() => { ... }, 5000)
+  // Patch slide transition code:
+  // In all slide transition/animation functions, replace setTimeout with pauseableTimeout
+
+  // Infinite scroll for client and platform logos
+  function setupInfiniteScroll(selector, speed = 1) {
+    const container = document.querySelector(selector);
+    if (!container) return;
+    const track = container.querySelector('.scrolling-track');
+    const row = track.querySelector('div');
+    // Duplicate the row
+    track.appendChild(row.cloneNode(true));
+    let scrollPos = 0;
+    let rowWidth = row.offsetWidth;
+
+    function updateWidth() {
+      rowWidth = row.offsetWidth;
+    }
+    window.addEventListener('resize', updateWidth);
+
+    function step() {
+      scrollPos += speed;
+      const maxScroll = track.scrollWidth - container.offsetWidth;
+      if (scrollPos >= maxScroll) {
+        scrollPos = 0;
+      }
+      container.scrollLeft = scrollPos;
+      requestAnimationFrame(step);
+    }
+    container.style.overflow = 'hidden';
+    track.style.display = 'flex';
+    track.style.width = 'max-content';
+    requestAnimationFrame(step);
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    setupInfiniteScroll('.scrolling-clients', 1.2); // speed in px/frame
+    setupInfiniteScroll('.scrolling-platforms', 1.2);
+  });
+
+  // Fortune Cookie System
+  const fortunes = [
+    {
+      principle: "Less is more.",
+      explanation: "We believe in clean, focused design that communicates clearly without clutter.",
+
+    },
+    {
+      principle: "Simplicity is the ultimate sophistication.",
+      explanation: "Complex problems require elegant, simple solutions.",
+
+    },
+    {
+      principle: "Porque no los dos?",
+      explanation: "Why choose when you can have both? We believe in creating win-win solutions that benefit everyone.",
+
+    },
+    {
+      principle: "Creativity loves constraints.",
+      explanation: "Limitations often spark innovation and can lead to more efficient solutions.",
+
+    },
+    {
+      principle: "Test early and often.",
+      explanation: "Real user feedback is the best way to improve your design.",
+
+    },
+    {
+      principle: "Keep calm and iterate on.",
+      explanation: "Design is a continous process, not a one-time event.",
+
+    },
+    {
+      principle: "Don't make me think.",
+      explanation: "If users have to think about how to use your design, you've failed.",
+
+    },
+    {
+      principle: "Form follows function.",
+      explanation: "Your site will feel beautiful when it's functional and intuitively creates a seamless user experience.",
+
+    },
+    {
+      principle: "Content is king.",
+      explanation: "Great design amplifies great content, it doesn't replace it.",
+
+    }
+  ];
+
+  let currentFortuneIndex = 0;
+  let shuffledFortunes = [];
+  let currentShuffleIndex = 0;
+
+  // Create fortune cookie overlay
+  const fortuneOverlay = document.createElement('div');
+  fortuneOverlay.className = 'fortune-cookie-overlay';
+  fortuneOverlay.innerHTML = `
+    <div class="fortune-cookie-container">
+      <button class="fc spawned" type="button">
+        <div class="fc-part left"></div>
+        <div class="fc-part right"></div>
+        <div class="fc-crumbs">
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+          <div class="fc-crumb"></div>
+        </div>
+        <div class="fc-fortune">
+          <p class="fc-fortune-text">No fortune</p>
+          <div class="corner-bl"></div>
+          <div class="corner-br"></div>
+        </div>
+      </button>
+      <div class="fortune-explanation-text" style="opacity:0; visibility: hidden; margin-top: 70px; text-align: center; color: white; font-size: 1.1rem; line-height: 1.5; max-width: 400px; margin-left: auto; margin-right: auto; transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;"></div>
+    </div>
+          
+  `;
+  document.body.appendChild(fortuneOverlay);
+
+  function showFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const fcButton = document.querySelector('.fc');
+    const fortuneText = document.querySelector('.fc-fortune-text');
+    const explanationText = document.querySelector('.fortune-explanation-text');
+    
+    // Show overlay
+    overlay.classList.add('active');
+    
+    // Initialize or reset shuffled fortunes if needed
+    if (!window.shuffledFortunes || window.shuffledFortunes.length === 0) {
+      window.shuffledFortunes = [...fortunes].sort(() => Math.random() - 0.5);
+      window.currentShuffleIndex = 0;
+    }
+    
+    // Get the next fortune from shuffled array
+    const fortune = window.shuffledFortunes[window.currentShuffleIndex];
+    fortuneText.textContent = fortune.principle;
+    
+    // Advance to next fortune for next time
+    window.currentShuffleIndex = (window.currentShuffleIndex + 1) % window.shuffledFortunes.length;
+    
+    // After a short delay, trigger the opening animation
+    setTimeout(() => {
+      fcButton.classList.remove('spawned');
+      fcButton.classList.add('opened');
+      
+      // After the cookie opens and shows the fortune, show the explanation below with fade-in
+      setTimeout(() => {
+        explanationText.textContent = fortune.explanation;
+        explanationText.style.visibility = 'visible';
+        // Trigger fade-in effect
+        setTimeout(() => {
+          explanationText.style.opacity = '1';
+        }, 50);
+      }, 1400); // Wait for cookie opening animation to complete
+    }, 500); // Wait for overlay to appear
+  }
+
+  function nextFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const fcButton = document.querySelector('.fc');
+    const explanationText = document.querySelector('.fortune-explanation-text');
+    
+    // Hide current explanation
+    explanationText.style.opacity = '0';
+    setTimeout(() => {
+      explanationText.style.visibility = 'hidden';
+    }, 800);
+    
+    // Reset cookie for next animation
+    setTimeout(() => {
+      fcButton.classList.remove('opened');
+      fcButton.classList.add('spawned');
+      
+      // Show new fortune
+      showFortune();
+    }, 300);
+  }
+
+  function closeFortune() {
+    const overlay = document.querySelector('.fortune-cookie-overlay');
+    const fcButton = document.querySelector('.fc');
+    const explanationText = document.querySelector('.fortune-explanation-text');
+    
+    // Hide explanation with fade-out
+    explanationText.style.opacity = '0';
+    setTimeout(() => {
+      explanationText.style.visibility = 'hidden';
+    }, 800);
+    
+    // Hide the overlay immediately
+    overlay.classList.remove('active');
+    
+    // Reset the cookie after the overlay transition completes
+    setTimeout(() => {
+      fcButton.classList.remove('opened');
+      fcButton.classList.add('spawned');
+    }, 500); // Wait for overlay transition to complete
+  }
+
+  // Add fortune cookie trigger to animation sequence
+  function triggerFortuneCookie() {
+    setTimeout(() => {
+      showFortune();
+    }, 2000); // Show after 2 seconds
+  }
+
+  // Add to global scope for onclick handlers
+  window.closeFortune = closeFortune;
+  window.triggerFortuneCookie = triggerFortuneCookie;
+  window.nextFortune = nextFortune;
+
+  // Add click-to-close for fortune cookie modal when clicking outside content
+  const fortuneOverlayEl = document.querySelector('.fortune-cookie-overlay');
+  fortuneOverlayEl.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeFortune();
+    }
+  });
+
+  </script>
+    
+    </body>
+    </html>
