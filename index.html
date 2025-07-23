@@ -2891,38 +2891,43 @@
   let shuffledFortunes = [];
   let currentShuffleIndex = 0;
 
-  // Create fortune cookie overlay
-  const fortuneOverlay = document.createElement('div');
-  fortuneOverlay.className = 'fortune-cookie-overlay';
-  fortuneOverlay.innerHTML = `
-    <div class="fortune-cookie-container">
-      <button class="fc spawned" type="button">
-        <div class="fc-part left"></div>
-        <div class="fc-part right"></div>
-        <div class="fc-crumbs">
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-          <div class="fc-crumb"></div>
-        </div>
-        <div class="fc-fortune">
-          <p class="fc-fortune-text">No fortune</p>
-          <div class="corner-bl"></div>
-          <div class="corner-br"></div>
-        </div>
-      </button>
-      <div class="fortune-explanation-text" style="opacity:0; visibility: hidden; margin-top: 70px; text-align: center; color: white; font-size: 1.1rem; line-height: 1.5; max-width: 400px; margin-left: auto; margin-right: auto; transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;"></div>
-    </div>
-          
-  `;
-  document.body.appendChild(fortuneOverlay);
-
   function showFortune() {
-    const overlay = document.querySelector('.fortune-cookie-overlay');
+    let overlay = document.querySelector('.fortune-cookie-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'fortune-cookie-overlay';
+      overlay.innerHTML = `
+        <div class="fortune-cookie-container">
+          <button class="fc spawned" type="button">
+            <div class="fc-part left"></div>
+            <div class="fc-part right"></div>
+            <div class="fc-crumbs">
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+              <div class="fc-crumb"></div>
+            </div>
+            <div class="fc-fortune">
+              <p class="fc-fortune-text">No fortune</p>
+              <div class="corner-bl"></div>
+              <div class="corner-br"></div>
+            </div>
+          </button>
+          <div class="fortune-explanation-text" style="opacity:0; visibility: hidden; margin-top: 70px; text-align: center; color: white; font-size: 1.1rem; line-height: 1.5; max-width: 400px; margin-left: auto; margin-right: auto; transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;"></div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      // Add click-to-close for fortune cookie modal when clicking outside content
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeFortune();
+        }
+      });
+    }
     const fcButton = document.querySelector('.fc');
     const fortuneText = document.querySelector('.fc-fortune-text');
     const explanationText = document.querySelector('.fortune-explanation-text');
@@ -3013,14 +3018,6 @@
   window.closeFortune = closeFortune;
   window.triggerFortuneCookie = triggerFortuneCookie;
   window.nextFortune = nextFortune;
-
-  // Add click-to-close for fortune cookie modal when clicking outside content
-  const fortuneOverlayEl = document.querySelector('.fortune-cookie-overlay');
-  fortuneOverlayEl.addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeFortune();
-    }
-  });
 
   </script>
     
