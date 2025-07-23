@@ -1900,7 +1900,7 @@
       title: "OneOf",
       image: "IMG/OneOf/OneOf-packaging.jpg",
       description: "Bespoke handmade leather watch bands crafted from the finest leather and techniques in San Francisco.",
-      link: "http://www.oneof.craftedium.xyz/",
+      link: "oneof.html",
       category: "Products",
       platform: "Custom",
       date: "2018",
@@ -1910,7 +1910,7 @@
       title: "AWA Fit",
       image: "IMG/awa-fit-mock2.jpg",
       description: "Fitness and wellness platform for AWA Fit.",
-      link: "https://awa-fit.com",
+      link: "awa-fit.html",
       category: "Products",
       date: "2018",
       projectType: "Mobile App"
@@ -1918,8 +1918,8 @@
     {
       title: "Slingshot Foods",
       image: "IMG/Slingshot/sling-booth.jpg",
-      description: "Food and beverage company website for Slingshot Foods.",
-      link: "https://slingshotfoods.com",
+      description: "Packaging design and signage for Marketing Booth for Slingshot Foods.",
+      link: "slingshot.html",
       category: "Products",
       date: "2017",
       projectType: "Fabrication & Signage"
@@ -1954,7 +1954,7 @@
       title: "Safe Harbor",
       image: "IMG/Safe-Harbor/safe-harbor-mock2.jpg",
       description: "Winner of 2015 Global Entrepreneuship Summit Hackathon, Safe Harbor is a mobile app concept that helps vicitms of domestic abuse find safe shelter.",
-      link: "https://safeharbor.org/",
+      link: "safe-harbor.html",
       category: "Non-Profit",
       platform: "Hackathon",
       date: "2015",
@@ -1971,6 +1971,28 @@
     "Products",
     "Services"
   ];
+
+  // Helper function to get button text and attributes for projects
+  function getProjectButton(project) {
+    const caseStudyProjects = ["OneOf", "AWA Fit", "Slingshot Foods", "Safe Harbor"];
+    const isCaseStudy = caseStudyProjects.includes(project.title);
+    return {
+      text: isCaseStudy ? 'Case Study' : 'Visit Site',
+      target: isCaseStudy ? '' : 'target="_blank" rel="noopener"'
+    };
+  }
+
+  // Helper function to get button text only
+  function getButtonText(project) {
+    const caseStudyProjects = ["OneOf", "AWA Fit", "Slingshot Foods", "Safe Harbor"];
+    return caseStudyProjects.includes(project.title) ? 'Case Study' : 'Visit Site';
+  }
+
+  // Helper function to get button attributes
+  function getButtonAttributes(project) {
+    const caseStudyProjects = ["OneOf", "AWA Fit", "Slingshot Foods", "Safe Harbor"];
+    return caseStudyProjects.includes(project.title) ? '' : 'target="_blank" rel="noopener"';
+  }
 
   function renderPortfolioCards(category = "All", yearFilter = "All", typeFilter = "All", platformFilter = "All", currentPage = 1) {
     let filtered = portfolioProjects;
@@ -2055,7 +2077,7 @@
                     <span class='projectDate'>${project.date}</span>
                     <span class='projectType'>${project.projectType}</span>
                   </div>
-                  <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+                  <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
                 </div>
               </div>
             `).join('')}
@@ -2124,7 +2146,7 @@
               <span class='projectDate'>${project.date}</span>
               <span class='projectType'>${project.projectType}</span>
             </div>
-            <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+            <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
           </div>
         </div>
       `).join('') +
@@ -2239,7 +2261,7 @@
               <span class='projectDate'>${project.date}</span>
               <span class='projectType'>${project.projectType}</span>
             </div>
-            <button><a href='${project.link}' target='_blank' rel='noopener'>Visit Site</a></button>
+            <button><a href='${project.link}' ${getButtonAttributes(project)}>${getButtonText(project)}</a></button>
           </div>
         </div>
       `).join('') +
