@@ -1068,6 +1068,13 @@
                 <div style="margin-bottom:24px;text-align:right;font-size:1.1em;color:#666;">
                     Sincerely, <span id="sincerelyName">________</span>
                 </div>
+                
+                <!-- Hidden fields for survey data -->
+                <input type="hidden" id="surveyServices" name="surveyServices">
+                <input type="hidden" id="surveyHasWebsite" name="surveyHasWebsite">
+                <input type="hidden" id="surveyTimeline" name="surveyTimeline">
+                <input type="hidden" id="surveyInvolvement" name="surveyInvolvement">
+                
                 <div class="button-group">
                     <button class="btn btn-primary" id="submitContactBtn" type="submit" disabled>Submit</button>
                 </div>
@@ -1589,13 +1596,48 @@
         });
         validateContactForm();
         contactForm?.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default - let the form submit to Formspree
             submitContactBtn.disabled = true;
-            submitContactBtn.textContent = 'Submitted!';
+            submitContactBtn.textContent = 'Submitting...';
             
-            // Show success popup
-            showSuccessPopup();
+            // Add the survey data to the form before submission
+            addSurveyDataToForm();
+            
+            // Show success popup after a short delay to allow form submission
+            setTimeout(() => {
+                showSuccessPopup();
+            }, 100);
         });
+
+        // Function to add survey data to the form before submission
+        function addSurveyDataToForm() {
+            // Add services
+            const servicesField = document.getElementById('surveyServices');
+            if (servicesField) {
+                servicesField.value = userAnswers.services.join(', ');
+            }
+            
+            // Add website status
+            const hasWebsiteField = document.getElementById('surveyHasWebsite');
+            if (hasWebsiteField) {
+                hasWebsiteField.value = userAnswers.hasWebsite === null ? 'Not specified' : 
+                                      userAnswers.hasWebsite ? 'Yes' : 'No';
+            }
+            
+            // Add timeline
+            const timelineField = document.getElementById('surveyTimeline');
+            if (timelineField) {
+                const timelineOptions = ['ASAP', '1-2 weeks', '1-2 months', '3-6 months', '6+ months'];
+                timelineField.value = timelineOptions[userAnswers.timeline] || 'Not specified';
+            }
+            
+            // Add involvement level
+            const involvementField = document.getElementById('surveyInvolvement');
+            if (involvementField) {
+                const involvementLevels = ['Very hands-off', 'Somewhat hands-off', 'Balanced', 'Somewhat hands-on', 'Very hands-on'];
+                involvementField.value = involvementLevels[userAnswers.involvement] || 'Not specified';
+            }
+        }
 
         // In JS, auto-fill the Sincerely name as the user types their name
         const sincerelyName = document.getElementById('sincerelyName');
