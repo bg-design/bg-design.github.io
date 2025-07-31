@@ -1476,23 +1476,31 @@
             }
         }
 
-        // In JS, update navigation so the summary page's 'Let's Talk' button goes to step 6, and enable the submit button only if required fields and anti-robot are filled.
+        // In JS, update navigation so the summary page's 'Let's Talk' button goes to step 6, and enable the submit button only if required fields are filled.
         document.getElementById('letsTalkBtn')?.addEventListener('click', function(e) {
             e.preventDefault();
             showStep(6);
-            document.getElementById('progressMaskFinal').style.width = '0%';
         });
         const contactForm = document.getElementById('contactForm');
         const submitContactBtn = document.getElementById('submitContactBtn');
         function validateContactForm() {
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const notRobot = document.getElementById('notRobot').checked;
-            submitContactBtn.disabled = !(name && email && notRobot);
+            const nameInput = document.getElementById('contactName');
+            const emailInput = document.getElementById('contactEmail');
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const isValid = name && email;
+            if (submitContactBtn) {
+                submitContactBtn.disabled = !isValid;
+            }
         }
-        ['contactName','contactEmail','notRobot'].forEach(id => {
-            document.getElementById(id)?.addEventListener('input', validateContactForm);
-            document.getElementById(id)?.addEventListener('change', validateContactForm);
+        ['contactName','contactEmail'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', validateContactForm);
+                element.addEventListener('change', validateContactForm);
+                // Add blur event for better mobile support
+                element.addEventListener('blur', validateContactForm);
+            }
         });
         validateContactForm();
         contactForm?.addEventListener('submit', function(e) {
@@ -1504,9 +1512,18 @@
 
         // In JS, auto-fill the Sincerely name as the user types their name
         const sincerelyName = document.getElementById('sincerelyName');
-        document.getElementById('contactName')?.addEventListener('input', function() {
-            sincerelyName.textContent = this.value.trim() ? this.value : '________';
-        });
+        const contactNameInput = document.getElementById('contactName');
+        if (contactNameInput && sincerelyName) {
+            contactNameInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                sincerelyName.textContent = value ? value : '________';
+            });
+            // Also listen for change events for better mobile support
+            contactNameInput.addEventListener('change', function() {
+                const value = this.value.trim();
+                sincerelyName.textContent = value ? value : '________';
+            });
+        }
 
         // Add JS to handle Skip to Contact link
         document.getElementById('skipToContactLink')?.addEventListener('click', function(e) {
