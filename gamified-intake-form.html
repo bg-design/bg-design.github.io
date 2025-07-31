@@ -679,6 +679,71 @@
             will-change: transform;
         }
 
+        /* Success popup */
+        .success-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .success-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .success-popup-content {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        .success-popup.show .success-popup-content {
+            transform: scale(1);
+        }
+        .success-popup-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .success-popup-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .success-popup-message {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        .success-popup-btn {
+            background: linear-gradient(135deg, #00AEEF, #EC008C);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .success-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,174,239,0.3);
+        }
+
         .question-progress {
             text-align: center;
             color: #888;
@@ -997,6 +1062,16 @@
                     <button class="btn btn-primary" id="submitContactBtn" type="submit" disabled>Submit</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="successPopup">
+        <div class="success-popup-content">
+            <div class="success-popup-icon">📧</div>
+            <div class="success-popup-title">Thank you!</div>
+            <div class="success-popup-message">Thank you for your interest! We will be in touch shortly.</div>
+            <button class="success-popup-btn" onclick="closeSuccessPopup()">Close</button>
         </div>
     </div>
 
@@ -1507,7 +1582,9 @@
             e.preventDefault();
             submitContactBtn.disabled = true;
             submitContactBtn.textContent = 'Submitted!';
-            // You can add your own submission logic here
+            
+            // Show success popup
+            showSuccessPopup();
         });
 
         // In JS, auto-fill the Sincerely name as the user types their name
@@ -1530,6 +1607,90 @@
             e.preventDefault();
             showStep(6);
         });
+
+        // Success popup functions
+        function showSuccessPopup() {
+            const popup = document.getElementById('successPopup');
+            if (popup) {
+                popup.classList.add('show');
+                // Auto-close after 5 seconds
+                setTimeout(() => {
+                    closeSuccessPopup();
+                }, 5000);
+            }
+        }
+
+        function closeSuccessPopup() {
+            const popup = document.getElementById('successPopup');
+            if (popup) {
+                popup.classList.remove('show');
+                // Reset form and go back to welcome screen after a short delay
+                setTimeout(() => {
+                    resetForm();
+                    showStep(0);
+                }, 300);
+            }
+        }
+
+        function resetForm() {
+            // Reset form fields
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.reset();
+            }
+            
+            // Reset user answers
+            userAnswers = {
+                services: [],
+                hasWebsite: null,
+                timeline: 0,
+                involvement: 1
+            };
+            
+            // Reset UI elements
+            const submitBtn = document.getElementById('submitContactBtn');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submit';
+            }
+            
+            // Reset checkboxes
+            document.querySelectorAll('.checkbox-item').forEach(item => {
+                item.classList.remove('selected');
+                const checkbox = item.querySelector('input');
+                if (checkbox) checkbox.checked = false;
+            });
+            
+            // Reset sliders
+            const timelineSlider = document.getElementById('timelineSlider');
+            if (timelineSlider) timelineSlider.value = 2;
+            
+            const involvementSlider = document.getElementById('involvementSlider');
+            if (involvementSlider) involvementSlider.value = 5;
+            
+            // Reset swipe card
+            const swipeCard = document.getElementById('swipeCard');
+            if (swipeCard) {
+                swipeCard.style.transform = '';
+                swipeCard.classList.remove('swiping', 'swiped-right', 'swiped-left', 'swiped-up', 'swiped-down', 'bg-yes', 'bg-no', 'bg-complicated');
+                swipeCard.innerHTML = 'Drag the card<br/>to your answer';
+            }
+            
+            // Reset swipe summary
+            const swipeSummary = document.getElementById('swipeSummary');
+            if (swipeSummary) swipeSummary.style.display = 'none';
+            
+            // Reset swipe container
+            const swipeContainer = document.getElementById('swipeContainer');
+            if (swipeContainer) swipeContainer.style.display = '';
+            
+            // Show default button group and hint
+            document.querySelectorAll('#step2 > .button-group, #step2 > .swipe-hint').forEach(el => el.style.display = '');
+            
+            // Reset sincerely name
+            const sincerelyName = document.getElementById('sincerelyName');
+            if (sincerelyName) sincerelyName.textContent = '________';
+        }
     </script>
 </body>
 </html>
