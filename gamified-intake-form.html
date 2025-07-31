@@ -1075,6 +1075,21 @@
                 <input type="hidden" id="surveyTimeline" name="surveyTimeline">
                 <input type="hidden" id="surveyInvolvement" name="surveyInvolvement">
                 
+                <!-- Honeypot field to prevent spam -->
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <!-- Subject line for better email routing -->
+                <input type="hidden" name="_subject" value="New Project Inquiry from Nuanced Design">
+                
+                <!-- Reply-to header -->
+                <input type="hidden" name="_replyto" id="replyToEmail">
+                
+                <!-- Hidden captcha for Formspree authentication -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <!-- Next parameter for Formspree -->
+                <input type="hidden" name="_next" value="https://bg-design.github.io/gamified-intake-form.html">
+                
                 <div class="button-group">
                     <button class="btn btn-primary" id="submitContactBtn" type="submit" disabled>Submit</button>
                 </div>
@@ -1609,6 +1624,14 @@
             }, 100);
         });
 
+        // Prevent Enter key from submitting the form
+        contactForm?.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
         // Function to add survey data to the form before submission
         function addSurveyDataToForm() {
             // Add services
@@ -1636,6 +1659,13 @@
             if (involvementField) {
                 const involvementLevels = ['Very hands-off', 'Somewhat hands-off', 'Balanced', 'Somewhat hands-on', 'Very hands-on'];
                 involvementField.value = involvementLevels[userAnswers.involvement] || 'Not specified';
+            }
+            
+            // Set reply-to email
+            const replyToField = document.getElementById('replyToEmail');
+            const contactEmailField = document.getElementById('contactEmail');
+            if (replyToField && contactEmailField) {
+                replyToField.value = contactEmailField.value;
             }
         }
 
