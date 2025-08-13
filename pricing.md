@@ -1,8 +1,44 @@
 # Pricing & Packages
 
+## Free Consultation
+
+**Consultation – Free!**
+Schedule a free 30-min consultation today.
+[book now](#)
+
+---
+
 ## Our Pricing Philosophy
 
 We believe in transparent, value-based pricing that gives you exactly what you need without unnecessary extras. Every project is unique, so we offer flexible packages that can be customized to fit your specific requirements and budget.
+
+## Design Services
+
+- **Logo – $495**
+- **Style Guide – $495**
+- **Hourly – $85/hour**
+
+---
+
+## Marketing Services
+
+- **Marketing Plan – $95/month**
+- **Hourly – Ask for Quote** (6–12 months contract)
+- **Advertising Services**
+
+---
+
+## Web Services
+
+- **Website Audit – $500**
+- **Website Maintenance – $100–500/month**
+- **SEO Upgrade – $1K**
+- **Website Renovation – $1K+**
+- **SEO Maintenance – $350/month**
+- **Website Design & Build – $3–5K**
+- **Premium Design & Build – $8–10K**
+
+---
 
 ## Website Design Packages
 
@@ -118,14 +154,14 @@ We offer flexible marketing support to help your business grow online and off. C
 - Photography and image optimization
 - Video production and editing
 - Custom graphics and illustrations
-- Logo Design – $500
+- Logo Design – $495
 
 ### Ongoing Support
 - Website maintenance and updates
 - Content updates and management
 - Performance monitoring and optimization
 - Security updates and backups
-- Hourly Web Work – $75/hour
+- Hourly Web Work – $85/hour
 
 ### Consultation Services
 - Digital strategy planning

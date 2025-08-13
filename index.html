@@ -28,8 +28,8 @@
   <link rel="preload" href="fonts/bebas-neue.ttf" as="font" type="font/ttf" crossorigin>
   
   <!-- Preload critical CSS -->
-  <link rel="preload" href="CSS/v2-styles-purged.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="CSS/v2-styles-purged.css"></noscript>
+  <link rel="preload" href="CSS/v2-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="CSS/v2-styles.css"></noscript>
   
   <!-- Self-hosted fonts -->
   <style>
@@ -660,17 +660,17 @@
               <div class="story-content">
                 <div class="story-text">
                   <p class="story-intro">We're Theo and Quinn, a husband-and-wife team who believe that great design should feel delightful and intuitive.</p>
+                  
+                  <div class="team-photo-story" style="margin: 30px 0; text-align: center;">
+                    <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo" fetchpriority="high" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+                    <div class="photo-caption">That's us! 👋</div>
+                  </div>
+                  
                   <p>We realized that many of our favorite local spots—cafés, shops, and creative businesses—had websites that felt amateur, unfinished, unwelcoming, or sometimes just didn't work at all. This was especially true for brands that depend, at least in part, on e-commerce. We saw great businesses missing out on opportunities simply because their digital presence didn't reflect the care and quality they put into everything else.</p>
                   <p>We wanted to create digital experiences that actually connect with people—the kind that make you feel like you're talking to a real person, not a faceless company.</p>
                   <p>Theo started Nuanced Design with a simple idea: what if we treated every project like we were helping a friend and treat their business as if we were our own? What if we became your best customers—so we could tell you what your market actually needs, rather than just trying to sell you a service?</p>
                   <p>That's how we became "Design Daddy & Marketing Mamacita." It's not just a cute name—it's our philosophy. We care about your project like it's our own, and we're not afraid to be honest about what works and what doesn't, and offer honest guidance—whether you need us cheering from the sidelines or stepping in to take the lead. We care about your project's success like one of our children.</p>
                 </div>
-                                  <div class="story-visual">
-                    <div class="team-photo-story">
-                                          <img src="IMG/your-team-studio-wine.jpg" alt="Theo and Quinn" class="story-photo" fetchpriority="high" srcset="IMG/your-team-studio-wine-mobile.jpg 768w, IMG/your-team-studio-wine.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw">
-                      <div class="photo-caption">That's us! 👋</div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -925,195 +925,77 @@
     }
 
     function openPricing() {
-      // Create pricing content with HTML structure
-      const pricingContent = `
-        <h1>Pricing & Packages</h1>
-        
-        <div style="padding: 16px; border-radius: 12px; margin: 20px 0; text-align: center; box-shadow: 0 4px 16px rgba(255,203,5,0.2); border: 2px solid #FFCB05;">
-          <h2 style="color: #FFCB05; margin-bottom: 12px; font-size: 1.2em;">💡 Flexible Pricing for Every Budget</h2>
-          <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;margin:0 auto;">
-            <strong>Prices listed are estimates only.</strong> Project scope can vary significantly, and we're committed to working with your budget. 
-            Whether you're a startup with limited resources or an established business, we can tailor our services to fit your needs. 
-            <strong>Please call us for a personalized quote!</strong>
-          </p>
-        </div>
-        
-        <h2>Our Pricing Philosophy</h2>
-        <p>We believe in transparent, value-based pricing that gives you exactly what you need without unnecessary extras. Every project is unique, so we offer flexible packages that can be customized to fit your specific requirements and budget.</p>
-        
-        <h2>Website Design Packages</h2>
-        
-        <div class="pricing-packages">
-        
-        <div class="pricing-package">
-        <h3>Starter Package</h3>
-        <div class="price">Starting at $2,500</div>
-        <div class="pricing-package-content">
-        <div class="subtitle">Perfect for small businesses and startups</div>
-        <ul>
-        <li>Custom website design (up to 5 pages)</li>
-        <li>Mobile-responsive design</li>
-        <li>Basic SEO optimization</li>
-        <li>Contact form integration</li>
-        <li>2 rounds of revisions</li>
-        <li>Launch support</li>
-        </ul>
-        </div>
-        </div>
-        
-        <div class="pricing-package">
-        <h3>Professional Package</h3>
-        <div class="price">Starting at $4,500</div>
-        <div class="pricing-package-content">
-        <div class="subtitle">Ideal for growing businesses</div>
-        <ul>
-        <li>Custom website design (up to 10 pages)</li>
-        <li>Mobile-responsive design</li>
-        <li>Advanced SEO optimization</li>
-        <li>Contact form and newsletter integration</li>
-        <li>Blog setup</li>
-        <li>Social media integration</li>
-        <li>3 rounds of revisions</li>
-        <li>Launch support and training</li>
-        </ul>
-        </div>
-        </div>
-        
-        <div class="pricing-package">
-        <h3>Enterprise Package</h3>
-        <div class="price">Starting at $8,500</div>
-        <div class="pricing-package-content">
-        <div class="subtitle">For established businesses and organizations</div>
-        <ul>
-        <li>Custom website design (unlimited pages)</li>
-        <li>Mobile-responsive design</li>
-        <li>Comprehensive SEO strategy</li>
-        <li>Advanced functionality (e-commerce, booking systems, etc.)</li>
-        <li>Content management system</li>
-        <li>Analytics and reporting setup</li>
-        <li>Ongoing support and maintenance</li>
-        <li>Unlimited revisions during development</li>
-        </ul>
-        </div>
-        </div>
-        
-        </div>
-
-        <h2>Marketing Packages & Support</h2>
-<div class="pricing-packages">
-
-  <div class="pricing-package">
-    <h3>Lite</h3>
-    <div class="price">$500 one-time</div>
-    <div class="pricing-package-content">
-      <div class="subtitle">Strategy Refresh</div>
-      <ul>
-        <li>One-time overhaul of your digital presence, content, and marketing strategy</li>
-        <li>5-6 hours of consulting and implementation</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="pricing-package">
-    <h3>Standard</h3>
-    <div class="price">$500/month</div>
-    <div class="pricing-package-content">
-      <div class="subtitle">Ongoing Content & Marketing</div>
-      <ul>
-        <li>Weekly content capture, posting, and engagement</li>
-        <li>10-15 hours per month</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="pricing-package">
-    <h3>Signature</h3>
-    <div class="price">$800/month</div>
-    <div class="pricing-package-content">
-      <div class="subtitle">Full Service + Add-ons</div>
-      <ul>
-        <li>All Standard services plus traditional marketing add-ons</li>
-        <li>20-25 hours per month</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="pricing-package">
-    <h3>Commission Hybrid</h3>
-    <div class="price">$500 one-time + commission</div>
-    <div class="pricing-package-content">
-      <div class="subtitle">Sell-Based Content</div>
-      <ul>
-        <li>Consulting and content creation</li>
-        <li>Only pay when a post sells (commission-based)</li>
-        <li>10-15 hours per month</li>
-      </ul>
-    </div>
-  </div>
-</div>
-        
-        <h2>Additional Services</h2>
-        
-        <h3>Content Creation</h3>
-        <ul>
-        <li>Logo Design – $500</li>
-        <li>Copywriting and editing</li>
-        <li>Photography and image optimization</li>
-        <li>Video production and editing</li>
-        <li>Custom graphics and illustrations</li>
-        </ul>
-        
-        <h3>Ongoing Support</h3>
-        <ul>
-        <li>Website maintenance and updates</li>
-        <li>Content updates and management</li>
-        <li>Performance monitoring and optimization</li>
-        <li>Security updates and backups</li>
-        </ul>
-        
-        <h3>Consultation Services</h3>
-        <ul>
-         <li>Hourly Web Work – $85/hour</li>
-        <li>Digital strategy planning</li>
-        <li>User experience audits</li>
-        <li>Conversion optimization</li>
-        <li>Brand development and positioning</li>
-        </ul>
-        
-        <h2>Getting Started</h2>
-        <p>Not sure which package is right for you? We offer a free consultation to discuss your project and recommend the best approach for your needs and budget.</p>
-        <p><strong>Ready to get started?</strong> <a href="javascript:void(0);" onclick="openBookingModal(); return false;">Schedule a consultation</a> or <a href="javascript:void(0);" onclick="openIntakeModal(); return false;">fill out our project intake form</a> to tell us about your project.</p>
-        
-        <h2>Payment Terms</h2>
-        <ul>
-        <li>50% deposit required to begin work</li>
-        <li>Remaining balance due upon project completion</li>
-        <li>Payment plans available for larger projects</li>
-        <li>All prices in USD</li>
-        </ul>
-        
-        <h3>Accepted Payment Methods</h3>
-        <ul>
-        <li><strong>Digital Payments:</strong> Venmo, Cash App, Zelle</li>
-        <li><strong>Traditional Payments:</strong> Cash or Check</li>
-        <li><strong>Credit Card:</strong> Through Square (3.5% processing fee)</li>
-        </ul>
-        
-        <p><em>Pricing is subject to change. Custom quotes available for projects with specific requirements.</em></p>
-        <p style="text-align:center; margin-top:2em;"><a href="#" class="get-in-touch-link" onclick="toggleBooking(); return false;">Get in touch</a><span class="get-in-touch-rest"> to start the conversation.</span></p>
-      `;
-      
-      // Update the main content area
-      const mainContent = document.getElementById('mainContent');
-      mainContent.innerHTML = `
-        <div class="markdown-content pricing-page">
-          <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
-          ${pricingContent}
-        </div>
-      `;
-      
-      // Scroll to top
-      window.scrollTo(0, 0);
+      // Load pricing content from pricing.md file
+      fetch('pricing.md')
+        .then(response => response.text())
+        .then(content => {
+          // Convert markdown to HTML (basic conversion)
+          let htmlContent = content
+            // Convert headers
+            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+            // Convert bold text
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            // Convert italic text
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            // Convert horizontal rules
+            .replace(/^---$/gim, '<hr style="margin: 30px 0; border: none; border-top: 2px solid #FFCB05;">')
+            // Convert unordered lists properly
+            .replace(/^((?:- .*\n?)+)/gm, function(match) {
+              const items = match.split('\n').filter(line => line.trim().startsWith('- '));
+              const listItems = items.map(item => 
+                '<li>' + item.replace(/^- /, '') + '</li>'
+              ).join('');
+              return '<ul>' + listItems + '</ul>';
+            })
+            // Convert links
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+            // Convert line breaks
+            .replace(/\n/g, '<br>')
+            // Clean up multiple line breaks
+            .replace(/<br><br><br>/g, '<br><br>')
+            .replace(/<br><br><br>/g, '<br><br>');
+          
+          // Add the flexible pricing banner
+          const bannerHtml = `
+            <div style="padding: 16px; border-radius: 12px; margin: 20px 0; text-align: center; box-shadow: 0 4px 16px rgba(255,203,5,0.2); border: 2px solid #FFCB05;">
+              <h2 style="color: #FFCB05; margin-bottom: 12px; font-size: 1.2em;">💡 Flexible Pricing for Every Budget</h2>
+              <p style="color: #333; font-size: 1em; margin: 0; line-height: 1.4;margin:0 auto;">
+                <strong>Prices listed are estimates only.</strong> Project scope can vary significantly, and we're committed to working with your budget. 
+                Whether you're a startup with limited resources or an established business, we can tailor our services to fit your needs. 
+                <strong>Please call us for a personalized quote!</strong>
+              </p>
+            </div>
+          `;
+          
+          // Insert banner after the first h1
+          htmlContent = htmlContent.replace('</h1>', '</h1>' + bannerHtml);
+          
+          // Update the main content area
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+            <div class="markdown-content pricing-page">
+              <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+              ${htmlContent}
+            </div>
+          `;
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+        })
+        .catch(error => {
+          console.error('Error loading pricing content:', error);
+          // Fallback to a simple message if the file can't be loaded
+          const mainContent = document.getElementById('mainContent');
+          mainContent.innerHTML = `
+            <div class="markdown-content pricing-page">
+              <a href="#home" class="back-link" style="font-size:1.1em;" onclick="navigateToPage('home'); return false;"><span style="font-size:1.2em;vertical-align:middle;">← 🏠</span> Back to Home</a>
+              <h1>Pricing & Packages</h1>
+              <p>Sorry, pricing information is currently unavailable. Please contact us directly for pricing information.</p>
+            </div>
+          `;
+        });
     }
     
     function loadDefaultContent() {
@@ -1428,7 +1310,7 @@
       function cycleColor() {
         colorCycleText.style.color = colors[colorIndex];
         colorIndex = (colorIndex + 1) % colors.length;
-        setTimeout(cycleColor, 400); // was 800, now 400ms
+        pauseableTimeout(cycleColor, 400); // was 800, now 400ms
       }
 
       cycleColor();
@@ -1444,7 +1326,7 @@
           // Use innerHTML to process HTML tags like <br>
           element.innerHTML = text.substring(0, i + 1);
           i++;
-          setTimeout(typeChar, speed);
+          pauseableTimeout(typeChar, speed);
         } else {
           // Keep cursor blinking after typing is done
           cursor.style.animation = 'blink 1s infinite';
@@ -1625,7 +1507,7 @@
       }, 400);
       
       // Stop after 8 seconds (when slide transitions)
-      setTimeout(() => {
+      pauseableTimeout(() => {
         clearInterval(interval);
       }, 8000);
     }
@@ -1683,7 +1565,7 @@
       }
       
       // Reset all slides after upward animation
-      setTimeout(() => {
+      pauseableTimeout(() => {
         document.querySelectorAll('.slide').forEach(slide => {
           slide.classList.remove('active', 'prev');
           slide.style.transform = '';
