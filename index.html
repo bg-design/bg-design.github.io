@@ -7,8 +7,17 @@
   <meta name="description" content="Nuanced Design is a boutique, husband-and-wife web design studio offering custom websites, branding, and social media marketing. We create human-centered digital experiences that feel personal, memorable, and uniquely you." />
   
   <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  
+  <!-- Additional performance optimizations -->
+  <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+  <meta http-equiv="Accept-CH-Lifetime" content="86400">
+  
+  <!-- Preconnect to GitHub Pages for faster asset loading -->
+  <link rel="preconnect" href="https://bg-design.github.io">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Nuanced Design — Web Design & Marketing" />
@@ -26,10 +35,16 @@
   <!-- Preload critical fonts -->
   <link rel="preload" href="fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/bebas-neue.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-700.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/playfair-display-900.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/oleo-script.ttf" as="font" type="font/ttf" crossorigin>
   
   <!-- Preload critical CSS -->
   <link rel="preload" href="CSS/v2-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="CSS/v2-styles.css"></noscript>
+  <noscript><link rel="stylesheet" href="CSS/v2-styles.css"></noscript>
+  
+  <!-- Preload critical images -->
+  <link rel="preload" href="IMG/nd-logo-v2c.png" as="image">
   
   <!-- Self-hosted fonts -->
   <style>
