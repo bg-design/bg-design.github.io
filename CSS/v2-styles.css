@@ -529,7 +529,7 @@ grid-template-columns: repeat(2, 1fr);
   height: min(80%, 100vh);
   background: #333;
   transform: translateY(100%);
-  transition: transform 0.7s ease-in;
+  transition: none;
   z-index: 50;
   padding: 40px;
   box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
@@ -689,6 +689,10 @@ grid-template-columns: repeat(2, 1fr);
 }
 .booking-page.open {
   transform: translateY(0);
+}
+
+.booking-page.transition-enabled {
+  transition: transform 0.7s ease-in;
 }
 .booking-overlay {
   position: fixed;

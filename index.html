@@ -558,6 +558,10 @@
   }
 
   function openBooking() {
+    // Enable transition just before opening
+    bookingPage.classList.add('transition-enabled');
+    // Force a reflow to ensure the transition class is applied
+    bookingPage.offsetHeight;
     bookingPage.classList.add('open');
     bookingOverlay.style.display = 'block';
     barWrapper.classList.add('active');
@@ -565,9 +569,18 @@
   }
 
   function closeBooking() {
+    // Enable transition just before closing
+    bookingPage.classList.add('transition-enabled');
+    // Force a reflow to ensure the transition class is applied
+    bookingPage.offsetHeight;
     bookingPage.classList.remove('open');
     bookingOverlay.style.display = 'none';
     barWrapper.classList.remove('active');
+    
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      bookingPage.classList.remove('transition-enabled');
+    }, 700); // Match the CSS transition duration
   }
 
   // Hide overlay by default
