@@ -40,53 +40,51 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 ## Website Design Packages
 <div class="pricing-packages">
 <div class="pricing-package">
-<h3>Starter Package</h3>
-<div class="subtitle">Perfect for small businesses and startups</div>
-<ul>
-<li>Custom website design (up to 5 pages)</li>
-<li>Mobile-responsive design</li>
-<li>Basic SEO optimization</li>
-<li>Contact form integration</li>
-<li>2 rounds of revisions</li>
-<li>Launch support</li>
-</ul>
-<div class="price">Starting at $2,500</div>
+    <h3>Starter Package</h3>
+    <div class="subtitle">Perfect for small businesses and startups</div>
+    <ul>
+    <li>Custom website design (up to 5 pages)</li>
+    <li>Mobile-responsive design</li>
+    <li>Basic SEO optimization</li>
+    <li>Contact form integration</li>
+    <li>2 rounds of revisions</li>
+    <li>Launch support</li>
+    </ul>
+    <div class="price">Starting at $2,500</div>
 </div>
 <div class="pricing-package">
 <h3>Professional Package</h3>
-<div class="subtitle">Ideal for growing businesses</div>
-<ul>
-<li>Custom website design (up to 10 pages)</li>
-<li>Mobile-responsive design</li>
-<li>Advanced SEO optimization</li>
-<li>Contact form and newsletter integration</li>
-<li>Blog setup</li>
-<li>Social media integration</li>
-<li>3 rounds of revisions</li>
-<li>Launch support and training</li>
-</ul>
-<div class="price">Starting at $4,500</div>
+    <div class="subtitle">Ideal for growing businesses</div>
+    <ul>
+    <li>Custom website design (up to 10 pages)</li>
+    <li>Mobile-responsive design</li>
+    <li>Advanced SEO optimization</li>
+    <li>Contact form and newsletter integration</li>
+    <li>Blog setup</li>
+    <li>Social media integration</li>
+    <li>3 rounds of revisions</li>
+    <li>Launch support and training</li>
+    </ul>
+    <div class="price">Starting at $4,500</div>
 </div>
 <div class="pricing-package">
-<h3>Enterprise Package</h3>
-<div class="subtitle">For established businesses and organizations</div>
-<ul>
-<li>Custom website design (unlimited pages)</li>
-<li>Mobile-responsive design</li>
-<li>Comprehensive SEO strategy</li>
-<li>Advanced functionality (e-commerce, booking systems, etc.)</li>
-<li>Content management system</li>
-<li>Analytics and reporting setup</li>
-<li>Ongoing support and maintenance</li>
-<li>Unlimited revisions during development</li>
-</ul>
-<div class="price">Starting at $8,500</div>
+    <h3>Enterprise Package</h3>
+    <div class="subtitle">For established businesses and organizations</div>
+    <ul>
+    <li>Custom website design (unlimited pages)</li>
+    <li>Mobile-responsive design</li>
+    <li>Comprehensive SEO strategy</li>
+    <li>Advanced functionality (e-commerce, booking systems, etc.)</li>
+    <li>Content management system</li>
+    <li>Analytics and reporting setup</li>
+    <li>Ongoing support and maintenance</li>
+    <li>Unlimited revisions during development</li>
+    </ul>
+    <div class="price">Starting at $8,500</div>
+    </div>
 </div>
-</div>
-
 ## Marketing Packages & Support
-We offer flexible marketing support to help your business grow online and off. Choose the tier that fits your needs, or reach out for a custom plan.
-<div class="pricing-packages">
+<p>We offer flexible marketing support to help your business grow online and off. Choose the tier that fits your needs, or reach out for a custom plan.</p>
 <div class="pricing-package">
 <h3>Lite</h3>
 <div class="subtitle">Strategy Refresh</div>
@@ -146,6 +144,7 @@ We offer flexible marketing support to help your business grow online and off. C
 - Brand development and positioning
 
 ## Getting Started
+
 Not sure which package is right for you? We offer a free consultation to discuss your project and recommend the best approach for your needs and budget.
 **Ready to get started?** [Schedule a consultation](#) or [fill out our project intake form](#) to tell us about your project.
 
