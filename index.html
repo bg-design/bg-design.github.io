@@ -1036,7 +1036,11 @@
             .replace(/<br+><\/div>/g, '</div>')
             // Remove br tags at the beginning and end of other elements
             .replace(/<(h[1-6]|p|ul|li)><br+>/g, '<$1>')
-            .replace(/<br+><\/(h[1-6]|p|ul|li)>/g, '</$1>');
+            .replace(/<br+><\/(h[1-6]|p|ul|li)>/g, '</$1>')
+            // Specific cleanup for pricing packages - remove ALL br tags within pricing-packages divs
+            .replace(/<div class="pricing-packages">([\s\S]*?)<\/div>/g, function(match, content) {
+              return '<div class="pricing-packages">' + content.replace(/<br+>/g, '') + '</div>';
+            });
           
           // Update the main content area
           const mainContent = document.getElementById('mainContent');
