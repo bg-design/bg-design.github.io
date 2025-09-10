@@ -1040,6 +1040,10 @@
             // Specific cleanup for pricing packages - remove ALL br tags within pricing-packages divs
             .replace(/<div class="pricing-packages">([\s\S]*?)<\/div>/g, function(match, content) {
               return '<div class="pricing-packages">' + content.replace(/<br+>/g, '') + '</div>';
+            })
+            // Also remove br tags within individual pricing-package elements
+            .replace(/<div class="pricing-package">([\s\S]*?)<\/div>/g, function(match, content) {
+              return '<div class="pricing-package">' + content.replace(/<br+>/g, '') + '</div>';
             });
           
           // Update the main content area
