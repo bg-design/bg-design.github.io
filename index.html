@@ -979,11 +979,36 @@
             })
             // Convert links
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-            // Convert line breaks
+            // Convert line breaks, but preserve HTML structure
             .replace(/\n/g, '<br>')
             // Clean up multiple line breaks
             .replace(/<br><br><br>/g, '<br><br>')
-            .replace(/<br><br><br>/g, '<br><br>');
+            .replace(/<br><br><br>/g, '<br><br>')
+            // Remove ALL br tags between HTML elements to fix grid layout
+            .replace(/<\/div><br+><div/g, '</div><div')
+            .replace(/<\/h[1-6]><br+><div/g, '</h1><div')
+            .replace(/<\/ul><br+><div/g, '</ul><div')
+            .replace(/<\/p><br+><div/g, '</p><div')
+            .replace(/<\/li><br+><li/g, '</li><li')
+            .replace(/<\/div><br+><h[1-6]/g, '</div><h1')
+            .replace(/<\/div><br+><ul/g, '</div><ul')
+            .replace(/<\/div><br+><p/g, '</div><p')
+            .replace(/<\/h[1-6]><br+><h[1-6]/g, '</h1><h2')
+            .replace(/<\/h[1-6]><br+><p/g, '</h1><p')
+            .replace(/<\/p><br+><h[1-6]/g, '</p><h1')
+            .replace(/<\/p><br+><ul/g, '</p><ul')
+            .replace(/<\/ul><br+><p/g, '</ul><p')
+            .replace(/<\/ul><br+><h[1-6]/g, '</ul><h1')
+            // Remove br tags at the beginning and end of divs
+            .replace(/<div><br+>/g, '<div>')
+            .replace(/<br+><\/div>/g, '</div>')
+            // Remove br tags between any HTML elements (comprehensive cleanup)
+            .replace(/<\/[^>]+><br+><[^>]+>/g, function(match) {
+              return match.replace(/<br+>/g, '');
+            })
+            // Additional cleanup for any remaining br tags between HTML elements
+            .replace(/<br><br>/g, '<br>')
+            .replace(/<br><br>/g, '<br>');
           
           // Add the flexible pricing banner
           const bannerHtml = `
@@ -999,6 +1024,19 @@
           
           // Insert banner after the first h1
           htmlContent = htmlContent.replace('</h1>', '</h1>' + bannerHtml);
+          
+          // Clean up br tags between HTML elements to fix grid layout
+          htmlContent = htmlContent
+            // Remove br tags between any HTML elements
+            .replace(/<\/[^>]+><br+><[^>]+>/g, function(match) {
+              return match.replace(/<br+>/g, '');
+            })
+            // Remove br tags at the beginning and end of divs
+            .replace(/<div><br+>/g, '<div>')
+            .replace(/<br+><\/div>/g, '</div>')
+            // Remove br tags at the beginning and end of other elements
+            .replace(/<(h[1-6]|p|ul|li)><br+>/g, '<$1>')
+            .replace(/<br+><\/(h[1-6]|p|ul|li)>/g, '</$1>');
           
           // Update the main content area
           const mainContent = document.getElementById('mainContent');

@@ -43,7 +43,6 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 ## Website Design Packages
 
 <div class="pricing-packages">
-
 <div class="pricing-package">
 <h3>Starter Package</h3>
 <div class="subtitle">Perfect for small businesses and startups</div>
@@ -59,7 +58,6 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 
 <div class="price">Starting at $2,500</div>
 </div>
-
 <div class="pricing-package">
 <h3>Professional Package</h3>
 <div class="subtitle">Ideal for growing businesses</div>
@@ -77,7 +75,6 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 
 <div class="price">Starting at $4,500</div>
 </div>
-
 <div class="pricing-package">
 <h3>Enterprise Package</h3>
 <div class="subtitle">For established businesses and organizations</div>
@@ -103,7 +100,6 @@ We believe in transparent, value-based pricing that gives you exactly what you n
 We offer flexible marketing support to help your business grow online and off. Choose the tier that fits your needs, or reach out for a custom plan.
 
 <div class="pricing-packages">
-
 <div class="pricing-package">
 <h3>Lite</h3>
 <div class="subtitle">Strategy Refresh</div>
@@ -113,7 +109,6 @@ We offer flexible marketing support to help your business grow online and off. C
 </ul>
 <div class="price">$500 one-time</div>
 </div>
-
 <div class="pricing-package">
 <h3>Standard</h3>
 <div class="subtitle">Ongoing Content & Marketing</div>
@@ -123,7 +118,6 @@ We offer flexible marketing support to help your business grow online and off. C
 </ul>
 <div class="price">$500/month</div>
 </div>
-
 <div class="pricing-package">
 <h3>Signature</h3>
 <div class="subtitle">Full Service + Add-ons</div>
@@ -133,7 +127,6 @@ We offer flexible marketing support to help your business grow online and off. C
 </ul>
 <div class="price">$800/month</div>
 </div>
-
 <div class="pricing-package">
 <h3>Commission Hybrid</h3>
 <div class="subtitle">Sell-Based Content</div>
