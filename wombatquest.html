@@ -696,7 +696,7 @@
 <body>
   
     <div class="top-info-panel">
-      <div class="version-display">v1.5.3</div>
+      <div class="version-display">v1.6.0</div>
       <div class="time-controls">
         <div class="time-display" id="time-display">Day 1 • 08:00</div>
         <button class="pause-btn" id="pause-btn">
@@ -909,6 +909,12 @@
         shop: 0,
         temple: 0,
         man: 0
+      },
+      lastActionTimes: {
+        chore: 0,
+        shop: 0,
+        temple: 0,
+        man: 0
       }
     };
     
@@ -994,9 +1000,9 @@
       gameState.ended = false;
       gameState.finalScore = { coins: 0, karma: 0 };
       
-      // Reset player
-      player.worldX = 0;
-      player.worldY = 0;
+      // Reset player - spawn will be set after home base is generated
+      player.worldX = 0; // Temporary, will be updated after home base generation
+      player.worldY = 0; // Temporary, will be updated after home base generation
       player.stats.coin = 0;
       player.stats.karma = 0;
       player.stats.hunger = 70;
@@ -1015,6 +1021,12 @@
         dance: 0,
         climb: 0,
         orgy: 0,
+        chore: 0,
+        shop: 0,
+        temple: 0,
+        man: 0
+      };
+      player.lastActionTimes = {
         chore: 0,
         shop: 0,
         temple: 0,
@@ -1272,6 +1284,9 @@
       // Generate center camp first (only once)
       generateCenterCamp();
       
+      // Generate player home base (only once)
+      generatePlayerHomeBase();
+      
       const worldSize = 2000; // World extends 1000 pixels in each direction from center
       const chunkSize = 400; // Generate content in 400x400 chunks
       
@@ -1307,8 +1322,8 @@
           
           // Generate content for this chunk
           
-          // Generate decorations (scaled by population)
-          const decorationCount = Math.floor((Math.random() * 3 + 1) * worldPopulationMultiplier);
+          // Generate decorations (scaled by population, 3x increase)
+          const decorationCount = Math.floor((Math.random() * 3 + 1) * worldPopulationMultiplier * 3);
           for (let i = 0; i < decorationCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1327,8 +1342,8 @@
             }
           }
           
-          // Generate coins (scaled by population)
-          const coinCount = Math.floor((Math.random() * 20 + 13) * worldPopulationMultiplier);
+          // Generate coins (scaled by population, 3x increase)
+          const coinCount = Math.floor((Math.random() * 20 + 13) * worldPopulationMultiplier * 3);
           for (let i = 0; i < coinCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1343,8 +1358,8 @@
             }
           }
           
-          // Generate water bottles (scaled by population)
-          const waterCount = Math.floor((Math.random() * 5 + 3) * worldPopulationMultiplier);
+          // Generate water bottles (scaled by population, 3x increase)
+          const waterCount = Math.floor((Math.random() * 5 + 3) * worldPopulationMultiplier * 3);
           for (let i = 0; i < waterCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1369,7 +1384,7 @@
             { name: 'Smoothie', hunger: 18, color: '#32CD32', emoji: '🥤' }
           ];
           
-          const snackCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier);
+          const snackCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier * 3); // 3x increase
           for (let i = 0; i < snackCount; i++) {
             const foodType = foodTypes[Math.floor(Math.random() * foodTypes.length)];
             const x = chunkStartX + Math.random() * chunkSize;
@@ -1641,6 +1656,30 @@
             }
           }
           
+          // Generate extra Whip Its (3x more frequent for time stopping effects)
+          const whipItCount = Math.floor((Math.random() * 3 + 2) * worldPopulationMultiplier * 3); // 3x more Whip Its
+          for (let i = 0; i < whipItCount; i++) {
+            const x = chunkStartX + Math.random() * chunkSize;
+            const y = chunkStartY + Math.random() * chunkSize;
+            
+            // Only add if within boundaries
+            if (isWithinBoundaries(x, y)) {
+              drugs.push({
+                x: x,
+                y: y,
+                w: 20, h: 20, collected: false, chunkId: chunkId,
+                type: 'Whip Its',
+                emoji: '🎈',
+                speedMultiplier: 1.0,
+                duration: 0.15,
+                hallucinating: false,
+                moodBoost: 10,
+                energyBoost: 5,
+                timeMultiplier: 0 // Stops time
+              });
+            }
+          }
+          
           // Generate special locations (scaled by population)
           if (Math.random() < 0.3 * worldPopulationMultiplier) { // Population-scaled chance
             const locationTypes = [
@@ -1708,6 +1747,41 @@
       }
     }
     
+    // Generate the player's home base (only once)
+    function generatePlayerHomeBase() {
+      // Only generate if no player home base exists
+      if (homeCamps.length === 0) {
+        // Position home base between yellow line (800px) and trash fence (1450px)
+        // Avoid deep playa (10pm-2am) by staying closer to the yellow line
+        const homeBaseDistance = MAN_CIRCLE_RADIUS + 200; // 1000px from center
+        const homeBaseAngle = Math.random() * Math.PI * 2; // Random direction
+        const homeBaseX = Math.cos(homeBaseAngle) * homeBaseDistance;
+        const homeBaseY = Math.sin(homeBaseAngle) * homeBaseDistance;
+        const homeBaseSize = 120;
+        
+        // Make sure it's within boundaries
+        if (isWithinBoundaries(homeBaseX + homeBaseSize/2, homeBaseY + homeBaseSize/2)) {
+          homeCamps.push({
+            x: homeBaseX - homeBaseSize/2,
+            y: homeBaseY - homeBaseSize/2,
+            w: homeBaseSize,
+            h: homeBaseSize,
+            type: 'homeCamp',
+            emoji: '🏠',
+            name: 'Your Home Base',
+            chunkId: 'player-home'
+          });
+          
+          // Set player spawn location at the home base
+          player.worldX = homeBaseX;
+          player.worldY = homeBaseY;
+          
+          console.log('Generated Player Home Base at:', homeBaseX, homeBaseY);
+          console.log('Player spawned at home base');
+        }
+      }
+    }
+    
     // Track generated chunks
     const generatedChunks = new Set();
     
@@ -1722,7 +1796,7 @@
     
     // Map boundaries and features
     const TEMPLE_DISTANCE = 750; // Distance from Man to Temple
-    const PLAYA_RADIUS = TEMPLE_DISTANCE * 2; // Twice the temple distance = 1500 pixels
+    const PLAYA_RADIUS = TEMPLE_DISTANCE * 4; // Four times the temple distance = 3000 pixels (doubled)
     const MAN_CIRCLE_RADIUS = 800; // Radius of the circle around the Man
     const TRASH_FENCE_RADIUS = PLAYA_RADIUS - 50; // Inner radius of the trash fence
     
@@ -2420,6 +2494,17 @@
           if (keys["ArrowLeft"]) player.worldX -= currentSpeed;
           if (keys["ArrowRight"]) player.worldX += currentSpeed;
           
+          // Calculate movement distance for energy drain
+          const distanceMoved = Math.sqrt(
+            Math.pow(player.worldX - oldX, 2) + Math.pow(player.worldY - oldY, 2)
+          );
+          
+          // Drain energy based on movement distance (doubled energy drain)
+          if (distanceMoved > 0) {
+            const energyDrain = (distanceMoved / 10) * 2; // Energy drains based on pixels moved, doubled
+            player.stats.energy = Math.max(0, player.stats.energy - energyDrain);
+          }
+          
           // Check playa boundaries (prevent going outside trash fence)
           const playerCenterX = player.worldX + player.w / 2;
           const playerCenterY = player.worldY + player.h / 2;
@@ -2619,7 +2704,7 @@
       if (now - lastStatDecay > statDecayInterval) {
         player.stats.thirst = Math.max(0, player.stats.thirst - 2);
         player.stats.hunger = Math.max(0, player.stats.hunger - 1.5);
-        player.stats.energy = Math.max(0, player.stats.energy - 1);
+        // Energy now drains based on movement, not time
         
         // Enhanced mood system for real-time decay
         let realtimeMoodChange = -0.5; // Base mood decay
@@ -2693,6 +2778,9 @@
       
       // Check for special location interactions
       checkSpecialLocationInteractions();
+      
+      // Update cooldown timers every second
+      updateCooldownTimers();
       
       // Update day/night cycle
       updateDayNightCycle();
@@ -2828,21 +2916,21 @@
           } else if (player.time.day === MAN_BURN_DAY) {
             // Peak population on Man Burn day
             worldPopulationMultiplier = 1.0;
-          } else if (player.time.day <= TEMPLE_BURN_DAY + 2) {
-            // Decreasing population after Man Burn - empty over 3 days
+          } else if (player.time.day <= 10) {
+            // Decreasing population after Man Burn - empty over 2 days
             const daysSinceBurn = player.time.day - MAN_BURN_DAY;
-            const declineRate = 0.33; // 33% decline per day
+            const declineRate = 0.5; // 50% decline per day to empty by day 10
             worldPopulationMultiplier = Math.max(0, 1.0 - (daysSinceBurn * declineRate));
           } else {
             // Completely empty after day 10
             worldPopulationMultiplier = 0;
           }
           
-          // Check for game end on day 11
-          if (player.time.day === 11) {
+          // Check for game end on day 10
+          if (player.time.day === 10) {
             setTimeout(() => {
               endGame();
-            }, 2000); // Wait 2 seconds after the day 11 announcement
+            }, 2000); // Wait 2 seconds after the day 10 announcement
           }
         }
         
@@ -2965,7 +3053,10 @@
             player.worldY < location.y + location.h && 
             player.worldY + player.h > location.y) {
           // Player is at home camp - auto-trigger chores if not on cooldown
-          if (player.cooldowns.chore === 0) {
+          const timeSinceLastChore = Date.now() - player.lastActionTimes.chore;
+          const choreCooldown = 60000; // 60 seconds in milliseconds
+          
+          if (timeSinceLastChore >= choreCooldown) {
             actions.chore();
           } else {
             showLocationAction('chore', location.name);
@@ -2997,6 +3088,28 @@
       const locationActionBtn = document.getElementById('location-action-btn');
       
       if (locationActions && locationActionBtn) {
+        // Check cooldown for specific actions
+        let cooldownText = '';
+        if (actionType === 'chore') {
+          const timeSinceLastChore = Date.now() - player.lastActionTimes.chore;
+          const choreCooldown = 60000; // 60 seconds
+          const remainingTime = Math.max(0, choreCooldown - timeSinceLastChore);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            cooldownText = ` (${remainingSeconds}s)`;
+          }
+        } else if (actionType === 'shop') {
+          const timeSinceLastShop = Date.now() - player.lastActionTimes.shop;
+          const shopCooldown = 60000; // 60 seconds
+          const remainingTime = Math.max(0, shopCooldown - timeSinceLastShop);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            cooldownText = ` (${remainingSeconds}s)`;
+          }
+        }
+        
         // Set the button text and action with hotkey labels
         const actionTexts = {
           'dance': '💃 Dance Here [D]',
@@ -3005,7 +3118,7 @@
           'shop': '🏛️ Shop at Center Camp [B]'
         };
         
-        locationActionBtn.textContent = actionTexts[actionType] || 'Action';
+        locationActionBtn.textContent = (actionTexts[actionType] || 'Action') + cooldownText;
         locationActionBtn.setAttribute('data-action', actionType);
         
         // Ensure the button has proper click handling
@@ -3027,6 +3140,42 @@
       const locationActions = document.getElementById('location-actions');
       if (locationActions) {
         locationActions.style.display = 'none';
+      }
+    }
+    
+    // Update cooldown timers for location actions
+    function updateCooldownTimers() {
+      const locationActions = document.getElementById('location-actions');
+      const locationActionBtn = document.getElementById('location-action-btn');
+      
+      if (locationActions && locationActionBtn && locationActions.style.display !== 'none') {
+        const actionType = locationActionBtn.getAttribute('data-action');
+        
+        if (actionType === 'chore') {
+          const timeSinceLastChore = Date.now() - player.lastActionTimes.chore;
+          const choreCooldown = 60000; // 60 seconds
+          const remainingTime = Math.max(0, choreCooldown - timeSinceLastChore);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            const baseText = '🏠 Do Chores [H]';
+            locationActionBtn.textContent = `${baseText} (${remainingSeconds}s)`;
+          } else {
+            locationActionBtn.textContent = '🏠 Do Chores [H]';
+          }
+        } else if (actionType === 'shop') {
+          const timeSinceLastShop = Date.now() - player.lastActionTimes.shop;
+          const shopCooldown = 60000; // 60 seconds
+          const remainingTime = Math.max(0, shopCooldown - timeSinceLastShop);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            const baseText = '🏛️ Shop at Center Camp [B]';
+            locationActionBtn.textContent = `${baseText} (${remainingSeconds}s)`;
+          } else {
+            locationActionBtn.textContent = '🏛️ Shop at Center Camp [B]';
+          }
+        }
       }
     }
 
@@ -3548,10 +3697,10 @@
     
     function updateStatsDisplay() {
       document.getElementById('thirst-bar').style.width = player.stats.thirst + '%';
-      document.getElementById('thirst-value').textContent = Math.round(player.stats.thirst);
+      document.getElementById('thirst-value').textContent = Math.round(player.stats.thirst - 100);
       
       document.getElementById('hunger-bar').style.width = player.stats.hunger + '%';
-      document.getElementById('hunger-value').textContent = Math.round(player.stats.hunger);
+      document.getElementById('hunger-value').textContent = Math.round(player.stats.hunger - 100);
       
       document.getElementById('energy-bar').style.width = player.stats.energy + '%';
       document.getElementById('energy-value').textContent = Math.round(player.stats.energy);
@@ -4319,21 +4468,42 @@
       
       chore: () => {
         const chores = [
-          { name: 'Ice Run', diff: 0.3, reward: function(s) { s.coin += 3; s.karma += 2; s.energy -= 8; s.thirst += 5; } },
-          { name: 'Grease Trap', diff: 0.6, reward: function(s) { s.coin += 6; s.karma += 4; s.energy -= 12; s.mood -= 2; } },
-          { name: 'MOOP Sweep', diff: 0.2, reward: function(s) { s.coin += 2; s.karma += 5; s.energy -= 5; } }
+          { name: 'Ice Run', coin: 3, karma: 2, energy: -8, thirst: 5, text: 'You go on an ice run to keep the camp cool.' },
+          { name: 'Grease Trap', coin: 6, karma: 4, energy: -12, mood: -2, text: 'You clean out the grease trap - dirty work but necessary.' },
+          { name: 'MOOP Sweep', coin: 2, karma: 5, energy: -5, text: 'You sweep for MOOP (Matter Out Of Place) to keep the playa clean.' }
         ];
         const job = pick(chores);
-        const chance = Math.max(0.1, 0.8 - job.diff + (player.stats.energy - 50) / 200);
-        const ok = rnd(chance);
         
-        const modal = document.createElement('div');
-        modal.className = 'encounter-modal';
-        modal.innerHTML = `
-          <div class="encounter-text">${job.name}: ${ok ? 'Success!' : 'Tough break...'}</div>
-          <button class="choice-btn" onclick="document.body.removeChild(this.parentElement); applyEff(${job.reward.toString()}); advance(30); updateStatsDisplay();">Continue</button>
-        `;
-        document.body.appendChild(modal);
+        // Apply stat changes
+        player.stats.coin += job.coin;
+        player.stats.karma += job.karma;
+        player.stats.energy += job.energy;
+        if (job.thirst) player.stats.thirst += job.thirst;
+        if (job.mood) player.stats.mood += job.mood;
+        
+        // Clamp stats
+        player.stats.coin = clamp(player.stats.coin, 0, 999);
+        player.stats.karma = clamp(player.stats.karma, 0, 100);
+        player.stats.energy = clamp(player.stats.energy, 0, 100);
+        player.stats.thirst = clamp(player.stats.thirst, 0, 100);
+        player.stats.mood = clamp(player.stats.mood, 0, 100);
+        
+        // Set 60-second cooldown
+        player.lastActionTimes.chore = Date.now();
+        
+        // Show feedback
+        let feedbackText = `${job.text} `;
+        if (job.coin > 0) feedbackText += `+${job.coin} Coins `;
+        if (job.karma > 0) feedbackText += `+${job.karma} Karma `;
+        if (job.energy > 0) feedbackText += `+${job.energy} Energy `;
+        if (job.energy < 0) feedbackText += `${job.energy} Energy `;
+        if (job.thirst) feedbackText += `+${job.thirst} Thirst `;
+        if (job.mood) feedbackText += `${job.mood} Mood `;
+        
+        showCollectionFeedback(feedbackText.trim(), 'karma', 0);
+        
+        advance(30);
+        updateStatsDisplay();
       },
       
       rest: () => {
@@ -4427,8 +4597,36 @@
         helpOptions.forEach(option => {
           const btn = document.createElement('button');
           btn.className = 'choice-btn';
+          
+          // Check if player has enough energy and mood for this option
+          const hasEnoughEnergy = player.stats.energy >= Math.abs(option.energy);
+          const hasEnoughMood = option.mood >= 0 || player.stats.mood >= Math.abs(option.mood);
+          const canAfford = hasEnoughEnergy && hasEnoughMood;
+          
+          // Grey out if can't afford
+          if (!canAfford) {
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+            btn.disabled = true;
+          }
+          
           btn.textContent = `${option.name} (${option.karma} karma, ${option.mood} mood, ${option.energy} energy)`;
+          
+          // Add visual indicators for insufficient stats
+          let statusText = '';
+          if (!hasEnoughEnergy) statusText += ' [Need Energy]';
+          if (!hasEnoughMood) statusText += ' [Need Mood]';
+          if (statusText) {
+            btn.textContent += statusText;
+          }
+          
           btn.onclick = () => {
+            // Double-check affordability before proceeding
+            if (!canAfford) {
+              showCollectionFeedback('Not enough energy or mood for this action!', 'mood', 0);
+              return;
+            }
+            
             document.body.removeChild(modal);
             applyEff(function(s) { 
               s.karma += option.karma; 
