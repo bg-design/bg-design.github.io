@@ -246,6 +246,25 @@
       color: #e91e63;
     }
     
+    .collection-feedback.time-effect {
+      color: #ffd700;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8);
+      animation: timeEffectPulse 1s ease-in-out infinite;
+    }
+    
+    @keyframes timeEffectPulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+      }
+    }
+    
     /* Day Announcement Styles */
     .day-announcement {
       position: fixed;
@@ -495,6 +514,16 @@
       margin: 0;
     }
     
+    .version-display {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: #888;
+      font-size: 0.7em;
+      font-weight: normal;
+      opacity: 0.7;
+    }
+    
     .pause-btn {
       background: rgba(255, 107, 53, 0.8);
       border: 2px solid #ff6b35;
@@ -666,9 +695,10 @@
 </head>
 <body>
   
-  <div class="top-info-panel">
-    <div class="time-controls">
-      <div class="time-display" id="time-display">Day 1 • 08:00</div>
+    <div class="top-info-panel">
+      <div class="version-display">v1.5.3</div>
+      <div class="time-controls">
+        <div class="time-display" id="time-display">Day 1 • 08:00</div>
         <button class="pause-btn" id="pause-btn">
           <div class="pause-icon">
             <div class="pause-bar"></div>
@@ -702,7 +732,7 @@
   <!-- Intro Screen -->
   <div id="intro-screen" class="intro-screen">
     <div class="intro-content">
-      <h1>🏜️ Welcome to Burning Man! 🏜️</h1>
+      <h1>🏜️ Welcome to Burning Man! 🏜️ 🐾</h1>
       <div class="intro-text">
         <p><strong>You are a wombat exploring the playa!</strong></p>
         <p>Your goal is to collect the most <strong>Wombat Coins</strong> and <strong>Karma</strong> during your 10-day Burning Man adventure.</p>
@@ -814,6 +844,11 @@
       <div class="coin-label">Time</div>
       <div class="coin-amount" id="time-perception-display">⏰ 1.0x</div>
     </div>
+    <div class="coin-display">
+      <div class="coin-icon">📊</div>
+      <div class="coin-label">Stats</div>
+      <div class="coin-amount" id="stats-speed-display">📊 1.0x</div>
+    </div>
   </div>
 
   <script>
@@ -871,7 +906,9 @@
         climb: 0,
         orgy: 0,
         chore: 0,
-        shop: 0
+        shop: 0,
+        temple: 0,
+        man: 0
       }
     };
     
@@ -979,7 +1016,9 @@
         climb: 0,
         orgy: 0,
         chore: 0,
-        shop: 0
+        shop: 0,
+        temple: 0,
+        man: 0
       };
       
       // Reset riding states
@@ -1087,30 +1126,73 @@
         const drugsBefore = drugs.length;
         const bikesBefore = bikes.length;
         
-        // Remove coins (mutate in place)
-        coins.splice(0, coins.length, ...coins.filter(coin => Math.random() > disappearingChance));
+        // Remove items more efficiently (mutate in place)
+        for (let i = coins.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            coins.splice(i, 1);
+          }
+        }
         
-        // Remove water bottles (mutate in place)
-        waterBottles.splice(0, waterBottles.length, ...waterBottles.filter(water => Math.random() > disappearingChance));
+        for (let i = waterBottles.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            waterBottles.splice(i, 1);
+          }
+        }
         
-        // Remove snacks (mutate in place)
-        snacks.splice(0, snacks.length, ...snacks.filter(snack => Math.random() > disappearingChance));
+        for (let i = snacks.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            snacks.splice(i, 1);
+          }
+        }
         
-        // Remove MOOP (mutate in place)
-        moop.splice(0, moop.length, ...moop.filter(moopItem => Math.random() > disappearingChance));
+        for (let i = moop.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            moop.splice(i, 1);
+          }
+        }
         
-        // Remove drugs (mutate in place)
-        drugs.splice(0, drugs.length, ...drugs.filter(drug => Math.random() > disappearingChance));
+        for (let i = drugs.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            drugs.splice(i, 1);
+          }
+        }
         
-        // Remove bikes (mutate in place)
-        bikes.splice(0, bikes.length, ...bikes.filter(bike => Math.random() > disappearingChance));
+        for (let i = bikes.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            bikes.splice(i, 1);
+          }
+        }
         
-        // Remove special locations (mutate in place)
-        danceFloors.splice(0, danceFloors.length, ...danceFloors.filter(location => Math.random() > disappearingChance));
-        artInstallations.splice(0, artInstallations.length, ...artInstallations.filter(location => Math.random() > disappearingChance));
-        orgyDomes.splice(0, orgyDomes.length, ...orgyDomes.filter(location => Math.random() > disappearingChance));
-        homeCamps.splice(0, homeCamps.length, ...homeCamps.filter(location => Math.random() > disappearingChance));
-        centerCamps.splice(0, centerCamps.length, ...centerCamps.filter(location => Math.random() > disappearingChance));
+        // Remove special locations
+        for (let i = danceFloors.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            danceFloors.splice(i, 1);
+          }
+        }
+        
+        for (let i = artInstallations.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            artInstallations.splice(i, 1);
+          }
+        }
+        
+        for (let i = orgyDomes.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            orgyDomes.splice(i, 1);
+          }
+        }
+        
+        for (let i = homeCamps.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            homeCamps.splice(i, 1);
+          }
+        }
+        
+        for (let i = centerCamps.length - 1; i >= 0; i--) {
+          if (Math.random() <= disappearingChance) {
+            centerCamps.splice(i, 1);
+          }
+        }
         
         // Show feedback for disappearing items
         const totalDisappeared = (coinsBefore - coins.length) + (waterBefore - waterBottles.length) + 
@@ -1467,7 +1549,7 @@
           // Generate drugs (scaled by population)
           const drugTypes = [
             // Mystery pills - only Molly
-            { name: 'Mystery Pill', emoji: '💊', speedMultiplier: 1.5, duration: 4, hallucinating: true, mysteryType: 'Molly', timeMultiplier: 0.8 }, // 4 hours
+            { name: 'Mystery Pill', emoji: '💊', speedMultiplier: 1.5, duration: 4, hallucinating: true, mysteryType: 'Molly', timeMultiplier: 0.8, specialEffects: 'molly' }, // 4 hours
             // Mystery snowballs - could be either Speed or Ketamine (50/50 chance)
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 2.0, duration: 2, hallucinating: false, mysteryType: 'Speed', timeMultiplier: 2.0 }, // 2 hours
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 0.3, duration: 3, hallucinating: true, mysteryType: 'Ketamine', timeMultiplier: 0.1 }, // 3 hours
@@ -1552,7 +1634,9 @@
               speedMultiplier: actualDrugType.speedMultiplier,
               duration: actualDrugType.duration,
               hallucinating: actualDrugType.hallucinating,
-              mysteryType: actualDrugType.mysteryType // Include mystery type
+              mysteryType: actualDrugType.mysteryType, // Include mystery type
+              timeMultiplier: actualDrugType.timeMultiplier, // Include time multiplier
+              specialEffects: actualDrugType.specialEffects // Include special effects
               });
             }
           }
@@ -1628,7 +1712,7 @@
     const generatedChunks = new Set();
     
     // Day/night cycle variables
-    let lastTimeUpdate = 0;
+    let lastTimeUpdate = Date.now(); // Initialize to current time instead of 0
     const SECONDS_PER_DAY = 24; // 24 seconds = 1 day
     
     // Burning Man timeline
@@ -1672,6 +1756,9 @@
     // Track nearby vehicles for boarding
     let nearbyArtCar = null;
     let nearbyBike = null;
+    
+    // Hearts overlay for Molly effects
+    let mollyHearts = [];
     
     // Update transport buttons based on nearby vehicles and riding status
     function updateTransportButtons() {
@@ -1925,8 +2012,33 @@
         player.stats.hunger = clamp(player.stats.hunger - 3, 0, 100);
         player.stats.thirst = clamp(player.stats.thirst - (player.flags.storm ? 6 : 4), 0, 100);
         if (player.stats.thirst <= 20) player.stats.energy = clamp(player.stats.energy - 3, 0, 100);
-        if (player.stats.hunger <= 20) player.stats.mood = clamp(player.stats.mood - 2, 0, 100);
-        if (player.stats.energy <= 10) player.stats.mood = clamp(player.stats.mood - 2, 0, 100);
+        
+        // Enhanced mood system - heavily impacted by basic needs
+        let moodChange = 0;
+        
+        // Thirst heavily impacts mood
+        if (player.stats.thirst <= 10) moodChange -= 8; // Very dehydrated = very grumpy
+        else if (player.stats.thirst <= 25) moodChange -= 4; // Dehydrated = grumpy
+        else if (player.stats.thirst <= 40) moodChange -= 2; // Thirsty = slightly grumpy
+        
+        // Energy heavily impacts mood
+        if (player.stats.energy <= 5) moodChange -= 10; // Exhausted = very grumpy
+        else if (player.stats.energy <= 15) moodChange -= 6; // Very tired = grumpy
+        else if (player.stats.energy <= 30) moodChange -= 3; // Tired = slightly grumpy
+        
+        // Hunger impacts mood
+        if (player.stats.hunger <= 20) moodChange -= 3; // Hungry = grumpy
+        else if (player.stats.hunger <= 40) moodChange -= 1; // Slightly hungry
+        
+        // Sleep deprivation (if sleeping flag exists)
+        if (player.sleeping) {
+          moodChange += 2; // Sleeping makes you happier
+        } else if (player.stats.energy <= 20) {
+          moodChange -= 2; // Need sleep = grumpy
+        }
+        
+        // Apply mood change
+        player.stats.mood = clamp(player.stats.mood + moodChange, 0, 100);
       }
       updateTimeDisplay();
     }
@@ -1984,25 +2096,36 @@
         return;
       }
       
-      // C hotkey for climbing art (only when near art installations)
+      // C hotkey for climbing decorative blocks (only when near decorative blocks)
       if (e.key.toLowerCase() === 'c' && !document.querySelector('.encounter-modal') && !e.target.matches('input, textarea')) {
         e.preventDefault();
-        // Check if player is near an art installation
-        let nearArt = false;
-        artInstallations.forEach(art => {
+        // Check if player is near a decorative block
+        let nearBlock = false;
+        let closestDistance = Infinity;
+        
+        decorations.forEach(decoration => {
           const distance = Math.sqrt(
-            Math.pow(player.worldX + player.w/2 - (art.x + art.w/2), 2) + 
-            Math.pow(player.worldY + player.h/2 - (art.y + art.h/2), 2)
+            Math.pow(player.worldX + player.w/2 - (decoration.x + decoration.w/2), 2) + 
+            Math.pow(player.worldY + player.h/2 - (decoration.y + decoration.h/2), 2)
           );
-          if (distance < 80) {
-            nearArt = true;
+          if (distance < closestDistance) {
+            closestDistance = distance;
+          }
+          if (distance < 60) { // Increased distance for easier activation
+            nearBlock = true;
           }
         });
         
-        if (nearArt) {
+        console.log('C key pressed - Player pos:', player.worldX, player.worldY);
+        console.log('Decorative blocks count:', decorations.length);
+        console.log('Closest block distance:', closestDistance);
+        
+        if (nearBlock) {
+          console.log('Near block detected, triggering climb');
           actions.climb();
         } else {
-          showCollectionFeedback('No art nearby to climb!', 'mood', 0);
+          console.log('No blocks nearby, showing feedback');
+          showCollectionFeedback('No decorative blocks nearby to climb!', 'mood', 0);
         }
         return;
       }
@@ -2393,12 +2516,17 @@
       });
       
       // Check drug collection
+      if (drugs.length > 0 && drugs.length % 100 === 0) { // Log every 100 drugs to avoid spam
+        console.log('Total drugs in world:', drugs.length, 'Uncollected:', drugs.filter(d => !d.collected).length);
+      }
       drugs.forEach(drug => {
         if (!drug.collected && 
             player.worldX < drug.x + drug.w && 
             player.worldX + player.w > drug.x &&
             player.worldY < drug.y + drug.h && 
             player.worldY + player.h > drug.y) {
+          console.log('Drug collected:', drug.type, 'at position:', drug.x, drug.y);
+          console.log('Drug properties:', drug);
           drug.collected = true;
           
           // Apply immediate stat boosts if the drug has them
@@ -2416,15 +2544,21 @@
           }
           
           // Add drug to active drugs array
-          player.drugEffects.activeDrugs.push({
+          const drugToAdd = {
             name: drug.type,
+            emoji: drug.emoji, // Store the drug's emoji
             speedMultiplier: drug.speedMultiplier,
             hallucinating: drug.hallucinating,
             duration: drug.duration,
             startTime: Date.now(),
             mysteryType: drug.mysteryType, // Include mystery type for display
-            timeMultiplier: drug.timeMultiplier
-          });
+            timeMultiplier: drug.timeMultiplier,
+            specialEffects: drug.specialEffects // Include special effects
+          };
+          
+          console.log('Adding drug to active drugs:', drugToAdd);
+          player.drugEffects.activeDrugs.push(drugToAdd);
+          console.log('Total active drugs after adding:', player.drugEffects.activeDrugs.length);
           
           console.log(`Took ${drug.type}! Speed: ${drug.speedMultiplier}x, Hallucinating: ${drug.hallucinating}, Duration: ${drug.duration} frames`);
           updateDrugEffectsDisplay();
@@ -2433,6 +2567,23 @@
           // Show mystery name when picking up, but reveal actual type when consumed
           const displayName = drug.type.includes('Mystery') ? drug.type : drug.type;
           showCollectionFeedback(`+${displayName}`, 'drug', drug.speedMultiplier);
+          
+          // Show special time effect notification if applicable
+          if (drug.timeMultiplier !== undefined && drug.timeMultiplier !== 1) {
+            let timeEffectText = '';
+            if (drug.timeMultiplier === 0) {
+              timeEffectText = '⏸️ TIME STOPPED!';
+            } else if (drug.timeMultiplier > 1) {
+              timeEffectText = `⏩ TIME SPEED: ${drug.timeMultiplier}x`;
+            } else {
+              timeEffectText = `⏪ TIME SLOW: ${drug.timeMultiplier}x`;
+            }
+            
+            // Show time effect notification after a short delay
+            setTimeout(() => {
+              showCollectionFeedback(timeEffectText, 'time-effect', 0);
+            }, 500);
+          }
         }
       });
       
@@ -2469,7 +2620,30 @@
         player.stats.thirst = Math.max(0, player.stats.thirst - 2);
         player.stats.hunger = Math.max(0, player.stats.hunger - 1.5);
         player.stats.energy = Math.max(0, player.stats.energy - 1);
-        player.stats.mood = Math.max(0, player.stats.mood - 0.5);
+        
+        // Enhanced mood system for real-time decay
+        let realtimeMoodChange = -0.5; // Base mood decay
+        
+        // Thirst heavily impacts mood
+        if (player.stats.thirst <= 10) realtimeMoodChange -= 2; // Very dehydrated
+        else if (player.stats.thirst <= 25) realtimeMoodChange -= 1; // Dehydrated
+        else if (player.stats.thirst <= 40) realtimeMoodChange -= 0.5; // Thirsty
+        
+        // Energy heavily impacts mood
+        if (player.stats.energy <= 5) realtimeMoodChange -= 3; // Exhausted
+        else if (player.stats.energy <= 15) realtimeMoodChange -= 2; // Very tired
+        else if (player.stats.energy <= 30) realtimeMoodChange -= 1; // Tired
+        
+        // Hunger impacts mood
+        if (player.stats.hunger <= 20) realtimeMoodChange -= 1; // Hungry
+        else if (player.stats.hunger <= 40) realtimeMoodChange -= 0.3; // Slightly hungry
+        
+        // Sleep deprivation
+        if (!player.sleeping && player.stats.energy <= 20) {
+          realtimeMoodChange -= 0.5; // Need sleep
+        }
+        
+        player.stats.mood = Math.max(0, player.stats.mood + realtimeMoodChange);
         
         // Karma can go up or down based on other stats
         if (player.stats.thirst < 10 || player.stats.hunger < 10) {
@@ -2483,6 +2657,37 @@
       // Update drug effects (duration is now in hours, decrement every hour)
       // This will be handled by the time system, not frame-by-frame
       
+      // Process continuous drug effects (like Molly's mood/energy boost)
+      player.drugEffects.activeDrugs.forEach(drug => {
+        if (drug.specialEffects === 'molly') {
+          // Molly continuously boosts mood and energy
+          player.stats.mood = Math.min(100, player.stats.mood + 0.5);
+          player.stats.energy = Math.min(100, player.stats.energy + 0.3);
+          
+          // Generate hearts overlay effect
+          if (Math.random() < 0.3) { // 30% chance each frame to spawn a heart
+            mollyHearts.push({
+              x: Math.random() * canvas.width,
+              y: canvas.height + 20,
+              vx: (Math.random() - 0.5) * 2,
+              vy: -2 - Math.random() * 2,
+              life: 60 + Math.random() * 40, // 60-100 frames
+              size: 10 + Math.random() * 15, // 10-25 pixels
+              opacity: 0.6 + Math.random() * 0.4 // 0.6-1.0 opacity
+            });
+          }
+        }
+      });
+      
+      // Update hearts animation
+      mollyHearts = mollyHearts.filter(heart => {
+        heart.x += heart.vx;
+        heart.y += heart.vy;
+        heart.life--;
+        heart.opacity = Math.max(0, heart.opacity - 0.01);
+        return heart.life > 0 && heart.opacity > 0;
+      });
+      
       // Update display every frame to show countdown
       updateDrugEffectsDisplay();
       
@@ -2491,11 +2696,23 @@
       
       // Update day/night cycle
       updateDayNightCycle();
+      
+      // Update time display every frame for smooth animation
+      updateTimeDisplay();
     }
     
     function updateDayNightCycle() {
       const now = Date.now();
+      
+      // Safety check: if lastTimeUpdate is 0 or very old, reset it
+      if (lastTimeUpdate === 0 || (now - lastTimeUpdate) > 10000) {
+        console.log('WARNING: Time system stuck, resetting lastTimeUpdate');
+        lastTimeUpdate = now;
+      }
+      
       if (now - lastTimeUpdate > 1000) { // Update every second
+        
+        // Update lastTimeUpdate immediately to prevent getting stuck
         lastTimeUpdate = now;
         
         // Debug: Log current time state
@@ -2521,14 +2738,27 @@
         let timeMultiplier = 1.0;
         player.drugEffects.activeDrugs.forEach(drug => {
           if (drug.timeMultiplier !== undefined && drug.timeMultiplier !== 0) {
+            console.log(`Drug ${drug.name}: timeMultiplier = ${drug.timeMultiplier}, duration = ${drug.duration}`);
             timeMultiplier *= drug.timeMultiplier;
           }
         });
+        
+        console.log('Total time multiplier:', timeMultiplier);
         
         // Ensure timeMultiplier is never 0 (which would freeze time)
         if (timeMultiplier === 0) {
           console.log('WARNING: Time multiplier is 0, setting to 0.1 to prevent freeze');
           timeMultiplier = 0.1;
+        }
+        
+        // Cap timeMultiplier to prevent extreme values that could cause performance issues
+        if (timeMultiplier > 10) {
+          console.log('WARNING: Time multiplier too high, capping to 10x');
+          timeMultiplier = 10;
+        }
+        if (timeMultiplier < 0.01) {
+          console.log('WARNING: Time multiplier too low, capping to 0.01x');
+          timeMultiplier = 0.01;
         }
         
         // Debug logging
@@ -2544,19 +2774,22 @@
           player.drugEffects.timeAccumulator = 0;
         }
         
+        const oldAccumulator = player.drugEffects.timeAccumulator;
         player.drugEffects.timeAccumulator += timeMultiplier;
         
+        console.log(`Time accumulator: ${oldAccumulator} + ${timeMultiplier} = ${player.drugEffects.timeAccumulator}`);
+        
         // Only advance time when we've accumulated enough
-        while (player.drugEffects.timeAccumulator >= 1) {
+        // Add safety check to prevent infinite loops
+        let hoursAdvanced = 0;
+        const maxHoursPerUpdate = 24; // Prevent advancing more than 24 hours in one update
+        
+        while (player.drugEffects.timeAccumulator >= 1 && hoursAdvanced < maxHoursPerUpdate) {
           player.drugEffects.timeAccumulator -= 1;
           player.time.hour += 1;
+          hoursAdvanced++;
           
-          // Update lastTimeUpdate when hour actually advances
-          lastTimeUpdate = now;
-          
-          if (player.drugEffects.activeDrugs.length > 0) {
-            console.log('Time advanced! New hour:', player.time.hour, 'Day:', player.time.day);
-          }
+          console.log('Time advanced! New hour:', player.time.hour, 'Day:', player.time.day);
           
           while (player.time.hour >= 24) { 
             player.time.hour -= 24; 
@@ -2569,6 +2802,12 @@
             if (player.cooldowns.chore > 0) player.cooldowns.chore--;
             if (player.cooldowns.shop > 0) player.cooldowns.shop--;
           }
+        }
+        
+        // Safety check: if we hit the limit, reset accumulator to prevent getting stuck
+        if (hoursAdvanced >= maxHoursPerUpdate) {
+          console.log('WARNING: Time advancement limited to prevent infinite loop');
+          player.drugEffects.timeAccumulator = 0;
         }
         
         if (player.drugEffects.activeDrugs.length > 0) {
@@ -2611,23 +2850,50 @@
         updateTimeDisplay();
         
         // Update drug effects (decrement duration every hour)
+        console.log('Before drug duration update, active drugs:', player.drugEffects.activeDrugs.length);
         player.drugEffects.activeDrugs = player.drugEffects.activeDrugs.filter(drug => {
+          console.log(`Drug ${drug.name}: duration ${drug.duration} -> ${drug.duration - 1}`);
           drug.duration--;
           return drug.duration > 0;
         });
+        console.log('After drug duration update, active drugs:', player.drugEffects.activeDrugs.length);
         
         // Update Man and Temple construction
         updateStructures();
         
-        // Handle post-Burn disappearing items
-        handlePostBurnDisappearing();
+        // Handle post-Burn disappearing items (only at midnight to avoid performance issues)
+        if (player.time.hour === 0) {
+          handlePostBurnDisappearing();
+        }
         
         // Apply gradual stat decay (much slower than action-based decay)
         player.stats.hunger = Math.max(0, player.stats.hunger - 0.1);
         player.stats.thirst = Math.max(0, player.stats.thirst - 0.15);
         if (player.stats.thirst <= 20) player.stats.energy = Math.max(0, player.stats.energy - 0.05);
-        if (player.stats.hunger <= 20) player.stats.mood = Math.max(0, player.stats.mood - 0.05);
-        if (player.stats.energy <= 10) player.stats.mood = Math.max(0, player.stats.mood - 0.05);
+        
+        // Enhanced gradual mood decay based on basic needs
+        let gradualMoodChange = 0;
+        
+        // Thirst impacts mood gradually
+        if (player.stats.thirst <= 10) gradualMoodChange -= 0.3; // Very dehydrated
+        else if (player.stats.thirst <= 25) gradualMoodChange -= 0.2; // Dehydrated
+        else if (player.stats.thirst <= 40) gradualMoodChange -= 0.1; // Thirsty
+        
+        // Energy impacts mood gradually
+        if (player.stats.energy <= 5) gradualMoodChange -= 0.4; // Exhausted
+        else if (player.stats.energy <= 15) gradualMoodChange -= 0.25; // Very tired
+        else if (player.stats.energy <= 30) gradualMoodChange -= 0.15; // Tired
+        
+        // Hunger impacts mood gradually
+        if (player.stats.hunger <= 20) gradualMoodChange -= 0.15; // Hungry
+        else if (player.stats.hunger <= 40) gradualMoodChange -= 0.05; // Slightly hungry
+        
+        // Sleep deprivation
+        if (!player.sleeping && player.stats.energy <= 20) {
+          gradualMoodChange -= 0.1; // Need sleep
+        }
+        
+        player.stats.mood = Math.max(0, player.stats.mood + gradualMoodChange);
         
         // Update stats display
         updateStatsDisplay();
@@ -2635,6 +2901,7 @@
       
       // Update time display more frequently for smooth minute movement
       updateTimeDisplay();
+      updateStatsDisplay(); // Also update stats display for time multiplier changes
     }
     
     function checkSpecialLocationInteractions() {
@@ -2656,19 +2923,22 @@
         }
       });
       
-      // Check art installation collision
-      artInstallations.forEach(location => {
-        if (player.worldX < location.x + location.w && 
-            player.worldX + player.w > location.x &&
-            player.worldY < location.y + location.h && 
-            player.worldY + player.h > location.y) {
-          // Player is at art installation - auto-trigger climb if not on cooldown
+      // Check decorative block collision for climbing
+      decorations.forEach(decoration => {
+        if (player.worldX < decoration.x + decoration.w && 
+            player.worldX + player.w > decoration.x &&
+            player.worldY < decoration.y + decoration.h && 
+            player.worldY + player.h > decoration.y) {
+          // Player is at a decorative block - auto-trigger climb if not on cooldown
+          console.log('Player colliding with decorative block at:', decoration.x, decoration.y);
           if (player.cooldowns.climb === 0) {
+            console.log('Auto-triggering climb action');
             actions.climb();
+            playerInLocation = true;
           } else {
-            showLocationAction('climb', location.name);
+            console.log('Climb on cooldown, no action shown');
+            // Don't show location action for decorative blocks when on cooldown
           }
-          playerInLocation = true;
         }
       });
       
@@ -2678,8 +2948,12 @@
             player.worldX + player.w > location.x &&
             player.worldY < location.y + location.h && 
             player.worldY + player.h > location.y) {
-          // Player is at orgy dome - show orgy action button
-          showLocationAction('orgy', location.name);
+          // Player is at orgy dome - auto-trigger orgy if not on cooldown
+          if (player.cooldowns.orgy === 0) {
+            actions.orgy();
+          } else {
+            showLocationAction('orgy', location.name);
+          }
           playerInLocation = true;
         }
       });
@@ -2690,8 +2964,12 @@
             player.worldX + player.w > location.x &&
             player.worldY < location.y + location.h && 
             player.worldY + player.h > location.y) {
-          // Player is at home camp - show chore action button
-          showLocationAction('chore', location.name);
+          // Player is at home camp - auto-trigger chores if not on cooldown
+          if (player.cooldowns.chore === 0) {
+            actions.chore();
+          } else {
+            showLocationAction('chore', location.name);
+          }
           playerInLocation = true;
         }
       });
@@ -2722,7 +3000,6 @@
         // Set the button text and action with hotkey labels
         const actionTexts = {
           'dance': '💃 Dance Here [D]',
-          'climb': '🎨 Climb Art [C]',
           'orgy': '🏕️ Join Orgy [O]',
           'chore': '🏠 Do Chores [H]',
           'shop': '🏛️ Shop at Center Camp [B]'
@@ -3312,12 +3589,21 @@
         hungerBar.style.boxShadow = 'none';
       }
       
-      // Mood indicator
-      if (player.stats.mood < 20) {
-        moodBar.style.backgroundColor = '#ff4757';
-        moodBar.style.boxShadow = '0 0 10px rgba(255, 71, 87, 0.5)';
+      // Enhanced mood indicator with more granular warnings
+      if (player.stats.mood < 10) {
+        moodBar.style.backgroundColor = '#ff0000'; // Critical - red
+        moodBar.style.boxShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
+      } else if (player.stats.mood < 25) {
+        moodBar.style.backgroundColor = '#ff4757'; // Very low - bright red
+        moodBar.style.boxShadow = '0 0 12px rgba(255, 71, 87, 0.6)';
+      } else if (player.stats.mood < 40) {
+        moodBar.style.backgroundColor = '#ff6b35'; // Low - orange-red
+        moodBar.style.boxShadow = '0 0 8px rgba(255, 107, 53, 0.4)';
+      } else if (player.stats.mood < 60) {
+        moodBar.style.backgroundColor = '#ffa502'; // Medium - orange
+        moodBar.style.boxShadow = '0 0 5px rgba(255, 165, 2, 0.3)';
       } else {
-        moodBar.style.backgroundColor = '#e91e63';
+        moodBar.style.backgroundColor = '#e91e63'; // Good - normal purple
         moodBar.style.boxShadow = 'none';
       }
       
@@ -3328,7 +3614,7 @@
       
       document.getElementById('coin-amount').textContent = player.stats.coin;
       
-      // Calculate and display current speed multiplier (includes bike and drugs)
+      // Calculate and display current speed multiplier (includes bike, drugs, and stats)
       let totalSpeedMultiplier = 1;
       
       // Add bike speed multiplier if riding a bike
@@ -3343,13 +3629,59 @@
         }
       });
       
+      // Add stat-based speed multipliers (same calculation as in movement)
+      const stats = player.stats;
+      
+      // Energy multiplier (0.3x to 1.2x based on energy level)
+      const energyMultiplier = 0.3 + (stats.energy / 100) * 0.9;
+      
+      // Thirst multiplier (0.4x to 1.1x based on thirst level)
+      const thirstMultiplier = 0.4 + (stats.thirst / 100) * 0.7;
+      
+      // Hunger multiplier (0.5x to 1.1x based on hunger level)
+      const hungerMultiplier = 0.5 + (stats.hunger / 100) * 0.6;
+      
+      // Mood multiplier (0.6x to 1.2x based on mood level)
+      const moodMultiplier = 0.6 + (stats.mood / 100) * 0.6;
+      
+      // Apply all stat multipliers
+      totalSpeedMultiplier *= energyMultiplier * thirstMultiplier * hungerMultiplier * moodMultiplier;
+      
+      // Calculate stats-only speed multiplier for display
+      const statsSpeedMultiplier = energyMultiplier * thirstMultiplier * hungerMultiplier * moodMultiplier;
+      
+      // Update stats speed display
+      const statsSpeedDisplay = document.getElementById('stats-speed-display');
+      if (statsSpeedDisplay) {
+        let statsIcon = '📊';
+        let statsColor = '#ffffff';
+        
+        if (statsSpeedMultiplier < 0.5) {
+          statsIcon = '🐌';
+          statsColor = '#ff4757';
+        } else if (statsSpeedMultiplier < 0.8) {
+          statsIcon = '😴';
+          statsColor = '#ff6b35';
+        } else if (statsSpeedMultiplier > 1.0) {
+          statsIcon = '💪';
+          statsColor = '#00ff88';
+        }
+        
+        statsSpeedDisplay.innerHTML = `${statsIcon} <span style="color: ${statsColor};">${statsSpeedMultiplier.toFixed(2)}x</span>`;
+      }
+      
       // Calculate and display current time perception multiplier
       let totalTimeMultiplier = 1;
       player.drugEffects.activeDrugs.forEach(drug => {
-        if (drug.timeMultiplier !== undefined && !isNaN(drug.timeMultiplier)) {
+        if (drug.timeMultiplier !== undefined && !isNaN(drug.timeMultiplier) && drug.timeMultiplier !== 0) {
           totalTimeMultiplier *= drug.timeMultiplier;
         }
       });
+      
+      // Handle time stop (Whip Its effect)
+      if (player.drugEffects.timeStopDuration > 0) {
+        totalTimeMultiplier = 0; // Time is stopped
+      }
       
       // Update speed display
       const speedDisplay = document.getElementById('speed-display');
@@ -3580,7 +3912,9 @@
             const speedDiv = document.createElement('div');
             speedDiv.className = 'drug-effect-item';
             
-            const speedIcon = drug.speedMultiplier > 1 ? '⚡' : '🐌';
+            // Use the drug's actual emoji instead of generic icons
+            console.log('Drug speed effect - name:', drug.name, 'emoji:', drug.emoji);
+            const speedIcon = drug.emoji || (drug.speedMultiplier > 1 ? '⚡' : '🐌');
             // Show the actual drug type (revealed when consumed) or mystery name
             const displayName = drug.name.includes('Mystery') ? 
               (drug.mysteryType || drug.name) : drug.name;
@@ -3605,8 +3939,11 @@
             // Show the actual drug type (revealed when consumed) or mystery name
             const displayName = drug.name.includes('Mystery') ? 
               (drug.mysteryType || drug.name) : drug.name;
+            // Use the drug's actual emoji instead of generic rainbow
+            console.log('Drug hallucination effect - name:', drug.name, 'emoji:', drug.emoji);
+            const hallucinationIcon = drug.emoji || '🌈';
             hallDiv.innerHTML = `
-              <div class="drug-effect-icon">🌈</div>
+              <div class="drug-effect-icon">${hallucinationIcon}</div>
               <div class="drug-effect-text" style="color: #ff6b9d;">${displayName} Hallucinations</div>
               <div class="drug-effect-duration">${drug.duration}h</div>
             `;
@@ -3618,7 +3955,9 @@
             const timeDiv = document.createElement('div');
             timeDiv.className = 'drug-effect-item';
             
-            const timeIcon = drug.timeMultiplier > 1 ? '⏰' : '🐌';
+            // Use the drug's actual emoji instead of generic time icons
+            console.log('Drug time effect - name:', drug.name, 'emoji:', drug.emoji, 'timeMultiplier:', drug.timeMultiplier);
+            const timeIcon = drug.emoji || (drug.timeMultiplier > 1 ? '⏰' : '🐌');
             const displayName = drug.name.includes('Mystery') ? 
               (drug.mysteryType || drug.name) : drug.name;
             const timeText = drug.timeMultiplier > 1 ? 
@@ -3759,7 +4098,19 @@
       } else if (type === 'food') {
         feedback.textContent = `${text} (+${value} Hunger)`;
       } else if (type === 'drug') {
-        feedback.textContent = `${text} (${value > 1 ? '+' : ''}${value}x Speed)`;
+        // Get the drug's time multiplier for display
+        let timeInfo = '';
+        const drug = drugs.find(d => d.name === text || d.type === text);
+        if (drug && drug.timeMultiplier !== undefined && drug.timeMultiplier !== 1) {
+          if (drug.timeMultiplier === 0) {
+            timeInfo = ', Time STOPPED';
+          } else if (drug.timeMultiplier > 1) {
+            timeInfo = `, Time ${drug.timeMultiplier}x`;
+          } else {
+            timeInfo = `, Time ${drug.timeMultiplier}x`;
+          }
+        }
+        feedback.textContent = `${text} (${value > 1 ? '+' : ''}${value}x Speed${timeInfo})`;
       } else if (type === 'inventory') {
         feedback.textContent = text; // Just show the item name, no additional info
       }
@@ -4057,11 +4408,11 @@
       
       help: () => {
         const helpOptions = [
-          { name: 'Help with Setup', karma: 8, mood: 10, energy: -8, text: 'You help a fellow burner set up their camp.' },
-          { name: 'Give Directions', karma: 4, mood: 6, energy: -2, text: 'You help someone find their way around the playa.' },
-          { name: 'Share Supplies', karma: 6, mood: 8, energy: -3, text: 'You share some of your supplies with someone in need.' },
-          { name: 'Teach Something', karma: 10, mood: 12, energy: -5, text: 'You teach someone a new skill or share knowledge.' },
-          { name: 'Listen & Support', karma: 5, mood: 15, energy: -4, text: 'You provide emotional support to someone going through a tough time.' }
+          { name: 'Help with Setup', karma: 4, mood: 8, energy: -12, text: 'You help a fellow burner set up their camp.' },
+          { name: 'Give Directions', karma: 2, mood: 4, energy: -4, text: 'You help someone find their way around the playa.' },
+          { name: 'Share Supplies', karma: 3, mood: 6, energy: -6, text: 'You share some of your supplies with someone in need.' },
+          { name: 'Teach Something', karma: 5, mood: 8, energy: -8, text: 'You teach someone a new skill or share knowledge.' },
+          { name: 'Listen & Support', karma: 2, mood: -10, energy: -8, text: 'You provide emotional support to someone going through a tough time.' }
         ];
         
         const modal = document.createElement('div');
@@ -4112,10 +4463,30 @@
           btn.onclick = () => {
             const foe = pick(moves);
             let text = `You chose ${move}. Foe chose ${foe}. `;
-            if (askFirst) { applyEff(function(s) { s.karma += 2; }); text += '(You asked first — nice!) '; }
-            if (beats[move] === foe) { player.stats.coin += 3; player.stats.mood += 3; text += 'You win! +3 coin.'; }
-            else if (beats[foe] === move) { player.stats.mood -= 2; text += 'You lose, but it was silly.'; }
-            else { text += 'A tie. Everyone sparkles.'; }
+            let statChanges = [];
+            
+            if (askFirst) { 
+              applyEff(function(s) { s.karma += 2; }); 
+              text += '(You asked first — nice!) ';
+              statChanges.push('+2 Karma');
+            }
+            
+            if (beats[move] === foe) { 
+              applyEff(function(s) { s.coin += 3; s.mood += 3; }); 
+              text += 'You win!';
+              statChanges.push('+3 Coins', '+3 Mood');
+            } else if (beats[foe] === move) { 
+              applyEff(function(s) { s.mood -= 2; }); 
+              text += 'You lose, but it was silly.';
+              statChanges.push('-2 Mood');
+            } else { 
+              text += 'A tie. Everyone sparkles.';
+            }
+            
+            // Show stat changes in the text
+            if (statChanges.length > 0) {
+              text += ` (${statChanges.join(', ')})`;
+            }
             
             modal.innerHTML = `
               <div class="encounter-text">${text}</div>
@@ -4471,10 +4842,10 @@
         }
         
         const climbOptions = [
-          { name: 'Small Art', energy: -5, mood: 8, karma: 2, text: 'You climb on a small art installation.' },
-          { name: 'Temple', energy: -8, mood: 15, karma: 5, text: 'You carefully climb the temple for a better view.' },
-          { name: 'Art Car', energy: -3, mood: 10, karma: 3, text: 'You climb on a parked art car.' },
-          { name: 'Dangerous Climb', energy: -15, mood: 25, karma: 8, text: 'You attempt a risky climb on large art.' }
+          { name: 'Small Block', energy: -3, mood: 5, karma: 1, text: 'You climb on a small decorative block.' },
+          { name: 'Colorful Block', energy: -4, mood: 7, karma: 2, text: 'You climb a colorful decorative block.' },
+          { name: 'Sparkly Block', energy: -2, mood: 6, karma: 1, text: 'You climb a sparkly decorative block.' },
+          { name: 'Artistic Block', energy: -5, mood: 8, karma: 3, text: 'You climb an artistic decorative block.' }
         ];
         
         const climb = pick(climbOptions);
@@ -4512,13 +4883,30 @@
         
         const orgy = pick(orgyOptions);
         
-        const modal = document.createElement('div');
-        modal.className = 'encounter-modal';
-        modal.innerHTML = `
-          <div class="encounter-text">${orgy.text}</div>
-          <button class="choice-btn" onclick="document.body.removeChild(this.parentElement); applyEff(function(s) { s.mood += ${orgy.mood}; s.karma += ${orgy.karma}; s.energy += ${orgy.energy}; }); advance(45); updateStatsDisplay();">Continue</button>
-        `;
-        document.body.appendChild(modal);
+        // Apply effects immediately
+        player.stats.mood += orgy.mood;
+        player.stats.karma += orgy.karma;
+        player.stats.energy += orgy.energy;
+        
+        // Clamp stats
+        player.stats.mood = clamp(player.stats.mood, 0, 100);
+        player.stats.karma = clamp(player.stats.karma, 0, 100);
+        player.stats.energy = clamp(player.stats.energy, 0, 100);
+        
+        // Set cooldown
+        player.cooldowns.orgy = 3; // 3 hour cooldown
+        
+        // Show feedback with stats gained
+        let feedbackText = `${orgy.text} `;
+        if (orgy.mood > 0) feedbackText += `+${orgy.mood} Mood `;
+        if (orgy.karma > 0) feedbackText += `+${orgy.karma} Karma `;
+        if (orgy.energy > 0) feedbackText += `+${orgy.energy} Energy `;
+        if (orgy.energy < 0) feedbackText += `${orgy.energy} Energy `;
+        
+        showCollectionFeedback(feedbackText.trim(), 'mood', 0);
+        
+        advance(45);
+        updateStatsDisplay();
       },
       
       meditate: () => {
@@ -4582,14 +4970,14 @@
       if (screenX > -manStructure.w && screenX < canvas.width && 
           screenY > -manStructure.h && screenY < canvas.height) {
         
+        // Calculate body dimensions (used in both burned and unburned states)
+        const bodyWidth = 25 + (manStructure.limbs * 2); // Gets wider as it's built
+        const bodyHeight = 80 + (manStructure.limbs * 5); // Gets taller as it's built
+        
         // Only draw the Man if it hasn't burned yet
         if (!manStructure.burned) {
           // Draw the distinctive Burning Man silhouette
           ctx.fillStyle = '#654321'; // Darker wood color
-          
-          // Main body (torso) - wider at bottom, narrower at shoulders
-          const bodyWidth = 25 + (manStructure.limbs * 2); // Gets wider as it's built
-          const bodyHeight = 80 + (manStructure.limbs * 5); // Gets taller as it's built
           
           // Draw main body as a trapezoid
           ctx.beginPath();
@@ -4877,6 +5265,9 @@
         drawHallucinations();
       }
       
+      // Draw Molly hearts overlay
+      drawMollyHearts();
+      
       // Add day/night visual effects
       drawDayNightCycle();
     }
@@ -4889,6 +5280,31 @@
       if (isNight) {
         drawStars();
       }
+    }
+    
+    function drawMollyHearts() {
+      // Only draw hearts if Molly is active
+      const hasMolly = player.drugEffects.activeDrugs.some(drug => drug.specialEffects === 'molly');
+      if (!hasMolly) return;
+      
+      mollyHearts.forEach(heart => {
+        ctx.save();
+        ctx.globalAlpha = heart.opacity;
+        ctx.fillStyle = '#ff69b4'; // Hot pink color
+        ctx.font = `${heart.size}px Arial`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Draw heart emoji
+        ctx.fillText('💖', heart.x, heart.y);
+        
+        // Add a subtle glow effect
+        ctx.shadowColor = '#ff69b4';
+        ctx.shadowBlur = 10;
+        ctx.fillText('💖', heart.x, heart.y);
+        
+        ctx.restore();
+      });
     }
     
     function drawStars() {
