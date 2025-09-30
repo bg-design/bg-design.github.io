@@ -695,10 +695,10 @@
 </head>
 <body>
   
-    <div class="top-info-panel">
-      <div class="version-display">v1.6.0</div>
-      <div class="time-controls">
-        <div class="time-display" id="time-display">Day 1 • 08:00</div>
+  <div class="top-info-panel">
+      <div class="version-display">v1.6.3</div>
+    <div class="time-controls">
+      <div class="time-display" id="time-display">Day 1 • 08:00</div>
         <button class="pause-btn" id="pause-btn">
           <div class="pause-icon">
             <div class="pause-bar"></div>
@@ -1287,7 +1287,7 @@
       // Generate player home base (only once)
       generatePlayerHomeBase();
       
-      const worldSize = 2000; // World extends 1000 pixels in each direction from center
+      const worldSize = 6000; // World extends 3000 pixels in each direction from center (doubled)
       const chunkSize = 400; // Generate content in 400x400 chunks
       
       // Calculate current chunk
@@ -1568,18 +1568,41 @@
             // Mystery snowballs - could be either Speed or Ketamine (50/50 chance)
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 2.0, duration: 2, hallucinating: false, mysteryType: 'Speed', timeMultiplier: 2.0 }, // 2 hours
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 0.3, duration: 3, hallucinating: true, mysteryType: 'Ketamine', timeMultiplier: 0.1 }, // 3 hours
-            // Unique drugs with distinct appearances
+            // Classic psychedelics
             { name: 'LSD', emoji: '🌈', speedMultiplier: 0.5, duration: 8, hallucinating: true, timeMultiplier: 0.3 }, // 8 hours
             { name: 'Shrooms', emoji: '🍄', speedMultiplier: 0.7, duration: 6, hallucinating: true, timeMultiplier: 0.5 }, // 6 hours
+            { name: 'DMT', emoji: '💫', speedMultiplier: 0.2, duration: 0.5, hallucinating: true, timeMultiplier: 0.1 }, // 30 minutes
+            { name: 'Mescaline', emoji: '🌵', speedMultiplier: 0.6, duration: 10, hallucinating: true, timeMultiplier: 0.4 }, // 10 hours
+            // Stimulants
             { name: 'Caffeine', emoji: '☕', speedMultiplier: 1.3, duration: 1, hallucinating: false, timeMultiplier: 1.5 }, // 1 hour
-            // New drugs
+            { name: 'Cocaine', emoji: '❄️', speedMultiplier: 2.5, duration: 1.5, hallucinating: false, timeMultiplier: 2.5 }, // 1.5 hours
+            { name: 'Adderall', emoji: '💊', speedMultiplier: 1.8, duration: 4, hallucinating: false, timeMultiplier: 1.8 }, // 4 hours
+            { name: 'Energy Drink', emoji: '⚡', speedMultiplier: 1.4, duration: 0.5, hallucinating: false, timeMultiplier: 1.4 }, // 30 minutes
+            // Depressants
+            { name: 'Xanax', emoji: '💙', speedMultiplier: 0.4, duration: 6, hallucinating: false, timeMultiplier: 0.3 }, // 6 hours
+            { name: 'Valium', emoji: '💜', speedMultiplier: 0.5, duration: 8, hallucinating: false, timeMultiplier: 0.4 }, // 8 hours
+            { name: 'Ambien', emoji: '😴', speedMultiplier: 0.2, duration: 8, hallucinating: true, timeMultiplier: 0.2 }, // 8 hours
+            // Dissociatives
+            { name: 'Ketamine', emoji: '🕳️', speedMultiplier: 0.3, duration: 2, hallucinating: true, timeMultiplier: 0.1 }, // 2 hours
+            { name: 'PCP', emoji: '👻', speedMultiplier: 0.4, duration: 4, hallucinating: true, timeMultiplier: 0.2 }, // 4 hours
+            // Special effects
             { name: 'Whip Its', emoji: '🎈', speedMultiplier: 1.0, duration: 0.15, hallucinating: false, moodBoost: 10, energyBoost: 5, timeMultiplier: 0 }, // 15 minutes - stops time
+            { name: 'Salvia', emoji: '🌿', speedMultiplier: 0.1, duration: 0.25, hallucinating: true, timeMultiplier: 0.05 }, // 15 minutes
+            { name: '2C-B', emoji: '🔮', speedMultiplier: 0.8, duration: 4, hallucinating: true, timeMultiplier: 0.6 }, // 4 hours
+            // Common substances
             { name: 'Cigarette', emoji: '🚬', speedMultiplier: 1.0, duration: 0.5, hallucinating: false, moodBoost: 3, energyBoost: 2, timeMultiplier: 1.0 }, // 30 minutes
-            { name: 'Joint', emoji: '🚬', speedMultiplier: 0.8, duration: 2, hallucinating: true, moodBoost: 8, energyBoost: -2, timeMultiplier: 0.7 }, // 2 hours
-            { name: 'Alcohol', emoji: '🍺', speedMultiplier: 0.6, duration: 3, hallucinating: false, moodBoost: 5, energyBoost: -5, timeMultiplier: 1.0 } // 3 hours
+            { name: 'Joint', emoji: '🌿', speedMultiplier: 0.8, duration: 2, hallucinating: true, moodBoost: 8, energyBoost: -2, timeMultiplier: 0.7 }, // 2 hours
+            { name: 'Alcohol', emoji: '🍺', speedMultiplier: 0.6, duration: 3, hallucinating: false, moodBoost: 5, energyBoost: -5, timeMultiplier: 1.0 }, // 3 hours
+            { name: 'Wine', emoji: '🍷', speedMultiplier: 0.7, duration: 2, hallucinating: false, moodBoost: 6, energyBoost: -3, timeMultiplier: 1.1 }, // 2 hours
+            { name: 'Vodka', emoji: '🥃', speedMultiplier: 0.4, duration: 4, hallucinating: false, moodBoost: 7, energyBoost: -8, timeMultiplier: 0.8 }, // 4 hours
+            // Party drugs
+            { name: 'MDMA', emoji: '💎', speedMultiplier: 1.2, duration: 4, hallucinating: false, moodBoost: 15, energyBoost: 10, timeMultiplier: 1.1 }, // 4 hours
+            { name: 'MDA', emoji: '💠', speedMultiplier: 1.1, duration: 5, hallucinating: true, moodBoost: 12, energyBoost: 8, timeMultiplier: 0.9 }, // 5 hours
+            { name: '2C-I', emoji: '✨', speedMultiplier: 0.9, duration: 6, hallucinating: true, timeMultiplier: 0.7 }, // 6 hours
+            { name: 'DOB', emoji: '🌟', speedMultiplier: 0.6, duration: 12, hallucinating: true, timeMultiplier: 0.5 } // 12 hours
           ];
           
-          const drugCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier);
+          const drugCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier * 3); // 3x increase like other items
           for (let i = 0; i < drugCount; i++) {
             const drugType = drugTypes[Math.floor(Math.random() * drugTypes.length)];
             
@@ -2877,7 +2900,7 @@
           player.time.hour += 1;
           hoursAdvanced++;
           
-          console.log('Time advanced! New hour:', player.time.hour, 'Day:', player.time.day);
+            console.log('Time advanced! New hour:', player.time.hour, 'Day:', player.time.day);
           
           while (player.time.hour >= 24) { 
             player.time.hour -= 24; 
@@ -2951,7 +2974,7 @@
         
         // Handle post-Burn disappearing items (only at midnight to avoid performance issues)
         if (player.time.hour === 0) {
-          handlePostBurnDisappearing();
+        handlePostBurnDisappearing();
         }
         
         // Apply gradual stat decay (much slower than action-based decay)
@@ -3040,7 +3063,7 @@
           if (player.cooldowns.orgy === 0) {
             actions.orgy();
           } else {
-            showLocationAction('orgy', location.name);
+          showLocationAction('orgy', location.name);
           }
           playerInLocation = true;
         }
@@ -3059,7 +3082,7 @@
           if (timeSinceLastChore >= choreCooldown) {
             actions.chore();
           } else {
-            showLocationAction('chore', location.name);
+          showLocationAction('chore', location.name);
           }
           playerInLocation = true;
         }
