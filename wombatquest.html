@@ -53,10 +53,8 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: rgba(0, 0, 0, 0.8);
+      background:black;
       padding: 15px;
-      border-radius: 10px;
-      border: 2px solid #ff6b35;
       min-width: 200px;
       z-index: 100;
     }
@@ -76,12 +74,12 @@
     
     .stat-progress {
       flex: 1;
-      height: 20px;
+      height: 4px;
       background: #333;
       border: 1px solid #555;
       border-radius: 10px;
       overflow: hidden;
-      margin: 0 10px;
+      margin: 0 0 0 10px;
       position: relative;
     }
     
@@ -92,10 +90,7 @@
     }
     
     .stat-value {
-      width: 30px;
-      color: #fff;
-      text-align: right;
-      font-size: 0.8em;
+      display: none;
     }
     
     .thirst-fill { background: linear-gradient(90deg, #00bfff, #0080ff); }
@@ -108,22 +103,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255, 215, 0, 0.2);
-      padding: 8px 12px;
-      border-radius: 20px;
-      border: 1px solid #ffd700;
-      margin-top: 10px;
+      margin-bottom: 8px;
+      font-size: 0.9em;
     }
     
     .karma-display {
-      background: rgba(6, 255, 165, 0.2);
-      border: 1px solid rgba(6, 255, 165, 0.3);
+
       margin-top: 8px;
     }
     
-    .karma-display .coin-label {
-      color: rgba(6, 255, 165, 0.9);
-    }
+ 
     
     .karma-display .coin-amount {
       color: #06ffa5;
@@ -131,7 +120,7 @@
     
     .drug-effects-panel {
       position: fixed;
-      top: 20px;
+      top: 280px;
       right: 20px;
       background: rgba(139, 92, 246, 0.9);
       border: 2px solid #a855f7;
@@ -163,6 +152,51 @@
     
     .drug-effect-text {
       flex-grow: 1;
+    }
+    
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 10px;
+      padding: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .gift-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    
+    .gift-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ffd23f;
+      transform: scale(1.05);
+    }
+    
+    .gift-emoji {
+      font-size: 2em;
+      margin-bottom: 4px;
+    }
+    
+    .gift-quantity {
+      font-size: 0.8em;
+      color: #ffd23f;
+      font-weight: bold;
+    }
+    
+    .gift-rewards {
+      font-size: 0.7em;
+      color: #06ffa5;
+      text-align: center;
+      margin-top: 2px;
     }
     
     .drug-effect-duration {
@@ -305,14 +339,13 @@
     
     .drug-countdown-overlay {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 320px;
+      right: 20px;
       background: rgba(138, 43, 226, 0.9);
       color: #fff;
       padding: 12px 20px;
       border-radius: 12px;
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: bold;
       z-index: 999;
       pointer-events: none;
@@ -323,8 +356,8 @@
     }
     
     @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -50%) scale(1.05); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     /* Intro Screen Styles */
@@ -427,10 +460,9 @@
     }
     
     .coin-label {
-      font-size: 0.8em;
-      color: #eae9ff;
-      font-weight: 500;
-      margin-left: 8px;
+      font-size: 0.9em;
+      color: #ffd23f;
+      font-weight: bold;
       flex-grow: 1;
     }
     
@@ -515,13 +547,14 @@
     }
     
     .version-display {
-      position: absolute;
-      top: 5px;
+      position: fixed;
+      bottom: 5px;
       right: 5px;
       color: #888;
       font-size: 0.7em;
       font-weight: normal;
       opacity: 0.7;
+      z-index: 1000;
     }
     
     .pause-btn {
@@ -696,7 +729,7 @@
 <body>
   
   <div class="top-info-panel">
-      <div class="version-display">v1.6.3</div>
+      <div class="version-display">v2069.13</div>
     <div class="time-controls">
       <div class="time-display" id="time-display">Day 1 • 08:00</div>
         <button class="pause-btn" id="pause-btn">
@@ -719,7 +752,7 @@
   </div>
   
   <div class="drug-effects-panel" id="drug-effects-panel">
-    <div style="font-weight: bold; margin-bottom: 8px; color: #ffd700;">💊 Active Effects</div>
+    <div style="font-weight: bold; margin-bottom: 8px; color: #ffd700;">Active Effects</div>
     <div id="drug-effects-list">
       <!-- Drug effects will be populated here -->
     </div>
@@ -784,7 +817,6 @@
       <button class="action-btn" data-action="help">Help Stranger</button>
       <button class="action-btn" data-action="battle">Silly Battle</button>
       <button class="action-btn" data-action="meditate">Meditate</button>
-      <button class="action-btn" data-action="climb">Climb Art [C]</button>
     </div>
     <div class="action-grid" id="transport-actions" style="display: none;">
       <button class="action-btn" id="board-btn" data-action="board">Board Vehicle</button>
@@ -797,57 +829,52 @@
   
   <div class="stats-panel">
     <div class="stat-bar">
-      <div class="stat-label">💧 Thirst</div>
+      <div class="stat-label">Thirst</div>
       <div class="stat-progress">
         <div class="stat-fill thirst-fill" id="thirst-bar"></div>
       </div>
       <div class="stat-value" id="thirst-value">100</div>
     </div>
     <div class="stat-bar">
-      <div class="stat-label">🍕 Hunger</div>
+      <div class="stat-label">Hunger</div>
       <div class="stat-progress">
         <div class="stat-fill hunger-fill" id="hunger-bar"></div>
       </div>
       <div class="stat-value" id="hunger-value">100</div>
     </div>
     <div class="stat-bar">
-      <div class="stat-label">⚡ Energy</div>
+      <div class="stat-label">Energy</div>
       <div class="stat-progress">
         <div class="stat-fill energy-fill" id="energy-bar"></div>
       </div>
       <div class="stat-value" id="energy-value">100</div>
     </div>
     <div class="stat-bar">
-      <div class="stat-label">😊 Mood</div>
+      <div class="stat-label">Mood</div>
       <div class="stat-progress">
         <div class="stat-fill mood-fill" id="mood-bar"></div>
       </div>
       <div class="stat-value" id="mood-value">100</div>
     </div>
     <div class="coin-display">
-      <div class="coin-icon">🪙</div>
       <div class="coin-label">Coins</div>
       <div class="coin-amount" id="coin-amount">0</div>
     </div>
     <div class="coin-display karma-display">
-      <div class="coin-icon">✨</div>
       <div class="coin-label">Karma</div>
       <div class="coin-amount" id="karma-amount">0</div>
     </div>
     <div class="coin-display">
-      <div class="coin-icon">⚡</div>
       <div class="coin-label">Speed</div>
-      <div class="coin-amount" id="speed-display">🚶 1.0x</div>
+      <div class="coin-amount" id="speed-display">1.0x</div>
     </div>
     <div class="coin-display">
-      <div class="coin-icon">⏰</div>
       <div class="coin-label">Time</div>
-      <div class="coin-amount" id="time-perception-display">⏰ 1.0x</div>
+      <div class="coin-amount" id="time-perception-display">1.0x</div>
     </div>
     <div class="coin-display">
-      <div class="coin-icon">📊</div>
       <div class="coin-label">Stats</div>
-      <div class="coin-amount" id="stats-speed-display">📊 1.0x</div>
+      <div class="coin-amount" id="stats-speed-display">1.0x</div>
     </div>
   </div>
 
@@ -890,7 +917,12 @@
         energy: 70,
         mood: 70
       },
-      inventory: { },
+      inventory: { 
+        'Water': 3,
+        'Grilled Cheese': 1,
+        'Energy Bar': 1,
+        'Mystery Pill': 1
+      },
       flags: { storm: false, goggles: false },
       time: { day: 1, hour: 8, minute: 0 },
       drugEffects: {
@@ -954,7 +986,7 @@
       
       gameOverScreen.innerHTML = `
         <div style="text-align: center; max-width: 600px; padding: 40px;">
-          <h1 style="color: #ff6b35; font-size: 3em; margin-bottom: 20px;">🔥 Burning Man Complete! 🔥</h1>
+          <h1 style="color: #ff6b35; font-size: 3em; margin-bottom: 20px;">🎉 You Win Burning Man! 🎉</h1>
           <div style="background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
             <h2 style="color: #ffd23f; margin-bottom: 20px;">Your Final Score:</h2>
             <div style="font-size: 1.5em; margin: 10px 0;">
@@ -984,6 +1016,15 @@
       
       document.body.appendChild(gameOverScreen);
       
+      // Create confetti explosion at screen center
+      setTimeout(() => {
+        createConfettiExplosion(window.innerWidth / 2, window.innerHeight / 2, 100);
+        // Create additional smaller explosions
+        setTimeout(() => createConfettiExplosion(window.innerWidth / 2 - 200, window.innerHeight / 2, 50), 500);
+        setTimeout(() => createConfettiExplosion(window.innerWidth / 2 + 200, window.innerHeight / 2, 50), 1000);
+        setTimeout(() => createConfettiExplosion(window.innerWidth / 2, window.innerHeight / 2 - 100, 50), 1500);
+      }, 100);
+      
       // Add restart functionality
       const restartBtn = document.getElementById('restart-btn');
       restartBtn.addEventListener('click', restartGame);
@@ -1000,6 +1041,10 @@
       gameState.ended = false;
       gameState.finalScore = { coins: 0, karma: 0 };
       
+      // Clear confetti from previous game
+      confetti = [];
+      mollyHearts = [];
+      
       // Reset player - spawn will be set after home base is generated
       player.worldX = 0; // Temporary, will be updated after home base generation
       player.worldY = 0; // Temporary, will be updated after home base generation
@@ -1009,7 +1054,12 @@
       player.stats.thirst = 70;
       player.stats.energy = 70;
       player.stats.mood = 70;
-      player.inventory = {};
+      player.inventory = { 
+        'Water': 3,
+        'Grilled Cheese': 1,
+        'Energy Bar': 1,
+        'Mystery Pill': 1
+      };
       player.time = { day: 1, hour: 8, minute: 0 };
       player.drugEffects.activeDrugs = [];
       player.drugEffects.timeMultiplier = 1.0;
@@ -1030,7 +1080,8 @@
         chore: 0,
         shop: 0,
         temple: 0,
-        man: 0
+        man: 0,
+        climb: 0
       };
       
       // Reset riding states
@@ -1102,6 +1153,12 @@
     
     // Bikes that can be ridden
     const bikes = [];
+    
+    // Gasoline tanks for mutant vehicles
+    const gasolineTanks = [];
+    
+    // NPCs (survivors in the wasteland)
+    const npcs = [];
     
     // MOOP (Matter Out Of Place) items for karma
     const moop = [];
@@ -1322,8 +1379,8 @@
           
           // Generate content for this chunk
           
-          // Generate decorations (scaled by population, 3x increase)
-          const decorationCount = Math.floor((Math.random() * 3 + 1) * worldPopulationMultiplier * 3);
+          // Generate decorations (scaled by population, 1/3 rate)
+          const decorationCount = Math.floor((Math.random() * 3 + 1) * worldPopulationMultiplier / 3);
           for (let i = 0; i < decorationCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1342,8 +1399,8 @@
             }
           }
           
-          // Generate coins (scaled by population, 3x increase)
-          const coinCount = Math.floor((Math.random() * 20 + 13) * worldPopulationMultiplier * 3);
+          // Generate coins (scaled by population, 1/3 rate)
+          const coinCount = Math.floor((Math.random() * 20 + 13) * worldPopulationMultiplier / 3);
           for (let i = 0; i < coinCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1358,8 +1415,8 @@
             }
           }
           
-          // Generate water bottles (scaled by population, 3x increase)
-          const waterCount = Math.floor((Math.random() * 5 + 3) * worldPopulationMultiplier * 3);
+          // Generate water bottles (scaled by population, minimum spawn rate)
+          const waterCount = Math.floor((Math.random() * 5 + 3) * Math.max(worldPopulationMultiplier, 0.1));
           for (let i = 0; i < waterCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1381,10 +1438,19 @@
             { name: 'Fruit Salad', hunger: 20, color: '#FF69B4', emoji: '🥗' },
             { name: 'Energy Bar', hunger: 15, color: '#8B4513', emoji: '🍫' },
             { name: 'Pizza Slice', hunger: 30, color: '#FF6347', emoji: '🍕' },
-            { name: 'Smoothie', hunger: 18, color: '#32CD32', emoji: '🥤' }
+            { name: 'Smoothie', hunger: 18, color: '#32CD32', emoji: '🥤' },
+            { name: 'Popsicle', hunger: 8, color: '#FF1493', emoji: '🍭' },
+            { name: 'Burrito', hunger: 28, color: '#8B4513', emoji: '🌯' },
+            { name: 'Taco', hunger: 22, color: '#FF6347', emoji: '🌮' },
+            { name: 'Ice Cream', hunger: 12, color: '#F0F8FF', emoji: '🍦' },
+            { name: 'Pretzel', hunger: 18, color: '#D2691E', emoji: '🥨' },
+            { name: 'Corn Dog', hunger: 25, color: '#CD853F', emoji: '🌭' },
+            { name: 'Funnel Cake', hunger: 20, color: '#FFF8DC', emoji: '🍰' },
+            { name: 'Nachos', hunger: 24, color: '#FFD700', emoji: '🧀' },
+            { name: 'Cotton Candy', hunger: 5, color: '#FFB6C1', emoji: '🍬' }
           ];
           
-          const snackCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier * 3); // 3x increase
+          const snackCount = Math.floor((Math.random() * 4 + 2) * Math.max(worldPopulationMultiplier, 0.1)); // Minimum spawn rate
           for (let i = 0; i < snackCount; i++) {
             const foodType = foodTypes[Math.floor(Math.random() * foodTypes.length)];
             const x = chunkStartX + Math.random() * chunkSize;
@@ -1509,9 +1575,64 @@
             }
           }
           
+          // Generate gasoline tanks (rare, valuable fuel for mutant vehicles)
+          const gasTankCount = Math.floor((Math.random() * 2 + 1) * worldPopulationMultiplier / 6); // Very rare - 1/6 rate
+          for (let i = 0; i < gasTankCount; i++) {
+            const x = chunkStartX + Math.random() * chunkSize;
+            const y = chunkStartY + Math.random() * chunkSize;
+            
+            // Only add if within boundaries
+            if (isWithinBoundaries(x, y)) {
+              gasolineTanks.push({
+                x: x,
+                y: y,
+                w: 20, h: 24, collected: false, chunkId: chunkId,
+                fuelAmount: 10 // Each tank gives 10 fuel points
+              });
+            }
+          }
+          
+          // Generate NPCs (survivors in the wasteland)
+          const npcTypes = [
+            { name: 'Dancer', emoji: '💃', behavior: 'dance', size: 20 },
+            { name: 'Biker', emoji: '🚴', behavior: 'bike', size: 18 },
+            { name: 'Art Car Passenger', emoji: '🎭', behavior: 'artcar', size: 16 }
+          ];
+          
+          const npcCount = Math.floor((Math.random() * 3 + 2) * Math.max(worldPopulationMultiplier, 0.1)); // Minimum spawn rate
+          for (let i = 0; i < npcCount; i++) {
+            const x = chunkStartX + Math.random() * chunkSize;
+            const y = chunkStartY + Math.random() * chunkSize;
+            
+            // Only add if within boundaries
+            if (isWithinBoundaries(x, y)) {
+              const npcType = npcTypes[Math.floor(Math.random() * npcTypes.length)];
+              npcs.push({
+                x: x,
+                y: y,
+                w: npcType.size,
+                h: npcType.size,
+                chunkId: chunkId,
+                type: npcType.name,
+                emoji: npcType.emoji,
+                behavior: npcType.behavior,
+                // Movement properties
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                // Behavior timers
+                behaviorTimer: Math.random() * 300, // Random start time
+                directionChangeTimer: Math.random() * 180,
+                // Special properties
+                hasGasCan: false,
+                targetArtCar: null,
+                karmaReward: 5 // Karma for helping this NPC
+              });
+            }
+          }
+          
           // Generate bikes (scaled by population)
           const bikeColors = ['#ff4757', '#2ed573', '#1e90ff', '#ffa502', '#ff6348', '#5f27cd'];
-          const bikeCount = Math.floor((Math.random() * 6 + 3) * worldPopulationMultiplier); // 3x increase (3-8 bikes per chunk)
+          const bikeCount = Math.floor((Math.random() * 6 + 3) * worldPopulationMultiplier / 3); // 1/3 rate
           for (let i = 0; i < bikeCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1602,7 +1723,7 @@
             { name: 'DOB', emoji: '🌟', speedMultiplier: 0.6, duration: 12, hallucinating: true, timeMultiplier: 0.5 } // 12 hours
           ];
           
-          const drugCount = Math.floor((Math.random() * 4 + 2) * worldPopulationMultiplier * 3); // 3x increase like other items
+          const drugCount = Math.floor((Math.random() * 4 + 2) * Math.max(worldPopulationMultiplier, 0.1)); // Minimum spawn rate
           for (let i = 0; i < drugCount; i++) {
             const drugType = drugTypes[Math.floor(Math.random() * drugTypes.length)];
             
@@ -1679,8 +1800,8 @@
             }
           }
           
-          // Generate extra Whip Its (3x more frequent for time stopping effects)
-          const whipItCount = Math.floor((Math.random() * 3 + 2) * worldPopulationMultiplier * 3); // 3x more Whip Its
+          // Generate extra Whip Its (2x more frequent for time stopping effects)
+          const whipItCount = Math.floor((Math.random() * 3 + 2) * worldPopulationMultiplier); // Normal Whip It spawn rate (reduced from 2x)
           for (let i = 0; i < whipItCount; i++) {
             const x = chunkStartX + Math.random() * chunkSize;
             const y = chunkStartY + Math.random() * chunkSize;
@@ -1857,6 +1978,63 @@
     // Hearts overlay for Molly effects
     let mollyHearts = [];
     
+    // Confetti for celebration
+    let confetti = [];
+    
+    // Confetti particle class
+    class ConfettiParticle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 8;
+        this.vy = -Math.random() * 8 - 2;
+        this.gravity = 0.3;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.2;
+        this.color = ['#ff6b35', '#f7931e', '#ffd23f', '#06ffa5', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'][Math.floor(Math.random() * 8)];
+        this.size = Math.random() * 8 + 4;
+        this.life = 120 + Math.random() * 60; // 2-3 seconds at 60fps
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.rotation += this.rotationSpeed;
+        this.life--;
+        this.vx *= 0.99; // Air resistance
+      }
+      
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+        ctx.restore();
+      }
+    }
+    
+    // Create confetti explosion
+    function createConfettiExplosion(x, y, count = 50) {
+      for (let i = 0; i < count; i++) {
+        confetti.push(new ConfettiParticle(x + (Math.random() - 0.5) * 100, y + (Math.random() - 0.5) * 100));
+      }
+    }
+    
+    // Update confetti
+    function updateConfetti() {
+      confetti = confetti.filter(particle => {
+        particle.update();
+        return particle.life > 0;
+      });
+    }
+    
+    // Draw confetti
+    function drawConfetti(ctx) {
+      confetti.forEach(particle => particle.draw(ctx));
+    }
+    
     // Update transport buttons based on nearby vehicles and riding status
     function updateTransportButtons() {
       const transportActions = document.getElementById('transport-actions');
@@ -1885,8 +2063,15 @@
           closestArtCarDistance = distance;
           
           // Autoboard if touching and not already riding
-          if (distance < 30 && ridingArtCar === null && ridingBike === null && Date.now() - lastExitTime > 3000) {
+          if (distance < 30 && ridingArtCar === null && Date.now() - lastExitTime > 3000) {
             console.log(`Auto-boarding ${car.name}!`);
+            
+            // Auto-drop bike if riding one
+            if (ridingBike) {
+              console.log('Auto-dropping bike to board art car');
+              ridingBike = null;
+            }
+            
             ridingArtCar = car;
             car.hasPassenger = true;
             // Position player in center of car platform
@@ -2014,6 +2199,25 @@
           const newPlayerX = car.x + car.w / 2 - player.w / 2 + car.playerOffset.x;
           const newPlayerY = car.y + car.h / 2 - player.h / 2 + car.playerOffset.y;
           
+          // Check if player has walked off the art car platform
+          const playerCenterX = newPlayerX + player.w / 2;
+          const playerCenterY = newPlayerY + player.h / 2;
+          const carCenterX = car.x + car.w / 2;
+          const carCenterY = car.y + car.h / 2;
+          const distanceFromCarCenter = Math.sqrt(
+            Math.pow(playerCenterX - carCenterX, 2) + Math.pow(playerCenterY - carCenterY, 2)
+          );
+          
+          // Auto-dismount if player is too far from car center (walked off the platform)
+          if (distanceFromCarCenter > Math.max(car.w, car.h) / 2 + 20) {
+            console.log('Auto-dismounting from art car - walked off platform');
+            ridingArtCar.hasPassenger = false;
+            lastExitTime = Date.now();
+            ridingArtCar.playerOffset = null;
+            ridingArtCar = null;
+            return; // Skip the rest of the car update
+          }
+          
           // Keep player within car bounds
           const maxOffsetX = car.w / 2 - player.w / 2 - 10;
           const maxOffsetY = car.h / 2 - player.h / 2 - 10;
@@ -2026,6 +2230,133 @@
         }
         
         // Art car collision is now handled in the main update loop
+      });
+    }
+    
+    // Update NPCs
+    function updateNPCs() {
+      npcs.forEach(npc => {
+        // Update behavior timer
+        npc.behaviorTimer--;
+        npc.directionChangeTimer--;
+        
+        // Change direction occasionally
+        if (npc.directionChangeTimer <= 0) {
+          npc.vx = (Math.random() - 0.5) * 2;
+          npc.vy = (Math.random() - 0.5) * 2;
+          npc.directionChangeTimer = 180 + Math.random() * 120; // 3-5 seconds
+        }
+        
+        // Check for gasoline tank pickup
+        if (!npc.hasGasCan) {
+          gasolineTanks.forEach(tank => {
+            if (!tank.collected) {
+              const distance = Math.sqrt(
+                Math.pow(npc.x - tank.x, 2) + Math.pow(npc.y - tank.y, 2)
+              );
+              if (distance < 30 && Math.random() < 0.01) { // 1% chance per frame when nearby
+                tank.collected = true;
+                npc.hasGasCan = true;
+                npc.gasCanFuel = tank.fuelAmount;
+              }
+            }
+          });
+        }
+        
+        // Check for art car fuel delivery
+        if (npc.hasGasCan) {
+          artCars.forEach(car => {
+            const distance = Math.sqrt(
+              Math.pow(npc.x - car.x, 2) + Math.pow(npc.y - car.y, 2)
+            );
+            if (distance < 50 && Math.random() < 0.02) { // 2% chance per frame when nearby
+              // Deliver fuel to art car
+              if (!car.fuel) car.fuel = 0;
+              car.fuel += npc.gasCanFuel;
+              car.fuel = Math.min(car.fuel, 100); // Cap at 100
+              npc.hasGasCan = false;
+              npc.gasCanFuel = 0;
+              npc.karmaReward = Math.floor(Math.random() * 5) + 3; // 3-7 karma reward
+            }
+          });
+        }
+        
+        // Behavior-specific logic
+        switch (npc.behavior) {
+          case 'dance':
+            // Dancers move in circular patterns
+            if (npc.behaviorTimer <= 0) {
+              const angle = Math.random() * Math.PI * 2;
+              npc.vx = Math.cos(angle) * 1.5;
+              npc.vy = Math.sin(angle) * 1.5;
+              npc.behaviorTimer = 120 + Math.random() * 60; // 2-3 seconds
+            }
+            break;
+            
+          case 'bike':
+            // Bikers move in straight lines with occasional turns
+            if (npc.behaviorTimer <= 0) {
+              const angle = Math.random() * Math.PI * 2;
+              npc.vx = Math.cos(angle) * 3;
+              npc.vy = Math.sin(angle) * 3;
+              npc.behaviorTimer = 240 + Math.random() * 120; // 4-6 seconds
+            }
+            break;
+            
+          case 'artcar':
+            // Art car passengers look for nearby art cars to board
+            if (!npc.targetArtCar || npc.targetArtCar.hasPassenger) {
+              // Find nearest available art car
+              let nearestCar = null;
+              let nearestDistance = Infinity;
+              
+              artCars.forEach(car => {
+                if (!car.hasPassenger) {
+                  const distance = Math.sqrt(
+                    Math.pow(npc.x - car.x, 2) + Math.pow(npc.y - car.y, 2)
+                  );
+                  if (distance < nearestDistance) {
+                    nearestDistance = distance;
+                    nearestCar = car;
+                  }
+                }
+              });
+              
+              npc.targetArtCar = nearestCar;
+            }
+            
+            // Move toward target art car
+            if (npc.targetArtCar && !npc.targetArtCar.hasPassenger) {
+              const dx = npc.targetArtCar.x - npc.x;
+              const dy = npc.targetArtCar.y - npc.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              
+              if (distance > 30) {
+                npc.vx = (dx / distance) * 2;
+                npc.vy = (dy / distance) * 2;
+              } else {
+                // Close enough to board
+                npc.targetArtCar.hasPassenger = true;
+                npc.x = npc.targetArtCar.x + npc.targetArtCar.w / 2 - npc.w / 2;
+                npc.y = npc.targetArtCar.y + npc.targetArtCar.h / 2 - npc.h / 2;
+                npc.vx = npc.targetArtCar.vx;
+                npc.vy = npc.targetArtCar.vy;
+              }
+            }
+            break;
+        }
+        
+        // Update position
+        npc.x += npc.vx;
+        npc.y += npc.vy;
+        
+        // Bounce off world edges
+        if (npc.x < 0 || npc.x > 10000) npc.vx *= -1;
+        if (npc.y < 0 || npc.y > 10000) npc.vy *= -1;
+        
+        // Keep NPCs within bounds
+        npc.x = Math.max(0, Math.min(10000 - npc.w, npc.x));
+        npc.y = Math.max(0, Math.min(10000 - npc.h, npc.y));
       });
     }
     
@@ -2142,24 +2473,31 @@
     
     // Inventory functions
     function invPush(name) {
+      console.log('Adding to inventory:', name);
       if (player.inventory[name]) {
         player.inventory[name]++;
       } else {
         player.inventory[name] = 1;
       }
+      console.log('Inventory after adding:', player.inventory);
       updateInventoryDisplay();
     }
     
     function useItem(name, effect) {
+      console.log(`useItem called for: ${name}, current inventory:`, player.inventory);
       if (player.inventory[name] && player.inventory[name] > 0) {
         player.inventory[name]--;
+        console.log(`Reduced ${name} to ${player.inventory[name]}`);
         if (player.inventory[name] === 0) {
           delete player.inventory[name];
+          console.log(`Deleted ${name} from inventory`);
         }
         applyEff(effect);
         updateInventoryDisplay();
+        console.log(`useItem completed, new inventory:`, player.inventory);
         return true;
       }
+      console.log(`useItem failed - no ${name} in inventory`);
       return false;
     }
     
@@ -2428,6 +2766,75 @@
             }
           }
         }
+        else if (e.key.toLowerCase() === 'o') {
+          e.preventDefault();
+          console.log('Popsicle hotkey pressed, inventory:', player.inventory['Popsicle']);
+          if (player.inventory['Popsicle'] && player.inventory['Popsicle'] > 0) {
+            if (!useItem('Popsicle', function(s) { s.hunger += 8; s.mood += 3; })) {
+              alert('No popsicle left.');
+            }
+          } else {
+            console.log('No popsicle in inventory');
+          }
+        }
+        else if (e.key.toLowerCase() === 'u') {
+          e.preventDefault();
+          if (player.inventory['Burrito'] && player.inventory['Burrito'] > 0) {
+            if (!useItem('Burrito', function(s) { s.hunger += 28; s.mood += 9; })) {
+              alert('No burrito left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          if (player.inventory['Taco'] && player.inventory['Taco'] > 0) {
+            if (!useItem('Taco', function(s) { s.hunger += 22; s.mood += 7; })) {
+              alert('No taco left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'i') {
+          e.preventDefault();
+          if (player.inventory['Ice Cream'] && player.inventory['Ice Cream'] > 0) {
+            if (!useItem('Ice Cream', function(s) { s.hunger += 12; s.mood += 6; })) {
+              alert('No ice cream left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'n') {
+          e.preventDefault();
+          if (player.inventory['Corn Dog'] && player.inventory['Corn Dog'] > 0) {
+            if (!useItem('Corn Dog', function(s) { s.hunger += 25; s.mood += 8; })) {
+              alert('No corn dog left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'm') {
+          e.preventDefault();
+          if (player.inventory['Funnel Cake'] && player.inventory['Funnel Cake'] > 0) {
+            if (!useItem('Funnel Cake', function(s) { s.hunger += 20; s.mood += 10; })) {
+              alert('No funnel cake left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'q') {
+          e.preventDefault();
+          if (player.inventory['Nachos'] && player.inventory['Nachos'] > 0) {
+            if (!useItem('Nachos', function(s) { s.hunger += 24; s.mood += 7; })) {
+              alert('No nachos left.');
+            }
+          }
+        }
+        else if (e.key.toLowerCase() === 'y') {
+          e.preventDefault();
+          if (player.inventory['Cotton Candy'] && player.inventory['Cotton Candy'] > 0) {
+            if (!useItem('Cotton Candy', function(s) { s.hunger += 5; s.mood += 2; })) {
+              alert('No cotton candy left.');
+            }
+          }
+        }
+        // Note: 'R' is already used for rest, 'H' for chores, 'G' for gifts
+        // So Pretzel uses 'R' but conflicts with rest - we'll skip it for now
       }
     });
     document.addEventListener("keyup", e => { keys[e.key] = false; });
@@ -2522,9 +2929,13 @@
             Math.pow(player.worldX - oldX, 2) + Math.pow(player.worldY - oldY, 2)
           );
           
-          // Drain energy based on movement distance (doubled energy drain)
+          // Drain energy based on movement distance (much less on bike)
           if (distanceMoved > 0) {
-            const energyDrain = (distanceMoved / 10) * 2; // Energy drains based on pixels moved, doubled
+            let energyMultiplier = 0.2; // Base 20% of current drain
+            if (ridingBike) {
+              energyMultiplier = 0.02; // Only 2% energy drain when riding bike (10x less)
+            }
+            const energyDrain = (distanceMoved / 10) * energyMultiplier;
             player.stats.energy = Math.max(0, player.stats.energy - energyDrain);
           }
           
@@ -2584,6 +2995,7 @@
       // Update art cars
       updateBikes();
       updateArtCars();
+      updateNPCs();
       
       // Check coin collection (using world coordinates)
       coins.forEach(coin => {
@@ -2717,8 +3129,22 @@
             player.worldY + player.h > snack.y) {
           snack.collected = true;
           // Use the specific food name instead of generic 'Snack'
+          console.log('Collected food:', snack.name);
           invPush(snack.name || 'Snack');
           showCollectionFeedback(`+${snack.name || 'Snack'}`, 'food', snack.hunger);
+        }
+      });
+      
+      // Check gasoline tank collection
+      gasolineTanks.forEach(tank => {
+        if (!tank.collected && 
+            player.worldX < tank.x + tank.w && 
+            player.worldX + player.w > tank.x &&
+            player.worldY < tank.y + tank.h && 
+            player.worldY + player.h > tank.y) {
+          tank.collected = true;
+          invPush('Gasoline Tank');
+          showCollectionFeedback(`+Gasoline Tank (${tank.fuelAmount} fuel)`, 'karma', 5);
         }
       });
       
@@ -2795,6 +3221,9 @@
         heart.opacity = Math.max(0, heart.opacity - 0.01);
         return heart.life > 0 && heart.opacity > 0;
       });
+      
+      // Update confetti animation
+      updateConfetti();
       
       // Update display every frame to show countdown
       updateDrugEffectsDisplay();
@@ -2939,14 +3368,15 @@
           } else if (player.time.day === MAN_BURN_DAY) {
             // Peak population on Man Burn day
             worldPopulationMultiplier = 1.0;
-          } else if (player.time.day <= 10) {
-            // Decreasing population after Man Burn - empty over 2 days
-            const daysSinceBurn = player.time.day - MAN_BURN_DAY;
-            const declineRate = 0.5; // 50% decline per day to empty by day 10
-            worldPopulationMultiplier = Math.max(0, 1.0 - (daysSinceBurn * declineRate));
+          } else if (player.time.day === 9) {
+            // Day 9: 50% of items disappear
+            worldPopulationMultiplier = 0.5;
+          } else if (player.time.day === 10) {
+            // Day 10: Almost everything disappears, only 5% remains
+            worldPopulationMultiplier = 0.05;
           } else {
-            // Completely empty after day 10
-            worldPopulationMultiplier = 0;
+            // Year 2069: Only mutant vehicles and scavenger campers remain
+            worldPopulationMultiplier = 0.05; // 5% population - the last survivors
           }
           
           // Check for game end on day 10
@@ -3040,16 +3470,10 @@
             player.worldX + player.w > decoration.x &&
             player.worldY < decoration.y + decoration.h && 
             player.worldY + player.h > decoration.y) {
-          // Player is at a decorative block - auto-trigger climb if not on cooldown
+          // Player is at a decorative block - show climb action
           console.log('Player colliding with decorative block at:', decoration.x, decoration.y);
-          if (player.cooldowns.climb === 0) {
-            console.log('Auto-triggering climb action');
-            actions.climb();
-            playerInLocation = true;
-          } else {
-            console.log('Climb on cooldown, no action shown');
-            // Don't show location action for decorative blocks when on cooldown
-          }
+          showLocationAction('climb', 'Decorative Block');
+          playerInLocation = true;
         }
       });
       
@@ -3075,15 +3499,8 @@
             player.worldX + player.w > location.x &&
             player.worldY < location.y + location.h && 
             player.worldY + player.h > location.y) {
-          // Player is at home camp - auto-trigger chores if not on cooldown
-          const timeSinceLastChore = Date.now() - player.lastActionTimes.chore;
-          const choreCooldown = 60000; // 60 seconds in milliseconds
-          
-          if (timeSinceLastChore >= choreCooldown) {
-            actions.chore();
-          } else {
+          // Player is at home camp - show chore action button
           showLocationAction('chore', location.name);
-          }
           playerInLocation = true;
         }
       });
@@ -3131,6 +3548,15 @@
             const remainingSeconds = Math.ceil(remainingTime / 1000);
             cooldownText = ` (${remainingSeconds}s)`;
           }
+        } else if (actionType === 'climb') {
+          const timeSinceLastClimb = Date.now() - player.lastActionTimes.climb;
+          const climbCooldown = 20000; // 20 seconds
+          const remainingTime = Math.max(0, climbCooldown - timeSinceLastClimb);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            cooldownText = ` (${remainingSeconds}s)`;
+          }
         }
         
         // Set the button text and action with hotkey labels
@@ -3138,7 +3564,8 @@
           'dance': '💃 Dance Here [D]',
           'orgy': '🏕️ Join Orgy [O]',
           'chore': '🏠 Do Chores [H]',
-          'shop': '🏛️ Shop at Center Camp [B]'
+          'shop': '🏛️ Shop at Center Camp [B]',
+          'climb': '🧱 Climb Block [C]'
         };
         
         locationActionBtn.textContent = (actionTexts[actionType] || 'Action') + cooldownText;
@@ -3148,6 +3575,32 @@
         locationActionBtn.onclick = function() {
           const action = this.getAttribute('data-action');
           if (action && actions[action]) {
+            // Check cooldown for specific actions
+            if (action === 'chore') {
+              const timeSinceLastChore = Date.now() - player.lastActionTimes.chore;
+              const choreCooldown = 60000; // 60 seconds
+              if (timeSinceLastChore < choreCooldown) {
+                const remainingSeconds = Math.ceil((choreCooldown - timeSinceLastChore) / 1000);
+                showCollectionFeedback(`Chores on cooldown for ${remainingSeconds}s`, 'mood', 0);
+                return;
+              }
+            } else if (action === 'shop') {
+              const timeSinceLastShop = Date.now() - player.lastActionTimes.shop;
+              const shopCooldown = 60000; // 60 seconds
+              if (timeSinceLastShop < shopCooldown) {
+                const remainingSeconds = Math.ceil((shopCooldown - timeSinceLastShop) / 1000);
+                showCollectionFeedback(`Shopping on cooldown for ${remainingSeconds}s`, 'mood', 0);
+                return;
+              }
+            } else if (action === 'climb') {
+              const timeSinceLastClimb = Date.now() - player.lastActionTimes.climb;
+              const climbCooldown = 20000; // 20 seconds
+              if (timeSinceLastClimb < climbCooldown) {
+                const remainingSeconds = Math.ceil((climbCooldown - timeSinceLastClimb) / 1000);
+                showCollectionFeedback(`Climbing on cooldown for ${remainingSeconds}s`, 'mood', 0);
+                return;
+              }
+            }
             actions[action]();
           }
         };
@@ -3197,6 +3650,18 @@
             locationActionBtn.textContent = `${baseText} (${remainingSeconds}s)`;
           } else {
             locationActionBtn.textContent = '🏛️ Shop at Center Camp [B]';
+          }
+        } else if (actionType === 'climb') {
+          const timeSinceLastClimb = Date.now() - player.lastActionTimes.climb;
+          const climbCooldown = 20000; // 20 seconds
+          const remainingTime = Math.max(0, climbCooldown - timeSinceLastClimb);
+          
+          if (remainingTime > 0) {
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            const baseText = '🧱 Climb Block [C]';
+            locationActionBtn.textContent = `${baseText} (${remainingSeconds}s)`;
+          } else {
+            locationActionBtn.textContent = '🧱 Climb Block [C]';
           }
         }
       }
@@ -3718,6 +4183,94 @@
       });
     }
     
+    function drawNPCs() {
+      npcs.forEach(npc => {
+        const screenX = npc.x - camera.x;
+        const screenY = npc.y - camera.y;
+        
+        // Only draw if on screen
+        if (screenX > -npc.w && screenX < canvas.width && 
+            screenY > -npc.h && screenY < canvas.height) {
+          
+          // Draw NPC background circle
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+          ctx.beginPath();
+          ctx.arc(screenX + npc.w/2, screenY + npc.h/2, npc.w/2, 0, 2 * Math.PI);
+          ctx.fill();
+          
+          // Draw NPC emoji
+          ctx.font = `${npc.w}px Arial`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(npc.emoji, screenX + npc.w/2, screenY + npc.h/2);
+          
+          // Add behavior-specific visual effects
+          switch (npc.behavior) {
+            case 'dance':
+              // Add dancing sparkles
+              if (Math.random() < 0.3) {
+                ctx.fillStyle = `rgba(255, 215, 0, ${Math.random() * 0.8})`;
+                ctx.fillRect(screenX + Math.random() * npc.w, screenY + Math.random() * npc.h, 2, 2);
+              }
+              break;
+            case 'bike':
+              // Add speed lines
+              ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+              ctx.lineWidth = 1;
+              for (let i = 0; i < 3; i++) {
+                ctx.beginPath();
+                ctx.moveTo(screenX - 10 - i * 5, screenY + npc.h/2);
+                ctx.lineTo(screenX - 5 - i * 5, screenY + npc.h/2);
+                ctx.stroke();
+              }
+              break;
+            case 'artcar':
+              // Add passenger indicator
+              if (npc.targetArtCar) {
+                ctx.fillStyle = 'rgba(0, 255, 0, 0.5)';
+                ctx.fillRect(screenX + npc.w/2 - 2, screenY - 8, 4, 4);
+              }
+              break;
+          }
+          
+          // Draw gas can indicator if NPC has one
+          if (npc.hasGasCan) {
+            ctx.fillStyle = '#ff6b35';
+            ctx.fillRect(screenX + npc.w - 8, screenY, 6, 8);
+          }
+        }
+      });
+    }
+    
+    function drawGasolineTanks() {
+      gasolineTanks.forEach(tank => {
+        if (!tank.collected) {
+          const screenX = tank.x - camera.x;
+          const screenY = tank.y - camera.y;
+          
+          // Only draw if on screen
+          if (screenX > -tank.w && screenX < canvas.width && 
+              screenY > -tank.h && screenY < canvas.height) {
+            
+            // Draw gasoline tank
+            ctx.fillStyle = '#ff6b35';
+            ctx.fillRect(screenX, screenY, tank.w, tank.h);
+            
+            // Add fuel indicator
+            ctx.fillStyle = '#ffff00';
+            ctx.fillRect(screenX + 2, screenY + 2, tank.w - 4, 4);
+            
+            // Add flame symbol
+            ctx.font = '12px Arial';
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('⛽', screenX + tank.w/2, screenY + tank.h/2 + 8);
+          }
+        }
+      });
+    }
+    
     function updateStatsDisplay() {
       document.getElementById('thirst-bar').style.width = player.stats.thirst + '%';
       document.getElementById('thirst-value').textContent = Math.round(player.stats.thirst - 100);
@@ -3858,30 +4411,25 @@
       // Update speed display
       const speedDisplay = document.getElementById('speed-display');
       if (speedDisplay) {
-        const speedIcon = totalSpeedMultiplier > 1 ? '⚡' : (totalSpeedMultiplier < 1 ? '🐌' : '🚶');
         const speedColor = totalSpeedMultiplier > 1 ? '#00ff88' : (totalSpeedMultiplier < 1 ? '#ff6b35' : '#ffffff');
-        speedDisplay.innerHTML = `${speedIcon} <span style="color: ${speedColor};">${totalSpeedMultiplier.toFixed(1)}x</span>`;
+        speedDisplay.innerHTML = `<span style="color: ${speedColor};">${totalSpeedMultiplier.toFixed(1)}x</span>`;
       }
       
       // Update time perception display
       const timeDisplay = document.getElementById('time-perception-display');
       if (timeDisplay) {
-        let timeIcon = '⏰';
         let timeColor = '#ffffff';
         
         if (totalTimeMultiplier === 0) {
-          timeIcon = '⏸️';
           timeColor = '#ff0000';
         } else if (totalTimeMultiplier > 1) {
-          timeIcon = '⏩';
           timeColor = '#00ff88';
         } else if (totalTimeMultiplier < 1) {
-          timeIcon = '⏪';
           timeColor = '#ff6b35';
         }
         
         const timeText = totalTimeMultiplier === 0 ? 'STOPPED' : `${totalTimeMultiplier.toFixed(1)}x`;
-        timeDisplay.innerHTML = `${timeIcon} <span style="color: ${timeColor};">${timeText}</span>`;
+        timeDisplay.innerHTML = `<span style="color: ${timeColor};">${timeText}</span>`;
       }
     }
     
@@ -3969,7 +4517,16 @@
         'Fruit Salad': { hunger: 20, mood: 6, emoji: '🥗' },
         'Energy Bar': { hunger: 15, mood: 4, emoji: '🍫' },
         'Pizza Slice': { hunger: 30, mood: 12, emoji: '🍕' },
-        'Smoothie': { hunger: 18, mood: 5, emoji: '🥤' }
+        'Smoothie': { hunger: 18, mood: 5, emoji: '🥤' },
+        'Popsicle': { hunger: 8, mood: 3, emoji: '🍭' },
+        'Burrito': { hunger: 28, mood: 9, emoji: '🌯' },
+        'Taco': { hunger: 22, mood: 7, emoji: '🌮' },
+        'Ice Cream': { hunger: 12, mood: 6, emoji: '🍦' },
+        'Pretzel': { hunger: 18, mood: 4, emoji: '🥨' },
+        'Corn Dog': { hunger: 25, mood: 8, emoji: '🌭' },
+        'Funnel Cake': { hunger: 20, mood: 10, emoji: '🍰' },
+        'Nachos': { hunger: 24, mood: 7, emoji: '🧀' },
+        'Cotton Candy': { hunger: 5, mood: 2, emoji: '🍬' }
       };
       
       // Define clothing and trinket items with their effects
@@ -3991,13 +4548,22 @@
         const itemHotkeys = {
           'Water': 'W',
           'Trinket': 'T',
-          'Clothing': 'C',
+          'Clothing': 'L',
           'Grilled Cheese': 'J',
           'Veggie Burger': 'V',
           'Fruit Salad': 'F',
           'Energy Bar': 'E',
           'Pizza Slice': 'P',
-          'Smoothie': 'S'
+          'Smoothie': 'S',
+          'Popsicle': 'O',
+          'Burrito': 'U',
+          'Taco': 'K',
+          'Ice Cream': 'I',
+          'Pretzel': 'R',
+          'Corn Dog': 'N',
+          'Funnel Cake': 'M',
+          'Nachos': 'Q',
+          'Cotton Candy': 'Y'
         };
         
         if (foodEffects[itemName]) {
@@ -4096,7 +4662,6 @@
             const speedColor = drug.speedMultiplier > 1 ? '#00ff88' : '#ff6b35';
             
             speedDiv.innerHTML = `
-              <div class="drug-effect-icon">${speedIcon}</div>
               <div class="drug-effect-text" style="color: ${speedColor};">${speedText}</div>
               <div class="drug-effect-duration">${drug.duration}h</div>
             `;
@@ -4111,11 +4676,7 @@
             // Show the actual drug type (revealed when consumed) or mystery name
             const displayName = drug.name.includes('Mystery') ? 
               (drug.mysteryType || drug.name) : drug.name;
-            // Use the drug's actual emoji instead of generic rainbow
-            console.log('Drug hallucination effect - name:', drug.name, 'emoji:', drug.emoji);
-            const hallucinationIcon = drug.emoji || '🌈';
             hallDiv.innerHTML = `
-              <div class="drug-effect-icon">${hallucinationIcon}</div>
               <div class="drug-effect-text" style="color: #ff6b9d;">${displayName} Hallucinations</div>
               <div class="drug-effect-duration">${drug.duration}h</div>
             `;
@@ -4127,9 +4688,6 @@
             const timeDiv = document.createElement('div');
             timeDiv.className = 'drug-effect-item';
             
-            // Use the drug's actual emoji instead of generic time icons
-            console.log('Drug time effect - name:', drug.name, 'emoji:', drug.emoji, 'timeMultiplier:', drug.timeMultiplier);
-            const timeIcon = drug.emoji || (drug.timeMultiplier > 1 ? '⏰' : '🐌');
             const displayName = drug.name.includes('Mystery') ? 
               (drug.mysteryType || drug.name) : drug.name;
             const timeText = drug.timeMultiplier > 1 ? 
@@ -4138,7 +4696,6 @@
             const timeColor = drug.timeMultiplier > 1 ? '#00ff88' : '#ff6b35';
             
             timeDiv.innerHTML = `
-              <div class="drug-effect-icon">${timeIcon}</div>
               <div class="drug-effect-text" style="color: ${timeColor};">${timeText}</div>
               <div class="drug-effect-duration">${drug.duration}h</div>
             `;
@@ -4151,7 +4708,6 @@
           const timeStopDiv = document.createElement('div');
           timeStopDiv.className = 'drug-effect-item';
           timeStopDiv.innerHTML = `
-            <div class="drug-effect-icon">⏸️</div>
             <div class="drug-effect-text" style="color: #ff6b35; font-weight: bold;">Time Stopped</div>
             <div class="drug-effect-duration">${player.drugEffects.timeStopDuration}s</div>
           `;
@@ -4844,102 +5400,50 @@
         }
       },
       
-      gift: () => {
-        // Check what items are available in inventory
-        const availableGifts = [];
+      // Helper function to refresh gift grid
+      refreshGiftGrid: () => {
+        const gridDiv = document.getElementById('gift-grid');
+        if (!gridDiv) return;
+        
+        // Clear existing items
+        gridDiv.innerHTML = '';
+        
+        // Define gift items with emojis and rewards
+        const giftItems = [
+          { name: 'Water', emoji: '💧', karma: 5, mood: 4, text: 'You share your water with someone in need.' },
+          { name: 'Clothing', emoji: '👕', karma: 6, mood: 7, text: 'You gift some clothing to someone who needs it.' },
+          { name: 'Trinket', emoji: '✨', karma: 4, mood: 6, text: 'You gift a small trinket to a fellow burner.' },
+          { name: 'Grilled Cheese', emoji: '🧀', karma: 4, mood: 5, text: 'You offer grilled cheese to a hungry stranger.' },
+          { name: 'Veggie Burger', emoji: '🥬', karma: 4, mood: 5, text: 'You offer veggie burger to a hungry stranger.' },
+          { name: 'Fruit Salad', emoji: '🥗', karma: 4, mood: 5, text: 'You offer fruit salad to a hungry stranger.' },
+          { name: 'Energy Bar', emoji: '🍫', karma: 4, mood: 5, text: 'You offer energy bar to a hungry stranger.' },
+          { name: 'Pizza Slice', emoji: '🍕', karma: 4, mood: 5, text: 'You offer pizza slice to a hungry stranger.' },
+          { name: 'Smoothie', emoji: '🥤', karma: 4, mood: 5, text: 'You offer smoothie to a hungry stranger.' },
+          { name: 'Popsicle', emoji: '🍭', karma: 4, mood: 5, text: 'You offer popsicle to a hungry stranger.' },
+          { name: 'Burrito', emoji: '🌯', karma: 4, mood: 5, text: 'You offer burrito to a hungry stranger.' },
+          { name: 'Taco', emoji: '🌮', karma: 4, mood: 5, text: 'You offer taco to a hungry stranger.' },
+          { name: 'Ice Cream', emoji: '🍦', karma: 4, mood: 5, text: 'You offer ice cream to a hungry stranger.' },
+          { name: 'Corn Dog', emoji: '🌭', karma: 4, mood: 5, text: 'You offer corn dog to a hungry stranger.' },
+          { name: 'Funnel Cake', emoji: '🍰', karma: 4, mood: 5, text: 'You offer funnel cake to a hungry stranger.' },
+          { name: 'Nachos', emoji: '🧀', karma: 4, mood: 5, text: 'You offer nachos to a hungry stranger.' },
+          { name: 'Cotton Candy', emoji: '🍬', karma: 4, mood: 5, text: 'You offer cotton candy to a hungry stranger.' }
+        ];
         
         // Add inventory items
-        Object.keys(player.inventory).forEach(itemName => {
-          const quantity = player.inventory[itemName];
+        giftItems.forEach(item => {
+          const quantity = player.inventory[item.name] || 0;
           if (quantity > 0) {
-            if (itemName === 'Water') {
-              availableGifts.push({ 
-                name: 'Water Bottle', 
-                itemName: 'Water', 
-                cost: 0, 
-                karma: 5, 
-                mood: 4, 
-                text: 'You share your water with someone in need.',
-                type: 'inventory'
-              });
-            } else if (itemName === 'Clothing') {
-              availableGifts.push({ 
-                name: 'Clothing', 
-                itemName: 'Clothing', 
-                cost: 0, 
-                karma: 6, 
-                mood: 7, 
-                text: 'You gift some clothing to someone who needs it.',
-                type: 'inventory'
-              });
-            } else if (itemName === 'Trinket') {
-              availableGifts.push({ 
-                name: 'Trinket', 
-                itemName: 'Trinket', 
-                cost: 0, 
-                karma: 4, 
-                mood: 6, 
-                text: 'You gift a small trinket to a fellow burner.',
-                type: 'inventory'
-              });
-            } else if (itemName === 'Grilled Cheese' || itemName === 'Veggie Burger' || itemName === 'Fruit Salad' || itemName === 'Energy Bar' || itemName === 'Pizza Slice' || itemName === 'Smoothie') {
-              availableGifts.push({ 
-                name: itemName, 
-                itemName: itemName, 
-                cost: 0, 
-                karma: 4, 
-                mood: 5, 
-                text: `You offer ${itemName.toLowerCase()} to a hungry stranger.`,
-                type: 'inventory'
-              });
-            }
-          }
-        });
-        
-        // Add free gifts (hugs, etc.)
-        availableGifts.push({ 
-          name: 'Hug', 
-          itemName: null, 
-          cost: 0, 
-          karma: 2, 
-          mood: 8, 
-          text: 'You give someone a warm playa hug.',
-          type: 'free'
-        });
-        
-        if (availableGifts.length === 0) {
-          alert('You have nothing to give! Try collecting some items first.');
-          return;
-        }
-        
-        const modal = document.createElement('div');
-        modal.className = 'encounter-modal';
-        modal.innerHTML = `
-          <div class="encounter-text">You want to give a gift to someone. What do you offer?</div>
-          <div class="encounter-choices" id="gift-choices"></div>
-        `;
-        document.body.appendChild(modal);
-        
-        const choicesDiv = document.getElementById('gift-choices');
-        availableGifts.forEach(gift => {
-          const btn = document.createElement('button');
-          btn.className = 'choice-btn';
-          
-          // Show quantity for inventory items
-          let buttonText = `${gift.name}`;
-          if (gift.type === 'inventory' && gift.itemName) {
-            const quantity = player.inventory[gift.itemName] || 0;
-            buttonText += ` (${quantity} available)`;
-          }
-          buttonText += ` (+${gift.karma} karma, +${gift.mood} mood)`;
-          
-          btn.textContent = buttonText;
-          btn.onclick = () => {
-            if (gift.type === 'inventory' && gift.itemName === 'Trinket') {
-              // Special handling for trinkets - show quantity selection
-              const quantity = player.inventory[gift.itemName] || 0;
-              if (quantity > 1) {
-                // Show quantity selection modal
+            const giftDiv = document.createElement('div');
+            giftDiv.className = 'gift-item';
+            giftDiv.innerHTML = `
+              <div class="gift-emoji">${item.emoji}</div>
+              <div class="gift-quantity">${quantity}</div>
+              <div class="gift-rewards">+${item.karma} +${item.mood}</div>
+            `;
+            
+            giftDiv.onclick = () => {
+              if (item.name === 'Trinket' && quantity > 1) {
+                // Special handling for trinkets - show quantity selection
                 const quantityModal = document.createElement('div');
                 quantityModal.className = 'encounter-modal';
                 quantityModal.innerHTML = `
@@ -4952,23 +5456,29 @@
                 for (let i = 1; i <= Math.min(quantity, 5); i++) {
                   const qtyBtn = document.createElement('button');
                   qtyBtn.className = 'choice-btn';
-                  qtyBtn.textContent = `Give ${i} trinket${i > 1 ? 's' : ''} (+${gift.karma * i} karma, +${gift.mood * i} mood)`;
+                  qtyBtn.textContent = `Give ${i} trinket${i > 1 ? 's' : ''} (+${item.karma * i} karma, +${item.mood * i} mood)`;
                   qtyBtn.onclick = () => {
                     document.body.removeChild(quantityModal);
-                    document.body.removeChild(modal);
                     
                     // Remove items from inventory
                     for (let j = 0; j < i; j++) {
-                      useItem(gift.itemName, () => {});
+                      useItem(item.name, () => {});
                     }
                     
                     applyEff(function(s) { 
-                      s.karma += gift.karma * i; 
-                      s.mood += gift.mood * i; 
+                      s.karma += item.karma * i; 
+                      s.mood += item.mood * i; 
                     });
+                    
+                    showCollectionFeedback(`You gave ${i} trinket${i > 1 ? 's' : ''} to a fellow burner.`, 'karma', item.karma * i);
                     advance(15);
                     updateStatsDisplay();
                     updateInventoryDisplay();
+                    
+                    // Refresh the gift grid to update quantities
+                    setTimeout(() => {
+                      actions.refreshGiftGrid();
+                    }, 50);
                   };
                   choicesDiv.appendChild(qtyBtn);
                 }
@@ -4982,38 +5492,85 @@
                 };
                 choicesDiv.appendChild(cancelBtn);
                 
-                return; // Don't proceed with normal gift logic
+                return;
               }
-            }
+              
+              // Normal gift logic for single items
+              const success = useItem(item.name, () => {});
+              if (success) {
+                applyEff(function(s) { 
+                  s.karma += item.karma; 
+                  s.mood += item.mood; 
+                });
+                
+                showCollectionFeedback(item.text, 'karma', item.karma);
+                advance(15);
+                updateStatsDisplay();
+                updateInventoryDisplay();
+                
+                // Refresh the gift grid to update quantities
+                setTimeout(() => {
+                  actions.refreshGiftGrid();
+                }, 50);
+              }
+            };
             
-            // Normal gift logic for non-trinket items or single trinket
-            document.body.removeChild(modal);
-            
-            if (gift.type === 'inventory') {
-              // Remove item from inventory
-              useItem(gift.itemName, () => {});
-            }
-            
-            applyEff(function(s) { 
-              s.karma += gift.karma; 
-              s.mood += gift.mood; 
-            });
-            advance(15);
-            updateStatsDisplay();
-            updateInventoryDisplay();
-          };
-          choicesDiv.appendChild(btn);
+            gridDiv.appendChild(giftDiv);
+          }
         });
         
-        // Add cancel button
-        const cancelBtn = document.createElement('button');
-        cancelBtn.className = 'choice-btn';
-        cancelBtn.textContent = 'Cancel';
+        // Add free hug option
+        const hugDiv = document.createElement('div');
+        hugDiv.className = 'gift-item';
+        hugDiv.innerHTML = `
+          <div class="gift-emoji">🤗</div>
+          <div class="gift-quantity">∞</div>
+          <div class="gift-rewards">+2 +8</div>
+        `;
+        
+        hugDiv.onclick = () => {
+          applyEff(function(s) { 
+            s.karma += 2; 
+            s.mood += 8; 
+          });
+          
+          showCollectionFeedback('You give someone a warm playa hug.', 'karma', 2);
+          advance(15);
+          updateStatsDisplay();
+        };
+        
+        gridDiv.appendChild(hugDiv);
+      },
+      
+      gift: () => {
+        // Check if we have any items to give
+        const hasItems = Object.keys(player.inventory).some(itemName => (player.inventory[itemName] || 0) > 0);
+        
+        if (!hasItems) {
+          showCollectionFeedback('You have nothing to give!', 'mood', 0);
+          return;
+        }
+        
+        const modal = document.createElement('div');
+        modal.className = 'encounter-modal';
+        modal.innerHTML = `
+          <div class="encounter-text">You want to give a gift to someone. What do you offer?</div>
+          <div class="gift-grid" id="gift-grid"></div>
+          <div style="text-align: center; margin-top: 10px;">
+            <button class="choice-btn" id="cancel-gift-btn">Cancel</button>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Use the refresh function to populate the grid
+        actions.refreshGiftGrid();
+        
+        // Add cancel button functionality
+        const cancelBtn = document.getElementById('cancel-gift-btn');
         cancelBtn.onclick = () => {
           document.body.removeChild(modal);
           advance(5);
         };
-        choicesDiv.appendChild(cancelBtn);
       },
       
       dance: () => {
@@ -5056,12 +5613,6 @@
       },
       
       climb: () => {
-        // Check cooldown
-        if (player.cooldowns.climb > 0) {
-          showCollectionFeedback(`Climbing on cooldown for ${player.cooldowns.climb} more days`, 'mood', 0);
-          return;
-        }
-        
         const climbOptions = [
           { name: 'Small Block', energy: -3, mood: 5, karma: 1, text: 'You climb on a small decorative block.' },
           { name: 'Colorful Block', energy: -4, mood: 7, karma: 2, text: 'You climb a colorful decorative block.' },
@@ -5078,8 +5629,8 @@
           s.karma += climb.karma; 
         });
         
-        // Set cooldown (1 day)
-        player.cooldowns.climb = 1;
+        // Set 20-second cooldown
+        player.lastActionTimes.climb = Date.now();
         
         // Show detailed effects
         showDetailedEffects(climb.text, {
@@ -5455,6 +6006,8 @@
       // Draw art cars
       drawBikes();
       drawArtCars();
+      drawNPCs();
+      drawGasolineTanks();
       drawMoop();
       drawDrugs();
       drawSpecialLocations();
@@ -5488,6 +6041,9 @@
       
       // Draw Molly hearts overlay
       drawMollyHearts();
+      
+      // Draw confetti celebration
+      drawConfetti(ctx);
       
       // Add day/night visual effects
       drawDayNightCycle();
