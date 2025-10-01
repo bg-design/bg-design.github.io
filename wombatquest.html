@@ -729,7 +729,7 @@
 <body>
   
   <div class="top-info-panel">
-      <div class="version-display">v2069.13</div>
+      <div class="version-display">v2069.22</div>
     <div class="time-controls">
       <div class="time-display" id="time-display">Day 1 • 08:00</div>
         <button class="pause-btn" id="pause-btn">
@@ -920,8 +920,7 @@
       inventory: { 
         'Water': 3,
         'Grilled Cheese': 1,
-        'Energy Bar': 1,
-        'Mystery Pill': 1
+        'Energy Bar': 1
       },
       flags: { storm: false, goggles: false },
       time: { day: 1, hour: 8, minute: 0 },
@@ -929,7 +928,8 @@
         activeDrugs: [],  // Array of active drugs with their effects and durations
         timeMultiplier: 1.0,
         timeStopDuration: 0,
-        timeAccumulator: 0
+        timeAccumulator: 0,
+        whipitsCount: 0  // Track Whip Its usage for vinetting effect
       },
       sleeping: false,
       sleepStartTime: 0,
@@ -1057,14 +1057,14 @@
       player.inventory = { 
         'Water': 3,
         'Grilled Cheese': 1,
-        'Energy Bar': 1,
-        'Mystery Pill': 1
+        'Energy Bar': 1
       };
       player.time = { day: 1, hour: 8, minute: 0 };
       player.drugEffects.activeDrugs = [];
       player.drugEffects.timeMultiplier = 1.0;
       player.drugEffects.timeStopDuration = 0;
       player.drugEffects.timeAccumulator = 0;
+      player.drugEffects.whipitsCount = 0;
       player.sleeping = false;
       player.sleepStartTime = 0;
       player.cooldowns = {
@@ -1103,6 +1103,8 @@
       orgyDomes.length = 0;
       homeCamps.length = 0;
       centerCamps.length = 0;
+      npcs.length = 0;
+      gasolineTanks.length = 0;
       
       // Reset world generation
       generatedChunks.clear();
@@ -1131,6 +1133,10 @@
       
       // Generate initial world content
       generateWorldContent();
+      
+      // Update displays to show starting items
+      updateInventoryDisplay();
+      updateStatsDisplay();
       
       // Restart the game loop
       loop();
@@ -1436,7 +1442,7 @@
             { name: 'Grilled Cheese', hunger: 25, color: '#FFD700', emoji: '🧀' },
             { name: 'Veggie Burger', hunger: 35, color: '#8B4513', emoji: '🍔' },
             { name: 'Fruit Salad', hunger: 20, color: '#FF69B4', emoji: '🥗' },
-            { name: 'Energy Bar', hunger: 15, color: '#8B4513', emoji: '🍫' },
+            { name: 'Energy Bar', hunger: 15, energy: 20, color: '#8B4513', emoji: '🍫' },
             { name: 'Pizza Slice', hunger: 30, color: '#FF6347', emoji: '🍕' },
             { name: 'Smoothie', hunger: 18, color: '#32CD32', emoji: '🥤' },
             { name: 'Popsicle', hunger: 8, color: '#FF1493', emoji: '🍭' },
@@ -1562,7 +1568,10 @@
                   design: carType.design,
                   weirdMovement: carType.weirdMovement || false,
                   hasPassenger: false,
-                  chunkId: chunkId
+                  chunkId: chunkId,
+                  fuel: Math.random() * 50 + 25, // 25-75 fuel units
+                  maxFuel: 100,
+                  flameIntensity: 0 // 0-1, increases with fuel
                 };
               }
               
@@ -1690,15 +1699,15 @@
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 2.0, duration: 2, hallucinating: false, mysteryType: 'Speed', timeMultiplier: 2.0 }, // 2 hours
             { name: 'Mystery Snowball', emoji: '⚪️', speedMultiplier: 0.3, duration: 3, hallucinating: true, mysteryType: 'Ketamine', timeMultiplier: 0.1 }, // 3 hours
             // Classic psychedelics
-            { name: 'LSD', emoji: '🌈', speedMultiplier: 0.5, duration: 8, hallucinating: true, timeMultiplier: 0.3 }, // 8 hours
-            { name: 'Shrooms', emoji: '🍄', speedMultiplier: 0.7, duration: 6, hallucinating: true, timeMultiplier: 0.5 }, // 6 hours
-            { name: 'DMT', emoji: '💫', speedMultiplier: 0.2, duration: 0.5, hallucinating: true, timeMultiplier: 0.1 }, // 30 minutes
+            { name: 'LSD', emoji: '🌈', speedMultiplier: 0.5, duration: 8, hallucinating: true, timeMultiplier: 0.3, specialEffects: 'acid' }, // 8 hours
+            { name: 'Shrooms', emoji: '🍄', speedMultiplier: 0.7, duration: 6, hallucinating: true, timeMultiplier: 0.5, specialEffects: 'shrooms' }, // 6 hours
+            { name: 'DMT', emoji: '💫', speedMultiplier: 0.2, duration: 0.5, hallucinating: true, timeMultiplier: 0.1, specialEffects: 'dmt' }, // 30 minutes
             { name: 'Mescaline', emoji: '🌵', speedMultiplier: 0.6, duration: 10, hallucinating: true, timeMultiplier: 0.4 }, // 10 hours
             // Stimulants
-            { name: 'Caffeine', emoji: '☕', speedMultiplier: 1.3, duration: 1, hallucinating: false, timeMultiplier: 1.5 }, // 1 hour
-            { name: 'Cocaine', emoji: '❄️', speedMultiplier: 2.5, duration: 1.5, hallucinating: false, timeMultiplier: 2.5 }, // 1.5 hours
-            { name: 'Adderall', emoji: '💊', speedMultiplier: 1.8, duration: 4, hallucinating: false, timeMultiplier: 1.8 }, // 4 hours
-            { name: 'Energy Drink', emoji: '⚡', speedMultiplier: 1.4, duration: 0.5, hallucinating: false, timeMultiplier: 1.4 }, // 30 minutes
+            { name: 'Caffeine', emoji: '☕', speedMultiplier: 1.3, duration: 1, hallucinating: false, timeMultiplier: 1.5, energyBoost: 15 }, // 1 hour
+            { name: 'Cocaine', emoji: '❄️', speedMultiplier: 2.5, duration: 1.5, hallucinating: false, timeMultiplier: 2.5, energyBoost: 25 }, // 1.5 hours
+            { name: 'Adderall', emoji: '💊', speedMultiplier: 1.8, duration: 4, hallucinating: false, timeMultiplier: 1.8, energyBoost: 20 }, // 4 hours
+            { name: 'Energy Drink', emoji: '⚡', speedMultiplier: 1.4, duration: 0.5, hallucinating: false, timeMultiplier: 1.4, energyBoost: 12 }, // 30 minutes
             // Depressants
             { name: 'Xanax', emoji: '💙', speedMultiplier: 0.4, duration: 6, hallucinating: false, timeMultiplier: 0.3 }, // 6 hours
             { name: 'Valium', emoji: '💜', speedMultiplier: 0.5, duration: 8, hallucinating: false, timeMultiplier: 0.4 }, // 8 hours
@@ -1707,17 +1716,17 @@
             { name: 'Ketamine', emoji: '🕳️', speedMultiplier: 0.3, duration: 2, hallucinating: true, timeMultiplier: 0.1 }, // 2 hours
             { name: 'PCP', emoji: '👻', speedMultiplier: 0.4, duration: 4, hallucinating: true, timeMultiplier: 0.2 }, // 4 hours
             // Special effects
-            { name: 'Whip Its', emoji: '🎈', speedMultiplier: 1.0, duration: 0.15, hallucinating: false, moodBoost: 10, energyBoost: 5, timeMultiplier: 0 }, // 15 minutes - stops time
-            { name: 'Salvia', emoji: '🌿', speedMultiplier: 0.1, duration: 0.25, hallucinating: true, timeMultiplier: 0.05 }, // 15 minutes
+            { name: 'Whip Its', emoji: '🎈', speedMultiplier: 1.0, duration: 0.15, hallucinating: false, moodBoost: 10, energyBoost: 5, timeMultiplier: 0, specialEffects: 'whipits' }, // 15 minutes - stops time
+            { name: 'Salvia', emoji: '🌿', speedMultiplier: 0.1, duration: 0.25, hallucinating: true, timeMultiplier: 0.05, specialEffects: 'salvia' }, // 15 minutes
             { name: '2C-B', emoji: '🔮', speedMultiplier: 0.8, duration: 4, hallucinating: true, timeMultiplier: 0.6 }, // 4 hours
             // Common substances
             { name: 'Cigarette', emoji: '🚬', speedMultiplier: 1.0, duration: 0.5, hallucinating: false, moodBoost: 3, energyBoost: 2, timeMultiplier: 1.0 }, // 30 minutes
             { name: 'Joint', emoji: '🌿', speedMultiplier: 0.8, duration: 2, hallucinating: true, moodBoost: 8, energyBoost: -2, timeMultiplier: 0.7 }, // 2 hours
-            { name: 'Alcohol', emoji: '🍺', speedMultiplier: 0.6, duration: 3, hallucinating: false, moodBoost: 5, energyBoost: -5, timeMultiplier: 1.0 }, // 3 hours
-            { name: 'Wine', emoji: '🍷', speedMultiplier: 0.7, duration: 2, hallucinating: false, moodBoost: 6, energyBoost: -3, timeMultiplier: 1.1 }, // 2 hours
-            { name: 'Vodka', emoji: '🥃', speedMultiplier: 0.4, duration: 4, hallucinating: false, moodBoost: 7, energyBoost: -8, timeMultiplier: 0.8 }, // 4 hours
+            { name: 'Alcohol', emoji: '🍺', speedMultiplier: 0.6, duration: 3, hallucinating: false, moodBoost: 5, energyBoost: -5, timeMultiplier: 1.0, specialEffects: 'alcohol' }, // 3 hours
+            { name: 'Wine', emoji: '🍷', speedMultiplier: 0.7, duration: 2, hallucinating: false, moodBoost: 6, energyBoost: -3, timeMultiplier: 1.1, specialEffects: 'alcohol' }, // 2 hours
+            { name: 'Vodka', emoji: '🥃', speedMultiplier: 0.4, duration: 4, hallucinating: false, moodBoost: 7, energyBoost: -8, timeMultiplier: 0.8, specialEffects: 'alcohol' }, // 4 hours
             // Party drugs
-            { name: 'MDMA', emoji: '💎', speedMultiplier: 1.2, duration: 4, hallucinating: false, moodBoost: 15, energyBoost: 10, timeMultiplier: 1.1 }, // 4 hours
+            { name: 'MDMA', emoji: '💎', speedMultiplier: 1.2, duration: 4, hallucinating: false, moodBoost: 15, energyBoost: 10, timeMultiplier: 1.1, specialEffects: 'molly' }, // 4 hours
             { name: 'MDA', emoji: '💠', speedMultiplier: 1.1, duration: 5, hallucinating: true, moodBoost: 12, energyBoost: 8, timeMultiplier: 0.9 }, // 5 hours
             { name: '2C-I', emoji: '✨', speedMultiplier: 0.9, duration: 6, hallucinating: true, timeMultiplier: 0.7 }, // 6 hours
             { name: 'DOB', emoji: '🌟', speedMultiplier: 0.6, duration: 12, hallucinating: true, timeMultiplier: 0.5 } // 12 hours
@@ -2230,6 +2239,30 @@
         }
         
         // Art car collision is now handled in the main update loop
+        
+        // Fuel consumption - only consume fuel when moving
+        if (car.fuel !== undefined) {
+          const movementSpeed = Math.sqrt(car.vx * car.vx + car.vy * car.vy);
+          if (movementSpeed > 0.1) { // Only consume fuel when actually moving
+            car.fuel -= movementSpeed * 0.02; // Consume fuel based on speed
+            car.fuel = Math.max(0, car.fuel); // Don't go below 0
+            
+            // Update flame intensity based on fuel level
+            car.flameIntensity = car.fuel / car.maxFuel;
+            
+            // Slow down when fuel is low
+            if (car.fuel < 10) {
+              car.vx *= 0.8;
+              car.vy *= 0.8;
+            } else if (car.fuel < 5) {
+              car.vx *= 0.5;
+              car.vy *= 0.5;
+            } else if (car.fuel <= 0) {
+              car.vx = 0;
+              car.vy = 0;
+            }
+          }
+        }
       });
     }
     
@@ -2505,8 +2538,8 @@
     function applyEff(fn) {
       const s = player.stats;
       fn(s);
-      s.coin = clamp(s.coin, 0, 999);
-      s.karma = clamp(s.karma, 0, 999);
+      s.coin = clamp(s.coin, 0, 9999);
+      s.karma = clamp(s.karma, 0, 9999);
       s.hunger = clamp(s.hunger, 0, 100);
       s.thirst = clamp(s.thirst, 0, 100);
       s.energy = clamp(s.energy, 0, 100);
@@ -2745,7 +2778,7 @@
         else if (e.key.toLowerCase() === 'e') {
           e.preventDefault();
           if (player.inventory['Energy Bar'] && player.inventory['Energy Bar'] > 0) {
-            if (!useItem('Energy Bar', function(s) { s.hunger += 15; s.mood += 4; })) {
+            if (!useItem('Energy Bar', function(s) { s.hunger += 15; s.mood += 4; s.energy += 20; })) {
               alert('No energy bar left.');
             }
           }
@@ -3059,8 +3092,11 @@
           
           // Handle special time effects
           if (drug.timeMultiplier === 0) {
-            // Whip Its - stop time for 5 seconds
+            // Whip Its - stop time for 5 seconds and increment counter for vinetting
             player.drugEffects.timeStopDuration = 5;
+            if (drug.type === 'Whip Its') {
+              player.drugEffects.whipitsCount++;
+            }
           }
           
           // Add drug to active drugs array
@@ -3379,8 +3415,8 @@
             worldPopulationMultiplier = 0.05; // 5% population - the last survivors
           }
           
-          // Check for game end on day 10
-          if (player.time.day === 10) {
+          // Check for game end at end of day 10 (when transitioning to day 11)
+          if (player.time.day === 11 && previousDay === 10) {
             setTimeout(() => {
               endGame();
             }, 2000); // Wait 2 seconds after the day 10 announcement
@@ -4493,17 +4529,7 @@
         }
       }
       
-      // Add time speed indicator
-      let timeSpeedIndicator = '';
-      if (timeMultiplier === 0) {
-        timeSpeedIndicator = ' ⏸️ STOPPED';
-      } else if (timeMultiplier < 1) {
-        timeSpeedIndicator = ` ⏪ ${timeMultiplier.toFixed(1)}x`;
-      } else if (timeMultiplier > 1) {
-        timeSpeedIndicator = ` ⏩ ${timeMultiplier.toFixed(1)}x`;
-      }
-      
-      document.getElementById('time-display').textContent = `Day ${player.time.day} (${dayOfWeek}) • ${hh}:${mm} ${timeOfDay}${timeSpeedIndicator}${timelineInfo}`;
+      document.getElementById('time-display').textContent = `Day ${player.time.day} (${dayOfWeek}) • ${hh}:${mm} ${timeOfDay}${timelineInfo}`;
     }
     
     function updateInventoryDisplay() {
@@ -5047,9 +5073,9 @@
       
       chore: () => {
         const chores = [
-          { name: 'Ice Run', coin: 3, karma: 2, energy: -8, thirst: 5, text: 'You go on an ice run to keep the camp cool.' },
-          { name: 'Grease Trap', coin: 6, karma: 4, energy: -12, mood: -2, text: 'You clean out the grease trap - dirty work but necessary.' },
-          { name: 'MOOP Sweep', coin: 2, karma: 5, energy: -5, text: 'You sweep for MOOP (Matter Out Of Place) to keep the playa clean.' }
+          { name: 'Ice Run', coin: 3, karma: 30, energy: -8, thirst: 5, text: 'You go on an ice run to keep the camp cool.' },
+          { name: 'Grease Trap', coin: 6, karma: 30, energy: -12, mood: -2, text: 'You clean out the grease trap - dirty work but necessary.' },
+          { name: 'MOOP Sweep', coin: 2, karma: 30, energy: -5, text: 'You sweep for MOOP (Matter Out Of Place) to keep the playa clean.' }
         ];
         const job = pick(chores);
         
@@ -5061,8 +5087,8 @@
         if (job.mood) player.stats.mood += job.mood;
         
         // Clamp stats
-        player.stats.coin = clamp(player.stats.coin, 0, 999);
-        player.stats.karma = clamp(player.stats.karma, 0, 100);
+        player.stats.coin = clamp(player.stats.coin, 0, 9999);
+        player.stats.karma = clamp(player.stats.karma, 0, 9999);
         player.stats.energy = clamp(player.stats.energy, 0, 100);
         player.stats.thirst = clamp(player.stats.thirst, 0, 100);
         player.stats.mood = clamp(player.stats.mood, 0, 100);
@@ -5442,60 +5468,7 @@
             `;
             
             giftDiv.onclick = () => {
-              if (item.name === 'Trinket' && quantity > 1) {
-                // Special handling for trinkets - show quantity selection
-                const quantityModal = document.createElement('div');
-                quantityModal.className = 'encounter-modal';
-                quantityModal.innerHTML = `
-                  <div class="encounter-text">How many trinkets do you want to give? (You have ${quantity})</div>
-                  <div class="encounter-choices" id="quantity-choices"></div>
-                `;
-                document.body.appendChild(quantityModal);
-                
-                const choicesDiv = document.getElementById('quantity-choices');
-                for (let i = 1; i <= Math.min(quantity, 5); i++) {
-                  const qtyBtn = document.createElement('button');
-                  qtyBtn.className = 'choice-btn';
-                  qtyBtn.textContent = `Give ${i} trinket${i > 1 ? 's' : ''} (+${item.karma * i} karma, +${item.mood * i} mood)`;
-                  qtyBtn.onclick = () => {
-                    document.body.removeChild(quantityModal);
-                    
-                    // Remove items from inventory
-                    for (let j = 0; j < i; j++) {
-                      useItem(item.name, () => {});
-                    }
-                    
-                    applyEff(function(s) { 
-                      s.karma += item.karma * i; 
-                      s.mood += item.mood * i; 
-                    });
-                    
-                    showCollectionFeedback(`You gave ${i} trinket${i > 1 ? 's' : ''} to a fellow burner.`, 'karma', item.karma * i);
-                    advance(15);
-                    updateStatsDisplay();
-                    updateInventoryDisplay();
-                    
-                    // Refresh the gift grid to update quantities
-                    setTimeout(() => {
-                      actions.refreshGiftGrid();
-                    }, 50);
-                  };
-                  choicesDiv.appendChild(qtyBtn);
-                }
-                
-                // Cancel button
-                const cancelBtn = document.createElement('button');
-                cancelBtn.className = 'choice-btn';
-                cancelBtn.textContent = 'Cancel';
-                cancelBtn.onclick = () => {
-                  document.body.removeChild(quantityModal);
-                };
-                choicesDiv.appendChild(cancelBtn);
-                
-                return;
-              }
-              
-              // Normal gift logic for single items
+              // Simple gift logic - just give one item at a time
               const success = useItem(item.name, () => {});
               if (success) {
                 applyEff(function(s) { 
@@ -5662,7 +5635,7 @@
         
         // Clamp stats
         player.stats.mood = clamp(player.stats.mood, 0, 100);
-        player.stats.karma = clamp(player.stats.karma, 0, 100);
+        player.stats.karma = clamp(player.stats.karma, 0, 9999);
         player.stats.energy = clamp(player.stats.energy, 0, 100);
         
         // Set cooldown
@@ -5953,8 +5926,8 @@
         
         // Draw the fence posts
         ctx.fillStyle = '#8B4513'; // Brown fence posts
-        for (let i = 0; i < 48; i++) {
-          const angle = (i / 48) * Math.PI * 2;
+        for (let i = 0; i < 96; i++) {
+          const angle = (i / 96) * Math.PI * 2;
           const postX = playaCenterX + Math.cos(angle) * TRASH_FENCE_RADIUS;
           const postY = playaCenterY + Math.sin(angle) * TRASH_FENCE_RADIUS;
           
@@ -6045,6 +6018,9 @@
       // Draw confetti celebration
       drawConfetti(ctx);
       
+      // Draw drug hallucination effects
+      drawHallucinationEffects(ctx);
+      
       // Add day/night visual effects
       drawDayNightCycle();
     }
@@ -6059,11 +6035,309 @@
       }
     }
     
+    // Drug hallucination visual effects
+    function drawHallucinationEffects(ctx) {
+      // Check for active drugs with special visual effects
+      const activeDrugs = player.drugEffects.activeDrugs;
+      
+      // Check for shrooms (color distortion)
+      const hasShrooms = activeDrugs.some(drug => drug.specialEffects === 'shrooms');
+      if (hasShrooms) {
+        drawShroomEffects(ctx);
+      }
+      
+      // Check for acid (extreme distortion)
+      const hasAcid = activeDrugs.some(drug => drug.specialEffects === 'acid');
+      if (hasAcid) {
+        drawAcidEffects(ctx);
+      }
+      
+      // Check for alcohol (blur and trails)
+      const hasAlcohol = activeDrugs.some(drug => drug.specialEffects === 'alcohol');
+      if (hasAlcohol) {
+        drawAlcoholEffects(ctx);
+      }
+      
+      // Check for DMT (reality breakdown)
+      const hasDMT = activeDrugs.some(drug => drug.specialEffects === 'dmt');
+      if (hasDMT) {
+        drawDMTEffects(ctx);
+      }
+      
+      // Check for Salvia (dimensional portal)
+      const hasSalvia = activeDrugs.some(drug => drug.specialEffects === 'salvia');
+      if (hasSalvia) {
+        drawSalviaEffects(ctx);
+      }
+      
+      // Check for Whip Its (vinetting tunnel vision)
+      const hasWhipIts = activeDrugs.some(drug => drug.specialEffects === 'whipits');
+      if (hasWhipIts) {
+        drawWhipItsEffects(ctx);
+      }
+    }
+    
+    // Shroom effects - color distortion and warping
+    function drawShroomEffects(ctx) {
+      const time = Date.now() * 0.001;
+      
+      // Create color distortion overlay
+      ctx.save();
+      ctx.globalAlpha = 0.3;
+      
+      // Warp effect - create a wavy distortion
+      for (let i = 0; i < 5; i++) {
+        const offset = Math.sin(time + i) * 10;
+        const hue = (time * 50 + i * 60) % 360;
+        
+        ctx.fillStyle = `hsla(${hue}, 70%, 60%, 0.2)`;
+        ctx.fillRect(0, offset, canvas.width, canvas.height);
+      }
+      
+      // Add color shifting overlay
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height) / 2
+      );
+      gradient.addColorStop(0, `hsla(${(time * 30) % 360}, 80%, 70%, 0.1)`);
+      gradient.addColorStop(0.5, `hsla(${(time * 45 + 120) % 360}, 60%, 50%, 0.05)`);
+      gradient.addColorStop(1, `hsla(${(time * 60 + 240) % 360}, 90%, 60%, 0.1)`);
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.restore();
+    }
+    
+    // Acid effects - extreme distortion and kaleidoscope
+    function drawAcidEffects(ctx) {
+      const time = Date.now() * 0.002;
+      
+      ctx.save();
+      
+      // Extreme kaleidoscope effect
+      for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2;
+        const radius = 100 + Math.sin(time + i) * 50;
+        const x = canvas.width / 2 + Math.cos(angle + time) * radius;
+        const y = canvas.height / 2 + Math.sin(angle + time) * radius;
+        
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(time + angle);
+        ctx.scale(0.5 + Math.sin(time * 2 + i) * 0.3, 0.5 + Math.cos(time * 2 + i) * 0.3);
+        
+        // Rainbow colors
+        const hue = (time * 100 + i * 45) % 360;
+        ctx.fillStyle = `hsla(${hue}, 100%, 60%, 0.4)`;
+        ctx.fillRect(-20, -20, 40, 40);
+        
+        ctx.restore();
+      }
+      
+      // Psychedelic overlay
+      ctx.globalAlpha = 0.2;
+      for (let i = 0; i < 3; i++) {
+        const wave = Math.sin(time * 3 + i) * 0.1;
+        ctx.fillStyle = `hsla(${(time * 80 + i * 120) % 360}, 100%, 70%, 0.3)`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      
+      ctx.restore();
+    }
+    
+    // Alcohol effects - blur and motion trails
+    function drawAlcoholEffects(ctx) {
+      const time = Date.now() * 0.001;
+      
+      ctx.save();
+      
+      // Blur effect - multiple offset layers
+      for (let i = 0; i < 3; i++) {
+        const offsetX = Math.sin(time + i) * 2;
+        const offsetY = Math.cos(time + i) * 2;
+        const alpha = 0.1 - (i * 0.03);
+        
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.fillRect(offsetX, offsetY, canvas.width, canvas.height);
+      }
+      
+      // Motion trail effect
+      ctx.globalAlpha = 0.3;
+      const trailGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      trailGradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+      trailGradient.addColorStop(0.5, 'rgba(200, 200, 255, 0.2)');
+      trailGradient.addColorStop(1, 'rgba(255, 255, 255, 0.1)');
+      
+      ctx.fillStyle = trailGradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Wobble effect
+      ctx.globalAlpha = 0.1;
+      const wobble = Math.sin(time * 2) * 3;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.fillRect(wobble, 0, canvas.width - wobble * 2, canvas.height);
+      
+      ctx.restore();
+    }
+    
+    // DMT effects - reality breakdown and geometric patterns
+    function drawDMTEffects(ctx) {
+      const time = Date.now() * 0.003;
+      
+      ctx.save();
+      
+      // Reality breakdown effect - multiple layers of geometric patterns
+      for (let layer = 0; layer < 4; layer++) {
+        const scale = 0.5 + layer * 0.2;
+        const rotation = time * 0.5 + layer;
+        
+        ctx.save();
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.scale(scale, scale);
+        ctx.rotate(rotation);
+        
+        // Geometric mandala patterns
+        for (let i = 0; i < 12; i++) {
+          const angle = (i / 12) * Math.PI * 2;
+          const radius = 50 + Math.sin(time * 2 + i) * 20;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+          
+          ctx.fillStyle = `hsla(${(time * 120 + i * 30) % 360}, 100%, 70%, 0.4)`;
+          ctx.beginPath();
+          ctx.arc(x, y, 8 + Math.sin(time * 3 + i) * 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        ctx.restore();
+      }
+      
+      // Reality distortion overlay
+      ctx.globalAlpha = 0.2;
+      for (let i = 0; i < 6; i++) {
+        const wave = Math.sin(time * 4 + i) * 0.15;
+        ctx.fillStyle = `hsla(${(time * 60 + i * 60) % 360}, 100%, 80%, 0.3)`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      
+      ctx.restore();
+    }
+    
+    // Salvia effects - dimensional portal and reality bending
+    function drawSalviaEffects(ctx) {
+      const time = Date.now() * 0.002;
+      
+      ctx.save();
+      
+      // Create a swirling portal effect in the center
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      
+      // Portal vortex
+      for (let i = 0; i < 8; i++) {
+        const radius = 30 + i * 15;
+        const rotation = time * 2 + i * 0.5;
+        
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(rotation);
+        
+        // Spiral arms
+        for (let j = 0; j < 20; j++) {
+          const spiralRadius = (j / 20) * radius;
+          const spiralAngle = j * 0.3;
+          const x = Math.cos(spiralAngle) * spiralRadius;
+          const y = Math.sin(spiralAngle) * spiralRadius;
+          
+          ctx.fillStyle = `hsla(${(time * 80 + i * 45) % 360}, 100%, 60%, ${0.6 - (j / 20) * 0.5})`;
+          ctx.beginPath();
+          ctx.arc(x, y, 3 + Math.sin(time * 5 + j) * 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        ctx.restore();
+      }
+      
+      // Reality bending - screen distortion
+      ctx.globalAlpha = 0.3;
+      const distortion = Math.sin(time * 3) * 20;
+      ctx.fillStyle = `hsla(${(time * 40) % 360}, 100%, 50%, 0.2)`;
+      ctx.fillRect(-distortion, -distortion, canvas.width + distortion * 2, canvas.height + distortion * 2);
+      
+      ctx.restore();
+    }
+    
+    // Whip Its effects - progressive vinetting tunnel vision
+    function drawWhipItsEffects(ctx) {
+      const whipitsCount = player.drugEffects.whipitsCount || 0;
+      
+      // Progressive vinetting based on usage count
+      let vinettingStrength = 0;
+      if (whipitsCount >= 5) vinettingStrength = 0.3; // Heavy vinetting
+      else if (whipitsCount >= 3) vinettingStrength = 0.2; // Medium vinetting  
+      else if (whipitsCount >= 1) vinettingStrength = 0.1; // Light vinetting
+      
+      if (vinettingStrength > 0) {
+        ctx.save();
+        ctx.globalAlpha = vinettingStrength;
+        
+        // Create vinetting effect with black corners
+        const gradient = ctx.createRadialGradient(
+          canvas.width / 2, canvas.height / 2, 0,
+          canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height) / 2
+        );
+        
+        // Calculate tunnel size based on usage (more usage = smaller tunnel)
+        const tunnelSize = Math.max(0.2, 0.8 - (whipitsCount * 0.1));
+        
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0)'); // Center is clear
+        gradient.addColorStop(tunnelSize, 'rgba(0, 0, 0, 0)'); // Tunnel edge
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 1)'); // Corners are black
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.restore();
+      }
+    }
+    
     function drawMollyHearts() {
       // Only draw hearts if Molly is active
       const hasMolly = player.drugEffects.activeDrugs.some(drug => drug.specialEffects === 'molly');
       if (!hasMolly) return;
       
+      // Draw pulsating heart around player
+      const time = Date.now() * 0.002;
+      const playerScreenX = canvas.width / 2;
+      const playerScreenY = canvas.height / 2;
+      
+      // Pulsating heart effect around player
+      const pulseSize = 40 + Math.sin(time * 3) * 15; // 25-55px pulsating size
+      const pulseAlpha = 0.6 + Math.sin(time * 4) * 0.3; // 0.3-0.9 alpha pulsating
+      
+      ctx.save();
+      ctx.globalAlpha = pulseAlpha;
+      ctx.font = `${pulseSize}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      // Add glow effect to the pulsating heart
+      ctx.shadowColor = '#ff69b4';
+      ctx.shadowBlur = 20;
+      
+      // Draw the pulsating heart
+      ctx.fillText('💖', playerScreenX, playerScreenY);
+      
+      // Add multiple layers for more intense effect
+      ctx.globalAlpha = pulseAlpha * 0.5;
+      ctx.shadowBlur = 30;
+      ctx.fillText('💖', playerScreenX, playerScreenY);
+      
+      ctx.restore();
+      
+      // Draw floating hearts (existing system)
       mollyHearts.forEach(heart => {
         ctx.save();
         ctx.globalAlpha = heart.opacity;
