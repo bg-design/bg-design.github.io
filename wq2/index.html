@@ -317,57 +317,6 @@
             background: #ff0000;
         }
 
-        .light-toggle-btn {
-            background: rgba(255, 255, 255, 0.8);
-            border: 2px solid #ffd23f;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-size: 16px;
-        }
-
-        .light-toggle-btn:hover {
-            background: #ffd23f;
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 210, 63, 0.6);
-        }
-
-        .light-toggle-btn.lights-off {
-            background: rgba(100, 100, 100, 0.8);
-            border-color: #666;
-            opacity: 0.6;
-        }
-
-        .light-toggle-btn.lights-off:hover {
-            background: #666;
-        }
-
-        .light-icon {
-            transition: all 0.3s ease;
-        }
-
-        .light-toggle-btn.lights-off .light-icon {
-            opacity: 0.5;
-            filter: grayscale(100%);
-        }
-
-        .light-toggle-btn.disabled {
-            background: rgba(60, 60, 60, 0.5);
-            border-color: #444;
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .light-toggle-btn.disabled:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
         .activities-display {
             color: #ffd23f;
             font-size: 0.9em;
@@ -501,51 +450,7 @@
         .hunger-fill { background: linear-gradient(90deg, #ff6b35, #ff4500); }
         .energy-fill { background: linear-gradient(90deg, #ffd23f, #ffed4e); }
         .mood-fill { background: linear-gradient(90deg, #8b5cf6, #a855f7); }
-        .light-fill { background: linear-gradient(90deg, #ffffff, #f0f0f0); }
         .karma-fill { background: linear-gradient(90deg, #06ffa5, #00ff88); }
-
-        /* Battery Meter Styles */
-        .battery-meter {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 8px;
-            padding: 4px 0;
-        }
-
-        .battery-label {
-            color: #ffd23f;
-            font-size: 0.9em;
-            font-weight: bold;
-            width: 60px;
-        }
-
-        .battery-segments {
-            display: flex;
-            gap: 2px;
-            flex: 1;
-        }
-
-        .battery-segment {
-            height: 12px;
-            flex: 1;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .battery-segment.active {
-            background: linear-gradient(90deg, #ffffff, #f0f0f0);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
-        }
-
-        .battery-segment.low {
-            background: linear-gradient(90deg, #ff6b35, #ff4500);
-            border-color: rgba(255, 107, 53, 0.6);
-            box-shadow: 0 0 4px rgba(255, 107, 53, 0.4);
-        }
 
         .coin-display {
             display: flex;
@@ -655,6 +560,7 @@
             font-weight: bold;
         }
     </style>
+  <script type="module" crossorigin src="/assets/index-BTm_Cg3C.js"></script>
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
@@ -663,9 +569,6 @@
     <div class="top-info-panel">
         <div class="time-controls">
             <div class="time-display" id="time-display">Day 1 • 08:00</div>
-            <button class="light-toggle-btn" id="light-toggle-btn" title="Toggle Lights On/Off">
-                <div class="light-icon" id="light-icon">💡</div>
-            </button>
             <button class="pause-btn" id="pause-btn">
                 <div class="pause-icon">
                     <div class="pause-bar"></div>
@@ -735,23 +638,6 @@
             <div class="coin-label">Time</div>
             <div class="coin-amount" id="time-perception-display">1.0x</div>
         </div>
-        
-        <!-- Battery Meter -->
-        <div class="battery-meter">
-            <div class="battery-label">Battery</div>
-            <div class="battery-segments" id="battery-segments">
-                <div class="battery-segment" data-segment="0"></div>
-                <div class="battery-segment" data-segment="1"></div>
-                <div class="battery-segment" data-segment="2"></div>
-                <div class="battery-segment" data-segment="3"></div>
-                <div class="battery-segment" data-segment="4"></div>
-                <div class="battery-segment" data-segment="5"></div>
-                <div class="battery-segment" data-segment="6"></div>
-                <div class="battery-segment" data-segment="7"></div>
-                <div class="battery-segment" data-segment="8"></div>
-                <div class="battery-segment" data-segment="9"></div>
-            </div>
-        </div>
     </div>
     
     <!-- Action Panel -->
@@ -786,657 +672,79 @@
                 <p class="subtitle">Step 8: World Management System</p>
             </div>
 
-            <!-- Tabs header -->
-            <div class="menu-tabs">
-                <button class="menu-tab active" data-tab="session">Session</button>
-                <button class="menu-tab" data-tab="settings">Settings</button>
-            </div>
-
-            <!-- Tab: Session -->
-            <div class="menu-tab-panel" id="tab-session" style="display:block;">
-                <div class="menu-section">
-                    <h3>🎮 Game Controls</h3>
-                    <div class="controls-grid">
-                        <div class="control-item">
-                            <strong>WASD / Arrow Keys</strong>
-                            Move the player
-                        </div>
-                        <div class="control-item">
-                            <strong>E</strong>
-                            Rest (restore energy & mood)
-                        </div>
-                        <div class="control-item">
-                            <strong>L</strong>
-                            Toggle lights on/off
-                        </div>
-                        <div class="control-item">
-                            <strong>ESC</strong>
-                            Open/close this menu
-                        </div>
-                        <div class="control-item">
-                            <strong>Walk to edges</strong>
-                            Transition between worlds
-                        </div>
+            <div class="menu-section">
+                <h3>🎮 Game Controls</h3>
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <strong>WASD / Arrow Keys</strong>
+                        Move the player
                     </div>
-                </div>
-
-                <div class="menu-section">
-                    <h3>🌍 World Navigation</h3>
-                    <p><strong>Camp</strong> - Your home base (1 sec = 1 min)</p>
-                    <p><strong>The Playa</strong> - Vast desert with landmarks (1 sec = 1 hour)</p>
-                    <p><strong>Dance Stage</strong> - Main stage with lights (1 sec = 30 sec)</p>
-                    <p>Walk to world edges or enter the green camp area on the Playa to transition!</p>
-                </div>
-
-                <div class="menu-section">
-                    <h3>🔊 Audio Controls</h3>
-                    <p><strong>M</strong> - Toggle mute/unmute (in-game)</p>
-                    <div class="audio-controls">
-                        <span>Volume:</span>
-                        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70">
-                        <span id="volumeDisplay">70%</span>
+                    <div class="control-item">
+                        <strong>E</strong>
+                        Rest (restore energy & mood)
                     </div>
-                </div>
-
-                <div class="menu-section">
-                    <h3>📊 Game Mechanics</h3>
-                    <p><strong>Energy</strong> - Decreases as you move around</p>
-                    <p><strong>Mood</strong> - Decreases over time, faster when energy is low</p>
-                    <p><strong>Coins</strong> - Collect to increase your coin count</p>
-                    <p>Watch the stat bars in the top-left corner of the game!</p>
-                </div>
-
-                <div class="menu-section">
-                    <h3>🎲 Game Seed</h3>
-                    <p>Current seed: <span class="seed-display" id="seedDisplay">Loading...</span></p>
-                    <div class="button-group">
-                        <button id="resetSeed">Reset Game (seed=<span id="resetSeedDisplay">Loading...</span>)</button>
+                    <div class="control-item">
+                        <strong>ESC</strong>
+                        Open/close this menu
                     </div>
-                </div>
-
-                <div class="menu-section">
-                    <h3>⏸️ Session</h3>
-                    <div class="button-group">
-                        <button id="resumeGame">Resume</button>
+                    <div class="control-item">
+                        <strong>Walk to edges</strong>
+                        Transition between worlds
                     </div>
-                </div>
-
-                <div class="menu-section">
-                    <h3>💾 Save & Load</h3>
-                    <div class="button-group">
-                        <button id="saveGame">Save Game</button>
-                        <button id="loadGame">Load Game</button>
-                    </div>
-                    <div id="statusMessage" class="status-message" style="display: none;"></div>
                 </div>
             </div>
 
-            <!-- Tab: Settings -->
-            <div class="menu-tab-panel" id="tab-settings" style="display:none;">
-                <div class="menu-section">
-                    <h3>🔊 Audio Controls</h3>
-                    <p><strong>M</strong> - Toggle mute/unmute (in-game)</p>
-                    <div class="audio-controls">
-                        <span>Volume:</span>
-                        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70">
-                        <span id="volumeDisplay">70%</span>
-                    </div>
+            <div class="menu-section">
+                <h3>🌍 World Navigation</h3>
+                <p><strong>Camp</strong> - Your home base (1 sec = 1 min)</p>
+                <p><strong>The Playa</strong> - Vast desert with landmarks (1 sec = 1 hour)</p>
+                <p><strong>Dance Stage</strong> - Main stage with lights (1 sec = 30 sec)</p>
+                <p>Walk to world edges or enter the green camp area on the Playa to transition!</p>
+            </div>
+
+            <div class="menu-section">
+                <h3>🔊 Audio Controls</h3>
+                <p><strong>M</strong> - Toggle mute/unmute (in-game)</p>
+                <div class="audio-controls">
+                    <span>Volume:</span>
+                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70">
+                    <span id="volumeDisplay">70%</span>
                 </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>📊 Game Mechanics</h3>
+                <p><strong>Energy</strong> - Decreases as you move around</p>
+                <p><strong>Mood</strong> - Decreases over time, faster when energy is low</p>
+                <p><strong>Coins</strong> - Collect to increase your coin count</p>
+                <p>Watch the stat bars in the top-left corner of the game!</p>
+            </div>
+
+            <div class="menu-section">
+                <h3>🎲 Game Seed</h3>
+                <p>Current seed: <span class="seed-display" id="seedDisplay">Loading...</span></p>
+                <div class="button-group">
+                    <button id="resetSeed">Reset Game (seed=<span id="resetSeedDisplay">Loading...</span>)</button>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>⏸️ Session</h3>
+                <div class="button-group">
+                    <button id="resumeGame">Resume</button>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>💾 Save & Load</h3>
+                <div class="button-group">
+                    <button id="saveGame">Save Game</button>
+                    <button id="loadGame">Load Game</button>
+                </div>
+                <div id="statusMessage" class="status-message" style="display: none;"></div>
             </div>
         </div>
     </div>
 
-    <script type="module">
-        import { App } from './app/index';
-
-        // Initialize the app
-        const app = new App({
-            canvasWidth: window.innerWidth,
-            canvasHeight: window.innerHeight,
-            playerSize: 32,
-            seed: Math.floor(Math.random() * 1000000),
-            coinCount: 30 // 30% of current 100 coins
-        });
-
-        // Menu functionality
-        const menuOverlay = document.getElementById('menuOverlay');
-        const menuContent = document.querySelector('.menu-container');
-        const closeMenu = document.getElementById('closeMenu');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const volumeDisplay = document.getElementById('volumeDisplay');
-        const audio = app.getAudio();
-
-        // Set initial volume
-        audio.setMasterVolume(volumeSlider.value / 100);
-        volumeDisplay.textContent = volumeSlider.value + '%';
-
-        // Handle volume changes
-        volumeSlider.addEventListener('input', () => {
-            const volume = volumeSlider.value / 100;
-            audio.setMasterVolume(volume);
-            volumeDisplay.textContent = volumeSlider.value + '%';
-        });
-
-        // Make overlay/content translucent and offset content from top bar
-        if (menuOverlay) {
-            menuOverlay.style.background = 'rgba(0,0,0,0.35)';
-        }
-        if (menuContent) {
-            menuContent.style.background = 'rgba(17,24,39,0.85)';
-            menuContent.style.backdropFilter = 'blur(2px)';
-            menuContent.style.marginTop = '80px';
-        }
-
-        // Menu toggle functionality
-        function toggleMenu() {
-            const isOpen = !menuOverlay.classList.contains('show');
-            if (isOpen) {
-                menuOverlay.classList.add('show');
-                window.dispatchEvent(new CustomEvent('openMenu'));
-                // Default to Session tab on open
-                switchTab('session');
-            } else {
-                menuOverlay.classList.remove('show');
-                window.dispatchEvent(new CustomEvent('closeMenu'));
-            }
-        }
-
-        function closeMenuHandler() {
-            if (menuOverlay.classList.contains('show')) {
-                menuOverlay.classList.remove('show');
-                window.dispatchEvent(new CustomEvent('closeMenu'));
-            }
-        }
-
-        // Event listeners for menu
-        closeMenu.addEventListener('click', closeMenuHandler);
-        menuOverlay.addEventListener('click', (e) => {
-            if (e.target === menuOverlay) {
-                closeMenuHandler();
-            }
-        });
-
-        // Listen for custom menu toggle event from game loop
-        window.addEventListener('toggleMenu', toggleMenu);
-
-        // Update seed display
-        const seedDisplay = document.getElementById('seedDisplay');
-        const resetSeedDisplay = document.getElementById('resetSeedDisplay');
-        const rng = app.getRng();
-        const currentSeed = rng.getSeed();
-        seedDisplay.textContent = currentSeed.toString();
-        resetSeedDisplay.textContent = currentSeed.toString();
-
-        // Reset button handler
-        const resetBtn = document.getElementById('resetSeed');
-        resetBtn.addEventListener('click', () => {
-            app.reset();
-            closeMenuHandler();
-        });
-
-        // Resume button handler
-        const resumeBtn = document.getElementById('resumeGame');
-        resumeBtn.addEventListener('click', () => {
-            closeMenuHandler();
-        });
-
-        // Save/Load button handlers
-        const saveBtn = document.getElementById('saveGame');
-        const loadBtn = document.getElementById('loadGame');
-        const statusMessage = document.getElementById('statusMessage');
-
-        function showStatus(message, isSuccess = true) {
-            statusMessage.textContent = message;
-            statusMessage.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
-            statusMessage.style.display = 'block';
-            setTimeout(() => {
-                statusMessage.style.display = 'none';
-            }, 3000);
-        }
-
-        saveBtn.addEventListener('click', async () => {
-            try {
-                await app.saveGame();
-                showStatus('Game saved successfully!', true);
-            } catch (error) {
-                showStatus('Failed to save game', false);
-                console.error('Save error:', error);
-            }
-        });
-
-        loadBtn.addEventListener('click', async () => {
-            try {
-                const success = await app.loadGame();
-                if (success) {
-                    showStatus('Game loaded successfully!', true);
-                } else {
-                    showStatus('No save data found', false);
-                }
-            } catch (error) {
-                showStatus('Failed to load game', false);
-                console.error('Load error:', error);
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const canvas = document.getElementById('gameCanvas');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // UI Update Functions
-        function updateStatsDisplay(gameState) {
-            const stats = gameState.player.stats;
-            console.log('updateStatsDisplay called, lightBattery:', stats.lightBattery);
-            
-            // Check if player has any light bulbs and update light toggle button
-            const hasLights = hasAnyLightBulbs(gameState.player.inventory);
-            updateLightToggleButton(gameState.player.lightsOn, hasLights);
-            
-            // Update stat bars
-            document.getElementById('thirst-bar').style.width = `${Math.max(0, Math.min(100, stats.thirst))}%`;
-            document.getElementById('hunger-bar').style.width = `${Math.max(0, Math.min(100, stats.hunger))}%`;
-            document.getElementById('energy-bar').style.width = `${Math.max(0, Math.min(100, stats.energy))}%`;
-            document.getElementById('mood-bar').style.width = `${Math.max(0, Math.min(100, stats.mood))}%`;
-            
-            // Update stat values
-            document.getElementById('thirst-value').textContent = Math.round(stats.thirst);
-            document.getElementById('hunger-value').textContent = Math.round(stats.hunger);
-            document.getElementById('energy-value').textContent = Math.round(stats.energy);
-            document.getElementById('mood-value').textContent = Math.round(stats.mood);
-            
-            // Update battery display
-            updateBatteryDisplay(stats.lightBattery);
-            
-            // Update coins and karma
-            document.getElementById('coin-amount').textContent = stats.coins;
-            document.getElementById('karma-amount').textContent = Math.round(stats.karma);
-        }
-
-        // Function to get hotkey for an item
-        function getItemHotkey(itemType) {
-            const hotkeys = {
-                'Water': 'W',
-                'Grilled Cheese': 'J',
-                'Energy Bar': 'E',
-                'Trinket': 'T',
-                'Clothing': 'C',
-                'Veggie Burger': 'V',
-                'Fruit Salad': 'F',
-                'Pizza Slice': 'P',
-                'Smoothie': 'S',
-                'Popsicle': 'O',
-                'Burrito': 'B',
-                'Taco': 'A',
-                'Ice Cream': 'I',
-                'Corn Dog': 'D',
-                'Funnel Cake': 'U',
-                'Nachos': 'N',
-                'Cotton Candy': 'Y',
-                'Gas Can': 'G'
-            };
-            return hotkeys[itemType] || null;
-        }
-
-        // Store item elements to avoid recreating them
-        const inventoryItemElements = new Map();
-        
-        function updateInventoryDisplay(gameState) {
-            const inventoryList = document.getElementById('inventory-list');
-            const inventory = gameState.player.inventory;
-            
-            if (!inventory || !inventory.items) return;
-            
-            // Item emojis mapping
-            const itemEmojis = {
-                'Water': '💧',
-                'Grilled Cheese': '🧀',
-                'Energy Bar': '⚡',
-                'Trinket': '✨',
-                'Clothing': '👕',
-                'Veggie Burger': '🍔',
-                'Fruit Salad': '🥗',
-                'Pizza Slice': '🍕',
-                'Smoothie': '🥤',
-                'Popsicle': '🍭',
-                'Burrito': '🌯',
-                'Taco': '🌮',
-                'Ice Cream': '🍦',
-                'Corn Dog': '🌭',
-                'Funnel Cake': '🧁',
-                'Nachos': '🌽',
-                'Cotton Candy': '🍬',
-                'Gas Can': '⛽',
-                'Light Bulb': '💡',
-                'Light Bulb White': '💡',
-                'Light Bulb Red': '🔴',
-                'Light Bulb Green': '🟢',
-                'Light Bulb Blue': '🔵',
-                'Light Bulb Orange': '🟠',
-                'Light Bulb Purple': '🟣',
-                'Light Bulb Rainbow': '🌈',
-                'Battery': '🔋',
-                // Fallback for lowercase versions (in case they exist)
-                'Light Bulb green': '🟢',
-                'Light Bulb red': '🔴',
-                'Light Bulb blue': '🔵',
-                'Light Bulb orange': '🟠',
-                'Light Bulb purple': '🟣',
-                'Light Bulb white': '💡',
-                'Light Bulb rainbow': '🌈'
-            };
-            
-            // Get current items in inventory
-            const currentItems = new Set();
-            
-            // Update existing items or create new ones
-            inventory.items.forEach((quantity, itemType) => {
-                currentItems.add(itemType);
-                
-                if (quantity > 0) {
-                    let itemDiv = inventoryItemElements.get(itemType);
-                    
-                    if (!itemDiv) {
-                        // Create new item element
-                        itemDiv = document.createElement('div');
-                        itemDiv.className = 'inventory-item';
-                        itemDiv.style.cursor = 'pointer';
-                        
-                        const emoji = itemEmojis[itemType] || '📦';
-                        const hotkey = getItemHotkey(itemType);
-                        const hotkeyText = hotkey ? ` [${hotkey}]` : '';
-                        
-                        itemDiv.innerHTML = `
-                            <span>${emoji} ${itemType}${hotkeyText}</span>
-                            <span class="quantity">${quantity}</span>
-                        `;
-                        
-                        // Add click event listener (only once)
-                        itemDiv.addEventListener('click', () => {
-                            console.log('Inventory item clicked:', itemType);
-                            window.dispatchEvent(new CustomEvent('useInventoryItem', { 
-                                detail: { itemType: itemType } 
-                            }));
-                        });
-                        
-                        inventoryItemElements.set(itemType, itemDiv);
-                        inventoryList.appendChild(itemDiv);
-                    } else {
-                        // Update quantity of existing item
-                        const quantitySpan = itemDiv.querySelector('.quantity');
-                        if (quantitySpan) {
-                            quantitySpan.textContent = quantity;
-                        }
-                    }
-                }
-            });
-            
-            // Remove items that are no longer in inventory
-            for (const [itemType, itemDiv] of inventoryItemElements) {
-                if (!currentItems.has(itemType)) {
-                    itemDiv.remove();
-                    inventoryItemElements.delete(itemType);
-                }
-            }
-        }
-
-        function updateTimeDisplay(gameState) {
-            const timeDisplay = document.getElementById('time-display');
-            const time = gameState.time;
-            const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][(time.day + 5) % 7];
-            const timeStr = `${time.hour.toString().padStart(2, '0')}:${time.minute.toString().padStart(2, '0')}`;
-            timeDisplay.textContent = `Day ${time.day} (${dayName}) • ${timeStr}`;
-        }
-
-        function updateDrugEffectsDisplay(gameState) {
-            const drugEffectsPanel = document.getElementById('drug-effects-panel');
-            const drugEffectsList = document.getElementById('drug-effects-list');
-            const drugs = gameState.player.drugs;
-            
-            if (!drugs || !drugs.active || drugs.active.length === 0) {
-                drugEffectsPanel.style.display = 'none';
-                return;
-            }
-            
-            drugEffectsPanel.style.display = 'block';
-            drugEffectsList.innerHTML = '';
-            
-            // Sort drugs by duration (longest first)
-            const sortedDrugs = [...drugs.active].sort((a, b) => b.duration - a.duration);
-            
-            // Drug emoji mapping
-            const drugEmojis = {
-                'molly': '💎', 'shrooms': '🍄', 'acid': '🧪', 'dmt': '💫', 'salvia': '🌿',
-                'whipits': '🎈', 'energy-drink': '🍼', 'mystery-pill': '❓', 'mystery-snowball': '❄️',
-                'cigarette': '🚬', 'joint': '🚬', 'vodka': '🥃', 'mda': '💎', '2c-i': '🧪',
-                'caffeine': '☕', 'alcohol': '🍺', 'mdma': '💎',
-                'weed': '🌿', 'cocaine': '⚪', 'ketamine': '⚪', 'cannabis': '🌿'
-            };
-            
-            sortedDrugs.forEach(drug => {
-                const drugDiv = document.createElement('div');
-                drugDiv.className = 'drug-effect-item';
-                
-                // Get drug-specific emoji
-                const emoji = drugEmojis[drug.type] || '❓';
-                
-                // Capitalize drug name properly
-                const capitalizedName = drug.type.charAt(0).toUpperCase() + drug.type.slice(1).replace('-', ' ');
-                
-                drugDiv.innerHTML = `
-                    <span class="drug-effect-icon">${emoji}</span>
-                    <span class="drug-effect-text">${capitalizedName}</span>
-                    <span class="drug-effect-duration">${Math.round(drug.duration)}s</span>
-                `;
-                drugEffectsList.appendChild(drugDiv);
-            });
-        }
-
-        function updateSpeedDisplay(gameState) {
-            const speedDisplay = document.getElementById('speed-display');
-            const timeDisplay = document.getElementById('time-perception-display');
-            
-            if (!gameState || !gameState.player) return;
-            
-            // Calculate effective speed including drug effects
-            const playerStats = gameState.player.stats;
-            const baseSpeed = playerStats.speed || 100;
-            
-            // Calculate speed multiplier from stats (energy, thirst, hunger, mood)
-            let speedMultiplier = 1.0;
-            if (playerStats.energy < 30) speedMultiplier *= 0.7;
-            if (playerStats.thirst < 30) speedMultiplier *= 0.8;
-            if (playerStats.hunger < 30) speedMultiplier *= 0.8;
-            if (playerStats.mood < 30) speedMultiplier *= 0.9;
-            
-            // Add drug speed effects
-            if (gameState.player.drugs && gameState.player.drugs.active) {
-                gameState.player.drugs.active.forEach(drug => {
-                    if (drug.effects && drug.effects.speed) {
-                        speedMultiplier += (drug.effects.speed * drug.intensity) / 100;
-                    }
-                });
-            }
-            
-            const effectiveSpeed = Math.max(0.1, speedMultiplier);
-            
-            // Calculate time scale from drug effects
-            let timeScale = 1.0;
-            if (gameState.player.drugs && gameState.player.drugs.active) {
-                gameState.player.drugs.active.forEach(drug => {
-                    if (drug.effects && drug.effects.timeScale) {
-                        timeScale *= drug.effects.timeScale;
-                    }
-                });
-            }
-            
-            speedDisplay.textContent = `${effectiveSpeed.toFixed(1)}x`;
-            timeDisplay.textContent = `${timeScale.toFixed(1)}x`;
-        }
-
-        function updatePauseButton(isPaused) {
-            const pauseBtn = document.getElementById('pause-btn');
-            if (pauseBtn) {
-                if (isPaused) {
-                    pauseBtn.classList.add('paused');
-                } else {
-                    pauseBtn.classList.remove('paused');
-                }
-            }
-        }
-
-        function hasAnyLightBulbs(inventory) {
-            const lightBulbTypes = [
-                'Light Bulb', 'Light Bulb White', 'Light Bulb Red', 'Light Bulb Green', 
-                'Light Bulb Blue', 'Light Bulb Orange', 'Light Bulb Purple', 'Light Bulb Rainbow'
-            ];
-            
-            for (const bulbType of lightBulbTypes) {
-                const count = inventory.items.get(bulbType) || 0;
-                if (count > 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        function updateLightToggleButton(lightsOn, hasLights = true) {
-            const lightToggleBtn = document.getElementById('light-toggle-btn');
-            const lightIcon = document.getElementById('light-icon');
-            if (lightToggleBtn && lightIcon) {
-                // Remove all state classes first
-                lightToggleBtn.classList.remove('lights-off', 'disabled');
-                
-                if (!hasLights) {
-                    // No lights available - disable button
-                    lightToggleBtn.classList.add('disabled');
-                    lightIcon.textContent = '💡';
-                    lightToggleBtn.disabled = true;
-                } else if (lightsOn) {
-                    // Lights are on
-                    lightIcon.textContent = '💡';
-                    lightToggleBtn.disabled = false;
-                } else {
-                    // Lights are off
-                    lightToggleBtn.classList.add('lights-off');
-                    lightIcon.textContent = '🔦';
-                    lightToggleBtn.disabled = false;
-                }
-            }
-        }
-
-        function updateBatteryDisplay(batteryLevel) {
-            console.log('updateBatteryDisplay called with batteryLevel:', batteryLevel);
-            const segments = document.querySelectorAll('.battery-segment');
-            console.log('Found battery segments:', segments.length);
-            const activeSegments = Math.floor(batteryLevel / 10); // Each segment = 10%
-            console.log('Active segments:', activeSegments);
-            
-            segments.forEach((segment, index) => {
-                segment.classList.remove('active', 'low');
-                
-                if (index < activeSegments) {
-                    if (batteryLevel <= 30) {
-                        segment.classList.add('low'); // Red when low
-                    } else {
-                        segment.classList.add('active'); // White when normal
-                    }
-                }
-            });
-        }
-
-        // Tabs logic
-        function switchTab(tab) {
-            document.querySelectorAll('.menu-tab').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
-            });
-            document.querySelectorAll('.menu-tab-panel').forEach(panel => {
-                panel.style.display = panel.id === `tab-${tab}` ? 'block' : 'none';
-            });
-        }
-        document.querySelectorAll('.menu-tab').forEach(btn => {
-            btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
-        });
-
-        // Set up periodic UI updates
-        function updateUI(gameState) {
-            updateStatsDisplay(gameState);
-            updateInventoryDisplay(gameState);
-            updateTimeDisplay(gameState);
-            updateDrugEffectsDisplay(gameState);
-            updateSpeedDisplay(gameState);
-        }
-
-        // Listen for game state updates
-        window.addEventListener('gameStateUpdate', (event) => {
-            updateUI(event.detail);
-        });
-
-        // Listen for pause state updates
-        window.addEventListener('pauseStateUpdate', (event) => {
-            updatePauseButton(event.detail.isPaused);
-        });
-
-        // Listen for light state updates
-        window.addEventListener('lightStateUpdate', (event) => {
-            updateLightToggleButton(event.detail.lightsOn);
-        });
-
-        // Pause button functionality
-        const pauseBtn = document.getElementById('pause-btn');
-        if (pauseBtn) {
-            pauseBtn.addEventListener('click', () => {
-                // Open/close menu (which handles pause/resume)
-                toggleMenu();
-            });
-        }
-
-        // Light toggle button functionality
-        const lightToggleBtn = document.getElementById('light-toggle-btn');
-        if (lightToggleBtn) {
-            lightToggleBtn.addEventListener('click', () => {
-                console.log('Light toggle button clicked - disabled:', lightToggleBtn.disabled);
-                // Only allow toggling if button is not disabled
-                if (!lightToggleBtn.disabled) {
-                    console.log('Dispatching toggleLights event');
-                    // Dispatch light toggle event to game loop
-                    window.dispatchEvent(new CustomEvent('toggleLights'));
-                } else {
-                    console.log('Light toggle button is disabled - click ignored');
-                }
-            });
-        }
-
-        // Action button functionality
-        document.querySelectorAll('.action-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const action = btn.getAttribute('data-action');
-                if (action) {
-                    // Dispatch action event to game loop
-                    window.dispatchEvent(new CustomEvent('playerAction', { detail: { action } }));
-                }
-            });
-        });
-
-        // Start the game
-        app.start().catch((error) => {
-            console.error('Failed to start game:', error);
-            document.getElementById('seedDisplay').textContent = 'Error loading game';
-        });
-
-        // Handle page unload
-        window.addEventListener('beforeunload', () => {
-            app.stop();
-        });
-
-        // Also close menu with ESC directly
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menuOverlay.classList.contains('show')) {
-                e.preventDefault();
-                closeMenuHandler();
-            }
-        });
-    </script>
 </body>
 </html>
